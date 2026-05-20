@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>About Us | Sales Funnel Marketing — Northwest Ohio Social Media Agency</title>
+  <meta name="description" content="Sales Funnel Marketing was founded in 2017 by Jayson Hines in Perrysburg, Ohio. We help local businesses across Northwest Ohio grow their social media presence and turn followers into paying customers." />
+  <meta name="keywords" content="Sales Funnel Marketing about, Jayson Hines, social media agency Perrysburg Ohio, Northwest Ohio marketing agency, local business social media" />
+
+  <meta property="og:title" content="About Sales Funnel Marketing | Jayson Hines" />
+  <meta property="og:description" content="We're not a faceless agency. We're your neighbors — and we built this business the same way we help you build yours: through real relationships." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/about" />
+
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/about" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --orange-glow: rgba(232, 93, 38, 0.25);
+      --green:       #22c55e;
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --light-gray:  #F0F0F0;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font:        'Inter', -apple-system, sans-serif;
+      --font-serif:  'Merriweather', Georgia, serif;
+      --max-w:       1200px;
+      --section-pad: 100px 24px;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Buttons ─────────────────────────────────────────────────── */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 6px; font-family: var(--font); font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap; text-decoration: none; }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+    .btn-outline-dark { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--orange); border-color: var(--white); }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
+    .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+
+    /* ── Utility ─────────────────────────────────────────────────── */
+    .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
+    .section-title-light { color: var(--white); }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── Nav ─────────────────────────────────────────────────────── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: var(--navy); box-shadow: 0 4px 32px rgba(0,0,0,0.4); transition: padding 0.4s ease; }
+    #navbar.scrolled { padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1.1; flex-shrink: 0; }
+    .nav-logo span { color: var(--orange); }
+    .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--orange); border-radius: 2px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--white); }
+    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 0; background: var(--navy); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* ═══════════════════════════════════════════════════════
+       HERO — split layout, story-driven
+    ═══════════════════════════════════════════════════════ */
+    #about-hero {
+      background: var(--navy); padding: 140px 0 0;
+      position: relative; overflow: hidden;
+    }
+    #about-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 5% 50%, #0e2245 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 95% 20%, #152240 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(232,93,38,0.04) 0%, transparent 50%);
+    }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 0; }
+    .hero-content { padding-bottom: 80px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.25);
+      padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+    }
+    .hero-headline { font-size: clamp(36px, 4.5vw, 58px); font-weight: 900; color: var(--white); line-height: 1.08; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .hero-headline .hi { color: var(--orange); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Founder photo card */
+    .founder-card-wrap { position: relative; align-self: end; }
+    .founder-card {
+      background: var(--navy-light); border-radius: 20px 20px 0 0;
+      overflow: hidden; position: relative;
+      border: 1px solid rgba(255,255,255,0.06); border-bottom: none;
+      min-height: 420px; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .founder-photo-area {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, transparent 50%, rgba(10,22,40,0.95) 100%);
+    }
+    .founder-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #0f1e38, #152240);
+    }
+    .founder-photo-placeholder svg { opacity: 0.08; }
+    .founder-overlay { position: relative; z-index: 1; padding: 28px; }
+    .founder-name-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(232,93,38,0.9); color: var(--white);
+      padding: 8px 16px; border-radius: 8px; margin-bottom: 12px;
+      font-size: 13px; font-weight: 800;
+    }
+    .founder-role { font-size: 13px; color: rgba(255,255,255,0.5); }
+    .founder-since { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.3); margin-top: 4px; letter-spacing: 1px; }
+
+    /* Floating review badge */
+    .review-float {
+      position: absolute; top: 28px; right: -20px; z-index: 2;
+      background: var(--white); border-radius: var(--radius);
+      padding: 14px 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      text-align: center; min-width: 130px;
+    }
+    .review-float-stars { font-size: 16px; color: #FFB800; letter-spacing: 1px; margin-bottom: 4px; }
+    .review-float-num { font-size: 24px; font-weight: 900; color: var(--navy); line-height: 1; }
+    .review-float-label { font-size: 11px; color: var(--dark-gray); margin-top: 2px; font-weight: 600; }
+    .review-float-source { font-size: 10px; color: #4285F4; font-weight: 700; margin-top: 4px; letter-spacing: 0.5px; }
+
+    /* ═══════════════════════════════════════════════════════
+       MISSION STRIP
+    ═══════════════════════════════════════════════════════ */
+    #mission {
+      background: var(--orange);
+      padding: 48px 0;
+    }
+    .mission-inner {
+      display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
+    }
+    .mission-quote {
+      font-family: var(--font-serif); font-style: italic;
+      font-size: clamp(20px, 2.5vw, 28px); font-weight: 700;
+      color: var(--white); line-height: 1.4; flex: 1; min-width: 280px;
+      letter-spacing: -0.3px;
+    }
+    .mission-divider { width: 2px; height: 60px; background: rgba(255,255,255,0.25); flex-shrink: 0; }
+    .mission-philosophy { flex-shrink: 0; }
+    .mission-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+    .mission-tagline { font-size: 18px; font-weight: 900; color: var(--white); }
+
+    /* ═══════════════════════════════════════════════════════
+       STORY SECTION
+    ═══════════════════════════════════════════════════════ */
+    #story { padding: var(--section-pad); background: var(--white); }
+    .story-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .story-content {}
+    .story-headline { font-size: clamp(28px, 3vw, 40px); font-weight: 900; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 24px; }
+    .story-headline em { color: var(--orange); font-style: normal; }
+    .story-p { font-size: 17px; color: var(--dark-gray); line-height: 1.85; margin-bottom: 18px; }
+    .story-p strong { color: var(--navy); font-weight: 700; }
+    .story-pull {
+      margin: 32px 0; padding: 24px 28px 24px 24px;
+      border-left: 4px solid var(--orange);
+      background: rgba(232,93,38,0.04);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .story-pull p { font-family: var(--font-serif); font-style: italic; font-size: 18px; color: var(--navy); line-height: 1.65; }
+
+    /* Timeline */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item { display: flex; gap: 20px; position: relative; padding-bottom: 32px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 48px; }
+    .timeline-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: var(--orange); border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--orange); flex-shrink: 0; z-index: 1;
+    }
+    .timeline-line { flex: 1; width: 2px; background: var(--light-gray); margin-top: 4px; }
+    .timeline-item:last-child .timeline-line { display: none; }
+    .timeline-year { font-size: 11px; font-weight: 800; color: var(--orange); letter-spacing: 1px; margin-top: 8px; text-align: center; }
+    .timeline-content { padding-top: 0; }
+    .timeline-title { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .timeline-desc { font-size: 14px; color: var(--dark-gray); line-height: 1.6; }
+
+    /* ═══════════════════════════════════════════════════════
+       NUMBERS BAND
+    ═══════════════════════════════════════════════════════ */
+    #numbers { background: var(--navy-mid); padding: 64px 0; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .numbers-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; }
+    .number-item { text-align: center; padding: 0 48px; flex: 1; min-width: 160px; position: relative; }
+    .number-item + .number-item::before { content: ''; position: absolute; left: 0; top: 10%; height: 80%; width: 1px; background: rgba(255,255,255,0.08); }
+    .number-big { font-size: clamp(36px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 6px; letter-spacing: -1px; }
+    .number-big span { color: var(--orange); }
+    .number-label { font-size: 13px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+    /* ═══════════════════════════════════════════════════════
+       VALUES
+    ═══════════════════════════════════════════════════════ */
+    #values { padding: var(--section-pad); background: var(--off-white); }
+    .values-header { text-align: center; margin-bottom: 64px; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .value-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 36px 28px; border: 1px solid var(--light-gray);
+      transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--orange); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .value-card:hover::before { transform: scaleX(1); }
+    .value-icon { font-size: 32px; margin-bottom: 16px; }
+    .value-title { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .value-desc { font-size: 15px; color: var(--dark-gray); line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════════════════
+       COMMUNITY
+    ═══════════════════════════════════════════════════════ */
+    #community { padding: var(--section-pad); background: var(--navy); }
+    .community-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .community-content {}
+    .community-headline { font-size: clamp(28px, 3vw, 40px); font-weight: 900; color: var(--white); line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 20px; }
+    .community-headline span { color: var(--orange); }
+    .community-p { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 16px; }
+    .community-items { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .community-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm); padding: 18px 20px;
+      transition: var(--transition);
+    }
+    .community-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(232,93,38,0.3); }
+    .community-item-icon { font-size: 22px; flex-shrink: 0; }
+    .community-item-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+    .community-item-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    /* NW Ohio map card */
+    .ohio-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 36px; text-align: center;
+    }
+    .ohio-card-title { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+    .ohio-areas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 28px; }
+    .ohio-area {
+      background: rgba(232,93,38,0.1); border: 1px solid rgba(232,93,38,0.25);
+      color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 600;
+      padding: 8px 16px; border-radius: 100px; transition: var(--transition);
+    }
+    .ohio-area:hover { background: rgba(232,93,38,0.2); color: var(--white); }
+    .ohio-area.featured { background: rgba(232,93,38,0.2); border-color: var(--orange); color: var(--white); }
+    .ohio-note { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 16px; }
+
+    /* ═══════════════════════════════════════════════════════
+       WHAT CLIENTS SAY
+    ═══════════════════════════════════════════════════════ */
+    #client-voices { padding: var(--section-pad); background: var(--white); }
+    .voices-header { text-align: center; margin-bottom: 56px; }
+    .voices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 40px; }
+    .voice-card {
+      background: var(--off-white); border-radius: var(--radius);
+      padding: 32px; border: 1px solid var(--light-gray); transition: var(--transition);
+      position: relative;
+    }
+    .voice-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .voice-card.featured { background: var(--navy); border-color: transparent; grid-column: span 2; }
+    .voice-quote-mark { font-size: 48px; color: var(--orange); line-height: 0.8; margin-bottom: 16px; opacity: 0.4; font-family: Georgia; }
+    .voice-card.featured .voice-quote-mark { opacity: 0.3; }
+    .voice-text { font-size: 16px; color: var(--text-body); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+    .voice-card.featured .voice-text { font-size: 18px; color: rgba(255,255,255,0.85); }
+    .voice-result {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+      color: var(--green); font-size: 12px; font-weight: 700; padding: 5px 12px;
+      border-radius: 100px; margin-bottom: 20px; letter-spacing: 0.5px;
+    }
+    .voice-footer { display: flex; align-items: center; gap: 12px; }
+    .voice-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: var(--white); flex-shrink: 0; }
+    .voice-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .voice-card.featured .voice-name { color: var(--white); }
+    .voice-biz { font-size: 12px; color: var(--dark-gray); }
+    .voice-card.featured .voice-biz { color: rgba(255,255,255,0.4); }
+    .voice-stars { font-size: 12px; color: #FFB800; margin-top: 2px; }
+    .voices-cta { text-align: center; }
+    .google-rating { display: inline-flex; align-items: center; gap: 12px; background: var(--off-white); border: 1px solid var(--light-gray); border-radius: 100px; padding: 12px 24px; margin-bottom: 20px; }
+    .google-logo { width: 20px; height: 20px; }
+    .google-stars { font-size: 16px; color: #FFB800; }
+    .google-text { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .google-count { font-size: 13px; color: var(--dark-gray); }
+
+    /* ═══════════════════════════════════════════════════════
+       AI WORKSHOP CALLOUT
+    ═══════════════════════════════════════════════════════ */
+    #ai-workshop { padding: 80px 0; background: var(--off-white); }
+    .workshop-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .workshop-content {}
+    .workshop-headline { font-size: clamp(26px, 3vw, 38px); font-weight: 900; color: var(--navy); line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .workshop-p { font-size: 17px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 16px; }
+    .workshop-stat-row { display: flex; gap: 32px; margin: 24px 0 32px; flex-wrap: wrap; }
+    .workshop-stat-num { font-size: 30px; font-weight: 900; color: var(--navy); letter-spacing: -1px; line-height: 1; }
+    .workshop-stat-num span { color: var(--orange); }
+    .workshop-stat-desc { font-size: 13px; color: var(--dark-gray); margin-top: 4px; }
+    .workshop-panel {
+      background: var(--navy); border-radius: 20px; padding: 40px; position: relative; overflow: hidden;
+    }
+    .workshop-panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(232,93,38,0.08) 0%, transparent 60%); }
+    .workshop-panel-title { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 8px; position: relative; }
+    .workshop-panel-sub { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px; position: relative; line-height: 1.6; }
+    .workshop-features { display: flex; flex-direction: column; gap: 12px; position: relative; }
+    .workshop-feature { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 14px 16px; }
+    .workshop-feature-icon { font-size: 18px; flex-shrink: 0; }
+    .workshop-feature-text { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 500; }
+    .workshop-cta { margin-top: 24px; position: relative; }
+
+    /* ═══════════════════════════════════════════════════════
+       FINAL CTA
+    ═══════════════════════════════════════════════════════ */
+    #cta-final { padding: 80px 0; background: var(--orange); position: relative; overflow: hidden; }
+    #cta-final::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 60%); }
+    .cta-inner { text-align: center; position: relative; z-index: 1; }
+    .cta-headline { font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
+    .cta-sub { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 40px; line-height: 1.6; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer */
+    #footer { background: var(--navy); padding: 72px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .footer-logo { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 24px; }
+    .footer-phone { font-size: 18px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 8px; margin-bottom: 20px; transition: color 0.2s; }
+    .footer-phone:hover { color: var(--orange); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; transition: var(--transition); text-transform: uppercase; }
+    .footer-social:hover { background: var(--orange); border-color: var(--orange); color: var(--white); transform: translateY(-2px); }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .founder-card-wrap { display: none; }
+      .story-inner { grid-template-columns: 1fr; gap: 48px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .community-inner { grid-template-columns: 1fr; gap: 48px; }
+      .voices-grid { grid-template-columns: 1fr; }
+      .voice-card.featured { grid-column: span 1; }
+      .workshop-inner { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-pad: 72px 20px; }
+      .nav-links, .nav-phone { display: none; }
+      .hamburger { display: flex; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .mission-inner { gap: 24px; }
+      .mission-divider { display: none; }
+      .values-grid { grid-template-columns: 1fr; }
+      .numbers-grid { gap: 32px; }
+      .number-item + .number-item::before { display: none; }
+      .workshop-stat-row { gap: 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="sfm-services.html" onclick="closeMobile()">Services</a>
+    <a href="sfm-results.html" onclick="closeMobile()">Results</a>
+    <a href="sfm-about.html" onclick="closeMobile()">About</a>
+    <a href="tel:+14193084576" onclick="closeMobile()">📞 419-308-4576</a>
+    <!-- UPDATE: Replace href with your real Calendly link -->
+    <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
+  </nav>
+
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home">
+          Sales<span>Funnel</span><small>Marketing</small>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html">Services</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-about.html" class="active">About</a></li>
+          <li><a href="sfm-blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+14193084576" class="nav-phone" aria-label="Call us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════ HERO ══════════════════════════════════ -->
+  <section id="about-hero" aria-label="About hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <div class="hero-eyebrow">Based in Perrysburg, Ohio · Since 2017</div>
+          <h1 class="hero-headline">
+            We're not a<br />faceless agency.<br />
+            <span class="hi">We're your neighbors.</span>
+          </h1>
+          <p class="hero-sub">
+            Sales Funnel Marketing was built on one idea: that real relationships convert better than any algorithm. We've been proving it for local businesses across Northwest Ohio since 2017.
+          </p>
+          <div class="hero-ctas">
+            <!-- UPDATE: Replace href with your real Calendly link -->
+            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Book a Free Strategy Call
+            </a>
+            <a href="#story" class="btn btn-outline">Read Our Story</a>
+          </div>
+        </div>
+
+        <!-- Founder photo card -->
+        <div class="founder-card-wrap">
+          <!-- Floating review badge -->
+          <div class="review-float" aria-label="Google rating">
+            <div class="review-float-stars">★★★★★</div>
+            <div class="review-float-num">5.0</div>
+            <div class="review-float-label">37 Reviews</div>
+            <div class="review-float-source">Google</div>
+          </div>
+
+          <div class="founder-card">
+            <div class="founder-photo-area">
+              <div class="founder-photo-placeholder">
+                <!-- UPDATE: Replace with Jayson's actual photo:
+                     <img src="/images/jayson-hines-about.jpg" alt="Jayson Hines, founder of Sales Funnel Marketing" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+                -->
+                <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,1)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+            </div>
+            <div class="founder-overlay">
+              <div class="founder-name-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+                Jayson Hines
+              </div>
+              <div class="founder-role">Founder &amp; Lead Strategist</div>
+              <div class="founder-since">Sales Funnel Marketing · Est. 2017</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ MISSION STRIP ══════════════════════════════ -->
+  <div id="mission" role="banner" aria-label="Agency mission">
+    <div class="container">
+      <div class="mission-inner">
+        <p class="mission-quote">"We don't sell a product. We build you fans."</p>
+        <div class="mission-divider" aria-hidden="true"></div>
+        <div class="mission-philosophy">
+          <div class="mission-tag">Our Philosophy</div>
+          <div class="mission-tagline">Human Focused. AI Optimized.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════ STORY ══════════════════════════════════════ -->
+  <section id="story" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="story-inner">
+
+        <div class="story-content reveal">
+          <span class="section-label">Our Story</span>
+          <h2 class="story-headline" id="story-heading">
+            Built from scratch.<br />Grown through <em>real relationships.</em>
+          </h2>
+
+          <p class="story-p">
+            Jayson Hines didn't start as a marketer. He spent years running an insurance agency — and when he sold it in 2017, he had one thing other agencies didn't: <strong>he knew exactly what it felt like to be the client.</strong>
+          </p>
+          <p class="story-p">
+            He knew what it felt like to pour money into marketing that didn't convert. To post consistently and hear nothing back. To hire someone who sent you a report full of numbers that didn't translate to actual customers walking through the door.
+          </p>
+
+          <div class="story-pull">
+            <p>"I built this agency the same way I help clients build their audiences — not by broadcasting, but by showing up, listening, and genuinely caring about the people in front of me."</p>
+          </div>
+
+          <p class="story-p">
+            Sales Funnel Marketing grew through real relationships: coffee meetings, local networking events, chambers of commerce, and the Networks Cafe community Jayson built to over 1,600 members. Not ads. Not cold outreach. <strong>People hiring people they actually trust.</strong>
+          </p>
+          <p class="story-p">
+            Today, SFM manages social media, ads, and content for 127+ local businesses across Northwest Ohio — from restaurants in Toledo to contractors in Findlay to boutiques in Lima. And the philosophy hasn't changed one bit since day one.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="reveal reveal-delay-2">
+          <div style="font-size:13px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:28px;">The SFM Timeline</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2017</div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">Sales Funnel Marketing Founded</div>
+                <div class="timeline-desc">Jayson launches SFM in Perrysburg, Ohio after selling his insurance agency. First clients acquired through direct relationships, not advertising.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2019</div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">Networks Cafe Launched</div>
+                <div class="timeline-desc">Jayson launches his own local business networking community — which grows to 1,600+ members and becomes SFM's most powerful proof point: community works.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2022</div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">100+ Businesses Served</div>
+                <div class="timeline-desc">SFM crosses 100 clients across NW Ohio and expands service offerings to include full Meta Ads management and sales funnel strategy.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2024</div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">Monthly AI Workshops Begin</div>
+                <div class="timeline-desc">Jayson launches monthly AI education workshops for local businesses. 20–40% of attendees become clients. Generosity converts.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2026</div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">"The Digital Garden" Published</div>
+                <div class="timeline-desc">Jayson's first book launches on Amazon — a practical guide for local business owners on building authentic social media audiences. Website revamp launches.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ NUMBERS ════════════════════════════════════ -->
+  <section id="numbers" aria-label="Agency statistics">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-item reveal">
+          <div class="number-big"><span>127</span>+</div>
+          <div class="number-label">Businesses Grown</div>
+        </div>
+        <div class="number-item reveal reveal-delay-1">
+          <div class="number-big"><span>9</span></div>
+          <div class="number-label">Years in Business</div>
+        </div>
+        <div class="number-item reveal reveal-delay-2">
+          <div class="number-big"><span>5.0</span>★</div>
+          <div class="number-label">Google Rating</div>
+        </div>
+        <div class="number-item reveal reveal-delay-3">
+          <div class="number-big"><span>1,600</span>+</div>
+          <div class="number-label">Networks Cafe Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ VALUES ═════════════════════════════════════ -->
+  <section id="values" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="values-header reveal">
+        <span class="section-label">How We Work</span>
+        <h2 class="section-title" id="values-heading">The principles we won't compromise on</h2>
+        <p style="color:var(--dark-gray); font-size:17px; margin:16px auto 0; max-width:560px; line-height:1.7;">
+          These aren't marketing buzzwords. They're the actual reasons clients stay with us for years — not months.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">Relationships First</div>
+          <div class="value-desc">We built this agency through real relationships, not cold calls. Every client is a neighbor — not a contract number. When you win, we win, and we take that personally.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">📊</div>
+          <div class="value-title">Results Over Vanity</div>
+          <div class="value-desc">We don't celebrate follower counts. We celebrate phone calls, booked appointments, and revenue. If our work isn't putting money in your pocket, it's not working.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🏘️</div>
+          <div class="value-title">Local, On Purpose</div>
+          <div class="value-desc">We specifically serve Northwest Ohio businesses. Not because we can't go national — because we believe in building up our own community first. We shop at your stores. We eat at your restaurants.</div>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">🔮</div>
+          <div class="value-title">Always Ahead of the Curve</div>
+          <div class="value-desc">Algorithms change. Platforms shift. AI is reshaping everything. We run monthly workshops and stay at the leading edge so your strategy is never six months behind the industry.</div>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🗣️</div>
+          <div class="value-title">Radical Transparency</div>
+          <div class="value-desc">We tell you what's working and what isn't — in plain English. No reports full of numbers that don't mean anything. No hiding behind "it takes time."</div>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">🔒</div>
+          <div class="value-title">The 90-Day Guarantee</div>
+          <div class="value-desc">We're confident enough in our system to back it with a guarantee. Hit agreed benchmarks in 90 days or we work for free until we do. No agency that doesn't believe in their own work offers that.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ COMMUNITY ══════════════════════════════════ -->
+  <section id="community" aria-labelledby="community-heading">
+    <div class="container">
+      <div class="community-inner">
+
+        <div class="community-content reveal">
+          <span class="section-label">Rooted in NW Ohio</span>
+          <h2 class="community-headline" id="community-heading">
+            We don't just market<br />for this community.<br />
+            We're <span>part of it.</span>
+          </h2>
+          <p class="community-p">
+            There's a difference between an agency that happens to work with local businesses and one that's built into the local ecosystem. SFM is the latter. Jayson has been showing up at chamber meetings, networking events, and coffee shops across Northwest Ohio for nearly a decade.
+          </p>
+          <p class="community-p">
+            When you work with SFM, you're working with someone who knows your market — the quirks, the seasonal rhythms, the competing businesses, and the customers you're both trying to reach.
+          </p>
+
+          <div class="community-items">
+            <div class="community-item">
+              <span class="community-item-icon">☕</span>
+              <div>
+                <div class="community-item-title">Networks Cafe — 1,600+ Members</div>
+                <div class="community-item-desc">Jayson's own local business networking community. Monthly events, shared resources, and the kind of genuine connections that build businesses.</div>
+              </div>
+            </div>
+            <div class="community-item">
+              <span class="community-item-icon">🏛️</span>
+              <div>
+                <div class="community-item-title">Active in Local Chambers</div>
+                <div class="community-item-desc">Maumee, Perrysburg, Toledo — Jayson shows up and gives back to the chambers that support local business growth across the region.</div>
+              </div>
+            </div>
+            <div class="community-item">
+              <span class="community-item-icon">🤖</span>
+              <div>
+                <div class="community-item-title">Monthly AI Workshops</div>
+                <div class="community-item-desc">Free education events teaching local business owners how to use AI tools effectively — without losing the human touch that makes local business special.</div>
+              </div>
+            </div>
+            <div class="community-item">
+              <span class="community-item-icon">📗</span>
+              <div>
+                <div class="community-item-title">The Digital Garden — Now on Amazon</div>
+                <div class="community-item-desc">Jayson's book written specifically for local business owners who want to grow authentically on social media. Available now at amazon.com/dp/B0GZXBGF8R.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service area card -->
+        <div class="reveal reveal-delay-2">
+          <div class="ohio-card">
+            <div class="ohio-card-title">Where We Serve</div>
+            <div class="ohio-areas">
+              <span class="ohio-area featured">📍 Perrysburg</span>
+              <span class="ohio-area featured">Toledo</span>
+              <span class="ohio-area">Maumee</span>
+              <span class="ohio-area">Findlay</span>
+              <span class="ohio-area">Lima</span>
+              <span class="ohio-area">Bowling Green</span>
+              <span class="ohio-area">Defiance</span>
+              <span class="ohio-area">Sylvania</span>
+              <span class="ohio-area">Waterville</span>
+              <span class="ohio-area">Wauseon</span>
+              <span class="ohio-area">Napoleon</span>
+              <span class="ohio-area">Bluffton</span>
+            </div>
+            <div style="height:1px; background:rgba(255,255,255,0.08); margin: 20px 0;"></div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.35); text-align:center; line-height:1.7;">
+              Primarily serving Northwest Ohio.<br />
+              Remote services available for businesses outside our area.
+            </div>
+            <!-- UPDATE: Replace href with your real Calendly link -->
+            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:24px; font-size:14px; padding:13px;">
+              Book a Call — We'll Come to You
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ CLIENT VOICES ══════════════════════════════ -->
+  <section id="client-voices" aria-labelledby="voices-heading">
+    <div class="container">
+      <div class="voices-header reveal">
+        <span class="section-label">What Clients Say</span>
+        <h2 class="section-title" id="voices-heading">Don't take our word for it</h2>
+      </div>
+
+      <div class="voices-grid">
+
+        <!-- Featured review -->
+        <article class="voice-card featured reveal">
+          <div class="voice-quote-mark">"</div>
+          <p class="voice-text">Sales Funnel Marketing is amazing. My business social media reach has grown unbelievably which has translated into near triple sales growth in the 3 short months I've used them. I can't recommend Jayson and his team enough.</p>
+          <div class="voice-result">💰 3× Sales Growth in 90 Days</div>
+          <div class="voice-footer">
+            <div class="voice-avatar">A</div>
+            <div>
+              <div class="voice-name">Amy D.</div>
+              <div class="voice-biz">Owner, Round &amp; Round Gifts</div>
+              <div class="voice-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card reveal">
+          <div class="voice-quote-mark">"</div>
+          <p class="voice-text">Jayson did a great job for me! Took over all of my social media accounts and added new ones. He created great videos to help me develop brand recognition. Very happy with his work and communication. Highly recommend!</p>
+          <div class="voice-footer">
+            <div class="voice-avatar">B</div>
+            <div>
+              <div class="voice-name">Bruce P.</div>
+              <div class="voice-biz">Mortgage Officer</div>
+              <div class="voice-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card reveal reveal-delay-1">
+          <div class="voice-quote-mark">"</div>
+          <p class="voice-text">Jayson knows social platforms. In less than 6 months he turned my social media around — made it more engaging, better content, real results. He understands the analytics and gets results. Thank you Jayson!</p>
+          <div class="voice-result">📈 Complete Social Media Turnaround</div>
+          <div class="voice-footer">
+            <div class="voice-avatar">M</div>
+            <div>
+              <div class="voice-name">Michele K.</div>
+              <div class="voice-biz">Owner, Michele Kipplen Photography</div>
+              <div class="voice-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card reveal">
+          <div class="voice-quote-mark">"</div>
+          <p class="voice-text">Jayson has answered many questions and helped guide us with our small business. He strongly supports small business and believes in the power of networking. Recently hired as our social media manager. Highly recommended.</p>
+          <div class="voice-footer">
+            <div class="voice-avatar">L</div>
+            <div>
+              <div class="voice-name">Lisa K.</div>
+              <div class="voice-biz">Owner, LK Soaps</div>
+              <div class="voice-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="voice-card reveal reveal-delay-1">
+          <div class="voice-quote-mark">"</div>
+          <p class="voice-text">Jayson at Sales Funnel Marketing is amazing! He's shared so many helpful tips, tricks, and hands-on tools for social media and AI that have really helped me grow my business online presence.</p>
+          <div class="voice-footer">
+            <div class="voice-avatar">J</div>
+            <div>
+              <div class="voice-name">Julie P.</div>
+              <div class="voice-biz">Local Business Owner, NW Ohio</div>
+              <div class="voice-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="voices-cta reveal" style="text-align:center;">
+        <div class="google-rating">
+          <svg class="google-logo" viewBox="0 0 24 24" aria-label="Google">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+          <div class="google-stars">★★★★★</div>
+          <div>
+            <div class="google-text">5.0 on Google</div>
+            <div class="google-count">37 verified reviews</div>
+          </div>
+        </div>
+        <br />
+        <a href="https://g.co/kgs/your-google-profile" target="_blank" class="btn btn-outline-dark" style="font-size:14px; padding:12px 28px;">
+          <!-- UPDATE: Replace href with your real Google Business review link -->
+          Read All 37 Google Reviews
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ AI WORKSHOPS ═══════════════════════════════ -->
+  <section id="ai-workshop" aria-labelledby="workshop-heading">
+    <div class="container">
+      <div class="workshop-inner">
+
+        <div class="workshop-content reveal">
+          <span class="section-label">Always Learning</span>
+          <h2 class="workshop-headline" id="workshop-heading">We stay ahead so<br />you don't have to.</h2>
+          <p class="workshop-p">
+            The biggest risk in social media marketing is working with an agency stuck in 2022. Platforms change. AI is reshaping everything. What worked 18 months ago might be actively hurting you today.
+          </p>
+          <p class="workshop-p">
+            That's why Jayson runs monthly AI education workshops for local business owners — not just to help clients, but to stay sharp and current himself. When AI changes how social media works, SFM already knows about it.
+          </p>
+          <div class="workshop-stat-row">
+            <div>
+              <div class="workshop-stat-num"><span>Monthly</span></div>
+              <div class="workshop-stat-desc">AI workshops for NW Ohio businesses</div>
+            </div>
+            <div>
+              <div class="workshop-stat-num"><span>20–40%</span></div>
+              <div class="workshop-stat-desc">Of attendees become SFM clients</div>
+            </div>
+          </div>
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">
+            Ask About the Next Workshop
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="workshop-panel">
+            <div class="workshop-panel-title">What We Teach &amp; What We Do</div>
+            <div class="workshop-panel-sub">The same cutting-edge strategies we teach in our workshops are the ones running your campaigns.</div>
+            <div class="workshop-features">
+              <div class="workshop-feature">
+                <span class="workshop-feature-icon">🤖</span>
+                <span class="workshop-feature-text">AI content tools — used right, without killing your voice</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="workshop-feature-icon">📱</span>
+                <span class="workshop-feature-text">Platform algorithm updates and what they mean for you</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="workshop-feature-icon">🎯</span>
+                <span class="workshop-feature-text">Meta Ads — Andromeda, Advantage+, and what's working now</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="workshop-feature-icon">🔁</span>
+                <span class="workshop-feature-text">Automation that keeps you consistent without the grind</span>
+              </div>
+              <div class="workshop-feature">
+                <span class="workshop-feature-icon">📊</span>
+                <span class="workshop-feature-text">Analytics that actually matter — beyond vanity metrics</span>
+              </div>
+            </div>
+            <div class="workshop-cta">
+              <a href="sfm-the-scroll.html" class="btn" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.12); width:100%; justify-content:center; margin-top:8px; font-size:14px; padding:13px;">
+                📗 Read Jayson's Book: The Digital Garden
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════ FINAL CTA ══════════════════════════════════ -->
+  <section id="cta-final" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="cta-headline" id="cta-heading">
+          Ready to work with people<br />who actually care?
+        </h2>
+        <p class="cta-sub">
+          Book a free 30-minute strategy call. We'll learn about your business, tell you what we'd do — and you decide if it's a fit. No pitch. No pressure.
+        </p>
+        <div class="cta-buttons">
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book My Free Strategy Call
+          </a>
+          <a href="tel:+14193084576" class="btn btn-ghost-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 419-308-4576
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Sales<span>Funnel</span> Marketing</div>
+          <p class="footer-tagline">Northwest Ohio's premier social media growth agency. We help local businesses build audiences that buy.</p>
+          <a href="tel:+14193084576" class="footer-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <div class="footer-socials">
+            <!-- UPDATE: Replace # with real social media URLs -->
+            <a href="#" class="footer-social" aria-label="Facebook">Fb</a>
+            <a href="#" class="footer-social" aria-label="Instagram">Ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="YouTube">Yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="sfm-services.html">Social Media Management</a></li>
+            <li><a href="sfm-services.html">Meta Ads</a></li>
+            <li><a href="sfm-services.html">Content Creation</a></li>
+            <li><a href="sfm-services.html">Sales Funnels</a></li>
+            <li><a href="sfm-services.html">Website Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="sfm-about.html">About Us</a></li>
+            <li><a href="sfm-results.html">Client Results</a></li>
+            <li><a href="sfm-the-scroll.html">The Digital Garden</a></li>
+            <li><a href="sfm-blog.html">Blog</a></li>
+            <li><a href="https://calendly.com/salesfunnelmarketing">Book a Call</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Service Areas</div>
+          <ul class="footer-links">
+            <li><a href="sfm-city-toledo.html">Toledo, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Findlay, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Lima, OH</a></li>
+            <li><a href="sfm-city-bowling-green.html">Bowling Green, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Defiance, OH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Sales Funnel Marketing. All rights reserved. | <a href="sfm-privacy.html" style="color:inherit;opacity:0.7;">Privacy Policy</a></p>
+        <div class="footer-bottom-links">
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="sfm-contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMobile(); });
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

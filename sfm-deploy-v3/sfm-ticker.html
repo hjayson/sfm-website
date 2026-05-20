@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SFM Live Results Ticker — Standalone Component</title>
+  <meta name="description" content="Embeddable live results ticker for salesfunnelmarketing.us. Drop this component into any page." />
+
+  <!--
+  ══════════════════════════════════════════════════════════════════
+  SFM LIVE RESULTS TICKER — STANDALONE COMPONENT
+  ══════════════════════════════════════════════════════════════════
+
+  HOW TO USE ON ANY PAGE:
+  Copy everything inside the <div id="sfm-ticker-root"> block and the
+  <style id="sfm-ticker-css"> block, plus the <script id="sfm-ticker-js">
+  block, into whatever page you want the ticker on. That's it.
+
+  Alternatively, Jammes can extract this as ticker.css + ticker.js and
+  include them with <link> and <script> tags.
+
+  The ticker has two display modes (set via data-mode attribute):
+    • "bar"      — horizontal scrolling proof bar (for top/bottom of sections)
+    • "counters" — animated counter cards (for hero / above fold)
+    • "wins"     — rotating client win cards (for homepage / results page)
+
+  Usage:
+    <div class="sfm-ticker" data-mode="bar"></div>
+    <div class="sfm-ticker" data-mode="counters"></div>
+    <div class="sfm-ticker" data-mode="wins"></div>
+  ══════════════════════════════════════════════════════════════════
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Page wrapper (preview only — not part of component) ── */
+    body { font-family: 'Inter', sans-serif; background: #1a1a2e; margin: 0; padding: 0; }
+    .preview-label {
+      text-align: center; padding: 40px 24px 16px;
+      font-size: 11px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+    }
+    .preview-section { margin: 0 0 0; }
+    .preview-divider { height: 48px; background: #0A1628; }
+    .preview-divider.light { background: #f8f8f8; }
+    .preview-divider.orange { background: #E85D26; }
+  </style>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SFM TICKER COMPONENT CSS — Copy this block
+  ══════════════════════════════════════════════════════════════════ -->
+  <style id="sfm-ticker-css">
+    /* ── Root / tokens ───────────────────────────────── */
+    .sfm-ticker-wrap {
+      --sfmt-navy:    #0A1628;
+      --sfmt-orange:  #E85D26;
+      --sfmt-green:   #22c55e;
+      --sfmt-amber:   #f59e0b;
+      --sfmt-white:   #FFFFFF;
+      --sfmt-off:     #F8F8F8;
+      --sfmt-lg:      #F0F0F0;
+      --sfmt-font:    'Inter', -apple-system, sans-serif;
+      --sfmt-radius:  10px;
+      --sfmt-trans:   0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ══════════════════════════════════════════════
+       MODE 1: BAR — scrolling proof strip
+    ══════════════════════════════════════════════ */
+    .sfm-ticker-bar {
+      background: var(--sfmt-navy);
+      padding: 14px 0; overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .sfm-ticker-bar.on-orange { background: rgba(0,0,0,0.15); }
+    .sfm-ticker-bar.on-light { background: var(--sfmt-navy); }
+
+    .sfmt-bar-track {
+      display: flex; gap: 40px;
+      animation: sfmtScroll 28s linear infinite;
+      width: max-content;
+    }
+    .sfmt-bar-track:hover { animation-play-state: paused; }
+
+    @keyframes sfmtScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .sfmt-bar-item {
+      display: flex; align-items: center; gap: 10px;
+      white-space: nowrap; font-family: var(--sfmt-font);
+      font-size: 13px; font-weight: 700;
+    }
+    .sfmt-bar-item.style-orange { color: rgba(255,255,255,0.85); }
+    .sfmt-bar-item.style-green  { color: var(--sfmt-green); }
+    .sfmt-bar-item.style-amber  { color: var(--sfmt-amber); }
+    .sfmt-bar-item.style-white  { color: var(--sfmt-white); }
+
+    .sfmt-bar-bullet {
+      width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+    }
+    .sfmt-bar-item.style-orange .sfmt-bar-bullet { background: var(--sfmt-orange); }
+    .sfmt-bar-item.style-green  .sfmt-bar-bullet { background: var(--sfmt-green); }
+    .sfmt-bar-item.style-amber  .sfmt-bar-bullet { background: var(--sfmt-amber); }
+    .sfmt-bar-item.style-white  .sfmt-bar-bullet { background: rgba(255,255,255,0.3); }
+
+    .sfmt-bar-stat {
+      font-size: 15px; font-weight: 900; color: var(--sfmt-orange);
+      margin-right: 2px;
+    }
+    .sfmt-bar-item.style-green .sfmt-bar-stat { color: var(--sfmt-green); }
+
+    /* Live dot */
+    .sfmt-live-dot {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 100px; padding: 3px 10px 3px 7px;
+      font-size: 11px; font-weight: 800; color: var(--sfmt-green); letter-spacing: 0.5px;
+    }
+    .sfmt-live-dot::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--sfmt-green); flex-shrink: 0;
+      animation: sfmtPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes sfmtPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    /* ══════════════════════════════════════════════
+       MODE 2: COUNTERS — animated stat cards
+    ══════════════════════════════════════════════ */
+    .sfm-ticker-counters {
+      background: var(--sfmt-navy);
+      padding: 56px 24px;
+    }
+    .sfm-ticker-counters.on-light { background: var(--sfmt-off); }
+
+    .sfmt-counters-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+
+    .sfmt-counter-card {
+      background: rgba(255,255,255,0.04); border-radius: var(--sfmt-radius);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 24px; text-align: center; position: relative; overflow: hidden;
+      transition: var(--sfmt-trans);
+    }
+    .sfm-ticker-counters.on-light .sfmt-counter-card {
+      background: var(--sfmt-white); border-color: var(--sfmt-lg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .sfmt-counter-card:hover { transform: translateY(-4px); }
+    .sfm-ticker-counters.on-light .sfmt-counter-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+
+    .sfmt-counter-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--sfmt-orange); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .sfmt-counter-card:hover::before { transform: scaleX(1); }
+
+    .sfmt-counter-icon { font-size: 28px; margin-bottom: 12px; }
+    .sfmt-counter-num {
+      font-family: var(--sfmt-font); font-size: clamp(32px, 4vw, 48px);
+      font-weight: 900; line-height: 1; letter-spacing: -1.5px; margin-bottom: 8px;
+      color: var(--sfmt-white);
+    }
+    .sfm-ticker-counters.on-light .sfmt-counter-num { color: var(--sfmt-navy); }
+    .sfmt-counter-num .accent { color: var(--sfmt-orange); }
+    .sfmt-counter-num .accent-green { color: var(--sfmt-green); }
+    .sfmt-counter-label {
+      font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.35); line-height: 1.4;
+    }
+    .sfm-ticker-counters.on-light .sfmt-counter-label { color: #888; }
+    .sfmt-counter-sub { font-size: 12px; margin-top: 6px; color: rgba(255,255,255,0.2); line-height: 1.4; }
+    .sfm-ticker-counters.on-light .sfmt-counter-sub { color: #bbb; }
+
+    @media (max-width: 768px) {
+      .sfmt-counters-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .sfmt-counters-inner { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .sfmt-counter-card { padding: 20px 16px; }
+    }
+
+    /* ══════════════════════════════════════════════
+       MODE 3: WINS — rotating client win cards
+    ══════════════════════════════════════════════ */
+    .sfm-ticker-wins {
+      background: var(--sfmt-navy);
+      padding: 48px 24px; overflow: hidden;
+    }
+    .sfm-ticker-wins.on-light { background: var(--sfmt-off); }
+    .sfm-ticker-wins.on-orange { background: rgba(0,0,0,0.1); }
+
+    .sfmt-wins-header {
+      max-width: 1100px; margin: 0 auto 28px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .sfmt-wins-title {
+      font-family: var(--sfmt-font); font-size: 13px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .sfm-ticker-wins.on-light .sfmt-wins-title { color: #999; }
+
+    .sfmt-wins-track-outer { overflow: hidden; }
+    .sfmt-wins-track {
+      display: flex; gap: 16px;
+      animation: sfmtWinsScroll 32s linear infinite;
+      width: max-content;
+    }
+    .sfmt-wins-track:hover { animation-play-state: paused; }
+
+    @keyframes sfmtWinsScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .sfmt-win-card {
+      background: rgba(255,255,255,0.05); border-radius: var(--sfmt-radius);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 22px; min-width: 260px; max-width: 260px;
+      flex-shrink: 0; position: relative; overflow: hidden;
+      transition: var(--sfmt-trans);
+    }
+    .sfm-ticker-wins.on-light .sfmt-win-card {
+      background: var(--sfmt-white); border-color: var(--sfmt-lg);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .sfmt-win-card:hover { transform: translateY(-4px) scale(1.01); }
+
+    .sfmt-win-card-accent {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--sfmt-orange);
+    }
+    .sfmt-win-card-accent.green { background: var(--sfmt-green); }
+    .sfmt-win-card-accent.amber { background: var(--sfmt-amber); }
+
+    .sfmt-win-industry {
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-bottom: 10px;
+    }
+    .sfm-ticker-wins.on-light .sfmt-win-industry { color: #aaa; }
+
+    .sfmt-win-stat {
+      font-family: var(--sfmt-font); font-size: 32px; font-weight: 900;
+      line-height: 1; letter-spacing: -1px; margin-bottom: 6px;
+      color: var(--sfmt-white);
+    }
+    .sfm-ticker-wins.on-light .sfmt-win-stat { color: var(--sfmt-navy); }
+    .sfmt-win-stat .w-orange { color: var(--sfmt-orange); }
+    .sfmt-win-stat .w-green  { color: var(--sfmt-green); }
+    .sfmt-win-stat .w-amber  { color: var(--sfmt-amber); }
+
+    .sfmt-win-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; margin-bottom: 12px; }
+    .sfm-ticker-wins.on-light .sfmt-win-desc { color: #777; }
+
+    .sfmt-win-footer {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sfmt-win-avatar {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: var(--sfmt-orange); display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; color: var(--sfmt-white);
+    }
+    .sfmt-win-name { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.6); }
+    .sfm-ticker-wins.on-light .sfmt-win-name { color: #555; }
+    .sfmt-win-stars { font-size: 11px; color: #FFB800; }
+  </style>
+  <!-- ── END TICKER CSS ──────────────────────────────────────── -->
+
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════
+       PREVIEW: MODE 1 — SCROLLING BAR
+       (on dark navy background)
+  ════════════════════════════════════════════════════════════════ -->
+  <p class="preview-label">Mode 1 · Scrolling Bar — on Navy</p>
+  <div class="preview-section">
+    <div class="sfm-ticker-wrap sfm-ticker-bar" data-mode="bar">
+      <div class="sfmt-bar-track" id="barTrack1"></div>
+    </div>
+  </div>
+
+  <div class="preview-divider orange"></div>
+
+  <p class="preview-label" style="background:#E85D26; color:rgba(255,255,255,0.5); margin:0; padding: 12px 24px 8px;">Mode 1 · Scrolling Bar — on Orange</p>
+  <div style="background:#E85D26; padding:0;">
+    <div class="sfm-ticker-wrap sfm-ticker-bar on-orange" data-mode="bar">
+      <div class="sfmt-bar-track" id="barTrack2"></div>
+    </div>
+  </div>
+
+  <div class="preview-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       PREVIEW: MODE 2 — ANIMATED COUNTERS
+  ════════════════════════════════════════════════════════════════ -->
+  <p class="preview-label">Mode 2 · Animated Counters — on Navy</p>
+  <div class="sfm-ticker-wrap sfm-ticker-counters" data-mode="counters" id="countersNavy">
+    <div class="sfmt-counters-inner" id="countersInnerNavy"></div>
+  </div>
+
+  <div class="preview-divider light"></div>
+
+  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 2 · Animated Counters — on Light</p>
+  <div class="sfm-ticker-wrap sfm-ticker-counters on-light" data-mode="counters">
+    <div class="sfmt-counters-inner" id="countersInnerLight"></div>
+  </div>
+
+  <div class="preview-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       PREVIEW: MODE 3 — ROTATING WIN CARDS
+  ════════════════════════════════════════════════════════════════ -->
+  <p class="preview-label">Mode 3 · Client Win Cards — on Navy</p>
+  <div class="sfm-ticker-wrap sfm-ticker-wins" data-mode="wins">
+    <div class="sfmt-wins-header">
+      <div class="sfmt-wins-title">Live Client Results</div>
+      <div class="sfmt-live-dot">Live</div>
+    </div>
+    <div class="sfmt-wins-track-outer">
+      <div class="sfmt-wins-track" id="winsTrack1"></div>
+    </div>
+  </div>
+
+  <div class="preview-divider light"></div>
+
+  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 3 · Client Win Cards — on Light</p>
+  <div class="sfm-ticker-wrap sfm-ticker-wins on-light" data-mode="wins">
+    <div class="sfmt-wins-header">
+      <div class="sfmt-wins-title" style="color:#aaa;">Client Wins</div>
+      <div class="sfmt-live-dot">Live</div>
+    </div>
+    <div class="sfmt-wins-track-outer">
+      <div class="sfmt-wins-track" id="winsTrack2"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SFM TICKER COMPONENT JS — Copy this block
+  ════════════════════════════════════════════════════════════════ -->
+  <script id="sfm-ticker-js">
+    /* ─── DATA ────────────────────────────────────────────── */
+    const SFMT_BAR_ITEMS = [
+      { stat: '3×',     text: 'Sales Growth in 90 Days',         style: 'style-green' },
+      { stat: '127+',   text: 'NW Ohio Businesses Served',        style: 'style-orange' },
+      { stat: '5.0★',   text: 'Google Rating — 37 Reviews',       style: 'style-amber' },
+      { stat: '9 yrs',  text: 'Serving Northwest Ohio',           style: 'style-white' },
+      { stat: '20–40%', text: 'Workshop Attendees Become Clients', style: 'style-green' },
+      { stat: '1,600+', text: 'Networks Cafe Members',             style: 'style-orange' },
+      { stat: '100%',   text: '5-Star Google Reviews',             style: 'style-amber' },
+      { stat: '$0',     text: 'Cost for Your First Strategy Call',  style: 'style-green' },
+    ];
+
+    const SFMT_COUNTERS = [
+      { icon: '📈', num: 127, suffix: '+', accent: 'orange', label: 'Businesses Served', sub: 'Across Northwest Ohio' },
+      { icon: '💰', num: 3,   suffix: '×', accent: 'green',  label: 'Avg. Sales Growth', sub: 'In first 90 days' },
+      { icon: '⭐', num: 5.0, suffix: '',  accent: 'amber',  label: 'Google Rating', sub: '37 verified reviews' },
+      { icon: '🤝', num: 9,   suffix: '',  accent: 'orange', label: 'Years in Business', sub: 'Founded 2017, Perrysburg OH' },
+    ];
+
+    const SFMT_WINS = [
+      { accent: 'green',  industry: '🎁 Retail',         stat: '3×',    statClass: 'w-green',  desc: 'Sales growth in 90 days',    name: 'Amy D.',    biz: 'Round & Round Gifts' },
+      { accent: '',       industry: '📸 Photography',    stat: '↑↑',    statClass: 'w-orange', desc: 'Full social turnaround in 6 months', name: 'Michele K.', biz: 'Michele Kipplen Photography' },
+      { accent: 'amber',  industry: '🏠 Mortgage',       stat: '📹',    statClass: 'w-amber',  desc: 'Video content driving brand recognition', name: 'Bruce P.',   biz: 'Mortgage Officer, Toledo' },
+      { accent: 'green',  industry: '🧴 Handmade Goods', stat: '👥',    statClass: 'w-green',  desc: 'Loyal fan community built around the brand', name: 'Lisa K.',    biz: 'LK Soaps' },
+      { accent: '',       industry: '🔧 Trades',         stat: '4×',    statClass: 'w-orange', desc: 'Reach expansion with local targeting',   name: 'SFM Client', biz: 'Home Services, NW Ohio' },
+      { accent: 'amber',  industry: '⚖️ Legal',          stat: '↑ Leads', statClass: 'w-amber', desc: 'Consistent inbound lead generation', name: 'SFM Client', biz: 'Law Firm, Toledo Area' },
+      { accent: 'green',  industry: '🏋️ Fitness',       stat: '+62%',  statClass: 'w-green',  desc: 'Membership growth in 4 months',        name: 'SFM Client', biz: 'Gym Owner, NW Ohio' },
+      { accent: '',       industry: '🤖 AI Workshop',    stat: '40%',   statClass: 'w-orange', desc: 'Of attendees became SFM clients',        name: 'Monthly',    biz: 'AI Education Events' },
+    ];
+
+    /* ─── BAR BUILDER ─────────────────────────────────────── */
+    function buildBar(trackId) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      const doubled = [...SFMT_BAR_ITEMS, ...SFMT_BAR_ITEMS]; // duplicate for seamless loop
+      track.innerHTML = doubled.map(item => `
+        <span class="sfmt-bar-item ${item.style}">
+          <span class="sfmt-bar-bullet"></span>
+          <span class="sfmt-bar-stat">${item.stat}</span>
+          ${item.text}
+        </span>
+      `).join('');
+    }
+
+    /* ─── COUNTER BUILDER ─────────────────────────────────── */
+    function buildCounters(containerId, theme) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = SFMT_COUNTERS.map((c, i) => `
+        <div class="sfmt-counter-card" data-idx="${i}">
+          <div class="sfmt-counter-icon">${c.icon}</div>
+          <div class="sfmt-counter-num">
+            <span class="sfmt-counter-val accent-${c.accent}" data-target="${c.num}" data-suffix="${c.suffix}">${c.num}${c.suffix}</span>
+          </div>
+          <div class="sfmt-counter-label">${c.label}</div>
+          <div class="sfmt-counter-sub">${c.sub}</div>
+        </div>
+      `).join('');
+
+      // Animate counters on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll('.sfmt-counter-val').forEach(el => {
+            animateSFMTCounter(el);
+          });
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.3 });
+      container.querySelectorAll('.sfmt-counter-card').forEach(card => observer.observe(card));
+    }
+
+    function animateSFMTCounter(el) {
+      const target = parseFloat(el.getAttribute('data-target'));
+      const suffix = el.getAttribute('data-suffix') || '';
+      const isDecimal = target % 1 !== 0;
+      const start = performance.now();
+      const duration = 1600;
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = target * ease;
+        el.textContent = (isDecimal ? val.toFixed(1) : Math.round(val)) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    /* ─── WINS BUILDER ────────────────────────────────────── */
+    function buildWins(trackId) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      const doubled = [...SFMT_WINS, ...SFMT_WINS];
+      track.innerHTML = doubled.map(w => `
+        <div class="sfmt-win-card">
+          <div class="sfmt-win-card-accent ${w.accent}"></div>
+          <div class="sfmt-win-industry">${w.industry}</div>
+          <div class="sfmt-win-stat"><span class="${w.statClass}">${w.stat}</span></div>
+          <div class="sfmt-win-desc">${w.desc}</div>
+          <div class="sfmt-win-footer">
+            <div class="sfmt-win-avatar">${w.name.charAt(0)}</div>
+            <div>
+              <div class="sfmt-win-name">${w.name} · ${w.biz}</div>
+              <div class="sfmt-win-stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    /* ─── INIT ────────────────────────────────────────────── */
+    buildBar('barTrack1');
+    buildBar('barTrack2');
+    buildCounters('countersInnerNavy', 'dark');
+    buildCounters('countersInnerLight', 'light');
+    buildWins('winsTrack1');
+    buildWins('winsTrack2');
+
+    /*
+    ════════════════════════════════════════════════════════════════
+    TO ADD THIS TO ANY PAGE:
+
+    1. Include the CSS (copy the <style id="sfm-ticker-css"> block
+       or link to ticker.css if extracted separately).
+
+    2. Include the JS (copy the <script id="sfm-ticker-js"> block
+       or link to ticker.js).
+
+    3. Add the HTML container with a unique ID:
+         <div class="sfm-ticker-wrap sfm-ticker-bar">
+           <div class="sfmt-bar-track" id="myBarTrack"></div>
+         </div>
+
+    4. Call the builder:
+         buildBar('myBarTrack');
+         // or
+         buildCounters('myCountersContainer', 'dark');
+         // or
+         buildWins('myWinsTrack');
+
+    For counters, the container must have the ID and be the element
+    you pass to buildCounters(). The animation triggers automatically
+    via IntersectionObserver when the element scrolls into view.
+    ════════════════════════════════════════════════════════════════
+    */
+  </script>
+  <!-- ── END TICKER JS ──────────────────────────────────────── -->
+
+</body>
+</html>

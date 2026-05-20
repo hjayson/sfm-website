@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Social Media ROI Calculator | Sales Funnel Marketing — NW Ohio</title>
+  <meta name="description" content="Find out what your social media should actually be worth. Enter your business details and get a real estimate of the revenue you could be leaving on the table." />
+  <meta name="keywords" content="social media ROI calculator, Facebook ads ROI, local business marketing calculator, social media revenue estimate, Sales Funnel Marketing" />
+
+  <meta property="og:title" content="What Is Your Social Media Actually Worth? | SFM ROI Calculator" />
+  <meta property="og:description" content="Calculate the real revenue your social media should be driving — and find out what's missing. Free tool from Sales Funnel Marketing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/roi-calculator" />
+
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/roi-calculator" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --orange-glow: rgba(232,93,38,0.25);
+      --green:       #22c55e;
+      --green-dim:   rgba(34,197,94,0.1);
+      --amber:       #f59e0b;
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --light-gray:  #F0F0F0;
+      --mid-gray:    #e0e0e0;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font:        'Inter', -apple-system, sans-serif;
+      --max-w:       1200px;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 16px 48px rgba(0,0,0,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--off-white); overflow-x: hidden; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 6px; font-family: var(--font); font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap; text-decoration: none; }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
+    .btn-outline-dark { background: transparent; color: var(--navy); border-color: rgba(10,22,40,0.3); }
+    .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+    .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+    .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Nav ─────────────────────────────────────────────────────── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: var(--navy); box-shadow: 0 4px 32px rgba(0,0,0,0.4); transition: padding 0.4s ease; }
+    #navbar.scrolled { padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1.1; flex-shrink: 0; }
+    .nav-logo span { color: var(--orange); }
+    .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--white); }
+    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 0; background: var(--navy); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* ═══════════════════════════════════════════════════════
+       PAGE HERO
+    ═══════════════════════════════════════════════════════ */
+    #calc-hero {
+      background: var(--navy); padding: 120px 0 60px;
+      position: relative; overflow: hidden;
+    }
+    #calc-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 0% 60%, #0e2245 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 100% 0%, #152240 0%, transparent 55%);
+    }
+    .calc-hero-inner { position: relative; z-index: 1; text-align: center; max-width: 720px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+      padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green);
+    }
+    .calc-hero-headline { font-size: clamp(34px, 5vw, 58px); font-weight: 900; color: var(--white); line-height: 1.07; letter-spacing: -1.5px; margin-bottom: 18px; }
+    .calc-hero-headline .accent { color: var(--orange); }
+    .calc-hero-sub { font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 540px; margin: 0 auto 12px; }
+    .hero-disclaimer { font-size: 12px; color: rgba(255,255,255,0.2); font-style: italic; }
+
+    /* ═══════════════════════════════════════════════════════
+       CALCULATOR WRAPPER
+    ═══════════════════════════════════════════════════════ */
+    #calculator-section { padding: 0 0 80px; position: relative; }
+    .calc-wrapper {
+      max-width: 1080px; margin: -40px auto 0; padding: 0 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;
+    }
+
+    /* ── Input Panel ──────────────────────────────────── */
+    .calc-inputs {
+      background: var(--white); border-radius: 20px;
+      box-shadow: var(--shadow-lg); overflow: hidden;
+      border: 1px solid var(--mid-gray);
+    }
+    .calc-inputs-header {
+      background: var(--navy); padding: 28px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .calc-inputs-title { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 4px; }
+    .calc-inputs-sub { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .calc-inputs-body { padding: 32px; }
+
+    /* Step progress */
+    .calc-steps-nav { display: flex; gap: 0; margin-bottom: 32px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--light-gray); }
+    .calc-step-btn {
+      flex: 1; padding: 10px 8px; background: var(--off-white); border: none;
+      font-family: var(--font); font-size: 12px; font-weight: 700; color: var(--dark-gray);
+      cursor: pointer; transition: var(--transition); text-align: center;
+      border-right: 1px solid var(--light-gray);
+    }
+    .calc-step-btn:last-child { border-right: none; }
+    .calc-step-btn.active { background: var(--orange); color: var(--white); }
+    .calc-step-btn.done { background: rgba(34,197,94,0.1); color: var(--green); }
+
+    /* Step panels */
+    .calc-step-panel { display: none; }
+    .calc-step-panel.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+    .step-title { font-size: 16px; font-weight: 900; color: var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--orange); color: var(--white); font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* Industry cards */
+    .industry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 8px; }
+    .industry-card {
+      padding: 14px 16px; border: 2px solid var(--light-gray); border-radius: var(--radius-sm);
+      cursor: pointer; transition: var(--transition); background: var(--off-white);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .industry-card:hover { border-color: rgba(232,93,38,0.4); background: rgba(232,93,38,0.03); }
+    .industry-card.selected { border-color: var(--orange); background: rgba(232,93,38,0.06); }
+    .industry-card .ic-emoji { font-size: 20px; flex-shrink: 0; }
+    .industry-card .ic-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+
+    /* Slider inputs */
+    .slider-group { margin-bottom: 28px; }
+    .slider-label-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+    .slider-label { font-size: 14px; font-weight: 700; color: var(--navy); }
+    .slider-value { font-size: 18px; font-weight: 900; color: var(--orange); }
+    .slider-value .val-prefix { font-size: 13px; font-weight: 600; color: var(--dark-gray); margin-right: 2px; }
+    .slider-sub { font-size: 12px; color: var(--dark-gray); margin-bottom: 10px; line-height: 1.5; }
+    input[type=range] {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 6px; border-radius: 100px;
+      background: var(--light-gray); outline: none; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--orange); cursor: pointer;
+      box-shadow: 0 2px 8px rgba(232,93,38,0.4);
+      border: 3px solid var(--white);
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--orange); cursor: pointer;
+      border: 3px solid var(--white);
+    }
+    .range-ticks { display: flex; justify-content: space-between; margin-top: 6px; }
+    .range-tick { font-size: 11px; color: rgba(0,0,0,0.3); font-weight: 600; }
+
+    /* Toggle options */
+    .toggle-group { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .toggle-opt {
+      padding: 9px 18px; border: 2px solid var(--light-gray); border-radius: 100px;
+      font-size: 13px; font-weight: 700; color: var(--dark-gray);
+      cursor: pointer; transition: var(--transition); background: var(--off-white);
+    }
+    .toggle-opt:hover { border-color: rgba(232,93,38,0.4); color: var(--navy); }
+    .toggle-opt.selected { border-color: var(--orange); background: rgba(232,93,38,0.08); color: var(--orange); }
+
+    /* Nav buttons */
+    .calc-nav { display: flex; gap: 12px; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--light-gray); }
+    .calc-nav-btn {
+      flex: 1; padding: 14px; border-radius: 6px; font-family: var(--font);
+      font-size: 15px; font-weight: 800; cursor: pointer; transition: var(--transition);
+      border: 2px solid var(--light-gray); background: var(--off-white); color: var(--dark-gray);
+    }
+    .calc-nav-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .calc-nav-btn.primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .calc-nav-btn.primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px var(--orange-glow); }
+    .calc-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── Results Panel ────────────────────────────────── */
+    .calc-results {
+      background: var(--navy); border-radius: 20px;
+      box-shadow: var(--shadow-lg); overflow: hidden; position: sticky; top: 100px;
+    }
+    .results-header {
+      padding: 28px 32px 0;
+    }
+    .results-title { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+    .results-main-label { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+
+    /* Big revenue number */
+    .results-revenue {
+      padding: 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .revenue-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+    .revenue-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 10px; }
+    .revenue-num { font-size: clamp(36px, 5vw, 52px); font-weight: 900; color: var(--white); line-height: 1; letter-spacing: -2px; transition: color 0.3s; }
+    .revenue-num.green { color: var(--green); }
+    .revenue-period { font-size: 14px; color: rgba(255,255,255,0.3); font-weight: 600; }
+    .revenue-sub { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+    /* Breakdown metrics */
+    .results-breakdown { padding: 24px 32px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .breakdown-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 16px; }
+    .breakdown-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .breakdown-item:last-child { margin-bottom: 0; }
+    .breakdown-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; display: flex; align-items: center; gap: 8px; }
+    .breakdown-icon { font-size: 14px; }
+    .breakdown-value { font-size: 15px; font-weight: 900; color: var(--white); }
+    .breakdown-value.highlight { color: var(--green); }
+    .breakdown-value.amber { color: var(--amber); }
+
+    /* Opportunity gap bar */
+    .gap-bar-wrap { padding: 20px 32px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .gap-bar-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 14px; }
+    .gap-bars { display: flex; flex-direction: column; gap: 10px; }
+    .gap-row { display: flex; align-items: center; gap: 10px; }
+    .gap-name { font-size: 12px; color: rgba(255,255,255,0.4); width: 80px; text-align: right; flex-shrink: 0; }
+    .gap-track { flex: 1; height: 8px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+    .gap-fill { height: 100%; border-radius: 100px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .gap-fill.current { background: rgba(255,255,255,0.2); }
+    .gap-fill.potential { background: var(--orange); }
+    .gap-fill.optimal { background: var(--green); }
+    .gap-val { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.5); width: 44px; flex-shrink: 0; }
+
+    /* Insights */
+    .results-insights { padding: 20px 32px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .insight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+    .insight-item:last-child { margin-bottom: 0; }
+    .insight-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); flex-shrink: 0; margin-top: 6px; }
+    .insight-dot.green { background: var(--green); }
+    .insight-dot.amber { background: var(--amber); }
+    .insight-text { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .insight-text strong { color: rgba(255,255,255,0.85); }
+
+    /* CTA in results */
+    .results-cta { padding: 24px 32px; }
+    .results-cta-headline { font-size: 16px; font-weight: 900; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+    .results-cta-sub { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; margin-bottom: 18px; }
+    .results-cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 15px; border-radius: 6px;
+      background: var(--orange); color: var(--white);
+      font-family: var(--font); font-size: 15px; font-weight: 800;
+      cursor: pointer; transition: var(--transition); border: none;
+      text-decoration: none;
+    }
+    .results-cta-btn:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
+    .results-cta-secondary {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.4);
+      margin-top: 12px; cursor: pointer; transition: color 0.2s;
+      text-decoration: none;
+    }
+    .results-cta-secondary:hover { color: rgba(255,255,255,0.7); }
+
+    /* Placeholder state (before calc runs) */
+    .results-placeholder {
+      padding: 48px 32px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .placeholder-icon { font-size: 40px; margin-bottom: 14px; opacity: 0.4; }
+    .placeholder-text { font-size: 14px; color: rgba(255,255,255,0.3); line-height: 1.7; }
+    .placeholder-arrow { font-size: 24px; margin-top: 12px; opacity: 0.2; }
+
+    /* ═══════════════════════════════════════════════════════
+       BOTTOM SECTIONS
+    ═══════════════════════════════════════════════════════ */
+    #calc-bottom { padding: 72px 0; }
+    .bottom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .bottom-card {
+      background: var(--white); border-radius: var(--radius);
+      padding: 32px 28px; border: 1px solid var(--mid-gray);
+      text-align: center; box-shadow: var(--shadow);
+    }
+    .bc-icon { font-size: 32px; margin-bottom: 14px; }
+    .bc-num { font-size: 40px; font-weight: 900; color: var(--navy); letter-spacing: -1px; margin-bottom: 6px; }
+    .bc-num span { color: var(--orange); }
+    .bc-label { font-size: 13px; color: var(--dark-gray); line-height: 1.5; }
+
+    /* Disclaimer section */
+    #disclaimer { padding: 0 0 64px; }
+    .disc-inner {
+      max-width: 780px; margin: 0 auto;
+      background: var(--white); border-radius: var(--radius);
+      padding: 28px 32px; border: 1px solid var(--mid-gray);
+      text-align: center;
+    }
+    .disc-title { font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .disc-text { font-size: 13px; color: var(--dark-gray); line-height: 1.7; }
+
+    /* CTA strip */
+    #calc-cta { background: var(--orange); padding: 72px 0; text-align: center; }
+    .calc-cta-inner { max-width: 640px; margin: 0 auto; }
+    .calc-cta-headline { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: var(--white); line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .calc-cta-sub { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 32px; }
+    .calc-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Footer */
+    #footer { background: #060e1a; padding: 48px 0 28px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 32px; }
+    .footer-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; margin-bottom: 10px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; margin-bottom: 16px; }
+    .footer-phone { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); transition: color 0.2s; width: fit-content; }
+    .footer-phone:hover { color: var(--white); }
+    .footer-heading { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-social { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 800; transition: var(--transition); }
+    .footer-social:hover { background: var(--orange); color: var(--white); }
+
+    @media (max-width: 960px) {
+      .calc-wrapper { grid-template-columns: 1fr; }
+      .calc-results { position: static; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-right .nav-phone { display: none; }
+      .hamburger { display: flex; }
+      .industry-grid { grid-template-columns: 1fr 1fr; }
+      .bottom-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .calc-inputs-body { padding: 24px 20px; }
+      .results-revenue, .results-breakdown, .gap-bar-wrap, .results-insights, .results-cta { padding-left: 24px; padding-right: 24px; }
+      .results-header { padding: 24px 24px 0; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Sales<span>Funnel</span> Marketing
+          <small>Perrysburg, Ohio</small>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html">Services</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-about.html">About</a></li>
+          <li><a href="sfm-the-scroll.html">The Book</a></li>
+          <li><a href="sfm-contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+14193084576" class="nav-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <a href="sfm-contact.html" class="btn btn-primary nav-cta">Free Strategy Call</a>
+          <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="sfm-services.html" onclick="closeMobile()">Services</a>
+    <a href="sfm-results.html" onclick="closeMobile()">Results</a>
+    <a href="sfm-about.html" onclick="closeMobile()">About</a>
+    <a href="sfm-the-scroll.html" onclick="closeMobile()">The Book</a>
+    <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
+    <a href="sfm-contact.html" class="btn btn-primary" onclick="closeMobile()">Book a Free Call</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section id="calc-hero">
+    <div class="container">
+      <div class="calc-hero-inner">
+        <div class="hero-eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Free ROI Calculator
+        </div>
+        <h1 class="calc-hero-headline">
+          What is your social media<br /><span class="accent">actually worth?</span>
+        </h1>
+        <p class="calc-hero-sub">Answer 4 quick questions about your business. Get a real estimate of the revenue you could be leaving on the table — and what it looks like when you fix it.</p>
+        <p class="hero-disclaimer">Estimates based on SFM client averages by industry. Not a guarantee of results.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CALCULATOR -->
+  <section id="calculator-section">
+    <div class="calc-wrapper">
+
+      <!-- ── INPUT PANEL ──────────────────────────────── -->
+      <div class="calc-inputs">
+        <div class="calc-inputs-header">
+          <div class="calc-inputs-title">Tell us about your business</div>
+          <div class="calc-inputs-sub">Takes about 60 seconds. No email required.</div>
+        </div>
+        <div class="calc-inputs-body">
+
+          <!-- Step nav -->
+          <div class="calc-steps-nav" role="tablist" aria-label="Calculator steps">
+            <button class="calc-step-btn active" data-step="1" role="tab" aria-selected="true">1 · Industry</button>
+            <button class="calc-step-btn" data-step="2" role="tab" aria-selected="false">2 · Revenue</button>
+            <button class="calc-step-btn" data-step="3" role="tab" aria-selected="false">3 · Social</button>
+            <button class="calc-step-btn" data-step="4" role="tab" aria-selected="false">4 · Ads</button>
+          </div>
+
+          <!-- Step 1: Industry -->
+          <div class="calc-step-panel active" id="step-1">
+            <div class="step-title">
+              <div class="step-num">1</div>
+              What type of business do you run?
+            </div>
+            <div class="industry-grid" role="group" aria-label="Industry selection">
+              <div class="industry-card" data-industry="retail" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">🎁</span><span class="ic-name">Retail / Gift</span>
+              </div>
+              <div class="industry-card" data-industry="photo" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">📸</span><span class="ic-name">Photography / Creative</span>
+              </div>
+              <div class="industry-card" data-industry="realestate" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">🏠</span><span class="ic-name">Real Estate / Mortgage</span>
+              </div>
+              <div class="industry-card" data-industry="legal" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">⚖️</span><span class="ic-name">Law / Professional</span>
+              </div>
+              <div class="industry-card" data-industry="health" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">🏋️</span><span class="ic-name">Health / Fitness</span>
+              </div>
+              <div class="industry-card" data-industry="trades" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">🔧</span><span class="ic-name">Trades / Home Services</span>
+              </div>
+              <div class="industry-card" data-industry="restaurant" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">🍽️</span><span class="ic-name">Restaurant / Food</span>
+              </div>
+              <div class="industry-card" data-industry="other" tabindex="0" role="radio" aria-checked="false">
+                <span class="ic-emoji">🏢</span><span class="ic-name">Other Local Business</span>
+              </div>
+            </div>
+            <div class="calc-nav">
+              <button class="calc-nav-btn primary" id="step1Next" disabled>Next: Revenue →</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Revenue -->
+          <div class="calc-step-panel" id="step-2">
+            <div class="step-title">
+              <div class="step-num">2</div>
+              What's your approximate annual revenue?
+            </div>
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span class="slider-label">Annual Revenue</span>
+                <span class="slider-value"><span class="val-prefix">$</span><span id="revenueDisplay">250,000</span></span>
+              </div>
+              <p class="slider-sub">Drag to your rough annual revenue. This helps us estimate your conversion opportunity.</p>
+              <input type="range" id="revenueSlider" min="0" max="10" value="3" aria-label="Annual revenue" />
+              <div class="range-ticks">
+                <span class="range-tick">$50K</span>
+                <span class="range-tick">$250K</span>
+                <span class="range-tick">$500K</span>
+                <span class="range-tick">$1M</span>
+                <span class="range-tick">$2M+</span>
+              </div>
+            </div>
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span class="slider-label">Avg. Customer Value</span>
+                <span class="slider-value"><span class="val-prefix">$</span><span id="avgValueDisplay">500</span></span>
+              </div>
+              <p class="slider-sub">How much does an average customer spend with you per transaction or per year?</p>
+              <input type="range" id="avgValueSlider" min="0" max="10" value="4" aria-label="Average customer value" />
+              <div class="range-ticks">
+                <span class="range-tick">$50</span>
+                <span class="range-tick">$250</span>
+                <span class="range-tick">$500</span>
+                <span class="range-tick">$2K</span>
+                <span class="range-tick">$10K+</span>
+              </div>
+            </div>
+            <div class="calc-nav">
+              <button class="calc-nav-btn" id="step2Back">← Back</button>
+              <button class="calc-nav-btn primary" id="step2Next">Next: Social Media →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Social Media -->
+          <div class="calc-step-panel" id="step-3">
+            <div class="step-title">
+              <div class="step-num">3</div>
+              How's your social media right now?
+            </div>
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span class="slider-label">Total Followers (all platforms)</span>
+                <span class="slider-value"><span id="followersDisplay">500</span></span>
+              </div>
+              <p class="slider-sub">Combined followers across Facebook, Instagram, and other platforms you're active on.</p>
+              <input type="range" id="followersSlider" min="0" max="10" value="3" aria-label="Total followers" />
+              <div class="range-ticks">
+                <span class="range-tick">0</span>
+                <span class="range-tick">500</span>
+                <span class="range-tick">2K</span>
+                <span class="range-tick">10K</span>
+                <span class="range-tick">25K+</span>
+              </div>
+            </div>
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span class="slider-label">How often do you post?</span>
+                <span class="slider-value" style="font-size:15px;"><span id="postingDisplay">1-2×/week</span></span>
+              </div>
+              <input type="range" id="postingSlider" min="0" max="4" value="2" aria-label="Posting frequency" />
+              <div class="range-ticks">
+                <span class="range-tick">Never</span>
+                <span class="range-tick">Rarely</span>
+                <span class="range-tick">1-2×/wk</span>
+                <span class="range-tick">Daily</span>
+                <span class="range-tick">2×+/day</span>
+              </div>
+            </div>
+            <div class="slider-group">
+              <div class="slider-label-row">
+                <span class="slider-label">Engagement rate (estimated)</span>
+                <span class="slider-value"><span id="engagementDisplay">2</span><span class="val-prefix">%</span></span>
+              </div>
+              <p class="slider-sub">What % of your followers typically like, comment, or share your posts?</p>
+              <input type="range" id="engagementSlider" min="0" max="10" value="2" aria-label="Engagement rate" />
+              <div class="range-ticks">
+                <span class="range-tick">0%</span>
+                <span class="range-tick">1%</span>
+                <span class="range-tick">3%</span>
+                <span class="range-tick">6%</span>
+                <span class="range-tick">10%+</span>
+              </div>
+            </div>
+            <div class="calc-nav">
+              <button class="calc-nav-btn" id="step3Back">← Back</button>
+              <button class="calc-nav-btn primary" id="step3Next">Next: Paid Ads →</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Ads -->
+          <div class="calc-step-panel" id="step-4">
+            <div class="step-title">
+              <div class="step-num">4</div>
+              Are you running paid social media ads?
+            </div>
+            <div class="toggle-group" role="group" aria-label="Running ads">
+              <div class="toggle-opt" data-ads="none" tabindex="0">No ads at all</div>
+              <div class="toggle-opt" data-ads="boosting" tabindex="0">Just boosting posts</div>
+              <div class="toggle-opt" data-ads="some" tabindex="0">Running some campaigns</div>
+              <div class="toggle-opt" data-ads="active" tabindex="0">Actively running Meta Ads</div>
+            </div>
+
+            <div class="slider-group" id="adSpendGroup" style="display:none;">
+              <div class="slider-label-row">
+                <span class="slider-label">Monthly Ad Spend</span>
+                <span class="slider-value"><span class="val-prefix">$</span><span id="adSpendDisplay">500</span>/mo</span>
+              </div>
+              <input type="range" id="adSpendSlider" min="0" max="8" value="3" aria-label="Monthly ad spend" />
+              <div class="range-ticks">
+                <span class="range-tick">$100</span>
+                <span class="range-tick">$500</span>
+                <span class="range-tick">$1K</span>
+                <span class="range-tick">$3K</span>
+                <span class="range-tick">$5K+</span>
+              </div>
+            </div>
+
+            <div class="calc-nav">
+              <button class="calc-nav-btn" id="step4Back">← Back</button>
+              <button class="calc-nav-btn primary" id="calcRun" disabled>
+                📊 Calculate My ROI
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── RESULTS PANEL ────────────────────────────── -->
+      <div class="calc-results" id="resultsPanel" role="region" aria-label="ROI results" aria-live="polite">
+        <div class="results-header">
+          <div class="results-title">Your ROI Estimate</div>
+        </div>
+
+        <!-- Placeholder (shown before calc runs) -->
+        <div class="results-placeholder" id="resultsPlaceholder">
+          <div class="placeholder-icon">📊</div>
+          <p class="placeholder-text">Fill in your business details on the left and we'll show you how much revenue your social media could be generating — and where the biggest gaps are.</p>
+          <div class="placeholder-arrow">↙</div>
+        </div>
+
+        <!-- Results (hidden until calc runs) -->
+        <div id="resultsContent" style="display:none;">
+
+          <div class="results-revenue">
+            <div class="revenue-label">Estimated Annual Revenue Opportunity</div>
+            <div class="revenue-row">
+              <div class="revenue-num green" id="opportunityNum">$0</div>
+            </div>
+            <div class="revenue-sub" id="opportunitySub">Based on your industry, audience size, and conversion benchmarks.</div>
+          </div>
+
+          <div class="results-breakdown">
+            <div class="breakdown-title">What's driving this</div>
+            <div class="breakdown-item">
+              <span class="breakdown-label"><span class="breakdown-icon">👥</span> Reachable audience</span>
+              <span class="breakdown-value" id="reachableAudience">—</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label"><span class="breakdown-icon">🎯</span> Est. monthly leads</span>
+              <span class="breakdown-value highlight" id="monthlyLeads">—</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label"><span class="breakdown-icon">💰</span> Est. monthly revenue</span>
+              <span class="breakdown-value highlight" id="monthlyRevenue">—</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label"><span class="breakdown-icon">📈</span> Current conversion rate</span>
+              <span class="breakdown-value amber" id="currentConversion">—</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label"><span class="breakdown-icon">🚀</span> SFM target rate</span>
+              <span class="breakdown-value highlight" id="targetConversion">—</span>
+            </div>
+          </div>
+
+          <div class="gap-bar-wrap">
+            <div class="gap-bar-label">Revenue Potential vs. Current</div>
+            <div class="gap-bars">
+              <div class="gap-row">
+                <div class="gap-name">Now</div>
+                <div class="gap-track"><div class="gap-fill current" id="barCurrent" style="width:0%"></div></div>
+                <div class="gap-val" id="barCurrentVal">$0</div>
+              </div>
+              <div class="gap-row">
+                <div class="gap-name">With SFM</div>
+                <div class="gap-track"><div class="gap-fill potential" id="barPotential" style="width:0%"></div></div>
+                <div class="gap-val" id="barPotentialVal">$0</div>
+              </div>
+              <div class="gap-row">
+                <div class="gap-name">Optimal</div>
+                <div class="gap-track"><div class="gap-fill optimal" id="barOptimal" style="width:0%"></div></div>
+                <div class="gap-val" id="barOptimalVal">$0</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-insights">
+            <div id="insightsList"></div>
+          </div>
+
+          <div class="results-cta">
+            <div class="results-cta-headline" id="ctaHeadline">You're leaving money on the table.</div>
+            <div class="results-cta-sub" id="ctaSub">Book a free strategy call and find out how to close the gap.</div>
+            <!-- UPDATE: Replace href with your real Calendly link -->
+            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="results-cta-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Book My Free Strategy Call
+            </a>
+            <a href="sfm-results.html" class="results-cta-secondary">
+              See real client results first →
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BOTTOM STATS -->
+  <section id="calc-bottom">
+    <div class="container">
+      <div class="bottom-grid">
+        <div class="bottom-card">
+          <div class="bc-icon">💰</div>
+          <div class="bc-num"><span>3</span>×</div>
+          <div class="bc-label">Average sales growth seen by SFM clients in the first 90 days</div>
+        </div>
+        <div class="bc-card bottom-card">
+          <div class="bc-icon">🏆</div>
+          <div class="bc-num"><span>127</span>+</div>
+          <div class="bc-label">Northwest Ohio businesses that have worked with Sales Funnel Marketing</div>
+        </div>
+        <div class="bc-card bottom-card">
+          <div class="bc-icon">⭐</div>
+          <div class="bc-num"><span>5.0</span></div>
+          <div class="bc-label">Google rating across 37 verified reviews — all from real NW Ohio business owners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- DISCLAIMER -->
+  <section id="disclaimer">
+    <div class="container">
+      <div class="disc-inner">
+        <div class="disc-title">About these estimates</div>
+        <p class="disc-text">The ROI estimates in this calculator are based on industry conversion benchmarks and Sales Funnel Marketing client averages. They are illustrative projections, not guarantees of revenue. Actual results vary depending on market conditions, competitive landscape, content quality, ad budget, and execution. This tool is designed to help you think clearly about the opportunity — not to promise a specific outcome. On your free strategy call, Jayson will give you a more realistic picture based on your specific situation.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section id="calc-cta">
+    <div class="container">
+      <div class="calc-cta-inner reveal">
+        <h2 class="calc-cta-headline">The estimate is one thing.<br />The real conversation is better.</h2>
+        <p class="calc-cta-sub">Book a free 30-minute call. Jayson will look at your actual accounts and tell you exactly what he'd do — no scripts, no pressure.</p>
+        <div class="calc-cta-btns">
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-white">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book My Free Strategy Call
+          </a>
+          <a href="tel:+14193084576" class="btn btn-ghost-white">Call 419-308-4576</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Sales<span>Funnel</span> Marketing</div>
+          <p class="footer-tagline">Northwest Ohio's premier social media growth agency. Human Focused. AI Optimized.</p>
+          <a href="tel:+14193084576" class="footer-phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (419) 308-4576
+          </a>
+        </div>
+        <div>
+          <div class="footer-heading">Pages</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sfm-services.html">Services</a></li>
+            <li><a href="sfm-results.html">Results</a></li>
+            <li><a href="sfm-about.html">About</a></li>
+            <li><a href="sfm-the-scroll.html">The Book</a></li>
+            <li><a href="sfm-contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="sfm-roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="sfm-score-quiz.html">Social Media Score Quiz</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Get in Touch</div>
+          <ul class="footer-links">
+            <li><a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a></li>
+            <li><a href="tel:+14193084576">(419) 308-4576</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 Sales Funnel Marketing LLC · Perrysburg, Ohio</div>
+        <div class="footer-socials">
+          <a href="#" class="footer-social">f</a>
+          <a href="#" class="footer-social">in</a>
+          <a href="#" class="footer-social">li</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* ─── Nav ─────────────────────────────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+
+    /* ─── Reveal ──────────────────────────────────────────── */
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 }).observe(...(document.querySelectorAll('.reveal').length ? document.querySelectorAll('.reveal') : [document.body]));
+
+    /* ─── DATA TABLES ─────────────────────────────────────── */
+    const REVENUE_VALS   = [50000, 100000, 150000, 250000, 350000, 500000, 750000, 1000000, 1500000, 2000000, 3000000];
+    const AVGVAL_VALS    = [50, 100, 200, 350, 500, 750, 1000, 2000, 3500, 5000, 10000];
+    const FOLLOWER_VALS  = [0, 100, 250, 500, 1000, 2000, 5000, 10000, 15000, 20000, 25000];
+    const POSTING_LABELS = ['Never', 'Rarely (1×/month)', '1–2×/week', 'Daily', '2×+/day'];
+    const POSTING_SCORE  = [0, 0.2, 0.5, 0.8, 1.0];
+    const ENGAGEMENT_VALS= [0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10];
+    const AD_SPEND_VALS  = [100, 200, 300, 500, 750, 1000, 1500, 2500, 5000];
+
+    // Industry multipliers: { convBase, convSFM, reachMult, label }
+    const INDUSTRY_DATA = {
+      retail:     { convBase: 0.018, convSFM: 0.045, reachMult: 3.2,  label: 'Retail / Gift' },
+      photo:      { convBase: 0.012, convSFM: 0.038, reachMult: 2.8,  label: 'Photography' },
+      realestate: { convBase: 0.008, convSFM: 0.022, reachMult: 4.5,  label: 'Real Estate / Mortgage' },
+      legal:      { convBase: 0.006, convSFM: 0.018, reachMult: 5.0,  label: 'Law / Professional' },
+      health:     { convBase: 0.020, convSFM: 0.052, reachMult: 2.5,  label: 'Health / Fitness' },
+      trades:     { convBase: 0.010, convSFM: 0.030, reachMult: 4.0,  label: 'Trades / Home Services' },
+      restaurant: { convBase: 0.025, convSFM: 0.058, reachMult: 2.0,  label: 'Restaurant / Food' },
+      other:      { convBase: 0.012, convSFM: 0.030, reachMult: 3.0,  label: 'Local Business' },
+    };
+
+    /* ─── STATE ───────────────────────────────────────────── */
+    const state = {
+      industry: null,
+      revenue: 250000,
+      avgVal: 500,
+      followers: 500,
+      postingIdx: 2,
+      engagement: 2,
+      adsStatus: null,
+      adSpend: 500,
+      currentStep: 1,
+    };
+
+    /* ─── HELPERS ─────────────────────────────────────────── */
+    function fmt(n) {
+      if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
+      if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
+      return '$' + Math.round(n).toLocaleString();
+    }
+    function fmtNum(n) {
+      if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+      if (n >= 1000) return Math.round(n/1000) + 'K';
+      return Math.round(n).toLocaleString();
+    }
+
+    /* ─── SLIDER UPDATES ──────────────────────────────────── */
+    const revenueSlider = document.getElementById('revenueSlider');
+    const revenueDisplay = document.getElementById('revenueDisplay');
+    revenueSlider.addEventListener('input', () => {
+      const v = REVENUE_VALS[revenueSlider.value];
+      state.revenue = v;
+      revenueDisplay.textContent = v >= 1000000 ? (v/1000000).toFixed(1)+'M' : (v/1000)+'K';
+    });
+
+    const avgValueSlider = document.getElementById('avgValueSlider');
+    const avgValueDisplay = document.getElementById('avgValueDisplay');
+    avgValueSlider.addEventListener('input', () => {
+      const v = AVGVAL_VALS[avgValueSlider.value];
+      state.avgVal = v;
+      avgValueDisplay.textContent = v >= 1000 ? (v/1000)+'K' : v;
+    });
+
+    const followersSlider = document.getElementById('followersSlider');
+    const followersDisplay = document.getElementById('followersDisplay');
+    followersSlider.addEventListener('input', () => {
+      const v = FOLLOWER_VALS[followersSlider.value];
+      state.followers = v;
+      followersDisplay.textContent = v >= 1000 ? (v/1000)+'K' : v;
+    });
+
+    const postingSlider = document.getElementById('postingSlider');
+    const postingDisplay = document.getElementById('postingDisplay');
+    postingSlider.addEventListener('input', () => {
+      state.postingIdx = parseInt(postingSlider.value);
+      postingDisplay.textContent = POSTING_LABELS[state.postingIdx];
+    });
+
+    const engagementSlider = document.getElementById('engagementSlider');
+    const engagementDisplay = document.getElementById('engagementDisplay');
+    engagementSlider.addEventListener('input', () => {
+      const v = ENGAGEMENT_VALS[engagementSlider.value];
+      state.engagement = v;
+      engagementDisplay.textContent = v;
+    });
+
+    const adSpendSlider = document.getElementById('adSpendSlider');
+    const adSpendDisplay = document.getElementById('adSpendDisplay');
+    adSpendSlider.addEventListener('input', () => {
+      const v = AD_SPEND_VALS[adSpendSlider.value];
+      state.adSpend = v;
+      adSpendDisplay.textContent = v >= 1000 ? (v/1000)+'K' : v;
+    });
+
+    /* ─── STEP NAVIGATION ─────────────────────────────────── */
+    function goStep(n) {
+      document.querySelectorAll('.calc-step-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('step-' + n).classList.add('active');
+      document.querySelectorAll('.calc-step-btn').forEach((btn, i) => {
+        btn.classList.remove('active', 'done');
+        if (i + 1 === n) btn.classList.add('active');
+        if (i + 1 < n)  btn.classList.add('done');
+      });
+      state.currentStep = n;
+    }
+
+    document.getElementById('step1Next').addEventListener('click', () => goStep(2));
+    document.getElementById('step2Back').addEventListener('click', () => goStep(1));
+    document.getElementById('step2Next').addEventListener('click', () => goStep(3));
+    document.getElementById('step3Back').addEventListener('click', () => goStep(2));
+    document.getElementById('step3Next').addEventListener('click', () => goStep(4));
+    document.getElementById('step4Back').addEventListener('click', () => goStep(3));
+
+    document.querySelectorAll('.calc-step-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const s = parseInt(btn.getAttribute('data-step'));
+        if (s <= state.currentStep) goStep(s);
+      });
+    });
+
+    /* ─── INDUSTRY SELECTION ──────────────────────────────── */
+    document.querySelectorAll('.industry-card').forEach(card => {
+      const activate = () => {
+        document.querySelectorAll('.industry-card').forEach(c => { c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
+        card.classList.add('selected');
+        card.setAttribute('aria-checked', 'true');
+        state.industry = card.getAttribute('data-industry');
+        document.getElementById('step1Next').disabled = false;
+      };
+      card.addEventListener('click', activate);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    });
+
+    /* ─── ADS TOGGLE ──────────────────────────────────────── */
+    const calcRunBtn = document.getElementById('calcRun');
+    document.querySelectorAll('.toggle-opt').forEach(opt => {
+      const activate = () => {
+        document.querySelectorAll('.toggle-opt').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+        state.adsStatus = opt.getAttribute('data-ads');
+        const showSpend = state.adsStatus === 'some' || state.adsStatus === 'active';
+        document.getElementById('adSpendGroup').style.display = showSpend ? 'block' : 'none';
+        calcRunBtn.disabled = false;
+      };
+      opt.addEventListener('click', activate);
+      opt.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    });
+
+    /* ─── CALCULATION ENGINE ──────────────────────────────── */
+    calcRunBtn.addEventListener('click', runCalc);
+
+    function runCalc() {
+      const ind = INDUSTRY_DATA[state.industry] || INDUSTRY_DATA.other;
+
+      // Reach: followers × reachMult (organic reach expansion with SFM)
+      const currentReach = Math.max(state.followers * 0.08, 50); // organic reach ~8%
+      const sfmReach = state.followers * ind.reachMult * (0.5 + POSTING_SCORE[state.postingIdx] * 0.5);
+      const sfmReachWithAds = state.adsStatus === 'active' || state.adsStatus === 'some'
+        ? sfmReach + (state.adSpend * 180) // rough ad reach per dollar
+        : sfmReach * 1.3;
+
+      // Conversions
+      const currentConv = ind.convBase * (0.5 + state.engagement / 20);
+      const sfmConv = ind.convSFM;
+
+      // Leads per month
+      const currentLeads = currentReach * currentConv;
+      const sfmLeads = sfmReachWithAds / 30 * sfmConv * 30; // monthly
+
+      // Revenue
+      const currentMonthlyRev = currentLeads * state.avgVal;
+      const sfmMonthlyRev = sfmLeads * state.avgVal;
+      const sfmAnnualRev = sfmMonthlyRev * 12;
+
+      // Optimal (best case)
+      const optimalMonthlyRev = sfmMonthlyRev * 1.5;
+      const optimalAnnualRev = optimalMonthlyRev * 12;
+
+      // Bar scale (max = optimal)
+      const barMax = optimalAnnualRev;
+      const currentPct = Math.min((currentMonthlyRev * 12 / barMax) * 100, 95);
+      const sfmPct = Math.min((sfmAnnualRev / barMax) * 100, 85);
+
+      // Display
+      document.getElementById('resultsPlaceholder').style.display = 'none';
+      document.getElementById('resultsContent').style.display = 'block';
+
+      // Animate the big number
+      animateNum(document.getElementById('opportunityNum'), sfmAnnualRev, true);
+
+      document.getElementById('reachableAudience').textContent = fmtNum(sfmReachWithAds);
+      document.getElementById('monthlyLeads').textContent = Math.round(sfmLeads) + ' leads/mo';
+      document.getElementById('monthlyRevenue').textContent = fmt(sfmMonthlyRev) + '/mo';
+      document.getElementById('currentConversion').textContent = (currentConv * 100).toFixed(1) + '%';
+      document.getElementById('targetConversion').textContent = (sfmConv * 100).toFixed(1) + '%';
+
+      // Bars
+      setTimeout(() => {
+        document.getElementById('barCurrent').style.width = Math.max(currentPct, 3) + '%';
+        document.getElementById('barPotential').style.width = Math.max(sfmPct, 10) + '%';
+        document.getElementById('barOptimal').style.width = '90%';
+      }, 100);
+      document.getElementById('barCurrentVal').textContent = fmt(currentMonthlyRev * 12);
+      document.getElementById('barPotentialVal').textContent = fmt(sfmAnnualRev);
+      document.getElementById('barOptimalVal').textContent = fmt(optimalAnnualRev);
+
+      // Insights
+      const insights = generateInsights(state, ind, currentLeads, sfmLeads, currentConv, sfmConv);
+      const list = document.getElementById('insightsList');
+      list.innerHTML = insights.map(i =>
+        `<div class="insight-item">
+          <div class="insight-dot ${i.type}"></div>
+          <div class="insight-text">${i.text}</div>
+        </div>`
+      ).join('');
+
+      // CTA headline
+      const gap = sfmAnnualRev - (currentMonthlyRev * 12);
+      if (gap > 50000) {
+        document.getElementById('ctaHeadline').textContent = `You could be missing ${fmt(gap)}/year.`;
+        document.getElementById('ctaSub').textContent = "Let's find out how much of that is recoverable. Book a free call — no pitch, just straight talk.";
+      } else if (gap > 10000) {
+        document.getElementById('ctaHeadline').textContent = "There's real money being left on the table.";
+        document.getElementById('ctaSub').textContent = "A free strategy call will show you exactly where the leaks are and how to plug them.";
+      } else {
+        document.getElementById('ctaHeadline').textContent = "You're doing better than most — but there's still room to grow.";
+        document.getElementById('ctaSub').textContent = "Book a free call and we'll show you the specific moves that would push you to the next level.";
+      }
+
+      // Scroll to results on mobile
+      if (window.innerWidth < 960) {
+        document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function generateInsights(s, ind, curLeads, sfmLeads, curConv, sfmConv) {
+      const insights = [];
+
+      if (s.postingIdx <= 1) {
+        insights.push({ type: 'amber', text: '<strong>Posting consistency is your #1 gap.</strong> You\'re not showing up regularly enough for the algorithm — or your audience — to pay attention.' });
+      } else if (s.postingIdx >= 3) {
+        insights.push({ type: 'green', text: '<strong>Your posting frequency is strong.</strong> The opportunity is in content quality and engagement strategy, not volume.' });
+      }
+
+      if (s.engagement < 2) {
+        insights.push({ type: 'orange', text: '<strong>Low engagement is suppressing your organic reach.</strong> When people don\'t interact, the algorithm stops showing your posts. This is fixable.' });
+      }
+
+      if (s.adsStatus === 'none') {
+        insights.push({ type: 'amber', text: '<strong>No paid ads = no accelerant.</strong> Organic growth is real, but Meta Ads with even a modest budget can multiply your reach 4–8× in your local market.' });
+      } else if (s.adsStatus === 'boosting') {
+        insights.push({ type: 'amber', text: '<strong>Boosting posts is the least effective use of ad spend.</strong> A proper Meta Ads campaign with targeting and creative strategy would get you far more for the same budget.' });
+      } else if (s.adsStatus === 'active') {
+        insights.push({ type: 'green', text: '<strong>Running Meta Ads is smart.</strong> The question is whether your campaigns are structured correctly. Most DIY campaigns leave 40–60% of performance on the table.' });
+      }
+
+      const leadsLift = Math.round(sfmLeads - curLeads);
+      if (leadsLift > 5) {
+        insights.push({ type: '', text: `SFM's strategy for your industry typically adds <strong>${leadsLift}+ monthly leads</strong> through a mix of organic community building and paid reach — at your current close rate, that's real revenue.` });
+      }
+
+      return insights.slice(0, 4);
+    }
+
+    function animateNum(el, target, isDollar) {
+      const start = performance.now();
+      const duration = 1400;
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * ease);
+        el.textContent = isDollar ? fmt(current) : fmtNum(current);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+  </script>
+
+</body>
+</html>

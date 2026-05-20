@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Services | Sales Funnel Marketing — Northwest Ohio Social Media Agency</title>
+  <meta name="description" content="Social media management, Meta Ads, content creation, sales funnels, and website design for Northwest Ohio businesses. See what's included in each service." />
+  <meta name="keywords" content="social media management Northwest Ohio, Meta ads Toledo Ohio, content creation agency, sales funnel strategy, website design Toledo" />
+
+  <meta property="og:title" content="Services | Sales Funnel Marketing" />
+  <meta property="og:description" content="Done-for-you social media, ads, content, and funnels for local businesses in Northwest Ohio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/services" />
+
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/services" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================================================
+       DESIGN TOKENS — identical to homepage
+    =================================================== */
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --orange-glow: rgba(232, 93, 38, 0.25);
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --light-gray:  #F0F0F0;
+      --mid-gray:    #CCCCCC;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-w: 1200px;
+      --section-pad: 100px 24px;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* ===================================================
+       BUTTONS
+    =================================================== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px; border-radius: 6px; font-family: var(--font);
+      font-size: 16px; font-weight: 700; cursor: pointer;
+      transition: var(--transition); border: 2px solid transparent;
+      white-space: nowrap; text-decoration: none;
+    }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+    .btn-outline-dark { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+    .btn-white { background: var(--white); color: var(--orange); border-color: var(--white); }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+    .btn-sm { padding: 11px 22px; font-size: 14px; }
+
+    /* ===================================================
+       UTILITY
+    =================================================== */
+    .section-label {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
+    .section-title-light { color: var(--white); }
+    .section-sub { font-size: 18px; color: var(--dark-gray); line-height: 1.7; max-width: 600px; }
+
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ===================================================
+       NAVIGATION
+    =================================================== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 0; background: var(--navy);
+      transition: padding 0.4s ease, box-shadow 0.4s ease;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+    }
+    #navbar.scrolled { padding: 12px 0; }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1.1; flex-shrink: 0; }
+    .nav-logo span { color: var(--orange); }
+    .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s; position: relative; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--orange); border-radius: 2px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--white); }
+    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ===================================================
+       MOBILE MENU
+    =================================================== */
+    .mobile-menu {
+      position: fixed; inset: 0; background: var(--navy); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* ===================================================
+       PAGE HERO (services — dark, no animated bg)
+    =================================================== */
+    #page-hero {
+      background: var(--navy);
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 50%, #0e2245 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 90% 30%, #152240 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(232,93,38,0.06) 0%, transparent 50%);
+    }
+    .page-hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    .page-hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.25);
+      padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--orange);
+    }
+    .page-hero-headline {
+      font-size: clamp(40px, 5vw, 64px); font-weight: 900;
+      color: var(--white); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 20px;
+    }
+    .page-hero-headline .hi { color: var(--orange); }
+    .page-hero-sub { font-size: 19px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 36px; max-width: 580px; }
+    .page-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Service nav pills */
+    #service-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--light-gray);
+      position: sticky; top: 60px; z-index: 90;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .service-nav-inner {
+      display: flex; gap: 4px; overflow-x: auto; padding: 0;
+      scrollbar-width: none;
+    }
+    .service-nav-inner::-webkit-scrollbar { display: none; }
+    .service-nav-link {
+      display: flex; align-items: center; gap: 8px; padding: 18px 24px;
+      font-size: 13px; font-weight: 600; color: var(--dark-gray);
+      border-bottom: 3px solid transparent; transition: var(--transition);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .service-nav-link:hover { color: var(--navy); }
+    .service-nav-link.active { color: var(--orange); border-bottom-color: var(--orange); }
+    .service-nav-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+    /* ===================================================
+       SERVICE SECTIONS (alternating layout)
+    =================================================== */
+    .service-section {
+      padding: var(--section-pad);
+    }
+    .service-section:nth-child(odd) { background: var(--white); }
+    .service-section:nth-child(even) { background: var(--off-white); }
+
+    .service-section-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .service-section-inner.reverse { direction: rtl; }
+    .service-section-inner.reverse > * { direction: ltr; }
+
+    .service-section-content {}
+    .service-section-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 12px; }
+    .service-section-title { font-size: clamp(28px, 3vw, 40px); font-weight: 900; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .service-section-sub { font-size: 17px; color: var(--dark-gray); line-height: 1.75; margin-bottom: 32px; }
+
+    .service-includes-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); margin-bottom: 16px; }
+    .service-includes { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .service-include-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; color: var(--text-body); line-height: 1.5;
+    }
+    .service-include-check {
+      width: 20px; height: 20px; border-radius: 50%; background: rgba(232,93,38,0.1);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+    }
+    .service-include-check svg { flex-shrink: 0; }
+
+    .service-stat-row { display: flex; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; }
+    .service-stat { }
+    .service-stat-num { font-size: 32px; font-weight: 900; color: var(--navy); letter-spacing: -1px; line-height: 1; }
+    .service-stat-num .acc { color: var(--orange); }
+    .service-stat-desc { font-size: 13px; color: var(--dark-gray); margin-top: 4px; }
+
+    /* Visual panel (right side) */
+    .service-visual-panel {
+      background: var(--navy); border-radius: 20px;
+      padding: 40px; position: relative; overflow: hidden;
+    }
+    .service-visual-panel::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(232,93,38,0.08) 0%, transparent 60%);
+    }
+    .panel-icon-wrap {
+      width: 60px; height: 60px; border-radius: 16px;
+      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.25);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+    }
+    .panel-title { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .panel-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px; line-height: 1.6; }
+    .panel-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .panel-feature {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .panel-feature-icon { font-size: 18px; flex-shrink: 0; }
+    .panel-feature-text { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .panel-result-bar {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px; padding: 20px;
+    }
+    .panel-result-label { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 10px; }
+    .panel-result-stat { font-size: 36px; font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; }
+    .panel-result-stat span { color: var(--orange); }
+    .panel-result-desc { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 6px; }
+
+    /* ===================================================
+       PLATFORM / DELIVERABLES GRID
+    =================================================== */
+    .deliverables-section {
+      padding: var(--section-pad);
+      background: var(--navy);
+    }
+    .deliverables-header { text-align: center; margin-bottom: 64px; }
+    .deliverables-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .deliverable-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 32px; transition: var(--transition);
+    }
+    .deliverable-card:hover {
+      background: rgba(255,255,255,0.07); border-color: rgba(232,93,38,0.3);
+      transform: translateY(-4px);
+    }
+    .deliverable-icon { font-size: 28px; margin-bottom: 16px; }
+    .deliverable-title { font-size: 17px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .deliverable-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ===================================================
+       COMPARISON TABLE
+    =================================================== */
+    #packages {
+      padding: var(--section-pad);
+      background: var(--off-white);
+    }
+    .packages-header { text-align: center; margin-bottom: 64px; }
+    .compare-table-wrap { overflow-x: auto; }
+    .compare-table {
+      width: 100%; border-collapse: collapse; font-size: 15px;
+      background: var(--white); border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .compare-table thead th {
+      background: var(--navy); color: var(--white); padding: 20px 24px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-align: left;
+    }
+    .compare-table thead th:first-child { width: 260px; }
+    .compare-table thead th.featured { background: var(--orange); }
+    .compare-table tbody tr { border-bottom: 1px solid var(--light-gray); }
+    .compare-table tbody tr:last-child { border-bottom: none; }
+    .compare-table tbody tr:hover { background: var(--off-white); }
+    .compare-table td { padding: 16px 24px; color: var(--text-body); vertical-align: middle; }
+    .compare-table td:first-child { font-weight: 600; color: var(--navy); }
+    .compare-table td.featured-col { background: rgba(232,93,38,0.04); }
+    .check-yes { color: #22c55e; font-weight: 700; font-size: 16px; }
+    .check-no { color: var(--mid-gray); font-size: 16px; }
+    .check-partial { color: var(--orange); font-weight: 600; font-size: 13px; }
+    .table-section-header td { background: var(--navy-mid); color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 10px 24px; }
+
+    /* ===================================================
+       FAQ SECTION
+    =================================================== */
+    #faq {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+    .faq-sidebar {}
+    .faq-sidebar .section-label { display: block; margin-bottom: 12px; }
+    .faq-sidebar .section-title { font-size: clamp(28px, 3vw, 38px); margin-bottom: 20px; }
+    .faq-sidebar p { font-size: 16px; color: var(--dark-gray); line-height: 1.7; margin-bottom: 32px; }
+    .faq-list { display: flex; flex-direction: column; gap: 2px; }
+    .faq-item {
+      border: 1px solid var(--light-gray); border-radius: var(--radius-sm); overflow: hidden;
+    }
+    .faq-question {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      padding: 20px 24px; cursor: pointer; background: var(--white);
+      font-size: 15px; font-weight: 600; color: var(--navy);
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: var(--off-white); }
+    .faq-chevron { flex-shrink: 0; transition: transform 0.3s ease; color: var(--orange); }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease;
+      padding: 0 24px; font-size: 15px; color: var(--dark-gray); line-height: 1.75;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+
+    /* ===================================================
+       FINAL CTA
+    =================================================== */
+    #cta-final {
+      padding: 80px 0;
+      background: var(--orange);
+      position: relative; overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    }
+    .cta-inner { text-align: center; position: relative; z-index: 1; }
+    .cta-headline { font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
+    .cta-sub { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 40px; line-height: 1.6; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ===================================================
+       FOOTER
+    =================================================== */
+    #footer { background: var(--navy); padding: 72px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .footer-logo { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 24px; }
+    .footer-phone { font-size: 18px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 8px; margin-bottom: 20px; transition: color 0.2s; }
+    .footer-phone:hover { color: var(--orange); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700;
+      transition: var(--transition); text-transform: uppercase;
+    }
+    .footer-social:hover { background: var(--orange); border-color: var(--orange); color: var(--white); transform: translateY(-2px); }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+
+    /* ===================================================
+       RESPONSIVE
+    =================================================== */
+    @media (max-width: 1024px) {
+      .service-section-inner { grid-template-columns: 1fr; gap: 48px; }
+      .service-section-inner.reverse { direction: ltr; }
+      .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+      .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-pad: 72px 20px; }
+      .nav-links, .nav-phone { display: none; }
+      .hamburger { display: flex; }
+      .page-hero-ctas { flex-direction: column; align-items: flex-start; }
+      .service-stat-row { gap: 20px; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .compare-table thead th { padding: 16px; font-size: 12px; }
+      .compare-table td { padding: 14px 16px; font-size: 13px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="sfm-services.html" onclick="closeMobile()">Services</a>
+    <a href="sfm-results.html" onclick="closeMobile()">Results</a>
+    <a href="sfm-about.html" onclick="closeMobile()">About</a>
+    <a href="tel:+14193084576" onclick="closeMobile()">📞 419-308-4576</a>
+    <!-- UPDATE: Replace href with your real Calendly link -->
+    <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
+  </nav>
+
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home">
+          Sales<span>Funnel</span>
+          <small>Marketing</small>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html" class="active">Services</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-about.html">About</a></li>
+          <li><a href="sfm-blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+14193084576" class="nav-phone" aria-label="Call us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary nav-cta">
+            Get Free Strategy Call
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HERO -->
+  <section id="page-hero" aria-label="Services hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <div class="page-hero-eyebrow">Our Services</div>
+        <h1 class="page-hero-headline">
+          Done-for-you marketing<br />that actually <span class="hi">converts.</span>
+        </h1>
+        <p class="page-hero-sub">
+          We handle every part of your social media presence — from content and ads to lead funnels and your website. You focus on running your business. We handle the growth.
+        </p>
+        <div class="page-hero-ctas">
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book a Free Strategy Call
+          </a>
+          <a href="#packages" class="btn btn-outline">See What's Included</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICE NAV -->
+  <div id="service-nav" role="navigation" aria-label="Jump to service">
+    <div class="container">
+      <div class="service-nav-inner">
+        <a href="#social-media" class="service-nav-link"><span class="service-nav-dot"></span>Social Media</a>
+        <a href="#meta-ads" class="service-nav-link"><span class="service-nav-dot"></span>Meta Ads</a>
+        <a href="#content-creation" class="service-nav-link"><span class="service-nav-dot"></span>Content Creation</a>
+        <a href="#sales-funnels" class="service-nav-link"><span class="service-nav-dot"></span>Sales Funnels</a>
+        <a href="#website-design" class="service-nav-link"><span class="service-nav-dot"></span>Website Design</a>
+        <a href="#packages" class="service-nav-link"><span class="service-nav-dot"></span>Compare Packages</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================
+       SERVICE 1: SOCIAL MEDIA MANAGEMENT
+  ====================================================== -->
+  <section id="social-media" class="service-section" aria-labelledby="smm-heading">
+    <div class="container">
+      <div class="service-section-inner">
+
+        <div class="service-section-content reveal">
+          <span class="service-section-label">Service 01</span>
+          <h2 class="service-section-title" id="smm-heading">Social Media Management</h2>
+          <p class="service-section-sub">
+            Consistent, on-brand posting across Facebook and Instagram — without you lifting a finger. We handle the strategy, the content calendar, the captions, the graphics, and the community engagement. Every single month.
+          </p>
+
+          <div class="service-stat-row">
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">4.8K</span></div>
+              <div class="service-stat-desc">Avg. followers gained<br />in 90 days</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">3×</span></div>
+              <div class="service-stat-desc">Average engagement<br />rate increase</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">30+</span></div>
+              <div class="service-stat-desc">Posts created per<br />month, per client</div>
+            </div>
+          </div>
+
+          <p class="service-includes-label">What's included</p>
+          <div class="service-includes">
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Monthly content calendar built around your business goals</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Custom graphic design for every post (branded, scroll-stopping)</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Caption writing that sounds like you — not a marketing bot</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Scheduling and publishing — we handle the posting</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Community management: comments and DMs responded to</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Monthly analytics report showing reach, engagement, and growth</span>
+            </div>
+          </div>
+
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">Start Growing My Audience</a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual-panel">
+            <div class="panel-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div class="panel-title">What Your Feed Looks Like</div>
+            <div class="panel-sub">Consistent, professional, on-brand — every post, every week.</div>
+            <div class="panel-features">
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📅</span>
+                <span class="panel-feature-text">Content calendar delivered every month</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🎨</span>
+                <span class="panel-feature-text">Custom branded graphics, not templates</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">💬</span>
+                <span class="panel-feature-text">Engagement handled — DMs, comments, replies</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📊</span>
+                <span class="panel-feature-text">Monthly performance reporting</span>
+              </div>
+            </div>
+            <div class="panel-result-bar">
+              <div class="panel-result-label">Average Client Result — 90 Days</div>
+              <div class="panel-result-stat"><span>312%</span> more reach</div>
+              <div class="panel-result-desc">Organic reach increase, no ads required</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SERVICE 2: META ADS
+  ====================================================== -->
+  <section id="meta-ads" class="service-section" aria-labelledby="ads-heading">
+    <div class="container">
+      <div class="service-section-inner reverse">
+
+        <div class="service-section-content reveal">
+          <span class="service-section-label">Service 02</span>
+          <h2 class="service-section-title" id="ads-heading">Meta Ads<br />(Facebook &amp; Instagram)</h2>
+          <p class="service-section-sub">
+            Stop burning money on ads that don't work. We build, launch, and optimize Meta ad campaigns using proven funnel architecture — targeting the exact customers in your market who are most likely to buy.
+          </p>
+
+          <div class="service-stat-row">
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">347%</span></div>
+              <div class="service-stat-desc">Avg. lead increase<br />within 60 days</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">4.2×</span></div>
+              <div class="service-stat-desc">Average return on<br />ad spend (ROAS)</div>
+            </div>
+          </div>
+
+          <p class="service-includes-label">What's included</p>
+          <div class="service-includes">
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Full campaign buildout — structure, audiences, creatives, copy</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Audience targeting: local, retargeting, lookalike, and interest-based</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>A/B testing on creatives, headlines, and audiences every month</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Pixel installation, conversion tracking, and custom event setup</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Weekly optimization — bids, budget allocation, and creative refreshes</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Monthly performance report: spend, leads, CPL, ROAS</span>
+            </div>
+          </div>
+
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">Get a Free Ad Audit</a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual-panel">
+            <div class="panel-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="7.5" cy="10" r="1.5" fill="#E85D26"/><path d="M21 10l-5.5-4-4 6-3-2.5L2 16"/></svg>
+            </div>
+            <div class="panel-title">Meta Ads Built to Convert</div>
+            <div class="panel-sub">Every campaign is built with a full funnel: awareness → consideration → conversion.</div>
+            <div class="panel-features">
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🎯</span>
+                <span class="panel-feature-text">Hyper-local audience targeting</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🔁</span>
+                <span class="panel-feature-text">Retargeting for warm audiences</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🧪</span>
+                <span class="panel-feature-text">Continuous A/B testing</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📈</span>
+                <span class="panel-feature-text">Weekly budget optimization</span>
+              </div>
+            </div>
+            <div class="panel-result-bar">
+              <div class="panel-result-label">Client result — Home Services</div>
+              <div class="panel-result-stat"><span>$42K</span> added revenue</div>
+              <div class="panel-result-desc">From Meta Ads alone, in the first quarter</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SERVICE 3: CONTENT CREATION
+  ====================================================== -->
+  <section id="content-creation" class="service-section" aria-labelledby="content-heading">
+    <div class="container">
+      <div class="service-section-inner">
+
+        <div class="service-section-content reveal">
+          <span class="service-section-label">Service 03</span>
+          <h2 class="service-section-title" id="content-heading">Content Creation</h2>
+          <p class="service-section-sub">
+            Scroll-stopping graphics, viral Reels scripts, and captions that convert. We produce a full library of content for your business every month — designed to perform on Facebook, Instagram, and wherever your customers are.
+          </p>
+
+          <div class="service-stat-row">
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">30+</span></div>
+              <div class="service-stat-desc">Content pieces created<br />per month</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">6×</span></div>
+              <div class="service-stat-desc">Avg. share rate vs.<br />DIY content</div>
+            </div>
+          </div>
+
+          <p class="service-includes-label">What's included</p>
+          <div class="service-includes">
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Custom branded graphics sized for every platform</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Reels and short-form video scripts written and storyboarded</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Promotional graphics for sales, events, and announcements</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Story templates, carousels, and engagement-focused content</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Full caption writing — voice-matched to your brand, not generic</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Ad creative assets ready for Meta Ads campaigns</span>
+            </div>
+          </div>
+
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">See Content Samples</a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual-panel">
+            <div class="panel-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+            </div>
+            <div class="panel-title">Content That Gets Shared</div>
+            <div class="panel-sub">We use proven content frameworks — The Audit, The Manifesto, The Reckoning — to engineer engagement.</div>
+            <div class="panel-features">
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🖼️</span>
+                <span class="panel-feature-text">Branded graphics, not stock photos</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🎬</span>
+                <span class="panel-feature-text">Reels scripts written and storyboarded</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">✍️</span>
+                <span class="panel-feature-text">Captions written in your voice</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📣</span>
+                <span class="panel-feature-text">Promo graphics for deals and events</span>
+              </div>
+            </div>
+            <div class="panel-result-bar">
+              <div class="panel-result-label">Client result — Retail Boutique</div>
+              <div class="panel-result-stat"><span>2.4K</span> likes on one post</div>
+              <div class="panel-result-desc">Organic post — no boosting required</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SERVICE 4: SALES FUNNELS
+  ====================================================== -->
+  <section id="sales-funnels" class="service-section" aria-labelledby="funnels-heading">
+    <div class="container">
+      <div class="service-section-inner reverse">
+
+        <div class="service-section-content reveal">
+          <span class="service-section-label">Service 04</span>
+          <h2 class="service-section-title" id="funnels-heading">Sales Funnel Strategy</h2>
+          <p class="service-section-sub">
+            Social media gets attention. Funnels turn that attention into money. We build automated lead capture systems that move people from "just scrolling" to booked, paid, and coming back.
+          </p>
+
+          <div class="service-stat-row">
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">5×</span></div>
+              <div class="service-stat-desc">Average lead volume<br />increase at month 3</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">24/7</span></div>
+              <div class="service-stat-desc">Automated follow-up<br />working while you sleep</div>
+            </div>
+          </div>
+
+          <p class="service-includes-label">What's included</p>
+          <div class="service-includes">
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Funnel strategy and architecture designed around your business model</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Lead magnet creation: free offer, quiz, giveaway, or guide</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Landing page build and copywriting — built to convert visitors</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Automated email/SMS follow-up sequence — 7 to 14 touches</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>CRM integration and lead tracking dashboard</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Monthly funnel optimization based on real conversion data</span>
+            </div>
+          </div>
+
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">Build My Sales Funnel</a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual-panel">
+            <div class="panel-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="panel-title">Your Funnel, On Autopilot</div>
+            <div class="panel-sub">From first click to booked call — automated, tracked, and optimized every month.</div>
+            <div class="panel-features">
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🧲</span>
+                <span class="panel-feature-text">Lead magnet attracts ideal customers</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📧</span>
+                <span class="panel-feature-text">Automated email + SMS follow-up</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📆</span>
+                <span class="panel-feature-text">Booking system integration</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🔄</span>
+                <span class="panel-feature-text">Retargeting loops bring lost leads back</span>
+              </div>
+            </div>
+            <div class="panel-result-bar">
+              <div class="panel-result-label">Client result — Service Business</div>
+              <div class="panel-result-stat"><span>5×</span> more booked calls</div>
+              <div class="panel-result-desc">Same ad spend, automated nurture added</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       SERVICE 5: WEBSITE DESIGN
+  ====================================================== -->
+  <section id="website-design" class="service-section" aria-labelledby="web-heading">
+    <div class="container">
+      <div class="service-section-inner">
+
+        <div class="service-section-content reveal">
+          <span class="service-section-label">Service 05</span>
+          <h2 class="service-section-title" id="web-heading">Website Design</h2>
+          <p class="service-section-sub">
+            Your website is your 24/7 salesperson. We design and build fast, professional websites that convert visitors into leads — built to complement your social media and funnel strategy.
+          </p>
+
+          <div class="service-stat-row">
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">2.8×</span></div>
+              <div class="service-stat-desc">Avg. conversion rate<br />improvement</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-num"><span class="acc">&lt;3s</span></div>
+              <div class="service-stat-desc">Target page load<br />speed on mobile</div>
+            </div>
+          </div>
+
+          <p class="service-includes-label">What's included</p>
+          <div class="service-includes">
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Custom design built around your brand — not a generic template</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Mobile-first, fully responsive on all devices</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Conversion-optimized copy and layout (CTAs, trust signals, proof)</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>On-page SEO: titles, meta descriptions, schema markup, speed</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Contact forms, booking integration, and lead capture</span>
+            </div>
+            <div class="service-include-item">
+              <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Google Analytics setup and basic post-launch support</span>
+            </div>
+          </div>
+
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">Get a Website Quote</a>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="service-visual-panel">
+            <div class="panel-icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="panel-title">Sites That Sell</div>
+            <div class="panel-sub">Built to convert — not just to look pretty. Every design decision is made with your customer's journey in mind.</div>
+            <div class="panel-features">
+              <div class="panel-feature">
+                <span class="panel-feature-icon">📱</span>
+                <span class="panel-feature-text">Mobile-first design — 70%+ traffic is mobile</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">⚡</span>
+                <span class="panel-feature-text">Fast loading — under 3 seconds on mobile</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">🔍</span>
+                <span class="panel-feature-text">SEO-optimized from day one</span>
+              </div>
+              <div class="panel-feature">
+                <span class="panel-feature-icon">💰</span>
+                <span class="panel-feature-text">Conversion-first layout and copy</span>
+              </div>
+            </div>
+            <div class="panel-result-bar">
+              <div class="panel-result-label">Typical outcome</div>
+              <div class="panel-result-stat"><span>2.8×</span> more leads</div>
+              <div class="panel-result-desc">Same traffic, better converting site</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       DELIVERABLES OVERVIEW (dark band)
+  ====================================================== -->
+  <section class="deliverables-section" aria-labelledby="deliverables-heading">
+    <div class="container">
+      <div class="deliverables-header reveal">
+        <span class="section-label" style="color:rgba(232,93,38,0.9)">Everything You Get</span>
+        <h2 class="section-title section-title-light" id="deliverables-heading">
+          A full marketing department.<br />At a fraction of the cost.
+        </h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.5); margin: 16px auto 0;">
+          Hiring an in-house marketing team costs $8,000–$15,000/month. We give you the same firepower without the overhead.
+        </p>
+      </div>
+
+      <div class="deliverables-grid">
+        <div class="deliverable-card reveal">
+          <div class="deliverable-icon">📊</div>
+          <div class="deliverable-title">Monthly Strategy Session</div>
+          <div class="deliverable-desc">A dedicated call to review performance, plan the next month, and adjust direction based on what's working.</div>
+        </div>
+        <div class="deliverable-card reveal reveal-delay-1">
+          <div class="deliverable-icon">🎨</div>
+          <div class="deliverable-title">Content Calendar & Graphics</div>
+          <div class="deliverable-desc">Your full month of content, designed and scheduled before the month starts. All branded. All approved by you first.</div>
+        </div>
+        <div class="deliverable-card reveal reveal-delay-2">
+          <div class="deliverable-icon">📣</div>
+          <div class="deliverable-title">Ad Campaign Management</div>
+          <div class="deliverable-desc">Active campaign monitoring, weekly optimizations, and new creative refreshes to keep performance strong.</div>
+        </div>
+        <div class="deliverable-card reveal">
+          <div class="deliverable-icon">📈</div>
+          <div class="deliverable-title">Monthly Performance Report</div>
+          <div class="deliverable-desc">A clear, plain-English report showing what's working: reach, engagement, leads, cost per lead, and ROAS.</div>
+        </div>
+        <div class="deliverable-card reveal reveal-delay-1">
+          <div class="deliverable-icon">🤝</div>
+          <div class="deliverable-title">Dedicated Account Manager</div>
+          <div class="deliverable-desc">One point of contact who knows your business, your goals, and your customers — not a ticket system.</div>
+        </div>
+        <div class="deliverable-card reveal reveal-delay-2">
+          <div class="deliverable-icon">🔒</div>
+          <div class="deliverable-title">90-Day Results Guarantee</div>
+          <div class="deliverable-desc">We're confident in our system. If we don't hit agreed-upon benchmarks in 90 days, we work for free until we do.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       PACKAGE COMPARISON TABLE
+  ====================================================== -->
+  <section id="packages" aria-labelledby="packages-heading">
+    <div class="container">
+      <div class="packages-header reveal">
+        <span class="section-label">Packages</span>
+        <h2 class="section-title" id="packages-heading">Find the right fit for your business</h2>
+        <p class="section-sub" style="margin: 16px auto 0;">
+          Every package is customized to your business. These are starting points — your actual proposal will be tailored to your goals and budget.
+        </p>
+      </div>
+
+      <div class="compare-table-wrap reveal">
+        <table class="compare-table" role="table" aria-label="Service package comparison">
+          <thead>
+            <tr>
+              <th scope="col">What's Included</th>
+              <th scope="col">Starter</th>
+              <th scope="col" class="featured">Growth ★ Most Popular</th>
+              <th scope="col">Authority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-section-header"><td colspan="4">Social Media</td></tr>
+            <tr>
+              <td>Posts per month</td>
+              <td>12</td>
+              <td class="featured-col">20</td>
+              <td>30+</td>
+            </tr>
+            <tr>
+              <td>Custom branded graphics</td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Caption writing</td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Community management</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Reels / video scripts</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-partial">4/mo</span></td>
+              <td><span class="check-yes">✓ Unlimited</span></td>
+            </tr>
+
+            <tr class="table-section-header"><td colspan="4">Meta Advertising</td></tr>
+            <tr>
+              <td>Campaign management</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>Ad creative included</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>A/B testing</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓ Advanced</span></td>
+            </tr>
+
+            <tr class="table-section-header"><td colspan="4">Funnel & Automation</td></tr>
+            <tr>
+              <td>Lead funnel strategy</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-partial">Basic</span></td>
+              <td><span class="check-yes">✓ Full build</span></td>
+            </tr>
+            <tr>
+              <td>Email/SMS automation</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-partial">Email only</span></td>
+              <td><span class="check-yes">✓ Email + SMS</span></td>
+            </tr>
+            <tr>
+              <td>CRM integration</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-no">–</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+
+            <tr class="table-section-header"><td colspan="4">Support & Reporting</td></tr>
+            <tr>
+              <td>Monthly strategy call</td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓ Bi-weekly</span></td>
+            </tr>
+            <tr>
+              <td>Performance report</td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓ Weekly</span></td>
+            </tr>
+            <tr>
+              <td>Dedicated account manager</td>
+              <td><span class="check-no">–</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td>90-day guarantee</td>
+              <td><span class="check-yes">✓</span></td>
+              <td class="featured-col"><span class="check-yes">✓</span></td>
+              <td><span class="check-yes">✓</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:800; color: var(--navy);">Starting at</td>
+              <td style="font-weight:800; font-size:18px;">Custom</td>
+              <td class="featured-col" style="font-weight:900; font-size:20px; color:var(--orange);">Custom</td>
+              <td style="font-weight:800; font-size:18px;">Custom</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reveal" style="text-align:center; margin-top: 40px;">
+        <p style="font-size:15px; color:var(--dark-gray); margin-bottom: 24px;">Every engagement starts with a free strategy call. We'll build a custom proposal for your business — no cookie-cutter pricing.</p>
+        <!-- UPDATE: Replace href with your real Calendly link -->
+        <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">
+          Get My Custom Proposal
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FAQ
+  ====================================================== -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="faq-inner">
+
+        <div class="reveal">
+          <span class="section-label">FAQs</span>
+          <h2 class="section-title" id="faq-heading">Questions we get all the time</h2>
+          <p>If you don't see your question here, just reach out — we'll give you a straight answer.</p>
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary btn-sm" style="margin-top: 24px;">Ask Us Directly</a>
+        </div>
+
+        <div class="faq-list reveal reveal-delay-1">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How quickly will I see results?
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              Most clients see measurable growth in engagement and reach within the first 30 days. Lead flow typically improves significantly by month 2–3 as content builds momentum and ads are optimized. That's why we offer a 90-day guarantee — we're confident in the timeline.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I need to give you access to my accounts?
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              Yes — we'll need admin access to your Facebook Page, Instagram Business account, and Meta Business Suite. We use secure access protocols and only request the permissions needed to manage your content and ads. Your accounts stay yours.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What does the onboarding process look like?
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              After your strategy call and proposal sign-off, we schedule a 60-minute onboarding session to capture your brand voice, goals, competitors, and customer profile. Within one week, you'll receive your first content calendar for approval. Week two, we go live.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do I have to approve content before it goes out?
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              Absolutely. Every piece of content goes through an approval process before it's published. You'll review the full monthly calendar in advance. Most clients dial back their involvement over time as they trust the process, but the control is always yours.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What's the contract length?
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              We work on a 90-day initial commitment, then month-to-month after that. Social media and paid ads take time to compound — 90 days gives us the runway to actually deliver results. After that, clients stay because it's working, not because of a contract.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is the ad spend included in your fee?
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              No — ad spend goes directly to Meta and is separate from our management fee. This is standard industry practice and means 100% of your ad budget actually goes to running ads. We'll recommend a starting budget during your strategy call based on your goals.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section id="cta-final" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="cta-headline" id="cta-heading">
+          Your competitors are already<br />doing this. Are you?
+        </h2>
+        <p class="cta-sub">
+          Book a free 30-minute strategy call. We'll tell you exactly what we'd do for your business — no pitch, no pressure.
+        </p>
+        <div class="cta-buttons">
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book My Free Strategy Call
+          </a>
+          <a href="tel:+14193084576" class="btn btn-ghost-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 419-308-4576
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">Sales<span>Funnel</span> Marketing</div>
+          <p class="footer-tagline">Northwest Ohio's premier social media growth agency. We help local businesses build audiences that buy.</p>
+          <a href="tel:+14193084576" class="footer-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <div class="footer-socials" role="list" aria-label="Social media links">
+            <!-- UPDATE: Replace # with real social media URLs -->
+            <a href="#" class="footer-social" aria-label="Facebook">Fb</a>
+            <a href="#" class="footer-social" aria-label="Instagram">Ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="YouTube">Yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links" role="list">
+            <li><a href="sfm-services.html">Social Media Management</a></li>
+            <li><a href="sfm-services.html">Meta Ads</a></li>
+            <li><a href="sfm-services.html">Content Creation</a></li>
+            <li><a href="sfm-services.html">Sales Funnels</a></li>
+            <li><a href="sfm-services.html">Website Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links" role="list">
+            <li><a href="sfm-about.html">About Us</a></li>
+            <li><a href="sfm-results.html">Client Results</a></li>
+            <li><a href="sfm-blog.html">Blog</a></li>
+            <li><a href="sfm-blog.html">Free eBook</a></li>
+            <!-- UPDATE: Replace href with your real Calendly link -->
+            <li><a href="https://calendly.com/salesfunnelmarketing">Book a Call</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Service Areas</div>
+          <ul class="footer-links" role="list">
+            <li><a href="sfm-city-toledo.html">Toledo, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Findlay, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Lima, OH</a></li>
+            <li><a href="sfm-city-bowling-green.html">Bowling Green, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Defiance, OH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Sales Funnel Marketing. All rights reserved. | <a href="sfm-privacy.html" style="color:inherit; opacity:0.7;">Privacy Policy</a></p>
+        <div class="footer-bottom-links">
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="sfm-contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // ─── NAVBAR SCROLL ─────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // ─── HAMBURGER MENU ────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobile(); });
+
+    // ─── SCROLL REVEAL ─────────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ─── SERVICE NAV ACTIVE STATE ON SCROLL ────────────────────────
+    const serviceSections = document.querySelectorAll('[id]');
+    const serviceNavLinks = document.querySelectorAll('.service-nav-link');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          serviceNavLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('#social-media, #meta-ads, #content-creation, #sales-funnels, #website-design, #packages').forEach(s => sectionObserver.observe(s));
+
+    // ─── FAQ ACCORDION ─────────────────────────────────────────────
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(open => {
+          open.classList.remove('open');
+          open.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        // Open clicked (if it was closed)
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Scroll — Free Daily Marketing Newsletter | Sales Funnel Marketing</title>
+  <meta name="description" content="Get AI tools, social media tactics, and what's working right now delivered to your inbox every weekday. Free. Written by Jayson Hines of Sales Funnel Marketing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#0A1628; --orange:#E85D26; --white:#FFFFFF; --off-white:#F8F8F8; --font:'Inter',sans-serif; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:var(--font); background:var(--navy); color:var(--white); }
+    nav { position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-size:18px; font-weight:900; color:var(--white); text-decoration:none; }
+    .nav-logo span { color:var(--orange); }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--white); }
+    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--white); text-decoration:none; font-size:24px; font-weight:800; }
+    .mobile-close { position:absolute; top:20px; right:24px; font-size:32px; cursor:pointer; color:var(--white); background:none; border:none; }
+
+    /* HERO */
+    .hero { padding:100px 40px 80px; text-align:center; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:700px; height:700px; background:radial-gradient(circle, rgba(232,93,38,0.15) 0%, transparent 70%); pointer-events:none; }
+    .scroll-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(232,93,38,0.12); border:1px solid rgba(232,93,38,0.25); color:var(--orange); font-size:13px; font-weight:800; letter-spacing:1px; padding:8px 18px; border-radius:20px; margin-bottom:28px; }
+    .scroll-badge::before { content:'📰'; }
+    .hero h1 { font-size:clamp(40px,6vw,72px); font-weight:900; line-height:1.05; letter-spacing:-2px; margin-bottom:24px; }
+    .hero h1 .accent { color:var(--orange); }
+    .hero p { font-size:19px; color:rgba(255,255,255,0.55); max-width:540px; margin:0 auto 40px; line-height:1.65; }
+    .hero-stats { display:flex; gap:48px; justify-content:center; margin-bottom:48px; flex-wrap:wrap; }
+    .hero-stat strong { display:block; font-size:28px; font-weight:900; color:var(--orange); }
+    .hero-stat span { font-size:13px; color:rgba(255,255,255,0.4); font-weight:600; }
+    .subscribe-box { display:inline-flex; gap:0; max-width:480px; width:100%; border-radius:10px; overflow:hidden; box-shadow:0 0 0 1px rgba(255,255,255,0.1); }
+    .subscribe-box input { flex:1; padding:16px 20px; background:rgba(255,255,255,0.06); border:none; color:var(--white); font-family:var(--font); font-size:15px; outline:none; }
+    .subscribe-box input::placeholder { color:rgba(255,255,255,0.3); }
+    .subscribe-box button { background:var(--orange); color:var(--white); border:none; padding:16px 28px; font-family:var(--font); font-size:15px; font-weight:800; cursor:pointer; white-space:nowrap; transition:opacity 0.2s; }
+    .subscribe-box button:hover { opacity:0.88; }
+    .hero-fine { font-size:13px; color:rgba(255,255,255,0.3); margin-top:14px; }
+
+    /* BONUS */
+    .bonus-strip { background:rgba(232,93,38,0.08); border-top:1px solid rgba(232,93,38,0.15); border-bottom:1px solid rgba(232,93,38,0.15); padding:20px 40px; text-align:center; }
+    .bonus-strip p { font-size:15px; color:rgba(255,255,255,0.7); }
+    .bonus-strip strong { color:var(--orange); }
+
+    /* WHAT'S INSIDE */
+    .section { padding:80px 40px; max-width:1100px; margin:0 auto; }
+    .section-label { font-size:12px; font-weight:800; color:var(--orange); letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; }
+    .section h2 { font-size:clamp(28px,4vw,44px); font-weight:900; margin-bottom:48px; line-height:1.15; }
+    .inside-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; }
+    .inside-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px 24px; }
+    .inside-icon { font-size:28px; margin-bottom:14px; }
+    .inside-card h3 { font-size:15px; font-weight:800; margin-bottom:8px; }
+    .inside-card p { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.6; }
+
+    /* SAMPLE ISSUE */
+    .sample-wrap { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:48px; max-width:680px; margin:0 auto; }
+    .sample-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .sample-title { font-size:20px; font-weight:900; }
+    .sample-date { font-size:13px; color:rgba(255,255,255,0.35); }
+    .sample-section { margin-bottom:28px; padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .sample-section:last-child { border-bottom:none; margin-bottom:0; }
+    .sample-tag { font-size:11px; font-weight:800; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; }
+    .sample-section h4 { font-size:16px; font-weight:800; margin-bottom:8px; }
+    .sample-section p { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.65; }
+    .sample-prompt { background:rgba(232,93,38,0.08); border-left:3px solid var(--orange); padding:14px 16px; border-radius:0 8px 8px 0; font-size:14px; color:rgba(255,255,255,0.7); font-style:italic; line-height:1.6; margin-top:8px; }
+
+    /* WHO IT'S FOR */
+    .who-section { padding:80px 40px; background:rgba(255,255,255,0.02); }
+    .who-inner { max-width:900px; margin:0 auto; }
+    .who-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:40px; }
+    .who-item { display:flex; gap:14px; align-items:flex-start; padding:20px 24px; background:rgba(255,255,255,0.04); border-radius:12px; }
+    .who-check { width:24px; height:24px; border-radius:50%; background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0; margin-top:2px; }
+    .who-item p { font-size:15px; color:rgba(255,255,255,0.7); line-height:1.55; }
+
+    /* FINAL CTA */
+    .final-cta { padding:100px 40px; text-align:center; }
+    .final-cta h2 { font-size:clamp(32px,5vw,56px); font-weight:900; margin-bottom:16px; line-height:1.1; }
+    .final-cta p { font-size:18px; color:rgba(255,255,255,0.5); margin-bottom:40px; }
+
+    footer { border-top:1px solid rgba(255,255,255,0.08); padding:40px; text-align:center; }
+    .footer-copy { font-size:13px; color:rgba(255,255,255,0.25); }
+    .footer-copy a { color:rgba(255,255,255,0.35); text-decoration:none; }
+
+    @media(max-width:900px) { .inside-grid{grid-template-columns:1fr 1fr;} .who-grid{grid-template-columns:1fr;} }
+    @media(max-width:768px) { nav{padding:0 20px;} .nav-links,.nav-cta{display:none;} .hamburger{display:flex;} .hero{padding:60px 20px 56px;} .section{padding:60px 20px;} .hero-stats{gap:24px;} .sample-wrap{padding:28px 20px;} .inside-grid{grid-template-columns:1fr;} .subscribe-box{flex-direction:column;border-radius:10px;} .subscribe-box input{border-radius:8px;} .subscribe-box button{border-radius:8px;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="sfm-homepage.html" class="nav-logo">SFM<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="sfm-homepage.html">Home</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-blog.html">Blog</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="sfm-homepage.html">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-blog.html">Blog</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="sfm-contact.html" style="color:var(--orange)">Book a Call →</a>
+</div>
+
+<section class="hero">
+  <div class="scroll-badge">The Scroll Newsletter</div>
+  <h1>5 minutes.<br><span class="accent">Smarter marketing.</span><br>Every weekday.</h1>
+  <p>AI tools, social media tactics, and what's actually working for local businesses — delivered free to your inbox every morning.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>5 min</strong><span>Average read time</span></div>
+    <div class="hero-stat"><strong>5×/week</strong><span>Every weekday</span></div>
+    <div class="hero-stat"><strong>Free</strong><span>Always</span></div>
+  </div>
+  <div class="subscribe-box">
+    <input type="email" placeholder="Your email address" />
+    <button>Subscribe Free →</button><!-- UPDATE: Wire to your newsletter platform -->
+  </div>
+  <p class="hero-fine">No spam. No fluff. Unsubscribe anytime.</p>
+</section>
+
+<div class="bonus-strip">
+  <p>🎁 <strong>New subscribers get instantly:</strong> 30 AI Prompts for Small Business Owners — ready-to-use prompts for social media, email, customer service, and more.</p>
+</div>
+
+<div style="padding:80px 40px; max-width:1100px; margin:0 auto;">
+  <div class="section-label">Every Issue Includes</div>
+  <h2 style="font-size:clamp(28px,4vw,44px);font-weight:900;margin-bottom:48px;line-height:1.15;">8 sections. ~5 minutes.<br>Zero wasted time.</h2>
+  <div class="inside-grid">
+    <div class="inside-card"><div class="inside-icon">📰</div><h3>Today's Big Story</h3><p>The most important AI or marketing news, explained — with a 3-step action plan for your business.</p></div>
+    <div class="inside-card"><div class="inside-icon">⚡</div><h3>Quick Hits</h3><p>3 fast bullets covering everything else worth knowing this week. In and out.</p></div>
+    <div class="inside-card"><div class="inside-icon">🔥</div><h3>What's Working Right Now</h3><p>Insider tactics getting real results on social media today — not theory, not last year.</p></div>
+    <div class="inside-card"><div class="inside-icon">📊</div><h3>Stat of the Day</h3><p>One screenshot-worthy data point about AI or social media. Share it. Use it.</p></div>
+    <div class="inside-card"><div class="inside-icon">💬</div><h3>Jayson's Hot Take</h3><p>A bold, honest opinion on what's happening in AI and marketing. Unfiltered.</p></div>
+    <div class="inside-card"><div class="inside-icon">📅</div><h3>Content Idea of the Week</h3><p>A ready-to-post social media idea with a steal-this caption opener. Done for you.</p></div>
+    <div class="inside-card"><div class="inside-icon">🤖</div><h3>AI Prompt of the Day</h3><p>A copy-paste prompt for ChatGPT or Claude. Use it immediately. No setup needed.</p></div>
+    <div class="inside-card"><div class="inside-icon">💡</div><h3>AI Tool Spotlight</h3><p>One tool. One specific use case. One way to save time or grow faster this week.</p></div>
+  </div>
+</div>
+
+<div style="padding:0 40px 80px; max-width:780px; margin:0 auto;">
+  <div class="section-label" style="text-align:center;">Sample Issue</div>
+  <h2 style="font-size:clamp(24px,3vw,36px);font-weight:900;margin-bottom:40px;line-height:1.15;text-align:center;">Here's what lands in your inbox.</h2>
+  <div class="sample-wrap">
+    <div class="sample-header">
+      <div class="sample-title">📰 The Scroll</div>
+      <div class="sample-date">Tuesday · May 13, 2025</div>
+    </div>
+    <div class="sample-section">
+      <div class="sample-tag">Today's Big Story</div>
+      <h4>Meta's Andromeda AI is quietly changing which ads get shown — here's what it means for local businesses</h4>
+      <p>Meta's new AI targeting engine is deprioritizing interest-based targeting in favor of behavioral signals. Action steps: (1) Broaden your audience, (2) Let Meta optimize, (3) Focus your budget on creative quality over targeting precision.</p>
+    </div>
+    <div class="sample-section">
+      <div class="sample-tag">What's Working Right Now</div>
+      <h4>Video hooks under 3 seconds are outperforming everything else on Reels right now</h4>
+      <p>Start your video with motion, a surprising statement, or a person looking directly at the camera. Static openers are getting skipped before the algorithm even decides to push the content.</p>
+    </div>
+    <div class="sample-section">
+      <div class="sample-tag">AI Prompt of the Day</div>
+      <p>Copy. Paste. Use.</p>
+      <div class="sample-prompt">"Write 5 Facebook post captions for a [type of business] in [city], Ohio. Each caption should start with a pattern-interrupt first line, include a local reference, and end with a low-pressure call to action. Tone: friendly, direct, zero corporate speak."</div>
+    </div>
+    <div class="sample-section" style="border:none;margin:0;padding:0;">
+      <div class="sample-tag">Content Idea of the Week</div>
+      <h4>Post a "before we were open" throwback</h4>
+      <p>Show where your business started. A garage, a spare room, a single piece of equipment. Caption opener: <em>"Most people don't know this, but we started with..."</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="who-section">
+  <div class="who-inner">
+    <div class="section-label">Who It's For</div>
+    <h2 style="font-size:clamp(28px,4vw,40px);font-weight:900;line-height:1.15;">Built for the business owner who doesn't have time to waste.</h2>
+    <div class="who-grid">
+      <div class="who-item"><div class="who-check">✓</div><p>Small business owners who want to use AI without wasting hours figuring it out</p></div>
+      <div class="who-item"><div class="who-check">✓</div><p>Social media managers who need to stay ahead of algorithm changes</p></div>
+      <div class="who-item"><div class="who-check">✓</div><p>Entrepreneurs who want to grow faster without hiring a full marketing team</p></div>
+      <div class="who-item"><div class="who-check">✓</div><p>Anyone who's tried AI tools but hasn't gotten the results they expected — yet</p></div>
+      <div class="who-item"><div class="who-check">✓</div><p>Local business owners in Northwest Ohio who want to stay ahead of the competition</p></div>
+      <div class="who-item"><div class="who-check">✓</div><p>Anyone tired of vague marketing advice that sounds good but doesn't translate to more customers</p></div>
+    </div>
+  </div>
+</div>
+
+<section class="final-cta">
+  <h2>Start your mornings smarter.<br><span style="color:var(--orange)">It's free.</span></h2>
+  <p>Join local business owners across Northwest Ohio getting The Scroll every weekday.</p>
+  <div class="subscribe-box" style="margin:0 auto;">
+    <input type="email" placeholder="Your email address" />
+    <button>Subscribe Free →</button><!-- UPDATE: Wire to your newsletter platform -->
+  </div>
+  <p style="font-size:13px;color:rgba(255,255,255,0.3);margin-top:14px;">No spam. No fluff. Unsubscribe anytime.</p>
+</section>
+
+<footer>
+  <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
+</footer>
+
+</body>
+</html>

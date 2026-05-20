@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Digital Garden — New Book by Jayson Hines | Sales Funnel Marketing</title>
+  <meta name="description" content="The Digital Garden by Jayson Hines teaches local business owners how to grow an authentic social media audience that actually buys. Available now on Amazon." />
+  <meta name="keywords" content="The Digital Garden book, Jayson Hines, social media book for small business, local business social media growth, sales funnel marketing book" />
+
+  <meta property="og:title" content="The Digital Garden — New Book by Jayson Hines" />
+  <meta property="og:description" content="Stop posting into the void. Learn how to grow a social media community that turns followers into paying customers. Now on Amazon." />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/the-digital-garden" />
+
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/the-digital-garden" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "The Digital Garden",
+    "author": { "@type": "Person", "name": "Jayson Hines" },
+    "description": "A guide for local small business owners on growing an authentic social media audience that turns followers into paying customers.",
+    "publisher": "Sales Funnel Marketing",
+    "genre": "Business & Marketing",
+    "inLanguage": "en"
+  }
+  </script>
+
+  <style>
+    /* ── Design tokens ─────────────────────────────────────────────── */
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --orange-glow: rgba(232, 93, 38, 0.25);
+      --green:       #22c55e;
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --light-gray:  #F0F0F0;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font:        'Inter', -apple-system, sans-serif;
+      --font-serif:  'Merriweather', Georgia, serif;
+      --max-w:       1200px;
+      --section-pad: 100px 24px;
+      --radius:      12px;
+      --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 48px rgba(0,0,0,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* ── Buttons ──────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px;
+      border-radius: 6px; font-family: var(--font); font-size: 16px; font-weight: 700;
+      cursor: pointer; transition: var(--transition); border: 2px solid transparent;
+      white-space: nowrap; text-decoration: none;
+    }
+    .btn-amazon { background: #FF9900; color: #111; border-color: #FF9900; }
+    .btn-amazon:hover { background: #e68a00; border-color: #e68a00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,153,0,0.35); }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+    .btn-white { background: var(--white); color: var(--orange); border-color: var(--white); }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
+    .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+
+    /* ── Utility ──────────────────────────────────────────────────── */
+    .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
+    .section-title-light { color: var(--white); }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── Nav ──────────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 0; background: var(--navy);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+      transition: padding 0.4s ease;
+    }
+    #navbar.scrolled { padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1.1; }
+    .nav-logo span { color: var(--orange); }
+    .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed; inset: 0; background: var(--navy); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* ── BOOK HERO ─────────────────────────────────────────────────── */
+    #book-hero {
+      background: var(--navy);
+      padding: 140px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    #book-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 5% 50%, #0e2245 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 95% 20%, #152240 0%, transparent 55%),
+        radial-gradient(ellipse 40% 50% at 50% 95%, rgba(232,93,38,0.05) 0%, transparent 50%);
+    }
+    /* Subtle garden dots pattern */
+    #book-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .book-hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .book-hero-left {}
+    .book-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.25);
+      padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--orange);
+    }
+    .book-title {
+      font-family: var(--font-serif); font-size: clamp(40px, 5vw, 64px);
+      font-weight: 700; color: var(--white); line-height: 1.1;
+      letter-spacing: -1px; margin-bottom: 8px;
+    }
+    .book-title .book-leaf { color: var(--green); }
+    .book-author { font-size: 18px; color: rgba(255,255,255,0.55); margin-bottom: 24px; font-weight: 500; }
+    .book-author strong { color: rgba(255,255,255,0.85); }
+    .book-sub {
+      font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.75;
+      margin-bottom: 32px; max-width: 520px;
+      font-style: italic; font-family: var(--font-serif);
+    }
+    .book-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+    .book-trust-row {
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .book-trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.55); }
+    .book-stars { color: #FFB800; letter-spacing: -2px; font-size: 16px; }
+
+    /* Book cover mockup */
+    .book-cover-wrap {
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+    .book-cover-glow {
+      position: absolute; width: 300px; height: 380px;
+      background: radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%);
+      border-radius: 50%; filter: blur(40px);
+    }
+    .book-cover {
+      width: 260px; position: relative; z-index: 1;
+      filter: drop-shadow(-20px 20px 40px rgba(0,0,0,0.5));
+      transform: perspective(800px) rotateY(-8deg);
+      transition: transform 0.4s ease;
+    }
+    .book-cover:hover { transform: perspective(800px) rotateY(-3deg) scale(1.02); }
+    .book-cover-badge {
+      position: absolute; top: -12px; right: -16px; z-index: 2;
+      width: 72px; height: 72px; border-radius: 50%;
+      background: #FF9900; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800; color: #111; text-align: center;
+      line-height: 1.2; box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+    @keyframes badgePulse { 0%,100%{transform:scale(1) rotate(-5deg)} 50%{transform:scale(1.05) rotate(-5deg)} }
+
+    /* ── ABOUT THE BOOK ─────────────────────────────────────────────── */
+    #about-book { padding: var(--section-pad); background: var(--off-white); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-content {}
+    .about-promise {
+      font-size: clamp(26px, 3vw, 36px); font-weight: 900; color: var(--navy);
+      line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px;
+    }
+    .about-promise em { color: var(--orange); font-style: normal; }
+    .about-p { font-size: 17px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 16px; }
+    .about-quote {
+      margin: 32px 0; padding: 24px 28px;
+      border-left: 4px solid var(--green);
+      background: rgba(34,197,94,0.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .about-quote p {
+      font-family: var(--font-serif); font-style: italic;
+      font-size: 17px; color: var(--navy); line-height: 1.7;
+    }
+    .about-quote cite { display: block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--orange); font-style: normal; }
+
+    /* For whom */
+    .for-whom { background: var(--white); border-radius: var(--radius); padding: 32px; border: 1px solid var(--light-gray); }
+    .for-whom-title { font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 16px; letter-spacing: 0.5px; }
+    .for-whom-list { display: flex; flex-direction: column; gap: 10px; }
+    .for-whom-item { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-body); }
+    .fwi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+    /* ── GARDEN METAPHOR ────────────────────────────────────────────── */
+    #metaphor {
+      padding: var(--section-pad); background: var(--navy);
+    }
+    .metaphor-header { text-align: center; margin-bottom: 64px; }
+    .metaphor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .metaphor-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 28px; transition: var(--transition);
+      text-align: center;
+    }
+    .metaphor-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(34,197,94,0.3); transform: translateY(-4px); }
+    .metaphor-emoji { font-size: 32px; margin-bottom: 14px; }
+    .metaphor-garden { font-size: 13px; font-weight: 700; color: var(--green); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .metaphor-social { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .metaphor-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+    /* ── CHAPTERS ───────────────────────────────────────────────────── */
+    #chapters { padding: var(--section-pad); background: var(--white); }
+    .chapters-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+    .chapters-sidebar { }
+    .chapters-sidebar .section-label { display: block; margin-bottom: 12px; }
+    .chapters-sidebar .section-title { font-size: clamp(28px, 3vw, 38px); margin-bottom: 20px; }
+    .chapters-sidebar p { font-size: 16px; color: var(--dark-gray); line-height: 1.7; margin-bottom: 32px; }
+    .chapters-sidebar .btn { margin-bottom: 12px; display: flex; }
+
+    .chapters-list { display: flex; flex-direction: column; gap: 4px; }
+    .chapter-part {
+      margin-bottom: 4px;
+    }
+    .chapter-part-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--orange); padding: 14px 20px 10px; display: block;
+    }
+    .chapter-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 20px; border-radius: var(--radius-sm);
+      transition: background 0.2s; cursor: default;
+    }
+    .chapter-item:hover { background: var(--off-white); }
+    .chapter-num {
+      font-size: 11px; font-weight: 800; color: var(--green);
+      background: rgba(34,197,94,0.1); border-radius: 6px;
+      padding: 3px 8px; flex-shrink: 0; margin-top: 2px;
+      font-family: var(--font); letter-spacing: 0.5px;
+    }
+    .chapter-text {}
+    .chapter-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .chapter-desc { font-size: 13px; color: var(--dark-gray); line-height: 1.5; }
+
+    /* ── AUTHOR ─────────────────────────────────────────────────────── */
+    #author { padding: var(--section-pad); background: var(--off-white); }
+    .author-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; }
+    .author-photo-wrap { position: relative; }
+    .author-photo-frame {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--navy-light); border-radius: 20px;
+      position: relative; overflow: hidden;
+      border: 3px solid rgba(232,93,38,0.2);
+    }
+    .author-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      color: rgba(255,255,255,0.25); font-size: 14px; font-weight: 600;
+    }
+    .author-photo-placeholder svg { opacity: 0.2; }
+    .author-tag {
+      position: absolute; bottom: -12px; right: -12px;
+      background: var(--orange); color: var(--white);
+      font-size: 12px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; padding: 8px 16px; border-radius: 8px;
+      box-shadow: 0 4px 16px var(--orange-glow);
+    }
+    .author-content { }
+    .author-name { font-size: clamp(28px, 3vw, 42px); font-weight: 900; color: var(--navy); margin-bottom: 6px; letter-spacing: -0.5px; }
+    .author-title { font-size: 16px; color: var(--orange); font-weight: 600; margin-bottom: 24px; }
+    .author-bio { font-size: 17px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 16px; }
+    .author-stats { display: flex; gap: 32px; margin: 28px 0; flex-wrap: wrap; }
+    .author-stat-num { font-size: 28px; font-weight: 900; color: var(--navy); letter-spacing: -1px; line-height: 1; }
+    .author-stat-num span { color: var(--orange); }
+    .author-stat-desc { font-size: 13px; color: var(--dark-gray); margin-top: 4px; }
+
+    /* ── READER REVIEWS ─────────────────────────────────────────────── */
+    #book-reviews { padding: var(--section-pad); background: var(--navy); }
+    .reviews-header { text-align: center; margin-bottom: 56px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .review-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius); padding: 28px; transition: var(--transition);
+    }
+    .review-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
+    .review-stars { color: #FFB800; font-size: 14px; letter-spacing: 1px; margin-bottom: 14px; }
+    .review-text { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(232,93,38,0.2); border: 1px solid rgba(232,93,38,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800; color: var(--orange);
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 700; color: var(--white); }
+    .review-role { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .review-source { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 4px; font-weight: 600; }
+    .review-source.google { color: rgba(66,133,244,0.7); }
+    .review-source.amazon { color: rgba(255,153,0,0.7); }
+
+    /* ── FINAL CTA ──────────────────────────────────────────────────── */
+    #book-cta {
+      padding: 80px 0; background: var(--orange);
+      position: relative; overflow: hidden;
+    }
+    #book-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    }
+    .book-cta-inner { text-align: center; position: relative; z-index: 1; }
+    .book-cta-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+    .book-cta-headline { font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
+    .book-cta-sub { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 40px; line-height: 1.6; }
+    .book-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .book-cta-note { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 20px; }
+
+    /* ── Footer ────────────────────────────────────────────────────── */
+    #footer { background: var(--navy); padding: 72px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+    .footer-logo { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
+    .footer-logo span { color: var(--orange); }
+    .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.65; margin-bottom: 24px; }
+    .footer-phone { font-size: 18px; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 8px; margin-bottom: 20px; transition: color 0.2s; }
+    .footer-phone:hover { color: var(--orange); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social { width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 12px; font-weight: 700; transition: var(--transition); text-transform: uppercase; }
+    .footer-social:hover { background: var(--orange); border-color: var(--orange); color: var(--white); transform: translateY(-2px); }
+    .footer-col-title { font-size: 13px; font-weight: 700; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--orange); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--orange); }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .book-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .book-cover-wrap { order: -1; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .metaphor-grid { grid-template-columns: repeat(2, 1fr); }
+      .chapters-inner { grid-template-columns: 1fr; gap: 40px; }
+      .author-inner { grid-template-columns: 1fr; gap: 40px; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      :root { --section-pad: 72px 20px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .book-hero-inner { gap: 32px; }
+      .book-hero-ctas { flex-direction: column; align-items: flex-start; }
+      .book-cover { width: 200px; transform: none; }
+      .metaphor-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .author-stats { gap: 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE MENU -->
+  <nav class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="sfm-services.html" onclick="closeMobile()">Services</a>
+    <a href="sfm-results.html" onclick="closeMobile()">Results</a>
+    <a href="sfm-about.html" onclick="closeMobile()">About</a>
+    <a href="tel:+14193084576" onclick="closeMobile()">📞 419-308-4576</a>
+    <!-- UPDATE: Replace href with your real Calendly link -->
+    <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
+  </nav>
+
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Sales<span>Funnel</span><small>Marketing</small></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html">Services</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-about.html">About</a></li>
+          <li><a href="sfm-blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-right">
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════ BOOK HERO ═══════════════════════════ -->
+  <section id="book-hero" aria-label="Book hero">
+    <div class="container">
+      <div class="book-hero-inner">
+
+        <!-- Left: Copy -->
+        <div class="book-hero-left">
+          <div class="book-eyebrow">📗 New Release — Available on Amazon</div>
+
+          <h1 class="book-title">
+            The Digital<br /><span class="book-leaf">Garden</span>
+          </h1>
+          <p class="book-author">by <strong>Jayson Hines</strong> — Founder, Sales Funnel Marketing</p>
+
+          <p class="book-sub">
+            "You don't grow a social media following.<br />You grow a community."
+          </p>
+
+          <div class="book-hero-ctas">
+            <!-- UPDATE: Replace href with your real Amazon book link -->
+            <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" class="btn btn-amazon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
+              Buy on Amazon
+            </a>
+            <a href="#chapters" class="btn btn-outline">See Inside the Book</a>
+          </div>
+
+          <div class="book-trust-row">
+            <div class="book-trust-item">
+              <span class="book-stars">★★★★★</span>
+              <span>5.0 on Amazon</span>
+            </div>
+            <div class="book-trust-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#22c55e"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Written for NW Ohio's business owners
+            </div>
+            <div class="book-trust-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Paperback &amp; Kindle available
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Book cover -->
+        <div class="book-cover-wrap reveal reveal-delay-2" aria-hidden="true">
+          <div class="book-cover-glow"></div>
+          <div class="book-cover">
+            <!-- UPDATE: Replace this SVG with an actual book cover image <img src="/images/digital-garden-cover.jpg" alt="The Digital Garden book cover" /> -->
+            <svg viewBox="0 0 260 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Digital Garden book cover">
+              <!-- Book body -->
+              <rect width="260" height="380" rx="6" fill="#0A1628"/>
+              <rect x="8" y="0" width="252" height="380" rx="4" fill="#0f1e38"/>
+              <!-- Spine shadow -->
+              <rect x="0" y="0" width="14" height="380" rx="4" fill="#070e1c"/>
+              <!-- Garden illustration -->
+              <!-- Background glow -->
+              <ellipse cx="130" cy="190" rx="110" ry="100" fill="rgba(34,197,94,0.05)"/>
+              <!-- Ground -->
+              <ellipse cx="130" cy="295" rx="90" ry="14" fill="rgba(34,197,94,0.12)"/>
+              <!-- Main tree trunk -->
+              <rect x="122" y="200" width="16" height="80" rx="4" fill="#1a4a2e"/>
+              <!-- Main foliage -->
+              <circle cx="130" cy="175" r="55" fill="rgba(34,197,94,0.15)"/>
+              <circle cx="130" cy="175" r="42" fill="rgba(34,197,94,0.2)"/>
+              <circle cx="130" cy="170" r="30" fill="rgba(34,197,94,0.3)"/>
+              <!-- Accent leaves -->
+              <circle cx="92" cy="185" r="20" fill="rgba(34,197,94,0.15)"/>
+              <circle cx="168" cy="185" r="20" fill="rgba(34,197,94,0.15)"/>
+              <circle cx="108" cy="155" r="16" fill="rgba(34,197,94,0.15)"/>
+              <circle cx="152" cy="155" r="16" fill="rgba(34,197,94,0.15)"/>
+              <!-- Small dots (leaves) -->
+              <circle cx="110" cy="178" r="5" fill="#22c55e" opacity="0.6"/>
+              <circle cx="150" cy="172" r="4" fill="#22c55e" opacity="0.5"/>
+              <circle cx="130" cy="155" r="6" fill="#22c55e" opacity="0.7"/>
+              <circle cx="118" cy="165" r="4" fill="#22c55e" opacity="0.5"/>
+              <circle cx="142" cy="162" r="5" fill="#22c55e" opacity="0.6"/>
+              <!-- Roots / lines -->
+              <path d="M130 278 Q115 295 98 300" stroke="rgba(34,197,94,0.3)" stroke-width="2" fill="none"/>
+              <path d="M130 278 Q145 295 162 300" stroke="rgba(34,197,94,0.3)" stroke-width="2" fill="none"/>
+              <path d="M130 285 Q128 300 125 308" stroke="rgba(34,197,94,0.2)" stroke-width="1.5" fill="none"/>
+              <!-- Social icons floating -->
+              <circle cx="60" cy="130" r="14" fill="rgba(232,93,38,0.15)" stroke="rgba(232,93,38,0.3)" stroke-width="1"/>
+              <text x="60" y="135" text-anchor="middle" font-size="11" fill="#E85D26" font-family="Arial">f</text>
+              <circle cx="200" cy="120" r="14" fill="rgba(232,93,38,0.15)" stroke="rgba(232,93,38,0.3)" stroke-width="1"/>
+              <text x="200" y="125" text-anchor="middle" font-size="10" fill="#E85D26" font-family="Arial">ig</text>
+              <circle cx="72" cy="230" r="11" fill="rgba(232,93,38,0.1)" stroke="rgba(232,93,38,0.2)" stroke-width="1"/>
+              <text x="72" y="234" text-anchor="middle" font-size="9" fill="#E85D26" font-family="Arial">▶</text>
+              <circle cx="190" cy="238" r="11" fill="rgba(232,93,38,0.1)" stroke="rgba(232,93,38,0.2)" stroke-width="1"/>
+              <text x="190" y="242" text-anchor="middle" font-size="9" fill="#E85D26" font-family="Arial">in</text>
+              <!-- Connecting lines from icons to tree -->
+              <line x1="74" y1="130" x2="95" y2="168" stroke="rgba(232,93,38,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+              <line x1="186" y1="120" x2="162" y2="163" stroke="rgba(232,93,38,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
+              <!-- Book title -->
+              <text x="130" y="52" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="rgba(255,255,255,0.4)" letter-spacing="3">THE</text>
+              <text x="130" y="78" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Digital</text>
+              <text x="130" y="108" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#22c55e" letter-spacing="-0.5">Garden</text>
+              <!-- Divider line -->
+              <line x1="80" y1="120" x2="180" y2="120" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+              <!-- Author -->
+              <text x="130" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">JAYSON HINES</text>
+              <text x="130" y="366" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.25)">Sales Funnel Marketing</text>
+            </svg>
+            <div class="book-cover-badge">Now on<br/>Amazon</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ ABOUT THE BOOK ══════════════════════════ -->
+  <section id="about-book" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-inner">
+
+        <div class="about-content reveal">
+          <span class="section-label">About the Book</span>
+          <h2 class="about-promise" id="about-heading">
+            Stop posting into the void.<br />Start building a community that <em>actually buys.</em>
+          </h2>
+          <p class="about-p">
+            Most local business owners are doing social media wrong — not because they're lazy, but because they've been given the wrong blueprint. They're broadcasting when they should be conversing. They're chasing followers when they should be nurturing relationships. They're measuring likes when they should be counting new customers.
+          </p>
+          <p class="about-p">
+            <em>The Digital Garden</em> is Jayson Hines' field guide to a completely different approach — one he's used to help over 127 local businesses in Northwest Ohio turn their social media presence into a genuine growth engine.
+          </p>
+          <div class="about-quote">
+            <p>"You don't grow a social media following. You grow a community. And you do it the same way you'd tend a garden — with patience, intention, and genuine care for the people in it."</p>
+            <cite>— Jayson Hines</cite>
+          </div>
+          <p class="about-p">This isn't a book about going viral. It's about building something that lasts — a loyal audience that knows you, trusts you, and sends you referrals every month.</p>
+        </div>
+
+        <div class="reveal reveal-delay-2">
+          <div class="for-whom">
+            <div class="for-whom-title">🌱 This book is for you if you're a...</div>
+            <div class="for-whom-list">
+              <div class="for-whom-item"><div class="fwi-dot"></div>Local restaurant, café, or food business owner</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>Home services contractor (roofing, HVAC, plumbing, landscaping)</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>Retail shop or boutique owner</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>Healthcare or wellness provider (chiropractor, salon, gym)</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>Professional service provider (mortgage, insurance, law)</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>Anyone who's been posting and getting zero results</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>Business owners who feel like social media is a waste of time</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>People who want to grow authentically — not with tricks or hacks</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; background: var(--navy); border-radius: var(--radius); padding: 28px;">
+            <div style="font-size:13px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:16px;">What you'll walk away with</div>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; align-items:flex-start; gap:10px; font-size:14px; color:rgba(255,255,255,0.75);">
+                <span style="color:#22c55e; font-weight:700; flex-shrink:0;">✓</span>
+                A clear content strategy built around your specific business
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; font-size:14px; color:rgba(255,255,255,0.75);">
+                <span style="color:#22c55e; font-weight:700; flex-shrink:0;">✓</span>
+                A daily 10-minute habit that builds real relationships over time
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; font-size:14px; color:rgba(255,255,255,0.75);">
+                <span style="color:#22c55e; font-weight:700; flex-shrink:0;">✓</span>
+                How to use AI as a tool without losing your human voice
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; font-size:14px; color:rgba(255,255,255,0.75);">
+                <span style="color:#22c55e; font-weight:700; flex-shrink:0;">✓</span>
+                How to turn followers into referrals, clients, and loyal fans
+              </div>
+              <div style="display:flex; align-items:flex-start; gap:10px; font-size:14px; color:rgba(255,255,255,0.75);">
+                <span style="color:#22c55e; font-weight:700; flex-shrink:0;">✓</span>
+                The mindset shift that makes everything else click
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ GARDEN METAPHOR ══════════════════════════ -->
+  <section id="metaphor" aria-labelledby="metaphor-heading">
+    <div class="container">
+      <div class="metaphor-header reveal">
+        <span class="section-label" style="color:rgba(34,197,94,0.9)">The Core Framework</span>
+        <h2 class="section-title section-title-light" id="metaphor-heading">
+          Social media is a garden.<br />Here's how to tend it.
+        </h2>
+        <p style="color:rgba(255,255,255,0.5); font-size:17px; margin:16px auto 0; max-width:560px; line-height:1.7;">
+          Every concept in the book maps to something you'd find in a real garden. Once you see it, you can't unsee it.
+        </p>
+      </div>
+
+      <div class="metaphor-grid">
+        <div class="metaphor-card reveal">
+          <div class="metaphor-emoji">🌱</div>
+          <div class="metaphor-garden">Soil</div>
+          <div class="metaphor-social">Your Brand Foundation</div>
+          <div class="metaphor-desc">Your values, your voice, and the real reason you show up. Bad soil = nothing grows, no matter how much you water.</div>
+        </div>
+        <div class="metaphor-card reveal reveal-delay-1">
+          <div class="metaphor-emoji">🌰</div>
+          <div class="metaphor-garden">Seeds</div>
+          <div class="metaphor-social">First Conversations</div>
+          <div class="metaphor-desc">A comment. A reply. A share. Every relationship starts with one small, genuine moment of connection.</div>
+        </div>
+        <div class="metaphor-card reveal reveal-delay-2">
+          <div class="metaphor-emoji">💧</div>
+          <div class="metaphor-garden">Watering</div>
+          <div class="metaphor-social">Consistent Engagement</div>
+          <div class="metaphor-desc">Showing up. Responding. Caring about people's posts — not just your own. This is where most businesses fail.</div>
+        </div>
+        <div class="metaphor-card reveal reveal-delay-3">
+          <div class="metaphor-emoji">☀️</div>
+          <div class="metaphor-garden">Sunlight</div>
+          <div class="metaphor-social">Generous Value-Giving</div>
+          <div class="metaphor-desc">Sharing knowledge, spotlighting others, and giving before you ever ask for anything. Generosity is the growth accelerator.</div>
+        </div>
+        <div class="metaphor-card reveal">
+          <div class="metaphor-emoji">🌿</div>
+          <div class="metaphor-garden">Weeds</div>
+          <div class="metaphor-social">Vanity Metrics &amp; Comparison</div>
+          <div class="metaphor-desc">Chasing likes. Obsessing over follower counts. Comparing your page to competitors. These kill real growth.</div>
+        </div>
+        <div class="metaphor-card reveal reveal-delay-1">
+          <div class="metaphor-emoji">🍂</div>
+          <div class="metaphor-garden">Seasons</div>
+          <div class="metaphor-social">The Rhythm of Growth</div>
+          <div class="metaphor-desc">Some months explode. Some months are quiet. Learning to trust the process — without panicking — is a skill.</div>
+        </div>
+        <div class="metaphor-card reveal reveal-delay-2">
+          <div class="metaphor-emoji">🛠️</div>
+          <div class="metaphor-garden">Garden Tools</div>
+          <div class="metaphor-social">AI &amp; Scheduling Tech</div>
+          <div class="metaphor-desc">Tools help. But the gardener still has to show up. AI works for you — not instead of you.</div>
+        </div>
+        <div class="metaphor-card reveal reveal-delay-3">
+          <div class="metaphor-emoji">🌾</div>
+          <div class="metaphor-garden">The Harvest</div>
+          <div class="metaphor-social">Referrals, Fans &amp; Revenue</div>
+          <div class="metaphor-desc">When you've planted, watered, and tended well — the harvest comes. Loyal customers who buy again and bring friends.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ CHAPTER LIST ════════════════════════════ -->
+  <section id="chapters" aria-labelledby="chapters-heading">
+    <div class="container">
+      <div class="chapters-inner">
+
+        <div class="reveal">
+          <span class="section-label">Inside the Book</span>
+          <h2 class="section-title" id="chapters-heading">15 chapters.<br />One complete system.</h2>
+          <p style="font-size:16px; color:var(--dark-gray); line-height:1.7; margin-bottom:32px;">
+            Each chapter ends with a single action you can take today. No fluff. No theory without practice.
+          </p>
+          <!-- UPDATE: Replace href with your real Amazon link -->
+          <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" class="btn btn-amazon" style="margin-bottom:12px; display:flex; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
+            Buy on Amazon — Paperback &amp; Kindle
+          </a>
+          <div style="font-size:13px; color:var(--dark-gray); text-align:center;">Also available on Kindle Unlimited</div>
+        </div>
+
+        <div class="chapters-list reveal reveal-delay-1">
+
+          <div style="padding: 14px 20px 10px; font-size:13px; font-weight:700; color:var(--navy);">📖 Introduction: Why Your Garden Is Empty</div>
+
+          <div class="chapter-part">
+            <span class="chapter-part-label">Part I — Preparing the Soil</span>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 1</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Stop Broadcasting, Start Belonging</div>
+                <div class="chapter-desc">Why most businesses treat social media like a billboard — and why that's costing them customers.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 2</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Know Your Why Before You Plant Anything</div>
+                <div class="chapter-desc">Without a clear purpose, every post is just noise. How to find your real reason for showing up.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 3</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Choosing Your Platform (The Right Soil for Your Seeds)</div>
+                <div class="chapter-desc">Not every platform is right for every business. How to choose where to invest your energy first.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter-part">
+            <span class="chapter-part-label">Part II — Planting Seeds</span>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 4</div>
+              <div class="chapter-text">
+                <div class="chapter-name">The First Conversation (Without Feeling Weird)</div>
+                <div class="chapter-desc">How to start engaging authentically — even if you're not a "social media person."</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 5</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Your Story Is the Seed</div>
+                <div class="chapter-desc">The story you haven't told yet is the one your best customers are waiting to hear.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 6</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Showing Up as a Person, Not a Logo</div>
+                <div class="chapter-desc">People hire people. How to let your personality lead without oversharing or losing professionalism.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter-part">
+            <span class="chapter-part-label">Part III — Watering Consistently</span>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 7</div>
+              <div class="chapter-text">
+                <div class="chapter-name">The 10-Minute Daily Habit That Changes Everything</div>
+                <div class="chapter-desc">The simple routine that builds relationships over time without taking over your day.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 8</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Engagement Is Not Optional</div>
+                <div class="chapter-desc">Why responding to comments is more valuable than the post itself — and how to do it at scale.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 9</div>
+              <div class="chapter-text">
+                <div class="chapter-name">AI as a Garden Tool (Not a Replacement)</div>
+                <div class="chapter-desc">How to use AI to work faster without losing the human voice your community came for.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter-part">
+            <span class="chapter-part-label">Part IV — Managing the Weeds</span>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 10</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Likes Are Not Love</div>
+                <div class="chapter-desc">Why vanity metrics are the biggest distraction in social media — and what to measure instead.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 11</div>
+              <div class="chapter-text">
+                <div class="chapter-name">The Comparison Trap</div>
+                <div class="chapter-desc">What comparing your page to your competitor's is actually costing you — and how to stop.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 12</div>
+              <div class="chapter-text">
+                <div class="chapter-name">When Nothing Seems to Be Working</div>
+                <div class="chapter-desc">The honest truth about plateaus, slow seasons, and what to do when you feel invisible online.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter-part">
+            <span class="chapter-part-label">Part V — The Harvest</span>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 13</div>
+              <div class="chapter-text">
+                <div class="chapter-name">When Fans Become Customers</div>
+                <div class="chapter-desc">The natural progression from follower to buyer — and how to accelerate it without being pushy.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 14</div>
+              <div class="chapter-text">
+                <div class="chapter-name">The Referral Loop</div>
+                <div class="chapter-desc">How a genuine community sends you customers on autopilot — and how to design for word of mouth.</div>
+              </div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num">Ch 15</div>
+              <div class="chapter-text">
+                <div class="chapter-name">Your Garden Never Really Finishes Growing</div>
+                <div class="chapter-desc">The mindset that keeps successful business owners showing up for years — not just months.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 14px 20px; font-size:13px; font-weight:700; color:var(--navy);">🌱 Epilogue: Tend Your Garden Every Day</div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ AUTHOR BIO ══════════════════════════════ -->
+  <section id="author" aria-labelledby="author-heading">
+    <div class="container">
+      <div class="author-inner">
+
+        <div class="author-photo-wrap reveal">
+          <div class="author-photo-frame">
+            <!-- UPDATE: Replace with Jayson's actual photo <img src="/images/jayson-hines.jpg" alt="Jayson Hines, author of The Digital Garden" style="width:100%;height:100%;object-fit:cover;" /> -->
+            <div class="author-photo-placeholder">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <!-- UPDATE: Add Jayson's photo here -->
+              Add Jayson's photo
+            </div>
+          </div>
+          <div class="author-tag">Author & Founder</div>
+        </div>
+
+        <div class="author-content reveal reveal-delay-1">
+          <span class="section-label">About the Author</span>
+          <h2 class="author-name" id="author-heading">Jayson Hines</h2>
+          <div class="author-title">Founder, Sales Funnel Marketing | Perrysburg, Ohio</div>
+
+          <p class="author-bio">
+            Jayson Hines founded Sales Funnel Marketing in 2017 after selling his insurance agency — which means he knows exactly what it feels like to start over and build something from nothing. He built his agency not through cold calls or paid ads, but through genuine relationships and showing up consistently for the businesses in his community.
+          </p>
+          <p class="author-bio">
+            Over the past seven years, he's grown Networks Cafe to over 1,600 members, run monthly AI workshops where 20–40% of attendees become clients, and helped over 127 local businesses in Northwest Ohio build social media presences that generate real leads and real revenue.
+          </p>
+          <p class="author-bio">
+            <em>The Digital Garden</em> is the book he wished he'd had when he was starting out — practical, honest, and written specifically for the business owner who's tired of advice that only works for tech startups in Silicon Valley.
+          </p>
+
+          <div class="author-stats">
+            <div>
+              <div class="author-stat-num"><span>127</span>+</div>
+              <div class="author-stat-desc">Businesses helped</div>
+            </div>
+            <div>
+              <div class="author-stat-num"><span>7</span></div>
+              <div class="author-stat-desc">Years in business</div>
+            </div>
+            <div>
+              <div class="author-stat-num"><span>1,600</span>+</div>
+              <div class="author-stat-desc">Networks Cafe members</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px;">
+            <!-- UPDATE: Replace href with your real Amazon link -->
+            <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" class="btn btn-amazon btn" style="padding:12px 24px; font-size:14px;">Get the Book on Amazon</a>
+            <!-- UPDATE: Replace href with your real Calendly link -->
+            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-outline-dark" style="padding:12px 24px; font-size:14px;">Work With Jayson's Agency</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ READER REVIEWS ══════════════════════════ -->
+  <section id="book-reviews" aria-labelledby="reviews-heading">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <span class="section-label" style="color:rgba(34,197,94,0.9)">What Readers Are Saying</span>
+        <h2 class="section-title section-title-light" id="reviews-heading">Real feedback from real business owners</h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <article class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <!-- UPDATE: Replace with real reader review from Amazon -->
+          <p class="review-text">"Sales Funnel Marketing is amazing. My business social media reach has grown unbelievably which has translated into near triple sales growth in the 3 short months I've worked with Jayson. His approach is exactly what this book teaches — genuine, consistent, and it actually works."</p>
+          <div class="review-author">
+            <div class="review-avatar">A</div>
+            <div>
+              <div class="review-name">Amy D.</div>
+              <div class="review-role">Owner, Round &amp; Round Gifts</div>
+              <div class="review-source google">✓ Verified</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card reveal reveal-delay-1">
+          <div class="review-stars">★★★★★</div>
+          <!-- UPDATE: Replace with real reader review from Amazon -->
+          <p class="review-text">"Jayson knows social platforms. In less than 6 months he turned my social media around — more engaging, better content, real results. This book captures everything that made that transformation happen. Every small business owner in Ohio should read it."</p>
+          <div class="review-author">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-name">Michele K.</div>
+              <div class="review-role">Owner, Michele Kipplen Photography</div>
+              <div class="review-source google">✓ Verified</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-card reveal reveal-delay-2">
+          <div class="review-stars">★★★★★</div>
+          <!-- UPDATE: Replace with real reader review from Amazon -->
+          <p class="review-text">"Jayson at Sales Funnel Marketing is amazing. He's shared so many helpful tips, tricks, and hands-on tools for social media and AI that have really helped me grow my business online presence. This book puts it all in one place — finally."</p>
+          <div class="review-author">
+            <div class="review-avatar">J</div>
+            <div>
+              <div class="review-name">Julie P.</div>
+              <div class="review-role">Local Business Owner, NW Ohio</div>
+              <div class="review-source google">✓ Google Review</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="text-align:center; margin-top:40px;" class="reveal">
+        <!-- UPDATE: Replace href with your real Amazon reviews link -->
+        <a href="https://www.amazon.com/dp/B0GZXBGF8R#customerReviews" target="_blank" class="btn btn-outline" style="font-size:14px; padding:12px 28px;">
+          Read All Reviews on Amazon
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════ BOOK CTA ═════════════════════════════════ -->
+  <section id="book-cta" aria-labelledby="book-cta-heading">
+    <div class="container">
+      <div class="book-cta-inner">
+        <div class="book-cta-eyebrow">Now Available on Amazon</div>
+        <h2 class="book-cta-headline" id="book-cta-heading">
+          Your garden isn't going to<br />grow itself.
+        </h2>
+        <p class="book-cta-sub">
+          Get <em>The Digital Garden</em> today — and start building a social media presence that actually brings you business.
+        </p>
+        <div class="book-cta-buttons">
+          <!-- UPDATE: Replace href with your real Amazon link -->
+          <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" class="btn btn-white" style="color:#111;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#E85D26"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166z"/></svg>
+            Buy on Amazon
+          </a>
+          <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-ghost-white">
+            Or — Book a Free Strategy Call
+          </a>
+        </div>
+        <p class="book-cta-note">Paperback · Kindle · Kindle Unlimited</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Sales<span>Funnel</span> Marketing</div>
+          <p class="footer-tagline">Northwest Ohio's premier social media growth agency. We help local businesses build audiences that buy.</p>
+          <a href="tel:+14193084576" class="footer-phone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <div class="footer-socials">
+            <!-- UPDATE: Replace # with real social media URLs -->
+            <a href="#" class="footer-social" aria-label="Facebook">Fb</a>
+            <a href="#" class="footer-social" aria-label="Instagram">Ig</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="YouTube">Yt</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="sfm-services.html">Social Media Management</a></li>
+            <li><a href="sfm-services.html">Meta Ads</a></li>
+            <li><a href="sfm-services.html">Content Creation</a></li>
+            <li><a href="sfm-services.html">Sales Funnels</a></li>
+            <li><a href="sfm-services.html">Website Design</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="sfm-about.html">About Us</a></li>
+            <li><a href="sfm-results.html">Client Results</a></li>
+            <li><a href="sfm-the-scroll.html">The Digital Garden</a></li>
+            <li><a href="sfm-blog.html">Blog</a></li>
+            <!-- UPDATE: Replace href with your real Calendly link -->
+            <li><a href="https://calendly.com/salesfunnelmarketing">Book a Call</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">The Book</div>
+          <ul class="footer-links">
+            <!-- UPDATE: Replace href with your real Amazon link -->
+            <li><a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank">Buy on Amazon</a></li>
+            <li><a href="#chapters">Read the Chapters</a></li>
+            <li><a href="#author">About Jayson</a></li>
+            <li><a href="#book-reviews">Reader Reviews</a></li>
+            <li><a href="sfm-contact.html">Book Jayson to Speak</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Sales Funnel Marketing. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="sfm-privacy.html">Privacy Policy</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    mobileMenu.addEventListener('click', e => { if (e.target === mobileMenu) closeMobile(); });
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Sales Funnel Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0A1628;
+      --orange: #E85D26;
+      --white: #FFFFFF;
+      --off-white: #F8F8F8;
+      --font: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--navy); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav-logo { font-size: 18px; font-weight: 900; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.88; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white); text-decoration: none; font-size: 24px; font-weight: 800; }
+    .mobile-close { position: absolute; top: 20px; right: 24px; font-size: 32px; cursor: pointer; color: var(--white); background: none; border: none; }
+
+    /* MAIN */
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 24px; text-align: center; }
+    .error-code { font-size: clamp(100px, 18vw, 180px); font-weight: 900; line-height: 1; letter-spacing: -8px; background: linear-gradient(135deg, var(--orange) 0%, #ff8c5a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 24px; }
+    .error-headline { font-size: clamp(24px, 4vw, 40px); font-weight: 800; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+    .error-sub { font-size: 17px; color: rgba(255,255,255,0.55); max-width: 440px; margin: 0 auto 48px; line-height: 1.65; }
+    .error-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-secondary { background: rgba(255,255,255,0.08); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: background 0.2s; }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+    .quick-links { margin-top: 64px; }
+    .quick-links-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+    .quick-links-grid { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .quick-link { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); transition: all 0.2s; }
+    .quick-link:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+
+    /* FOOTER */
+    footer { background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px; text-align: center; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    @media(max-width:768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="sfm-homepage.html" class="nav-logo">SFM<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="sfm-homepage.html">Home</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="sfm-homepage.html">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="sfm-contact.html" style="color:var(--orange)">Book a Call →</a>
+</div>
+
+<main>
+  <div>
+    <div class="error-code">404</div>
+    <h1 class="error-headline">This page took a wrong turn<br>somewhere in Northwest Ohio.</h1>
+    <p class="error-sub">The page you're looking for doesn't exist — but your next customer is out there right now, and we can help you find them.</p>
+    <div class="error-actions">
+      <a href="sfm-homepage.html" class="btn-primary">← Back to Home</a>
+      <a href="sfm-contact.html" class="btn-secondary">Book a Free Call</a>
+    </div>
+    <div class="quick-links">
+      <div class="quick-links-title">Or go somewhere useful</div>
+      <div class="quick-links-grid">
+        <a href="sfm-services.html" class="quick-link">Services</a>
+        <a href="sfm-results.html" class="quick-link">Results & Case Studies</a>
+        <a href="sfm-roi-calculator.html" class="quick-link">ROI Calculator</a>
+        <a href="sfm-about.html" class="quick-link">About Jayson</a>
+        <a href="sfm-contact.html" class="quick-link">Contact</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="sfm-terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+</footer>
+
+</body>
+</html>
