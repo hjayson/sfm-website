@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://salesfunnelmarket.netlify.app/sitemap.xml
+
+# Crawl-delay (optional - helps with server load)
+Crawl-delay: 1
+
+# Disallow admin/private paths (none currently, but good practice)
+# Disallow: /admin/
