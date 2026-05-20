@@ -1,0 +1,205 @@
+[build]
+  publish = "sfm-deploy-v3"
+
+# Pretty URLs — serve /sfm-services instead of /sfm-services.html
+[[redirects]]
+  from = "/sfm-services"
+  to = "/sfm-services.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-results"
+  to = "/sfm-results.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-contact"
+  to = "/sfm-contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-about"
+  to = "/sfm-about.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-blog"
+  to = "/sfm-blog.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-blog-facebook-ads"
+  to = "/sfm-blog-facebook-ads.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-blog-google-business"
+  to = "/sfm-blog-google-business.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-blog-content-ideas"
+  to = "/sfm-blog-content-ideas.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-blog-organic-vs-ads"
+  to = "/sfm-blog-organic-vs-ads.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-blog-the-scroll"
+  to = "/sfm-blog-the-scroll.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-roi-calculator"
+  to = "/sfm-roi-calculator.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-score-quiz"
+  to = "/sfm-score-quiz.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-digital-garden"
+  to = "/sfm-digital-garden.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-the-scroll"
+  to = "/sfm-the-scroll.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-dental"
+  to = "/sfm-dental.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-fitness"
+  to = "/sfm-fitness.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-restaurant"
+  to = "/sfm-restaurant.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-realestate"
+  to = "/sfm-realestate.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-retail"
+  to = "/sfm-retail.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-salon"
+  to = "/sfm-salon.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-trades"
+  to = "/sfm-trades.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-photography"
+  to = "/sfm-photography.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-legal"
+  to = "/sfm-legal.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-city-toledo"
+  to = "/sfm-city-toledo.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-city-perrysburg"
+  to = "/sfm-city-perrysburg.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-city-maumee"
+  to = "/sfm-city-maumee.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-city-bowling-green"
+  to = "/sfm-city-bowling-green.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-city-rossford"
+  to = "/sfm-city-rossford.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-privacy"
+  to = "/sfm-privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-terms"
+  to = "/sfm-terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-thankyou"
+  to = "/sfm-thankyou.html"
+  status = 200
+
+# Custom 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
