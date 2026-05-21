@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Organic Social Media vs. Facebook Ads: Which One Should Your Local Business Focus On First? | Sales Funnel Marketing</title>
-  <meta name="description" content="The answer isn't which one — it's which one first. Here's how to think about it as a local business owner in Northwest Ohio." />
+  <title>Organic Social Media vs Paid Ads: What's Better? | Sales Funnel Marketing</title>
+  <meta name="description" content="Should your local business focus on organic social media or paid ads? We break down the pros, cons, and when to use each strategy to grow in Northwest Ohio." />
+  <meta name="keywords" content="organic social media vs paid ads, Facebook ads vs organic, local business marketing strategy Ohio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-blog-organic-vs-ads" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Organic Social Media vs Paid Ads: What's Better? | Sales Funnel Marketing" />
+  <meta property="og:description" content="Should your local business focus on organic social media or paid ads? We break down the pros, cons, and when to use each strategy to grow in Northwest Ohio." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-blog-organic-vs-ads" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Organic Social Media vs Paid Ads: What's Better? | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="Should your local business focus on organic social media or paid ads? We break down the pros, cons, and when to use each strategy to grow in Northwest Ohio." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -18,6 +33,17 @@
     .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
     .nav-links a:hover { color:var(--white); }
     .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
     .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
@@ -38,10 +64,6 @@
     .article-body { max-width:740px; margin:0 auto; padding:64px 24px 96px; }
     .article-body p { font-size:17px; line-height:1.8; color:#333; margin-bottom:24px; }
     .article-body h2 { font-size:22px; font-weight:800; color:var(--navy); margin:40px 0 14px; padding-left:14px; border-left:4px solid var(--orange); }
-    .comparison-table { width:100%; border-collapse:collapse; margin:24px 0; }
-    .comparison-table th { background:var(--navy); color:var(--white); padding:12px 16px; text-align:left; font-size:14px; font-weight:700; }
-    .comparison-table td;{ padding:12px 16px; font-size:15px; border-bottom:1px solid #eee; }
-    .comparison-table tr:nth-child(even) { background:#f5f5f5; }
     .cta-box { background:var(--navy); border-radius:16px; padding:40px 48px; margin:48px 0; text-align:center; }
     .cta-box h3 { font-size:22px; font-weight:800; color:var(--white); margin-bottom:12px; }
     .cta-box p { font-size:15px; color:rgba(255,255,255,0.55); margin-bottom:28px; }
@@ -64,7 +86,8 @@
     <li><a href="sfm-blog.html">Blog</a></li>
     <li><a href="sfm-contact.html">Contact</a></li>
   </ul>
-  <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
+  <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">📗 Get the Book</a>
+          <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
   <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu">
@@ -81,29 +104,49 @@
       <div class="author-avatar">J</div>
       <div class="author-info">
         <strong>Jayson Hines</strong>
-        Feb 21, 2025 · 4 min read
+        April 8, 2025 · 4 min read
       </div>
     </div>
   </div>
 </div>
 <div class="article-body">
   
-          <p>If you've ever asked "should I be posting or should I be running ads?" — you're asking the wrong question. The right question is: which one should I build first? Here's how to think about it.</p>
+          <p>If you run a local business in Northwest Ohio, you've probably asked this question — or at least thought about it: <em>Should I be posting organic content, or should I be running ads? Or both?</em></p>
+          <p>It's one of the most common conversations we have with new clients at Sales Funnel Marketing. And the answer isn't as simple as "do both" — because budget, time, and where you are in your business growth all matter. Here's how we actually think about it.</p>
 
-          <h2>What Organic Social Actually Does</h2>
-          <p>Organic social media — posting on Facebook, Instagram, or Google Business without paying for reach builds trust. It's the digital equivalent of showing up, being present, and letting people get to know you. When someone looks up your business on Facebook or Instagram and your last post was from 2023, that's a red flag — even if your reviews are great.</p>
-          <p>Organic is about credibility. It's the foundation that makes everything else work better.</p>
+          <h2>What "Organic" Actually Means</h2>
+          <p>Organic social media means anything you post without paying to boost it — photos, videos, stories, reels, Facebook posts. The reach comes from your existing followers, shares, and the algorithm deciding to show your content to more people.</p>
+          <p>The upside: it's free (in terms of ad spend), and done well, it builds genuine trust and community over time. The downside: in 2025, organic reach on Facebook for business pages is limited. You're typically reaching 2–5% of your followers without paid promotion.</p>
+          <p>Instagram Reels are an exception — great video content can still reach thousands of non-followers organically. But it requires consistency and quality.</p>
 
-          <h2>What Paid Ads Actually Do</h2>
-          <p>Paid ads — Facebook and Instagram ads specifically — do one thing well: they get you in front of people who don't already know you. This is extremely powerful for local businesses because you can target specific zip codes, age ranges, interests, and behaviors. You're not waiting for people to find you — you're going to them.</p>
-          <p>But here's the key: ads amplify what's already there. If your profile is empty or outdated, running ads is like sending people to an empty storefront.</p>
+          <h2>What Facebook Ads Actually Do</h2>
+          <p>Facebook and Instagram ads let you pay to show your content to people outside your follower base — people you specifically target by location, age, interests, and behaviors. You control the reach, the message, and the budget.</p>
+          <p>The upside: you can reach hundreds or thousands of your ideal local customers in days, not months. The downside: it costs money, and a bad strategy wastes that money fast. Most DIY ad campaigns underperform because of poor targeting or creative that doesn't connect.</p>
 
-          <h2>The Combination That Wins</h2>
-          <p>The businesses we see growing fastest in the Perrysburg and Toledo area do both.🌖 They post organically consistently — not every day, but regularly — and they run targeted ads to put their best content in front of new audiences. Organic builds trust. Ads build reach. Together, they build revenue.</p>
-          
+          <h2>So Which One First?</h2>
+          <p>Here's the framework we use with every new client:</p>
+
+          <h2>Start With Organic If…</h2>
+          <p>You have zero social presence. Running ads to a profile with three posts and no reviews is like opening a store with empty shelves. Organic content first gives you a foundation — something for people to see when they land on your page after clicking an ad.</p>
+          <p>We typically recommend at least 6–8 solid posts on your profile before running any paid traffic to it. Think of it as setting the stage.</p>
+
+          <h2>Start With Ads If…</h2>
+          <p>You have an existing social presence and need leads or customers now. If your profile already has some content and reviews, ads can generate calls and inquiries quickly — sometimes within the first week. For seasonal businesses or time-sensitive offers, ads are almost always the right first move.</p>
+
+          <h2>The Real Answer: Both, But Sequenced Right</h2>
+          <p>For most local businesses in Northwest Ohio, the ideal approach is organic content and ads running simultaneously — but with a clear strategy behind each. Organic builds trust and retention. Ads generate new reach and leads. They work better together than either does alone.</p>
+          <p>The businesses we see grow fastest are the ones who treat social media as a system — not a series of individual posts or a one-time ad campaign.</p>
+
+          <h2>What This Looks Like in Practice</h2>
+          <p>Here's a simple framework for a local business getting started:</p>
+          <p><strong>Month 1:</strong> Build the foundation. 3–4 organic posts per week. Set up Google Business. Establish the brand voice and content style.</p>
+          <p><strong>Month 2:</strong> Launch a targeted local awareness campaign. Small budget ($300–$500/month). Goal is reach and engagement, not direct sales yet.</p>
+          <p><strong>Month 3+:</strong> Layer in lead generation ads. Retarget people who engaged with your content. Scale what's working, cut what isn't.</p>
+          <p>It's not glamorous, but it works. Every time.</p>
+        
   <div class="cta-box">
-    <h3>Want to know which one your business should start with?</h3>
-    <p>Book a free strategy call with Jayson. We'll assess where you stand and build a plan that fits your budget and goals.</p>
+    <h3>Ready to put this into action?</h3>
+    <p>Book a free strategy call with Jayson. We'll look at your current social presence and show you exactly what's possible for your business in Northwest Ohio.</p>
     <a href="sfm-contact.html">Get a Free Strategy Call →</a>
   </div>
   <a href="sfm-blog.html" class="back-link">← Back to all posts</a>
