@@ -20,38 +20,35 @@
   <meta name="twitter:title" content="Thank You | Sales Funnel Marketing" />
   <meta name="twitter:description" content="Thank you for reaching out to Sales Funnel Marketing. We'll be in touch within one business day." />
   <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
-  <!-- Schema -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Thank You | Sales Funnel Marketing","url":"https://salesfunnelmarket.netlify.app/sfm-thankyou"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    :root { --navy: #0A1628; --orange: #E85D26; --white: #FFFFFF; --font: 'Inter', sans-serif; }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font); background: var(--navy); color: var(--white); min-height: 100vh; display: flex; flex-direction: column; }
-    nav { position: sticky; top: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .nav-logo { font-size: 18px; font-weight: 900; color: var(--white); text-decoration: none; }
-    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; }
-    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 24px; text-align: center; }
-    .thank-wrap {
-      max-width: 560px;
-    }
-    .check-icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(232,93,26,0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 32px;
-      font-size: 36px;
-    }
-    h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin-bottom: 16px; }
-    .thank-sub { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 48px; line-height: 1.6; }
-    .btn-primary { background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; }
-    footer { background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px; text-align: center; }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    :root { --navy:#0A1628; --orange:#E85D26; --white:#FFFFFF; --off-white:#F8F8F8; --font:'Inter',sans-serif; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:var(--font); background:var(--navy); color:var(--white); min-height:100vh; display:flex; flex-direction:column; }
+    nav { background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-size:18px; font-weight:900; color:var(--white); text-decoration:none; }
+    .nav-logo span { color:var(--orange); }
+    main { flex:1; display:flex; align-items:center; justify-content:center; padding:60px 24px; text-align:center; }
+    .check { width:80px; height:80px; border-radius:50%; background:var(--orange); display:flex; align-items:center; justify-content:center; margin:0 auto 32px; font-size:36px; }
+    h1 { font-size:clamp(32px,5vw,52px); font-weight:900; margin-bottom:16px; line-height:1.1; }
+    .sub { font-size:18px; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto 48px; line-height:1.65; }
+    .next-steps { background:rgba(255,255,255,0.05); border-radius:16px; padding:40px; max-width:560px; margin:0 auto 48px; text-align:left; }
+    .next-steps h3 { font-size:16px; font-weight:800; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:24px; }
+    .step { display:flex; gap:16px; margin-bottom:20px; }
+    .step-num { width:32px; height:32px; border-radius:50%; background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; flex-shrink:0; }
+    .step-text strong { display:block; font-size:15px; font-weight:700; margin-bottom:4px; }
+    .step-text span { font-size:14px; color:rgba(255,255,255,0.5); line-height:1.5; }
+    .actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--orange); color:var(--white); padding:14px 32px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; }
+    .btn-secondary { background:rgba(255,255,255,0.08); color:var(--white); padding:14px 32px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; border:1px solid rgba(255,255,255,0.15); }
+    footer { padding:32px; text-align:center; border-top:1px solid rgba(255,255,255,0.08); }
+    .footer-copy { font-size:13px; color:rgba(255,255,255,0.25); }
+    .footer-copy a { color:rgba(255,255,255,0.35); text-decoration:none; }
+    @media(max-width:768px) { nav{padding:0 20px;} .next-steps{padding:28px 20px;} }
   </style>
 
-  <!-- Google Analytics 4 -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -59,22 +56,66 @@
     gtag('js', new Date());
     gtag('config', 'G-CDLWCX753N');
   </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
-  <nav>
-    <a href="sfm-homepage.html" class="nav-logo">SFM<span>.</span></a>
-    <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
-  </nav>
-  <main>
-    <div class="thank-wrap">
-      <div class="check-icon">â</div>
-      <h1>You're All Set!</h1>
-      <p class="thank-sub">We received your message and we'll be in touch within one business day. In the meantime, check out what results look like when NW. Ohio businesses work with us.</p>
-      <a href="sfm-results.html" class="btn-primary">See Client Results â</a>
+<nav>
+  <a href="sfm-homepage.html" class="nav-logo">SFM<span>.</span></a>
+</nav>
+<main>
+  <div>
+    <div class="check">✓</div>
+    <h1>You're booked in.<br>We'll talk soon.</h1>
+    <p class="sub">Jayson will reach out within one business day to confirm your strategy call. Here's what happens next.</p>
+    <div class="next-steps">
+      <h3>What to expect</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Confirmation email</strong>
+          <span>Check your inbox — a confirmation with call details is on its way.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>We review your business</strong>
+          <span>Before the call, Jayson will look at your current social presence and identify quick wins specific to your industry.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Your free strategy session</strong>
+          <span>30 minutes. No pitch, no pressure. Just a clear picture of what's possible for your business.</span>
+        </div>
+      </div>
     </div>
-  </main>
-  <footer>
-    <p class="footer-copy">Â© 2025 Sales Funnel Marketing Â· Perrysburg, OH</p>
-  </footer>
+    <div class="actions">
+      <a href="sfm-results.html" class="btn-primary">See Client Results →</a>
+      <a href="sfm-homepage.html" class="btn-secondary">Back to Home</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
+</footer>
 </body>
 </html>
