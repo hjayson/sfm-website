@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>The Digital Garden — New Book by Jayson Hines | Sales Funnel Marketing</title>
-  <meta name="description" content="The Digital Garden by Jayson Hines teaches local business owners how to grow an authentic social media audience that actually buys. Available now on Amazon." />
-  <meta name="keywords" content="The Digital Garden book, Jayson Hines, social media book for small business, local business social media growth, sales funnel marketing book" />
-
-  <meta property="og:title" content="The Digital Garden — New Book by Jayson Hines" />
-  <meta property="og:description" content="Stop posting into the void. Learn how to grow a social media community that turns followers into paying customers. Now on Amazon." />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://www.salesfunnelmarketing.us/the-digital-garden" />
-
-  <link rel="canonical" href="https://www.salesfunnelmarketing.us/the-digital-garden" />
+  <title>The Digital Garden Book | Sales Funnel Marketing</title>
+  <meta name="description" content="The Digital Garden is Jayson Hines' guide for local small business owners on growing an authentic social media audience. Learn the organic growth framework that works." />
+  <meta name="keywords" content="Digital Garden book, social media organic growth, local business social media guide Jayson Hines" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-digital-garden" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Digital Garden Book | Sales Funnel Marketing" />
+  <meta property="og:description" content="The Digital Garden is Jayson Hines' guide for local small business owners on growing an authentic social media audience. Learn the organic growth framework that works." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-digital-garden" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Digital Garden Book | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="The Digital Garden is Jayson Hines' guide for local small business owners on growing an authentic social media audience. Learn the organic growth framework that works." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,7 +39,7 @@
   </script>
 
   <style>
-    /* ── Design tokens ─────────────────────────────────────────────── */
+    /* -- Design tokens ----------------------------------------------- */
     :root {
       --navy:        #0A1628;
       --navy-mid:    #0f1e38;
@@ -65,7 +71,7 @@
     ul { list-style: none; }
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
-    /* ── Buttons ──────────────────────────────────────────────────── */
+    /* -- Buttons ---------------------------------------------------- */
     .btn {
       display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px;
       border-radius: 6px; font-family: var(--font); font-size: 16px; font-weight: 700;
@@ -83,7 +89,7 @@
     .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
     .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
 
-    /* ── Utility ──────────────────────────────────────────────────── */
+    /* -- Utility ---------------------------------------------------- */
     .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
     .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
     .section-title-light { color: var(--white); }
@@ -94,7 +100,7 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ── Nav ──────────────────────────────────────────────────────── */
+    /* -- Nav -------------------------------------------------------- */
     #navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       padding: 20px 0; background: var(--navy);
@@ -111,6 +117,17 @@
     .nav-links a:hover { color: var(--white); }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-cta { padding: 10px 20px; font-size: 14px; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -126,7 +143,7 @@
     .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--orange); }
 
-    /* ── BOOK HERO ─────────────────────────────────────────────────── */
+    /* -- BOOK HERO --------------------------------------------------- */
     #book-hero {
       background: var(--navy);
       padding: 140px 0 80px;
@@ -206,7 +223,7 @@
     }
     @keyframes badgePulse { 0%,100%{transform:scale(1) rotate(-5deg)} 50%{transform:scale(1.05) rotate(-5deg)} }
 
-    /* ── ABOUT THE BOOK ─────────────────────────────────────────────── */
+    /* -- ABOUT THE BOOK ----------------------------------------------- */
     #about-book { padding: var(--section-pad); background: var(--off-white); }
     .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .about-content {}
@@ -235,7 +252,7 @@
     .for-whom-item { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-body); }
     .fwi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
 
-    /* ── GARDEN METAPHOR ────────────────────────────────────────────── */
+    /* -- GARDEN METAPHOR ---------------------------------------------- */
     #metaphor {
       padding: var(--section-pad); background: var(--navy);
     }
@@ -252,7 +269,7 @@
     .metaphor-social { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
     .metaphor-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; }
 
-    /* ── CHAPTERS ───────────────────────────────────────────────────── */
+    /* -- CHAPTERS ----------------------------------------------------- */
     #chapters { padding: var(--section-pad); background: var(--white); }
     .chapters-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
     .chapters-sidebar { }
@@ -285,7 +302,7 @@
     .chapter-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
     .chapter-desc { font-size: 13px; color: var(--dark-gray); line-height: 1.5; }
 
-    /* ── AUTHOR ─────────────────────────────────────────────────────── */
+    /* -- AUTHOR ------------------------------------------------------- */
     #author { padding: var(--section-pad); background: var(--off-white); }
     .author-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: center; }
     .author-photo-wrap { position: relative; }
@@ -318,7 +335,7 @@
     .author-stat-num span { color: var(--orange); }
     .author-stat-desc { font-size: 13px; color: var(--dark-gray); margin-top: 4px; }
 
-    /* ── READER REVIEWS ─────────────────────────────────────────────── */
+    /* -- READER REVIEWS ----------------------------------------------- */
     #book-reviews { padding: var(--section-pad); background: var(--navy); }
     .reviews-header { text-align: center; margin-bottom: 56px; }
     .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -343,7 +360,7 @@
     .review-source.google { color: rgba(66,133,244,0.7); }
     .review-source.amazon { color: rgba(255,153,0,0.7); }
 
-    /* ── FINAL CTA ──────────────────────────────────────────────────── */
+    /* -- FINAL CTA ---------------------------------------------------- */
     #book-cta {
       padding: 80px 0; background: var(--orange);
       position: relative; overflow: hidden;
@@ -359,7 +376,7 @@
     .book-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .book-cta-note { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 20px; }
 
-    /* ── Footer ────────────────────────────────────────────────────── */
+    /* -- Footer ------------------------------------------------------ */
     #footer { background: var(--navy); padding: 72px 0 32px; }
     .footer-inner { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
     .footer-logo { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
@@ -380,7 +397,7 @@
     .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color 0.2s; }
     .footer-bottom-links a:hover { color: var(--orange); }
 
-    /* ── Responsive ─────────────────────────────────────────────────── */
+    /* -- Responsive --------------------------------------------------- */
     @media (max-width: 1024px) {
       .book-hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .book-cover-wrap { order: -1; }
@@ -416,7 +433,7 @@
     <a href="sfm-about.html" onclick="closeMobile()">About</a>
     <a href="tel:+14193084576" onclick="closeMobile()">📞 419-308-4576</a>
     <!-- UPDATE: Replace href with your real Calendly link -->
-    <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
+    <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
   </nav>
 
   <!-- NAV -->
@@ -433,7 +450,10 @@
         </ul>
         <div class="nav-right">
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
+          </a>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -443,7 +463,7 @@
   </nav>
 
 
-  <!-- ═══════════════════════════ BOOK HERO ═══════════════════════════ -->
+  <!-- --------------------------- BOOK HERO --------------------------- -->
   <section id="book-hero" aria-label="Book hero">
     <div class="container">
       <div class="book-hero-inner">
@@ -554,7 +574,7 @@
   </section>
 
 
-  <!-- ═══════════════════════ ABOUT THE BOOK ══════════════════════════ -->
+  <!-- ----------------------- ABOUT THE BOOK -------------------------- -->
   <section id="about-book" aria-labelledby="about-heading">
     <div class="container">
       <div class="about-inner">
@@ -624,7 +644,7 @@
   </section>
 
 
-  <!-- ═══════════════════════ GARDEN METAPHOR ══════════════════════════ -->
+  <!-- ----------------------- GARDEN METAPHOR -------------------------- -->
   <section id="metaphor" aria-labelledby="metaphor-heading">
     <div class="container">
       <div class="metaphor-header reveal">
@@ -691,7 +711,7 @@
   </section>
 
 
-  <!-- ═══════════════════════ CHAPTER LIST ════════════════════════════ -->
+  <!-- ----------------------- CHAPTER LIST ---------------------------- -->
   <section id="chapters" aria-labelledby="chapters-heading">
     <div class="container">
       <div class="chapters-inner">
@@ -847,7 +867,7 @@
   </section>
 
 
-  <!-- ═══════════════════════ AUTHOR BIO ══════════════════════════════ -->
+  <!-- ----------------------- AUTHOR BIO ------------------------------ -->
   <section id="author" aria-labelledby="author-heading">
     <div class="container">
       <div class="author-inner">
@@ -898,7 +918,7 @@
             <!-- UPDATE: Replace href with your real Amazon link -->
             <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" class="btn btn-amazon btn" style="padding:12px 24px; font-size:14px;">Get the Book on Amazon</a>
             <!-- UPDATE: Replace href with your real Calendly link -->
-            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-outline-dark" style="padding:12px 24px; font-size:14px;">Work With Jayson's Agency</a>
+            <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-outline-dark" style="padding:12px 24px; font-size:14px;">Work With Jayson's Agency</a>
           </div>
         </div>
 
@@ -907,7 +927,7 @@
   </section>
 
 
-  <!-- ═══════════════════════ READER REVIEWS ══════════════════════════ -->
+  <!-- ----------------------- READER REVIEWS -------------------------- -->
   <section id="book-reviews" aria-labelledby="reviews-heading">
     <div class="container">
       <div class="reviews-header reveal">
@@ -972,7 +992,7 @@
   </section>
 
 
-  <!-- ═══════════════════════ BOOK CTA ═════════════════════════════════ -->
+  <!-- ----------------------- BOOK CTA --------------------------------- -->
   <section id="book-cta" aria-labelledby="book-cta-heading">
     <div class="container">
       <div class="book-cta-inner">
@@ -990,7 +1010,7 @@
             Buy on Amazon
           </a>
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-ghost-white">
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-ghost-white">
             Or — Book a Free Strategy Call
           </a>
         </div>
@@ -1037,7 +1057,7 @@
             <li><a href="sfm-the-scroll.html">The Digital Garden</a></li>
             <li><a href="sfm-blog.html">Blog</a></li>
             <!-- UPDATE: Replace href with your real Calendly link -->
-            <li><a href="https://calendly.com/salesfunnelmarketing">Book a Call</a></li>
+            <li><a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Book a Call</a></li>
           </ul>
         </div>
         <div>
