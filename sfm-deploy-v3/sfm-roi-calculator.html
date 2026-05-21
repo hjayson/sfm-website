@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Social Media ROI Calculator | Sales Funnel Marketing — NW Ohio</title>
-  <meta name="description" content="Find out what your social media should actually be worth. Enter your business details and get a real estimate of the revenue you could be leaving on the table." />
-  <meta name="keywords" content="social media ROI calculator, Facebook ads ROI, local business marketing calculator, social media revenue estimate, Sales Funnel Marketing" />
-
-  <meta property="og:title" content="What Is Your Social Media Actually Worth? | SFM ROI Calculator" />
-  <meta property="og:description" content="Calculate the real revenue your social media should be driving — and find out what's missing. Free tool from Sales Funnel Marketing." />
+  <title>Social Media ROI Calculator | Sales Funnel Marketing</title>
+  <meta name="description" content="Calculate your potential return on investment from social media marketing. Free tool for local business owners in Ohio to estimate leads, revenue, and growth." />
+  <meta name="keywords" content="social media ROI calculator, marketing ROI tool, Facebook ads return on investment" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-roi-calculator" />
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.salesfunnelmarketing.us/roi-calculator" />
-
-  <link rel="canonical" href="https://www.salesfunnelmarketing.us/roi-calculator" />
+  <meta property="og:title" content="Social Media ROI Calculator | Sales Funnel Marketing" />
+  <meta property="og:description" content="Calculate your potential return on investment from social media marketing. Free tool for local business owners in Ohio to estimate leads, revenue, and growth." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-roi-calculator" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Social Media ROI Calculator | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="Calculate your potential return on investment from social media marketing. Free tool for local business owners in Ohio to estimate leads, revenue, and growth." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -63,7 +69,7 @@
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Nav ─────────────────────────────────────────────────────── */
+    /* -- Nav ------------------------------------------------------- */
     #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: var(--navy); box-shadow: 0 4px 32px rgba(0,0,0,0.4); transition: padding 0.4s ease; }
     #navbar.scrolled { padding: 12px 0; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -77,6 +83,17 @@
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
     .nav-cta { padding: 10px 20px; font-size: 14px; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -87,9 +104,9 @@
     .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--orange); }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        PAGE HERO
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #calc-hero {
       background: var(--navy); padding: 120px 0 60px;
       position: relative; overflow: hidden;
@@ -112,16 +129,16 @@
     .calc-hero-sub { font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 540px; margin: 0 auto 12px; }
     .hero-disclaimer { font-size: 12px; color: rgba(255,255,255,0.2); font-style: italic; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        CALCULATOR WRAPPER
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #calculator-section { padding: 0 0 80px; position: relative; }
     .calc-wrapper {
       max-width: 1080px; margin: -40px auto 0; padding: 0 24px;
       display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start;
     }
 
-    /* ── Input Panel ──────────────────────────────────── */
+    /* -- Input Panel ------------------------------------ */
     .calc-inputs {
       background: var(--white); border-radius: 20px;
       box-shadow: var(--shadow-lg); overflow: hidden;
@@ -216,7 +233,7 @@
     .calc-nav-btn.primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 6px 20px var(--orange-glow); }
     .calc-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    /* ── Results Panel ────────────────────────────────── */
+    /* -- Results Panel ---------------------------------- */
     .calc-results {
       background: var(--navy); border-radius: 20px;
       box-shadow: var(--shadow-lg); overflow: hidden; position: sticky; top: 100px;
@@ -302,9 +319,9 @@
     .placeholder-text { font-size: 14px; color: rgba(255,255,255,0.3); line-height: 1.7; }
     .placeholder-arrow { font-size: 24px; margin-top: 12px; opacity: 0.2; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        BOTTOM SECTIONS
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #calc-bottom { padding: 72px 0; }
     .bottom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .bottom-card {
@@ -391,13 +408,16 @@
           <li><a href="sfm-services.html">Services</a></li>
           <li><a href="sfm-results.html">Results</a></li>
           <li><a href="sfm-about.html">About</a></li>
-          <li><a href="sfm-the-scroll.html">The Book</a></li>
+          <li><a href="sfm-digital-garden.html">The Book</a></li>
           <li><a href="sfm-contact.html">Contact</a></li>
         </ul>
         <div class="nav-right">
           <a href="tel:+14193084576" class="nav-phone">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             419-308-4576
+          </a>
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
           </a>
           <a href="sfm-contact.html" class="btn btn-primary nav-cta">Free Strategy Call</a>
           <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
@@ -413,7 +433,7 @@
     <a href="sfm-services.html" onclick="closeMobile()">Services</a>
     <a href="sfm-results.html" onclick="closeMobile()">Results</a>
     <a href="sfm-about.html" onclick="closeMobile()">About</a>
-    <a href="sfm-the-scroll.html" onclick="closeMobile()">The Book</a>
+    <a href="sfm-digital-garden.html" onclick="closeMobile()">The Book</a>
     <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
     <a href="sfm-contact.html" class="btn btn-primary" onclick="closeMobile()">Book a Free Call</a>
   </div>
@@ -441,7 +461,7 @@
   <section id="calculator-section">
     <div class="calc-wrapper">
 
-      <!-- ── INPUT PANEL ──────────────────────────────── -->
+      <!-- -- INPUT PANEL -------------------------------- -->
       <div class="calc-inputs">
         <div class="calc-inputs-header">
           <div class="calc-inputs-title">Tell us about your business</div>
@@ -631,7 +651,7 @@
         </div>
       </div>
 
-      <!-- ── RESULTS PANEL ────────────────────────────── -->
+      <!-- -- RESULTS PANEL ------------------------------ -->
       <div class="calc-results" id="resultsPanel" role="region" aria-label="ROI results" aria-live="polite">
         <div class="results-header">
           <div class="results-title">Your ROI Estimate</div>
@@ -708,7 +728,7 @@
             <div class="results-cta-headline" id="ctaHeadline">You're leaving money on the table.</div>
             <div class="results-cta-sub" id="ctaSub">Book a free strategy call and find out how to close the gap.</div>
             <!-- UPDATE: Replace href with your real Calendly link -->
-            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="results-cta-btn">
+            <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="results-cta-btn">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Book My Free Strategy Call
             </a>
@@ -767,7 +787,7 @@
         <p class="calc-cta-sub">Book a free 30-minute call. Jayson will look at your actual accounts and tell you exactly what he'd do — no scripts, no pressure.</p>
         <div class="calc-cta-btns">
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-white">
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-white">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Book My Free Strategy Call
           </a>
@@ -797,7 +817,7 @@
             <li><a href="sfm-services.html">Services</a></li>
             <li><a href="sfm-results.html">Results</a></li>
             <li><a href="sfm-about.html">About</a></li>
-            <li><a href="sfm-the-scroll.html">The Book</a></li>
+            <li><a href="sfm-digital-garden.html">The Book</a></li>
             <li><a href="sfm-contact.html">Contact</a></li>
           </ul>
         </div>
@@ -829,7 +849,7 @@
 
 
   <script>
-    /* ─── Nav ─────────────────────────────────────────────── */
+    /* --- Nav ----------------------------------------------- */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 
@@ -838,12 +858,12 @@
     function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
     hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
 
-    /* ─── Reveal ──────────────────────────────────────────── */
+    /* --- Reveal -------------------------------------------- */
     new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
     }, { threshold: 0.1 }).observe(...(document.querySelectorAll('.reveal').length ? document.querySelectorAll('.reveal') : [document.body]));
 
-    /* ─── DATA TABLES ─────────────────────────────────────── */
+    /* --- DATA TABLES --------------------------------------- */
     const REVENUE_VALS   = [50000, 100000, 150000, 250000, 350000, 500000, 750000, 1000000, 1500000, 2000000, 3000000];
     const AVGVAL_VALS    = [50, 100, 200, 350, 500, 750, 1000, 2000, 3500, 5000, 10000];
     const FOLLOWER_VALS  = [0, 100, 250, 500, 1000, 2000, 5000, 10000, 15000, 20000, 25000];
@@ -864,7 +884,7 @@
       other:      { convBase: 0.012, convSFM: 0.030, reachMult: 3.0,  label: 'Local Business' },
     };
 
-    /* ─── STATE ───────────────────────────────────────────── */
+    /* --- STATE --------------------------------------------- */
     const state = {
       industry: null,
       revenue: 250000,
@@ -877,7 +897,7 @@
       currentStep: 1,
     };
 
-    /* ─── HELPERS ─────────────────────────────────────────── */
+    /* --- HELPERS ------------------------------------------- */
     function fmt(n) {
       if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
       if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
@@ -889,7 +909,7 @@
       return Math.round(n).toLocaleString();
     }
 
-    /* ─── SLIDER UPDATES ──────────────────────────────────── */
+    /* --- SLIDER UPDATES ------------------------------------ */
     const revenueSlider = document.getElementById('revenueSlider');
     const revenueDisplay = document.getElementById('revenueDisplay');
     revenueSlider.addEventListener('input', () => {
@@ -937,7 +957,7 @@
       adSpendDisplay.textContent = v >= 1000 ? (v/1000)+'K' : v;
     });
 
-    /* ─── STEP NAVIGATION ─────────────────────────────────── */
+    /* --- STEP NAVIGATION ----------------------------------- */
     function goStep(n) {
       document.querySelectorAll('.calc-step-panel').forEach(p => p.classList.remove('active'));
       document.getElementById('step-' + n).classList.add('active');
@@ -963,7 +983,7 @@
       });
     });
 
-    /* ─── INDUSTRY SELECTION ──────────────────────────────── */
+    /* --- INDUSTRY SELECTION -------------------------------- */
     document.querySelectorAll('.industry-card').forEach(card => {
       const activate = () => {
         document.querySelectorAll('.industry-card').forEach(c => { c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
@@ -976,7 +996,7 @@
       card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     });
 
-    /* ─── ADS TOGGLE ──────────────────────────────────────── */
+    /* --- ADS TOGGLE ---------------------------------------- */
     const calcRunBtn = document.getElementById('calcRun');
     document.querySelectorAll('.toggle-opt').forEach(opt => {
       const activate = () => {
@@ -991,7 +1011,7 @@
       opt.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
     });
 
-    /* ─── CALCULATION ENGINE ──────────────────────────────── */
+    /* --- CALCULATION ENGINE -------------------------------- */
     calcRunBtn.addEventListener('click', runCalc);
 
     function runCalc() {
