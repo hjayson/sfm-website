@@ -188,7 +188,26 @@
       margin-bottom: 32px; max-width: 520px;
       font-style: italic; font-family: var(--font-serif);
     }
+    /* Format chips */
+    .book-format-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+    .format-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7); font-size: 12px; font-weight: 600;
+      padding: 5px 12px; border-radius: 100px; letter-spacing: 0.3px;
+    }
+    .format-chip-kindle {
+      background: rgba(0,180,216,0.1); border-color: rgba(0,180,216,0.3);
+      color: #4fc3d7;
+    }
+
     .book-hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 36px; }
+
+    /* -- Growing Garden Background Canvas -- */
+    .garden-canvas {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0; opacity: 1;
+    }
     .book-trust-row {
       display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
     }
@@ -201,17 +220,17 @@
       position: relative;
     }
     .book-cover-glow {
-      position: absolute; width: 300px; height: 380px;
-      background: radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%);
-      border-radius: 50%; filter: blur(40px);
+      position: absolute; width: 380px; height: 460px;
+      background: radial-gradient(ellipse at center, rgba(34,197,94,0.18) 0%, rgba(0,180,216,0.08) 40%, transparent 70%);
+      border-radius: 50%; filter: blur(50px);
     }
     .book-cover {
-      width: 260px; position: relative; z-index: 1;
-      filter: drop-shadow(-20px 20px 40px rgba(0,0,0,0.5));
-      transform: perspective(800px) rotateY(-8deg);
-      transition: transform 0.4s ease;
+      width: 300px; position: relative; z-index: 1;
+      filter: drop-shadow(-16px 24px 48px rgba(0,0,0,0.6)) drop-shadow(0 0 24px rgba(34,197,94,0.15));
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
-    .book-cover:hover { transform: perspective(800px) rotateY(-3deg) scale(1.02); }
+    .book-cover:hover { transform: scale(1.03) translateY(-4px); filter: drop-shadow(-16px 28px 56px rgba(0,0,0,0.7)) drop-shadow(0 0 32px rgba(34,197,94,0.25)); }
+    .book-cover img { width: 100%; border-radius: 6px; display: block; }
     .book-cover-badge {
       position: absolute; top: -12px; right: -16px; z-index: 2;
       width: 72px; height: 72px; border-radius: 50%;
@@ -465,6 +484,7 @@
 
   <!-- --------------------------- BOOK HERO --------------------------- -->
   <section id="book-hero" aria-label="Book hero">
+    <canvas class="garden-canvas" id="garden-hero" aria-hidden="true"></canvas>
     <div class="container">
       <div class="book-hero-inner">
 
@@ -481,11 +501,17 @@
             "You don't grow a social media following.<br />You grow a community."
           </p>
 
+          <!-- Format chips -->
+          <div class="book-format-chips">
+            <span class="format-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19V5a2 2 0 012-2h14v14"/><path d="M4 19a2 2 0 002 2h14"/><path d="M4 19a2 2 0 01-2-2v-1h2"/></svg>Paperback</span>
+            <span class="format-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>Hardcover</span>
+            <span class="format-chip format-chip-kindle"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 19c-.83 0-1.5-.67-1.5-1.5S11.17 17 12 17s1.5.67 1.5 1.5S12.83 20 12 20zm5-4H7V4h10v12z"/></svg>Kindle eBook</span>
+          </div>
+
           <div class="book-hero-ctas">
-            <!-- UPDATE: Replace href with your real Amazon book link -->
-            <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" class="btn btn-amazon">
+            <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" rel="noopener" class="btn btn-amazon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
-              Buy on Amazon
+              Get on Amazon
             </a>
             <a href="#chapters" class="btn btn-outline">See Inside the Book</a>
           </div>
@@ -501,7 +527,7 @@
             </div>
             <div class="book-trust-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Paperback &amp; Kindle available
+              All formats available
             </div>
           </div>
         </div>
@@ -510,61 +536,7 @@
         <div class="book-cover-wrap reveal reveal-delay-2" aria-hidden="true">
           <div class="book-cover-glow"></div>
           <div class="book-cover">
-            <!-- UPDATE: Replace this SVG with an actual book cover image <img src="/images/digital-garden-cover.jpg" alt="The Digital Garden book cover" /> -->
-            <svg viewBox="0 0 260 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Digital Garden book cover">
-              <!-- Book body -->
-              <rect width="260" height="380" rx="6" fill="#0A1628"/>
-              <rect x="8" y="0" width="252" height="380" rx="4" fill="#0f1e38"/>
-              <!-- Spine shadow -->
-              <rect x="0" y="0" width="14" height="380" rx="4" fill="#070e1c"/>
-              <!-- Garden illustration -->
-              <!-- Background glow -->
-              <ellipse cx="130" cy="190" rx="110" ry="100" fill="rgba(34,197,94,0.05)"/>
-              <!-- Ground -->
-              <ellipse cx="130" cy="295" rx="90" ry="14" fill="rgba(34,197,94,0.12)"/>
-              <!-- Main tree trunk -->
-              <rect x="122" y="200" width="16" height="80" rx="4" fill="#1a4a2e"/>
-              <!-- Main foliage -->
-              <circle cx="130" cy="175" r="55" fill="rgba(34,197,94,0.15)"/>
-              <circle cx="130" cy="175" r="42" fill="rgba(34,197,94,0.2)"/>
-              <circle cx="130" cy="170" r="30" fill="rgba(34,197,94,0.3)"/>
-              <!-- Accent leaves -->
-              <circle cx="92" cy="185" r="20" fill="rgba(34,197,94,0.15)"/>
-              <circle cx="168" cy="185" r="20" fill="rgba(34,197,94,0.15)"/>
-              <circle cx="108" cy="155" r="16" fill="rgba(34,197,94,0.15)"/>
-              <circle cx="152" cy="155" r="16" fill="rgba(34,197,94,0.15)"/>
-              <!-- Small dots (leaves) -->
-              <circle cx="110" cy="178" r="5" fill="#22c55e" opacity="0.6"/>
-              <circle cx="150" cy="172" r="4" fill="#22c55e" opacity="0.5"/>
-              <circle cx="130" cy="155" r="6" fill="#22c55e" opacity="0.7"/>
-              <circle cx="118" cy="165" r="4" fill="#22c55e" opacity="0.5"/>
-              <circle cx="142" cy="162" r="5" fill="#22c55e" opacity="0.6"/>
-              <!-- Roots / lines -->
-              <path d="M130 278 Q115 295 98 300" stroke="rgba(34,197,94,0.3)" stroke-width="2" fill="none"/>
-              <path d="M130 278 Q145 295 162 300" stroke="rgba(34,197,94,0.3)" stroke-width="2" fill="none"/>
-              <path d="M130 285 Q128 300 125 308" stroke="rgba(34,197,94,0.2)" stroke-width="1.5" fill="none"/>
-              <!-- Social icons floating -->
-              <circle cx="60" cy="130" r="14" fill="rgba(232,93,38,0.15)" stroke="rgba(232,93,38,0.3)" stroke-width="1"/>
-              <text x="60" y="135" text-anchor="middle" font-size="11" fill="#E85D26" font-family="Arial">f</text>
-              <circle cx="200" cy="120" r="14" fill="rgba(232,93,38,0.15)" stroke="rgba(232,93,38,0.3)" stroke-width="1"/>
-              <text x="200" y="125" text-anchor="middle" font-size="10" fill="#E85D26" font-family="Arial">ig</text>
-              <circle cx="72" cy="230" r="11" fill="rgba(232,93,38,0.1)" stroke="rgba(232,93,38,0.2)" stroke-width="1"/>
-              <text x="72" y="234" text-anchor="middle" font-size="9" fill="#E85D26" font-family="Arial">▶</text>
-              <circle cx="190" cy="238" r="11" fill="rgba(232,93,38,0.1)" stroke="rgba(232,93,38,0.2)" stroke-width="1"/>
-              <text x="190" y="242" text-anchor="middle" font-size="9" fill="#E85D26" font-family="Arial">in</text>
-              <!-- Connecting lines from icons to tree -->
-              <line x1="74" y1="130" x2="95" y2="168" stroke="rgba(232,93,38,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-              <line x1="186" y1="120" x2="162" y2="163" stroke="rgba(232,93,38,0.15)" stroke-width="1" stroke-dasharray="3,3"/>
-              <!-- Book title -->
-              <text x="130" y="52" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="rgba(255,255,255,0.4)" letter-spacing="3">THE</text>
-              <text x="130" y="78" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Digital</text>
-              <text x="130" y="108" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="700" fill="#22c55e" letter-spacing="-0.5">Garden</text>
-              <!-- Divider line -->
-              <line x1="80" y1="120" x2="180" y2="120" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
-              <!-- Author -->
-              <text x="130" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">JAYSON HINES</text>
-              <text x="130" y="366" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.25)">Sales Funnel Marketing</text>
-            </svg>
+            <img src="/images/digital-garden-mockup.png" alt="The Digital Garden by Jayson Hines — paperback book mockup" />
             <div class="book-cover-badge">Now on<br/>Amazon</div>
           </div>
         </div>
@@ -646,6 +618,7 @@
 
   <!-- ----------------------- GARDEN METAPHOR -------------------------- -->
   <section id="metaphor" aria-labelledby="metaphor-heading">
+    <canvas class="garden-canvas" id="garden-metaphor" aria-hidden="true"></canvas>
     <div class="container">
       <div class="metaphor-header reveal">
         <span class="section-label" style="color:rgba(34,197,94,0.9)">The Core Framework</span>
@@ -929,6 +902,7 @@
 
   <!-- ----------------------- READER REVIEWS -------------------------- -->
   <section id="book-reviews" aria-labelledby="reviews-heading">
+    <canvas class="garden-canvas" id="garden-reviews" aria-hidden="true"></canvas>
     <div class="container">
       <div class="reviews-header reveal">
         <span class="section-label" style="color:rgba(34,197,94,0.9)">What Readers Are Saying</span>
@@ -994,6 +968,7 @@
 
   <!-- ----------------------- BOOK CTA --------------------------------- -->
   <section id="book-cta" aria-labelledby="book-cta-heading">
+    <canvas class="garden-canvas" id="garden-cta" aria-hidden="true"></canvas>
     <div class="container">
       <div class="book-cta-inner">
         <div class="book-cta-eyebrow">Now Available on Amazon</div>
@@ -1110,6 +1085,240 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+
+  <!-- -- Growing Digital Garden Animation ------------------------------- -->
+  <script>
+  (function() {
+    'use strict';
+
+    // Sections with their canvas IDs and base colors
+    var sections = [
+      { sectionId: 'book-hero',    canvasId: 'garden-hero',    hueBase: 160, hueRange: 40 },
+      { sectionId: 'metaphor',     canvasId: 'garden-metaphor', hueBase: 155, hueRange: 35 },
+      { sectionId: 'book-reviews', canvasId: 'garden-reviews',  hueBase: 165, hueRange: 30 },
+      { sectionId: 'book-cta',     canvasId: 'garden-cta',      hueBase: 30,  hueRange: 20 }
+    ];
+
+    function rand(min, max) { return min + Math.random() * (max - min); }
+
+    function GardenCanvas(cfg) {
+      var section = document.getElementById(cfg.sectionId);
+      var canvas  = document.getElementById(cfg.canvasId);
+      if (!section || !canvas) return;
+
+      var ctx = canvas.getContext('2d');
+      var animId = null;
+      var roots  = [];
+      var hueBase  = cfg.hueBase;
+      var hueRange = cfg.hueRange;
+
+      function resize() {
+        canvas.width  = section.offsetWidth;
+        canvas.height = section.offsetHeight;
+      }
+
+      // -- Branch object ----------------------------------------------
+      function Branch(x, y, angle, depth, delay) {
+        this.x = x;
+        this.y = y;
+        this.angle  = angle;
+        this.depth  = depth;
+        this.delay  = delay || 0;
+        this.len    = rand(60, 110) * Math.pow(0.68, depth);
+        this.width  = Math.max(0.4, 2.2 - depth * 0.38);
+        this.hue    = hueBase + rand(-hueRange/2, hueRange/2);
+        this.alpha  = rand(0.08, 0.18);
+        this.speed  = rand(0.005, 0.011);
+        this.t      = 0;        // 0 → 1 growth progress
+        this.done   = false;
+        this.kids   = [];
+        this.kidsDone = false;
+        // slight curve
+        this.cx = x + Math.cos(angle + rand(-0.5, 0.5)) * this.len * 0.5;
+        this.cy = y + Math.sin(angle + rand(-0.3, 0.3)) * this.len * 0.5;
+      }
+
+      Branch.prototype.tip = function() {
+        var u = this.t;
+        var ox = this.x, oy = this.y, cx = this.cx, cy = this.cy;
+        var ex = ox + Math.cos(this.angle) * this.len;
+        var ey = oy + Math.sin(this.angle) * this.len;
+        // quadratic bezier interpolation
+        return {
+          x: (1-u)*(1-u)*ox + 2*(1-u)*u*cx + u*u*ex,
+          y: (1-u)*(1-u)*oy + 2*(1-u)*u*cy + u*u*ey
+        };
+      };
+
+      Branch.prototype.draw = function(ctx) {
+        if (this.delay > 0) { this.delay -= 1; return false; }
+
+        if (!this.done) {
+          this.t = Math.min(1, this.t + this.speed);
+          if (this.t >= 1) this.done = true;
+        }
+
+        var ex = this.x  + Math.cos(this.angle) * this.len;
+        var ey = this.y  + Math.sin(this.angle) * this.len;
+
+        // Draw the growing branch as quadratic bezier up to t
+        ctx.beginPath();
+        // Approximate partial bezier with a line to current tip
+        var tip = this.tip();
+        ctx.moveTo(this.x, this.y);
+        // use 6 segments for smooth curve
+        for (var i = 1; i <= 6; i++) {
+          var u = (this.t * i) / 6;
+          var px = (1-u)*(1-u)*this.x + 2*(1-u)*u*this.cx + u*u*ex;
+          var py = (1-u)*(1-u)*this.y + 2*(1-u)*u*this.cy + u*u*ey;
+          ctx.lineTo(px, py);
+        }
+        ctx.strokeStyle = 'hsla('+this.hue+',75%,65%,'+this.alpha+')';
+        ctx.lineWidth   = this.width;
+        ctx.lineCap     = 'round';
+        ctx.stroke();
+
+        // Glowing node at growing tip
+        if (this.t > 0.08) {
+          var r1 = this.width * 1.8;
+          ctx.beginPath();
+          ctx.arc(tip.x, tip.y, r1, 0, Math.PI*2);
+          ctx.fillStyle = 'hsla('+this.hue+',85%,72%,'+(this.alpha*1.6)+')';
+          ctx.fill();
+
+          // outer glow bloom
+          var r2 = this.width * 8;
+          var grd = ctx.createRadialGradient(tip.x, tip.y, 0, tip.x, tip.y, r2);
+          grd.addColorStop(0, 'hsla('+this.hue+',90%,70%,'+(this.alpha*0.35)+')');
+          grd.addColorStop(1, 'transparent');
+          ctx.beginPath();
+          ctx.arc(tip.x, tip.y, r2, 0, Math.PI*2);
+          ctx.fillStyle = grd;
+          ctx.fill();
+        }
+
+        // Leaf diamond when fully grown
+        if (this.done && this.depth > 1) {
+          var size = rand(3, 6);
+          ctx.save();
+          ctx.translate(tip.x, tip.y);
+          ctx.rotate(this.angle - Math.PI/2);
+          ctx.beginPath();
+          ctx.moveTo(0, -size); ctx.lineTo(size*0.6, 0);
+          ctx.lineTo(0, size);  ctx.lineTo(-size*0.6, 0);
+          ctx.closePath();
+          ctx.fillStyle = 'hsla('+this.hue+',80%,68%,'+(this.alpha*1.4)+')';
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // Spawn children once fully grown
+        if (this.done && !this.kidsDone && this.depth < 5) {
+          this.kidsDone = true;
+          var nKids = this.depth < 2 ? rand(1.5, 2.5)|0 : 1;
+          for (var k = 0; k < nKids; k++) {
+            var spread = rand(Math.PI/8, Math.PI/3.5);
+            var dir    = k % 2 === 0 ? 1 : -1;
+            this.kids.push(new Branch(
+              tip.x, tip.y,
+              this.angle + dir * spread,
+              this.depth + 1,
+              rand(5, 25)|0
+            ));
+          }
+        }
+
+        var childrenDone = true;
+        for (var c = 0; c < this.kids.length; c++) {
+          var kDone = this.kids[c].draw(ctx);
+          if (!kDone) childrenDone = false;
+        }
+
+        return this.done && childrenDone;
+      };
+
+      // -- Init roots -------------------------------------------------
+      function initRoots() {
+        roots = [];
+        var count = Math.max(3, Math.floor(canvas.width / 200));
+        for (var i = 0; i < count; i++) {
+          var xPos  = (i + 0.5 + rand(-0.3, 0.3)) / count * canvas.width;
+          var yPos  = canvas.height + rand(0, 10);
+          var angle = -Math.PI/2 + rand(-0.35, 0.35);
+          roots.push(new Branch(xPos, yPos, angle, 0, rand(0, 80)|0));
+        }
+      }
+
+      // -- Animate loop -----------------------------------------------
+      function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var allDone = true;
+        for (var i = 0; i < roots.length; i++) {
+          var done = roots[i].draw(ctx);
+          if (!done) allDone = false;
+        }
+        if (!allDone) {
+          animId = requestAnimationFrame(loop);
+        } else {
+          // Hold for a moment, then fade out & restart
+          setTimeout(function() {
+            fadeOut(function() {
+              initRoots();
+              animId = requestAnimationFrame(loop);
+            });
+          }, rand(5000, 9000)|0);
+        }
+      }
+
+      function fadeOut(cb) {
+        var alpha = 1;
+        function step() {
+          alpha -= 0.04;
+          if (alpha <= 0) { ctx.clearRect(0, 0, canvas.width, canvas.height); cb(); return; }
+          ctx.globalAlpha = alpha;
+          // no clearRect — just let it fade by drawing semi-opaque overlay
+          ctx.fillStyle = document.getElementById(cfg.sectionId).style.background || 'rgba(10,22,40,0.08)';
+          // Actually just clear and redraw dimmer
+          ctx.globalAlpha = 1;
+          var saved = [];
+          for (var i = 0; i < roots.length; i++) saved.push(roots[i]);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.globalAlpha = alpha;
+          for (var j = 0; j < saved.length; j++) saved[j].draw(ctx);
+          ctx.globalAlpha = 1;
+          requestAnimationFrame(step);
+        }
+        step();
+      }
+
+      // -- Intersection Observer — only animate when visible ----------
+      var started = false;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting && !started) {
+            started = true;
+            resize();
+            initRoots();
+            animId = requestAnimationFrame(loop);
+          }
+        });
+      }, { threshold: 0.05 });
+      observer.observe(section);
+
+      window.addEventListener('resize', function() {
+        cancelAnimationFrame(animId);
+        animId = null;
+        resize();
+        initRoots();
+        animId = requestAnimationFrame(loop);
+      });
+    }
+
+    // Boot all sections
+    sections.forEach(function(cfg) { new GardenCanvas(cfg); });
+
+  })();
   </script>
 
 </body>
