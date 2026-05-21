@@ -388,6 +388,69 @@
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
     }
+    /* -- Signed Copy Section ------------------------------------------- */
+    #signed-copy { padding: var(--section-pad); background: var(--off-white); }
+    .signed-inner { max-width: 860px; margin: 0 auto; }
+    .signed-header { text-align: center; margin-bottom: 48px; }
+    .signed-intro { color: var(--dark-gray); font-size: 17px; line-height: 1.7; max-width: 640px; margin: 16px auto 0; }
+
+    .signed-formats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+    .signed-format-card {
+      background: var(--white); border-radius: 16px; padding: 36px 28px 28px;
+      border: 2px solid #e8e8e8; text-align: center; position: relative;
+      transition: box-shadow 0.25s;
+    }
+    .signed-format-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .signed-format-card-featured { border-color: var(--orange); box-shadow: 0 4px 24px rgba(232,93,38,0.12); }
+    .signed-format-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--orange); color: #fff; font-size: 11px; font-weight: 800;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 14px; border-radius: 100px;
+    }
+    .signed-format-icon { font-size: 40px; margin-bottom: 12px; }
+    .signed-format-name { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .signed-format-price { font-size: 36px; font-weight: 900; color: var(--orange); margin-bottom: 4px; line-height: 1; }
+    .signed-format-price-note { font-size: 13px; font-weight: 500; color: var(--dark-gray); }
+    .signed-format-desc { color: var(--dark-gray); font-size: 14px; line-height: 1.6; margin: 12px 0 24px; }
+    .signed-pay-btn { width: 100%; justify-content: center; font-size: 15px; padding: 14px 20px; }
+
+    .signed-form-wrap { background: var(--white); border-radius: 16px; padding: 40px; border: 2px solid #e8e8e8; }
+    .signed-step-label {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+    }
+    .signed-step-num {
+      width: 32px; height: 32px; border-radius: 50%; background: var(--orange);
+      color: #fff; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .signed-form-note { color: var(--dark-gray); font-size: 14px; margin-bottom: 28px; padding-left: 44px; }
+
+    .signed-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .signed-field { display: flex; flex-direction: column; gap: 6px; }
+    .signed-field-full { grid-column: span 2; }
+    .signed-field-half { grid-column: span 1; }
+    .signed-field label { font-size: 13px; font-weight: 600; color: var(--navy); }
+    .signed-field input,
+    .signed-field select,
+    .signed-field textarea {
+      padding: 11px 14px; border: 1.5px solid #ddd; border-radius: 8px;
+      font-family: var(--font); font-size: 14px; color: var(--text-body);
+      background: #fafafa; transition: border-color 0.2s;
+      width: 100%; resize: vertical;
+    }
+    .signed-field input:focus,
+    .signed-field select:focus,
+    .signed-field textarea:focus { outline: none; border-color: var(--orange); background: #fff; }
+    .signed-submit-btn { width: 100%; justify-content: center; font-size: 16px; padding: 16px; margin-bottom: 12px; }
+    .signed-submit-note { font-size: 13px; color: var(--dark-gray); text-align: center; }
+
+    @media (max-width: 640px) {
+      .signed-formats { grid-template-columns: 1fr; }
+      .signed-form-grid { grid-template-columns: 1fr; }
+      .signed-field-full, .signed-field-half { grid-column: span 1; }
+      .signed-form-wrap { padding: 24px 16px; }
+    }
+
     .book-cta-inner { text-align: center; position: relative; z-index: 1; }
     .book-cta-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
     .book-cta-headline { font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; letter-spacing: -1px; margin-bottom: 16px; }
@@ -961,6 +1024,128 @@
   </section>
 
 
+  <!-- ----------------------- SIGNED COPY ------------------------------ -->
+  <section id="signed-copy" aria-labelledby="signed-heading">
+    <div class="container">
+      <div class="signed-inner reveal">
+        <div class="signed-header">
+          <span class="section-label" style="color:var(--orange)">✍️ Want It Personalized?</span>
+          <h2 class="section-title" id="signed-heading">Order a Signed Copy — Direct from Jayson</h2>
+          <p class="signed-intro">Skip Amazon and get a copy signed and personalized directly by Jayson. Great for gifts, or just because a signed book hits different. Choose your format, pay via Stripe, then fill out the form below with your shipping address and how you'd like it signed.</p>
+        </div>
+
+        <!-- Format cards -->
+        <div class="signed-formats">
+          <div class="signed-format-card" id="card-pb">
+            <div class="signed-format-icon">📖</div>
+            <div class="signed-format-name">Paperback</div>
+            <div class="signed-format-price">$20<span class="signed-format-price-note"> + free shipping</span></div>
+            <p class="signed-format-desc">The standard edition — a real book you can highlight, dog-ear, and keep on your desk.</p>
+            <!-- UPDATE: Replace href with your real Stripe payment link for Paperback $20 -->
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" target="_blank" class="btn btn-primary signed-pay-btn" onclick="selectFormat('Paperback')">
+              Pay $20 — Paperback
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="signed-format-card signed-format-card-featured" id="card-hc">
+            <div class="signed-format-badge">Most Popular</div>
+            <div class="signed-format-icon">📚</div>
+            <div class="signed-format-name">Hardcover</div>
+            <div class="signed-format-price">$29<span class="signed-format-price-note"> + free shipping</span></div>
+            <p class="signed-format-desc">The premium edition. Built to last, looks great on a shelf, and makes an impressive gift.</p>
+            <!-- UPDATE: Replace href with your real Stripe payment link for Hardcover $29 -->
+            <a href="https://buy.stripe.com/7sY28scTbcP4gxi54SfYY03" target="_blank" class="btn btn-primary signed-pay-btn" onclick="selectFormat('Hardcover')">
+              Pay $29 — Hardcover
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Step 2: Address form -->
+        <div class="signed-form-wrap reveal">
+          <div class="signed-step-label">
+            <span class="signed-step-num">2</span>
+            After paying, fill out your shipping info below
+          </div>
+          <p class="signed-form-note">Jayson will personally sign and ship your copy within 3–5 business days. US shipping only.</p>
+
+          <form
+            action="https://formsubmit.co/jayson@salesfunnelmarketing.us"
+            method="POST"
+            class="signed-form"
+            id="signedForm"
+          >
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_subject" value="📚 Signed Book Order" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://salesfunnelmarket.netlify.app/sfm-digital-garden.html?ordered=1" />
+
+            <div class="signed-form-grid">
+              <div class="signed-field">
+                <label for="sf-format">Format Ordered</label>
+                <select name="Format" id="sf-format" required>
+                  <option value="">— Select format —</option>
+                  <option value="Paperback ($20)">Paperback — $20</option>
+                  <option value="Hardcover ($29)">Hardcover — $29</option>
+                </select>
+              </div>
+
+              <div class="signed-field">
+                <label for="sf-name">Your Full Name</label>
+                <input type="text" name="Name" id="sf-name" placeholder="Jane Smith" required />
+              </div>
+
+              <div class="signed-field">
+                <label for="sf-email">Email Address</label>
+                <input type="email" name="Email" id="sf-email" placeholder="jane@example.com" required />
+              </div>
+
+              <div class="signed-field signed-field-full">
+                <label for="sf-address">Street Address</label>
+                <input type="text" name="Street Address" id="sf-address" placeholder="123 Main Street" required />
+              </div>
+
+              <div class="signed-field">
+                <label for="sf-city">City</label>
+                <input type="text" name="City" id="sf-city" placeholder="Toledo" required />
+              </div>
+
+              <div class="signed-field signed-field-half">
+                <label for="sf-state">State</label>
+                <input type="text" name="State" id="sf-state" placeholder="OH" maxlength="2" required />
+              </div>
+
+              <div class="signed-field signed-field-half">
+                <label for="sf-zip">ZIP Code</label>
+                <input type="text" name="ZIP" id="sf-zip" placeholder="43604" maxlength="10" required />
+              </div>
+
+              <div class="signed-field signed-field-full">
+                <label for="sf-signing">Sign it to… <span style="font-weight:400; color:var(--dark-gray)">(optional)</span></label>
+                <input type="text" name="Sign it to" id="sf-signing" placeholder='e.g. "To Sarah — go grow something." or leave blank for just a signature' />
+              </div>
+
+              <div class="signed-field signed-field-full">
+                <label for="sf-note">Anything else? <span style="font-weight:400; color:var(--dark-gray)">(optional)</span></label>
+                <textarea name="Note" id="sf-note" rows="3" placeholder="Gift message, special instructions, etc."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary signed-submit-btn">
+              Submit My Order Info
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <p class="signed-submit-note">Make sure you've paid via Stripe first — then submit this form. Jayson will confirm your order by email.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- ----------------------- BOOK CTA --------------------------------- -->
   <section id="book-cta" aria-labelledby="book-cta-heading">
     <canvas class="garden-canvas" id="garden-cta" aria-hidden="true"></canvas>
@@ -1314,6 +1499,33 @@
     sections.forEach(function(cfg) { new GardenCanvas(cfg); });
 
   })();
+  </script>
+
+  <script>
+  // Pre-select format dropdown when Pay button is clicked
+  function selectFormat(fmt) {
+    var sel = document.getElementById('sf-format');
+    if (!sel) return;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value.indexOf(fmt) !== -1) {
+        sel.selectedIndex = i;
+        break;
+      }
+    }
+    // Scroll smoothly to the form after a short delay
+    setTimeout(function() {
+      var form = document.getElementById('signedForm');
+      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  }
+
+  // Show thank-you note if redirected back after payment
+  if (window.location.search.indexOf('ordered=1') !== -1) {
+    var form = document.getElementById('signedForm');
+    if (form) {
+      form.innerHTML = '<div style="text-align:center; padding:40px 20px;"><div style="font-size:48px; margin-bottom:16px;">✅</div><h3 style="font-size:22px; font-weight:800; color:#0A1628; margin-bottom:8px;">Order received!</h3><p style="color:#555;">Jayson will send you a confirmation email and ship your signed copy within 3–5 business days. Check your inbox!</p></div>';
+    }
+  }
   </script>
 
 </body>
