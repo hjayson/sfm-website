@@ -1,48 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
-  <defs>
-    <!-- Circular path for text -->
-    <path id="circlePath" d="M 250,250 m -185,0 a 185,185 0 1,1 370,0 a 185,185 0 1,1 -370,0" />
-    <!-- Distress filter -->
-    <filter id="grunge" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Navy background circle -->
+  <circle cx="40" cy="40" r="39" fill="#0A1628"/>
+  <!-- Orange outer ring accent -->
+  <circle cx="40" cy="40" r="37" fill="none" stroke="#E85D26" stroke-width="2"/>
 
-  <!-- Black background circle -->
-  <circle cx="250" cy="250" r="245" fill="#000000"/>
+  <!-- Globe sphere outline -->
+  <circle cx="40" cy="40" r="21" fill="none" stroke="#ffffff" stroke-width="2"/>
 
-  <!-- Outer ring border -->
-  <circle cx="250" cy="250" r="220" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9"/>
-  <circle cx="250" cy="250" r="195" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6"/>
+  <!-- Vertical meridian curve -->
+  <path d="M40 19 C33 28 33 52 40 61" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
 
-  <!-- Circular text: ·Sales·Funnel·Marketing· -->
-  <text font-family="'Arial Black', 'Arial', sans-serif" font-size="28" font-weight="900" fill="#ffffff" letter-spacing="4" filter="url(#grunge)">
-    <textPath href="#circlePath" startOffset="0%">· Sales · Funnel · Marketing ·</textPath>
-  </text>
+  <!-- Equator (main) -->
+  <path d="M19 40 C27 34 53 34 61 40" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M19 40 C27 46 53 46 61 40" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
 
-  <!-- Central globe/sphere icon -->
-  <g transform="translate(250,250)" filter="url(#grunge)">
-    <!-- Sphere outline -->
-    <circle cx="0" cy="0" r="110" fill="none" stroke="#ffffff" stroke-width="5"/>
+  <!-- Upper latitude -->
+  <path d="M23 31 C31 28 49 28 57 31" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <!-- Lower latitude -->
+  <path d="M23 49 C31 52 49 52 57 49" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
 
-    <!-- Sphere fill with gradient feel -->
-    <circle cx="0" cy="0" r="108" fill="#ffffff" opacity="0.08"/>
-
-    <!-- Three diagonal curved stripes (like the volleyball/globe lines) -->
-    <!-- Stripe 1: top-left to bottom-right, curving left -->
-    <path d="M -55,-105 C -90,-50 -90,50 -55,105" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-    <!-- Stripe 2: center vertical curve -->
-    <path d="M 0,-110 C -35,-55 -35,55 0,110" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-    <!-- Stripe 3: right side -->
-    <path d="M 55,-105 C 20,-50 20,50 55,105" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-
-    <!-- Diagonal slash through sphere (the distinctive element) -->
-    <path d="M -95,-55 C -40,-20 40,20 95,55" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-    <path d="M -95,-25 C -40,10 40,50 95,75" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-    <path d="M -90,-80 C -35,-45 35,-5 90,30" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-  </g>
-
-  <!-- Outer edge dots/texture -->
-  <circle cx="250" cy="250" r="237" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="2,8" opacity="0.4"/>
+  <!-- Orange diagonal accent slash (the brand signature mark) -->
+  <path d="M23 47 C32 41 48 39 57 33" fill="none" stroke="#E85D26" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
