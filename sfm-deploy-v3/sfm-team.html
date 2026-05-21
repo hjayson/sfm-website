@@ -247,6 +247,8 @@
       width: 100%; height: 100%; object-fit: cover; object-position: top center;
       transition: transform 0.5s ease;
     }
+    /* Jayson's featured card is full-width — portrait photo needs to show head+chest not just face */
+    .team-card.featured .card-photo img { object-position: center 8%; }
     .team-card:hover .card-photo img { transform: scale(1.04); }
     .card-photo-placeholder {
       width: 100%; height: 100%;
@@ -541,25 +543,19 @@
 
         <!-- Team photo mosaic -->
         <div class="hero-mosaic reveal reveal-delay-2">
-          <!-- Top-left: tall cell spanning both rows — Jayson -->
+          <!-- Top-left: tall cell spanning both rows — Jayson action shot -->
           <div class="mosaic-cell span-row">
-            <img src="/images/jayson-headshot.jpg" alt="Jayson Hines, Founder" loading="lazy" />
+            <img src="/images/jayson-on-location.jpg" alt="Jayson Hines on location" loading="lazy" style="object-position: 30% center;" />
             <div class="mosaic-label">Jayson &mdash; <span>Owner</span></div>
           </div>
-          <!-- Top-right: John -->
+          <!-- Top-right: John in action -->
           <div class="mosaic-cell">
-            <!-- SWAP: replace with john's action shot when ready -->
-            <div class="card-photo-placeholder">
-              <div class="card-photo-placeholder-icon">📸</div>
-            </div>
+            <img src="/images/john-action.jpg" alt="John Booth, Photographer" loading="lazy" style="object-position: center 20%;" />
             <div class="mosaic-label">John &mdash; <span>Photo</span></div>
           </div>
-          <!-- Bottom-right: JD -->
+          <!-- Bottom-right: JD with gimbal -->
           <div class="mosaic-cell">
-            <!-- SWAP: replace with JD's action shot when ready -->
-            <div class="card-photo-placeholder">
-              <div class="card-photo-placeholder-icon">🎬</div>
-            </div>
+            <img src="/images/jd-action.jpg" alt="James JD Simon, Videographer" loading="lazy" style="object-position: 65% top;" />
             <div class="mosaic-label">JD &mdash; <span>Video</span></div>
           </div>
         </div>
@@ -584,7 +580,7 @@
         <!-- ===== JAYSON — FEATURED (full width) ===== -->
         <article class="team-card featured reveal" id="jayson">
           <div class="card-photo">
-            <img src="/images/jayson-headshot.jpg" alt="Jayson Hines, Founder of Sales Funnel Marketing" loading="lazy" />
+            <img src="/images/jayson-headshot-pro.jpg" alt="Jayson Hines, Founder of Sales Funnel Marketing" loading="lazy" />
           </div>
           <div class="card-accent"></div>
           <div class="card-body">
@@ -597,8 +593,9 @@
               <h3 class="card-name">Jayson Hines</h3>
               <div class="card-title-label">Founder &amp; Lead Strategist · Sales Funnel Marketing</div>
               <div class="card-bio">
-                <!-- SWAP: Replace this with Jayson's real bio when ready -->
-                <p>Bio coming soon — Jayson will share his story here.</p>
+                <p>Jayson started Sales Funnel Marketing in 2017 with one conviction: local businesses deserve marketing that actually works. Not vanity metrics. Not recycled templates. Real content, real strategy, and results built for the communities these businesses live in.</p>
+                <p>He built SFM from the ground up — doing the shoots, running the ads, writing the copy, and showing up at every client event along the way. Today he leads the team and the strategy, while staying close enough to every account to know what's actually moving the needle.</p>
+                <p>In 2025 he published <em>The Digital Garden</em> — a guide for small business owners on building a real social media audience without paying to play. It's available on Amazon in paperback, hardcover, and Kindle.</p>
               </div>
               <div class="card-tags">
                 <span class="card-tag">Strategy</span>
@@ -654,12 +651,7 @@
         <!-- ===== JOHN — PHOTOGRAPHER ===== -->
         <article class="team-card reveal reveal-delay-1" id="john">
           <div class="card-photo">
-            <!-- SWAP: replace src with John's action shot when ready -->
-            <!-- <img src="/images/john-photo.jpg" alt="John, Photographer at Sales Funnel Marketing" loading="lazy" /> -->
-            <div class="card-photo-placeholder">
-              <div class="card-photo-placeholder-icon">📸</div>
-              <div class="card-photo-placeholder-text">Photo Coming Soon</div>
-            </div>
+            <img src="/images/john-portrait.jpg" alt="John Booth, Lead Photographer at Sales Funnel Marketing" loading="lazy" style="object-position: top center;" />
           </div>
           <div class="card-accent"></div>
           <div class="card-body">
@@ -667,11 +659,12 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
               Photographer
             </div>
-            <h3 class="card-name">John</h3>
-            <div class="card-title-label">Lead Photographer</div>
+            <h3 class="card-name">John Booth</h3>
+            <div class="card-title-label">Lead Photographer · Sales Funnel Marketing</div>
             <div class="card-bio">
-              <!-- SWAP: Replace this with John's real bio when ready -->
-              <p>Bio coming soon — John will share his story here.</p>
+              <p>John came up as a photographer in the print advertising world. 30 years of shooting for art directors and designers taught him to compose every frame like it had to live next to a headline.</p>
+              <p>He's SFM's photographer for the work that matters. Events where the moments don't come back twice. Real estate that has to actually sell. Food that should make you hungry just looking at it. Headshots that look like the person on a good day.</p>
+              <p>His style adapts to the room. Dramatic when the story calls for it. Clean and corporate when the brand needs that. The common thread is that every photo serves the message first, the brand second, and the photographer last.</p>
             </div>
             <div class="card-tags">
               <span class="card-tag">Brand Photography</span>
@@ -686,12 +679,7 @@
         <!-- ===== JAMES "JD" — VIDEOGRAPHER ===== -->
         <article class="team-card reveal reveal-delay-2" id="jd">
           <div class="card-photo">
-            <!-- SWAP: replace src with JD's action shot when ready -->
-            <!-- <img src="/images/jd-photo.jpg" alt="James JD, Videographer at Sales Funnel Marketing" loading="lazy" /> -->
-            <div class="card-photo-placeholder">
-              <div class="card-photo-placeholder-icon">🎬</div>
-              <div class="card-photo-placeholder-text">Photo Coming Soon</div>
-            </div>
+            <img src="/images/jd-event.jpg" alt="James JD Simon, Videographer at Sales Funnel Marketing" loading="lazy" style="object-position: 60% top;" />
           </div>
           <div class="card-accent"></div>
           <div class="card-body">
@@ -699,11 +687,11 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
               Videographer
             </div>
-            <h3 class="card-name">James <span class="nick">"JD"</span></h3>
-            <div class="card-title-label">Lead Videographer</div>
+            <h3 class="card-name">James <span class="nick">"JD"</span> Simon</h3>
+            <div class="card-title-label">Videographer &amp; Editor · Sales Funnel Marketing</div>
             <div class="card-bio">
-              <!-- SWAP: Replace this with JD's real bio when ready -->
-              <p>Bio coming soon — JD will share his story here.</p>
+              <p>James Simon is a videographer and editor with a focus on authentic, story-driven content. A graduate of Owens Community College, he began his career editing YouTube content in 2022 before expanding into on-location shooting for local businesses and creators.</p>
+              <p>In early 2025, James met Jayson at a Networks Café event. What started as a chat about coffee and creative work quickly turned into an opportunity for hands-on collaboration. Today, James continues to grow his skills alongside the team and contributes as SFM's second shooter.</p>
             </div>
             <div class="card-tags">
               <span class="card-tag">Reels &amp; Shorts</span>
@@ -718,12 +706,7 @@
         <!-- ===== DYLAN — ACCOUNT MANAGER ===== -->
         <article class="team-card reveal reveal-delay-3" id="dylan">
           <div class="card-photo">
-            <!-- SWAP: replace src with Dylan's action shot when ready -->
-            <!-- <img src="/images/dylan-photo.jpg" alt="Dylan, Account Manager at Sales Funnel Marketing" loading="lazy" /> -->
-            <div class="card-photo-placeholder">
-              <div class="card-photo-placeholder-icon">🤝</div>
-              <div class="card-photo-placeholder-text">Photo Coming Soon</div>
-            </div>
+            <img src="/images/dylan.jpg" alt="Dylan, Account Manager at Sales Funnel Marketing" loading="lazy" style="object-position: top center;" />
           </div>
           <div class="card-accent"></div>
           <div class="card-body">
@@ -732,10 +715,11 @@
               Account Manager
             </div>
             <h3 class="card-name">Dylan</h3>
-            <div class="card-title-label">Account Manager</div>
+            <div class="card-title-label">Account Manager · Sales Funnel Marketing</div>
             <div class="card-bio">
-              <!-- SWAP: Replace this with Dylan's real bio when ready -->
-              <p>Bio coming soon — Dylan will share his story here.</p>
+              <p>Dylan came to SFM as an animation intern from Owens Community College. He never left.</p>
+              <p>He's our account manager now. The one quietly keeping the operation running while the rest of us are out shooting, selling, or in front of a camera. Projects on schedule. Clients in the loop. Deliverables out the door. That's Dylan.</p>
+              <p>If you've worked with SFM and your project ran smoothly, that was him.</p>
             </div>
             <div class="card-tags">
               <span class="card-tag">Client Success</span>
