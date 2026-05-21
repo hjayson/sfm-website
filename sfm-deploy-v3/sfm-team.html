@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Team | Sales Funnel Marketing — Perrysburg, Ohio</title>
+  <meta name="description" content="Meet the people behind Sales Funnel Marketing — a tight-knit crew of content creators, strategists, and storytellers helping local businesses grow across Northwest Ohio." />
+  <meta name="keywords" content="Sales Funnel Marketing team, Jayson Hines, social media marketing Perrysburg Ohio, content creators Ohio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-team" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Meet the Team | Sales Funnel Marketing" />
+  <meta property="og:description" content="The people behind your growth. Meet the SFM crew." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-team" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meet the Team | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="The people behind your growth. Meet the SFM crew." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --orange-glow: rgba(232, 93, 38, 0.25);
+      --green:       #22c55e;
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --light-gray:  #F0F0F0;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font:        'Inter', -apple-system, sans-serif;
+      --font-serif:  'Merriweather', Georgia, serif;
+      --max-w:       1200px;
+      --section-pad: 100px 24px;
+      --radius:      12px;
+      --radius-sm:   8px;
+      --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    /* -- Buttons -- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 6px; font-family: var(--font);
+      font-size: 15px; font-weight: 700; border: 2px solid transparent;
+      cursor: pointer; transition: var(--transition); white-space: nowrap;
+    }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+    .btn-outline-dark { background: transparent; color: var(--navy); border-color: var(--navy); }
+    .btn-outline-dark:hover { background: var(--navy); color: var(--white); }
+
+    /* -- Utility -- */
+    .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* -- Nav -- */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: var(--navy); box-shadow: 0 4px 32px rgba(0,0,0,0.4); transition: padding 0.4s ease; }
+    #navbar.scrolled { padding: 12px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; line-height: 1.1; flex-shrink: 0; }
+    .nav-logo span { color: var(--orange); }
+    .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--orange); border-radius: 2px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-phone:hover { color: var(--white); }
+    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    .mobile-nav { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { color: var(--white); font-size: 24px; font-weight: 700; }
+    .mobile-nav .close-btn { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--white); font-size: 32px; cursor: pointer; }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-phone { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ==========================================
+       HERO
+    ========================================== */
+    #team-hero {
+      background: var(--navy);
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    #team-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(232,93,38,0.08) 0%, transparent 60%);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 20px; }
+    .hero-headline {
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+    .hero-headline .hi { color: var(--orange); display: block; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 36px; max-width: 500px; }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* Hero visual -- mosaic of team photos */
+    .hero-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 220px 220px;
+      gap: 12px;
+    }
+    .mosaic-cell {
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .mosaic-cell img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .mosaic-cell.span-row {
+      grid-row: span 2;
+    }
+    /* Placeholder gradient for cells without photos yet */
+    .mosaic-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 10px;
+      color: rgba(255,255,255,0.2); font-size: 13px; font-weight: 600; letter-spacing: 1px;
+    }
+    .mosaic-placeholder-icon { font-size: 36px; opacity: 0.3; }
+    .mosaic-label {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      background: rgba(10,22,40,0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px; font-weight: 700; color: var(--white);
+    }
+    .mosaic-label span { color: var(--orange); }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-mosaic { grid-template-rows: 180px 180px; }
+    }
+
+    /* ==========================================
+       TEAM CARDS
+    ========================================== */
+    #team-grid {
+      padding: var(--section-pad);
+      background: var(--off-white);
+    }
+    .team-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .team-header p {
+      font-size: 17px; color: var(--dark-gray); margin-top: 16px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.75;
+    }
+
+    .team-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--light-gray);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+    .team-card.featured { grid-column: span 2; }
+
+    /* Photo area */
+    .card-photo {
+      width: 100%;
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy-light);
+    }
+    .team-card.featured .card-photo {
+      height: 440px;
+    }
+    .card-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center;
+      transition: transform 0.5s ease;
+    }
+    .team-card:hover .card-photo img { transform: scale(1.04); }
+    .card-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      color: rgba(255,255,255,0.15); font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy-mid) 100%);
+    }
+    .card-photo-placeholder-icon { font-size: 56px; opacity: 0.2; }
+    .card-photo-placeholder-text { font-size: 11px; letter-spacing: 2px; }
+
+    /* Orange accent bar */
+    .card-accent {
+      height: 4px;
+      background: var(--orange);
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 28px 32px 32px;
+    }
+    .team-card.featured .card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 48px;
+      align-items: start;
+    }
+    .card-role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(232,93,38,0.1);
+      border: 1px solid rgba(232,93,38,0.25);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .card-name {
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .card-name .nick { color: var(--orange); }
+    .card-title-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark-gray);
+      margin-bottom: 20px;
+    }
+    .card-bio {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.8;
+    }
+    .card-bio p + p { margin-top: 12px; }
+
+    /* Specialty tags */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .card-tag {
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      color: var(--dark-gray);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    @media (max-width: 900px) {
+      .team-cards { grid-template-columns: 1fr; }
+      .team-card.featured { grid-column: span 1; }
+      .team-card.featured .card-body { grid-template-columns: 1fr; gap: 0; }
+      .card-photo { height: 300px; }
+      .team-card.featured .card-photo { height: 360px; }
+    }
+
+    /* ==========================================
+       CULTURE / VALUES STRIP
+    ========================================== */
+    #culture {
+      padding: 80px 0;
+      background: var(--navy);
+    }
+    .culture-inner {
+      text-align: center;
+    }
+    .culture-headline {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .culture-headline span { color: var(--orange); }
+    .culture-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 56px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .culture-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .pillar {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .pillar:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
+    .pillar:hover::before { transform: scaleX(1); }
+    .pillar-icon { font-size: 36px; margin-bottom: 16px; }
+    .pillar-title { font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+    .pillar-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .culture-pillars { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .culture-pillars { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================
+       FINAL CTA
+    ========================================== */
+    #cta-final {
+      padding: 80px 0;
+      background: var(--orange);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 10% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+    }
+    .cta-inner {
+      text-align: center;
+      position: relative;
+    }
+    .cta-headline {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .cta-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+    footer {
+      background: var(--navy);
+      padding: 60px 0 32px;
+      color: rgba(255,255,255,0.45);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand-name { font-size: 18px; font-weight: 900; color: var(--white); margin-bottom: 12px; }
+    .footer-brand-name span { color: var(--orange); }
+    .footer-tagline { font-size: 14px; line-height: 1.7; max-width: 280px; }
+    .footer-col-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; }
+    .footer-copy a { color: var(--orange); }
+
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home">
+          Sales<span>Funnel</span><small>Marketing</small>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html">Services</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-about.html">About</a></li>
+          <li><a href="sfm-team.html" class="active">Team</a></li>
+          <li><a href="sfm-blog.html">Blog</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+14193084576" class="nav-phone" aria-label="Call us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            419-308-4576
+          </a>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile menu">
+    <button class="close-btn" id="closeNav" aria-label="Close menu">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="sfm-services.html">Services</a>
+    <a href="sfm-results.html">Results</a>
+    <a href="sfm-about.html">About</a>
+    <a href="sfm-team.html" style="color: var(--orange);">Team</a>
+    <a href="sfm-blog.html">Blog</a>
+    <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary" style="margin-top: 16px;">Book a Free Call</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section id="team-hero" aria-label="Team hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-content reveal">
+          <div class="hero-eyebrow">Perrysburg, Ohio · Est. 2017</div>
+          <h1 class="hero-headline">
+            Small team.<br />
+            <span class="hi">Massive results.</span>
+          </h1>
+          <p class="hero-sub">
+            We're not a faceless agency with 200 clients and an intern running your account. We're a tight crew of creators, strategists, and storytellers who care deeply about the businesses we work with.
+          </p>
+          <div class="hero-ctas">
+            <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Work With Our Team
+            </a>
+            <a href="sfm-contact.html" class="btn btn-outline">Say Hello</a>
+          </div>
+        </div>
+
+        <!-- Team photo mosaic -->
+        <div class="hero-mosaic reveal reveal-delay-2">
+          <!-- Top-left: tall cell spanning both rows — Jayson -->
+          <div class="mosaic-cell span-row">
+            <img src="/images/jayson-headshot.jpg" alt="Jayson Hines, Founder" loading="lazy" />
+            <div class="mosaic-label">Jayson &mdash; <span>Owner</span></div>
+          </div>
+          <!-- Top-right: John -->
+          <div class="mosaic-cell">
+            <!-- SWAP: replace with john's action shot when ready -->
+            <div class="card-photo-placeholder">
+              <div class="card-photo-placeholder-icon">📸</div>
+            </div>
+            <div class="mosaic-label">John &mdash; <span>Photo</span></div>
+          </div>
+          <!-- Bottom-right: JD -->
+          <div class="mosaic-cell">
+            <!-- SWAP: replace with JD's action shot when ready -->
+            <div class="card-photo-placeholder">
+              <div class="card-photo-placeholder-icon">🎬</div>
+            </div>
+            <div class="mosaic-label">JD &mdash; <span>Video</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TEAM CARDS GRID -->
+  <section id="team-grid" aria-labelledby="team-heading">
+    <div class="container">
+
+      <div class="team-header reveal">
+        <span class="section-label">The Crew</span>
+        <h2 class="section-title" id="team-heading">The people behind your growth</h2>
+        <p>Every person on this team was chosen because they're genuinely great at what they do — and because they give a damn about our clients.</p>
+      </div>
+
+      <div class="team-cards">
+
+        <!-- ===== JAYSON — FEATURED (full width) ===== -->
+        <article class="team-card featured reveal" id="jayson">
+          <div class="card-photo">
+            <img src="/images/jayson-headshot.jpg" alt="Jayson Hines, Founder of Sales Funnel Marketing" loading="lazy" />
+          </div>
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <!-- Left column: name + bio -->
+            <div>
+              <div class="card-role-badge">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Founder &amp; Owner
+              </div>
+              <h3 class="card-name">Jayson Hines</h3>
+              <div class="card-title-label">Founder &amp; Lead Strategist · Sales Funnel Marketing</div>
+              <div class="card-bio">
+                <!-- SWAP: Replace this with Jayson's real bio when ready -->
+                <p>Bio coming soon — Jayson will share his story here.</p>
+              </div>
+              <div class="card-tags">
+                <span class="card-tag">Strategy</span>
+                <span class="card-tag">Content Creation</span>
+                <span class="card-tag">Meta Ads</span>
+                <span class="card-tag">Client Relationships</span>
+                <span class="card-tag">AI Tools</span>
+              </div>
+            </div>
+            <!-- Right column: fun facts / highlights -->
+            <div>
+              <div style="background: var(--off-white); border-radius: 16px; padding: 28px; margin-top: 0;">
+                <div style="font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px;">Quick Facts</div>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 20px;">📍</span>
+                    <div>
+                      <div style="font-size: 14px; font-weight: 700; color: var(--navy);">Based in Perrysburg, OH</div>
+                      <div style="font-size: 12px; color: var(--dark-gray);">Serving all of Northwest Ohio</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 20px;">📅</span>
+                    <div>
+                      <div style="font-size: 14px; font-weight: 700; color: var(--navy);">Founded SFM in 2017</div>
+                      <div style="font-size: 12px; color: var(--dark-gray);">7+ years growing local brands</div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 20px;">📗</span>
+                    <div>
+                      <div style="font-size: 14px; font-weight: 700; color: var(--navy);">Author of The Digital Garden</div>
+                      <div style="font-size: 12px; color: var(--dark-gray);"><a href="https://amazon.com/dp/B0GZXBGF8R" target="_blank" style="color: var(--orange); font-weight: 600;">Available on Amazon</a></div>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 20px;">⭐</span>
+                    <div>
+                      <div style="font-size: 14px; font-weight: 700; color: var(--navy);">5.0 Stars · 37 Google Reviews</div>
+                      <div style="font-size: 12px; color: var(--dark-gray);">Consistently top-rated in NW Ohio</div>
+                    </div>
+                  </div>
+                </div>
+                <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 24px; font-size: 14px; padding: 12px;">
+                  Book a Call with Jayson
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ===== JOHN — PHOTOGRAPHER ===== -->
+        <article class="team-card reveal reveal-delay-1" id="john">
+          <div class="card-photo">
+            <!-- SWAP: replace src with John's action shot when ready -->
+            <!-- <img src="/images/john-photo.jpg" alt="John, Photographer at Sales Funnel Marketing" loading="lazy" /> -->
+            <div class="card-photo-placeholder">
+              <div class="card-photo-placeholder-icon">📸</div>
+              <div class="card-photo-placeholder-text">Photo Coming Soon</div>
+            </div>
+          </div>
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-role-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+              Photographer
+            </div>
+            <h3 class="card-name">John</h3>
+            <div class="card-title-label">Lead Photographer</div>
+            <div class="card-bio">
+              <!-- SWAP: Replace this with John's real bio when ready -->
+              <p>Bio coming soon — John will share his story here.</p>
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Brand Photography</span>
+              <span class="card-tag">Product Shoots</span>
+              <span class="card-tag">Social Content</span>
+              <span class="card-tag">Event Coverage</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ===== JAMES "JD" — VIDEOGRAPHER ===== -->
+        <article class="team-card reveal reveal-delay-2" id="jd">
+          <div class="card-photo">
+            <!-- SWAP: replace src with JD's action shot when ready -->
+            <!-- <img src="/images/jd-photo.jpg" alt="James JD, Videographer at Sales Funnel Marketing" loading="lazy" /> -->
+            <div class="card-photo-placeholder">
+              <div class="card-photo-placeholder-icon">🎬</div>
+              <div class="card-photo-placeholder-text">Photo Coming Soon</div>
+            </div>
+          </div>
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-role-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              Videographer
+            </div>
+            <h3 class="card-name">James <span class="nick">"JD"</span></h3>
+            <div class="card-title-label">Lead Videographer</div>
+            <div class="card-bio">
+              <!-- SWAP: Replace this with JD's real bio when ready -->
+              <p>Bio coming soon — JD will share his story here.</p>
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Reels &amp; Shorts</span>
+              <span class="card-tag">Brand Video</span>
+              <span class="card-tag">Testimonial Video</span>
+              <span class="card-tag">Drone</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ===== DYLAN — ACCOUNT MANAGER ===== -->
+        <article class="team-card reveal reveal-delay-3" id="dylan">
+          <div class="card-photo">
+            <!-- SWAP: replace src with Dylan's action shot when ready -->
+            <!-- <img src="/images/dylan-photo.jpg" alt="Dylan, Account Manager at Sales Funnel Marketing" loading="lazy" /> -->
+            <div class="card-photo-placeholder">
+              <div class="card-photo-placeholder-icon">🤝</div>
+              <div class="card-photo-placeholder-text">Photo Coming Soon</div>
+            </div>
+          </div>
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-role-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Account Manager
+            </div>
+            <h3 class="card-name">Dylan</h3>
+            <div class="card-title-label">Account Manager</div>
+            <div class="card-bio">
+              <!-- SWAP: Replace this with Dylan's real bio when ready -->
+              <p>Bio coming soon — Dylan will share his story here.</p>
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Client Success</span>
+              <span class="card-tag">Reporting</span>
+              <span class="card-tag">Scheduling</span>
+              <span class="card-tag">Communication</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.team-cards -->
+    </div>
+  </section>
+
+
+  <!-- CULTURE / VALUES STRIP -->
+  <section id="culture" aria-labelledby="culture-heading">
+    <div class="container">
+      <div class="culture-inner reveal">
+        <span class="section-label">How We Work</span>
+        <h2 class="culture-headline" id="culture-heading">
+          What makes us <span>different</span>
+        </h2>
+        <p class="culture-sub">We're not here to run your account — we're here to grow your business. These are the values that drive every decision we make.</p>
+      </div>
+      <div class="culture-pillars">
+        <div class="pillar reveal reveal-delay-1">
+          <div class="pillar-icon">🎯</div>
+          <div class="pillar-title">Results First</div>
+          <div class="pillar-desc">Pretty posts that don't convert are useless. We obsess over numbers that actually move the needle.</div>
+        </div>
+        <div class="pillar reveal reveal-delay-2">
+          <div class="pillar-icon">🤝</div>
+          <div class="pillar-title">Real Relationships</div>
+          <div class="pillar-desc">You know who's working on your account. You can call us. We show up. That's not common — it should be.</div>
+        </div>
+        <div class="pillar reveal reveal-delay-3">
+          <div class="pillar-icon">🌱</div>
+          <div class="pillar-title">Built to Last</div>
+          <div class="pillar-desc">We build audiences that stick — not just vanity metrics that disappear when you stop paying for ads.</div>
+        </div>
+        <div class="pillar reveal reveal-delay-4">
+          <div class="pillar-icon">⚡</div>
+          <div class="pillar-title">Always Evolving</div>
+          <div class="pillar-desc">Algorithms change. We stay ahead. Your strategy is always current — never a template from two years ago.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FINAL CTA -->
+  <section id="cta-final" aria-label="Call to action">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2 class="cta-headline">Ready to meet us in person?</h2>
+        <p class="cta-sub">Book a free strategy call and you'll actually talk to one of us — not a bot, not a junior rep. The real crew.</p>
+        <div class="cta-btns">
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-outline" style="border-color: var(--white); color: var(--white);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book a Free Strategy Call
+          </a>
+          <a href="sfm-contact.html" class="btn" style="background: rgba(255,255,255,0.15); color: var(--white); border-color: rgba(255,255,255,0.3);">
+            Send Us a Message
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Sales<span>Funnel</span> Marketing</div>
+          <p class="footer-tagline">Turning local businesses into local legends — one post, one reel, one result at a time. Based in Perrysburg, Ohio.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sfm-services.html">Services</a></li>
+            <li><a href="sfm-results.html">Results</a></li>
+            <li><a href="sfm-about.html">About</a></li>
+            <li><a href="sfm-team.html">Team</a></li>
+            <li><a href="sfm-blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Get Started</div>
+          <ul class="footer-links">
+            <li><a href="sfm-contact.html">Contact Us</a></li>
+            <li><a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank">Free Strategy Call</a></li>
+            <li><a href="sfm-roi-calculator.html">ROI Calculator</a></li>
+            <li><a href="https://amazon.com/dp/B0GZXBGF8R" target="_blank">The Digital Garden</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&copy; 2025 Sales Funnel Marketing &mdash; Perrysburg, OH &middot; <a href="tel:+14193084576">419-308-4576</a></div>
+        <div><a href="sfm-contact.html" style="color: rgba(255,255,255,0.45); transition: color 0.2s;">Privacy &amp; Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    /* -- Nav scroll behavior -- */
+    const navbar = document.getElementById('navbar');
+    const scrollHandler = () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+    scrollHandler();
+
+    /* -- Mobile nav -- */
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav  = document.getElementById('mobileNav');
+    const closeNav   = document.getElementById('closeNav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+    });
+    closeNav.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    /* -- Reveal on scroll -- */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+  </script>
+
+</body>
+</html>
