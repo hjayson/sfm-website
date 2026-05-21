@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Results &amp; Case Studies | Sales Funnel Marketing — Northwest Ohio</title>
-  <meta name="description" content="Real results from real local businesses. See how Sales Funnel Marketing has helped plumbers, photographers, gyms, law firms, and retailers across Northwest Ohio grow their social media and drive sales." />
-  <meta name="keywords" content="social media marketing results, case studies Northwest Ohio, Facebook ads results Toledo, local business marketing ROI, Sales Funnel Marketing results" />
-
-  <meta property="og:title" content="Real Results From Real Local Businesses | SFM" />
-  <meta property="og:description" content="3× sales growth. 10× reach. Real clients, real numbers. See what's possible when your social media actually works." />
+  <title>Client Results & Case Studies | Sales Funnel Marketing</title>
+  <meta name="description" content="Real results from real clients. See how Sales Funnel Marketing helped local businesses in Northwest Ohio grow revenue, followers, and leads through social media." />
+  <meta name="keywords" content="social media marketing results Ohio, client case studies, social media ROI Northwest Ohio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-results" />
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.salesfunnelmarketing.us/results" />
-
-  <link rel="canonical" href="https://www.salesfunnelmarketing.us/results" />
+  <meta property="og:title" content="Client Results & Case Studies | Sales Funnel Marketing" />
+  <meta property="og:description" content="Real results from real clients. See how Sales Funnel Marketing helped local businesses in Northwest Ohio grow revenue, followers, and leads through social media." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-results" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Client Results & Case Studies | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="Real results from real clients. See how Sales Funnel Marketing helped local businesses in Northwest Ohio grow revenue, followers, and leads through social media." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,7 +58,7 @@
     ul { list-style: none; }
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
-    /* ── Buttons ─────────────────────────────────────────────────── */
+    /* -- Buttons --------------------------------------------------- */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 6px; font-family: var(--font); font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap; text-decoration: none; }
     .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
     .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
@@ -65,7 +71,7 @@
     .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
     .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
 
-    /* ── Utility ─────────────────────────────────────────────────── */
+    /* -- Utility --------------------------------------------------- */
     .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
     .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
     .section-title-light { color: var(--white); }
@@ -76,7 +82,7 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ── Nav ─────────────────────────────────────────────────────── */
+    /* -- Nav ------------------------------------------------------- */
     #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: var(--navy); box-shadow: 0 4px 32px rgba(0,0,0,0.4); transition: padding 0.4s ease; }
     #navbar.scrolled { padding: 12px 0; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -91,6 +97,17 @@
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
     .nav-cta { padding: 10px 20px; font-size: 14px; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -101,9 +118,9 @@
     .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--orange); }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        HERO
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #results-hero {
       background: var(--navy); padding: 140px 0 80px;
       position: relative; overflow: hidden;
@@ -137,9 +154,9 @@
     .hero-metric-num .m-green { color: var(--green); }
     .hero-metric-label { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; line-height: 1.4; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        PROOF BAR (scrolling client types)
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #proof-bar {
       background: var(--orange); padding: 18px 0; overflow: hidden;
     }
@@ -149,9 +166,9 @@
     .proof-item { display: flex; align-items: center; gap: 10px; white-space: nowrap; font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.9); letter-spacing: 0.5px; }
     .proof-dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; flex-shrink: 0; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        CASE STUDIES
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #case-studies { padding: var(--section-pad); background: var(--white); }
     .cs-header { text-align: center; margin-bottom: 72px; }
     .cs-header .section-title { margin-bottom: 16px; }
@@ -244,9 +261,9 @@
       bottom: -30px; right: -30px; pointer-events: none;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        INDUSTRY GRID
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #industries { padding: var(--section-pad); background: var(--off-white); }
     .ind-header { text-align: center; margin-bottom: 56px; }
     .ind-header .section-title { margin-bottom: 12px; }
@@ -274,9 +291,9 @@
       padding: 4px 10px; border-radius: 100px; letter-spacing: 0.5px;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        PROCESS STRIP
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #how-it-works { background: var(--navy); padding: var(--section-pad); }
     .hw-header { text-align: center; margin-bottom: 64px; }
     .hw-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
@@ -295,9 +312,9 @@
     .hw-step-title { font-size: 17px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
     .hw-step-desc { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        TESTIMONIALS (social proof wall)
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #proof-wall { padding: var(--section-pad); background: var(--white); }
     .pw-header { text-align: center; margin-bottom: 56px; }
     .pw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -343,9 +360,9 @@
     .rating-link { font-size: 14px; font-weight: 700; color: var(--orange); }
     .rating-link:hover { text-decoration: underline; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        CTA STRIP
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #cta-final {
       background: var(--orange); padding: 80px 0; text-align: center;
     }
@@ -357,7 +374,7 @@
     .cta-sub { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 36px; }
     .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    /* ── Footer ───────────────────────────────────────────── */
+    /* -- Footer --------------------------------------------- */
     #footer { background: #060e1a; padding: 64px 0 32px; }
     .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     .footer-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; margin-bottom: 12px; }
@@ -375,7 +392,7 @@
     .footer-social { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 800; transition: var(--transition); }
     .footer-social:hover { background: var(--orange); color: var(--white); }
 
-    /* ── Responsive ───────────────────────────────────────── */
+    /* -- Responsive ----------------------------------------- */
     @media (max-width: 1024px) {
       .ind-grid { grid-template-columns: repeat(2, 1fr); }
       .hw-steps { grid-template-columns: repeat(2, 1fr); }
@@ -414,7 +431,7 @@
 
 <body>
 
-  <!-- ══════════════════════ NAV ════════════════════════════════════════ -->
+  <!-- ---------------------- NAV ---------------------------------------- -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
@@ -427,7 +444,7 @@
           <li><a href="sfm-services.html">Services</a></li>
           <li><a href="sfm-results.html" class="active" aria-current="page">Results</a></li>
           <li><a href="sfm-about.html">About</a></li>
-          <li><a href="sfm-the-scroll.html">The Book</a></li>
+          <li><a href="sfm-digital-garden.html">The Book</a></li>
           <li><a href="sfm-contact.html">Contact</a></li>
         </ul>
         <div class="nav-right">
@@ -436,7 +453,10 @@
             419-308-4576
           </a>
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary nav-cta">
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
+          </a>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary nav-cta">
             Free Strategy Call
           </a>
           <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" id="hamburgerBtn">
@@ -453,14 +473,14 @@
     <a href="sfm-services.html" onclick="closeMobile()">Services</a>
     <a href="sfm-results.html" onclick="closeMobile()">Results</a>
     <a href="sfm-about.html" onclick="closeMobile()">About</a>
-    <a href="sfm-the-scroll.html" onclick="closeMobile()">The Book</a>
+    <a href="sfm-digital-garden.html" onclick="closeMobile()">The Book</a>
     <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
     <!-- UPDATE: Replace href with your real Calendly link -->
-    <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book a Free Call</a>
+    <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book a Free Call</a>
   </div>
 
 
-  <!-- ══════════════════════ HERO ═══════════════════════════════════════ -->
+  <!-- ---------------------- HERO --------------------------------------- -->
   <section id="results-hero" aria-labelledby="results-headline">
     <div class="container">
       <div class="hero-inner">
@@ -476,7 +496,7 @@
           We don't sell you on potential. We show you proof. Here's what happens when local businesses stop broadcasting and start building community.
         </p>
         <!-- UPDATE: Replace href with your real Calendly link -->
-        <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary reveal reveal-delay-3">
+        <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary reveal reveal-delay-3">
           Get Results Like These
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -506,7 +526,7 @@
   </section>
 
 
-  <!-- ══════════════════════ PROOF BAR ══════════════════════════════════ -->
+  <!-- ---------------------- PROOF BAR ---------------------------------- -->
   <div id="proof-bar" aria-hidden="true">
     <div class="proof-track">
       <!-- Set 1 -->
@@ -531,7 +551,7 @@
   </div>
 
 
-  <!-- ══════════════════════ CASE STUDIES ═══════════════════════════════ -->
+  <!-- ---------------------- CASE STUDIES ------------------------------- -->
   <section id="case-studies" aria-labelledby="cs-heading">
     <div class="container">
       <div class="cs-header reveal">
@@ -540,7 +560,7 @@
         <p>Every business here had the same problem: they were posting, but nothing was happening. Here's what changed.</p>
       </div>
 
-      <!-- ── Case Study 1: Round & Round Gifts ── -->
+      <!-- -- Case Study 1: Round & Round Gifts -- -->
       <article class="cs-card reveal" aria-label="Round and Round Gifts case study">
         <div class="cs-story">
           <div>
@@ -584,7 +604,7 @@
         </div>
       </article>
 
-      <!-- ── Case Study 2: Photography Studio ── -->
+      <!-- -- Case Study 2: Photography Studio -- -->
       <article class="cs-card reverse reveal" aria-label="Photography studio case study">
         <div class="cs-story">
           <div>
@@ -628,7 +648,7 @@
         </div>
       </article>
 
-      <!-- ── Case Study 3: Mortgage / Finance ── -->
+      <!-- -- Case Study 3: Mortgage / Finance -- -->
       <article class="cs-card reveal" aria-label="Mortgage officer case study">
         <div class="cs-story">
           <div>
@@ -672,7 +692,7 @@
         </div>
       </article>
 
-      <!-- ── Case Study 4: LK Soaps ── -->
+      <!-- -- Case Study 4: LK Soaps -- -->
       <article class="cs-card reverse reveal" aria-label="LK Soaps case study">
         <div class="cs-story">
           <div>
@@ -720,7 +740,7 @@
   </section>
 
 
-  <!-- ══════════════════════ INDUSTRIES ═════════════════════════════════ -->
+  <!-- ---------------------- INDUSTRIES --------------------------------- -->
   <section id="industries" aria-labelledby="ind-heading">
     <div class="container">
       <div class="ind-header reveal">
@@ -791,7 +811,7 @@
   </section>
 
 
-  <!-- ══════════════════════ HOW IT WORKS ═══════════════════════════════ -->
+  <!-- ---------------------- HOW IT WORKS ------------------------------- -->
   <section id="how-it-works" aria-labelledby="hw-heading">
     <div class="container">
       <div class="hw-header reveal">
@@ -827,7 +847,7 @@
   </section>
 
 
-  <!-- ══════════════════════ PROOF WALL ═════════════════════════════════ -->
+  <!-- ---------------------- PROOF WALL --------------------------------- -->
   <section id="proof-wall" aria-labelledby="pw-heading">
     <div class="container">
       <div class="pw-header reveal">
@@ -946,7 +966,7 @@
   </section>
 
 
-  <!-- ══════════════════════ CTA FINAL ══════════════════════════════════ -->
+  <!-- ---------------------- CTA FINAL ---------------------------------- -->
   <section id="cta-final" aria-labelledby="cta-heading">
     <div class="container">
       <div class="cta-inner reveal">
@@ -958,7 +978,7 @@
         </p>
         <div class="cta-buttons">
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-white">
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-white">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Book My Free Strategy Call
           </a>
@@ -991,7 +1011,7 @@
             <li><a href="sfm-services.html">Services</a></li>
             <li><a href="sfm-results.html">Results</a></li>
             <li><a href="sfm-about.html">About Us</a></li>
-            <li><a href="sfm-the-scroll.html">The Book</a></li>
+            <li><a href="sfm-digital-garden.html">The Book</a></li>
             <li><a href="sfm-contact.html">Contact</a></li>
           </ul>
         </div>
@@ -1031,13 +1051,13 @@
 
 
   <script>
-    /* ── Nav scroll shrink ────────────────────────────────── */
+    /* -- Nav scroll shrink ---------------------------------- */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    /* ── Mobile menu ─────────────────────────────────────── */
+    /* -- Mobile menu --------------------------------------- */
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     function closeMobile() {
@@ -1052,7 +1072,7 @@
     });
     mobileMenu.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
 
-    /* ── Scroll reveal ───────────────────────────────────── */
+    /* -- Scroll reveal ------------------------------------- */
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1063,7 +1083,7 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ── Bar chart animation ─────────────────────────────── */
+    /* -- Bar chart animation ------------------------------- */
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1079,7 +1099,7 @@
     }, { threshold: 0.3 });
     document.querySelectorAll('.cs-card').forEach(card => barObserver.observe(card));
 
-    /* ── Counter animation for hero metrics ──────────────── */
+    /* -- Counter animation for hero metrics ---------------- */
     function animateCounter(el, target, suffix, duration) {
       const start = performance.now();
       const startVal = 0;
