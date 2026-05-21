@@ -4,34 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | Sales Funnel Marketing</title>
-  <meta name="description" content="Privacy Policy for Sales Funnel Marketing â Perrysburg, Ohio." />
+  <meta name="description" content="Privacy policy for Sales Funnel Marketing. Learn how we collect, use, and protect your personal information." />
+  <meta name="keywords" content="Sales Funnel Marketing privacy policy" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-privacy" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy | Sales Funnel Marketing" />
+  <meta property="og:description" content="Privacy policy for Sales Funnel Marketing. Learn how we collect, use, and protect your personal information." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-privacy" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="Privacy policy for Sales Funnel Marketing. Learn how we collect, use, and protect your personal information." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root { --navy:#0A1628; --orange:#E85D26; --white:#FFFFFF; --off-white:#F8F8F8; --font:'Inter',sans-serif; }
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     body { font-family:var(--font); background:var(--off-white); color:#1a1a2e; }
+
     nav { position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
     .nav-logo { font-size:18px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
     .nav-logo span { color:var(--orange); }
     .nav-links { display:flex; gap:32px; list-style:none; }
     .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
-    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; }
-    .hamburger { display:none; }
-    @media(max-width:768px) { .nav-links, .nav-cta { display:none; } .hamburger { display:flex; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; } .hamburger span { display:block; width:24px; height:2bx; background:var(--white); border-radius:2px; } }
-    main { max-width:800px; margin:0 auto; padding:80px 24px; }
-    h1 { font-size:clamp(32px,5vw,48px); font-weight:900; margin-bottom:16px; color:#1a1a2e; }
-    .last-updated { color:#666; font-size:14px; margin-bottom:48px; }
-    h2 { font-size:20px; font-weight:700; margin:40px 0 12px; color:var(--orange); }
-    p { font-size:15px; line-height:1.7; color:#333; margin-bottom:16px; }
-    ul { margin:0 0 16px 20px; }
-    li { font-size:15px; line-height:1.7; color:#333; margin-bottom:8px; }
+    .nav-links a:hover { color:var(--white); }
+    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; transition:opacity 0.2s; }
+    .nav-cta:hover { opacity:0.88; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--white); text-decoration:none; font-size:24px; font-weight:800; }
+    .mobile-close { position:absolute; top:20px; right:24px; font-size:32px; cursor:pointer; color:var(--white); background:none; border:none; }
+
+    .hero { background:var(--navy); padding:72px 40px 56px; text-align:center; }
+    .hero h1 { font-size:clamp(32px,5vw,52px); font-weight:900; color:var(--white); margin-bottom:12px; }
+    .hero p { font-size:16px; color:rgba(255,255,255,0.5); }
+
+    .content-wrap { max-width:780px; margin:0 auto; padding:64px 24px 96px; }
+    .section { margin-bottom:48px; }
+    h2 { font-size:20px; font-weight:800; color:var(--navy); margin-bottom:14px; padding-bottom:10px; border-bottom:2px solid var(--orange); display:inline-block; }
+    p { font-size:15px; line-height:1.8; color:#333; margin-bottom:14px; }
+    ul { margin:0 0 14px 20px; }
+    ul li { font-size:15px; line-height:1.8; color:#333; margin-bottom:6px; }
     a { color:var(--orange); }
-    footer { background:var(--navy); padding:40px; text-align:center; margin-top:80px; }
+    .last-updated { font-size:13px; color:#888; margin-bottom:48px; padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid var(--orange); }
+
+    footer { background:var(--navy); padding:40px; text-align:center; }
     .footer-copy { font-size:13px; color:rgba(255,255,255,0.3); }
+
+    @media(max-width:768px) {
+      nav { padding:0 20px; }
+      .nav-links, .nav-cta { display:none; }
+      .hamburger { display:flex; }
+      .hero { padding:48px 20px 40px; }
+    }
   </style>
 
-  <!-- Google Analytics 4 -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -40,55 +75,166 @@
     gtag('config', 'G-CDLWCX753N');
   </script>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '331104330662440');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
-<Body>
-  <nav>
-    <a href="sfm-homepage.html" class="nav-logo">SFM<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="sfm-homepage.html">Home</a></li>
-      <li><a href="sfm-services.html">Services</a></li>
-      <li><a href="sfm-results.html">Results</a></li>
-      <li><a href="sfm-about.html">About</a></li>
-      <li><a href="sfm-contact.html">Contact</a></li>
-    </ul>
-    <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
-  </nav>
-  <main>
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: January 2025</p>
+<body>
+
+<nav>
+  <a href="sfm-homepage.html" class="nav-logo">SFM<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="sfm-homepage.html">Home</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="sfm-homepage.html">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="sfm-contact.html" style="color:var(--orange)">Book a Call →</a>
+</div>
+
+<div class="hero">
+  <h1>Privacy Policy</h1>
+  <p>Sales Funnel Marketing · Perrysburg, Ohio</p>
+</div>
+
+<div class="content-wrap">
+  <div class="last-updated">Last updated: May 2025</div>
+
+  <div class="section">
+    <h2>Who We Are</h2>
+    <p>Sales Funnel Marketing ("SFM," "we," "us," or "our") is a social media marketing agency located in Perrysburg, Ohio. We help local businesses grow through Facebook, Instagram, and Google Business strategies. Our website address is <a href="https://salesfunnelmarketing.org">salesfunnelmarketing.org</a>.</p>
+    <p>Questions about this policy? Contact us at <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a> or call 419-308-4576.</p>
+  </div>
+
+  <div class="section">
     <h2>Information We Collect</h2>
-    <p>When you visit our website or contact us, we may collect:</p>
+    <p>We collect information you provide directly to us, including when you:</p>
     <ul>
-      <li>Name, email, phone number, and business information</li>
-      <li>Browser and device information via analytics</li>
-      <li>Messages you send us through our contact form</li>
+      <li>Fill out a contact form or book a strategy call</li>
+      <li>Complete our social media score quiz or ROI calculator</li>
+      <li>Subscribe to our email list or newsletter</li>
+      <li>Communicate with us by phone, email, or social media</li>
     </ul>
+    <p>The types of information we may collect include your name, email address, phone number, business name, and any other information you choose to provide.</p>
+    <p>We also automatically collect certain information when you visit our website, including your IP address, browser type, pages visited, time spent on pages, and referring URLs. This is standard web analytics data collected through tools like Google Analytics.</p>
+  </div>
+
+  <div class="section">
     <h2>How We Use Your Information</h2>
-    <p>We use your information to provide services, communicate with you, and improve our offerings. We do not sell or rent your information to third parties.</p>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Respond to your inquiries and schedule strategy calls</li>
+      <li>Provide marketing services to clients</li>
+      <li>Send you information about our services, case studies, and marketing tips (you can unsubscribe at any time)</li>
+      <li>Improve our website and understand how visitors use it</li>
+      <li>Comply with legal obligations</li>
+    </ul>
+    <p>We do not sell, trade, or rent your personal information to third parties.</p>
+  </div>
+
+  <div class="section">
+    <h2>Facebook & Meta Advertising</h2>
+    <p>Our website uses the Meta Pixel (formerly Facebook Pixel), a piece of code that helps us understand how people interact with our website after seeing our Facebook or Instagram ads. The Meta Pixel may collect information such as your IP address, browser type, and pages visited.</p>
+    <p>This data is used to measure the effectiveness of our advertising, create audiences for future ads, and improve our marketing. You can opt out of Meta's use of cookies for advertising by visiting <a href="https://www.facebook.com/ads/preferences" target="_blank" rel="noopener">Facebook Ad Preferences</a>.</p>
+    <p>For more information about how Meta uses data, visit <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta's Privacy Policy</a>.</p>
+  </div>
+
+  <div class="section">
     <h2>Cookies</h2>
-    <p>Our website may use cookies for analytics. You can disable cookies in your browser settings.</p>
-    <h2>Contact</h2>
-    <p>Questions? Email us at <a href="mailto:hello@salesfunnelmarketing.us">hello@salesfunnelmarketing.us</a>.</p>
-  </main>
-  <footer>
-    <p class="footer-copy">Â© 2025 Sales Funnel Marketing Â· Perrysburg, OH</p>
-  </footer>
-</Body>
+    <p>Our website uses cookies — small text files stored on your device — to improve your browsing experience and help us understand how our site is used. We use:</p>
+    <ul>
+      <li><strong>Essential cookies:</strong> Necessary for the website to function properly</li>
+      <li><strong>Analytics cookies:</strong> Help us understand visitor behavior (e.g., Google Analytics)</li>
+      <li><strong>Marketing cookies:</strong> Used to track visitors across websites for advertising purposes (e.g., Meta Pixel)</li>
+    </ul>
+    <p>You can control cookies through your browser settings. Note that disabling certain cookies may affect the functionality of our website.</p>
+  </div>
+
+  <div class="section">
+    <h2>Third-Party Services</h2>
+    <p>We use trusted third-party services to operate our business. These may include:</p>
+    <ul>
+      <li><strong>Calendly</strong> — for booking strategy calls</li>
+      <li><strong>Google Analytics</strong> — for website analytics</li>
+      <li><strong>Meta (Facebook/Instagram)</strong> — for advertising and the Meta Pixel</li>
+      <li><strong>Email marketing platforms</strong> — for newsletters and follow-up sequences</li>
+    </ul>
+    <p>Each of these services has its own privacy policy governing how they handle your data. We encourage you to review them.</p>
+  </div>
+
+  <div class="section">
+    <h2>Data Retention</h2>
+    <p>We retain personal information for as long as necessary to fulfill the purposes described in this policy, unless a longer retention period is required by law. If you would like us to delete your information, please contact us at <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Request correction of inaccurate information</li>
+      <li>Request deletion of your information</li>
+      <li>Opt out of marketing communications at any time</li>
+      <li>Lodge a complaint with a supervisory authority</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Children's Privacy</h2>
+    <p>Our website and services are not directed to children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.</p>
+  </div>
+
+  <div class="section">
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page with an updated date. We encourage you to review this policy periodically.</p>
+  </div>
+
+  <div class="section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a></li>
+      <li><strong>Phone:</strong> <a href="tel:4193084576">419-308-4576</a></li>
+      <li><strong>Address:</strong> Perrysburg, Ohio</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="sfm-terms.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+</footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click',()=>document.querySelector('.mobile-menu').classList.add('open'));
+</script>
+</body>
 </html>
