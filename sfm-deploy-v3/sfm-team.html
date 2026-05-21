@@ -247,8 +247,7 @@
       width: 100%; height: 100%; object-fit: cover; object-position: top center;
       transition: transform 0.5s ease;
     }
-    /* Jayson's featured card is full-width — portrait photo needs to show head+chest not just face */
-    .team-card.featured .card-photo img { object-position: center 8%; }
+    /* Featured card image — position set inline per photo */
     .team-card:hover .card-photo img { transform: scale(1.04); }
     .card-photo-placeholder {
       width: 100%; height: 100%;
@@ -580,7 +579,7 @@
         <!-- ===== JAYSON — FEATURED (full width) ===== -->
         <article class="team-card featured reveal" id="jayson">
           <div class="card-photo">
-            <img src="/images/jayson-headshot-pro.jpg" alt="Jayson Hines, Founder of Sales Funnel Marketing" loading="lazy" />
+            <img src="/images/jayson-on-location.jpg" alt="Jayson Hines, Founder of Sales Funnel Marketing" loading="lazy" style="object-position: 30% center;" />
           </div>
           <div class="card-accent"></div>
           <div class="card-body">
@@ -706,7 +705,7 @@
         <!-- ===== DYLAN — ACCOUNT MANAGER ===== -->
         <article class="team-card reveal reveal-delay-3" id="dylan">
           <div class="card-photo">
-            <img src="/images/dylan.jpg" alt="Dylan, Account Manager at Sales Funnel Marketing" loading="lazy" style="object-position: top center;" />
+            <img src="/images/dylan.jpg" alt="Dylan, Account Manager at Sales Funnel Marketing" loading="lazy" style="object-position: center bottom;" />
           </div>
           <div class="card-accent"></div>
           <div class="card-body">
