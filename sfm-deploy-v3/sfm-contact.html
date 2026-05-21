@@ -94,6 +94,17 @@
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
     .nav-cta { padding: 10px 20px; font-size: 14px; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -415,13 +426,16 @@
           <li><a href="sfm-services.html">Services</a></li>
           <li><a href="sfm-results.html">Results</a></li>
           <li><a href="sfm-about.html">About</a></li>
-          <li><a href="sfm-the-scroll.html">The Book</a></li>
+          <li><a href="sfm-digital-garden.html">The Book</a></li>
           <li><a href="sfm-contact.html" class="active" aria-current="page">Contact</a></li>
         </ul>
         <div class="nav-right">
           <a href="tel:+14193084576" class="nav-phone" aria-label="Call us">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             419-308-4576
+          </a>
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
           </a>
           <a href="#book" class="btn btn-primary nav-cta">
             Book a Call
@@ -440,7 +454,7 @@
     <a href="sfm-services.html" onclick="closeMobile()">Services</a>
     <a href="sfm-results.html" onclick="closeMobile()">Results</a>
     <a href="sfm-about.html" onclick="closeMobile()">About</a>
-    <a href="sfm-the-scroll.html" onclick="closeMobile()">The Book</a>
+    <a href="sfm-digital-garden.html" onclick="closeMobile()">The Book</a>
     <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
     <a href="#book" class="btn btn-primary" onclick="closeMobile()">Book a Free Call</a>
   </div>
@@ -898,7 +912,7 @@
             <li><a href="sfm-services.html">Services</a></li>
             <li><a href="sfm-results.html">Results</a></li>
             <li><a href="sfm-about.html">About Us</a></li>
-            <li><a href="sfm-the-scroll.html">The Book</a></li>
+            <li><a href="sfm-digital-garden.html">The Book</a></li>
             <li><a href="sfm-contact.html">Contact</a></li>
           </ul>
         </div>
