@@ -57,7 +57,7 @@
     ul { list-style: none; }
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
-    /* ── Buttons ─────────────────────────────────────────────────── */
+    /* -- Buttons --------------------------------------------------- */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; border-radius: 6px; font-family: var(--font); font-size: 16px; font-weight: 700; cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap; text-decoration: none; }
     .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
     .btn-primary:hover { background: var(--orange-dark); border-color: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 8px 24px var(--orange-glow); }
@@ -68,7 +68,7 @@
     .btn-ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
     .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
 
-    /* ── Utility ─────────────────────────────────────────────────── */
+    /* -- Utility --------------------------------------------------- */
     .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
     .section-title { font-size: clamp(32px, 4vw, 48px); font-weight: 800; color: var(--navy); line-height: 1.15; letter-spacing: -0.5px; }
     .section-title-light { color: var(--white); }
@@ -79,7 +79,7 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ── Nav ─────────────────────────────────────────────────────── */
+    /* -- Nav ------------------------------------------------------- */
     #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: var(--navy); box-shadow: 0 4px 32px rgba(0,0,0,0.4); transition: padding 0.4s ease; }
     #navbar.scrolled { padding: 12px 0; }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
@@ -104,9 +104,9 @@
     .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--orange); }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        HERO
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #contact-hero {
       background: var(--navy); padding: 140px 0 80px;
       position: relative; overflow: hidden;
@@ -154,7 +154,7 @@
     .quick-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(232,93,38,0.3); color: var(--white); }
     .quick-link svg { flex-shrink: 0; }
 
-    /* ── Calendly embed panel ── */
+    /* -- Calendly embed panel -- */
     .calendly-panel {
       background: var(--white); border-radius: 20px;
       padding: 40px 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
@@ -191,9 +191,9 @@
     .form-note { font-size: 12px; color: var(--dark-gray); text-align: center; line-height: 1.6; }
     .form-note a { color: var(--orange); font-weight: 600; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        CONTACT INFO BAND
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #contact-info { background: var(--off-white); padding: 72px 0; }
     .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
     .info-card {
@@ -214,9 +214,9 @@
     .info-value a:hover { color: var(--orange); }
     .info-sub { font-size: 13px; color: var(--dark-gray); line-height: 1.5; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        WHY CALL / PROCESS STRIP
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #why-call { background: var(--navy); padding: var(--section-pad); }
     .wc-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .wc-content {}
@@ -257,9 +257,9 @@
     .promise-cta { margin-top: 28px; }
     .promise-cta a { width: 100%; justify-content: center; font-size: 15px; }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        FAQ
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #faq { padding: var(--section-pad); background: var(--white); }
     .faq-header { text-align: center; margin-bottom: 56px; }
     .faq-grid { max-width: 780px; margin: 0 auto; }
@@ -294,9 +294,9 @@
     .faq-answer p + p { margin-top: 12px; }
     .faq-answer strong { color: var(--navy); }
 
-    /* ═══════════════════════════════════════════════════════
+    /* -------------------------------------------------------
        SOCIAL PROOF MINI (before footer)
-    ═══════════════════════════════════════════════════════ */
+    ------------------------------------------------------- */
     #mini-proof { background: var(--orange); padding: 56px 0; }
     .mp-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
     .mp-quote {
@@ -309,7 +309,7 @@
     .mp-cta-wrap { flex-shrink: 0; text-align: center; }
     .mp-cta-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
 
-    /* ── Footer ───────────────────────────────────────────── */
+    /* -- Footer --------------------------------------------- */
     #footer { background: #060e1a; padding: 64px 0 32px; }
     .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     .footer-logo { font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; margin-bottom: 12px; }
@@ -327,7 +327,7 @@
     .footer-social { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 800; transition: var(--transition); }
     .footer-social:hover { background: var(--orange); color: var(--white); }
 
-    /* ── Responsive ───────────────────────────────────────── */
+    /* -- Responsive ----------------------------------------- */
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .wc-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -402,7 +402,7 @@
 
 <body>
 
-  <!-- ══════════════════════ NAV ════════════════════════════════════════ -->
+  <!-- ---------------------- NAV ---------------------------------------- -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
@@ -446,7 +446,7 @@
   </div>
 
 
-  <!-- ══════════════════════ HERO ═══════════════════════════════════════ -->
+  <!-- ---------------------- HERO --------------------------------------- -->
   <section id="contact-hero" aria-labelledby="contact-headline">
     <div class="container">
       <div class="hero-inner">
@@ -512,7 +512,7 @@
               <div class="calendly-panel-sub">Pick a time that works for you — 30 minutes, totally free.</div>
             </div>
 
-            <!-- ════════════════════════════════════════════════════
+            <!-- ----------------------------------------------------
                  UPDATE OPTION 1: Replace the contact form below with
                  a Calendly inline embed. Paste this snippet where the
                  form is, replacing everything from <form> to </form>:
@@ -528,7 +528,7 @@
 
                  UPDATE OPTION 2: Use a simple mailto link form by
                  pointing the action attribute to your form handler.
-            ════════════════════════════════════════════════════ -->
+            ---------------------------------------------------- -->
 
             <form class="contact-form" id="contactForm" novalidate>
               <div class="form-row">
@@ -597,7 +597,7 @@
   </section>
 
 
-  <!-- ══════════════════════ CONTACT INFO BAND ══════════════════════════ -->
+  <!-- ---------------------- CONTACT INFO BAND -------------------------- -->
   <section id="contact-info" aria-labelledby="info-heading">
     <div class="container">
       <div style="text-align:center; margin-bottom:48px;" class="reveal">
@@ -647,7 +647,7 @@
   </section>
 
 
-  <!-- ══════════════════════ WHY CALL ═══════════════════════════════════ -->
+  <!-- ---------------------- WHY CALL ----------------------------------- -->
   <section id="why-call" aria-labelledby="wc-heading">
     <div class="container">
       <div class="wc-inner">
@@ -742,7 +742,7 @@
   </section>
 
 
-  <!-- ══════════════════════ FAQ ══════════════════════════════════════════ -->
+  <!-- ---------------------- FAQ ------------------------------------------ -->
   <section id="faq" aria-labelledby="faq-heading">
     <div class="container">
       <div class="faq-header reveal">
@@ -858,7 +858,7 @@
   </section>
 
 
-  <!-- ══════════════════════ SOCIAL PROOF STRIP ═════════════════════════ -->
+  <!-- ---------------------- SOCIAL PROOF STRIP ------------------------- -->
   <section id="mini-proof" aria-label="Client testimonial">
     <div class="container">
       <div class="mp-inner reveal">
@@ -938,13 +938,13 @@
 
 
   <script>
-    /* ── Nav scroll shrink ────────────────────────────────── */
+    /* -- Nav scroll shrink ---------------------------------- */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    /* ── Mobile menu ─────────────────────────────────────── */
+    /* -- Mobile menu --------------------------------------- */
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     function closeMobile() {
@@ -959,7 +959,7 @@
     });
     mobileMenu.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
 
-    /* ── Scroll reveal ───────────────────────────────────── */
+    /* -- Scroll reveal ------------------------------------- */
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -970,7 +970,7 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ── FAQ accordion ───────────────────────────────────── */
+    /* -- FAQ accordion ------------------------------------- */
     document.querySelectorAll('.faq-question').forEach(btn => {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
@@ -988,7 +988,7 @@
       });
     });
 
-    /* ── Contact form → GoHighLevel CRM ── */
+    /* -- Contact form → GoHighLevel CRM -- */
     const GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/OJDfphRc0kbldNRpq1lD/webhook-trigger/9a7caf53-94be-4393-badc-3fbd33fcfadb';
 
     const form = document.getElementById('contactForm');
@@ -1030,6 +1030,7 @@
           tags:        ['website-lead']
         };
 
+        // 1. Send to GoHighLevel CRM
         try {
           await fetch(GHL_WEBHOOK, {
             method:  'POST',
@@ -1037,8 +1038,28 @@
             body:    JSON.stringify(payload)
           });
         } catch (err) {
-          // Silently continue — show success regardless so user isn't stuck
           console.warn('GHL webhook error:', err);
+        }
+
+        // 2. Send email notification to Jayson via FormSubmit
+        try {
+          await fetch('https://formsubmit.co/ajax/jayson@salesfunnelmarketing.us', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject:  'New Website Lead: ' + payload.firstName + ' ' + payload.lastName,
+              name:      payload.firstName + ' ' + payload.lastName,
+              email:     payload.email,
+              phone:     payload.phone     || 'Not provided',
+              business:  payload.companyName || 'Not provided',
+              industry:  payload.industry   || 'Not provided',
+              message:   payload.message    || 'No message',
+              source:    'SalesFunnelMarketing.us Contact Form',
+              _template: 'table'
+            })
+          });
+        } catch (err) {
+          console.warn('FormSubmit notification error:', err);
         }
 
         // Show success state
