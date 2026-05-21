@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://salesfunnelmarket.netlify.app/sitemap.xml
+Sitemap: https://www.salesfunnelmarketing.us/sitemap.xml
 
 # Crawl-delay (optional - helps with server load)
 Crawl-delay: 1
