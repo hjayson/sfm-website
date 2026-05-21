@@ -274,6 +274,17 @@
       padding: 10px 22px;
       font-size: 14px;
     }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
 
     /* Hamburger */
     .hamburger {
@@ -1536,7 +1547,7 @@
     <a href="#testimonials" onclick="closeMobile()">Reviews</a>
     <a href="tel:+14193084576" onclick="closeMobile()">📞 419-308-4576</a>
     <!-- UPDATE: Replace href with your real Calendly link -->
-    <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
+    <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
   </nav>
 
 
@@ -1566,7 +1577,10 @@
             419-308-4576
           </a>
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary nav-cta">
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
+          </a>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary nav-cta">
             Get Free Strategy Call
           </a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -1609,7 +1623,7 @@
 
           <div class="hero-ctas">
             <!-- UPDATE: Replace href with your real Calendly link -->
-            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-primary">
+            <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Get My Free Strategy Call
             </a>
@@ -1815,7 +1829,7 @@
               That's exactly what we <span>fix.</span>
             </p>
             <!-- UPDATE: Replace href with your real Calendly link -->
-            <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="problem-card-cta">
+            <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="problem-card-cta">
               Let's fix yours today
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -2081,7 +2095,7 @@
         </p>
         <div class="cta-buttons">
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="https://calendly.com/salesfunnelmarketing" target="_blank" class="btn btn-white">
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-white">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Book My Free Strategy Call
           </a>
@@ -2141,9 +2155,9 @@
             <li><a href="sfm-about.html">About Us</a></li>
             <li><a href="sfm-results.html">Client Results</a></li>
             <li><a href="sfm-blog.html">Blog</a></li>
-            <li><a href="sfm-blog.html">Free eBook</a></li>
+            <li><a href="sfm-digital-garden.html">The Digital Garden</a></li>
             <!-- UPDATE: Replace href with your real Calendly link -->
-            <li><a href="https://calendly.com/salesfunnelmarketing">Book a Call</a></li>
+            <li><a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Book a Call</a></li>
           </ul>
         </div>
 
@@ -2175,7 +2189,7 @@
        JAVASCRIPT
   ====================================================== -->
   <script>
-    // ─── NAVBAR SCROLL BEHAVIOR ────────────────────────────────────
+    // --- NAVBAR SCROLL BEHAVIOR ------------------------------------
     const navbar = document.getElementById('navbar');
     const scrollThreshold = 80;
 
@@ -2191,7 +2205,7 @@
     handleNavScroll();
 
 
-    // ─── HAMBURGER MENU ───────────────────────────────────────────
+    // --- HAMBURGER MENU -------------------------------------------
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -2215,7 +2229,7 @@
     });
 
 
-    // ─── SCROLL REVEAL ANIMATIONS ─────────────────────────────────
+    // --- SCROLL REVEAL ANIMATIONS ---------------------------------
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2233,7 +2247,7 @@
     });
 
 
-    // ─── NUMBER COUNTER ANIMATION ─────────────────────────────────
+    // --- NUMBER COUNTER ANIMATION ---------------------------------
     function animateCounter(el, target, suffix = '', duration = 2000) {
       const isDecimal = String(target).includes('.');
       const decimals = isDecimal ? 1 : 0;
@@ -2275,7 +2289,7 @@
     });
 
 
-    // ─── SMOOTH ANCHOR LINKS ──────────────────────────────────────
+    // --- SMOOTH ANCHOR LINKS --------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
@@ -2289,7 +2303,7 @@
     });
 
 
-    // ─── ACTIVE NAV LINK HIGHLIGHTING ────────────────────────────
+    // --- ACTIVE NAV LINK HIGHLIGHTING ----------------------------
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 
