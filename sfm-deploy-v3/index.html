@@ -56,8 +56,14 @@
     .mobile-close { position:absolute; top:20px; right:24px; font-size:32px; cursor:pointer; color:var(--white); background:none; border:none; }
 
     /* HERO */
-    .hero { min-height:92vh; display:flex; align-items:center; padding:80px 40px; position:relative; overflow:hidden; }
-    .hero::before { content:''; position:absolute; top:-300px; right:-200px; width:800px; height:800px; background:radial-gradient(circle, rgba(232,93,38,0.12) 0%, transparent 65%); pointer-events:none; }
+    .hero { min-height:92vh; display:flex; align-items:center; padding:80px 40px; position:relative; overflow:hidden; background:linear-gradient(135deg,#0A1628,#0d2040,#0A1628,#091320); background-size:300% 300%; animation:heroDrift 18s ease infinite; }
+    .hero-inner { position:relative; z-index:2; }
+    /* Animated orange orb top-right */
+    .hero::before { content:''; position:absolute; top:-250px; right:-150px; width:700px; height:700px; background:radial-gradient(circle,rgba(232,93,38,0.16) 0%,transparent 65%); pointer-events:none; filter:blur(40px); animation:orbPulse 9s ease-in-out infinite; }
+    /* Animated blue orb bottom-left */
+    .hero::after { content:''; position:absolute; bottom:-200px; left:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(20,70,160,0.14) 0%,transparent 65%); pointer-events:none; filter:blur(50px); animation:orbPulse 12s ease-in-out infinite reverse; }
+    @keyframes heroDrift { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+    @keyframes orbPulse { 0%,100%{opacity:0.6;transform:scale(1) translate(0,0);} 50%{opacity:1;transform:scale(1.12) translate(10px,-12px);} }
     .hero-inner { max-width:1100px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
     .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(232,93,38,0.1); border:1px solid rgba(232,93,38,0.2); color:var(--orange); font-size:13px; font-weight:800; letter-spacing:1px; padding:8px 16px; border-radius:20px; margin-bottom:24px; }
     .hero h1 { font-size:clamp(42px,5.5vw,68px); font-weight:900; line-height:1.05; letter-spacing:-2px; margin-bottom:24px; }
@@ -108,6 +114,17 @@
     /* SECTIONS */
     section { padding:100px 40px; max-width:1200px; margin:0 auto; }
 
+    /* LOGO STRIP */
+    .logo-strip { padding: 40px 0; overflow: hidden; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .logo-strip-label { text-align:center; font-size:11px; font-weight:800; color:rgba(255,255,255,0.25); letter-spacing:3px; text-transform:uppercase; margin-bottom:24px; }
+    .logo-track-wrap { overflow:hidden; }
+    .logo-track { display:flex; gap:16px; animation:scrollLogos 50s linear infinite; width:max-content; align-items:center; }
+    .logo-track:hover { animation-play-state:paused; }
+    .logo-item { background:#fff; border-radius:10px; padding:10px 18px; width:150px; height:68px; display:flex; align-items:center; justify-content:center; flex-shrink:0; opacity:0.82; transition:opacity 0.25s, transform 0.25s; }
+    .logo-item:hover { opacity:1; transform:scale(1.04); }
+    .logo-item img { max-height:44px; max-width:118px; object-fit:contain; display:block; }
+    @keyframes scrollLogos { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
     /* WHY US */
     .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
     .why-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px 28px; }
@@ -124,7 +141,7 @@
     .industry-card p { font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5; }
 
     /* RESULTS */
-    .results-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px; }
+    .results-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:36px; margin-top:48px; }
     .result-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; }
     .result-tag { display:inline-block; font-size:11px; font-weight:800; color:var(--orange); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:16px; }
     .result-card blockquote { font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; font-style:italic; margin-bottom:16px; }
@@ -384,6 +401,44 @@
     <div class="proof-item">9 Years in Business · Founded 2017</div>
     <div class="proof-item">Facebook · Instagram · TikTok · YouTube · Google</div>
     <div class="proof-item">Perrysburg, Ohio Based Agency</div>
+  </div>
+</div>
+
+<!-- CLIENT LOGOS -->
+<div class="logo-strip">
+  <div class="logo-strip-label">Trusted by local businesses across Northwest Ohio</div>
+  <div class="logo-track-wrap">
+    <div class="logo-track">
+      <div class="logo-item"><img src="/images/logos/logo-precision-auto.png" alt="Precision Auto Detailing" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-livefit.png" alt="LiveFIT" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-rmc.png" alt="Resource Management Consultants" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-cari-hines.png" alt="Cari Hines Personal Training" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-welchs-golf.png" alt="Welch's Golf Carts" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-gentle-hippo.png" alt="Gentle Hippo Junk Removal" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-national-exchange.png" alt="National Exchange Club" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-vjs-towing.png" alt="VJ's Towing & Rescue" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-disalle.png" alt="DiSalle Real Estate" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-smart-financial.png" alt="Smart Financial" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-legacy-law.png" alt="Legacy Law Group" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-gallon-takacs.png" alt="Gallon Takacs & Boissoneault" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-bollin-wealth.png" alt="Bollin Wealth Management" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-culvers.png" alt="Culver's" loading="lazy" /></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="logo-item"><img src="/images/logos/logo-precision-auto.png" alt="Precision Auto Detailing" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-livefit.png" alt="LiveFIT" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-rmc.png" alt="Resource Management Consultants" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-cari-hines.png" alt="Cari Hines Personal Training" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-welchs-golf.png" alt="Welch's Golf Carts" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-gentle-hippo.png" alt="Gentle Hippo Junk Removal" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-national-exchange.png" alt="National Exchange Club" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-vjs-towing.png" alt="VJ's Towing & Rescue" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-disalle.png" alt="DiSalle Real Estate" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-smart-financial.png" alt="Smart Financial" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-legacy-law.png" alt="Legacy Law Group" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-gallon-takacs.png" alt="Gallon Takacs & Boissoneault" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-bollin-wealth.png" alt="Bollin Wealth Management" loading="lazy" /></div>
+      <div class="logo-item"><img src="/images/logos/logo-culvers.png" alt="Culver's" loading="lazy" /></div>
+    </div>
   </div>
 </div>
 
