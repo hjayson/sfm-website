@@ -96,6 +96,17 @@
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
     .nav-cta { padding: 10px 20px; font-size: 14px; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -455,6 +466,9 @@
             419-308-4576
           </a>
           <!-- UPDATE: Replace href with your real Calendly link -->
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
+          </a>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -988,7 +1002,7 @@
               </div>
             </div>
             <div class="workshop-cta">
-              <a href="sfm-the-scroll.html" class="btn" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.12); width:100%; justify-content:center; margin-top:8px; font-size:14px; padding:13px;">
+              <a href="sfm-digital-garden.html" class="btn" style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.12); width:100%; justify-content:center; margin-top:8px; font-size:14px; padding:13px;">
                 📗 Read Jayson's Book: The Digital Garden
               </a>
             </div>
@@ -1060,7 +1074,7 @@
           <ul class="footer-links">
             <li><a href="sfm-about.html">About Us</a></li>
             <li><a href="sfm-results.html">Client Results</a></li>
-            <li><a href="sfm-the-scroll.html">The Digital Garden</a></li>
+            <li><a href="sfm-digital-garden.html">The Digital Garden</a></li>
             <li><a href="sfm-blog.html">Blog</a></li>
             <li><a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Book a Call</a></li>
           </ul>
