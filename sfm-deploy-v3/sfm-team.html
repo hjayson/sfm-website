@@ -259,6 +259,67 @@
     .card-photo-placeholder-icon { font-size: 56px; opacity: 0.2; }
     .card-photo-placeholder-text { font-size: 11px; letter-spacing: 2px; }
 
+    /* Join card */
+    .team-card.join-card {
+      background: var(--navy);
+      border: 2px dashed rgba(232, 93, 38, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 36px;
+      gap: 0;
+      min-height: 480px;
+      cursor: default;
+    }
+    .team-card.join-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(232, 93, 38, 0.65);
+      box-shadow: 0 16px 48px rgba(232, 93, 38, 0.08);
+    }
+    .join-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(232, 93, 38, 0.12);
+      border: 1.5px solid rgba(232, 93, 38, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      color: var(--orange);
+    }
+    .join-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 14px;
+    }
+    .join-heading {
+      font-size: 26px; font-weight: 700; line-height: 1.2;
+      color: #fff; margin-bottom: 16px;
+    }
+    .join-heading span { color: var(--orange); }
+    .join-body {
+      font-size: 14px; line-height: 1.65; color: rgba(255,255,255,0.55);
+      margin-bottom: 32px; max-width: 260px;
+    }
+    .join-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+      padding: 12px 24px; border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .join-cta:hover { background: #cf5120; transform: translateY(-2px); }
+    .join-tags {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      margin-top: 28px;
+    }
+    .join-tag {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+      padding: 4px 12px; border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.35);
+    }
+
     /* Orange accent bar */
     .card-accent {
       height: 4px;
@@ -755,6 +816,32 @@
               <span class="card-tag">Scheduling</span>
               <span class="card-tag">Communication</span>
             </div>
+          </div>
+        </article>
+
+        <!-- JOIN CARD -->
+        <article class="team-card join-card reveal reveal-delay-4">
+          <div class="join-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <line x1="19" y1="8" x2="19" y2="14"/>
+              <line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+          </div>
+          <div class="join-label">We're Growing</div>
+          <h3 class="join-heading">Interested in<br><span>Joining the Team?</span></h3>
+          <p class="join-body">We're always looking for sharp, motivated people who want to do real work for real local businesses. No fluff. No bloated agency politics.</p>
+          <a href="mailto:jayson@salesfunnelmarketing.us?subject=I'd%20love%20to%20join%20the%20SFM%20team" class="join-cta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Reach Out
+          </a>
+          <div class="join-tags">
+            <span class="join-tag">Video &amp; Content</span>
+            <span class="join-tag">Paid Ads</span>
+            <span class="join-tag">Copywriting</span>
+            <span class="join-tag">Design</span>
+            <span class="join-tag">Strategy</span>
           </div>
         </article>
 
