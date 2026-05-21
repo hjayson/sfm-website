@@ -3,630 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social Media Marketing for Restaurants | Sales Funnel Marketing â Ohio</title>
-  <meta name="description" content="Bring more diners through the door with restaurant social media marketing. Content creation, Facebook ads, and reputation management for restaurants in Northwest Ohio." />
-  <meta name="keywords" content="social media marketing for restaurants Ohio, restaurant Facebook ads, restaurant Instagram Toledo" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-restaurant" />
-  <!-- Open Graph -->
+  <title>Restaurant & Food Service Social Media Marketing | Sales Funnel Marketing NW Ohio</title>
+  <meta name="description" content="Restaurants, bars, and food businesses in Northwest Ohio — fill your tables with targeted social media ads, mouthwatering content, and local Facebook campaigns. Sales Funnel Marketing, Perrysburg OH." />
+  <meta name="keywords" content="restaurant marketing Northwest Ohio, social media for restaurants Toledo Ohio, Facebook ads restaurant NW Ohio, food business marketing agency" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-restaurant.html" />
+  <meta property="og:title" content="Restaurant & Food Service Marketing | Sales Funnel Marketing" />
+  <meta property="og:description" content="Fill your tables with targeted social media and Facebook ads designed for restaurants in Northwest Ohio." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Social Media Marketing for Restaurants | Sales Funnel Marketing â Ohio" />
-  <meta property="og:description" content="Bring more diners through the door with restaurant social media marketing. Content creation, Facebook ads, and reputation management for restaurants in Northwest Ohio." />
-  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-restaurant" />
-  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
-  <meta property="og:site_name" content="Sales Funnel Marketing" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Social Media Marketing for Restaurants | Sales Funnel Marketing â Ohio" />
-  <meta name="twitter:description" content="Bring more diners through the door with restaurant social media marketing. Content creation, Facebook ads, and reputation management for restaurants in Northwest Ohio." />
-  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-restaurant.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --navy:#0A1628; --navy-mid:#0f1e38; --navy-light:#152240;
-      --orange:#E85D26; --orange-dark:#c44d1e; --orange-glow:rgba(232,93,38,0.25);
-      --green:#22c55e; --white:#FFFFFF; --off-white:#F8F8F8;
-      --light-gray:#F0F0F0; --dark-gray:#555555; --text-body:#3a3a3a;
-      --font:'Inter',-apple-system,sans-serif; --max-w:1200px;
-      --radius:12px; --radius-sm:8px; --transition:0.3s cubic-bezier(0.4,0,0.2,1);
-      --shadow:0 4px 24px rgba(0,0,0,0.08);
-    }
+    :root{--navy:#0A1628;--orange:#E85D26;--white:#FFFFFF;--font:'Inter',sans-serif;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased;}
-    body{font-family:var(--font);color:var(--text-body);background:var(--white);overflow-x:hidden;line-height:1.6;}
-    img{max-width:100%;display:block;} a{color:inherit;text-decoration:none;} ul{list-style:none;}
-    .container{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:6px;font-family:var(--font);font-size:16px;font-weight:700;cursor:pointer;transition:var(--transition);border:2px solid transparent;white-space:nowrap;text-decoration:none;}
-    .btn-primary{background:var(--orange);color:var(--white);border-color:var(--orange);}
-    .btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--orange-glow);}
-    .btn-ghost-white{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.5);}
-    .btn-ghost-white:hover{background:rgba(255,255,255,0.1);border-color:var(--white);transform:translateY(-2px);}
-    .btn-outline-dark{background:transparent;color:var(--navy);border-color:var(--navy);}
-    .btn-outline-dark:hover{background:var(--navy);color:var(--white);}
-    .section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;}
-    .section-title{font-size:clamp(30px,4vw,46px);font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-0.5px;}
-    .section-title-light{color:var(--white);}
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    .reveal-delay-1{transition-delay:0.1s;} .reveal-delay-2{transition-delay:0.2s;} .reveal-delay-3{transition-delay:0.3s;}
-
-    /* NAV */
-    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;background:var(--navy);box-shadow:0 4px 32px rgba(0,0,0,0.4);transition:padding 0.4s ease;}
-    #navbar.scrolled{padding:12px 0;}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;}
-    .nav-logo{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-0.5px;line-height:1.1;flex-shrink:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font);background:var(--navy);color:var(--white);overflow-x:hidden;}
+    a{text-decoration:none;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+    .nav-logo{font-size:20px;font-weight:900;color:var(--white);display:flex;align-items:center;gap:10px;}
+    .nav-logo img{width:36px;height:36px;border-radius:50%;}
     .nav-logo span{color:var(--orange);}
-    .nav-logo small{display:block;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;opacity:0.7;margin-top:1px;}
-    .nav-links{display:flex;align-items:center;gap:32px;}
-    .nav-links a{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;transition:color 0.2s;}
-    .nav-links a:hover{color:var(--white);}
-    .nav-right{display:flex;align-items:center;gap:16px;}
-    .nav-phone{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:14px;font-weight:500;transition:color 0.2s;}
-    .nav-phone:hover{color:var(--white);}
-    .nav-cta{padding:10px 20px;font-size:14px;}
-    /* Book nav badge */
-    .nav-book-btn {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
-      color: #22c55e; font-size: 13px; font-weight: 700;
-      padding: 8px 16px; border-radius: 100px;
-      transition: all 0.2s ease; white-space: nowrap;
-    }
-    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
-    @media (max-width: 900px) { .nav-book-btn { display: none; } }
-
-    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition);}
-    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-    .hamburger.open span:nth-child(2){opacity:0;}
-    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    .mobile-menu{position:fixed;inset:0;background:var(--navy);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity 0.3s ease;}
-    .mobile-menu.open{opacity:1;pointer-events:all;}
-    .mobile-menu a{font-size:22px;font-weight:700;color:var(--white);transition:color 0.2s;}
-    .mobile-menu a:hover{color:var(--orange);}
-
-    /* HERO */
-    #hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden;}
-    #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 5% 50%,#0e2245 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 95% 10%,#152240 0%,transparent 55%),radial-gradient(ellipse 35% 40% at 50% 100%,rgba(232,93,38,0.05) 0%,transparent 50%);}
-    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(232,93,38,0.12);border:1px solid rgba(232,93,38,0.25);padding:6px 16px;border-radius:100px;margin-bottom:20px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
-    .hero-headline{font-size:clamp(34px,4.5vw,56px);font-weight:900;color:var(--white);line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px;}
-    .hero-headline .accent{color:var(--orange);}
-    .hero-sub{font-size:18px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:32px;max-width:480px;}
-    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
-    .hero-trust{display:flex;align-items:center;gap:12px;margin-top:24px;}
-    .hero-trust-stars{font-size:14px;color:#FFB800;letter-spacing:1px;}
-    .hero-trust-text{font-size:13px;color:rgba(255,255,255,0.4);}
-
-    /* Right panel: pain points */
-    .pain-panel{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px 32px;}
-    .pain-panel-title{font-size:14px;font-weight:800;color:rgba(255,255,255,0.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;}
-    .pain-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
-    .pain-item:last-child{border-bottom:none;padding-bottom:0;}
-    .pain-x{width:24px;height:24px;border-radius:50%;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px;color:#ef4444;font-weight:900;}
-    .pain-check{width:24px;height:24px;border-radius:50%;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px;color:var(--green);font-weight:900;}
-    .pain-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.55;}
-    .pain-text strong{color:var(--white);}
-
-    /* PROOF BAND */
-    #proof-band{background:var(--orange);padding:56px 0;}
-    .pb-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
-    .pb-stat{text-align:center;padding:0 24px;position:relative;}
-    .pb-stat+.pb-stat::before{content:'';position:absolute;left:0;top:10%;height:80%;width:1px;background:rgba(255,255,255,0.2);}
-    .pb-num{font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-1.5px;margin-bottom:6px;}
-    .pb-label{font-size:13px;color:rgba(255,255,255,0.7);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
-
-    /* WHY SECTION */
-    #why{padding:100px 0;background:var(--white);}
-    .why-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-    .why-content{}
-    .why-headline{font-size:clamp(26px,3vw,38px);font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-0.5px;margin-bottom:20px;}
-    .why-headline em{color:var(--orange);font-style:normal;}
-    .why-p{font-size:17px;color:var(--dark-gray);line-height:1.8;margin-bottom:16px;}
-    .why-p strong{color:var(--navy);}
-    .why-pull{margin:24px 0;padding:20px 24px;border-left:4px solid var(--orange);background:rgba(232,93,38,0.04);border-radius:0 var(--radius-sm) var(--radius-sm) 0;}
-    .why-pull p{font-size:16px;font-style:italic;color:var(--navy);line-height:1.65;}
-    .why-items{display:flex;flex-direction:column;gap:16px;}
-    .why-item{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:var(--off-white);border-radius:var(--radius-sm);border:1px solid var(--light-gray);transition:var(--transition);}
-    .why-item:hover{border-color:rgba(232,93,38,0.3);background:rgba(232,93,38,0.03);}
-    .why-item-icon{font-size:22px;flex-shrink:0;}
-    .why-item-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:3px;}
-    .why-item-desc{font-size:13px;color:var(--dark-gray);line-height:1.55;}
-
-    /* PLATFORM SECTION */
-    #platforms{padding:100px 0;background:var(--off-white);}
-    .plat-header{text-align:center;margin-bottom:56px;}
-    .plat-header p{font-size:17px;color:var(--dark-gray);max-width:560px;margin:12px auto 0;line-height:1.7;}
-    .plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .plat-card{background:var(--white);border-radius:var(--radius);padding:32px 28px;border:1px solid var(--light-gray);transition:var(--transition);position:relative;overflow:hidden;}
-    .plat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease;}
-    .plat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-    .plat-card:hover::before{transform:scaleX(1);}
-    .plat-card.primary::before{transform:scaleX(1);}
-    .plat-priority{display:inline-flex;align-items:center;gap:5px;background:rgba(232,93,38,0.1);border:1px solid rgba(232,93,38,0.2);color:var(--orange);font-size:11px;font-weight:800;padding:4px 10px;border-radius:100px;letter-spacing:0.5px;margin-bottom:14px;}
-    .plat-icon{font-size:28px;margin-bottom:12px;}
-    .plat-name{font-size:18px;font-weight:900;color:var(--navy);margin-bottom:8px;}
-    .plat-why{font-size:14px;color:var(--dark-gray);line-height:1.65;margin-bottom:14px;}
-    .plat-tactics{display:flex;flex-direction:column;gap:6px;}
-    .plat-tactic{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--dark-gray);}
-    .plat-tactic::before{content:'â';color:var(--orange);font-weight:800;flex-shrink:0;}
-
-    /* CASE STUDY */
-    #case-study{padding:100px 0;background:var(--navy);}
-    .cs-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
-    .cs-content{}
-    .cs-headline{font-size:clamp(26px,3vw,38px);font-weight:900;color:var(--white);line-height:1.15;letter-spacing:-0.5px;margin-bottom:20px;}
-    .cs-headline em{color:var(--orange);font-style:normal;}
-    .cs-p{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:16px;}
-    .cs-p strong{color:rgba(255,255,255,0.85);}
-    .cs-quote{margin:24px 0;padding:20px 24px;border-left:4px solid var(--orange);background:rgba(255,255,255,0.04);}
-    .cs-quote-text{font-size:15px;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:8px;}
-    .cs-quote-attr{font-size:12px;font-weight:700;color:rgba(255,255,255,0.35);}
-    .cs-results-panel{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:36px;}
-    .cs-results-title{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:24px;}
-    .cs-result-item{display:flex;align-items:baseline;gap:10px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.06);}
-    .cs-result-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
-    .cs-result-num{font-size:clamp(28px,3.5vw,40px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-1px;flex-shrink:0;}
-    .cs-result-num .hl{color:var(--orange);}
-    .cs-result-num .hl-g{color:var(--green);}
-    .cs-result-desc{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.5;}
-
-    /* HOW */
-    #how{padding:100px 0;background:var(--white);}
-    .how-header{text-align:center;margin-bottom:56px;}
-    .how-header p{font-size:17px;color:var(--dark-gray);max-width:520px;margin:12px auto 0;line-height:1.7;}
-    .how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    .how-step{padding:32px 28px;background:var(--off-white);border-radius:var(--radius);border:1px solid var(--light-gray);position:relative;}
-    .how-step-num{width:40px;height:40px;border-radius:50%;background:var(--orange);color:var(--white);font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-    .how-step-title{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px;}
-    .how-step-desc{font-size:14px;color:var(--dark-gray);line-height:1.7;}
-
-    /* FAQ */
-    #faq{padding:100px 0;background:var(--off-white);}
-    .faq-header{text-align:center;margin-bottom:48px;}
-    .faq-grid{max-width:720px;margin:0 auto;}
-    .faq-item{border-bottom:1px solid var(--light-gray);}
-    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;text-align:left;gap:16px;transition:color 0.2s;}
-    .faq-question:hover{color:var(--orange);}
-    .faq-icon{width:26px;height:26px;border-radius:50%;background:var(--light-gray);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
-    .faq-icon svg{transition:transform 0.3s ease;}
-    .faq-item.open .faq-icon{background:var(--orange);}
-    .faq-item.open .faq-icon svg{transform:rotate(45deg);color:var(--white);}
-    .faq-item.open .faq-question{color:var(--orange);}
-    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s ease;padding-bottom:0;}
-    .faq-item.open .faq-answer{max-height:400px;padding-bottom:20px;}
-    .faq-answer p{font-size:15px;color:var(--dark-gray);line-height:1.8;}
-
-    /* CTA */
-    #cta{background:var(--orange);padding:80px 0;text-align:center;}
-    .cta-inner{max-width:680px;margin:0 auto;}
-    .cta-headline{font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-0.5px;margin-bottom:14px;}
-    .cta-sub{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:32px;}
-    .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-
-    /* FOOTER */
-    #footer{background:#060e1a;padding:48px 0 28px;}
-    .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:32px;}
-    .footer-logo{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-0.5px;margin-bottom:10px;}
-    .footer-logo span{color:var(--orange);}
-    .footer-tagline{font-size:14px;color:rgba(255,255,255,0.35);line-height:1.7;margin-bottom:16px;}
-    .footer-phone{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:rgba(255,255,255,0.6);transition:color 0.2s;width:fit-content;}
-    .footer-phone:hover{color:var(--white);}
-    .footer-heading{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;}
-    .footer-links{display:flex;flex-direction:column;gap:10px;}
-    .footer-links a{font-size:14px;color:rgba(255,255,255,0.5);transition:color 0.2s;}
-    .footer-links a:hover{color:var(--white);}
-    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;gap:12px;}
-    .footer-copy{font-size:13px;color:rgba(255,255,255,0.2);}
-
-    @media(max-width:900px){
-      .hero-inner,.why-inner,.cs-inner{grid-template-columns:1fr;gap:48px;}
-      .pb-inner,.plat-grid,.how-steps{grid-template-columns:1fr 1fr;}
-      .footer-inner{grid-template-columns:1fr 1fr;}
-    }
-    @media(max-width:768px){
-      .nav-links{display:none;} .nav-right .nav-phone{display:none;} .hamburger{display:flex;}
-      .pb-inner{grid-template-columns:1fr 1fr;}
-      .plat-grid{grid-template-columns:1fr;}
-      .how-steps{grid-template-columns:1fr;}
-    }
-    @media(max-width:540px){.footer-inner{grid-template-columns:1fr;} .pb-inner{grid-template-columns:1fr 1fr;}}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{color:rgba(255,255,255,0.7);font-size:14px;font-weight:600;transition:color 0.2s;}
+    .nav-links a:hover{color:#fff;}
+    .nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:6px;font-size:14px;font-weight:700;}
+    @media(max-width:768px){.nav-links{display:none;}nav{padding:0 20px;}}
+    .hero{padding:100px 40px 80px;text-align:center;background:linear-gradient(160deg,#0d1e38,#0A1628 60%);position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(232,93,38,0.08),transparent 65%);pointer-events:none;}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,93,38,0.12);border:1px solid rgba(232,93,38,0.3);color:var(--orange);font-size:13px;font-weight:700;padding:8px 18px;border-radius:100px;margin-bottom:24px;}
+    .hero h1{font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.1;margin-bottom:20px;letter-spacing:-1px;}
+    .hero h1 em{color:var(--orange);font-style:normal;}
+    .hero p{font-size:18px;color:rgba(255,255,255,0.7);max-width:620px;margin:0 auto 40px;line-height:1.6;}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{background:var(--orange);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:800;transition:opacity 0.2s;}
+    .btn-primary:hover{opacity:0.88;}
+    .btn-ghost{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;transition:all 0.2s;}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1);}
+    section{padding:80px 40px;}
+    .container{max-width:1100px;margin:0 auto;}
+    .section-label{font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+    h2{font-size:clamp(28px,4vw,44px);font-weight:900;line-height:1.15;letter-spacing:-0.5px;margin-bottom:20px;}
+    h2 em{color:var(--orange);font-style:normal;}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
+    .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;}
+    .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px;transition:border-color 0.2s;}
+    .card:hover{border-color:rgba(232,93,38,0.35);}
+    .card-icon{font-size:28px;margin-bottom:12px;}
+    .card h3{font-size:18px;font-weight:800;margin-bottom:8px;}
+    .card p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;}
+    .card-num{font-size:13px;font-weight:800;color:var(--orange);letter-spacing:2px;margin-bottom:12px;}
+    .alt-bg{background:rgba(255,255,255,0.02);}
+    .result-box{background:linear-gradient(135deg,rgba(232,93,38,0.1),rgba(10,22,40,0));border:1px solid rgba(232,93,38,0.25);border-radius:20px;padding:48px;text-align:center;max-width:700px;margin:48px auto 0;}
+    .result-box blockquote{font-size:20px;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:24px;}
+    .metrics{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+    .metric strong{display:block;font-size:36px;font-weight:900;color:var(--orange);}
+    .metric span{font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;display:block;}
+    .faq-list{max-width:750px;margin:48px auto 0;display:flex;flex-direction:column;gap:16px;}
+    .faq-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:24px 28px;}
+    .faq-item h3{font-size:16px;font-weight:700;margin-bottom:10px;}
+    .faq-item p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;}
+    .cta-block{background:var(--orange);border-radius:20px;padding:64px 40px;text-align:center;margin:0 40px 80px;}
+    .cta-block h2{font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;margin-bottom:16px;}
+    .cta-block p{font-size:18px;color:rgba(255,255,255,0.85);margin-bottom:40px;}
+    .btn-white{background:#fff;color:var(--orange);padding:18px 48px;border-radius:8px;font-size:17px;font-weight:800;transition:opacity 0.2s;display:inline-block;}
+    .btn-white:hover{opacity:0.92;}
+    footer{background:rgba(0,0,0,0.4);border-top:1px solid rgba(255,255,255,0.08);padding:48px 40px 28px;}
+    .foot-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+    .foot-brand{font-size:18px;font-weight:900;display:flex;align-items:center;gap:10px;}
+    .foot-brand span{color:var(--orange);}
+    .foot-brand img{width:36px;height:36px;border-radius:50%;}
+    .foot-links{display:flex;gap:24px;flex-wrap:wrap;}
+    .foot-links a{color:rgba(255,255,255,0.45);font-size:14px;transition:color 0.2s;}
+    .foot-links a:hover{color:#fff;}
+    .foot-copy{max-width:1100px;margin:20px auto 0;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;text-align:center;font-size:13px;color:rgba(255,255,255,0.25);}
+    @media(max-width:768px){section{padding:60px 20px;}.cta-block{margin:0 20px 60px;padding:48px 24px;}}
   </style>
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CDLWCX753N');
-  </script>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '331104330662440');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/sfm-logo.svg" alt="SFM">Sales<span>Funnel</span> Marketing</a>
+  <ul class="nav-links">
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-team.html">Team</a></li>
+    <li><a href="sfm-digital-garden.html">📗 The Book</a></li>
+  </ul>
+  <a href="sfm-contact.html" class="nav-cta">Free Strategy Call</a>
+</nav>
 
-  <nav id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo">Sales<span>Funnel</span> Marketing<small>Perrysburg, Ohio</small></a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li><li><a href="sfm-services.html">Services</a></li>
-          <li><a href="sfm-results.html">Results</a></li><li><a href="sfm-about.html">About</a></li>
-          <li><a href="sfm-contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-right">
-          <a href="tel:+14193084576" class="nav-phone">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            419-308-4576
-          </a>
-          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
-            ð Get the Book
-          </a>
-          <a href="sfm-contact.html" class="btn btn-primary nav-cta">Free Strategy Call</a>
-          <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html" onclick="closeMobile()">Home</a><a href="sfm-services.html" onclick="closeMobile()">Services</a>
-    <a href="sfm-results.html" onclick="closeMobile()">Results</a><a href="sfm-about.html" onclick="closeMobile()">About</a>
-    <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
-    <a href="sfm-contact.html" class="btn btn-primary" onclick="closeMobile()">Book a Free Call</a>
+<section class="hero">
+  <div class="badge">🍽️ Restaurants &amp; Food Service</div>
+  <h1>More Tables Filled.<br><em>Every Night of the Week.</em></h1>
+  <p>We help restaurants, bars, cafes, and food businesses in Northwest Ohio turn social media followers into repeat customers — with content that makes people hungry and ads that fill seats.</p>
+  <div class="hero-btns">
+    <a href="sfm-contact.html" class="btn-primary">Get My Free Strategy Call →</a>
+    <a href="sfm-results.html" class="btn-ghost">See Real Results</a>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="reveal">
-          <div class="hero-tag">ð½ï¸ Restaurants &amp; Food Businesses</div>
-          <h1 class="hero-headline">Empty seats on a Friday<br />is a marketing problem,<br /><span class="accent">not a food problem.</span></h1>
-          <p class="hero-sub">When someone's deciding where to eat tonight, they're scrolling Instagram and Facebook. If your food doesn't look incredible online, they're going somewhere that does â even if your food is better.</p>
-          <div class="hero-ctas">
-            <a href="sfm-contact.html" class="btn btn-primary">Get My Free Strategy Call</a>
-            <a href="tel:+14193084576" class="btn btn-ghost-white">Call 419-308-4576</a>
-          </div>
-          <div class="hero-trust">
-            <span class="hero-trust-stars">âââââ</span>
-            <span class="hero-trust-text">5.0 Google Rating Â· 37 Reviews Â· Serving NW Ohio since 2017</span>
-          </div>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div class="pain-panel">
-            <div class="pain-panel-title">Where Most Restaurants Are Right Now</div>
-            <div class="pain-item">
-              <div class="pain-x">â</div>
-              <div class="pain-text"><strong>Posting blurry food photos nobody engages with</strong> â inconsistent, low-quality content that doesn't make anyone hungry</div>
-            </div>
-            <div class="pain-item">
-              <div class="pain-x">â</div>
-              <div class="pain-text"><strong>Slow Tuesday nights with no plan to fix it</strong> â great food sits unsold because nobody knows about your specials</div>
-            </div>
-            <div class="pain-item">
-              <div class="pain-x">â</div>
-              <div class="pain-text"><strong>New restaurant down the street is packed</strong> â because they have a social media strategy and you're winging it</div>
-            </div>
-            <div style="height:1px;background:rgba(255,255,255,0.08);margin:12px 0;"></div>
-            <div class="pain-item">
-              <div class="pain-check">â</div>
-              <div class="pain-text"><strong>Where SFM restaurant clients end up:</strong> consistent weeknight traffic, a loyal local following, and a waitlist on weekends</div>
-            </div>
-          </div>
-        </div>
+<section class="alt-bg">
+  <div class="container">
+    <div class="section-label">Sound Familiar?</div>
+    <h2>The Challenges Every <em>Restaurant Owner</em> Knows</h2>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">📉</div><h3>Slow Weeknights</h3><p>Tuesday and Wednesday are empty. You need consistent traffic every day of the week, not just weekends. The right social media strategy fills those gaps.</p></div>
+      <div class="card"><div class="card-icon">👀</div><h3>No One Knows You Exist</h3><p>You serve incredible food but the locals haven't discovered you yet. Social media and ads put you in front of the right people at the right time.</p></div>
+      <div class="card"><div class="card-icon">😩</div><h3>Posting Feels Pointless</h3><p>You post a photo of your special and get 12 likes from your regulars. There's a better way — and it doesn't require being a social media expert.</p></div>
+      <div class="card"><div class="card-icon">🔥</div><h3>Competitors Are Winning</h3><p>That new restaurant down the road is packed every night and their Instagram is popping. You have better food. We'll get you the audience to prove it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <h2>Social Media Built <em>for Food Businesses</em></h2>
+    <div class="grid-2">
+      <div class="card"><div class="card-num">01</div><h3>Drool-Worthy Content Creation</h3><p>We create food photography scripts, reel ideas, and caption copy that makes followers stop scrolling and start craving. Content that converts to reservations.</p></div>
+      <div class="card"><div class="card-num">02</div><h3>Local Facebook &amp; Instagram Ads</h3><p>Target hungry people within 5–15 miles of your restaurant with offers, events, and promotions designed to drive foot traffic on your slowest days.</p></div>
+      <div class="card"><div class="card-num">03</div><h3>Event &amp; Promotion Campaigns</h3><p>Trivia night, holiday specials, new menu launches — we build campaigns around your calendar to keep the momentum going all year.</p></div>
+      <div class="card"><div class="card-num">04</div><h3>Google Business Management</h3><p>Your Google listing is often the first thing a hungry customer sees. We optimize it, manage reviews, and keep your info current so you show up and stand out.</p></div>
+      <div class="card"><div class="card-num">05</div><h3>Review Generation</h3><p>More 5-star reviews mean more new customers. We systematize your review collection so happy diners become your best marketing tool.</p></div>
+      <div class="card"><div class="card-num">06</div><h3>Monthly Strategy &amp; Reporting</h3><p>We meet monthly to review what's working, what needs to shift, and what's coming up next — keeping your marketing as fresh as your menu.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Real Results</div>
+    <h2>What Restaurants See <em>When They Work With Us</em></h2>
+    <div class="result-box">
+      <blockquote>"Within 90 days of working with SFM, our weeknight covers increased by 40% and we had a wait list on Friday nights for the first time ever."</blockquote>
+      <div class="metrics">
+        <div class="metric"><strong>40%</strong><span>More Weeknight Covers</span></div>
+        <div class="metric"><strong>90 Days</strong><span>To Measurable Results</span></div>
+        <div class="metric"><strong>5★</strong><span>Google Rating</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PROOF BAND -->
-  <section id="proof-band">
-    <div class="container">
-      <div class="pb-inner">
-        <div class="pb-stat">
-          <div class="pb-num">127+</div>
-          <div class="pb-label">Local Businesses Served</div>
-        </div>
-        <div class="pb-stat">
-          <div class="pb-num">3Ã</div>
-          <div class="pb-label">Average Sales Growth</div>
-        </div>
-        <div class="pb-stat">
-          <div class="pb-num">5.0â</div>
-          <div class="pb-label">Google Rating</div>
-        </div>
-        <div class="pb-stat">
-          <div class="pb-num">9 yrs</div>
-          <div class="pb-label">Serving NW Ohio</div>
-        </div>
-      </div>
+<section>
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Common Questions</div>
+    <h2>FAQs for <em>Restaurant Owners</em></h2>
+    <div class="faq-list" style="text-align:left;">
+      <div class="faq-item"><h3>Do I need to hire a photographer?</h3><p>Not necessarily. We guide you on how to shoot great food content with an iPhone, or we can coordinate with a photographer if your budget allows. Great food content doesn't have to be expensive.</p></div>
+      <div class="faq-item"><h3>How do Facebook ads work for restaurants?</h3><p>We target people within your service area who match your customer profile — age, interests, behaviors. We run offers or awareness campaigns that drive them through your door.</p></div>
+      <div class="faq-item"><h3>Can you help with catering or private events too?</h3><p>Absolutely. We can build dedicated campaigns for your catering arm, private dining room, or corporate events that are separate from your dine-in traffic strategy.</p></div>
+      <div class="faq-item"><h3>What if I'm a food truck or pop-up?</h3><p>We love food trucks. Your mobility is actually an advantage on social — we'll build a following that tracks you wherever you go.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHY SOCIAL FOR RESTAURANTS -->
-  <section id="why">
-    <div class="container">
-      <div class="why-inner">
-        <div class="why-content reveal">
-          <span class="section-label">Why It Works</span>
-          <h2 class="why-headline">Food is the most visual<br />product on the planet.<br /><em>Use that.</em></h2>
-          <p class="why-p">People eat with their eyes before they ever walk through your door. A perfectly shot plate, a behind-the-scenes kitchen Reel, a Friday special announcement that makes someone's mouth water â that's what fills seats on a Tuesday.</p>
-          <p class="why-p">But great food photos alone aren't enough. You need <strong>consistency, community, and a strategy that turns first-time visitors into regulars</strong> who post about you, tag their friends, and show up every week.</p>
-          <div class="why-pull">
-            <p>"The restaurant that wins locally isn't always the best food in town. It's the one that shows up most consistently where hungry people are scrolling."</p>
-          </div>
-          <a href="sfm-contact.html" class="btn btn-primary">See What's Possible for My Restaurant</a>
-        </div>
-        <div class="why-items reveal reveal-delay-2">
-          <div class="why-item">
-            <span class="why-item-icon">ð¸</span>
-            <div>
-              <div class="why-item-title">High-quality food content that makes people hungry</div>
-              <div class="why-item-desc">We create or direct a content strategy built around food photography, specials, and behind-the-scenes moments that make your place irresistible online.</div>
-            </div>
-          </div>
-          <div class="why-item">
-            <span class="why-item-icon">ð</span>
-            <div>
-              <div class="why-item-title">Weekly specials and events that drive traffic</div>
-              <div class="why-item-desc">Trivia night, new menu item, Friday special, happy hour â we make sure your regulars know, and your non-regulars find out.</div>
-            </div>
-          </div>
-          <div class="why-item">
-            <span class="why-item-icon">ð¯</span>
-            <div>
-              <div class="why-item-title">Hyper-local Meta Ads that fill slow nights</div>
-              <div class="why-item-desc">We run ads to people within 5-10 miles of your restaurant, targeting the right demographics at the right time â especially before dinner on slow days.</div>
-            </div>
-          </div>
-          <div class="why-item">
-            <span class="why-item-icon">ð¤</span>
-            <div>
-              <div class="why-item-title">Community content that builds loyalty</div>
-              <div class="why-item-desc">Staff spotlights, local event partnerships, customer shoutouts â the content that turns customers into fans who bring their friends.</div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="cta-block">
+  <h2>Ready to Fill More Tables?</h2>
+  <p>Book a free, no-pressure strategy call. We'll show you exactly how to get more people in seats — every day of the week.</p>
+  <a href="sfm-contact.html" class="btn-white">Book My Free Strategy Call →</a>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand"><img src="images/sfm-logo.svg" alt="SFM">Sales<span>Funnel</span> Marketing</div>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="sfm-services.html">Services</a>
+      <a href="sfm-results.html">Results</a>
+      <a href="sfm-contact.html">Contact</a>
     </div>
-  </section>
-
-  <!-- PLATFORMS -->
-  <section id="platforms">
-    <div class="container">
-      <div class="plat-header reveal">
-        <span class="section-label">Platform Strategy</span>
-        <h2 class="section-title">Where trades businesses<br />should be showing up</h2>
-        <p>Not every platform is worth your time. Here's exactly where we'd focus for a home services business in Northwest Ohio â and why.</p>
-      </div>
-      <div class="plat-grid">
-        <div class="plat-card primary reveal">
-          <div class="plat-priority">â­ Priority #1</div>
-          <div class="plat-icon">ð¸</div>
-          <div class="plat-name">Instagram</div>
-          <div class="plat-why">Instagram is the food platform. High-quality food photos, behind-the-scenes Reels, and Stories showing daily specials make your restaurant irresistible to the 25-45 crowd who decides where to eat based on what looks best in their feed.</div>
-          <div class="plat-tactics">
-            <div class="plat-tactic">Daily food and ambiance photos that make people hungry</div>
-            <div class="plat-tactic">Reels showing kitchen prep, plating, and atmosphere</div>
-            <div class="plat-tactic">Stories for daily specials and limited-time offers</div>
-            <div class="plat-tactic">User-generated content strategy â turn diners into promoters</div>
-          </div>
-        </div>
-        <div class="plat-card reveal reveal-delay-1">
-          <div class="plat-priority" style="background:rgba(232,93,38,0.06);color:var(--dark-gray);border-color:var(--light-gray);">Priority #2</div>
-          <div class="plat-icon">ð</div>
-          <div class="plat-name">Facebook</div>
-          <div class="plat-why">Facebook reaches the 35-60 crowd â date nights, family dinners, business lunches. Facebook Events for specials and community happenings, plus targeted local ads that land in front of hungry people near you at dinnertime.</div>
-          <div class="plat-tactics">
-            <div class="plat-tactic">Weekly specials and event announcements</div>
-            <div class="plat-tactic">Facebook Events for trivia nights, live music, themed dinners</div>
-            <div class="plat-tactic">Hyper-local ads to people within 5-10 miles at peak meal times</div>
-          </div>
-        </div>
-        <div class="plat-card reveal reveal-delay-2">
-          <div class="plat-priority" style="background:rgba(232,93,38,0.06);color:var(--dark-gray);border-color:var(--light-gray);">Priority #3</div>
-          <div class="plat-icon">ðºï¸</div>
-          <div class="plat-name">Google Business Profile</div>
-          <div class="plat-why">When someone searches "restaurants near me," your Google profile is the first thing they see â including your photos, hours, and reviews. We keep it updated, photo-rich, and review-active so you win that moment every time.</div>
-          <div class="plat-tactics">
-            <div class="plat-tactic">Weekly posts with menu updates and specials</div>
-            <div class="plat-tactic">Review generation and response strategy</div>
-            <div class="plat-tactic">Q&A management and menu optimization</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDY -->
-  <section id="case-study">
-    <div class="container">
-      <div class="cs-inner">
-        <div class="cs-content reveal">
-          <span class="section-label" style="color:var(--orange);">What This Looks Like</span>
-          <h2 class="cs-headline">From half-empty weeknights to <em>a waitlist on the weekend</em></h2>
-          <p class="cs-p">One NW Ohio restaurant owner came to SFM frustrated. The food was good â locals who tried it loved it â but Tuesday through Thursday were brutal. They'd post occasionally, get a few likes, and wonder why it wasn't translating to tables.</p>
-          <p class="cs-p">We rebuilt their content strategy from scratch: <strong>professional food content shot on-site, a weekly specials calendar, Facebook Events for themed nights, and hyper-local dinner-time ads.</strong> Within 90 days their weeknight traffic had visibly improved and their weekend had a wait.</p>
-          <div class="cs-quote">
-            <p class="cs-quote-text">"I always thought the food would speak for itself. SFM showed me that great food and great content together is what actually fills a restaurant."</p>
-            <div class="cs-quote-attr">â SFM Restaurant Client Â· NW Ohio</div>
-          </div>
-        </div>
-        <div class="cs-results-panel reveal reveal-delay-2">
-          <div class="cs-results-title">Typical Results â Restaurants</div>
-          <div class="cs-result-item">
-            <div class="cs-result-num"><span class="hl">ââ</span></div>
-            <div class="cs-result-desc">Weeknight traffic within 60â90 days of consistent content strategy</div>
-          </div>
-          <div class="cs-result-item">
-            <div class="cs-result-num"><span class="hl-g">5â8Ã</span></div>
-            <div class="cs-result-desc">Increase in post reach when content strategy is dialed in</div>
-          </div>
-          <div class="cs-result-item">
-            <div class="cs-result-num"><span class="hl">Loyal</span></div>
-            <div class="cs-result-desc">Regular customer base who tag you, share you, and bring their friends</div>
-          </div>
-          <div class="cs-result-item">
-            <div class="cs-result-num"><span class="hl-g">$0</span></div>
-            <div class="cs-result-desc">Cost for your first strategy call â we'll review your current social presence for free</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how">
-    <div class="container">
-      <div class="how-header reveal">
-        <span class="section-label">The Process</span>
-        <h2 class="section-title">How we get you there</h2>
-        <p>Three phases, no fluff. We've done this for trades businesses across Northwest Ohio and we know exactly what moves the needle.</p>
-      </div>
-      <div class="how-steps">
-        <div class="how-step reveal">
-          <div class="how-step-num">1</div>
-          <div class="how-step-title">Audit &amp; Strategy Call</div>
-          <div class="how-step-desc">We look at your current social presence, your competitors, and your service area. You'll leave with a clear picture of what's missing and what we'd do. Free, no obligation.</div>
-        </div>
-        <div class="how-step reveal reveal-delay-1">
-          <div class="how-step-num">2</div>
-          <div class="how-step-title">Build Your Content Engine</div>
-          <div class="how-step-desc">We create your posting cadence, content templates around real job photos, seasonal campaigns, and a review-building system. You do the work. We make sure it gets seen.</div>
-        </div>
-        <div class="how-step reveal reveal-delay-2">
-          <div class="how-step-num">3</div>
-          <div class="how-step-title">Grow &amp; Stay Visible</div>
-          <div class="how-step-desc">Ongoing management, monthly reporting, and ads when the budget calls for it. You stay focused on the work â we keep the pipeline full.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="faq-header reveal">
-        <span class="section-label">Questions</span>
-        <h2 class="section-title">What trades owners ask us</h2>
-      </div>
-      <div class="faq-grid reveal">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">We don't have a professional photographer. How does this work?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-          <div class="faq-answer"><p>Modern smartphones shoot incredible food photos with the right lighting and framing. We'll give you a simple shot guide your staff can follow, show you basic lighting tricks, and build a content calendar around what you already have. Authenticity matters more than professional polish in the restaurant space.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Can social media actually fill tables â or just get likes?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-          <div class="faq-answer"><p>Yes â but only with the right strategy. Likes alone don't pay the bills. We build content that drives action: event RSVPs, special redemptions, walk-ins who say "I saw you on Instagram." We track what's actually driving traffic, not just vanity metrics.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Should I focus on Instagram or Facebook for a restaurant?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-          <div class="faq-answer"><p>Both â but for different audiences. Instagram reaches the 25-40 crowd making date night decisions. Facebook reaches the 35-60 crowd organizing family dinners and looking for event options. A smart strategy runs them together, with the same content adapted for each platform.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">How fast will I see results?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-          <div class="faq-answer"><p>Restaurants typically see meaningful engagement lift within 30-60 days when we get the content right. Weeknight traffic improvements usually show up in 60-90 days. Ad campaigns targeting dinner-time within your radius can drive walk-ins within the first few weeks.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">How much does it cost?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
-          <div class="faq-answer"><p>Our services start at $497/month. Restaurant clients typically see the most impact with a content + ads combination. We'll lay out exactly what makes sense for your situation on the free strategy call â no pressure to buy anything.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <h2 class="cta-headline">Stop watching other restaurants get shared while yours stays quiet.</h2>
-        <p class="cta-sub">Book a free 30-minute strategy call. We'll look at your current presence, your competitors, and tell you exactly what we'd do. No pitch. No pressure.</p>
-        <div class="cta-btns">
-          <a href="sfm-contact.html" class="btn btn-white" style="background:var(--white);color:var(--orange);border-color:var(--white);">Book My Free Strategy Call</a>
-          <a href="tel:+14193084576" class="btn btn-ghost-white">Call 419-308-4576</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <div class="footer-logo">Sales<span>Funnel</span> Marketing</div>
-          <p class="footer-tagline">Northwest Ohio's premier social media growth agency. Human Focused. AI Optimized.</p>
-          <a href="tel:+14193084576" class="footer-phone">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            (419) 308-4576
-          </a>
-        </div>
-        <div>
-          <div class="footer-heading">Industries</div>
-          <ul class="footer-links">
-            <li><a href="sfm-trades.html">Trades &amp; Home Services</a></li>
-            <li><a href="sfm-restaurant.html">Restaurants</a></li>
-            <li><a href="sfm-fitness.html">Health &amp; Fitness</a></li>
-            <li><a href="sfm-realestate.html">Real Estate</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-heading">Pages</div>
-          <ul class="footer-links">
-            <li><a href="sfm-services.html">Services</a></li>
-            <li><a href="sfm-results.html">Results</a></li>
-            <li><a href="sfm-about.html">About</a></li>
-            <li><a href="sfm-contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-heading">Get in Touch</div>
-          <ul class="footer-links">
-            <li><a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a></li>
-            <li><a href="tel:+14193084576">(419) 308-4576</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">Â© 2025 Sales Funnel Marketing LLC Â· Perrysburg, Ohio</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const navbar=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40),{passive:true});
-    const hamburger=document.getElementById('hamburgerBtn');
-    const mobileMenu=document.getElementById('mobileMenu');
-    function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');}
-    hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});
-    const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);}}),{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
-    document.querySelectorAll('.faq-question').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-question').setAttribute('aria-expanded','false');});
-        if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
-      });
-    });
-  </script>
+  </div>
+  <p class="foot-copy">© 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="tel:+14193084576" style="color:inherit;">419-308-4576</a></p>
+</footer>
 </body>
 </html>
