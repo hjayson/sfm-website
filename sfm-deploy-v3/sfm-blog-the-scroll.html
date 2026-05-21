@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Scroll â Free Daily AI & Marketing Newsletter | Sales Funnel Marketing</title>
+  <title>The Scroll Archive | Sales Funnel Marketing Blog</title>
+  <meta name="description" content="Past issues of The Scroll newsletter — weekly social media marketing tips for local business owners in Northwest Ohio from Sales Funnel Marketing." />
+  <meta name="keywords" content="The Scroll archive, social media tips newsletter, Sales Funnel Marketing blog" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-blog-the-scroll" />
   <!-- Open Graph -->
@@ -18,7 +20,6 @@
   <meta name="twitter:title" content="The Scroll Archive | Sales Funnel Marketing Blog" />
   <meta name="twitter:description" content="Past issues of The Scroll newsletter — weekly social media marketing tips for local business owners in Northwest Ohio from Sales Funnel Marketing." />
   <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
-  <meta name="description" content="Get AI and social media marketing intelligence delivered every weekday â free. The Scroll is written by Jayson Hines of Sales Funnel Marketing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -32,6 +33,17 @@
     .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
     .nav-links a:hover { color:var(--white); }
     .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+      color: #22c55e; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
     .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
@@ -63,7 +75,7 @@
 
     .who-list { background:var(--white); border-radius:16px; padding:32px; margin:32px 0; }
     .who-list li { font-size:16px; color:#333; line-height:1.7; padding:10px 0; border-bottom:1px solid #f0f0f0; list-style:none; padding-left:28px; position:relative; }
-    .who-list li::before { content:'â'; position:absolute; left:0; color:var(--orange); font-weight:800; }
+    .who-list li::before { content:'✓'; position:absolute; left:0; color:var(--orange); font-weight:800; }
     .who-list li:last-child { border-bottom:none; }
 
     .cta-box { background:var(--navy); border-radius:16px; padding:40px 48px; margin:48px 0; text-align:center; }
@@ -95,30 +107,31 @@
     <li><a href="sfm-blog.html">Blog</a></li>
     <li><a href="sfm-contact.html">Contact</a></li>
   </ul>
-  <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
+  <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">📗 Get the Book</a>
+          <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
   <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu">
-  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">â</button>
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
   <a href="sfm-homepage.html">Home</a>
   <a href="sfm-services.html">Services</a>
   <a href="sfm-results.html">Results</a>
   <a href="sfm-about.html">About</a>
   <a href="sfm-blog.html">Blog</a>
   <a href="sfm-contact.html">Contact</a>
-  <a href="sfm-contact.html" style="color:var(--orange)">Book a Call â</a>
+  <a href="sfm-contact.html" style="color:var(--orange)">Book a Call →</a>
 </div>
 
 <div class="article-hero">
   <div class="article-hero-inner">
-    <div class="breadcrumb"><a href="sfm-blog.html">â Blog</a></div>
+    <div class="breadcrumb"><a href="sfm-blog.html">← Blog</a></div>
     <div class="article-tag">Newsletter</div>
     <h1>The Scroll: Free Daily AI & Marketing Newsletter for Small Business Owners</h1>
     <div class="article-meta">
       <div class="author-avatar">J</div>
       <div class="author-info">
         <strong>Jayson Hines</strong>
-        May 11, 2025 Â· 2 min read
+        May 11, 2025 · 2 min read
       </div>
     </div>
   </div>
@@ -127,47 +140,47 @@
 <div class="article-body">
 
   <p>Every weekday at 6am, your inbox gets smarter.</p>
-  <p><strong>The Scroll</strong> is a free daily newsletter for small business owners covering AI tools, social media tactics, and marketing moves that are actually working right now â not last year, right now. No fluff. No filler. No hype. Just what you need to know â in about 5 minutes.</p>
+  <p><strong>The Scroll</strong> is a free daily newsletter for small business owners covering AI tools, social media tactics, and marketing moves that are actually working right now — not last year, right now. No fluff. No filler. No hype. Just what you need to know — in about 5 minutes.</p>
 
   <h2>What's Inside Every Issue</h2>
   <div class="issue-grid">
     <div class="issue-item">
-      <div class="icon">ð°</div>
+      <div class="icon">📰</div>
       <strong>Today's Big Story</strong>
       <p>The most important AI or marketing news, explained, with a 3-step action plan for your business.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">â¡</div>
+      <div class="icon">⚡</div>
       <strong>Quick Hits</strong>
       <p>3 fast bullets covering everything else worth knowing this week.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">ð¥</div>
+      <div class="icon">🔥</div>
       <strong>What's Working Right Now</strong>
       <p>Insider tactics getting real results on social media today.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">ð</div>
+      <div class="icon">📊</div>
       <strong>Stat of the Day</strong>
       <p>One screenshot-worthy data point about AI or social media.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">ð¬</div>
+      <div class="icon">💬</div>
       <strong>Jayson's Hot Take</strong>
       <p>A bold, honest opinion on what's happening in AI and marketing.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">ð</div>
+      <div class="icon">📅</div>
       <strong>Content Idea of the Week</strong>
       <p>A ready-to-post idea with a steal-this caption opener.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">ð¤</div>
+      <div class="icon">🤖</div>
       <strong>AI Prompt of the Day</strong>
       <p>A copy-paste prompt for ChatGPT or Claude you can use immediately.</p>
     </div>
     <div class="issue-item">
-      <div class="icon">ð¡</div>
+      <div class="icon">💡</div>
       <strong>AI Tool Spotlight</strong>
       <p>One tool, one specific way to use it this week to save time or grow faster.</p>
     </div>
@@ -178,26 +191,26 @@
     <li>Small business owners who want to use AI without wasting hours figuring it out</li>
     <li>Social media managers who need to stay ahead of algorithm changes</li>
     <li>Entrepreneurs who want to grow faster without hiring a full marketing team</li>
-    <li>Anyone who's tried AI tools but hasn't gotten the results they expected â yet</li>
+    <li>Anyone who's tried AI tools but hasn't gotten the results they expected — yet</li>
   </ul>
 
   <h2>About Your Host</h2>
-  <p>The Scroll is written by Jayson Hines, founder of Sales Funnel Marketing. Jayson works with small businesses every day on social media strategy, Meta advertising, and AI-powered marketing. The Scroll is where he shares what's actually working â not just what sounds good.</p>
+  <p>The Scroll is written by Jayson Hines, founder of Sales Funnel Marketing. Jayson works with small businesses every day on social media strategy, Meta advertising, and AI-powered marketing. The Scroll is where he shares what's actually working — not just what sounds good.</p>
 
   <div class="cta-box">
     <h3>Free. Weekdays. Worth It.</h3>
-    <p class="sub">The Scroll lands in your inbox every weekday morning. About 5 minutes to read. No spam. No fluff. Unsubscribe any time â but most people don't want to.</p>
-    <div class="bonus">ð New subscribers get: 30 AI Prompts for Small Business Owners â free</div>
+    <p class="sub">The Scroll lands in your inbox every weekday morning. About 5 minutes to read. No spam. No fluff. Unsubscribe any time — but most people don't want to.</p>
+    <div class="bonus">🎁 New subscribers get: 30 AI Prompts for Small Business Owners — free</div>
     <br>
-    <a href="sfm-contact.html">Subscribe Free â Get 30 AI Prompts Instantly â</a><!-- UPDATE: Replace href with your actual newsletter signup link -->
+    <a href="sfm-contact.html">Subscribe Free — Get 30 AI Prompts Instantly →</a><!-- UPDATE: Replace href with your actual newsletter signup link -->
     <p class="cta-fine">No spam. Unsubscribe anytime.</p>
   </div>
 
-  <a href="sfm-blog.html" class="back-link">â Back to all posts</a>
+  <a href="sfm-blog.html" class="back-link">← Back to all posts</a>
 </div>
 
 <footer>
-  <p class="footer-copy">Â© 2025 Sales Funnel Marketing Â· Perrysburg, OH Â· <a href="sfm-privacy.html">Privacy Policy</a> Â· <a href="sfm-terms.html">Terms</a></p>
+  <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
 </footer>
 
 </body>
