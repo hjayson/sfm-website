@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SFM Press Pitch Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#0A1628;color:#fff;min-height:100vh;padding:40px 16px}
+.wrap{max-width:780px;margin:0 auto}
+h1{font-size:28px;font-weight:800;margin-bottom:6px}
+.sub{color:#8B9DB5;font-size:15px;margin-bottom:40px;line-height:1.6}
+.sub strong{color:#E85D26}
+.pitch{background:#111E30;border:1px solid #1E3050;border-radius:16px;margin-bottom:28px;overflow:hidden}
+.pitch-header{padding:20px 28px;border-bottom:1px solid #1E3050;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pitch-outlet{display:flex;align-items:center;gap:10px}
+.outlet-dot{width:10px;height:10px;border-radius:50%;background:#E85D26;flex-shrink:0}
+.outlet-name{font-size:13px;font-weight:700;color:#E85D26;letter-spacing:1px;text-transform:uppercase}
+.pitch-title{font-size:17px;font-weight:700;color:#fff}
+.pitch-meta{font-size:12px;color:#8B9DB5}
+.copy-btn{background:#E85D26;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;padding:8px 18px;cursor:pointer;white-space:nowrap;transition:background 0.2s;flex-shrink:0}
+.copy-btn:hover{background:#cf5120}
+.copy-btn.copied{background:#10B981}
+.pitch-body{padding:28px}
+.email-field{margin-bottom:20px}
+.field-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A6A8A;margin-bottom:6px}
+.field-value{font-size:14px;color:#BCC8D8;line-height:1.0}
+.field-value.subject{font-size:15px;font-weight:600;color:#fff}
+.email-body{background:#0A1628;border-radius:10px;padding:24px;font-size:14px;line-height:1.85;color:#BCC8D8;white-space:pre-wrap;border:1px solid #1E3050}
+.email-body strong{color:#fff;font-weight:600}
+.tip{background:#0f2a1a;border:1px solid #1a4a2a;border-radius:10px;padding:16px 20px;margin-top:16px;font-size:13px;color:#6EE7A0;line-height:1.6}
+.tip strong{color:#34D399}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📰 Press Pitch Templates</h1>
+  <p class="sub">Ready-to-send pitches for <strong>Toledo Blade, WTOL, Toledo City Paper, and Perrysburg Messenger</strong>. Personalize the [brackets], hit send. One placement = a high-authority backlink + real local visibility.</p>
+
+  <!-- PITCH 1: Toledo Blade -->
+  <div class="pitch" id="p1">
+    <div class="pitch-header">
+      <div>
+        <div class="pitch-outlet"><div class="outlet-dot"></div><div class="outlet-name">Toledo Blade</div></div>
+        <div class="pitch-title">The "Local Business Survival" Angle</div>
+        <div class="pitch-meta">Best for: Business section editor · toledoblade.com</div>
+      </div>
+      <button class="copy-btn" onclick="copyPitch('p1')">Copy Email</button>
+    </div>
+    <div class="pitch-body">
+      <div class="email-field">
+        <div class="field-label">To</div>
+        <div class="field-value">business@toledoblade.com</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Subject</div>
+        <div class="field-value subject">Northwest Ohio small businesses are losing customers to their phones — here's what's actually working</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Body</div>
+        <div class="email-body" id="p1-body">Hi [Editor Name],
+
+My name is Jayson Hines. I run Sales Funnel Marketing out of Perrysburg — we work exclusively with local businesses across Northwest Ohio helping them grow through social media and digital advertising.
+
+I wanted to reach out because I'm seeing something play out with our clients that I think your readers would find genuinely useful right now.
+
+Local businesses that were thriving 3 years ago are getting outpaced — not because their product got worse, but because their customers are making buying decisions on Facebook and Instagram before they ever pick up the phone. The businesses winning right now are the ones who figured out how to show up there.
+
+I've got real data on this from campaigns we've run for [industry] businesses right here in the Toledo area — things like average cost per lead, what content types are actually converting, and where most local business marketing budgets are being wasted.
+
+I'm not pitching SFM — I'm offering to be a resource. Whether that's a quote for a piece you're already working on, a contributed column, or a longer feature on what's changing for Northwest Ohio small businesses, I'd love to be useful.
+
+Happy to hop on a 15-minute call this week if you're interested.
+
+Jayson Hines
+Founder, Sales Funnel Marketing
+Perrysburg, Ohio
+jayson@salesfunnelmarketing.us
+419-308-4576
+salesfunnelmarketing.us</div>
+      </div>
+      <div class="tip"><strong>Pro tip:</strong> Check toledoblade.com/business for the bylines on recent small business stories — pitch the specific reporter who covers that beat, not the generic inbox. Response rates are 3× higher.</div>
+    </div>
+  </div>
+
+  <!-- PITCH 2: WTOL/13abc TV -->
+  <div class="pitch" id="p2">
+    <div class="pitch-header">
+      <div>
+        <div class="pitch-outlet"><div class="outlet-dot"></div><div class="outlet-name">WTOL 11 / 13abc</div></div>
+        <div class="pitch-title">The "TV Segment" Angle</div>
+        <div class="pitch-meta">Best for: Morning show producer or business reporter</div>
+      </div>
+      <button class="copy-btn" onclick="copyPitch('p2')">Copy Email</button>
+    </div>
+    <div class="pitch-body">
+      <div class="email-field">
+        <div class="field-label">To</div>
+        <div class="field-value">news@wtol.com &nbsp;·&nbsp; newsdesk@13abc.com</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Subject</div>
+        <div class="field-value subject">Story idea: How Northwest Ohio small businesses are using social media to compete with the big guys</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Body</div>
+        <div class="email-body" id="p2-body">Hi [Producer/Reporter Name],
+
+I have a story idea I think would resonate with your viewers.
+
+Northwest Ohio small businesses — restaurants, contractors, medical practices — are quietly winning against larger competitors by building real audiences on Facebook and Instagram. But most local business owners have no idea how to do it, and the ones who don't figure it out are losing ground fast.
+
+I run a Perrysburg-based marketing agency called Sales Funnel Marketing. We've worked with [number] local businesses and I've got clients right here in Toledo who've seen real, measurable results — more customers walking through the door, more calls, more bookings — from getting their social media right.
+
+This could make a great segment: real local business owners sharing what worked, with actual before-and-after numbers. Visual, local, immediately useful for your viewers who own businesses or are thinking about starting one.
+
+I can connect you with clients willing to be on camera, provide data, and serve as the expert voice if that's helpful.
+
+Would love to send over more details if this fits something you're working on.
+
+Jayson Hines
+Founder, Sales Funnel Marketing | Perrysburg, Ohio
+jayson@salesfunnelmarketing.us | 419-308-4576</div>
+      </div>
+      <div class="tip"><strong>Pro tip:</strong> TV producers love segments with a visual "before and after" story and a local face. Offer to bring a client with a good transformation story — that's what gets you booked.</div>
+    </div>
+  </div>
+
+  <!-- PITCH 3: Toledo City Paper -->
+  <div class="pitch" id="p3">
+    <div class="pitch-header">
+      <div>
+        <div class="pitch-outlet"><div class="outlet-dot"></div><div class="outlet-name">Toledo City Paper</div></div>
+        <div class="pitch-title">The "Expert Column" Angle</div>
+        <div class="pitch-meta">Best for: Editor · toledocitypaper.com</div>
+      </div>
+      <button class="copy-btn" onclick="copyPitch('p3')">Copy Email</button>
+    </div>
+    <div class="pitch-body">
+      <div class="email-field">
+        <div class="field-label">To</div>
+        <div class="field-value">editor@toledocitypaper.com</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Subject</div>
+        <div class="field-value subject">Contributed column pitch: What Toledo small businesses get wrong about social media</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Body</div>
+        <div class="email-body" id="p3-body">Hi [Editor Name],
+
+I'm Jayson Hines, founder of Sales Funnel Marketing in Perrysburg. I work with local businesses across the Toledo area daily and I've been thinking about writing a practical column for business owners — something that actually tells them what works instead of vague marketing advice.
+
+Proposed column: "5 things Toledo small businesses are wasting money on — and what to do instead"
+
+The angle: most local business owners are being sold expensive marketing solutions that don't fit how their customers actually make decisions in 2025. I'd cover the specific mistakes I see repeatedly — boosted posts with no strategy, ignoring video entirely, no follow-up system for leads — and give concrete alternatives.
+
+It wouldn't be a sales pitch for my agency. Just genuinely useful, specific, locally relevant content for your readers who run businesses.
+
+I write clearly, I can hit any word count you need, and I can have a draft to you within a week. Happy to discuss the angle further if you want to shape it differently.
+
+Jayson Hines
+Sales Funnel Marketing | Perrysburg, Ohio
+jayson@salesfunnelmarketing.us | 419-308-4576
+salesfunnelmarketing.us</div>
+      </div>
+      <div class="tip"><strong>Pro tip:</strong> Alt papers love contrarian, useful takes. "What Toledo businesses get WRONG" is a stronger hook than "tips for success." Lead with the problem, not the solution.</div>
+    </div>
+  </div>
+
+  <!-- PITCH 4: Perrysburg Messenger -->
+  <div class="pitch" id="p4">
+    <div class="pitch-header">
+      <div>
+        <div class="pitch-outlet"><div class="outlet-dot"></div><div class="outlet-name">Perrysburg Messenger Journal</div></div>
+        <div class="pitch-title">The "Local Hero" Angle</div>
+        <div class="pitch-meta">Best for: Editor — your hometown paper, easiest yes</div>
+      </div>
+      <button class="copy-btn" onclick="copyPitch('p4')">Copy Email</button>
+    </div>
+    <div class="pitch-body">
+      <div class="email-field">
+        <div class="field-label">To</div>
+        <div class="field-value">editor@perrysburgmessenger.com</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Subject</div>
+        <div class="field-value subject">Local business story: Perrysburg marketing agency helping Northwest Ohio businesses compete online</div>
+      </div>
+      <div class="email-field">
+        <div class="field-label">Body</div>
+        <div class="email-body" id="p4-body">Hi [Editor Name],
+
+I wanted to reach out about a potential local story. I'm Jayson Hines, and I run Sales Funnel Marketing here in Perrysburg.
+
+We've been helping local businesses across Wood County and the surrounding area grow through social media and digital advertising since 2017. Our clients are the kinds of businesses your readers know — [local business types you work with] — and a lot of them have seen real growth from getting their online presence right.
+
+I thought it might make a good local feature — a Perrysburg business helping other local businesses compete in a market that's moved almost entirely online. Happy to bring in a client or two who'd be willing to share their experience.
+
+No agenda here — just thought it might be a story worth telling for your readers who own or run local businesses.
+
+Let me know if you'd like to chat.
+
+Jayson Hines
+Sales Funnel Marketing | Perrysburg, Ohio
+jayson@salesfunnelmarketing.us
+419-308-4576</div>
+      </div>
+      <div class="tip"><strong>Start here.</strong> Your hometown paper is the easiest yes you'll ever get and a link from perrysburgmessenger.com tells Google exactly where you're located. Do this one first.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyPitch(id) {
+  const to = document.querySelector('#'+id+' .field-value:not(.subject)').textContent.trim();
+  const subject = document.querySelector('#'+id+' .subject').textContent.trim();
+  const body = document.getElementById(id+'-body').textContent.trim();
+  const full = 'To: '+to+'\nSubject: '+subject+'\n\n'+body;
+  navigator.clipboard.writeText(full).catch(()=>{
+    const ta = document.createElement('textarea');
+    ta.value = full; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+  const btn = document.querySelector('#'+id+' .copy-btn');
+  btn.textContent = 'Copied ✓'; btn.classList.add('copied');
+  setTimeout(()=>{ btn.textContent='Copy Email'; btn.classList.remove('copied'); }, 2000);
+}
+</script>
+</body>
+</html>
