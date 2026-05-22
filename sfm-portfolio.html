@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work | Sales Funnel Marketing – Content & Video Production NW Ohio</title>
+  <meta name="description" content="Behind the scenes of Sales Funnel Marketing. Real shoots, real clients, real content — from video production to on-location content creation across Northwest Ohio." />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-portfolio" />
+  <meta property="og:title" content="Our Work | Sales Funnel Marketing" />
+  <meta property="og:description" content="Behind the scenes of real content production across Northwest Ohio." />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-portfolio" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0A1628; --navy-mid: #0f1e38;
+      --orange: #E85D26; --orange-dark: #c44d1e;
+      --white: #FFFFFF; --off-white: #F8F8F8;
+      --font: 'Inter', -apple-system, sans-serif;
+      --max-w: 1400px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: #080f1c; color: var(--white); overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* NAV */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--navy); box-shadow: 0 2px 24px rgba(0,0,0,0.5); transition: padding 0.3s; }
+    #navbar.scrolled { padding: 12px 0; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; flex-shrink: 0; }
+    .nav-logo span { color: var(--orange); }
+    .nav-logo img { width: 42px; height: 42px; flex-shrink: 0; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a.active { border-bottom: 2px solid var(--orange); padding-bottom: 2px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: none; }
+    .btn-primary { background: var(--orange); color: var(--white); }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position: fixed; inset: 0; background: var(--navy); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a { font-size: 22px; font-weight: 700; color: var(--white); }
+
+    /* HERO */
+    #hero { padding: 140px 0 80px; background: var(--navy); position: relative; overflow: hidden; }
+    #hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 20% 50%, #0e2245 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 80% 20%, rgba(232,93,38,0.06) 0%, transparent 60%); }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,93,38,0.1); border: 1px solid rgba(232,93,38,0.3); padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 24px; }
+    .hero-headline { font-size: clamp(42px, 5.5vw, 72px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 20px; }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 560px; }
+    .hero-stats { display: flex; gap: 40px; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+    .stat-num { font-size: 36px; font-weight: 900; color: var(--white); letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
+    .stat-num span { color: var(--orange); }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* GALLERY */
+    #gallery { padding: 80px 0 100px; }
+    .gallery-header { text-align: center; margin-bottom: 56px; }
+    .gallery-header h2 { font-size: clamp(28px, 3.5vw, 42px); font-weight: 900; letter-spacing: -1px; margin-bottom: 12px; }
+    .gallery-header p { font-size: 16px; color: rgba(255,255,255,0.45); }
+
+    /* Masonry grid using CSS columns */
+    .masonry { columns: 4; column-gap: 12px; }
+    .masonry-item { break-inside: avoid; margin-bottom: 12px; position: relative; overflow: hidden; border-radius: 10px; cursor: pointer; }
+    .masonry-item img { width: 100%; display: block; transition: transform 0.4s ease; }
+    .masonry-item:hover img { transform: scale(1.04); }
+    .masonry-item .overlay { position: absolute; inset: 0; background: rgba(10,22,40,0); transition: background 0.3s; display: flex; align-items: flex-end; padding: 16px; }
+    .masonry-item:hover .overlay { background: rgba(10,22,40,0.35); }
+
+    /* Lightbox */
+    #lightbox { position: fixed; inset: 0; background: rgba(5,10,20,0.96); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; object-fit: contain; }
+    #lightbox-close { position: absolute; top: 20px; right: 28px; font-size: 36px; color: rgba(255,255,255,0.6); cursor: pointer; line-height: 1; background: none; border: none; }
+    #lightbox-close:hover { color: var(--white); }
+    #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 32px; color: rgba(255,255,255,0.5); cursor: pointer; background: rgba(255,255,255,0.08); border: none; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    #lightbox-prev { left: 16px; }
+    #lightbox-next { right: 16px; }
+    #lightbox-prev:hover, #lightbox-next:hover { background: rgba(255,255,255,0.18); color: var(--white); }
+
+    /* CTA */
+    #cta { background: var(--orange); padding: 72px 0; text-align: center; }
+    #cta h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -1px; margin-bottom: 14px; }
+    #cta p { font-size: 17px; color: rgba(255,255,255,0.75); margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--orange); font-weight: 700; }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.5); }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* FOOTER */
+    footer { background: #060e1a; padding: 48px 0 28px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+    .footer-brand { font-size: 18px; font-weight: 900; margin-bottom: 8px; }
+    .footer-brand span { color: var(--orange); }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.3); max-width: 260px; line-height: 1.6; }
+    .footer-links-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 12px; }
+    .footer-links-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 8px; transition: color 0.2s; }
+    .footer-links-col a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.18); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.4); transition: all 0.2s; }
+    .footer-social:hover { background: var(--orange); color: var(--white); }
+
+    @media (max-width: 1100px) { .masonry { columns: 3; } }
+    @media (max-width: 768px) { .masonry { columns: 2; } .nav-links { display: none; } .hamburger { display: flex; } }
+    @media (max-width: 480px) { .masonry { columns: 1; } }
+  </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CDLWCX753N');
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '331104330662440');
+fbq('track', 'PageView');
+</script>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/sfm-logo.png" alt="SFM Logo">
+        Sales<span>Funnel</span> Marketing
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="sfm-services.html">Services</a>
+        <a href="sfm-results.html">Results</a>
+        <a href="sfm-portfolio.html" class="active">Our Work</a>
+        <a href="sfm-about.html">About</a>
+        <a href="sfm-blog.html">Blog</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary" style="display:none;" id="navCta">Free Strategy Call</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-portfolio.html">Our Work</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-primary">Book a Free Call</a>
+</div>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="eyebrow">Our Work</div>
+      <h1 class="hero-headline">We show up.<br>We shoot.<br><span style="color:var(--orange)">We grow businesses.</span></h1>
+      <p class="hero-sub">This is what it actually looks like when Sales Funnel Marketing goes to work. Real clients, real locations, real content — across every industry in Northwest Ohio.</p>
+      <div class="hero-stats">
+        <div><div class="stat-num"><span>127</span>+</div><div class="stat-label">Clients Served</div></div>
+        <div><div class="stat-num"><span>9</span> Yrs</div><div class="stat-label">In the Field</div></div>
+        <div><div class="stat-num"><span>5.0</span>★</div><div class="stat-label">Google Rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <h2>Behind the scenes</h2>
+      <p>Click any photo to view full size</p>
+    </div>
+
+    <div class="masonry" id="masonryGrid">
+      <div class="masonry-item" onclick="openLightbox(0)">
+        <img src="images/work/6688969005194161618.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(1)">
+        <img src="images/work/81c2296e-ae7d-4ce3-84d2-2e038097b1eb.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(2)">
+        <img src="images/work/_dsc1150.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(3)">
+        <img src="images/work/_dsc2069.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(4)">
+        <img src="images/work/_dsc2266.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(5)">
+        <img src="images/work/_dsc2330.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(6)">
+        <img src="images/work/_dsc3052.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(7)">
+        <img src="images/work/_dsc3060.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(8)">
+        <img src="images/work/_dsc3119.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(9)">
+        <img src="images/work/dsc_6122.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(10)">
+        <img src="images/work/dsc_6223_2.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(11)">
+        <img src="images/work/dsc_6322_1.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(12)">
+        <img src="images/work/img_0043.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(13)">
+        <img src="images/work/img_0044.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(14)">
+        <img src="images/work/img_0046.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(15)">
+        <img src="images/work/img_0046_2.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(16)">
+        <img src="images/work/img_0047.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(17)">
+        <img src="images/work/img_0050.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(18)">
+        <img src="images/work/img_0054.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(19)">
+        <img src="images/work/img_0056.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(20)">
+        <img src="images/work/img_0058.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(21)">
+        <img src="images/work/img_0059.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(22)">
+        <img src="images/work/img_0299.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(23)">
+        <img src="images/work/img_0495.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(24)">
+        <img src="images/work/img_0726.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(25)">
+        <img src="images/work/img_0852.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(26)">
+        <img src="images/work/img_0927.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(27)">
+        <img src="images/work/img_1309.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(28)">
+        <img src="images/work/img_1836.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(29)">
+        <img src="images/work/img_1838.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(30)">
+        <img src="images/work/img_2070.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(31)">
+        <img src="images/work/img_2532.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(32)">
+        <img src="images/work/img_2539.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(33)">
+        <img src="images/work/img_2587.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(34)">
+        <img src="images/work/img_2605.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(35)">
+        <img src="images/work/img_2657.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(36)">
+        <img src="images/work/img_2743.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(37)">
+        <img src="images/work/img_2920.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(38)">
+        <img src="images/work/img_3155.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(39)">
+        <img src="images/work/img_3324.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(40)">
+        <img src="images/work/img_3395.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(41)">
+        <img src="images/work/img_3528.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(42)">
+        <img src="images/work/img_3725.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(43)">
+        <img src="images/work/img_3785.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(44)">
+        <img src="images/work/img_3839.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(45)">
+        <img src="images/work/img_4004.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(46)">
+        <img src="images/work/img_4118.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(47)">
+        <img src="images/work/img_4416.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(48)">
+        <img src="images/work/img_4497.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(49)">
+        <img src="images/work/img_4498.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(50)">
+        <img src="images/work/img_4499.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(51)">
+        <img src="images/work/img_4778.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(52)">
+        <img src="images/work/img_4784.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(53)">
+        <img src="images/work/img_4793.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(54)">
+        <img src="images/work/img_4965.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(55)">
+        <img src="images/work/img_5755.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(56)">
+        <img src="images/work/img_5797.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(57)">
+        <img src="images/work/img_5913.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(58)">
+        <img src="images/work/img_6288.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(59)">
+        <img src="images/work/img_6731.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(60)">
+        <img src="images/work/img_6745.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(61)">
+        <img src="images/work/img_7566.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(62)">
+        <img src="images/work/img_7566_2.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(63)">
+        <img src="images/work/img_7590.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(64)">
+        <img src="images/work/img_7597.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(65)">
+        <img src="images/work/img_7607.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(66)">
+        <img src="images/work/img_7616.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(67)">
+        <img src="images/work/img_7617.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(68)">
+        <img src="images/work/img_7618.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(69)">
+        <img src="images/work/img_7663.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(70)">
+        <img src="images/work/img_7668.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(71)">
+        <img src="images/work/img_7756.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(72)">
+        <img src="images/work/img_7968.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(73)">
+        <img src="images/work/img_7974.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(74)">
+        <img src="images/work/img_7987.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(75)">
+        <img src="images/work/img_7988.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(76)">
+        <img src="images/work/img_7993.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(77)">
+        <img src="images/work/img_8002.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(78)">
+        <img src="images/work/img_8009.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(79)">
+        <img src="images/work/img_8013.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(80)">
+        <img src="images/work/img_8013_2.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(81)">
+        <img src="images/work/img_8071.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(82)">
+        <img src="images/work/img_8298.jpg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(83)">
+        <img src="images/work/img_8386.jpeg" alt="SFM client work" loading="lazy">
+      </div>
+      <div class="masonry-item" onclick="openLightbox(84)">
+        <img src="images/work/img_9751.jpg" alt="SFM client work" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <button id="lightbox-prev" onclick="prevPhoto()" aria-label="Previous">&#8249;</button>
+  <img id="lightbox-img" src="" alt="Full size photo">
+  <button id="lightbox-next" onclick="nextPhoto()" aria-label="Next">&#8250;</button>
+</div>
+
+<section id="cta">
+  <div class="container">
+    <h2>Want content like this for your business?</h2>
+    <p>Let's talk about what a real content shoot looks like for your industry, your budget, and your goals.</p>
+    <div class="cta-btns">
+      <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="btn btn-white btn-lg" style="padding:14px 28px;font-size:16px;">Book a Free Strategy Call</a>
+      <a href="tel:+14193084576" class="btn btn-ghost btn-lg" style="padding:14px 28px;font-size:16px;">Call 419-308-4576</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Sales<span>Funnel</span> Marketing</div>
+        <p class="footer-tagline">Northwest Ohio's premier social media growth agency.</p>
+      </div>
+      <div class="footer-links-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a>
+        <a href="sfm-services.html">Services</a>
+        <a href="sfm-results.html">Results</a>
+        <a href="sfm-portfolio.html">Our Work</a>
+        <a href="sfm-about.html">About</a>
+        <a href="sfm-blog.html">Blog</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Get in Touch</h4>
+        <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a>
+        <a href="tel:+14193084576">(419) 308-4576</a>
+        <a href="https://www.facebook.com/SalesFM" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/jayson.salesfm/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@jayson_social_media_guy" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Sales Funnel Marketing LLC &middot; Perrysburg, Ohio</div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/SalesFM" class="footer-social" target="_blank" rel="noopener">Fb</a>
+        <a href="https://www.instagram.com/jayson.salesfm/" class="footer-social" target="_blank" rel="noopener">Ig</a>
+        <a href="https://www.tiktok.com/@jayson_social_media_guy" class="footer-social" target="_blank" rel="noopener">Tk</a>
+        <a href="https://www.linkedin.com/in/jaysonhines" class="footer-social" target="_blank" rel="noopener">in</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  const navCta = document.getElementById('navCta');
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY > 40;
+    navbar.classList.toggle('scrolled', s);
+    navCta.style.display = s ? 'inline-flex' : 'none';
+  }, { passive: true });
+
+  // Hamburger
+  const hbtn = document.getElementById('hamburgerBtn');
+  const mmenu = document.getElementById('mobileMenu');
+  hbtn.addEventListener('click', () => {
+    const open = hbtn.classList.toggle('open');
+    mmenu.classList.toggle('open', open);
+  });
+
+  // Lightbox
+  const photos = Array.from(document.querySelectorAll('.masonry-item img')).map(img => img.src);
+  let current = 0;
+
+  function openLightbox(i) {
+    current = i;
+    document.getElementById('lightbox-img').src = photos[i];
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function prevPhoto() {
+    current = (current - 1 + photos.length) % photos.length;
+    document.getElementById('lightbox-img').src = photos[current];
+  }
+  function nextPhoto() {
+    current = (current + 1) % photos.length;
+    document.getElementById('lightbox-img').src = photos[current];
+  }
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevPhoto();
+    if (e.key === 'ArrowRight') nextPhoto();
+  });
+</script>
+</body>
+</html>
