@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Badge — Sales Funnel Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f5f7;
+      color: #0A1628;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    .page-header {
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
+
+    .page-header .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .page-header .wordmark .dot {
+      width: 10px;
+      height: 10px;
+      background: #E85D26;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .page-header .wordmark span {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0A1628;
+      opacity: 0.6;
+    }
+
+    .page-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0A1628;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      font-size: 15px;
+      color: #4a5568;
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ── LIVE PREVIEW SECTION ─────────────────────── */
+    .section {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e2e6ed;
+      overflow: hidden;
+    }
+
+    .section-label {
+      padding: 16px 24px;
+      border-bottom: 1px solid #e2e6ed;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0A1628;
+      opacity: 0.45;
+    }
+
+    .preview-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .preview-area.dark-bg {
+      background: #0A1628;
+    }
+
+    .preview-area.light-bg {
+      background: #f8f9fb;
+    }
+
+    /* ── EMBED SECTION ────────────────────────────── */
+    .embed-block {
+      padding: 24px;
+      border-top: 1px solid #e2e6ed;
+    }
+
+    .embed-block .instruction {
+      font-size: 14px;
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .embed-block .instruction strong {
+      color: #0A1628;
+    }
+
+    .code-wrapper {
+      position: relative;
+    }
+
+    .code-block {
+      background: #0d1b2e;
+      border-radius: 8px;
+      padding: 16px 48px 16px 16px;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'Menlo', 'Monaco', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #a8d4f5;
+      white-space: pre;
+      display: block;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #1e3050;
+      color: #a8d4f5;
+      border: 1px solid #2d4a6e;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: #E85D26;
+      color: #fff;
+      border-color: #E85D26;
+    }
+
+    .copy-btn.copied {
+      background: #1a7a45;
+      color: #fff;
+      border-color: #1a7a45;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    .page-footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-top: 8px;
+      font-size: 13px;
+      color: #0A1628;
+      opacity: 0.35;
+      text-align: center;
+    }
+
+    /* ── BADGE STYLES (the actual badges) ─────────── */
+
+    /* DARK BADGE */
+    .sfm-badge-dark {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      background: #0A1628;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 100px;
+      padding: 7px 16px 7px 14px;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .sfm-badge-dark:hover {
+      border-color: rgba(232,93,38,0.6);
+    }
+
+    .sfm-badge-dark .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sfm-badge-dark .badge-dot {
+      width: 5px;
+      height: 5px;
+      background: #E85D26;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .sfm-badge-dark .badge-by {
+      font-size: 9px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .sfm-badge-dark .badge-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+    /* LIGHT BADGE */
+    .sfm-badge-light {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      background: #ffffff;
+      border: 1px solid rgba(10,22,40,0.14);
+      border-radius: 100px;
+      padding: 7px 16px 7px 14px;
+      text-decoration: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .sfm-badge-light:hover {
+      border-color: rgba(232,93,38,0.5);
+    }
+
+    .sfm-badge-light .badge-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sfm-badge-light .badge-dot {
+      width: 5px;
+      height: 5px;
+      background: #E85D26;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .sfm-badge-light .badge-by {
+      font-size: 9px;
+      font-weight: 500;
+      color: rgba(10,22,40,0.45);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .sfm-badge-light .badge-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0A1628;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="wordmark">
+      <div class="dot"></div>
+      <span>Sales Funnel Marketing</span>
+    </div>
+    <h1>Client Footer Badge</h1>
+    <p>Add this badge to your website footer — it links back to salesfunnelmarketing.us and helps us both get found on Google. Pick the version that fits your site's background.</p>
+  </div>
+
+  <!-- DARK BADGE -->
+  <div class="section">
+    <div class="section-label">Dark Version — use on dark or navy footers</div>
+    <div class="preview-area dark-bg">
+      <!-- LIVE PREVIEW: Dark Badge -->
+      <a href="https://salesfunnelmarketing.us" target="_blank" rel="noopener" class="sfm-badge-dark">
+        <div class="badge-row">
+          <div class="badge-dot"></div>
+          <div class="badge-by">Marketing by</div>
+        </div>
+        <div class="badge-name">Sales Funnel Marketing</div>
+      </a>
+    </div>
+    <div class="embed-block">
+      <p class="instruction">
+        <strong>Embed code — Dark Version.</strong>
+        Add this badge to your website footer — it links back to salesfunnelmarketing.us and helps us both get found on Google.
+      </p>
+      <div class="code-wrapper">
+        <div class="code-block">
+          <code id="code-dark"><!-- Marketing by Sales Funnel Marketing -->
+&lt;a href="https://salesfunnelmarketing.us" target="_blank" rel="noopener"
+   style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;
+          background:#0A1628;border:1px solid rgba(255,255,255,0.12);border-radius:100px;
+          padding:7px 16px 7px 14px;text-decoration:none;
+          font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"&gt;
+  &lt;div style="display:flex;align-items:center;gap:5px;"&gt;
+    &lt;div style="width:5px;height:5px;background:#E85D26;border-radius:50%;flex-shrink:0;"&gt;&lt;/div&gt;
+    &lt;span style="font-size:9px;font-weight:500;color:rgba(255,255,255,0.5);
+                 letter-spacing:0.05em;text-transform:uppercase;line-height:1;"&gt;Marketing by&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span style="font-size:11px;font-weight:700;color:#ffffff;letter-spacing:0.01em;line-height:1;"&gt;
+    Sales Funnel Marketing
+  &lt;/span&gt;
+&lt;/a&gt;</code>
+        </div>
+        <button class="copy-btn" onclick="copyCode('code-dark', this)">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHT BADGE -->
+  <div class="section">
+    <div class="section-label">Light Version — use on white or light footers</div>
+    <div class="preview-area light-bg">
+      <!-- LIVE PREVIEW: Light Badge -->
+      <a href="https://salesfunnelmarketing.us" target="_blank" rel="noopener" class="sfm-badge-light">
+        <div class="badge-row">
+          <div class="badge-dot"></div>
+          <div class="badge-by">Marketing by</div>
+        </div>
+        <div class="badge-name">Sales Funnel Marketing</div>
+      </a>
+    </div>
+    <div class="embed-block">
+      <p class="instruction">
+        <strong>Embed code — Light Version.</strong>
+        Add this badge to your website footer — it links back to salesfunnelmarketing.us and helps us both get found on Google.
+      </p>
+      <div class="code-wrapper">
+        <div class="code-block">
+          <code id="code-light"><!-- Marketing by Sales Funnel Marketing -->
+&lt;a href="https://salesfunnelmarketing.us" target="_blank" rel="noopener"
+   style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;
+          background:#ffffff;border:1px solid rgba(10,22,40,0.14);border-radius:100px;
+          padding:7px 16px 7px 14px;text-decoration:none;
+          font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"&gt;
+  &lt;div style="display:flex;align-items:center;gap:5px;"&gt;
+    &lt;div style="width:5px;height:5px;background:#E85D26;border-radius:50%;flex-shrink:0;"&gt;&lt;/div&gt;
+    &lt;span style="font-size:9px;font-weight:500;color:rgba(10,22,40,0.45);
+                 letter-spacing:0.05em;text-transform:uppercase;line-height:1;"&gt;Marketing by&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span style="font-size:11px;font-weight:700;color:#0A1628;letter-spacing:0.01em;line-height:1;"&gt;
+    Sales Funnel Marketing
+  &lt;/span&gt;
+&lt;/a&gt;</code>
+        </div>
+        <button class="copy-btn" onclick="copyCode('code-light', this)">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">Sales Funnel Marketing &mdash; salesfunnelmarketing.us</div>
+
+  <script>
+    function copyCode(id, btn) {
+      const el = document.getElementById(id);
+      // Get the raw text and decode HTML entities back to actual HTML
+      const encoded = el.textContent;
+      const decoded = encoded
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+
+      navigator.clipboard.writeText(decoded.trim()).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(() => {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = decoded.trim();
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
