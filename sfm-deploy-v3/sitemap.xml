@@ -15,6 +15,8 @@
   <url><loc>https://www.salesfunnelmarketing.us/sfm-city-maumee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.salesfunnelmarketing.us/sfm-city-bowling-green</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.salesfunnelmarketing.us/sfm-city-rossford</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-findlay</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-fremont</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Industry Pages -->
   <url><loc>https://www.salesfunnelmarketing.us/sfm-trades</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -26,6 +28,12 @@
   <url><loc>https://www.salesfunnelmarketing.us/sfm-salon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.salesfunnelmarketing.us/sfm-photography</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.salesfunnelmarketing.us/sfm-legal</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-healthcare</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-attorneys</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-hvac</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-homebuilders</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-roofing</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.salesfunnelmarketing.us/sfm-client-badge</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog -->
   <url><loc>https://www.salesfunnelmarketing.us/sfm-blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
