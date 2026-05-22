@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Social Media Tips for Local Businesses | Sales Funnel Marketing</title>
+  <meta name="description" content="Free social media marketing tips, Facebook ad strategies, and growth tactics for local business owners in Northwest Ohio. Updated regularly by the SFM team." />
+  <meta name="keywords" content="social media marketing blog, local business Facebook tips, Instagram marketing Ohio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-blog" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog | Social Media Tips for Local Businesses | Sales Funnel Marketing" />
+  <meta property="og:description" content="Free social media marketing tips, Facebook ad strategies, and growth tactics for local business owners in Northwest Ohio. Updated regularly by the SFM team." />
+  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-blog" />
+  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog | Social Media Tips for Local Businesses | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="Free social media marketing tips, Facebook ad strategies, and growth tactics for local business owners in Northwest Ohio. Updated regularly by the SFM team." />
+  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#0A1628; --orange:#E85D26; --white:#FFFFFF; --off-white:#F8F8F8; --font:'Inter',sans-serif; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:var(--font); background:var(--off-white); color:#1a1a2e; }
+
+    nav { position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-size:18px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
+    .nav-logo span { color:var(--orange); }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--white); }
+    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; transition:opacity 0.2s; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
+      color: #E85D26; font-size: 13px; font-weight: 700;
+      padding: 8px 16px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
+    .nav-cta:hover { opacity:0.88; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--white); text-decoration:none; font-size:24px; font-weight:800; }
+    .mobile-close { position:absolute; top:20px; right:24px; font-size:32px; cursor:pointer; color:var(--white); background:none; border:none; }
+
+    .hero { background:var(--navy); padding:72px 40px 56px; text-align:center; }
+    .hero-tag { display:inline-block; background:var(--orange); color:var(--white); font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; padding:6px 14px; border-radius:20px; margin-bottom:20px; }
+    .hero h1 { font-size:clamp(36px,5vw,56px); font-weight:900; color:var(--white); line-height:1.1; margin-bottom:16px; }
+    .hero p { font-size:17px; color:rgba(255,255,255,0.55); max-width:520px; margin:0 auto; line-height:1.65; }
+
+    .blog-wrap { max-width:900px; margin:0 auto; padding:64px 24px 96px; }
+    .blog-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .blog-card { background:var(--white); border-radius:16px; overflow:hidden; box-shadow:0 2px 20px rgba(0,0,0,0.06); transition:transform 0.2s, box-shadow 0.2s; display:flex; flex-direction:column; }
+    .blog-card:hover { transform:translateY(-4px); box-shadow:0 8px 40px rgba(0,0,0,0.12); }
+    .blog-card-banner { height:8px; background:var(--orange); }
+    .blog-card-body { padding:32px; flex:1; display:flex; flex-direction:column; }
+    .blog-meta { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+    .blog-author { width:36px; height:36px; border-radius:50%; background:var(--navy); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; color:var(--white); flex-shrink:0; }
+    .blog-meta-info { font-size:13px; color:#888; }
+    .blog-meta-info strong { color:var(--navy); font-weight:700; display:block; }
+    .blog-tag { display:inline-block; background:rgba(232,93,38,0.1); color:var(--orange); font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border-radius:12px; margin-bottom:14px; }
+    .blog-card h2 { font-size:20px; font-weight:800; color:var(--navy); line-height:1.25; margin-bottom:12px; }
+    .blog-card p { font-size:14px; color:#555; line-height:1.7; flex:1; }
+    .blog-read-more { display:inline-flex; align-items:center; gap:6px; color:var(--orange); font-size:14px; font-weight:700; text-decoration:none; margin-top:20px; transition:gap 0.2s; }
+    .blog-read-more:hover { gap:10px; }
+
+    .newsletter-band { background:var(--navy); border-radius:20px; padding:56px 48px; text-align:center; margin-top:64px; }
+    .newsletter-band h2 { font-size:clamp(24px,3.5vw,36px); font-weight:900; color:var(--white); margin-bottom:12px; }
+    .newsletter-band p { font-size:16px; color:rgba(255,255,255,0.55); max-width:480px; margin:0 auto 32px; line-height:1.65; }
+    .newsletter-cta { display:inline-block; background:var(--orange); color:var(--white); padding:14px 36px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; transition:opacity 0.2s; }
+    .newsletter-cta:hover { opacity:0.88; }
+
+    footer { background:var(--navy); padding:56px 40px 32px; }
+    .footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+    .footer-brand p { font-size:14px; color:rgba(255,255,255,0.45); line-height:1.7; margin-top:12px; max-width:260px; }
+    .footer-col h4 { font-size:12px; font-weight:800; color:rgba(255,255,255,0.3); letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; }
+    .footer-col ul { list-style:none; }
+    .footer-col ul li { margin-bottom:10px; }
+    .footer-col ul li a { color:rgba(255,255,255,0.55); text-decoration:none; font-size:14px; transition:color 0.2s; }
+    .footer-col ul li a:hover { color:var(--white); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:24px; text-align:center; }
+    .footer-copy { font-size:13px; color:rgba(255,255,255,0.25); }
+    .footer-copy a { color:rgba(255,255,255,0.4); text-decoration:none; }
+
+    @media(max-width:768px) {
+      nav { padding:0 20px; }
+      .nav-links, .nav-cta { display:none; }
+      .hamburger { display:flex; }
+      .hero { padding:48px 20px 40px; }
+      .blog-grid { grid-template-columns:1fr; }
+      .newsletter-band { padding:40px 24px; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:32px; }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CDLWCX753N');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+    <img src="images/sfm-logo.png" alt="SFM Logo" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;">
+    SFM<span>.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-blog.html" class="active">Blog</a></li>
+  </ul>
+  <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">📗 Get the Book</a>
+          <a href="sfm-contact.html" class="nav-cta">Book a Call</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="index.html">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-portfolio.html">Our Work</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-blog.html">Blog</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="sfm-contact.html" style="color:var(--orange)">Book a Call →</a>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">The SFM Blog</div>
+  <h1>Marketing that actually works<br>for local businesses.</h1>
+  <p>Real strategies, real results, no fluff. Written by Jayson Hines for business owners across Northwest Ohio.</p>
+</div>
+
+<div class="blog-wrap">
+  <div class="blog-grid">
+
+    <a href="sfm-blog-facebook-ads.html" class="blog-card" style="text-decoration:none;">
+      <div class="blog-card-banner"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <div class="blog-author">J</div>
+          <div class="blog-meta-info">
+            <strong>Jayson Hines</strong>
+            March 13, 2025 · 3 min read
+          </div>
+        </div>
+        <div class="blog-tag">Facebook Ads</div>
+        <h2>5 Reasons Perrysburg, OH Businesses Are Switching to Facebook Ads (And Getting More Customers Fast)</h2>
+        <p>If you run a local business in Perrysburg, Maumee, Rossford, or anywhere in Wood County — here's why so many are making the switch to paid social and seeing real results.</p>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </a>
+
+    <a href="sfm-blog-the-scroll.html" class="blog-card" style="text-decoration:none;">
+      <div class="blog-card-banner"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <div class="blog-author">J</div>
+          <div class="blog-meta-info">
+            <strong>Jayson Hines</strong>
+            May 11, 2025 · 2 min read
+          </div>
+        </div>
+        <div class="blog-tag">Newsletter</div>
+        <h2>The Scroll: Free Daily AI & Marketing Newsletter for Small Business Owners</h2>
+        <p>Get AI and social media marketing intelligence delivered every weekday — free. Plus a copy-paste AI prompt, tool spotlight, and actionable steps in every issue.</p>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </a>
+
+
+    <a href="sfm-blog-organic-vs-ads.html" class="blog-card" style="text-decoration:none;">
+      <div class="blog-card-banner"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <div class="blog-author">J</div>
+          <div class="blog-meta-info">
+            <strong>Jayson Hines</strong>
+            April 8, 2025 · 4 min read
+          </div>
+        </div>
+        <div class="blog-tag">Strategy</div>
+        <h2>Organic Social Media vs. Facebook Ads: Which One Should Your Local Business Focus On First?</h2>
+        <p>The answer isn't which one — it's which one first. Here's how to think about it as a local business owner in Northwest Ohio.</p>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </a>
+
+    <a href="sfm-blog-google-business.html" class="blog-card" style="text-decoration:none;">
+      <div class="blog-card-banner"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <div class="blog-author">J</div>
+          <div class="blog-meta-info">
+            <strong>Jayson Hines</strong>
+            April 22, 2025 · 3 min read
+          </div>
+        </div>
+        <div class="blog-tag">Google Business</div>
+        <h2>The #1 Free Marketing Tool Most Perrysburg Businesses Are Ignoring</h2>
+        <p>Your Google Business Profile is the most powerful free marketing tool available to local businesses — and most people set it up once and forget it.</p>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </a>
+
+    <a href="sfm-blog-content-ideas.html" class="blog-card" style="text-decoration:none;">
+      <div class="blog-card-banner"></div>
+      <div class="blog-card-body">
+        <div class="blog-meta">
+          <div class="blog-author">J</div>
+          <div class="blog-meta-info">
+            <strong>Jayson Hines</strong>
+            May 5, 2025 · 5 min read
+          </div>
+        </div>
+        <div class="blog-tag">Content Ideas</div>
+        <h2>30 Social Media Post Ideas for Northwest Ohio Local Businesses (Steal These)</h2>
+        <p>Running out of ideas for what to post? Here are 30 proven post types that consistently drive engagement and customers for local businesses.</p>
+        <span class="blog-read-more">Read article →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="newsletter-band">
+    <h2>Get marketing insights every weekday.</h2>
+    <p>The Scroll delivers AI tools, social media tactics, and what's working right now — straight to your inbox. Free.</p>
+    <a href="sfm-blog-the-scroll.html" class="newsletter-cta">Subscribe to The Scroll — It's Free →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-size:20px;font-weight:900;color:#fff;">Sales<span>Funnel</span> Marketing</div>
+      <p>Sales Funnel Marketing — Perrysburg, Ohio. Helping local businesses grow through social media and paid advertising since 2017.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="sfm-services.html">Social Media</a></li>
+        <li><a href="sfm-services.html">Facebook Ads</a></li>
+        <li><a href="sfm-services.html">Google Business</a></li>
+        <li><a href="sfm-roi-calculator.html">ROI Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Industries</h4>
+      <ul>
+        <li><a href="sfm-trades.html">Trades</a></li>
+        <li><a href="sfm-restaurant.html">Restaurant</a></li>
+        <li><a href="sfm-realestate.html">Real Estate</a></li>
+        <li><a href="sfm-retail.html">Retail</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="sfm-about.html">About</a></li>
+        <li><a href="sfm-results.html">Results</a></li>
+        <li><a href="sfm-blog.html">Blog</a></li>
+        <li><a href="sfm-contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
