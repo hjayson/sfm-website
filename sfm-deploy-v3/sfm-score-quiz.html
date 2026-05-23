@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Social Media Score Quiz | How Strong Is Your Business Online? | SFM</title>
@@ -53,7 +54,7 @@
 
 
     /* ------------------------------------------------------------
-       QUIZ WIDGET — self-contained styles (prefix: sfmq-)
+       QUIZ WIDGET â self-contained styles (prefix: sfmq-)
     ------------------------------------------------------------ */
     :root {
       --sfmq-navy:   #0A1628;
@@ -355,8 +356,8 @@
   <!-- DEMO PAGE -->
   <div class="demo-note">
     <h1>Social Media <span>Score</span> Widget</h1>
-    <p>This floating quiz captures leads before they leave, gives them a personalized social media score, and books them on a call — all in under 2 minutes.</p>
-    <button class="demo-trigger" onclick="sfmqOpen()">📊 Try the Quiz</button>
+    <p>This floating quiz captures leads before they leave, gives them a personalized social media score, and books them on a call â all in under 2 minutes.</p>
+    <button class="demo-trigger" onclick="sfmqOpen()">ð Try the Quiz</button>
     <code>&lt;!-- Add to any page (just before &lt;/body&gt;) --&gt;<br />
 &lt;script src="sfm-score-quiz.js"&gt;&lt;/script&gt;</code>
     <p style="margin-top:16px; font-size:13px;">The floating tab appears automatically on the right side of every page.</p>
@@ -370,7 +371,7 @@
   <!-- Floating tab trigger -->
   <button id="sfmq-trigger" onclick="sfmqOpen()" aria-label="Get your free social media score">
     <span class="sfmq-pulse"></span>
-    📊 Score My Social
+    ð Score My Social
   </button>
 
   <!-- Backdrop -->
@@ -381,10 +382,10 @@
 
     <div class="sfmq-header">
       <div class="sfmq-header-left">
-        <div class="sfmq-header-tag">Free — Takes 60 Seconds</div>
+        <div class="sfmq-header-tag">Free â Takes 60 Seconds</div>
         <div class="sfmq-header-title">What's Your Social Media Score?</div>
       </div>
-      <button class="sfmq-close" onclick="sfmqClose()" aria-label="Close quiz">✕</button>
+      <button class="sfmq-close" onclick="sfmqClose()" aria-label="Close quiz">â</button>
     </div>
 
     <div class="sfmq-progress-wrap">
@@ -406,22 +407,22 @@
         <p class="sfmq-chips-note">Select all that apply</p>
         <div class="sfmq-chips" id="sfmq-platforms">
           <button class="sfmq-chip" data-val="facebook" onclick="sfmqToggleChip(this)">
-            <span class="sfmq-chip-icon">👍</span> Facebook
+            <span class="sfmq-chip-icon">ð</span> Facebook
           </button>
           <button class="sfmq-chip" data-val="instagram" onclick="sfmqToggleChip(this)">
-            <span class="sfmq-chip-icon">📸</span> Instagram
+            <span class="sfmq-chip-icon">ð¸</span> Instagram
           </button>
           <button class="sfmq-chip" data-val="tiktok" onclick="sfmqToggleChip(this)">
-            <span class="sfmq-chip-icon">🎵</span> TikTok
+            <span class="sfmq-chip-icon">ðµ</span> TikTok
           </button>
           <button class="sfmq-chip" data-val="youtube" onclick="sfmqToggleChip(this)">
-            <span class="sfmq-chip-icon">▶️</span> YouTube
+            <span class="sfmq-chip-icon">â¶ï¸</span> YouTube
           </button>
           <button class="sfmq-chip" data-val="linkedin" onclick="sfmqToggleChip(this)">
-            <span class="sfmq-chip-icon">💼</span> LinkedIn
+            <span class="sfmq-chip-icon">ð¼</span> LinkedIn
           </button>
           <button class="sfmq-chip" data-val="none" onclick="sfmqToggleChip(this, true)">
-            <span class="sfmq-chip-icon">😬</span> None yet
+            <span class="sfmq-chip-icon">ð¬</span> None yet
           </button>
         </div>
       </div>
@@ -432,23 +433,23 @@
         <div class="sfmq-q-text">How often does your business post on social media?</div>
         <div class="sfmq-choices">
           <button class="sfmq-choice" data-val="daily" data-pts="25" onclick="sfmqChoose(this, 2)">
-            <span class="sfmq-choice-icon">🔥</span>
-            <span class="sfmq-choice-text">Daily — we stay consistent</span>
+            <span class="sfmq-choice-icon">ð¥</span>
+            <span class="sfmq-choice-text">Daily â we stay consistent</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="34week" data-pts="18" onclick="sfmqChoose(this, 2)">
-            <span class="sfmq-choice-icon">📅</span>
-            <span class="sfmq-choice-text">3–4 times a week</span>
+            <span class="sfmq-choice-icon">ð</span>
+            <span class="sfmq-choice-text">3â4 times a week</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="12week" data-pts="10" onclick="sfmqChoose(this, 2)">
-            <span class="sfmq-choice-icon">😅</span>
-            <span class="sfmq-choice-text">1–2 times a week (or less)</span>
+            <span class="sfmq-choice-icon">ð</span>
+            <span class="sfmq-choice-text">1â2 times a week (or less)</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="rarely" data-pts="0" onclick="sfmqChoose(this, 2)">
-            <span class="sfmq-choice-icon">👻</span>
-            <span class="sfmq-choice-text">Rarely or never — it's pretty quiet</span>
+            <span class="sfmq-choice-icon">ð»</span>
+            <span class="sfmq-choice-text">Rarely or never â it's pretty quiet</span>
             <span class="sfmq-choice-check"></span>
           </button>
         </div>
@@ -460,23 +461,23 @@
         <div class="sfmq-q-text">Are you running paid ads on Facebook or Instagram right now?</div>
         <div class="sfmq-choices">
           <button class="sfmq-choice" data-val="yes-good" data-pts="25" onclick="sfmqChoose(this, 3)">
-            <span class="sfmq-choice-icon">💰</span>
-            <span class="sfmq-choice-text">Yes — and they're generating leads</span>
+            <span class="sfmq-choice-icon">ð°</span>
+            <span class="sfmq-choice-text">Yes â and they're generating leads</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="yes-bad" data-pts="10" onclick="sfmqChoose(this, 3)">
-            <span class="sfmq-choice-icon">😤</span>
-            <span class="sfmq-choice-text">Yes — but I'm not happy with the results</span>
+            <span class="sfmq-choice-icon">ð¤</span>
+            <span class="sfmq-choice-text">Yes â but I'm not happy with the results</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="tried" data-pts="5" onclick="sfmqChoose(this, 3)">
-            <span class="sfmq-choice-icon">🤷</span>
+            <span class="sfmq-choice-icon">ð¤·</span>
             <span class="sfmq-choice-text">Tried it once, it didn't work, I stopped</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="never" data-pts="0" onclick="sfmqChoose(this, 3)">
-            <span class="sfmq-choice-icon">🚫</span>
-            <span class="sfmq-choice-text">Never run ads — don't know where to start</span>
+            <span class="sfmq-choice-icon">ð«</span>
+            <span class="sfmq-choice-text">Never run ads â don't know where to start</span>
             <span class="sfmq-choice-check"></span>
           </button>
         </div>
@@ -488,22 +489,22 @@
         <div class="sfmq-q-text">What's your biggest marketing challenge right now?</div>
         <div class="sfmq-choices">
           <button class="sfmq-choice" data-val="followers" onclick="sfmqChoose(this, 4)">
-            <span class="sfmq-choice-icon">📣</span>
+            <span class="sfmq-choice-icon">ð£</span>
             <span class="sfmq-choice-text">Not enough followers / reach</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="leads" onclick="sfmqChoose(this, 4)">
-            <span class="sfmq-choice-icon">🎯</span>
+            <span class="sfmq-choice-icon">ð¯</span>
             <span class="sfmq-choice-text">Social media doesn't bring in actual leads</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="content" onclick="sfmqChoose(this, 4)">
-            <span class="sfmq-choice-icon">🤯</span>
+            <span class="sfmq-choice-icon">ð¤¯</span>
             <span class="sfmq-choice-text">I don't know what to post / no time</span>
             <span class="sfmq-choice-check"></span>
           </button>
           <button class="sfmq-choice" data-val="all" onclick="sfmqChoose(this, 4)">
-            <span class="sfmq-choice-icon">💥</span>
+            <span class="sfmq-choice-icon">ð¥</span>
             <span class="sfmq-choice-text">Honestly, all of the above</span>
             <span class="sfmq-choice-check"></span>
           </button>
@@ -514,7 +515,7 @@
       <div class="sfmq-step" id="sfmq-s5">
         <div class="sfmq-q-num">Almost done!</div>
         <div class="sfmq-q-text">Where should we send your score?</div>
-        <p class="sfmq-form-note">We'll calculate your personalized score and send you 3 specific fixes for your business — totally free.</p>
+        <p class="sfmq-form-note">We'll calculate your personalized score and send you 3 specific fixes for your business â totally free.</p>
         <div class="sfmq-form">
           <input class="sfmq-input" id="sfmq-name" type="text" placeholder="Your first name" autocomplete="given-name" />
           <input class="sfmq-input" id="sfmq-biz" type="text" placeholder="Business name" />
@@ -525,7 +526,7 @@
       <!-- STEP 6: Results -->
       <div class="sfmq-step" id="sfmq-s6">
         <div class="sfmq-result">
-          <div class="sfmq-result-greeting" id="sfmq-greeting">Here's your report, <span id="sfmq-result-name">friend</span> 👋</div>
+          <div class="sfmq-result-greeting" id="sfmq-greeting">Here's your report, <span id="sfmq-result-name">friend</span> ð</div>
           <div class="sfmq-result-headline" id="sfmq-headline">Your social media is leaving money on the table.</div>
 
           <div class="sfmq-score-ring-wrap">
@@ -679,28 +680,28 @@
       if (s === 1) {
         f.innerHTML = `
           <button class="sfmq-btn" onclick="sfmqNext()">
-            Next — Posting Habits
+            Next â Posting Habits
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </button>
-          <div class="sfmq-trust">🔒 No spam. We respect your inbox.</div>`;
+          <div class="sfmq-trust">ð No spam. We respect your inbox.</div>`;
       } else if (s === 2 || s === 3 || s === 4) {
         f.innerHTML = `<div class="sfmq-trust" style="margin-top:8px;">Select an option above to continue</div>`;
       } else if (s === 5) {
         f.innerHTML = `
           <button class="sfmq-btn" onclick="sfmqNext()">
-            🎯 Calculate My Score
+            ð¯ Calculate My Score
           </button>
-          <div class="sfmq-trust">🔒 We'll never share your info. No spam, ever.</div>`;
+          <div class="sfmq-trust">ð We'll never share your info. No spam, ever.</div>`;
       } else if (s === 6) {
         // UPDATE: Replace href with real Calendly link
         f.innerHTML = `
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" class="sfmq-btn">
-            📞 Book My Free Strategy Call
+            ð Book My Free Strategy Call
           </a>
           <button class="sfmq-btn sfmq-btn-secondary" onclick="sfmqClose()">
             I'll do it later
           </button>
-          <div class="sfmq-trust">Free 30-min call · No pitch · No pressure</div>`;
+          <div class="sfmq-trust">Free 30-min call Â· No pitch Â· No pressure</div>`;
       }
     }
 
@@ -733,13 +734,13 @@
         platPts = Math.min(platPts, 25);
       }
 
-      // Posting consistency (out of 25) — already stored
+      // Posting consistency (out of 25) â already stored
       const postPts = sfmqState.postingPts;
 
-      // Paid ads (out of 25) — already stored
+      // Paid ads (out of 25) â already stored
       const adsPts = sfmqState.adsPts;
 
-      // Conversion system (out of 25) — almost nobody has this set up well, scored 0-5
+      // Conversion system (out of 25) â almost nobody has this set up well, scored 0-5
       const convPts = (sfmqState.challenge === 'all') ? 2 : (sfmqState.challenge === 'leads') ? 3 : 5;
 
       const total = platPts + postPts + adsPts + convPts;
@@ -758,15 +759,15 @@
       // Headline + grade
       let grade, gradeColor, summary, headline;
       if (total >= 75) {
-        grade = 'Strong — but there\'s still room'; gradeColor = '#E85D26';
-        headline = 'You\'re ahead of most — let\'s capitalize on it.';
+        grade = 'Strong â but there\'s still room'; gradeColor = '#E85D26';
+        headline = 'You\'re ahead of most â let\'s capitalize on it.';
         summary = 'Your foundation is solid. The next level is optimizing what you already have and scaling it.';
       } else if (total >= 50) {
-        grade = 'Average — you\'re being outpaced'; gradeColor = '#f59e0b';
+        grade = 'Average â you\'re being outpaced'; gradeColor = '#f59e0b';
         headline = 'You\'re posting, but not growing fast enough.';
         summary = 'You have some pieces in place, but your competitors are pulling ahead. Here\'s what\'s holding you back.';
       } else {
-        grade = 'Critical — leads are walking away'; gradeColor = '#ef4444';
+        grade = 'Critical â leads are walking away'; gradeColor = '#ef4444';
         headline = 'Your social media is leaving real money on the table.';
         summary = 'There are significant gaps in your current presence. Every week without a fix costs you customers to competitors.';
       }
@@ -787,7 +788,7 @@
         { label: 'Platform Coverage',     pts: platPts, color: platPts >= 20 ? '#E85D26' : platPts >= 10 ? '#f59e0b' : '#ef4444' },
         { label: 'Content Consistency',   pts: postPts, color: postPts >= 20 ? '#E85D26' : postPts >= 10 ? '#f59e0b' : '#ef4444' },
         { label: 'Paid Ad Strategy',      pts: adsPts,  color: adsPts >= 20 ? '#E85D26' : adsPts >= 10 ? '#f59e0b' : '#ef4444' },
-        { label: 'Conversion System',     pts: convPts, color: '#ef4444' }, // almost always red — nobody has this
+        { label: 'Conversion System',     pts: convPts, color: '#ef4444' }, // almost always red â nobody has this
       ];
       const bEl = document.getElementById('sfmq-breakdown');
       bEl.innerHTML = breakdowns.map(b => `
@@ -804,15 +805,15 @@
 
       // Gap insights (personalized)
       const insights = [];
-      if (platPts < 13) insights.push('⚡ You\'re missing platforms where your customers spend hours every day. Facebook + Instagram together is the baseline.');
-      if (postPts < 18) insights.push('📅 Inconsistent posting kills reach. Platforms reward accounts that show up daily — and punish ones that don\'t.');
-      if (adsPts < 15) insights.push('🎯 Without ads, you\'re only reaching people who already follow you. Ads multiply your reach by 10–50× in your local market.');
-      insights.push('🔄 Your conversion system (how followers become leads) is your biggest untapped opportunity. This is where the real money is.');
+      if (platPts < 13) insights.push('â¡ You\'re missing platforms where your customers spend hours every day. Facebook + Instagram together is the baseline.');
+      if (postPts < 18) insights.push('ð Inconsistent posting kills reach. Platforms reward accounts that show up daily â and punish ones that don\'t.');
+      if (adsPts < 15) insights.push('ð¯ Without ads, you\'re only reaching people who already follow you. Ads multiply your reach by 10â50Ã in your local market.');
+      insights.push('ð Your conversion system (how followers become leads) is your biggest untapped opportunity. This is where the real money is.');
 
       const iEl = document.getElementById('sfmq-insights');
       iEl.innerHTML = insights.slice(0, 3).map(i => `
         <div class="sfmq-insight">
-          <span class="sfmq-insight-icon">→</span>
+          <span class="sfmq-insight-icon">â</span>
           <span>${i.replace(/^...\s/, '')}</span>
         </div>
       `).join('');
@@ -852,7 +853,7 @@
     sfmqRenderFooter();
 
     // Show the trigger tab after 4 seconds (or on scroll)
-    // (Already visible by default — remove delay if desired)
+    // (Already visible by default â remove delay if desired)
     window.addEventListener('scroll', () => {
       if (window.scrollY > 200) {
         document.getElementById('sfmq-trigger').style.display = '';
