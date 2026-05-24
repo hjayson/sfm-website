@@ -44,7 +44,8 @@
     body { font-family:var(--font); background:var(--off-white); color:#1a1a2e; }
 
     nav { position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .nav-logo { font-size:18px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-size:18px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .nav-logo span { color:var(--orange); }
     .nav-links { display:flex; gap:32px; list-style:none; }
     .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
@@ -149,7 +150,10 @@
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo">Sales <span>Funnel</span></a>
+    <a href="index.html" class="nav-logo">
+    <img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;">
+    Sales <span>Funnel</span> Marketing
+  </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="sfm-services.html">Services</a></li>
