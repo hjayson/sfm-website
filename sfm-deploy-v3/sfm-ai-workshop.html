@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI as Your Assistant — The Workshop | Sales Funnel Marketing</title>
+  <meta name="description" content="A 3-hour hands-on workshop for local business owners. Learn to use AI to handle busy work, draft content, and automate routine tasks — using tools available on a $20/month plan." />
+  <meta name="keywords" content="AI workshop Northwest Ohio, AI for small business, business automation workshop Toledo OH, Perrysburg AI training" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-ai-workshop" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI as Your Assistant — The Workshop | June 23" />
+  <meta property="og:description" content="A 3-hour hands-on workshop for local business owners. Learn to use AI to handle busy work and automate routine tasks — tools available on a $20/month plan." />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-ai-workshop" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI as Your Assistant — The Workshop | June 23" />
+  <meta name="twitter:description" content="A 3-hour hands-on workshop for local business owners using AI on a $20/month plan." />
+  <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CDLWCX753N');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-w: 1100px;
+      --radius: 12px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 40px; display: flex; align-items: center;
+      justify-content: space-between; height: 68px;
+    }
+    .nav-logo { font-size: 18px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-dark, #c44d1e); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white); font-size: 24px; font-weight: 800; }
+    .mobile-close { position: absolute; top: 20px; right: 24px; font-size: 32px; cursor: pointer; color: var(--white); background: none; border: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 80px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(232,93,38,0.12) 0%, transparent 65%);
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 14px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-details {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      margin-bottom: 40px;
+    }
+    .hero-detail {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.85); font-size: 15px; font-weight: 600;
+    }
+    .hero-detail-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(232,93,38,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: var(--white);
+      font-size: 16px; font-weight: 800;
+      padding: 16px 32px; border-radius: 8px;
+      transition: var(--transition);
+    }
+    .btn-primary:hover { background: var(--orange-dark, #c44d1e); transform: translateY(-1px); }
+    .btn-secondary {
+      color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); }
+    .hero-price-note { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 14px; }
+
+    /* Hero right card */
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .hero-card-img {
+      width: 100%; height: 260px;
+      object-fit: cover; object-position: center top;
+    }
+    .hero-card-body { padding: 24px; }
+    .hero-card-title { font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .hero-card-items { display: flex; flex-direction: column; gap: 10px; }
+    .hero-card-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.65);
+    }
+    .hci-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--navy-mid, #0f1e38);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 24px;
+    }
+    .trust-bar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.5);
+    }
+    .trust-icon { font-size: 18px; }
+
+    /* ── SECTIONS ── */
+    section { padding: 88px 24px; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900; color: var(--navy);
+      line-height: 1.12; letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--dark-gray);
+      line-height: 1.75; max-width: 620px;
+    }
+
+    /* ── WHAT YOU'LL GET ── */
+    .outcomes { background: var(--off-white); }
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .outcome-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: var(--transition);
+    }
+    .outcome-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .outcome-icon { font-size: 32px; margin-bottom: 16px; }
+    .outcome-title { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .outcome-desc { font-size: 14px; color: var(--dark-gray); line-height: 1.65; }
+
+    /* ── AGENDA ── */
+    .agenda { background: var(--white); }
+    .agenda-header { margin-bottom: 56px; }
+    .agenda-grid { display: flex; flex-direction: column; gap: 4px; }
+    .agenda-block {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .agenda-block:last-child { border-bottom: none; }
+    .agenda-time {
+      font-size: 13px; font-weight: 700;
+      color: var(--orange); letter-spacing: 0.5px;
+      padding-top: 2px;
+    }
+    .agenda-content-title { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .agenda-content-desc { font-size: 15px; color: var(--dark-gray); line-height: 1.7; }
+    .agenda-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .agenda-tag {
+      background: rgba(232,93,38,0.08);
+      color: var(--orange);
+      font-size: 12px; font-weight: 600;
+      padding: 5px 12px; border-radius: 100px;
+    }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip { background: var(--navy); padding: 64px 0; overflow: hidden; }
+    .photo-strip-label {
+      text-align: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 32px;
+    }
+    .photo-strip-row {
+      display: flex; gap: 16px;
+      overflow-x: auto;
+      padding: 0 40px;
+      scrollbar-width: none;
+    }
+    .photo-strip-row::-webkit-scrollbar { display: none; }
+    .photo-strip-item {
+      flex-shrink: 0;
+      width: 280px; height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .photo-strip-item:hover img { transform: scale(1.04); }
+
+    /* ── FOR WHO ── */
+    .for-who { background: var(--off-white); }
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .for-who-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 32px;
+    }
+    .for-who-card.not { border: 1px solid rgba(0,0,0,0.06); }
+    .for-who-card.yes { background: var(--navy); }
+    .for-who-card-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+    .for-who-card.yes .for-who-card-label { color: var(--orange); }
+    .for-who-card.not .for-who-card-label { color: var(--dark-gray); }
+    .for-who-list { display: flex; flex-direction: column; gap: 14px; }
+    .for-who-item { display: flex; align-items: flex-start; gap: 12px; }
+    .for-who-check { font-size: 16px; flex-shrink: 0; line-height: 1.4; }
+    .for-who-text { font-size: 15px; line-height: 1.55; }
+    .for-who-card.yes .for-who-text { color: rgba(255,255,255,0.8); }
+    .for-who-card.not .for-who-text { color: var(--dark-gray); }
+
+    /* ── PRESENTER ── */
+    .presenter { background: var(--white); }
+    .presenter-inner {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .presenter-img-wrap {
+      position: relative;
+    }
+    .presenter-img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; object-position: center top;
+      border-radius: 20px;
+    }
+    .presenter-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--orange); color: var(--white);
+      font-size: 13px; font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(232,93,38,0.35);
+    }
+    .presenter-content {}
+    .presenter-name { font-size: 36px; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 4px; }
+    .presenter-role { font-size: 15px; color: var(--orange); font-weight: 700; margin-bottom: 24px; }
+    .presenter-bio { font-size: 16px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 28px; }
+    .presenter-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+    .presenter-stat-num { font-size: 30px; font-weight: 900; color: var(--navy); line-height: 1; }
+    .presenter-stat-num span { color: var(--orange); }
+    .presenter-stat-label { font-size: 13px; color: var(--dark-gray); margin-top: 4px; }
+
+    /* ── CTA SECTION ── */
+    .register { background: var(--navy); padding: 100px 24px; position: relative; overflow: hidden; }
+    .register::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(232,93,38,0.1) 0%, transparent 60%);
+    }
+    .register-inner {
+      max-width: 680px; margin: 0 auto;
+      text-align: center; position: relative;
+    }
+    .register-eyebrow {
+      display: inline-block;
+      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .register h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900; color: var(--white);
+      letter-spacing: -1px; line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .register-sub { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 48px; }
+    .register-price-block {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .register-price-left { text-align: left; }
+    .register-price-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+    .register-price { font-size: 52px; font-weight: 900; color: var(--white); line-height: 1; letter-spacing: -2px; }
+    .register-price small { font-size: 20px; letter-spacing: 0; }
+    .register-price-right { text-align: left; }
+    .register-detail { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+    .register-detail strong { color: rgba(255,255,255,0.85); }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: var(--white);
+      font-size: 18px; font-weight: 800;
+      padding: 20px 48px; border-radius: 10px;
+      transition: var(--transition);
+      box-shadow: 0 8px 32px rgba(232,93,38,0.4);
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-cta:hover { background: var(--orange-dark, #c44d1e); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,93,38,0.5); }
+    .register-guarantee { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 16px; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--off-white); }
+    .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 28px 0;
+    }
+    .faq-q { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--dark-gray); line-height: 1.75; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); padding: 40px; text-align: center; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-copy a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .for-who-grid { grid-template-columns: 1fr; }
+      .presenter-inner { grid-template-columns: 1fr; }
+      .presenter-img-wrap { max-width: 280px; }
+      .register-price-block { flex-direction: column; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 64px 24px; }
+      .agenda-block { grid-template-columns: 1fr; gap: 8px; }
+      .industry-cta-grid { grid-template-columns: 1fr !important; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="sfm-homepage.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+    <img src="images/sfm-logo.png" alt="SFM Logo" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;">
+    SFM<span>.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="sfm-homepage.html">Home</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="nav-cta">Grab Your Seat →</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="sfm-homepage.html">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" style="color:var(--orange)">Grab Your Seat →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">Live Workshop · June 23, 2026</div>
+      <h1>AI as Your<br><em>Assistant</em></h1>
+      <p class="hero-sub">A hands-on half-day workshop for local business owners who want to put AI to work — without needing a tech background or a big budget.</p>
+      <div class="hero-details">
+        <div class="hero-detail">
+          <div class="hero-detail-icon">📅</div>
+          Tuesday, June 23, 2026
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-icon">⏰</div>
+          9:00 AM – 12:00 PM
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-icon">📍</div>
+          Location TBD · Northwest Ohio
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-icon">🎟️</div>
+          $100 per seat
+        </div>
+      </div>
+      <div class="hero-cta-row">
+        <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="btn-primary">Reserve Your Seat →</a>
+        <a href="#agenda" class="btn-secondary">See what's covered ↓</a>
+      </div>
+      <p class="hero-price-note">Seats are limited. Reserve yours before they fill up.</p>
+    </div>
+    <div class="hero-card">
+      <img class="hero-card-img" src="images/work/img_1836.jpg" alt="Jayson Hines teaching an AI workshop" />
+      <div class="hero-card-body">
+        <div class="hero-card-title">What you need to attend</div>
+        <div class="hero-card-items">
+          <div class="hero-card-item"><div class="hci-dot"></div>A laptop or tablet</div>
+          <div class="hero-card-item"><div class="hci-dot"></div>A free or paid AI account (a $20/mo plan helps, but isn't required)</div>
+          <div class="hero-card-item"><div class="hci-dot"></div>Your actual business questions</div>
+          <div class="hero-card-item"><div class="hci-dot"></div>Zero tech experience required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-icon">🏆</span> Live, hands-on training</div>
+    <div class="trust-item"><span class="trust-icon">💻</span> A $20/mo plan helps — not required</div>
+    <div class="trust-item"><span class="trust-icon">📍</span> Northwest Ohio</div>
+    <div class="trust-item"><span class="trust-icon">👥</span> Limited seats</div>
+    <div class="trust-item"><span class="trust-icon">🚀</span> Use it the same day</div>
+  </div>
+</div>
+
+<!-- WHAT YOU'LL WALK AWAY WITH -->
+<section class="outcomes">
+  <div class="section-inner">
+    <div class="section-label">What You'll Walk Away With</div>
+    <h2 class="section-title">Three hours that actually<br>change how you work</h2>
+    <p class="section-sub">No fluff. No theory. Just practical skills you can plug into your business the moment you leave.</p>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-icon">🧠</div>
+        <div class="outcome-title">A clear understanding of AI</div>
+        <div class="outcome-desc">Cut through the hype. Know exactly what AI can and can't do — and where it fits in your business right now.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">✍️</div>
+        <div class="outcome-title">Content & copy, on demand</div>
+        <div class="outcome-desc">Walk out knowing how to draft social posts, emails, responses, and marketing copy in a fraction of the time.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">⚙️</div>
+        <div class="outcome-title">Workflows you can use today</div>
+        <div class="outcome-desc">Real automations for the tasks eating your time — follow-ups, summaries, research, scheduling, and more.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">💪</div>
+        <div class="outcome-title">Confidence to keep going</div>
+        <div class="outcome-desc">Leave with the skills and structure to keep experimenting on your own — no expert required.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="agenda" id="agenda">
+  <div class="section-inner">
+    <div class="agenda-header">
+      <div class="section-label">The Agenda</div>
+      <h2 class="section-title">What we'll cover</h2>
+      <p class="section-sub">Three focused sessions built to take you from curious to capable in a single morning.</p>
+    </div>
+    <div class="agenda-grid">
+      <div class="agenda-block">
+        <div class="agenda-time">9:00 – 9:45 AM</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">What AI Actually Is (and What It Isn't)</div>
+          <div class="agenda-content-desc">We'll clear up the confusion, debunk the myths, and give you a plain-English framework for thinking about AI as a tool — not a magic wand and not a threat. You'll understand how to talk to it, what to expect, and where the real value is.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Foundations</span>
+            <span class="agenda-tag">Mindset shift</span>
+            <span class="agenda-tag">Your first prompts</span>
+          </div>
+        </div>
+      </div>
+      <div class="agenda-block">
+        <div class="agenda-time">9:45 – 11:00 AM</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">Hands-On: Put AI to Work in Your Business</div>
+          <div class="agenda-content-desc">This is where we roll up our sleeves. You'll work through real tasks using your own AI account — drafting content, writing emails, responding to customer inquiries, and building prompts you can reuse every week. Bring your actual business problems; we'll solve them live.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Live practice</span>
+            <span class="agenda-tag">Social media</span>
+            <span class="agenda-tag">Email & follow-up</span>
+            <span class="agenda-tag">Customer responses</span>
+          </div>
+        </div>
+      </div>
+      <div class="agenda-block">
+        <div class="agenda-time">11:00 AM – 12:00 PM</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">Automation & Your Next 3 Actions</div>
+          <div class="agenda-content-desc">We'll map out simple workflows that run your busywork on autopilot — and you'll leave with a personalized list of exactly what to do first. Wrap with open Q&A so you can get answers specific to your business and industry.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Automation basics</span>
+            <span class="agenda-tag">Repeatable workflows</span>
+            <span class="agenda-tag">Open Q&A</span>
+            <span class="agenda-tag">Your action plan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-label">Jayson Hines · Workshops & Training</div>
+  <div class="photo-strip-row">
+    <div class="photo-strip-item"><img src="images/work/img_1836.jpg" alt="Jayson teaching AI tools at a live workshop" /></div>
+    <div class="photo-strip-item"><img src="images/work/img_1838.jpg" alt="Jayson presenting at a workshop" /></div>
+    <div class="photo-strip-item"><img src="images/work/img_1309.jpg" alt="Jayson teaching a social media content class" /></div>
+    <div class="photo-strip-item"><img src="images/jayson-event.jpg" alt="Jayson at a live event" /></div>
+    <div class="photo-strip-item"><img src="images/jayson-filming.jpg" alt="Jayson filming on location" /></div>
+    <div class="photo-strip-item"><img src="images/jayson-on-location.jpg" alt="Jayson on location at an event" /></div>
+  </div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<section class="for-who">
+  <div class="section-inner">
+    <div class="section-label">Is This For Me?</div>
+    <h2 class="section-title">This workshop is built for<br>the busy business owner</h2>
+    <div class="for-who-grid">
+      <div class="for-who-card yes">
+        <div class="for-who-card-label">✅ This is for you if...</div>
+        <div class="for-who-list">
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You're curious about AI but don't know where to start</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You spend hours on tasks that feel repetitive</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You want practical skills, not a lecture</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You run a local business and need to do more with less</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You're on a budget — a $20/month plan is plenty to do everything we cover</div></div>
+        </div>
+      </div>
+      <div class="for-who-card not">
+        <div class="for-who-card-label">🚫 This probably isn't for you if...</div>
+        <div class="for-who-list">
+          <div class="for-who-item"><div class="for-who-check">✗</div><div class="for-who-text">You're already deep into AI and want advanced dev/API work</div></div>
+          <div class="for-who-item"><div class="for-who-check">✗</div><div class="for-who-text">You're looking for a done-for-you service, not training</div></div>
+          <div class="for-who-item"><div class="for-who-check">✗</div><div class="for-who-text">You want a general overview with no hands-on practice</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENTER -->
+<section class="presenter">
+  <div class="section-inner">
+    <div class="presenter-inner">
+      <div class="presenter-img-wrap">
+        <img class="presenter-img" src="images/jayson-headshot-pro.jpg" alt="Jayson Hines" />
+        <div class="presenter-badge">Your Presenter</div>
+      </div>
+      <div class="presenter-content">
+        <div class="section-label">Meet Your Instructor</div>
+        <div class="presenter-name">Jayson Hines</div>
+        <div class="presenter-role">Owner, Sales Funnel Marketing · Perrysburg, OH</div>
+        <p class="presenter-bio">Jayson runs Sales Funnel Marketing in Northwest Ohio, where he uses AI every single day to help local businesses grow their audience, create content, and run smoother operations. He's not a tech guy teaching theory — he's a business owner who figured out how to make AI work on a real budget, and he's here to show you exactly how.</p>
+        <div class="presenter-stats">
+          <div>
+            <div class="presenter-stat-num">10<span>+</span></div>
+            <div class="presenter-stat-label">Years in marketing</div>
+          </div>
+          <div>
+            <div class="presenter-stat-num">50<span>+</span></div>
+            <div class="presenter-stat-label">Local businesses served</div>
+          </div>
+          <div>
+            <div class="presenter-stat-num">$20</div>
+            <div class="presenter-stat-label">Plan that goes a long way</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register" id="register">
+  <div class="register-inner">
+    <div class="register-eyebrow">June 23, 2026 · 9 AM – Noon</div>
+    <h2>Ready to put AI<br>to work for you?</h2>
+    <p class="register-sub">Seats are limited. This is a small-group workshop — not a webinar, not a lecture hall. You'll actually do things, not just watch.</p>
+    <div class="register-price-block">
+      <div class="register-price-left">
+        <div class="register-price-label">Investment</div>
+        <div class="register-price"><small>$</small>100</div>
+      </div>
+      <div class="register-price-right">
+        <div class="register-detail">
+          <strong>Date:</strong> Tuesday, June 23, 2026<br>
+          <strong>Time:</strong> 9:00 AM – 12:00 PM<br>
+          <strong>Location:</strong> Northwest Ohio (TBD)<br>
+          <strong>What to bring:</strong> Your laptop + a free or paid AI account
+        </div>
+      </div>
+    </div>
+    <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="btn-cta">Reserve My Seat — $100 →</a>
+    <p class="register-guarantee">Questions? <a href="mailto:jayson@salesfunnelmarketing.us" style="color:rgba(255,255,255,0.5)">Email Jayson directly.</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Do I need to know anything about AI to attend?</div>
+        <div class="faq-a">Not at all. This workshop is designed specifically for people who are curious but haven't gotten started yet. We begin at square one — no jargon, no assumptions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What AI tools will we be using?</div>
+        <div class="faq-a">We'll primarily use Claude (by Anthropic) and/or ChatGPT (by OpenAI). A paid plan ($20/mo) gives you the most to work with, but both have free tiers that work fine for the workshop. You'll want an active account before you arrive.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What should I bring?</div>
+        <div class="faq-a">Your laptop or tablet, a charged device, and access to your AI account. Bring real questions from your actual business — the more specific, the better. We'll work through them live.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where exactly is the event?</div>
+        <div class="faq-a">The location is being confirmed and will be announced soon. It will be in the Northwest Ohio area. Registered attendees will receive the full address as soon as it's set.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a refund policy?</div>
+        <div class="faq-a">Full details will be included with your registration confirmation. Have a question before you register? Reach out to <a href="mailto:jayson@salesfunnelmarketing.us" style="color:var(--orange)">jayson@salesfunnelmarketing.us</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRY TRAINING CTA -->
+<section style="background:var(--navy);padding:72px 24px;">
+  <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;">Need More Than the Workshop?</div>
+      <h2 style="font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--white);line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;">Hands-on training built for<br>your specific industry</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:540px;">If you or your company need AI training tailored to your industry — your workflows, your tools, your team — Jayson offers private, hands-on sessions designed around exactly what you do. Reach out to start the conversation.</p>
+    </div>
+    <div style="flex-shrink:0;text-align:center;">
+      <a href="mailto:jayson@salesfunnelmarketing.us?subject=Industry-Specific AI Training" style="display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--white);font-size:16px;font-weight:800;padding:18px 32px;border-radius:10px;white-space:nowrap;transition:background 0.2s;" onmouseover="this.style.background='#c44d1e'" onmouseout="this.style.background='var(--orange)'">
+        Contact Jayson →
+      </a>
+      <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:12px;">Private &amp; group sessions available</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+  window.setTimeout(() => {
+    const chatScript = document.createElement('script');
+    chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+    chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+    document.body.appendChild(chatScript);
+  }, 15000);
+</script>
+
+</body>
+</html>
