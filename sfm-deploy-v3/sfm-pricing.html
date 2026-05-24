@@ -67,7 +67,7 @@
     #navbar.scrolled{padding:12px 0}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
     .nav-logo{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.5px;line-height:1.1;flex-shrink:0;display:flex;align-items:center;gap:10px}
-    .nav-logo span{color:var(--orange)}
+    .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo small{display:block;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;opacity:.7;margin-top:1px}
     .nav-links{display:flex;align-items:center;gap:32px}
     .nav-links a{color:rgba(255,255,255,.8);font-size:14px;font-weight:500;transition:color .2s}
@@ -187,6 +187,11 @@
 
     @media(max-width:960px){.nav-links{display:none}.hamburger{display:flex}.pricing-grid{grid-template-columns:1fr}.price-card.featured{transform:none}.price-card.featured:hover{transform:translateY(-4px)}.addons-grid{grid-template-columns:1fr 1fr}.footer-inner{grid-template-columns:1fr 1fr}}
     @media(max-width:600px){.addons-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr}}
+  
+    @media(max-width:520px){
+      .nav-logo img{width:30px;height:30px;}
+      .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
+    }
   </style>
 </head>
 <body>
@@ -206,10 +211,7 @@
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home">
-    <img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;">
-    Sales <span>Funnel</span> Marketing
-  </a>
+        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
           <li><a href="sfm-services.html">Services</a></li>
@@ -264,7 +266,7 @@
             <div class="plan-feature"><div class="feature-check">✓</div><span>Google Business Profile optimization</span></div>
             <div class="plan-feature"><div class="feature-check">✓</div><span>Monthly performance report</span></div>
             <div class="plan-feature"><div class="feature-check">✓</div><span>Dedicated account manager</span></div>
-            <div class="plan-feature"><div class="feature-check">✓</div><span>No contract · cancel anytime</span></div>
+            <div class="plan-feature"><div class="feature-check">✓</div><span>6 or 12-month contract</span></div>
           </div>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="plan-cta">Get Started</a>
         </div>
@@ -284,7 +286,7 @@
             <div class="plan-feature"><div class="feature-check">✓</div><span>Review generation strategy</span></div>
             <div class="plan-feature"><div class="feature-check">✓</div><span>Bi-weekly strategy calls</span></div>
             <div class="plan-feature"><div class="feature-check">✓</div><span>Detailed monthly reporting with ROI tracking</span></div>
-            <div class="plan-feature"><div class="feature-check">✓</div><span>No contract · cancel anytime</span></div>
+            <div class="plan-feature"><div class="feature-check">✓</div><span>6 or 12-month contract</span></div>
           </div>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="plan-cta">Get Started</a>
         </div>
@@ -304,7 +306,7 @@
             <div class="plan-feature"><div class="feature-check">✓</div><span>Google Business Profile full management</span></div>
             <div class="plan-feature"><div class="feature-check">✓</div><span>Priority support & weekly strategy calls</span></div>
             <div class="plan-feature"><div class="feature-check">✓</div><span>Full analytics dashboard access</span></div>
-            <div class="plan-feature"><div class="feature-check">✓</div><span>No contract · cancel anytime</span></div>
+            <div class="plan-feature"><div class="feature-check">✓</div><span>6 or 12-month contract</span></div>
           </div>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="plan-cta">Get Started</a>
         </div>
