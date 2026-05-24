@@ -1,0 +1,60 @@
+# Netlify Redirects — Sales Funnel Marketing
+# Old Wix URLs → New sfm-* pages (301 permanent redirects)
+
+# Core pages
+/about                  /sfm-about              301
+/about-us               /sfm-about              301
+/contact                /sfm-contact            301
+/contact-us             /sfm-contact            301
+/services               /sfm-services           301
+/our-services           /sfm-services           301
+/pricing                /sfm-pricing            301
+/plans-pricing          /sfm-pricing            301
+/plans                  /sfm-pricing            301
+/portfolio              /sfm-portfolio          301
+/our-work               /sfm-portfolio          301
+/results                /sfm-results            301
+/faq                    /sfm-faq                301
+/faqs                   /sfm-faq                301
+/blog                   /sfm-blog               301
+/team                   /sfm-team               301
+/our-team               /sfm-team               301
+/thank-you              /sfm-thankyou           301
+/thankyou               /sfm-thankyou           301
+
+# Legal
+/privacy-policy         /sfm-privacy            301
+/privacy                /sfm-privacy            301
+/terms                  /sfm-terms              301
+/terms-of-service       /sfm-terms              301
+
+# Industry pages
+/dental                 /sfm-dental             301
+/dentist                /sfm-dental             301
+/restaurant             /sfm-restaurant         301
+/restaurants            /sfm-restaurant         301
+/legal                  /sfm-legal              301
+/attorneys              /sfm-attorneys          301
+/lawyer                 /sfm-attorneys          301
+/healthcare             /sfm-healthcare         301
+/fitness                /sfm-fitness            301
+/gym                    /sfm-fitness            301
+/photography            /sfm-photography        301
+/real-estate            /sfm-realestate         301
+/realestate             /sfm-realestate         301
+/retail                 /sfm-retail             301
+/roofing                /sfm-roofing            301
+/hvac                   /sfm-hvac               301
+/trades                 /sfm-trades             301
+/home-builders          /sfm-homebuilders       301
+/homebuilders           /sfm-homebuilders       301
+/salon                  /sfm-salon              301
+/salons                 /sfm-salon              301
+
+# Tools & resources
+/roi-calculator         /sfm-roi-calculator     301
+/roi                    /sfm-roi-calculator     301
+/score                  /sfm-score-quiz         301
+/quiz                   /sfm-score-quiz         301
+/digital-garden         /sfm-digital-garden     301
+/the-scroll             /sfm-the-scroll         301
