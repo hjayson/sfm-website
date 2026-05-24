@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SFM AutoPilot — AI-Powered Marketing Platform for Local Business | $397/mo</title>
+  <meta name="description" content="Get the same AI-powered marketing platform we use for our $2,000+/month clients — pre-built for your industry — for just $397/month. CRM, AI bot, email, SMS, funnels, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-autopilot" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SFM AutoPilot — AI-Powered Marketing Platform for Local Business" />
+  <meta property="og:description" content="Your marketing on autopilot for $397/month. AI bot, CRM, email, SMS, funnels — pre-built for your industry." />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-autopilot" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:#0A1628; --navy-mid:#0f1e38; --navy-light:#152240;
+      --orange:#E85D26; --orange-dark:#c44d1e; --orange-glow:rgba(232,93,38,0.25);
+      --white:#FFFFFF; --off-white:#F8F8F8; --dark-gray:#555555; --text-body:#3a3a3a;
+      --font:'Inter',-apple-system,sans-serif; --font-serif:'Merriweather',Georgia,serif;
+      --max-w:1200px; --section-pad:100px 24px; --radius:12px;
+      --transition:0.3s cubic-bezier(0.4,0,0.2,1); --shadow:0 4px 24px rgba(0,0,0,0.08);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--font);color:var(--text-body);background:var(--white);overflow-x:hidden;line-height:1.6}
+    img{max-width:100%;display:block} a{color:inherit;text-decoration:none} ul{list-style:none}
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:6px;font-family:var(--font);font-size:16px;font-weight:700;cursor:pointer;transition:var(--transition);border:2px solid transparent;white-space:nowrap;text-decoration:none}
+    .btn-primary{background:var(--orange);color:var(--white);border-color:var(--orange)}
+    .btn-primary:hover{background:var(--orange-dark);border-color:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--orange-glow)}
+    .btn-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.5)}
+    .btn-outline:hover{background:rgba(255,255,255,0.1);border-color:var(--white);transform:translateY(-2px)}
+    .section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .section-title{font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.15;letter-spacing:-0.5px}
+    .section-title-light{color:var(--white)}
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:0.1s} .reveal-delay-2{transition-delay:0.2s} .reveal-delay-3{transition-delay:0.3s} .reveal-delay-4{transition-delay:0.4s}
+
+    /* NAV */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 0;background:var(--navy);box-shadow:0 4px 32px rgba(0,0,0,0.4);transition:padding .4s ease}
+    #navbar.scrolled{padding:12px 0}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .nav-logo{font-size:20px;font-weight:900;color:var(--white);letter-spacing:-.5px;line-height:1.1;flex-shrink:0;display:flex;align-items:center;gap:10px}
+    .logo-accent{color:var(--orange);} .logo-text{white-space:nowrap;}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{color:rgba(255,255,255,.8);font-size:14px;font-weight:500;transition:color .2s}
+    .nav-links a:hover,.nav-links a.active{color:var(--white)}
+    .nav-right{display:flex;align-items:center;gap:16px}
+    .nav-phone{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:14px;font-weight:500;transition:color .2s}
+    .nav-phone:hover{color:var(--white)}
+    .nav-cta{padding:10px 20px;font-size:14px}
+    .nav-book-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(232,93,38,.12);border:1px solid rgba(232,93,38,.35);color:#E85D26;font-size:13px;font-weight:700;padding:8px 16px;border-radius:100px;transition:all .2s ease;white-space:nowrap}
+    .nav-book-btn:hover{background:rgba(232,93,38,.22);border-color:#E85D26;transform:translateY(-1px)}
+    @media(max-width:900px){.nav-book-btn{display:none}}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition)}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{position:fixed;inset:0;background:var(--navy);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+    .mobile-menu.open{opacity:1;pointer-events:all}
+    .mobile-menu a{font-size:22px;font-weight:700;color:var(--white);transition:color .2s}
+    .mobile-menu a:hover{color:var(--orange)}
+
+    /* HERO */
+    #hero{background:var(--navy);padding:140px 0 100px;position:relative;overflow:hidden;text-align:center}
+    #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 0%,#0e2245 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 50% 100%,rgba(232,93,38,.06) 0%,transparent 50%)}
+    .hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,93,38,.12);border:1px solid rgba(232,93,38,.25);padding:6px 16px;border-radius:100px;margin-bottom:24px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange)}
+    .hero-headline{font-size:clamp(38px,5.5vw,72px);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-2.5px;margin-bottom:24px}
+    .hero-headline em{color:var(--orange);font-style:normal}
+    .hero-sub{font-size:20px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto}
+    .hero-price-callout{display:inline-flex;align-items:baseline;gap:8px;margin-bottom:36px}
+    .hero-price{font-size:clamp(48px,6vw,80px);font-weight:900;color:var(--white);letter-spacing:-3px;line-height:1}
+    .hero-price sup{font-size:32px;font-weight:700;vertical-align:top;margin-top:12px;letter-spacing:0}
+    .hero-price-period{font-size:18px;color:rgba(255,255,255,.5);font-weight:500}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+    .hero-note{font-size:13px;color:rgba(255,255,255,.35);font-style:italic}
+
+    /* VALUE BAR */
+    #value-bar{background:var(--orange);padding:20px 0}
+    .value-bar-inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+    .value-bar-item{display:flex;align-items:center;gap:10px;color:var(--white);font-size:14px;font-weight:600}
+    .value-bar-item::before{content:'✓';width:20px;height:20px;background:rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0}
+
+    /* OUTCOMES */
+    #outcomes{padding:var(--section-pad);background:var(--off-white)}
+    .outcomes-intro{max-width:640px;margin:0 auto 60px;text-align:center}
+    .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .outcome-card{background:var(--white);border-radius:20px;padding:36px 32px;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease}
+    .outcome-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.12)}
+    .outcome-icon{font-size:36px;margin-bottom:16px}
+    .outcome-card h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px;line-height:1.3}
+    .outcome-card p{font-size:14px;color:var(--dark-gray);line-height:1.65}
+    .outcome-card .outcome-feature{font-size:13px;color:var(--orange);font-weight:700;margin-top:14px}
+
+    /* VALUE PROOF */
+    #value-proof{padding:80px 0;background:var(--navy);text-align:center}
+    .value-proof-inner{max-width:760px;margin:0 auto}
+    .value-proof-headline{font-size:clamp(28px,3.5vw,44px);font-weight:900;color:var(--white);line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px}
+    .value-proof-headline em{color:var(--orange);font-style:normal}
+    .value-proof-sub{font-size:17px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:48px}
+    .value-stack{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;text-align:left;margin-bottom:40px}
+    .value-stack-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .value-stack-item.total{background:rgba(232,93,38,.1);border-color:rgba(232,93,38,.3);grid-column:1/-1}
+    .value-stack-name{font-size:15px;font-weight:600;color:rgba(255,255,255,.85)}
+    .value-stack-price{font-size:15px;font-weight:800;color:var(--orange);white-space:nowrap}
+    .value-stack-item.total .value-stack-name{font-size:18px;color:var(--white)}
+    .value-stack-item.total .value-stack-price{font-size:22px;color:var(--orange)}
+    .value-you-pay{font-size:clamp(18px,2.5vw,24px);color:rgba(255,255,255,.7);margin-bottom:12px}
+    .value-you-pay strong{color:var(--white)}
+    .value-big-price{font-size:clamp(56px,7vw,96px);font-weight:900;color:var(--white);letter-spacing:-4px;line-height:1;margin-bottom:8px}
+    .value-big-price span{color:var(--orange)}
+    .value-period{font-size:16px;color:rgba(255,255,255,.4);margin-bottom:32px}
+
+    /* INDUSTRIES */
+    #industries{padding:var(--section-pad)}
+    .industries-intro{max-width:640px;margin:0 auto 56px;text-align:center}
+    .industries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .industry-card{border-radius:16px;border:1px solid rgba(0,0,0,.08);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease}
+    .industry-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+    .industry-header{background:var(--navy);padding:24px 28px;display:flex;align-items:center;gap:14px}
+    .industry-icon{font-size:28px;flex-shrink:0}
+    .industry-name{font-size:17px;font-weight:800;color:var(--white)}
+    .industry-body{background:var(--white);padding:24px 28px}
+    .industry-body ul{display:flex;flex-direction:column;gap:10px}
+    .industry-body li{font-size:13px;color:var(--dark-gray);line-height:1.5;display:flex;align-items:flex-start;gap:8px}
+    .industry-body li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px}
+
+    /* HOW IT WORKS */
+    #how{padding:var(--section-pad);background:var(--off-white)}
+    .how-intro{max-width:640px;margin:0 auto 60px;text-align:center}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
+    .steps::before{content:'';position:absolute;top:40px;left:calc(16.66% + 20px);right:calc(16.66% + 20px);height:2px;background:rgba(232,93,38,.2)}
+    .step{text-align:center}
+    .step-num{width:80px;height:80px;border-radius:50%;background:var(--orange);color:var(--white);font-size:28px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;z-index:1;box-shadow:0 8px 24px var(--orange-glow)}
+    .step h3{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:12px}
+    .step p{font-size:14px;color:var(--dark-gray);line-height:1.65;max-width:260px;margin:0 auto}
+
+    /* FEATURES */
+    #features{padding:var(--section-pad)}
+    .features-intro{max-width:640px;margin:0 auto 56px;text-align:center}
+    .features-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .features-cat{background:var(--off-white);border-radius:16px;padding:32px 28px}
+    .features-cat-icon{font-size:28px;margin-bottom:12px}
+    .features-cat h3{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:20px}
+    .features-list{display:flex;flex-direction:column;gap:12px}
+    .features-list li{font-size:13px;color:var(--dark-gray);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .features-list li::before{content:'✓';color:var(--orange);font-weight:900;flex-shrink:0}
+
+    /* PRICING */
+    #pricing{padding:var(--section-pad);background:var(--navy);text-align:center}
+    .pricing-inner{max-width:700px;margin:0 auto}
+    .pricing-card{background:var(--white);border-radius:24px;padding:52px 48px;border:3px solid var(--orange);position:relative;margin-top:48px}
+    .pricing-badge{position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 20px;border-radius:100px;white-space:nowrap}
+    .pricing-name{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+    .pricing-amount{font-size:clamp(64px,8vw,96px);font-weight:900;color:var(--navy);letter-spacing:-4px;line-height:1;margin-bottom:4px}
+    .pricing-amount sup{font-size:36px;font-weight:700;vertical-align:top;margin-top:16px;letter-spacing:0}
+    .pricing-period{font-size:16px;color:var(--dark-gray);margin-bottom:8px;font-weight:500}
+    .pricing-setup{display:inline-block;font-size:13px;color:var(--dark-gray);background:var(--off-white);border-radius:100px;padding:6px 16px;margin-bottom:36px;font-weight:500}
+    .pricing-setup strong{color:var(--navy)}
+    .pricing-features{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left;margin-bottom:40px}
+    .pricing-feature{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-body);line-height:1.45}
+    .pf-check{width:22px;height:22px;border-radius:50%;background:rgba(232,93,38,.1);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:900;margin-top:1px}
+    .pricing-cta{display:block;width:100%;padding:20px;background:var(--orange);color:var(--white);font-size:18px;font-weight:800;border-radius:10px;transition:var(--transition);border:none;cursor:pointer;text-align:center;letter-spacing:-.3px}
+    .pricing-cta:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 24px var(--orange-glow)}
+    .pricing-note{font-size:13px;color:rgba(255,255,255,.4);margin-top:24px;font-style:italic}
+
+    /* FAQ */
+    #faq{padding:var(--section-pad);background:var(--off-white)}
+    .faq-list{max-width:760px;margin:48px auto 0;display:flex;flex-direction:column;gap:16px}
+    .faq-item{background:var(--white);border-radius:var(--radius);border:1px solid rgba(0,0,0,.06);overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;padding:24px 28px;text-align:left;font-family:var(--font);font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s}
+    .faq-q:hover{color:var(--orange)}
+    .faq-icon{font-size:20px;font-weight:400;flex-shrink:0;transition:transform .3s ease;color:var(--orange)}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .faq-item.open .faq-a{max-height:400px}
+    .faq-a-inner{padding:0 28px 24px;font-size:15px;color:var(--dark-gray);line-height:1.7}
+
+    /* CTA */
+    #cta{padding:var(--section-pad);background:var(--orange);text-align:center}
+    .cta-headline{font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--white);line-height:1.1;letter-spacing:-1px;margin-bottom:16px}
+    .cta-sub{font-size:18px;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+    .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-white{background:var(--white);color:var(--orange);border:2px solid var(--white);padding:16px 32px;border-radius:6px;font-weight:700;font-size:16px;transition:var(--transition);display:inline-flex;align-items:center;gap:8px}
+    .btn-white:hover{background:var(--off-white);transform:translateY(-2px)}
+    .btn-ghost-white{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.5);padding:16px 32px;border-radius:6px;font-weight:700;font-size:16px;transition:var(--transition);display:inline-flex;align-items:center;gap:8px}
+    .btn-ghost-white:hover{background:rgba(255,255,255,.1);border-color:var(--white);transform:translateY(-2px)}
+
+    /* FOOTER */
+    #footer{background:var(--navy);padding:72px 0 32px}
+    .footer-inner{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+    .footer-logo{font-size:18px;font-weight:900;color:var(--white);margin-bottom:12px}
+    .footer-logo span{color:var(--orange)}
+    .footer-tagline{font-size:14px;color:rgba(255,255,255,.45);line-height:1.65;margin-bottom:24px}
+    .footer-phone{font-size:18px;font-weight:700;color:var(--white);display:flex;align-items:center;gap:8px;margin-bottom:20px;transition:color .2s}
+    .footer-phone:hover{color:var(--orange)}
+    .footer-socials{display:flex;gap:12px}
+    .footer-social{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:12px;font-weight:700;transition:var(--transition);text-transform:uppercase}
+    .footer-social:hover{background:var(--orange);border-color:var(--orange);color:var(--white);transform:translateY(-2px)}
+    .footer-col-title{font-size:13px;font-weight:700;color:var(--white);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px}
+    .footer-links li{margin-bottom:10px}
+    .footer-links a{font-size:14px;color:rgba(255,255,255,.45);transition:color .2s}
+    .footer-links a:hover{color:var(--white)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .footer-copy{font-size:13px;color:rgba(255,255,255,.3)}
+    .footer-bottom-links{display:flex;gap:24px}
+    .footer-bottom-links a{font-size:13px;color:rgba(255,255,255,.3);transition:color .2s}
+    .footer-bottom-links a:hover{color:var(--white)}
+
+    @media(max-width:960px){
+      .nav-links{display:none}.hamburger{display:flex}
+      .outcomes-grid{grid-template-columns:1fr 1fr}
+      .industries-grid{grid-template-columns:1fr 1fr}
+      .features-cats{grid-template-columns:1fr 1fr}
+      .steps::before{display:none}
+      .steps{grid-template-columns:1fr}
+      .value-stack{grid-template-columns:1fr}
+      .value-stack-item.total{grid-column:auto}
+      .footer-inner{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .outcomes-grid{grid-template-columns:1fr}
+      .industries-grid{grid-template-columns:1fr}
+      .features-cats{grid-template-columns:1fr}
+      .pricing-features{grid-template-columns:1fr}
+      .value-bar-inner{gap:20px}
+      .footer-inner{grid-template-columns:1fr}
+      .pricing-card{padding:40px 28px}
+    }
+    @media(max-width:520px){
+      .nav-logo img{width:30px;height:30px;}
+      .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="sfm-services.html" onclick="closeMobile()">Services</a>
+    <a href="sfm-pricing.html" onclick="closeMobile()">Pricing</a>
+    <a href="sfm-results.html" onclick="closeMobile()">Results</a>
+    <a href="sfm-portfolio.html" onclick="closeMobile()">Our Work</a>
+    <a href="sfm-about.html" onclick="closeMobile()">About</a>
+    <a href="tel:+14193084576" onclick="closeMobile()">📞 419-308-4576</a>
+    <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 Get the Book</a>
+    <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
+  </nav>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home">
+          <img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;">
+          <span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html">Services</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-portfolio.html">Our Work</a></li>
+          <li><a href="sfm-about.html">About</a></li>
+          <li><a href="sfm-pricing.html">Pricing</a></li>
+          <li><a href="sfm-autopilot.html" class="active">AutoPilot</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:+14193084576" class="nav-phone">📞 419-308-4576</a>
+          <a href="sfm-digital-garden.html" class="nav-book-btn">📗 Get the Book</a>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" aria-label="SFM AutoPilot hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">🤖 Introducing SFM AutoPilot</div>
+        <h1 class="hero-headline">
+          Your marketing.<br />
+          On <em>AutoPilot.</em>
+        </h1>
+        <p class="hero-sub">The same AI-powered marketing platform we build for our $2,000+/month clients — pre-loaded for your industry — so you can run it yourself.</p>
+        <div class="hero-price-callout">
+          <div class="hero-price"><sup>$</sup>397</div>
+          <div class="hero-price-period">/month</div>
+        </div>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn btn-primary">Get Started for $397/mo →</a>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-outline">Talk to Jayson First</a>
+        </div>
+        <p class="hero-note">One-time $497 setup fee · 6-month commitment · Cancel anytime after that</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE BAR -->
+  <div id="value-bar">
+    <div class="container">
+      <div class="value-bar-inner">
+        <div class="value-bar-item">AI Conversation Bot Included</div>
+        <div class="value-bar-item">Industry-Specific Setup</div>
+        <div class="value-bar-item">CRM + Email + SMS</div>
+        <div class="value-bar-item">Funnels & Automations</div>
+        <div class="value-bar-item">Social Media Planner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTCOMES -->
+  <section id="outcomes" aria-label="What AutoPilot does for you">
+    <div class="container">
+      <div class="outcomes-intro">
+        <div class="section-label">Built Around Results</div>
+        <h2 class="section-title reveal">Here's what your business<br />does on AutoPilot</h2>
+        <p class="reveal" style="font-size:17px;color:var(--dark-gray);line-height:1.7;margin-top:16px">Stop losing leads to voicemail. Stop forgetting to follow up. Stop posting inconsistently. AutoPilot handles the systems — you focus on running your business.</p>
+      </div>
+      <div class="outcomes-grid">
+        <div class="outcome-card reveal">
+          <div class="outcome-icon">📞</div>
+          <h3>Never Miss a Lead Again</h3>
+          <p>When someone calls and you can't answer, your AI bot fires a text within 60 seconds. When someone fills out a form on your site, they're in a follow-up sequence before you even see the notification.</p>
+          <div class="outcome-feature">→ Missed call text-back + AI chat bot</div>
+        </div>
+        <div class="outcome-card reveal reveal-delay-1">
+          <div class="outcome-icon">🔁</div>
+          <h3>Follow Up With Everyone Automatically</h3>
+          <p>Most businesses lose deals because they forget to follow up after day one. AutoPilot runs a multi-touch email and SMS sequence for every new lead — automatically, for weeks.</p>
+          <div class="outcome-feature">→ Email + SMS automation sequences</div>
+        </div>
+        <div class="outcome-card reveal reveal-delay-2">
+          <div class="outcome-icon">⭐</div>
+          <h3>Get More Google Reviews</h3>
+          <p>After every completed job, a review request goes out automatically. More 5-star reviews means more customers finding you on Google — without you asking a single person yourself.</p>
+          <div class="outcome-feature">→ Automated review request system</div>
+        </div>
+        <div class="outcome-card reveal">
+          <div class="outcome-icon">📅</div>
+          <h3>Book More Appointments</h3>
+          <p>Online booking links, automated reminders, and reschedule flows — all connected to your calendar. Fewer no-shows. Less back-and-forth. More confirmed appointments on the books.</p>
+          <div class="outcome-feature">→ Booking + reminder automation</div>
+        </div>
+        <div class="outcome-card reveal reveal-delay-1">
+          <div class="outcome-icon">📊</div>
+          <h3>Know Where Every Lead Stands</h3>
+          <p>Your CRM pipeline shows you every lead at every stage — who needs a call, who got a quote, who's about to close. Nothing slips through the cracks when it's all in one place.</p>
+          <div class="outcome-feature">→ Visual CRM pipeline dashboard</div>
+        </div>
+        <div class="outcome-card reveal reveal-delay-2">
+          <div class="outcome-icon">📱</div>
+          <h3>Stay Consistent on Social Media</h3>
+          <p>Plan, schedule, and post to Facebook and Instagram from one dashboard. No more logging into multiple apps. No more "I forgot to post this week." Your content calendar is always full.</p>
+          <div class="outcome-feature">→ Social media planner + scheduler</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROOF -->
+  <section id="value-proof" aria-label="Value comparison">
+    <div class="container">
+      <div class="value-proof-inner">
+        <div class="section-label" style="display:block;text-align:center">The Math Is Simple</div>
+        <h2 class="value-proof-headline reveal">The AI bot alone<br />costs <em>$99/month.</em></h2>
+        <p class="value-proof-sub reveal">You're getting that — plus an entire marketing platform pre-built for your industry — for $397. Here's what this would cost if you pieced it together yourself:</p>
+        <div class="value-stack reveal">
+          <div class="value-stack-item">
+            <span class="value-stack-name">🤖 AI Conversation Bot</span>
+            <span class="value-stack-price">$99/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">📋 CRM Platform (HubSpot Starter)</span>
+            <span class="value-stack-price">$50+/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">📧 Email Marketing (Mailchimp)</span>
+            <span class="value-stack-price">$45/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">📲 SMS Marketing Platform</span>
+            <span class="value-stack-price">$50/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">🖥️ Funnel Builder (ClickFunnels)</span>
+            <span class="value-stack-price">$97/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">📅 Social Scheduler (Hootsuite)</span>
+            <span class="value-stack-price">$49/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">⭐ Reputation Management Tool</span>
+            <span class="value-stack-price">$49/mo</span>
+          </div>
+          <div class="value-stack-item">
+            <span class="value-stack-name">📆 Booking & Calendar App</span>
+            <span class="value-stack-price">$29/mo</span>
+          </div>
+          <div class="value-stack-item total">
+            <span class="value-stack-name">If you bought all this separately</span>
+            <span class="value-stack-price">$468+/mo</span>
+          </div>
+        </div>
+        <p class="value-you-pay reveal">With SFM AutoPilot, you pay</p>
+        <div class="value-big-price reveal"><span>$</span>397</div>
+        <p class="value-period reveal">per month — everything included, already set up for your industry</p>
+        <a href="#pricing" class="btn btn-primary reveal" style="font-size:18px;padding:18px 40px;">Get Started Today →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries" aria-label="Industry-specific packages">
+    <div class="container">
+      <div class="industries-intro">
+        <div class="section-label">Built for Your Business</div>
+        <h2 class="section-title reveal">Pre-built for your industry.<br />Live from day one.</h2>
+        <p class="reveal" style="font-size:17px;color:var(--dark-gray);line-height:1.7;margin-top:16px">We don't hand you an empty platform and say "good luck." We load your account with industry-specific pipelines, automations, and follow-up sequences before you ever log in.</p>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-card reveal">
+          <div class="industry-header">
+            <div class="industry-icon">🏠</div>
+            <div class="industry-name">Home Services<br /><small style="font-size:12px;opacity:.6;font-weight:500">HVAC · Roofing · Plumbing · Landscaping</small></div>
+          </div>
+          <div class="industry-body">
+            <ul>
+              <li>Estimate request funnel pre-built and ready</li>
+              <li>Job completion follow-up with review request</li>
+              <li>Seasonal maintenance campaign automation</li>
+              <li>Referral program tracking pipeline</li>
+              <li>Missed call text-back active from day one</li>
+            </ul>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-1">
+          <div class="industry-header">
+            <div class="industry-icon">🍽️</div>
+            <div class="industry-name">Restaurants<br /><small style="font-size:12px;opacity:.6;font-weight:500">Dine-In · Catering · Food Service</small></div>
+          </div>
+          <div class="industry-body">
+            <ul>
+              <li>Reservation reminder + confirmation automation</li>
+              <li>"We miss you" win-back campaign for regulars</li>
+              <li>Event promotion funnel (private dining, catering)</li>
+              <li>Birthday offer automation for your list</li>
+              <li>Review request after every dining experience</li>
+            </ul>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-2">
+          <div class="industry-header">
+            <div class="industry-icon">⚖️</div>
+            <div class="industry-name">Law Firms<br /><small style="font-size:12px;opacity:.6;font-weight:500">Family · PI · Criminal · Estate · Business</small></div>
+          </div>
+          <div class="industry-body">
+            <ul>
+              <li>Consultation booking funnel with intake form</li>
+              <li>Lead nurture sequence for initial inquiries</li>
+              <li>Client onboarding automation</li>
+              <li>Referral tracking and thank-you sequence</li>
+              <li>AI bot handles after-hours questions 24/7</li>
+            </ul>
+          </div>
+        </div>
+        <div class="industry-card reveal">
+          <div class="industry-header">
+            <div class="industry-icon">💆</div>
+            <div class="industry-name">Med Spas & Salons<br /><small style="font-size:12px;opacity:.6;font-weight:500">Med Spa · Salon · Massage · Aesthetics</small></div>
+          </div>
+          <div class="industry-body">
+            <ul>
+              <li>Appointment booking + 2-step reminder automation</li>
+              <li>Before/after photo campaign funnel</li>
+              <li>Loyalty VIP campaign for returning clients</li>
+              <li>Seasonal promotion automation (Q4, summer, etc.)</li>
+              <li>No-show re-engagement sequence</li>
+            </ul>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-1">
+          <div class="industry-header">
+            <div class="industry-icon">🦷</div>
+            <div class="industry-name">Healthcare & Wellness<br /><small style="font-size:12px;opacity:.6;font-weight:500">Chiro · PT · Dental · Fitness · Counseling</small></div>
+          </div>
+          <div class="industry-body">
+            <ul>
+              <li>New patient welcome sequence (email + SMS)</li>
+              <li>Appointment reminder + reschedule automation</li>
+              <li>Re-engagement campaign for inactive patients</li>
+              <li>Treatment plan follow-up sequences</li>
+              <li>Insurance and intake form automation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="industry-card reveal reveal-delay-2">
+          <div class="industry-header">
+            <div class="industry-icon">🏡</div>
+            <div class="industry-name">Real Estate<br /><small style="font-size:12px;opacity:.6;font-weight:500">Residential · Commercial · Property Mgmt</small></div>
+          </div>
+          <div class="industry-body">
+            <ul>
+              <li>Buyer + seller lead nurture sequences</li>
+              <li>Open house follow-up automation</li>
+              <li>Listing alert and market update campaigns</li>
+              <li>Past client referral program</li>
+              <li>AI bot qualifies leads before you call back</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="reveal" style="text-align:center;margin-top:32px;font-size:15px;color:var(--dark-gray)">Don't see your industry? <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" style="color:var(--orange);font-weight:700">Let's talk →</a> We build custom snapshots too.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" aria-label="How AutoPilot works">
+    <div class="container">
+      <div class="how-intro">
+        <div class="section-label">Getting Started</div>
+        <h2 class="section-title reveal">Up and running<br />in under a week</h2>
+        <p class="reveal" style="font-size:17px;color:var(--dark-gray);line-height:1.7;margin-top:16px">We do the heavy lifting upfront. You get a pre-built system — not a blank platform with a tutorial video.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h3>Onboarding Call</h3>
+          <p>We learn your business — your industry, goals, existing tools, and how you want your AI bot to communicate. 60 minutes and we have everything we need.</p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-num">2</div>
+          <h3>We Build Your System</h3>
+          <p>We deploy your industry snapshot, configure your AI bot, connect your phone number, load your automations, and set up your pipelines. Within a few days, it's live.</p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-num">3</div>
+          <h3>You Run It</h3>
+          <p>We walk you through your platform on a 60-minute launch call, hand you the keys, and you're in control. Your marketing runs itself — you just watch the leads come in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" aria-label="Complete feature list">
+    <div class="container">
+      <div class="features-intro">
+        <div class="section-label">Everything Included</div>
+        <h2 class="section-title reveal">One platform.<br />Every tool you need.</h2>
+        <p class="reveal" style="font-size:17px;color:var(--dark-gray);line-height:1.7;margin-top:16px">Stop paying for 8 separate subscriptions. AutoPilot replaces all of them.</p>
+      </div>
+      <div class="features-cats">
+        <div class="features-cat reveal">
+          <div class="features-cat-icon">🤖</div>
+          <h3>AI & Automation</h3>
+          <ul class="features-list">
+            <li>AI conversation bot (24/7 chat + text)</li>
+            <li>Missed call text-back (fires in 60 seconds)</li>
+            <li>AI-powered lead qualification</li>
+            <li>Multi-step workflow automations</li>
+            <li>Trigger-based drip sequences</li>
+            <li>Auto-tagging and segmentation</li>
+            <li>AI review response generation</li>
+          </ul>
+        </div>
+        <div class="features-cat reveal reveal-delay-1">
+          <div class="features-cat-icon">📋</div>
+          <h3>CRM & Pipeline</h3>
+          <ul class="features-list">
+            <li>Visual sales pipeline (unlimited stages)</li>
+            <li>Unlimited contacts and companies</li>
+            <li>Lead scoring and activity tracking</li>
+            <li>Task and follow-up reminders</li>
+            <li>Two-way SMS and email conversations</li>
+            <li>Call logging and recordings</li>
+            <li>Custom fields and tags</li>
+          </ul>
+        </div>
+        <div class="features-cat reveal reveal-delay-2">
+          <div class="features-cat-icon">📧</div>
+          <h3>Email & SMS</h3>
+          <ul class="features-list">
+            <li>Email marketing campaigns</li>
+            <li>SMS text marketing</li>
+            <li>Drag-and-drop email builder</li>
+            <li>Pre-built email templates</li>
+            <li>List segmentation and tagging</li>
+            <li>Open and click tracking</li>
+            <li>Up to 1,000 SMS & 5,000 emails/mo included</li>
+          </ul>
+        </div>
+        <div class="features-cat reveal">
+          <div class="features-cat-icon">🖥️</div>
+          <h3>Funnels & Websites</h3>
+          <ul class="features-list">
+            <li>Landing page and funnel builder</li>
+            <li>Industry-specific funnel pre-loaded</li>
+            <li>Lead capture forms and surveys</li>
+            <li>Online booking and scheduling</li>
+            <li>Payment collection integration</li>
+            <li>Website chat widget</li>
+            <li>Mobile-optimized templates</li>
+          </ul>
+        </div>
+        <div class="features-cat reveal reveal-delay-1">
+          <div class="features-cat-icon">📱</div>
+          <h3>Social Media</h3>
+          <ul class="features-list">
+            <li>Social media content planner</li>
+            <li>Schedule posts to Facebook & Instagram</li>
+            <li>Content calendar view</li>
+            <li>Post drafts and approval workflow</li>
+            <li>Engagement tracking</li>
+            <li>Google Business Profile integration</li>
+            <li>Post performance analytics</li>
+          </ul>
+        </div>
+        <div class="features-cat reveal reveal-delay-2">
+          <div class="features-cat-icon">⭐</div>
+          <h3>Reputation & Reporting</h3>
+          <ul class="features-list">
+            <li>Automated review request sequences</li>
+            <li>Google & Facebook review monitoring</li>
+            <li>AI-generated review responses</li>
+            <li>Reputation score dashboard</li>
+            <li>Lead source reporting</li>
+            <li>Pipeline conversion tracking</li>
+            <li>Email & SMS campaign analytics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" aria-label="AutoPilot pricing">
+    <div class="container">
+      <div class="pricing-inner">
+        <div class="section-label" style="display:block;text-align:center">Simple Pricing</div>
+        <h2 class="section-title section-title-light reveal" style="text-align:center">One plan.<br />Everything included.</h2>
+        <div class="pricing-card reveal">
+          <div class="pricing-badge">Most Popular — Best Value</div>
+          <div class="pricing-name">SFM AutoPilot</div>
+          <div class="pricing-amount"><sup>$</sup>397</div>
+          <div class="pricing-period">per month</div>
+          <div class="pricing-setup">One-time setup fee: <strong>$497</strong> — includes full onboarding & custom configuration</div>
+          <div class="pricing-features">
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>AI conversation bot (24/7)</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Full CRM — unlimited contacts</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Email marketing platform</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>SMS text marketing</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Industry snapshot pre-loaded</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Missed call text-back</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Funnel & landing page builder</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Automated review requests</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Social media planner</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Online booking & calendar</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>1,000 SMS/mo included</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>5,000 emails/mo included</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Workflow automation builder</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>Full analytics dashboard</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>60-min onboarding call</span></div>
+            <div class="pricing-feature"><div class="pf-check">✓</div><span>60-min launch walkthrough</span></div>
+          </div>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="pricing-cta">Get Started — $397/month →</a>
+        </div>
+        <p class="pricing-note">6-month initial commitment. Month-to-month after that. Questions? <a href="tel:+14193084576" style="color:rgba(255,255,255,.6);text-decoration:underline">Call Jayson at 419-308-4576</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div style="text-align:center;max-width:640px;margin:0 auto 16px">
+        <div class="section-label">Got Questions</div>
+        <h2 class="section-title reveal">Everything you want<br />to know</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is this the same platform you use for your managed clients? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes — it's the exact same platform. The difference is that with our managed packages, we run it for you. With AutoPilot, we set it all up and hand you the wheel. Same tools. Same automations. You're just the one pushing the buttons day-to-day.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do I need any technical experience to use it? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">No. We build everything before we hand it to you, and we walk you through it on a 60-minute launch call. If you can send a text message and check your email, you can run AutoPilot. It's designed for business owners, not IT people.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What does the AI bot actually do? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Your AI bot handles incoming chats on your website, responds to missed calls via text, answers common questions about your business (hours, services, pricing), and qualifies leads before passing them to you. It works 24/7 — including nights, weekends, and holidays — so you never lose a lead to voicemail again.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What's included in the setup fee? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">The $497 setup fee covers your onboarding call, complete platform configuration, industry snapshot deployment, AI bot training (your business info, hours, services, FAQs), phone number setup, connecting your social accounts, and your 60-minute launch walkthrough. It's not just "here's a login" — we build your entire system first.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What if I exceed the included SMS or email limits? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">The plan includes 1,000 SMS messages and 5,000 emails per month — enough for most local businesses. If you go over, additional usage is billed at standard rates (around $0.01/text and $0.001/email). We'll let you know if you're trending toward overages so there are no surprises.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What's the contract commitment? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">AutoPilot starts with a 6-month commitment — long enough for the system to actually work for your business and build real momentum. After the initial term, it's month-to-month. No sneaky annual lock-ins after that.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I upgrade to a full managed package later? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Absolutely — and it's a smooth transition because your platform is already built. Many AutoPilot clients eventually want us to take over the day-to-day management so they can fully step back. We can discuss upgrading to a managed package at any time, and your setup work carries over.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">My industry isn't listed. Can you still help? <span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. The industries listed are our most common, but we build custom snapshots for any local business. Book a free call and we'll talk through what your industry needs specifically — then build it for you before launch.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" aria-label="Get started with AutoPilot">
+    <div class="container">
+      <h2 class="cta-headline reveal">Your competitors are<br />already using AI.</h2>
+      <p class="cta-sub reveal">The businesses that set this up now are the ones who dominate their market in 12 months. Get AutoPilot running this week — your leads will thank you.</p>
+      <div class="cta-btns reveal">
+        <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn-white">Get Started — $397/mo →</a>
+        <a href="tel:+14193084576" class="btn-ghost-white">📞 Call 419-308-4576</a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">Sales <span>Funnel</span> Marketing</div>
+          <p class="footer-tagline">Northwest Ohio's premier social media growth agency. We help local businesses build audiences that buy.</p>
+          <a href="tel:+14193084576" class="footer-phone">📞 419-308-4576</a>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/SalesFM" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener">Fb</a>
+            <a href="https://www.instagram.com/jayson.salesfm/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener">Ig</a>
+            <a href="https://www.linkedin.com/in/jaysonhines" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+            <a href="https://www.tiktok.com/@jayson_social_media_guy" class="footer-social" aria-label="TikTok" target="_blank" rel="noopener">Tk</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="sfm-services.html">Social Media Management</a></li>
+            <li><a href="sfm-services.html">Meta Ads</a></li>
+            <li><a href="sfm-services.html">Content Creation</a></li>
+            <li><a href="sfm-autopilot.html">SFM AutoPilot</a></li>
+            <li><a href="sfm-services.html">Sales Funnels</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="sfm-about.html">About Us</a></li>
+            <li><a href="sfm-results.html">Client Results</a></li>
+            <li><a href="sfm-pricing.html">Pricing</a></li>
+            <li><a href="sfm-digital-garden.html">The Digital Garden</a></li>
+            <li><a href="sfm-blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Service Areas</div>
+          <ul class="footer-links">
+            <li><a href="sfm-city-toledo.html">Toledo, OH</a></li>
+            <li><a href="sfm-city-findlay.html">Findlay, OH</a></li>
+            <li><a href="sfm-city-perrysburg.html">Perrysburg, OH</a></li>
+            <li><a href="sfm-city-napoleon.html">Napoleon, OH</a></li>
+            <li><a href="sfm-city-defiance.html">Defiance, OH</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Sales Funnel Marketing. All rights reserved. | <a href="sfm-privacy.html" style="color:inherit;opacity:.7;">Privacy Policy</a></p>
+        <div class="footer-bottom-links"><a href="/sitemap.xml">Sitemap</a><a href="sfm-contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMobile(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false')}
+    hamburger.addEventListener('click',()=>{const o=hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');hamburger.setAttribute('aria-expanded',o)});
+    window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+    const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    document.querySelectorAll('.faq-q').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const item=btn.closest('.faq-item');
+        const isOpen=item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+        if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+        else{btn.setAttribute('aria-expanded','false')}
+      });
+    });
+  </script>
+
+  <script>
+    window.setTimeout(() => {
+      const chatScript = document.createElement('script');
+      chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+      chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+      chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+      document.body.appendChild(chatScript);
+    }, 15000);
+  </script>
+</body>
+</html>
