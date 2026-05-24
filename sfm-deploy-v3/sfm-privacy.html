@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | Sales Funnel Marketing</title>
   <meta name="description" content="Privacy policy for Sales Funnel Marketing. Learn how we collect, use, and protect your personal information." />
   <meta name="keywords" content="Sales Funnel Marketing privacy policy" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://salesfunnelmarket.netlify.app/sfm-privacy" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-privacy" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Privacy Policy | Sales Funnel Marketing" />
   <meta property="og:description" content="Privacy policy for Sales Funnel Marketing. Learn how we collect, use, and protect your personal information." />
-  <meta property="og:url" content="https://salesfunnelmarket.netlify.app/sfm-privacy" />
-  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-privacy" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <meta property="og:site_name" content="Sales Funnel Marketing" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Privacy Policy | Sales Funnel Marketing" />
   <meta name="twitter:description" content="Privacy policy for Sales Funnel Marketing. Learn how we collect, use, and protect your personal information." />
-  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -131,11 +130,11 @@
 </div>
 
 <div class="content-wrap">
-  <div class="last-updated">Last updated: May 2025</div>
+  <div class="last-updated">Last updated: May 23, 2026</div>
 
   <div class="section">
     <h2>Who We Are</h2>
-    <p>Sales Funnel Marketing ("SFM," "we," "us," or "our") is a social media marketing agency located in Perrysburg, Ohio. We help local businesses grow through Facebook, Instagram, and Google Business strategies. Our website address is <a href="https://salesfunnelmarketing.org">salesfunnelmarketing.org</a>.</p>
+    <p>Sales Funnel Marketing ("SFM," "we," "us," or "our") is a social media marketing agency located in Perrysburg, Ohio. We help local businesses grow through Facebook, Instagram, and Google Business strategies. Our website address is <a href="https://www.salesfunnelmarketing.us">www.salesfunnelmarketing.us</a>.</p>
     <p>Questions about this policy? Contact us at <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a> or call 419-308-4576.</p>
   </div>
 
@@ -187,7 +186,8 @@
     <h2>Third-Party Services</h2>
     <p>We use trusted third-party services to operate our business. These may include:</p>
     <ul>
-      <li><strong>Calendly</strong> — for booking strategy calls</li>
+      <li><strong>LeadConnector / GoHighLevel</strong> — for contact forms, appointment booking, customer relationship management, and website chat</li>
+      <li><strong>FormSubmit</strong> — for forwarding contact form notifications by email</li>
       <li><strong>Google Analytics</strong> — for website analytics</li>
       <li><strong>Meta (Facebook/Instagram)</strong> — for advertising and the Meta Pixel</li>
       <li><strong>Email marketing platforms</strong> — for newsletters and follow-up sequences</li>
@@ -242,6 +242,14 @@
   document.querySelector('.hamburger').addEventListener('click',()=>document.querySelector('.mobile-menu').classList.add('open'));
 </script>
 
-  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="68acd79867efe8883b05e89e"></script>
+  <script>
+    window.setTimeout(() => {
+      const chatScript = document.createElement('script');
+      chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+      chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+      chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+      document.body.appendChild(chatScript);
+    }, 15000);
+  </script>
 </body>
 </html>

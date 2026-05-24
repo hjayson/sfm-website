@@ -7,19 +7,19 @@
   <meta name="description" content="Sales Funnel Marketing helps local businesses in Northwest Ohio dominate social media. Facebook ads, Instagram marketing & Google Business management. Perrysburg, OH. Real results, no fluff." />
   <meta name="keywords" content="social media marketing Perrysburg Ohio, Facebook ads Northwest Ohio, social media agency Toledo OH" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://salesfunnelmarket.netlify.app" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sales Funnel Marketing | Northwest Ohio's Social Media Growth Agency" />
   <meta property="og:description" content="Sales Funnel Marketing helps local businesses in Northwest Ohio dominate social media. Facebook ads, Instagram marketing & Google Business management. Perrysburg, OH. Real results, no fluff." />
-  <meta property="og:url" content="https://salesfunnelmarket.netlify.app" />
-  <meta property="og:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <meta property="og:site_name" content="Sales Funnel Marketing" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sales Funnel Marketing | Northwest Ohio's Social Media Growth Agency" />
   <meta name="twitter:description" content="Sales Funnel Marketing helps local businesses in Northwest Ohio dominate social media. Facebook ads, Instagram marketing & Google Business management. Perrysburg, OH. Real results, no fluff." />
-  <meta name="twitter:image" content="https://salesfunnelmarket.netlify.app/og-image.jpg" />
+  <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
@@ -30,7 +30,8 @@
 
     /* NAV */
     nav { position:sticky; top:0; z-index:100; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .nav-logo { font-size:20px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
+    .nav-logo { font-size:20px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; display:flex; align-items:center; gap:10px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .nav-logo span { color:var(--orange); }
     .nav-links { display:flex; gap:32px; list-style:none; }
     .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
@@ -39,12 +40,12 @@
     /* Book nav badge */
     .nav-book-btn {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
-      color: #22c55e; font-size: 13px; font-weight: 700;
+      background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
+      color: #E85D26; font-size: 13px; font-weight: 700;
       padding: 8px 16px; border-radius: 100px;
       transition: all 0.2s ease; white-space: nowrap;
     }
-    .nav-book-btn:hover { background: rgba(34,197,94,0.22); border-color: #22c55e; transform: translateY(-1px); }
+    .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
     @media (max-width: 900px) { .nav-book-btn { display: none; } }
 
     .nav-cta:hover { opacity:0.88; }
@@ -56,8 +57,14 @@
     .mobile-close { position:absolute; top:20px; right:24px; font-size:32px; cursor:pointer; color:var(--white); background:none; border:none; }
 
     /* HERO */
-    .hero { min-height:92vh; display:flex; align-items:center; padding:80px 40px; position:relative; overflow:hidden; }
-    .hero::before { content:''; position:absolute; top:-300px; right:-200px; width:800px; height:800px; background:radial-gradient(circle, rgba(232,93,38,0.12) 0%, transparent 65%); pointer-events:none; }
+    .hero { min-height:92vh; display:flex; align-items:center; padding:80px 40px; position:relative; overflow:hidden; background:linear-gradient(135deg,#0A1628,#0d2040,#0A1628,#091320); background-size:300% 300%; animation:heroDrift 18s ease infinite; }
+    .hero-inner { position:relative; z-index:2; }
+    /* Animated orange orb top-right */
+    .hero::before { content:''; position:absolute; top:-250px; right:-150px; width:700px; height:700px; background:radial-gradient(circle,rgba(232,93,38,0.16) 0%,transparent 65%); pointer-events:none; filter:blur(40px); animation:orbPulse 9s ease-in-out infinite; }
+    /* Animated blue orb bottom-left */
+    .hero::after { content:''; position:absolute; bottom:-200px; left:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(20,70,160,0.14) 0%,transparent 65%); pointer-events:none; filter:blur(50px); animation:orbPulse 12s ease-in-out infinite reverse; }
+    @keyframes heroDrift { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+    @keyframes orbPulse { 0%,100%{opacity:0.6;transform:scale(1) translate(0,0);} 50%{opacity:1;transform:scale(1.12) translate(10px,-12px);} }
     .hero-inner { max-width:1100px; margin:0 auto; width:100%; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
     .hero-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(232,93,38,0.1); border:1px solid rgba(232,93,38,0.2); color:var(--orange); font-size:13px; font-weight:800; letter-spacing:1px; padding:8px 16px; border-radius:20px; margin-bottom:24px; }
     .hero h1 { font-size:clamp(42px,5.5vw,68px); font-weight:900; line-height:1.05; letter-spacing:-2px; margin-bottom:24px; }
@@ -96,7 +103,7 @@
     .badge-3 { bottom:40px; left:-40px; }
     .badge-number { font-size:18px; font-weight:900; color:var(--navy); line-height:1; }
     .badge-label { font-size:10px; color:#555; white-space:nowrap; }
-    .badge-up { display:flex; align-items:center; gap:2px; font-size:11px; font-weight:700; color:#22c55e; }
+    .badge-up { display:flex; align-items:center; gap:2px; font-size:11px; font-weight:700; color:#E85D26; }
 
     /* PROOF STRIP */
     .proof-strip { background:rgba(255,255,255,0.03); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:20px 40px; overflow:hidden; }
@@ -107,6 +114,17 @@
 
     /* SECTIONS */
     section { padding:100px 40px; max-width:1200px; margin:0 auto; }
+
+    /* LOGO STRIP */
+    .logo-strip { padding: 40px 0; overflow: hidden; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .logo-strip-label { text-align:center; font-size:11px; font-weight:800; color:rgba(255,255,255,0.25); letter-spacing:3px; text-transform:uppercase; margin-bottom:24px; }
+    .logo-track-wrap { overflow:hidden; }
+    .logo-track { display:flex; gap:16px; animation:scrollLogos 50s linear infinite; width:max-content; align-items:center; }
+    .logo-track:hover { animation-play-state:paused; }
+    .logo-item { background:#fff; border-radius:12px; padding:12px 20px; width:190px; height:100px; display:flex; align-items:center; justify-content:center; flex-shrink:0; opacity:0.85; transition:opacity 0.25s, transform 0.25s; }
+    .logo-item:hover { opacity:1; transform:scale(1.04); }
+    .logo-item img { max-height:72px; max-width:158px; object-fit:contain; display:block; }
+    @keyframes scrollLogos { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* WHY US */
     .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
@@ -124,7 +142,7 @@
     .industry-card p { font-size:13px; color:rgba(255,255,255,0.45); line-height:1.5; }
 
     /* RESULTS */
-    .results-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px; }
+    .results-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:36px; margin-top:48px; }
     .result-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:32px; }
     .result-tag { display:inline-block; font-size:11px; font-weight:800; color:var(--orange); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:16px; }
     .result-card blockquote { font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; font-style:italic; margin-bottom:16px; }
@@ -172,8 +190,8 @@
   "@type": "LocalBusiness",
   "name": "Sales Funnel Marketing",
   "description": "Northwest Ohio's social media growth agency helping local businesses turn followers into paying customers through Facebook ads, Instagram marketing, and Google Business optimization.",
-  "url": "https://salesfunnelmarket.netlify.app",
-  "telephone": "",
+  "url": "https://www.salesfunnelmarketing.us",
+  "telephone": "+14193084576",
   "email": "jayson@salesfunnelmarketing.us",
   "address": {
     "@type": "PostalAddress",
@@ -210,8 +228,10 @@
     "closes": "17:00"
   },
   "sameAs": [
-    "https://www.facebook.com/salesfunnelmarketing",
-    "https://www.instagram.com/salesfunnelmarketing"
+    "https://www.facebook.com/SalesFM",
+    "https://www.instagram.com/jayson.salesfm/",
+    "https://www.linkedin.com/in/jaysonhines",
+    "https://www.tiktok.com/@jayson_social_media_guy"
   ]
 }
 </script>
@@ -233,7 +253,7 @@
       "name": "How long does it take to see results from social media marketing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most clients see measurable results within 30-90 days. Our 90-day growth guarantee means if you don't see clear progress in your first 90 days, we'll keep working at no charge until you do."
+        "text": "Most clients see measurable progress within 30-90 days. Our 90-day progress plan sets agreed-upon goals up front, with clear reporting and a written review of next steps after the first 90 days."
       }
     },
     {
@@ -255,18 +275,47 @@
   ]
 }
 </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CDLWCX753N');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home">
-          Sales<span>Funnel</span>
-          <small>Marketing</small>
-        </a>
+    <img src="images/sfm-logo.png" alt="SFM Logo">
+    Sales<span>Funnel</span> Marketing
+  </a>
   <ul class="nav-links">
     <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
     <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-team.html">Team</a></li>
     <li><a href="sfm-blog.html">Blog</a></li>
     <li><a href="sfm-contact.html">Contact</a></li>
   </ul>
@@ -279,6 +328,7 @@
   <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
   <a href="sfm-services.html">Services</a>
   <a href="sfm-results.html">Results</a>
+  <a href="sfm-portfolio.html">Our Work</a>
   <a href="sfm-about.html">About</a>
   <a href="sfm-blog.html">Blog</a>
   <a href="sfm-contact.html">Contact</a>
@@ -291,15 +341,15 @@
     <div class="hero-content">
       <div class="hero-tag">📍 Perrysburg, Ohio · Since 2017</div>
       <h1>Northwest Ohio's<br><span class="accent">Social Media</span><br>Growth Agency.</h1>
-      <p>We help local businesses turn followers into paying customers. Real results. No fluff. 90-day growth guarantee.</p>
+      <p>We help local businesses turn followers into paying customers. Real results. No fluff. A clear 90-day progress plan.</p>
       <div class="hero-actions">
         <a href="sfm-contact.html" class="btn-primary">Get a Free Strategy Call →</a>
         <a href="sfm-results.html" class="btn-secondary">See Client Results</a>
       </div>
       <div class="hero-proof">
-        <div class="proof-stat"><strong>127+</strong><span>Businesses Served</span></div>
-        <div class="proof-stat"><strong>3×</strong><span>Avg. Sales Growth</span></div>
-        <div class="proof-stat"><strong>5.0 ⭐</strong><span>Google Rating</span></div>
+        <div class="proof-stat"><strong>Real</strong><span>Client Feedback</span></div>
+        <div class="proof-stat"><strong>Local</strong><span>NW Ohio Focus</span></div>
+        <div class="proof-stat"><strong>Clear</strong><span>90-Day Plan</span></div>
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
@@ -371,18 +421,56 @@
 <!-- PROOF STRIP -->
 <div class="proof-strip">
   <div class="proof-track">
-    <div class="proof-item">127+ Businesses Served Across NW Ohio</div>
-    <div class="proof-item">3× Average Sales Growth in 90 Days</div>
-    <div class="proof-item">5.0 Star Google Rating · 37 Reviews</div>
-    <div class="proof-item">9 Years in Business · Founded 2017</div>
-    <div class="proof-item">Facebook · Instagram · Google Business</div>
+    <div class="proof-item">Client Feedback · Round &amp; Round Gifts</div>
+    <div class="proof-item">Client Feedback · Michele Kipplen Photography</div>
+    <div class="proof-item">Client Feedback · LK Soaps</div>
+    <div class="proof-item">Mortgage Officer Client Feedback</div>
+    <div class="proof-item">Facebook · Instagram · TikTok · YouTube · Google</div>
     <div class="proof-item">Perrysburg, Ohio Based Agency</div>
-    <div class="proof-item">127+ Businesses Served Across NW Ohio</div>
-    <div class="proof-item">3× Average Sales Growth in 90 Days</div>
-    <div class="proof-item">5.0 Star Google Rating · 37 Reviews</div>
-    <div class="proof-item">9 Years in Business · Founded 2017</div>
-    <div class="proof-item">Facebook · Instagram · Google Business</div>
+    <div class="proof-item">Client Feedback · Round &amp; Round Gifts</div>
+    <div class="proof-item">Client Feedback · Michele Kipplen Photography</div>
+    <div class="proof-item">Client Feedback · LK Soaps</div>
+    <div class="proof-item">Mortgage Officer Client Feedback</div>
+    <div class="proof-item">Facebook · Instagram · TikTok · YouTube · Google</div>
     <div class="proof-item">Perrysburg, Ohio Based Agency</div>
+  </div>
+</div>
+
+<!-- CLIENT LOGOS -->
+<div class="logo-strip">
+  <div class="logo-strip-label">Trusted by local businesses across Northwest Ohio</div>
+  <div class="logo-track-wrap">
+    <div class="logo-track">
+      <div class="logo-item"><img src="images/logos/logo-precision-auto.png" alt="Precision Auto Detailing" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-livefit.png" alt="LiveFIT" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-rmc.png" alt="Resource Management Consultants" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-cari-hines.png" alt="Cari Hines Personal Training" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-welchs-golf.png" alt="Welch's Golf Carts" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-gentle-hippo.png" alt="Gentle Hippo Junk Removal" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-national-exchange.png" alt="National Exchange Club" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-vjs-towing.png" alt="VJ's Towing & Rescue" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-disalle.png" alt="DiSalle Real Estate" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-smart-financial.png" alt="Smart Financial" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-legacy-law.png" alt="Legacy Law Group" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-gallon-takacs.png" alt="Gallon Takacs & Boissoneault" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-bollin-wealth.png" alt="Bollin Wealth Management" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-culvers.png" alt="Culver's" loading="lazy" /></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="logo-item"><img src="images/logos/logo-precision-auto.png" alt="Precision Auto Detailing" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-livefit.png" alt="LiveFIT" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-rmc.png" alt="Resource Management Consultants" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-cari-hines.png" alt="Cari Hines Personal Training" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-welchs-golf.png" alt="Welch's Golf Carts" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-gentle-hippo.png" alt="Gentle Hippo Junk Removal" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-national-exchange.png" alt="National Exchange Club" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-vjs-towing.png" alt="VJ's Towing & Rescue" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-disalle.png" alt="DiSalle Real Estate" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-smart-financial.png" alt="Smart Financial" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-legacy-law.png" alt="Legacy Law Group" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-gallon-takacs.png" alt="Gallon Takacs & Boissoneault" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-bollin-wealth.png" alt="Bollin Wealth Management" loading="lazy" /></div>
+      <div class="logo-item"><img src="images/logos/logo-culvers.png" alt="Culver's" loading="lazy" /></div>
+    </div>
   </div>
 </div>
 
@@ -396,8 +484,8 @@
     <div class="why-card"><div class="why-icon">📊</div><h3>Real Reporting</h3><p>No vanity metrics. Plain-English monthly reports showing your actual ROI — leads generated, cost per lead, and revenue impact.</p></div>
     <div class="why-card"><div class="why-icon">🤝</div><h3>Done-For-You</h3><p>Content, ads, strategy — we handle everything. You stay focused on running your business. We handle the growth.</p></div>
     <div class="why-card"><div class="why-icon">⚡</div><h3>Fast Results</h3><p>Most clients see meaningful lead increases within 60–90 days. Ads can generate calls within the first week.</p></div>
-    <div class="why-card"><div class="why-icon">🛡️</div><h3>90-Day Guarantee</h3><p>We're confident enough in our process to back it with a guarantee. If you don't see results in 90 days, we make it right.</p></div>
-    <div class="why-card"><div class="why-icon">📱</div><h3>Full Platform Coverage</h3><p>Facebook, Instagram, and Google Business — the three platforms that matter most for local businesses in NW Ohio.</p></div>
+    <div class="why-card"><div class="why-icon">🛡️</div><h3>90-Day Progress Plan</h3><p>We set measurable goals up front, report clearly, and adjust the plan based on what the data shows.</p></div>
+    <div class="why-card"><div class="why-icon">📱</div><h3>Full Platform Coverage</h3><p>Facebook, Instagram, TikTok, YouTube, and Google Business — every platform that matters for local businesses in NW Ohio.</p></div>
   </div>
 </section>
 
@@ -425,40 +513,24 @@
   <h2 class="section-title">Real businesses.<br>Real growth.</h2>
   <div class="results-grid">
     <div class="result-card">
-      <div class="result-tag">Retail — Perrysburg, OH</div>
-      <blockquote>"Sales Funnel Marketing tripled my sales. What they've done for my business is nothing short of amazing."</blockquote>
-      <div class="result-attr">— Amy D., Local Retail Business Owner</div>
-      <div class="result-metrics">
-        <div class="result-metric"><strong>3×</strong><span>Sales Growth</span></div>
-        <div class="result-metric"><strong>90</strong><span>Days</span></div>
-      </div>
+      <div class="result-tag">Local Retail</div>
+      <blockquote>"Sales Funnel Marketing is amazing. My business social media reach has grown unbelievably which has translated into near triple sales growth in the 3 short months I've used them. I can't recommend Jayson and his team enough."</blockquote>
+      <div class="result-attr">— Amy D., Owner · Round &amp; Round Gifts</div>
     </div>
     <div class="result-card">
-      <div class="result-tag">Mortgage — Northwest Ohio</div>
-      <blockquote>"Jayson's strategies helped me become a top producer in my market. My online presence completely transformed."</blockquote>
-      <div class="result-attr">— Bruce P., Mortgage Professional</div>
-      <div class="result-metrics">
-        <div class="result-metric"><strong>Top</strong><span>Producer</span></div>
-        <div class="result-metric"><strong>2×</strong><span>Lead Volume</span></div>
-      </div>
+      <div class="result-tag">Photography</div>
+      <blockquote>"Jayson knows social platforms. In less than 6 months he turned my social media around - made it more engaging, better content, real results. He understands the analytics and gets results."</blockquote>
+      <div class="result-attr">— Michele K., Owner · Michele Kipplen Photography</div>
     </div>
     <div class="result-card">
-      <div class="result-tag">Fitness — NW Ohio</div>
-      <blockquote>"Michele came to us with a gym that was struggling through slow seasons. Within 4 months, she had a waitlist."</blockquote>
-      <div class="result-attr">— Michele K., Fitness Studio Owner</div>
-      <div class="result-metrics">
-        <div class="result-metric"><strong>Waitlist</strong><span>New Members</span></div>
-        <div class="result-metric"><strong>4 mo</strong><span>Timeline</span></div>
-      </div>
+      <div class="result-tag">Mortgage</div>
+      <blockquote>"Jayson did a great job for me! Took over all of my social media accounts and added new ones. He created great videos to help me develop brand recognition. Very happy with his work and communication."</blockquote>
+      <div class="result-attr">— Bruce P., Mortgage Officer</div>
     </div>
     <div class="result-card">
-      <div class="result-tag">Real Estate — Perrysburg, OH</div>
-      <blockquote>"I went from being unknown online to being the agent everyone in my area recognizes. The phone doesn't stop."</blockquote>
-      <div class="result-attr">— Lisa K., Real Estate Agent</div>
-      <div class="result-metrics">
-        <div class="result-metric"><strong>2×</strong><span>Listings</span></div>
-        <div class="result-metric"><strong>6 mo</strong><span>Timeline</span></div>
-      </div>
+      <div class="result-tag">Small Business</div>
+      <blockquote>"Jayson has answered many questions and helped guide us with our small business. He strongly supports small business and believes in the power of networking. Recently hired as our social media manager."</blockquote>
+      <div class="result-attr">— Lisa K., Owner · LK Soaps</div>
     </div>
   </div>
   <div style="text-align:center;margin-top:40px;">
@@ -498,8 +570,14 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div style="font-size:22px;font-weight:900;color:#fff;">Sales<span>Funnel</span> Marketing</div>
-      <p>Sales Funnel Marketing — Perrysburg, Ohio. Helping local businesses grow through social media and paid advertising since 2017.</p>
+      <div style="font-size:22px;font-weight:900;color:#fff;">Sales<span style="color:var(--orange)">Funnel</span> Marketing</div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:12px;max-width:260px;">Perrysburg, Ohio. Helping local businesses grow through social media and paid advertising since 2017.</p>
+      <div style="display:flex;gap:10px;margin-top:16px;">
+        <a href="https://www.facebook.com/SalesFM" target="_blank" rel="noopener" aria-label="Facebook" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#E85D26';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.6)'">Fb</a>
+        <a href="https://www.instagram.com/jayson.salesfm/" target="_blank" rel="noopener" aria-label="Instagram" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#E85D26';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.6)'">Ig</a>
+        <a href="https://www.tiktok.com/@jayson_social_media_guy" target="_blank" rel="noopener" aria-label="TikTok" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#E85D26';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.6)'">Tk</a>
+        <a href="https://www.linkedin.com/in/jaysonhines" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:12px;font-weight:700;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#E85D26';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.6)'">in</a>
+      </div>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
@@ -532,7 +610,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Sales Funnel Marketing · Perrysburg, OH · 419-308-4576 · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
+    <p class="footer-copy">© 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="tel:+14193084576" style="color:rgba(255,255,255,0.35);text-decoration:none;">419-308-4576</a> · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
   </div>
 </footer>
 
@@ -543,5 +621,15 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+
+  <script>
+    window.setTimeout(() => {
+      const chatScript = document.createElement('script');
+      chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+      chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+      chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+      document.body.appendChild(chatScript);
+    }, 15000);
+  </script>
 </body>
 </html>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="robots" content="noindex, nofollow" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SFM Live Results Ticker â Standalone Component</title>
+  <title>SFM Live Results Ticker — Standalone Component</title>
   <meta name="description" content="Embeddable live results ticker for salesfunnelmarketing.us. Drop this component into any page." />
 
   <!--
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-  SFM LIVE RESULTS TICKER â STANDALONE COMPONENT
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+  ══════════════════════════════════════════════════════════════════
+  SFM LIVE RESULTS TICKER — STANDALONE COMPONENT
+  ══════════════════════════════════════════════════════════════════
 
   HOW TO USE ON ANY PAGE:
   Copy everything inside the <div id="sfm-ticker-root"> block and the
@@ -21,15 +21,15 @@
   include them with <link> and <script> tags.
 
   The ticker has two display modes (set via data-mode attribute):
-    â¢ "bar"      â horizontal scrolling proof bar (for top/bottom of sections)
-    â¢ "counters" â animated counter cards (for hero / above fold)
-    â¢ "wins"     â rotating client win cards (for homepage / results page)
+    • "bar"      — horizontal scrolling proof bar (for top/bottom of sections)
+    • "counters" — animated counter cards (for hero / above fold)
+    • "wins"     — rotating client win cards (for homepage / results page)
 
   Usage:
     <div class="sfm-ticker" data-mode="bar"></div>
     <div class="sfm-ticker" data-mode="counters"></div>
     <div class="sfm-ticker" data-mode="wins"></div>
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+  ══════════════════════════════════════════════════════════════════
   -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,7 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    /* ââ Page wrapper (preview only â not part of component) ââ */
+    /* ── Page wrapper (preview only — not part of component) ── */
     body { font-family: 'Inter', sans-serif; background: #1a1a2e; margin: 0; padding: 0; }
     .preview-label {
       text-align: center; padding: 40px 24px 16px;
@@ -50,11 +50,11 @@
     .preview-divider.orange { background: #E85D26; }
   </style>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SFM TICKER COMPONENT CSS â Copy this block
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ══════════════════════════════════════════════════════════════
+       SFM TICKER COMPONENT CSS — Copy this block
+  ══════════════════════════════════════════════════════════════════ -->
   <style id="sfm-ticker-css">
-    /* ââ Root / tokens âââââââââââââââââââââââââââââââââ */
+    /* ── Root / tokens ───────────────────────────────── */
     .sfm-ticker-wrap {
       --sfmt-navy:    #0A1628;
       --sfmt-orange:  #E85D26;
@@ -68,9 +68,9 @@
       --sfmt-trans:   0.3s cubic-bezier(0.4,0,0.2,1);
     }
 
-    /* ââââââââââââââââââââââââââââââââââââââââââââââ
-       MODE 1: BAR â scrolling proof strip
-    ââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ══════════════════════════════════════════════
+       MODE 1: BAR — scrolling proof strip
+    ══════════════════════════════════════════════ */
     .sfm-ticker-bar {
       background: var(--sfmt-navy);
       padding: 14px 0; overflow: hidden;
@@ -133,9 +133,9 @@
       50% { opacity: 0.4; transform: scale(0.8); }
     }
 
-    /* ââââââââââââââââââââââââââââââââââââââââââââââ
-       MODE 2: COUNTERS â animated stat cards
-    ââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ══════════════════════════════════════════════
+       MODE 2: COUNTERS — animated stat cards
+    ══════════════════════════════════════════════ */
     .sfm-ticker-counters {
       background: var(--sfmt-navy);
       padding: 56px 24px;
@@ -192,9 +192,9 @@
       .sfmt-counter-card { padding: 20px 16px; }
     }
 
-    /* ââââââââââââââââââââââââââââââââââââââââââââââ
-       MODE 3: WINS â rotating client win cards
-    ââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ══════════════════════════════════════════════
+       MODE 3: WINS — rotating client win cards
+    ══════════════════════════════════════════════ */
     .sfm-ticker-wins {
       background: var(--sfmt-navy);
       padding: 48px 24px; overflow: hidden;
@@ -277,16 +277,16 @@
     .sfm-ticker-wins.on-light .sfmt-win-name { color: #555; }
     .sfmt-win-stars { font-size: 11px; color: #FFB800; }
   </style>
-  <!-- ââ END TICKER CSS ââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ── END TICKER CSS ──────────────────────────────────────── -->
 
 </head>
 <body>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       PREVIEW: MODE 1 â SCROLLING BAR
+  <!-- ════════════════════════════════════════════════════════════
+       PREVIEW: MODE 1 — SCROLLING BAR
        (on dark navy background)
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
-  <p class="preview-label">Mode 1 Â· Scrolling Bar â on Navy</p>
+  ════════════════════════════════════════════════════════════════ -->
+  <p class="preview-label">Mode 1 · Scrolling Bar — on Navy</p>
   <div class="preview-section">
     <div class="sfm-ticker-wrap sfm-ticker-bar" data-mode="bar">
       <div class="sfmt-bar-track" id="barTrack1"></div>
@@ -295,7 +295,7 @@
 
   <div class="preview-divider orange"></div>
 
-  <p class="preview-label" style="background:#E85D26; color:rgba(255,255,255,0.5); margin:0; padding: 12px 24px 8px;">Mode 1 Â· Scrolling Bar â on Orange</p>
+  <p class="preview-label" style="background:#E85D26; color:rgba(255,255,255,0.5); margin:0; padding: 12px 24px 8px;">Mode 1 · Scrolling Bar — on Orange</p>
   <div style="background:#E85D26; padding:0;">
     <div class="sfm-ticker-wrap sfm-ticker-bar on-orange" data-mode="bar">
       <div class="sfmt-bar-track" id="barTrack2"></div>
@@ -304,27 +304,27 @@
 
   <div class="preview-divider"></div>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       PREVIEW: MODE 2 â ANIMATED COUNTERS
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
-  <p class="preview-label">Mode 2 Â· Animated Counters â on Navy</p>
+  <!-- ════════════════════════════════════════════════════════════
+       PREVIEW: MODE 2 — ANIMATED COUNTERS
+  ════════════════════════════════════════════════════════════════ -->
+  <p class="preview-label">Mode 2 · Animated Counters — on Navy</p>
   <div class="sfm-ticker-wrap sfm-ticker-counters" data-mode="counters" id="countersNavy">
     <div class="sfmt-counters-inner" id="countersInnerNavy"></div>
   </div>
 
   <div class="preview-divider light"></div>
 
-  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 2 Â· Animated Counters â on Light</p>
+  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 2 · Animated Counters — on Light</p>
   <div class="sfm-ticker-wrap sfm-ticker-counters on-light" data-mode="counters">
     <div class="sfmt-counters-inner" id="countersInnerLight"></div>
   </div>
 
   <div class="preview-divider"></div>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       PREVIEW: MODE 3 â ROTATING WIN CARDS
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
-  <p class="preview-label">Mode 3 Â· Client Win Cards â on Navy</p>
+  <!-- ════════════════════════════════════════════════════════════
+       PREVIEW: MODE 3 — ROTATING WIN CARDS
+  ════════════════════════════════════════════════════════════════ -->
+  <p class="preview-label">Mode 3 · Client Win Cards — on Navy</p>
   <div class="sfm-ticker-wrap sfm-ticker-wins" data-mode="wins">
     <div class="sfmt-wins-header">
       <div class="sfmt-wins-title">Live Client Results</div>
@@ -337,7 +337,7 @@
 
   <div class="preview-divider light"></div>
 
-  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 3 Â· Client Win Cards â on Light</p>
+  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 3 · Client Win Cards — on Light</p>
   <div class="sfm-ticker-wrap sfm-ticker-wins on-light" data-mode="wins">
     <div class="sfmt-wins-header">
       <div class="sfmt-wins-title" style="color:#aaa;">Client Wins</div>
@@ -348,41 +348,41 @@
     </div>
   </div>
 
-  <!-- ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-       SFM TICKER COMPONENT JS â Copy this block
-  ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ════════════════════════════════════════════════════════════
+       SFM TICKER COMPONENT JS — Copy this block
+  ════════════════════════════════════════════════════════════════ -->
   <script id="sfm-ticker-js">
-    /* âââ DATA ââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ─── DATA ────────────────────────────────────────────── */
     const SFMT_BAR_ITEMS = [
-      { stat: '3Ã',     text: 'Sales Growth in 90 Days',         style: 'style-green' },
+      { stat: '3×',     text: 'Sales Growth in 90 Days',         style: 'style-green' },
       { stat: '127+',   text: 'NW Ohio Businesses Served',        style: 'style-orange' },
-      { stat: '5.0â',   text: 'Google Rating â 37 Reviews',       style: 'style-amber' },
+      { stat: '5.0★',   text: 'Google Rating — 37 Reviews',       style: 'style-amber' },
       { stat: '9 yrs',  text: 'Serving Northwest Ohio',           style: 'style-white' },
-      { stat: '20â40%', text: 'Workshop Attendees Become Clients', style: 'style-green' },
+      { stat: '20–40%', text: 'Workshop Attendees Become Clients', style: 'style-green' },
       { stat: '1,600+', text: 'Networks Cafe Members',             style: 'style-orange' },
       { stat: '100%',   text: '5-Star Google Reviews',             style: 'style-amber' },
       { stat: '$0',     text: 'Cost for Your First Strategy Call',  style: 'style-green' },
     ];
 
     const SFMT_COUNTERS = [
-      { icon: 'ð', num: 127, suffix: '+', accent: 'orange', label: 'Businesses Served', sub: 'Across Northwest Ohio' },
-      { icon: 'ð°', num: 3,   suffix: 'Ã', accent: 'green',  label: 'Avg. Sales Growth', sub: 'In first 90 days' },
-      { icon: 'â­', num: 5.0, suffix: '',  accent: 'amber',  label: 'Google Rating', sub: '37 verified reviews' },
-      { icon: 'ð¤', num: 9,   suffix: '',  accent: 'orange', label: 'Years in Business', sub: 'Founded 2017, Perrysburg OH' },
+      { icon: '📈', num: 127, suffix: '+', accent: 'orange', label: 'Businesses Served', sub: 'Across Northwest Ohio' },
+      { icon: '💰', num: 3,   suffix: '×', accent: 'green',  label: 'Avg. Sales Growth', sub: 'In first 90 days' },
+      { icon: '⭐', num: 5.0, suffix: '',  accent: 'amber',  label: 'Google Rating', sub: '37 verified reviews' },
+      { icon: '🤝', num: 9,   suffix: '',  accent: 'orange', label: 'Years in Business', sub: 'Founded 2017, Perrysburg OH' },
     ];
 
     const SFMT_WINS = [
-      { accent: 'green',  industry: 'ð Retail',         stat: '3Ã',    statClass: 'w-green',  desc: 'Sales growth in 90 days',    name: 'Amy D.',    biz: 'Round & Round Gifts' },
-      { accent: '',       industry: 'ð¸ Photography',    stat: 'ââ',    statClass: 'w-orange', desc: 'Full social turnaround in 6 months', name: 'Michele K.', biz: 'Michele Kipplen Photography' },
-      { accent: 'amber',  industry: 'ð  Mortgage',       stat: 'ð¹',    statClass: 'w-amber',  desc: 'Video content driving brand recognition', name: 'Bruce P.',   biz: 'Mortgage Officer, Toledo' },
-      { accent: 'green',  industry: 'ð§´ Handmade Goods', stat: 'ð¥',    statClass: 'w-green',  desc: 'Loyal fan community built around the brand', name: 'Lisa K.',    biz: 'LK Soaps' },
-      { accent: '',       industry: 'ð§ Trades',         stat: '4Ã',    statClass: 'w-orange', desc: 'Reach expansion with local targeting',   name: 'SFM Client', biz: 'Home Services, NW Ohio' },
-      { accent: 'amber',  industry: 'âï¸ Legal',          stat: 'â Leads', statClass: 'w-amber', desc: 'Consistent inbound lead generation', name: 'SFM Client', biz: 'Law Firm, Toledo Area' },
-      { accent: 'green',  industry: 'ðï¸ Fitness',       stat: '+62%',  statClass: 'w-green',  desc: 'Membership growth in 4 months',        name: 'SFM Client', biz: 'Gym Owner, NW Ohio' },
-      { accent: '',       industry: 'ð¤ AI Workshop',    stat: '40%',   statClass: 'w-orange', desc: 'Of attendees became SFM clients',        name: 'Monthly',    biz: 'AI Education Events' },
+      { accent: 'green',  industry: '🎁 Retail',         stat: '3×',    statClass: 'w-green',  desc: 'Sales growth in 90 days',    name: 'Amy D.',    biz: 'Round & Round Gifts' },
+      { accent: '',       industry: '📸 Photography',    stat: '↑↑',    statClass: 'w-orange', desc: 'Full social turnaround in 6 months', name: 'Michele K.', biz: 'Michele Kipplen Photography' },
+      { accent: 'amber',  industry: '🏠 Mortgage',       stat: '📹',    statClass: 'w-amber',  desc: 'Video content driving brand recognition', name: 'Bruce P.',   biz: 'Mortgage Officer, Toledo' },
+      { accent: 'green',  industry: '🧴 Handmade Goods', stat: '👥',    statClass: 'w-green',  desc: 'Loyal fan community built around the brand', name: 'Lisa K.',    biz: 'LK Soaps' },
+      { accent: '',       industry: '🔧 Trades',         stat: '4×',    statClass: 'w-orange', desc: 'Reach expansion with local targeting',   name: 'SFM Client', biz: 'Home Services, NW Ohio' },
+      { accent: 'amber',  industry: '⚖️ Legal',          stat: '↑ Leads', statClass: 'w-amber', desc: 'Consistent inbound lead generation', name: 'SFM Client', biz: 'Law Firm, Toledo Area' },
+      { accent: 'green',  industry: '🏋️ Fitness',       stat: '+62%',  statClass: 'w-green',  desc: 'Membership growth in 4 months',        name: 'SFM Client', biz: 'Gym Owner, NW Ohio' },
+      { accent: '',       industry: '🤖 AI Workshop',    stat: '40%',   statClass: 'w-orange', desc: 'Of attendees became SFM clients',        name: 'Monthly',    biz: 'AI Education Events' },
     ];
 
-    /* âââ BAR BUILDER âââââââââââââââââââââââââââââââââââââââ */
+    /* ─── BAR BUILDER ─────────────────────────────────────── */
     function buildBar(trackId) {
       const track = document.getElementById(trackId);
       if (!track) return;
@@ -396,7 +396,7 @@
       `).join('');
     }
 
-    /* âââ COUNTER BUILDER âââââââââââââââââââââââââââââââââââ */
+    /* ─── COUNTER BUILDER ─────────────────────────────────── */
     function buildCounters(containerId, theme) {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -440,7 +440,7 @@
       requestAnimationFrame(tick);
     }
 
-    /* âââ WINS BUILDER ââââââââââââââââââââââââââââââââââââââ */
+    /* ─── WINS BUILDER ────────────────────────────────────── */
     function buildWins(trackId) {
       const track = document.getElementById(trackId);
       if (!track) return;
@@ -454,15 +454,15 @@
           <div class="sfmt-win-footer">
             <div class="sfmt-win-avatar">${w.name.charAt(0)}</div>
             <div>
-              <div class="sfmt-win-name">${w.name} Â· ${w.biz}</div>
-              <div class="sfmt-win-stars">âââââ</div>
+              <div class="sfmt-win-name">${w.name} · ${w.biz}</div>
+              <div class="sfmt-win-stars">★★★★★</div>
             </div>
           </div>
         </div>
       `).join('');
     }
 
-    /* âââ INIT ââââââââââââââââââââââââââââââââââââââââââââââ */
+    /* ─── INIT ────────────────────────────────────────────── */
     buildBar('barTrack1');
     buildBar('barTrack2');
     buildCounters('countersInnerNavy', 'dark');
@@ -471,7 +471,7 @@
     buildWins('winsTrack2');
 
     /*
-    ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+    ════════════════════════════════════════════════════════════════
     TO ADD THIS TO ANY PAGE:
 
     1. Include the CSS (copy the <style id="sfm-ticker-css"> block
@@ -495,10 +495,20 @@
     For counters, the container must have the ID and be the element
     you pass to buildCounters(). The animation triggers automatically
     via IntersectionObserver when the element scrolls into view.
-    ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+    ════════════════════════════════════════════════════════════════
     */
   </script>
-  <!-- ââ END TICKER JS ââââââââââââââââââââââââââââââââââââââââ -->
+  <!-- ── END TICKER JS ──────────────────────────────────────── -->
 
+
+  <script>
+    window.setTimeout(() => {
+      const chatScript = document.createElement('script');
+      chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+      chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+      chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+      document.body.appendChild(chatScript);
+    }, 15000);
+  </script>
 </body>
 </html>
