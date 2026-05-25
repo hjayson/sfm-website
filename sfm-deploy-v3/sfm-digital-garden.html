@@ -397,6 +397,8 @@
     .signed-intro { color: var(--dark-gray); font-size: 17px; line-height: 1.7; max-width: 640px; margin: 16px auto 0; }
 
     .signed-formats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+    .signed-format-card.coming-soon { opacity: 0.55; pointer-events: none; }
+    .signed-format-card.coming-soon .btn { background: #aaa; border-color: #aaa; cursor: not-allowed; }
     .signed-format-card {
       background: var(--white); border-radius: 16px; padding: 36px 28px 28px;
       border: 2px solid #e8e8e8; text-align: center; position: relative;
@@ -609,7 +611,6 @@
           <!-- Format chips -->
           <div class="book-format-chips">
             <span class="format-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19V5a2 2 0 012-2h14v14"/><path d="M4 19a2 2 0 002 2h14"/><path d="M4 19a2 2 0 01-2-2v-1h2"/></svg>Paperback</span>
-            <span class="format-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/></svg>Hardcover</span>
             <span class="format-chip format-chip-kindle"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 19c-.83 0-1.5-.67-1.5-1.5S11.17 17 12 17s1.5.67 1.5 1.5S12.83 20 12 20zm5-4H7V4h10v12z"/></svg>Kindle eBook</span>
           </div>
 
@@ -618,8 +619,12 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#111" aria-hidden="true"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
               Get on Amazon
             </a>
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">
+              ✍️ Buy Signed — $20
+            </a>
             <a href="#chapters" class="btn btn-outline">See Inside the Book</a>
           </div>
+          <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:-8px;">Signed copy: paperback, free shipping, ships in 3–5 days. Only 10 available.</p>
 
           <div class="book-trust-row">
             <div class="book-trust-item">
@@ -801,10 +806,13 @@
             Each chapter ends with a single action you can take today. No fluff. No theory without practice.
           </p>
           <!-- UPDATE: Replace href with your real Amazon link -->
-          <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" rel="noopener" class="btn btn-amazon" style="margin-bottom:12px; display:flex; justify-content:center;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
-            Buy on Amazon — Paperback &amp; Kindle
-          </a>
+          <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:12px;">
+            <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" rel="noopener" class="btn btn-amazon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
+              Buy on Amazon
+            </a>
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">✍️ Buy Signed — $20</a>
+          </div>
           <div style="font-size:13px; color:var(--dark-gray); text-align:center;">Also available on Kindle Unlimited</div>
         </div>
 
@@ -990,6 +998,7 @@
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px;">
             <!-- UPDATE: Replace href with your real Amazon link -->
             <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" rel="noopener" class="btn btn-amazon btn" style="padding:12px 24px; font-size:14px;">Get the Book on Amazon</a>
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary" style="padding:12px 24px; font-size:14px;">✍️ Buy Signed — $20</a>
             <!-- UPDATE: Replace href with your real Calendly link -->
             <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-outline-dark" style="padding:12px 24px; font-size:14px;">Work With Jayson's Agency</a>
           </div>
@@ -1078,28 +1087,28 @@
 
         <!-- Format cards -->
         <div class="signed-formats">
-          <div class="signed-format-card" id="card-pb">
+          <div class="signed-format-card signed-format-card-featured" id="card-pb">
+            <div class="signed-format-badge" style="background:#d63031; color:#fff;">Only 10 Available</div>
             <div class="signed-format-icon">📖</div>
-            <div class="signed-format-name">Paperback</div>
+            <div class="signed-format-name">Signed Paperback</div>
             <div class="signed-format-price">$20<span class="signed-format-price-note"> + free shipping</span></div>
-            <p class="signed-format-desc">The standard edition — a real book you can highlight, dog-ear, and keep on your desk.</p>
-            <!-- UPDATE: Replace href with your real Stripe payment link for Paperback $20 -->
-            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" target="_blank" rel="noopener" class="btn btn-primary signed-pay-btn" onclick="selectFormat('Paperback')">
-              Pay $20 — Paperback
+            <p class="signed-format-desc">A real book you can highlight, dog-ear, and keep on your desk — personally signed by Jayson.</p>
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary signed-pay-btn">
+              Pay $20 — Get Your Signed Copy
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
+            <p style="font-size:13px; color:#888; margin-top:12px; text-align:center;">After payment you'll be brought back here to enter your shipping address.</p>
           </div>
 
-          <div class="signed-format-card signed-format-card-featured" id="card-hc">
-            <div class="signed-format-badge">Most Popular</div>
+          <!-- HARDCOVER — re-enable when stock arrives: remove class "coming-soon" and update Stripe link -->
+          <div class="signed-format-card coming-soon" id="card-hc">
+            <div class="signed-format-badge">Coming Soon</div>
             <div class="signed-format-icon">📚</div>
-            <div class="signed-format-name">Hardcover</div>
+            <div class="signed-format-name">Signed Hardcover</div>
             <div class="signed-format-price">$29<span class="signed-format-price-note"> + free shipping</span></div>
             <p class="signed-format-desc">The premium edition. Built to last, looks great on a shelf, and makes an impressive gift.</p>
-            <!-- UPDATE: Replace href with your real Stripe payment link for Hardcover $29 -->
-            <a href="https://buy.stripe.com/7sY28scTbcP4gxi54SfYY03" target="_blank" rel="noopener" class="btn btn-primary signed-pay-btn" onclick="selectFormat('Hardcover')">
-              Pay $29 — Hardcover
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <a href="#" class="btn btn-primary signed-pay-btn">
+              Coming Soon
             </a>
           </div>
         </div>
@@ -1128,9 +1137,10 @@
               <div class="signed-field">
                 <label for="sf-format">Format Ordered</label>
                 <select name="Format" id="sf-format" required>
-                  <option value="">— Select format —</option>
                   <option value="Paperback ($20)">Paperback — $20</option>
+                  <!-- Hardcover: un-comment when stock arrives
                   <option value="Hardcover ($29)">Hardcover — $29</option>
+                  -->
                 </select>
               </div>
 
@@ -1205,6 +1215,9 @@
           <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" rel="noopener" class="btn btn-white" style="color:#111;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#E85D26"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166z"/></svg>
             Buy on Amazon
+          </a>
+          <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">
+            ✍️ Buy Signed — $20
           </a>
           <!-- UPDATE: Replace href with your real Calendly link -->
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-ghost-white">
@@ -1561,7 +1574,20 @@
     }, 300);
   }
 
-  // Show thank-you note if redirected back after payment
+  // Redirect from Stripe after payment — scroll to shipping form
+  if (window.location.search.indexOf('paid=1') !== -1) {
+    var formSection = document.getElementById('signed-copy');
+    var formWrap = document.querySelector('.signed-form-wrap');
+    var banner = document.createElement('div');
+    banner.style.cssText = 'background:#0A1628; border:2px solid #27ae60; border-radius:12px; padding:20px 24px; margin-bottom:24px; display:flex; align-items:center; gap:14px;';
+    banner.innerHTML = '<div style="font-size:32px;">✅</div><div><strong style="color:#27ae60; font-size:16px; display:block; margin-bottom:4px;">Payment confirmed!</strong><span style="color:#ccc; font-size:14px;">Now fill in your shipping details below and Jayson will get your signed copy in the mail.</span></div>';
+    if (formWrap) formWrap.insertBefore(banner, formWrap.firstChild);
+    setTimeout(function() {
+      if (formSection) formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 400);
+  }
+
+  // Show thank-you note after shipping form submitted
   if (window.location.search.indexOf('ordered=1') !== -1) {
     var form = document.getElementById('signedForm');
     if (form) {
