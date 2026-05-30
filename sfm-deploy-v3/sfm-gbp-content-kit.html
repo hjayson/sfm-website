@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SFM Google Business Profile Content Kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#0A1628; --orange:#E85D26; --green:#16a34a; --white:#fff; --off:#F8F8F8; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',sans-serif; background:var(--off); color:#1a1a2e; padding:40px 24px 80px; }
+    .page { max-width:800px; margin:0 auto; }
+    h1 { font-size:28px; font-weight:900; color:var(--navy); margin-bottom:6px; }
+    .subtitle { font-size:15px; color:#666; margin-bottom:40px; }
+    .section { background:#fff; border-radius:16px; padding:32px; margin-bottom:28px; box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+    .section-label { font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+    .section h2 { font-size:18px; font-weight:800; color:var(--navy); margin-bottom:16px; }
+    .copy-block { background:#f1f5f9; border-radius:10px; padding:20px; font-size:15px; line-height:1.7; color:#333; position:relative; margin-bottom:12px; white-space:pre-wrap; }
+    .copy-btn { display:inline-flex; align-items:center; gap:6px; background:var(--navy); color:#fff; border:none; border-radius:8px; padding:8px 16px; font-size:13px; font-weight:700; cursor:pointer; margin-top:8px; transition:background 0.2s; }
+    .copy-btn:hover { background:var(--orange); }
+    .copy-btn.copied { background:var(--green); }
+    .note { font-size:13px; color:#888; margin-top:10px; font-style:italic; }
+    .field-label { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:6px; margin-top:18px; }
+    .char-count { font-size:12px; color:#aaa; float:right; }
+    .divider { border:none; border-top:1px solid #e5e7eb; margin:20px 0; }
+    .tag { display:inline-block; background:var(--orange); color:#fff; font-size:11px; font-weight:800; letter-spacing:1px; padding:3px 10px; border-radius:20px; margin-bottom:16px; }
+    .where-to-paste { font-size:13px; color:#555; background:#fff8f5; border-left:3px solid var(--orange); padding:10px 14px; border-radius:0 8px 8px 0; margin-bottom:16px; }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    th { background:var(--navy); color:#fff; padding:10px 14px; text-align:left; font-size:13px; }
+    td { padding:10px 14px; border-bottom:1px solid #eee; font-size:14px; }
+    tr:last-child td { border-bottom:none; }
+    .done-check { color:var(--green); font-weight:900; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>📍 GBP Content Kit — Sales Funnel Marketing</h1>
+  <p class="subtitle">Everything copy-paste ready. Open Google Business Profile, go to each section, and paste. Done.</p>
+
+  <!-- 1. Business Description -->
+  <div class="section">
+    <div class="section-label">Step 1</div>
+    <h2>Business Description</h2>
+    <div class="where-to-paste">GBP Dashboard → Edit Profile → Business description</div>
+    <div class="field-label">Primary Description (750 chars max) <span class="char-count">~680 chars</span></div>
+    <div class="copy-block" id="desc1">Sales Funnel Marketing is a social media marketing agency based in Perrysburg, Ohio, serving local businesses across Toledo, Northwest Ohio, and Southeast Michigan.
+
+We help local businesses — restaurants, law firms, medical practices, contractors, retailers, and B2B service providers — build a real social media presence that generates leads, not just likes.
+
+Our services include social media management, Meta (Facebook + Instagram) advertising, content creation, video production, Google Business Profile optimization, and AI-powered marketing automation.
+
+We're not a national agency that treats your business like a zip code. We're your neighbors — and we build strategies around what actually works for NW Ohio buyers.
+
+Based in Perrysburg. Proudly local since 2018.</div>
+    <button class="copy-btn" onclick="copyText('desc1', this)">📋 Copy</button>
+    <p class="note">Paste this exactly. Google indexes the text in your description for local search.</p>
+  </div>
+
+  <!-- 2. Categories -->
+  <div class="section">
+    <div class="section-label">Step 2</div>
+    <h2>Categories</h2>
+    <div class="where-to-paste">GBP Dashboard → Edit Profile → Business category</div>
+    <table>
+      <tr><th>Type</th><th>Category to Select</th></tr>
+      <tr><td><strong>Primary</strong></td><td>Social Media Marketing Agency</td></tr>
+      <tr><td>Secondary 1</td><td>Marketing Agency</td></tr>
+      <tr><td>Secondary 2</td><td>Internet Marketing Service</td></tr>
+      <tr><td>Secondary 3</td><td>Advertising Agency</td></tr>
+      <tr><td>Secondary 4</td><td>Video Production Service</td></tr>
+    </table>
+    <p class="note" style="margin-top:12px;">Primary category is the most important ranking signal. Make sure "Social Media Marketing Agency" is set as primary.</p>
+  </div>
+
+  <!-- 3. Services -->
+  <div class="section">
+    <div class="section-label">Step 3</div>
+    <h2>Services (Add Each One)</h2>
+    <div class="where-to-paste">GBP Dashboard → Edit Profile → Services → Add a service</div>
+    <p class="note" style="margin-bottom:16px;">Add each service below as a separate line item. Google indexes service names and descriptions for local search.</p>
+
+    <div class="field-label">Service 1</div>
+    <div class="copy-block" id="svc1">Social Media Management
+Full-service social media management for local businesses across Toledo and Northwest Ohio. Includes content creation, posting, community management, and monthly reporting across Facebook, Instagram, LinkedIn, and TikTok.</div>
+    <button class="copy-btn" onclick="copyText('svc1', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Service 2</div>
+    <div class="copy-block" id="svc2">Facebook & Instagram Advertising
+Meta ad campaign strategy, creative, targeting, and management for local businesses. Specialty in lead generation campaigns for service businesses, restaurants, medical practices, and law firms in the NW Ohio market.</div>
+    <button class="copy-btn" onclick="copyText('svc2', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Service 3</div>
+    <div class="copy-block" id="svc3">Content Creation & Video Production
+Original photo and video content production for local businesses. On-location shoots in Perrysburg, Toledo, Maumee, and surrounding areas. Built for social media performance, not stock photo libraries.</div>
+    <button class="copy-btn" onclick="copyText('svc3', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Service 4</div>
+    <div class="copy-block" id="svc4">Google Business Profile Optimization
+Complete GBP setup and optimization to improve visibility in Google Maps and local search results. Includes category optimization, description writing, photo strategy, review management, and weekly GBP posting.</div>
+    <button class="copy-btn" onclick="copyText('svc4', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Service 5</div>
+    <div class="copy-block" id="svc5">Social Media AutoPilot
+AI-powered content automation that keeps your social media active every day without requiring daily effort from you. Content strategy, scheduling, and monthly oversight included.</div>
+    <button class="copy-btn" onclick="copyText('svc5', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Service 6</div>
+    <div class="copy-block" id="svc6">AI Marketing Workshops
+Live training workshops teaching local business owners and their teams how to use AI tools for social media, content creation, and marketing automation. Available in-person in the Toledo/Perrysburg area.</div>
+    <button class="copy-btn" onclick="copyText('svc6', this)">📋 Copy</button>
+  </div>
+
+  <!-- 4. Weekly GBP Posts -->
+  <div class="section">
+    <div class="section-label">Step 4</div>
+    <h2>Weekly GBP Posts — 4 Weeks Ready to Go</h2>
+    <div class="where-to-paste">GBP Dashboard → Add update → What's new</div>
+    <p class="note" style="margin-bottom:16px;">Post one of these per week. GBP posts boost local visibility and show Google your profile is active. Include your booking link in each post.</p>
+
+    <div class="field-label">Week 1 Post</div>
+    <div class="copy-block" id="post1">Most local businesses in Toledo and Northwest Ohio are posting on social media — but very few have a real strategy behind it.
+
+There's a difference between being active on social media and using it to actually grow your business.
+
+We help local businesses in Perrysburg, Toledo, Maumee, and the surrounding area build social media systems that generate leads, not just likes.
+
+Book a free 30-minute call to see what that looks like for your business: https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson</div>
+    <button class="copy-btn" onclick="copyText('post1', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Week 2 Post</div>
+    <div class="copy-block" id="post2">Facebook and Instagram ads at $300–500/month can work — but only if the campaign structure is right.
+
+Most local businesses run boosted posts and wonder why they're not getting leads. Boosting is not the same as running a real ad campaign.
+
+We build Meta ad campaigns for local businesses in Toledo and NW Ohio that are structured to actually generate leads and phone calls — not just impressions.
+
+Here's what that looks like: https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson</div>
+    <button class="copy-btn" onclick="copyText('post2', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Week 3 Post</div>
+    <div class="copy-block" id="post3">If your Google Business Profile isn't optimized, you're invisible on Google Maps — even if someone is searching for exactly what you do, right down the street from you.
+
+We help local businesses across Toledo, Perrysburg, and Northwest Ohio get found on Google without paying for ads.
+
+It starts with your GBP. Let's look at yours.
+
+Book a free audit: https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson</div>
+    <button class="copy-btn" onclick="copyText('post3', this)">📋 Copy</button>
+
+    <hr class="divider">
+
+    <div class="field-label">Week 4 Post</div>
+    <div class="copy-block" id="post4">We built a book for local business owners who want to grow on social media without becoming content creators.
+
+The Digital Garden is a practical guide to building an authentic local audience — without going viral, without posting 3x a day, and without hiring a social media manager.
+
+Available now at salesfunnelmarketing.us/sfm-digital-garden
+
+Written by Jayson Hines, founder of Sales Funnel Marketing in Perrysburg, Ohio.</div>
+    <button class="copy-btn" onclick="copyText('post4', this)">📋 Copy</button>
+  </div>
+
+  <!-- 5. Review Request Link -->
+  <div class="section">
+    <div class="section-label">Step 5</div>
+    <h2>Your Review Request Link</h2>
+    <div class="where-to-paste">GBP Dashboard → Ask for reviews → Copy link → Send to every client</div>
+    <p style="font-size:15px;color:#333;margin-bottom:16px;">Go into your GBP dashboard, click <strong>"Ask for reviews"</strong>, and copy the direct link Google generates for your profile. That's your review link — text it or email it to every client after you start working with them.</p>
+    <div class="copy-block" id="review-msg">Hey [Name] — really glad we're working together. If you've had a good experience so far, it would mean a lot if you left us a quick Google review. Takes less than a minute:
+
+[PASTE YOUR GBP REVIEW LINK HERE]
+
+Totally no pressure — just helps other local businesses find us. Thanks!</div>
+    <button class="copy-btn" onclick="copyText('review-msg', this)">📋 Copy</button>
+    <p class="note">Send this via text — text gets opened, email often doesn't. Target: 1 new review per active client per quarter minimum.</p>
+  </div>
+
+  <!-- 6. Photo Checklist -->
+  <div class="section">
+    <div class="section-label">Step 6</div>
+    <h2>Photos to Upload</h2>
+    <div class="where-to-paste">GBP Dashboard → Add photos</div>
+    <p class="note" style="margin-bottom:16px;">Upload at least 10 photos. Profiles with 10+ photos get significantly more clicks than profiles with 1–2 photos. Use your phone — they don't need to be professional.</p>
+    <table>
+      <tr><th>Photo Type</th><th>What to Shoot</th></tr>
+      <tr><td>Logo</td><td>Your SFM logo on a clean background</td></tr>
+      <tr><td>Cover photo</td><td>Team photo or office exterior — something local and human</td></tr>
+      <tr><td>Team (x3)</td><td>You, your team members, candid working shots</td></tr>
+      <tr><td>Office/workspace (x2)</td><td>Inside or outside your Perrysburg location</td></tr>
+      <tr><td>Client work (x3)</td><td>Screenshots of results, client social posts, campaign graphics</td></tr>
+      <tr><td>At work (x2)</td><td>On-location shoots, client meetings, workshop photos</td></tr>
+    </table>
+  </div>
+
+</div>
+
+<script>
+function copyText(id, btn) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
