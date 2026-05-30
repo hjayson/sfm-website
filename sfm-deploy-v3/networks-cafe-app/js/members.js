@@ -41,6 +41,10 @@
   .m-center .ico{font-size:46px;margin-bottom:14px;}
   .m-link{color:#E85D26;font-weight:700;}
   .m-back{font-size:14px;font-weight:700;color:#6b7686;padding:14px 20px 0;display:inline-block;}
+  .chip{flex-shrink:0;border:1px solid #e1e5ea;background:#fff;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;color:#6b7686;}
+  .chip.on{background:#0A1628;color:#fff;border-color:#0A1628;}
+  .vote{border:1px solid #e1e5ea;background:#fff;border-radius:8px;width:30px;height:26px;font-size:12px;color:#6b7686;}
+  .vote.on{background:#E85D26;color:#fff;border-color:#E85D26;}
   `;
   function injectCss(){ if(!document.getElementById('m-css')){ const s=document.createElement('style'); s.id='m-css'; s.textContent=css; document.head.appendChild(s);} }
 
@@ -75,11 +79,15 @@
   async function refresh(){
     const { data:{ session:s } } = await sb.auth.getSession();
     session = s;
-    if(!session){ me=null; return renderSignIn(); }
+    if(!session){ me=null; renderSignIn(); syncBoard(); return; }
     const { data, error } = await sb.from('profiles').select('*').eq('id', session.user.id).single();
     if(error){ console.warn(error); }
     me = data || { id:session.user.id, status:'pending' };
-    route();
+    route(); syncBoard();
+  }
+  function syncBoard(){
+    const a = document.querySelector('.view.active');
+    if(a && a.dataset.view === 'community') renderBoard();
   }
 
   function route(){
@@ -406,7 +414,7 @@
   NC.decline = async function(id){ if(confirm('Decline & remove this signup?')){ await sb.from('profiles').update({status:'suspended'}).eq('id',id); loadAdmin(); } };
   NC.modDismiss = async function(rid){ await sb.from('reports').update({status:'dismissed',reviewed_by:me.id,reviewed_at:new Date().toISOString()}).eq('id',rid); loadAdmin(); };
   NC.modHide = async function(rid,type,tid){
-    const table={message:'messages',offer:'offers',event:'events',business:'businesses',profile:'profiles'}[type];
+    const table={message:'messages',offer:'offers',event:'events',business:'businesses',profile:'profiles',post:'posts',comment:'comments'}[type];
     const val = type==='profile' ? {status:'suspended'} : {status:'hidden'};
     await sb.from(table).update(val).eq('id',tid);
     await sb.from('reports').update({status:'actioned',reviewed_by:me.id,reviewed_at:new Date().toISOString()}).eq('id',rid);
@@ -415,8 +423,8 @@
   NC.modSuspend = async function(rid,type,tid){
     // suspend the author of the reported content
     let ownerId=tid;
-    if(type!=='profile'){ const t={message:'messages',offer:'offers',event:'events',business:'businesses'}[type];
-      const col = type==='message'?'sender_id':'owner_id';
+    if(type!=='profile'){ const t={message:'messages',offer:'offers',event:'events',business:'businesses',post:'posts',comment:'comments'}[type];
+      const col = type==='message'?'sender_id':((type==='post'||type==='comment')?'author_id':'owner_id');
       const { data } = await sb.from(t).select(col).eq('id',tid).single(); ownerId = data? data[col] : null; }
     if(ownerId) await sb.from('profiles').update({status:'suspended'}).eq('id',ownerId);
     await sb.from('reports').update({status:'actioned',reviewed_by:me.id,reviewed_at:new Date().toISOString()}).eq('id',rid);
@@ -430,4 +438,163 @@
     window.open(url,'_blank');
   }
   NC.openExt = openExt;
+
+  /* ============================================================
+     DISCUSSION BOARD (Community tab) — posts, comments, upvotes
+     ============================================================ */
+  const CATS = [['all','All'],['general','General'],['referrals','Referrals'],['wins','Wins'],['questions','Questions'],['events','Events']];
+  const CATLABEL = {general:'General',referrals:'Referrals',wins:'Wins',questions:'Questions',events:'Events'};
+  let boardCat='all', boardSort='new', myVotes=new Set();
+
+  NC.onTab = function(name){ if(name==='community') renderBoard(); };
+  function boardRoot(){ return document.getElementById('board-root'); }
+
+  function renderBoard(){
+    const root = boardRoot(); if(!root) return;
+    if(!sb){ root.innerHTML=''; return; }
+    if(!session || !me){ root.innerHTML = boardPrompt('Sign in to join the discussion.'); return; }
+    if(me.status!=='active'){ root.innerHTML = boardPrompt(me.status==='pending'
+      ? 'Your membership is pending approval — you can join the discussion once a host approves you.'
+      : 'Your access is paused.'); return; }
+    loadBoard();
+  }
+  function boardPrompt(msg){
+    return `<div class="m-card" style="text-align:center;"><div style="font-size:30px;margin-bottom:8px;">💬</div>`+
+      `<div class="m-name" style="margin-bottom:6px;">Discussion Board</div><p class="m-note">${esc(msg)}</p>`+
+      `<button class="m-btn ghost sm" style="margin:12px auto 0;" onclick="NC.goMembers()">Go to Members ›</button></div>`;
+  }
+  NC.goMembers = function(){ if(window.goTab) window.goTab('members'); };
+
+  async function loadBoard(){
+    const root = boardRoot(); if(!root) return;
+    root.innerHTML = `<div id="boardBar"></div><div id="boardList"><p class="m-note" style="padding:0 20px">Loading…</p></div>`;
+    renderBoardBar();
+    let q = sb.from('posts').select('id,title,body,category,vote_count,comment_count,author_id,author:profiles(full_name,headshot_url)').eq('status','visible');
+    if(boardCat!=='all') q = q.eq('category', boardCat);
+    q = boardSort==='top'
+      ? q.order('vote_count',{ascending:false}).order('last_activity_at',{ascending:false})
+      : q.order('last_activity_at',{ascending:false});
+    const { data, error } = await q.limit(50);
+    const list = document.getElementById('boardList');
+    if(error){ list.innerHTML = `<p class="m-note" style="padding:0 20px">${esc(error.message)}</p>`; return; }
+    myVotes = new Set();
+    if(data.length){
+      const ids = data.map(p=>p.id);
+      const { data:v } = await sb.from('post_votes').select('post_id').in('post_id', ids).eq('user_id', me.id);
+      (v||[]).forEach(x=>myVotes.add(x.post_id));
+    }
+    if(!data.length){ list.innerHTML = `<div class="m-center" style="padding:30px 28px;"><div class="ico" style="font-size:38px">💬</div><div class="m-h">No posts yet</div><p class="m-note">Start the conversation — tap “New post”.</p></div>`; return; }
+    list.innerHTML = data.map(boardCard).join('');
+  }
+
+  function renderBoardBar(){
+    const bar = document.getElementById('boardBar'); if(!bar) return;
+    bar.innerHTML =
+      `<div style="display:flex;gap:8px;overflow-x:auto;padding:14px 20px 6px;scrollbar-width:none;">`+
+        CATS.map(c=>`<button class="chip${boardCat===c[0]?' on':''}" onclick="NC.boardCat('${c[0]}')">${c[1]}</button>`).join('')+
+      `</div>`+
+      `<div style="display:flex;align-items:center;justify-content:space-between;padding:4px 20px 12px;">`+
+        `<div style="display:flex;gap:6px;">`+
+          `<button class="chip${boardSort==='new'?' on':''}" onclick="NC.boardSort('new')">Newest</button>`+
+          `<button class="chip${boardSort==='top'?' on':''}" onclick="NC.boardSort('top')">Top</button>`+
+        `</div>`+
+        `<button class="m-btn sm" style="width:auto;" onclick="NC.newPost()">+ New post</button>`+
+      `</div>`;
+  }
+  NC.boardCat = function(c){ boardCat=c; loadBoard(); };
+  NC.boardSort = function(s){ boardSort=s; loadBoard(); };
+
+  function boardCard(p){
+    const voted = myVotes.has(p.id);
+    return `<div class="m-card" style="display:flex;gap:12px;">`+
+      `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;min-width:34px;">`+
+        `<button class="vote${voted?' on':''}" onclick="event.stopPropagation();NC.vote('${p.id}')" aria-label="Upvote">▲</button>`+
+        `<span style="font-size:13px;font-weight:800;color:#0A1628;">${p.vote_count}</span>`+
+      `</div>`+
+      `<div style="flex:1;min-width:0;" onclick="NC.openPost('${p.id}')">`+
+        `<span class="m-chip">${esc(CATLABEL[p.category]||p.category)}</span>`+
+        `<div class="m-name" style="margin-top:5px;">${esc(p.title)}</div>`+
+        (p.body?`<p class="m-note" style="margin-top:4px;max-height:38px;overflow:hidden;">${esc(p.body)}</p>`:'')+
+        `<div class="m-meta" style="margin-top:6px;">${esc((p.author&&p.author.full_name)||'Member')} · 💬 ${p.comment_count}</div>`+
+      `</div>`+
+    `</div>`;
+  }
+
+  async function toggleVote(id){
+    if(myVotes.has(id)){ await sb.from('post_votes').delete().eq('post_id',id).eq('user_id',me.id); myVotes.delete(id); }
+    else { const { error } = await sb.from('post_votes').insert({post_id:id,user_id:me.id}); if(!error) myVotes.add(id); }
+  }
+  NC.vote = async function(id){ await toggleVote(id); loadBoard(); };
+  NC.votePost = async function(id){ await toggleVote(id); NC.openPost(id); };
+
+  NC.openPost = async function(id){
+    const root = boardRoot(); if(!root) return;
+    const { data:p } = await sb.from('posts').select('*,author:profiles(full_name,headshot_url)').eq('id',id).single();
+    if(!p){ toast('Post not found.'); return; }
+    const { data:cs } = await sb.from('comments').select('*,author:profiles(full_name,headshot_url)').eq('post_id',id).eq('status','visible').order('created_at');
+    const { data:mv } = await sb.from('post_votes').select('post_id').eq('post_id',id).eq('user_id',me.id);
+    const voted = (mv&&mv.length)>0; if(voted) myVotes.add(id); else myVotes.delete(id);
+    const mine = p.author_id===me.id;
+    const n = (cs||[]).length;
+    root.innerHTML =
+      `<a class="m-back" onclick="NC.boardBack()">‹ Board</a>`+
+      `<div class="m-pad" style="padding-top:8px;">`+
+        `<span class="m-chip">${esc(CATLABEL[p.category]||p.category)}</span>`+
+        `<h2 class="m-h" style="margin-top:6px;">${esc(p.title)}</h2>`+
+        `<div class="m-meta" style="margin-bottom:10px;">${esc((p.author&&p.author.full_name)||'Member')}</div>`+
+        (p.body?`<p class="m-note" style="white-space:pre-wrap;margin-bottom:14px;color:#1c2433;">${esc(p.body)}</p>`:'')+
+        `<div style="display:flex;gap:10px;align-items:center;">`+
+          `<button class="m-btn ghost sm" style="width:auto;${voted?'border-color:#E85D26;color:#E85D26;':''}" onclick="NC.votePost('${p.id}')">▲ ${p.vote_count}</button>`+
+          (mine?`<button class="m-btn danger sm" style="width:auto;" onclick="NC.delPost('${p.id}')">Delete</button>`
+               :`<button class="m-btn ghost sm" style="width:auto;" onclick="NC.report('post','${p.id}')">⚑ Report</button>`)+
+        `</div>`+
+      `</div>`+
+      `<div class="m-pad" style="padding-top:0;">`+
+        `<div class="m-label">${n} ${n===1?'reply':'replies'}</div>`+
+        `<textarea class="m-area" id="c-body" placeholder="Write a reply…"></textarea>`+
+        `<button class="m-btn" onclick="NC.addComment('${id}')">Reply</button>`+
+        `<div style="height:14px;"></div>`+
+        (cs||[]).map(c=>`<div class="m-card" style="margin:0 0 10px;">`+
+          `<div class="m-meta" style="margin-bottom:4px;">${esc((c.author&&c.author.full_name)||'Member')}</div>`+
+          `<p class="m-note" style="white-space:pre-wrap;color:#1c2433;">${esc(c.body)}</p>`+
+          `<div style="margin-top:8px;">`+(c.author_id===me.id
+            ?`<button class="m-btn danger sm" style="width:auto;" onclick="NC.delComment('${c.id}','${id}')">Delete</button>`
+            :`<button class="m-btn ghost sm" style="width:auto;" onclick="NC.report('comment','${c.id}')">⚑ Report</button>`)+`</div>`+
+        `</div>`).join('')+
+      `</div>`;
+  };
+  NC.boardBack = function(){ loadBoard(); };
+
+  NC.newPost = function(){
+    const root = boardRoot(); if(!root) return;
+    root.innerHTML =
+      `<a class="m-back" onclick="NC.boardBack()">‹ Board</a>`+
+      `<div class="m-pad" style="padding-top:8px;">`+
+        `<div class="m-h">New post</div>`+
+        `<div class="m-label">Category</div>`+
+        `<select class="m-input" id="np-cat">`+CATS.filter(c=>c[0]!=='all').map(c=>`<option value="${c[0]}">${c[1]}</option>`).join('')+`</select>`+
+        `<div class="m-label">Title</div>`+
+        `<input class="m-input" id="np-title" placeholder="A clear, short title" />`+
+        `<div class="m-label">Details (optional)</div>`+
+        `<textarea class="m-area" id="np-body" placeholder="Add context, a question, a win…"></textarea>`+
+        `<button class="m-btn" onclick="NC.submitPost()">Post to the board</button>`+
+      `</div>`;
+  };
+  NC.submitPost = async function(){
+    const title = (document.getElementById('np-title').value||'').trim();
+    if(!title) return toast('Add a title first.');
+    const row = { author_id:me.id, category:document.getElementById('np-cat').value, title, body:document.getElementById('np-body').value.trim() };
+    const { error } = await sb.from('posts').insert(row);
+    if(error) return toast(error.message);
+    loadBoard();
+  };
+  NC.addComment = async function(pid){
+    const body = (document.getElementById('c-body').value||'').trim();
+    if(!body) return toast('Write a reply first.');
+    const { error } = await sb.from('comments').insert({ post_id:pid, author_id:me.id, body });
+    if(error) return toast(error.message);
+    NC.openPost(pid);
+  };
+  NC.delPost = async function(id){ if(!confirm('Delete this post?')) return; await sb.from('posts').delete().eq('id',id); loadBoard(); };
+  NC.delComment = async function(id,pid){ if(!confirm('Delete this reply?')) return; await sb.from('comments').delete().eq('id',id); NC.openPost(pid); };
 })();

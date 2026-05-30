@@ -182,12 +182,12 @@
       </div>
 
       <div class="card" style="margin-top:8px;">
-        <h3>What to expect</h3>
+        <h3>How the morning runs</h3>
         <ol class="steps" style="margin-top:12px;">
-          <li class="step"><span class="step-n">1</span><span><span class="step-t">Coffee &amp; connections</span><br><span class="step-d">Arrive at 8 AM, check in, say hello.</span></span></li>
-          <li class="step"><span class="step-n">2</span><span><span class="step-t">Around-the-room intros</span><br><span class="step-d">30 seconds each — who you are and what you're looking for.</span></span></li>
-          <li class="step"><span class="step-n">3</span><span><span class="step-t">Topic of the month</span><br><span class="step-d">A short, practical segment on growing your business.</span></span></li>
-          <li class="step"><span class="step-n">4</span><span><span class="step-t">Open networking</span><br><span class="step-d">Swap contacts and wrap on time.</span></span></li>
+          <li class="step"><span class="step-n">☕</span><span><span class="step-t">8:00 – 8:30 · Coffee &amp; connecting</span><br><span class="step-d">Arrive, grab a coffee, and meet people.</span></span></li>
+          <li class="step"><span class="step-n">🎤</span><span><span class="step-t">8:30 – 9:25 · Speaker / workshop</span><br><span class="step-d">A guest leads a short, practical session.</span></span></li>
+          <li class="step"><span class="step-n">✅</span><span><span class="step-t">9:25 – 9:30 · Wrap-up</span><br><span class="step-d">Quick close-out and announcements.</span></span></li>
+          <li class="step"><span class="step-n">🤝</span><span><span class="step-t">After 9:30 · Mix &amp; mingle</span><br><span class="step-d">Stick around to connect one-on-one.</span></span></li>
         </ol>
       </div>
     </section>
@@ -199,6 +199,15 @@
         <span class="tr-ico">🔔</span>
         <div class="tr-body"><div class="tr-t">Meetup reminders</div><div class="tr-d">Get a push the day before each meetup</div></div>
         <div class="switch" id="pushSwitch" onclick="togglePush()"><div class="knob"></div></div>
+      </div>
+      <div class="section-label" style="margin:18px 20px 10px;">Next meetup</div>
+      <div style="margin:0 20px 14px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);">
+        <img src="assets/event-june.jpg" alt="Public Speaking Tips with Isaac Milleson" style="width:100%;display:block;" onerror="this.style.display='none'" />
+        <div style="padding:16px 18px;">
+          <div class="event-tag">Wed, June 3 · 8:00 AM · Tolhouse</div>
+          <div class="event-t" style="font-size:17px;margin-top:3px;">Public Speaking Tips</div>
+          <div class="event-d">Presented by Isaac Milleson — speak confidently, connect authentically, inspire impact.</div>
+        </div>
       </div>
       <div class="section-label" style="margin:18px 20px 10px;">Upcoming</div>
       <div id="upcomingList"></div>
@@ -213,20 +222,14 @@
       </div>
     </section>
 
-    <!-- COMMUNITY -->
+    <!-- COMMUNITY (discussion board) -->
     <section class="view" data-view="community">
-      <div class="pad"><div class="section-label">Stay Connected</div><h2 class="title">Community</h2><p class="lead">The conversation doesn't stop when the meetup ends. Here's how to stay plugged in.</p></div>
-      <button class="btn dark" onclick="openLink('https://www.facebook.com/groups/networkscafe')">👥 Open the Facebook Group</button>
-      <button class="btn ghost" onclick="openLink('https://docs.google.com/forms/d/e/1FAIpQLSfvrt4hJ8HH-QteBHieH_i4vkjoZ527YwkMdB-04YEwVkm2Tg/viewform')">🔔 Sign Up for Event Alerts</button>
-      <div class="card">
-        <h3>Why members keep coming back</h3>
-        <ul class="steps" style="margin-top:12px;">
-          <li class="step"><span class="step-n">🤝</span><span><span class="step-t">Real relationships</span><br><span class="step-d">The same faces become referral partners and friends.</span></span></li>
-          <li class="step"><span class="step-n">🔁</span><span><span class="step-t">Warm referrals</span><br><span class="step-d">People send business to those they know and trust.</span></span></li>
-          <li class="step"><span class="step-n">💡</span><span><span class="step-t">Ideas &amp; feedback</span><br><span class="step-d">Bring a problem, leave with answers.</span></span></li>
-        </ul>
+      <div class="pad" style="padding-bottom:6px;"><div class="section-label">Community</div><h2 class="title">Discussion Board</h2><p class="lead">Post a question, share a win, or send a referral. Members only.</p></div>
+      <div style="display:flex;gap:10px;padding:8px 20px 4px;">
+        <button class="btn dark" style="width:auto;margin:0;flex:1;" onclick="openLink('https://www.facebook.com/groups/networkscafe')">👥 Facebook Group</button>
+        <button class="btn ghost" style="width:auto;margin:0;flex:1;" onclick="openLink('https://docs.google.com/forms/d/e/1FAIpQLSfvrt4hJ8HH-QteBHieH_i4vkjoZ527YwkMdB-04YEwVkm2Tg/viewform')">🔔 Alerts</button>
       </div>
-      <button class="btn ghost" onclick="openLink('mailto:jayson@salesfunnelmarketing.us')">✉️ Email Jayson</button>
+      <div id="board-root"></div>
     </section>
 
     <!-- ABOUT -->
@@ -272,6 +275,7 @@
     document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.dataset.view===name));
     document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
     document.getElementById('content').scrollTop = 0;
+    if(window.NC && NC.onTab) NC.onTab(name);
   }
 
   /* ---- Open external links in the in-app browser when native, else new tab ---- */
