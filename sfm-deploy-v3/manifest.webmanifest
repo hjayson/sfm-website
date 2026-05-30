@@ -1,0 +1,27 @@
+{
+  "name": "NetWORKs Café — Sales Funnel Marketing",
+  "short_name": "NetWORKs Café",
+  "description": "Free monthly networking for local business owners. 1st Wednesday, every month — online and in person.",
+  "start_url": "/sfm-networks-cafe?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0A1628",
+  "theme_color": "#0A1628",
+  "categories": ["business", "social", "productivity"],
+  "icons": [
+    { "src": "/images/app-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/images/app-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/images/app-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Join the Facebook Group",
+      "url": "/sfm-networks-cafe?source=pwa#join"
+    },
+    {
+      "name": "Sign Up for Alerts",
+      "url": "/sfm-networks-cafe?source=pwa#upcoming"
+    }
+  ]
+}

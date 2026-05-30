@@ -3,8 +3,17 @@
 <head>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>NetWORKs Café — Free Monthly Networking for Local Business Owners | Sales Funnel Marketing</title>
+
+  <!-- PWA / installable app -->
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#0A1628" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="NetWORKs Café" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
   <meta name="description" content="NetWORKs Café is a free networking group for Northwest Ohio business owners — online and in person, the 1st Wednesday of every month. Build real relationships, swap referrals, and grow your audience. Join the group." />
   <meta name="keywords" content="networking group Northwest Ohio, business networking Toledo, free networking Perrysburg, small business referral group, online networking Ohio" />
   <meta name="robots" content="index, follow" />
@@ -876,6 +885,38 @@
   </div>
 </section>
 
+<!-- GET THE APP -->
+<section style="background:var(--off-white);" id="get-app">
+  <div class="section-inner" style="text-align:center;max-width:720px;">
+    <div class="section-label">Free App · No App Store Needed</div>
+    <h2 class="section-title" style="margin-bottom:16px;">Put NetWORKs Café<br>on your phone</h2>
+    <p class="section-sub" style="margin:0 auto 36px;">Install the free NetWORKs Café app straight to your home screen — one tap to the group, event alerts, and the next meetup. No download from a store, no account, nothing to pay.</p>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+      <!-- Shown on Android / desktop Chrome when installable -->
+      <button id="installBtn" class="btn-cta" style="display:none;border:none;cursor:pointer;font-family:var(--font);">📲 Install the App</button>
+
+      <!-- Shown on iPhone/iPad Safari -->
+      <div id="iosHint" style="display:none;background:var(--white);border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:24px 28px;max-width:440px;text-align:left;">
+        <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:10px;">Add to your iPhone in 2 taps:</div>
+        <div style="font-size:14px;color:var(--dark-gray);line-height:1.8;">
+          1. Tap the <strong>Share</strong> icon <span style="display:inline-block;border:1px solid #ccc;border-radius:5px;padding:0 6px;">⬆️</span> at the bottom of Safari<br>
+          2. Scroll down and tap <strong>“Add to Home Screen”</strong> ➕<br>
+          3. Tap <strong>Add</strong> — that's it, the icon's on your phone.
+        </div>
+      </div>
+
+      <!-- Fallback for everything else -->
+      <div id="installFallback" style="display:none;font-size:14px;color:var(--dark-gray);max-width:440px;">
+        Open this page on your phone, then use your browser's menu and choose <strong>“Add to Home Screen”</strong> (or <strong>“Install app”</strong>) to pin NetWORKs Café to your home screen.
+      </div>
+
+      <!-- Shown when already installed -->
+      <div id="installedMsg" style="display:none;font-size:15px;font-weight:700;color:var(--orange);">✓ You're all set — NetWORKs Café is installed. See you the 1st Wednesday!</div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq">
   <div class="section-inner">
@@ -914,6 +955,71 @@
 <footer>
   <p class="footer-copy">© 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms of Service</a></p>
 </footer>
+
+<!-- PWA: service worker + install handling -->
+<script>
+  // Register the service worker (enables offline + installability)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+
+  (function () {
+    const installBtn   = document.getElementById('installBtn');
+    const iosHint      = document.getElementById('iosHint');
+    const fallback     = document.getElementById('installFallback');
+    const installedMsg = document.getElementById('installedMsg');
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    const ua = window.navigator.userAgent.toLowerCase();
+    const isIOS = /iphone|ipad|ipod/.test(ua) && !window.MSStream;
+    const isSafari = isIOS && /safari/.test(ua) && !/crios|fxios/.test(ua);
+
+    if (isStandalone) {
+      // Already installed / running as app
+      if (installedMsg) installedMsg.style.display = 'block';
+      return;
+    }
+
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      if (installBtn) installBtn.style.display = 'inline-flex';
+      if (fallback) fallback.style.display = 'none';
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        if (typeof fbq === 'function') fbq('trackCustom', 'PWAInstallPrompt', { outcome: choice.outcome });
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      if (installBtn) installBtn.style.display = 'none';
+      if (installedMsg) installedMsg.style.display = 'block';
+      if (typeof fbq === 'function') fbq('trackCustom', 'PWAInstalled');
+    });
+
+    // Decide what to show by default (when no native prompt fires)
+    if (isIOS) {
+      if (iosHint) iosHint.style.display = 'block';
+    } else {
+      // Show fallback shortly if no beforeinstallprompt fired (e.g. desktop/other browsers)
+      setTimeout(() => {
+        if (installBtn && installBtn.style.display === 'none' && fallback) {
+          fallback.style.display = 'block';
+        }
+      }, 1200);
+    }
+  })();
+</script>
 
 <script>
   window.setTimeout(() => {
