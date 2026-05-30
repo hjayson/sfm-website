@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>NetWORKs Café</title>
+  <style>
+    :root{
+      --navy:#0A1628; --navy-mid:#0f1e38; --navy-light:#152240;
+      --orange:#E85D26; --orange-dark:#c44d1e;
+      --white:#fff; --ink:#1c2433; --muted:#6b7686; --line:rgba(0,0,0,0.08);
+      --bg:#f4f6f9; --card:#fff;
+      --safe-top:env(safe-area-inset-top); --safe-bottom:env(safe-area-inset-bottom);
+      --tab-h:64px;
+      --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+    html,body{height:100%;}
+    body{font-family:var(--font);background:var(--bg);color:var(--ink);overflow:hidden;line-height:1.5;
+      -webkit-font-smoothing:antialiased;overscroll-behavior:none;}
+    img{max-width:100%;display:block;}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+
+    /* App frame */
+    #app{height:100vh;display:flex;flex-direction:column;}
+
+    /* Top app bar */
+    .appbar{background:var(--navy);color:#fff;padding:calc(var(--safe-top) + 12px) 20px 14px;
+      display:flex;align-items:center;gap:12px;flex-shrink:0;
+      box-shadow:0 1px 0 rgba(255,255,255,0.04);}
+    .appbar img{width:34px;height:34px;border-radius:50%;}
+    .appbar-title{font-size:18px;font-weight:800;letter-spacing:-0.3px;}
+    .appbar-title b{color:var(--orange);}
+    .appbar-spacer{flex:1;}
+    .appbar-sub{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.2px;}
+
+    /* Scrolling content */
+    .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:24px;}
+    .view{display:none;animation:fade .25s ease;}
+    .view.active{display:block;}
+    @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+
+    .pad{padding:20px;}
+    .section-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+    h2.title{font-size:24px;font-weight:900;letter-spacing:-0.5px;color:var(--navy);margin-bottom:6px;}
+    p.lead{font-size:15px;color:var(--muted);}
+
+    /* Next meetup hero card */
+    .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 100%);color:#fff;border-radius:22px;
+      padding:26px 24px;position:relative;overflow:hidden;margin:20px;box-shadow:0 12px 30px rgba(10,22,40,0.22);}
+    .hero::after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;
+      background:radial-gradient(circle,rgba(232,93,38,0.35),transparent 70%);top:-70px;right:-60px;}
+    .hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;position:relative;}
+    .hero-date{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.05;position:relative;}
+    .hero-meta{font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px;position:relative;}
+    .countdown{display:flex;gap:10px;margin-top:18px;position:relative;}
+    .cd-box{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;
+      padding:10px 0;flex:1;text-align:center;}
+    .cd-num{font-size:22px;font-weight:900;line-height:1;}
+    .cd-lbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:4px;}
+
+    /* Quick actions */
+    .qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px;}
+    .qa{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;text-align:left;
+      display:flex;flex-direction:column;gap:8px;transition:transform .12s;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+    .qa:active{transform:scale(0.97);}
+    .qa-ico{font-size:24px;}
+    .qa-t{font-size:14px;font-weight:800;color:var(--navy);}
+    .qa-d{font-size:12px;color:var(--muted);line-height:1.4;}
+    .qa.full{grid-column:1 / -1;}
+    .qa.accent{background:var(--orange);border-color:var(--orange);}
+    .qa.accent .qa-t,.qa.accent .qa-d{color:#fff;}
+    .qa.accent .qa-d{color:rgba(255,255,255,0.85);}
+
+    /* Generic cards */
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 20px 14px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+    .card h3{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;}
+    .card p{font-size:14px;color:var(--muted);}
+    .steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:4px;}
+    .step{display:flex;gap:14px;align-items:flex-start;}
+    .step-n{width:28px;height:28px;border-radius:50%;background:rgba(232,93,38,0.12);color:var(--orange);
+      font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .step-t{font-size:14px;font-weight:700;color:var(--navy);}
+    .step-d{font-size:13px;color:var(--muted);}
+
+    /* Event list */
+    .event{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;padding:16px;margin:0 20px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+    .event-cal{width:54px;height:58px;border-radius:12px;background:var(--navy);color:#fff;flex-shrink:0;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .event-cal .m{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--orange);}
+    .event-cal .d{font-size:22px;font-weight:900;line-height:1;}
+    .event-body{flex:1;min-width:0;}
+    .event-t{font-size:14px;font-weight:800;color:var(--navy);}
+    .event-d{font-size:12px;color:var(--muted);margin-top:2px;}
+    .event-tag{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--orange);}
+
+    /* Toggle row */
+    .toggle-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;padding:18px 20px;margin:0 20px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+    .toggle-row .tr-ico{font-size:24px;}
+    .toggle-row .tr-body{flex:1;}
+    .toggle-row .tr-t{font-size:14px;font-weight:800;color:var(--navy);}
+    .toggle-row .tr-d{font-size:12px;color:var(--muted);}
+    .switch{width:50px;height:30px;border-radius:30px;background:#d4d9e0;position:relative;flex-shrink:0;transition:background .2s;}
+    .switch.on{background:var(--orange);}
+    .switch .knob{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,0.3);}
+    .switch.on .knob{left:23px;}
+
+    /* Buttons */
+    .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:calc(100% - 40px);margin:0 20px 12px;
+      background:var(--orange);color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:14px;transition:transform .12s;}
+    .btn:active{transform:scale(0.98);}
+    .btn.dark{background:var(--navy);}
+    .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--navy);}
+
+    /* Host */
+    .host{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;padding:20px;margin:0 20px 14px;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+    .host img{width:72px;height:72px;border-radius:16px;object-fit:cover;flex-shrink:0;}
+    .host-n{font-size:16px;font-weight:900;color:var(--navy);}
+    .host-r{font-size:12px;color:var(--orange);font-weight:700;}
+    .host-b{font-size:13px;color:var(--muted);margin-top:6px;}
+
+    /* Bottom tab bar */
+    .tabbar{flex-shrink:0;display:flex;background:#fff;border-top:1px solid var(--line);
+      padding-bottom:var(--safe-bottom);box-shadow:0 -2px 12px rgba(0,0,0,0.05);}
+    .tab{flex:1;height:var(--tab-h);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--muted);}
+    .tab.active{color:var(--orange);}
+    .tab-ico{font-size:22px;line-height:1;}
+    .tab-lbl{font-size:10px;font-weight:700;letter-spacing:.3px;}
+
+    .footnote{font-size:12px;color:var(--muted);text-align:center;padding:8px 30px 20px;}
+    .footnote a{color:var(--orange);text-decoration:none;font-weight:700;}
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- TOP APP BAR -->
+  <header class="appbar">
+    <img src="assets/logo.png" alt="" />
+    <div>
+      <div class="appbar-title">NetWORKs <b>Café</b></div>
+      <div class="appbar-sub" id="appbarSub">1st Wednesday · 8:00 AM</div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="content" id="content">
+
+    <!-- HOME -->
+    <section class="view active" data-view="home">
+      <div class="hero">
+        <div class="hero-eyebrow">Next Meetup</div>
+        <div class="hero-date" id="heroDate">—</div>
+        <div class="hero-meta" id="heroMeta">8:00 AM · A new local spot each month</div>
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><div class="cd-num" id="cdDays">–</div><div class="cd-lbl">Days</div></div>
+          <div class="cd-box"><div class="cd-num" id="cdHrs">–</div><div class="cd-lbl">Hours</div></div>
+          <div class="cd-box"><div class="cd-num" id="cdMin">–</div><div class="cd-lbl">Min</div></div>
+        </div>
+      </div>
+
+      <div class="qa-grid">
+        <button class="qa accent full" onclick="openLink('https://www.facebook.com/groups/networkscafe')">
+          <span class="qa-ico">👥</span>
+          <span class="qa-t">Join the Facebook Group</span>
+          <span class="qa-d">Connect with members between meetups</span>
+        </button>
+        <button class="qa" onclick="openLink('https://docs.google.com/forms/d/e/1FAIpQLSfvrt4hJ8HH-QteBHieH_i4vkjoZ527YwkMdB-04YEwVkm2Tg/viewform')">
+          <span class="qa-ico">🔔</span>
+          <span class="qa-t">Get Alerts</span>
+          <span class="qa-d">Date, time & address each month</span>
+        </button>
+        <button class="qa" onclick="addToCalendar()">
+          <span class="qa-ico">📅</span>
+          <span class="qa-t">Add to Calendar</span>
+          <span class="qa-d">Save the next meetup</span>
+        </button>
+      </div>
+
+      <div class="card" style="margin-top:8px;">
+        <h3>What to expect</h3>
+        <ol class="steps" style="margin-top:12px;">
+          <li class="step"><span class="step-n">1</span><span><span class="step-t">Coffee &amp; connections</span><br><span class="step-d">Arrive at 8 AM, check in, say hello.</span></span></li>
+          <li class="step"><span class="step-n">2</span><span><span class="step-t">Around-the-room intros</span><br><span class="step-d">30 seconds each — who you are and what you're looking for.</span></span></li>
+          <li class="step"><span class="step-n">3</span><span><span class="step-t">Topic of the month</span><br><span class="step-d">A short, practical segment on growing your business.</span></span></li>
+          <li class="step"><span class="step-n">4</span><span><span class="step-t">Open networking</span><br><span class="step-d">Swap contacts and wrap on time.</span></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="view" data-view="events">
+      <div class="pad"><div class="section-label">Schedule</div><h2 class="title">Events</h2><p class="lead">We meet the 1st Wednesday of every month at 8:00 AM. Locations rotate — turn on reminders so you never miss one.</p></div>
+      <div class="toggle-row">
+        <span class="tr-ico">🔔</span>
+        <div class="tr-body"><div class="tr-t">Meetup reminders</div><div class="tr-d">Get a push the day before each meetup</div></div>
+        <div class="switch" id="pushSwitch" onclick="togglePush()"><div class="knob"></div></div>
+      </div>
+      <div class="section-label" style="margin:18px 20px 10px;">Upcoming</div>
+      <div id="upcomingList"></div>
+      <div class="section-label" style="margin:18px 20px 10px;">Recent</div>
+      <div class="event">
+        <div class="event-cal"><span class="m">May</span><span class="d">6</span></div>
+        <div class="event-body"><div class="event-tag">Past meetup</div><div class="event-t">AI Tools for the Time-Strapped Owner</div><div class="event-d">Two new referral partnerships made.</div></div>
+      </div>
+      <div class="event">
+        <div class="event-cal"><span class="m">Apr</span><span class="d">1</span></div>
+        <div class="event-body"><div class="event-tag">Past meetup</div><div class="event-t">Getting Found Locally</div><div class="event-d">Google Business Profiles &amp; local SEO basics.</div></div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="view" data-view="community">
+      <div class="pad"><div class="section-label">Stay Connected</div><h2 class="title">Community</h2><p class="lead">The conversation doesn't stop when the meetup ends. Here's how to stay plugged in.</p></div>
+      <button class="btn dark" onclick="openLink('https://www.facebook.com/groups/networkscafe')">👥 Open the Facebook Group</button>
+      <button class="btn ghost" onclick="openLink('https://docs.google.com/forms/d/e/1FAIpQLSfvrt4hJ8HH-QteBHieH_i4vkjoZ527YwkMdB-04YEwVkm2Tg/viewform')">🔔 Sign Up for Event Alerts</button>
+      <div class="card">
+        <h3>Why members keep coming back</h3>
+        <ul class="steps" style="margin-top:12px;">
+          <li class="step"><span class="step-n">🤝</span><span><span class="step-t">Real relationships</span><br><span class="step-d">The same faces become referral partners and friends.</span></span></li>
+          <li class="step"><span class="step-n">🔁</span><span><span class="step-t">Warm referrals</span><br><span class="step-d">People send business to those they know and trust.</span></span></li>
+          <li class="step"><span class="step-n">💡</span><span><span class="step-t">Ideas &amp; feedback</span><br><span class="step-d">Bring a problem, leave with answers.</span></span></li>
+        </ul>
+      </div>
+      <button class="btn ghost" onclick="openLink('mailto:jayson@salesfunnelmarketing.us')">✉️ Email Jayson</button>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="view" data-view="about">
+      <div class="pad"><div class="section-label">About</div><h2 class="title">NetWORKs Café</h2><p class="lead">A free, no-pitch networking group for local business owners. We meet the 1st Wednesday of every month at 8:00 AM, at a new local spot each time — and stay connected online in between.</p></div>
+      <div class="host">
+        <img src="assets/host.jpg" alt="Jayson Hines" onerror="this.style.display='none'" />
+        <div>
+          <div class="host-n">Jayson Hines</div>
+          <div class="host-r">Host · Sales Funnel Marketing</div>
+          <div class="host-b">Jayson started NetWORKs Café because the best business he's ever gotten came from real relationships, not cold outreach.</div>
+        </div>
+      </div>
+      <button class="btn ghost" onclick="openLink('https://www.salesfunnelmarketing.us/sfm-networks-cafe')">🌐 Visit the website</button>
+      <div class="footnote">NetWORKs Café is hosted by <a onclick="openLink('https://www.salesfunnelmarketing.us')">Sales Funnel Marketing</a> · Perrysburg, OH<br>Free to attend, always. No membership, no contracts.</div>
+    </section>
+
+    <!-- MEMBERS (Phase 1 — auth + directory + stores + admin) -->
+    <section class="view" data-view="members">
+      <div id="members-root"></div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM TAB BAR -->
+  <nav class="tabbar">
+    <button class="tab active" data-tab="home" onclick="go('home')"><span class="tab-ico">🏠</span><span class="tab-lbl">Home</span></button>
+    <button class="tab" data-tab="events" onclick="go('events')"><span class="tab-ico">📅</span><span class="tab-lbl">Events</span></button>
+    <button class="tab" data-tab="members" onclick="go('members')"><span class="tab-ico">👤</span><span class="tab-lbl">Members</span></button>
+    <button class="tab" data-tab="community" onclick="go('community')"><span class="tab-ico">👥</span><span class="tab-lbl">Community</span></button>
+    <button class="tab" data-tab="about" onclick="go('about')"><span class="tab-ico">☕</span><span class="tab-lbl">About</span></button>
+  </nav>
+
+</div>
+
+<script>
+  /* ---- Capacitor plugin access (works natively; degrades gracefully in a browser) ---- */
+  const Cap = window.Capacitor || null;
+  const Plugins = (Cap && Cap.Plugins) || {};
+
+  /* ---- Tab navigation ---- */
+  function go(name){
+    document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.dataset.view===name));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===name));
+    document.getElementById('content').scrollTop = 0;
+  }
+
+  /* ---- Open external links in the in-app browser when native, else new tab ---- */
+  async function openLink(url){
+    if(url.startsWith('mailto:')){ window.location.href = url; return; }
+    try{
+      if(Plugins.Browser){ await Plugins.Browser.open({ url, presentationStyle:'popover' }); return; }
+    }catch(e){}
+    window.open(url, '_blank');
+  }
+
+  /* ---- Next first-Wednesday calculation (always current, never stale) ---- */
+  function nextFirstWednesday(from){
+    const d = from || new Date();
+    function firstWed(year, month){
+      const first = new Date(year, month, 1);
+      const offset = (3 - first.getDay() + 7) % 7; // 3 = Wednesday
+      return new Date(year, month, 1 + offset, 8, 0, 0); // 8:00 AM
+    }
+    let fw = firstWed(d.getFullYear(), d.getMonth());
+    if(d > fw){ // this month's already passed → next month
+      const nm = new Date(d.getFullYear(), d.getMonth()+1, 1);
+      fw = firstWed(nm.getFullYear(), nm.getMonth());
+    }
+    return fw;
+  }
+  const MEETUP = nextFirstWednesday();
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function renderMeetup(){
+    document.getElementById('heroDate').textContent = DOW[MEETUP.getDay()] + ', ' + FULL[MEETUP.getMonth()] + ' ' + MEETUP.getDate();
+    // upcoming list — next 3 first-Wednesdays
+    let html='', cur=new Date(MEETUP);
+    for(let i=0;i<3;i++){
+      html += '<div class="event"><div class="event-cal"><span class="m">'+MONTHS[cur.getMonth()]+'</span><span class="d">'+cur.getDate()+'</span></div>'+
+              '<div class="event-body"><div class="event-tag">'+(i===0?'Next up':'Upcoming')+'</div><div class="event-t">NetWORKs Café Meetup</div>'+
+              '<div class="event-d">8:00 AM · location announced via alerts</div></div></div>';
+      cur = nextFirstWednesday(new Date(cur.getFullYear(), cur.getMonth(), cur.getDate()+1));
+    }
+    document.getElementById('upcomingList').innerHTML = html;
+  }
+
+  function tick(){
+    const now=new Date(), diff=MEETUP-now;
+    if(diff<=0){ document.getElementById('cdDays').textContent='Today'; document.getElementById('cdHrs').textContent='–'; document.getElementById('cdMin').textContent='–'; return; }
+    const days=Math.floor(diff/86400000), hrs=Math.floor(diff/3600000)%24, min=Math.floor(diff/60000)%60;
+    document.getElementById('cdDays').textContent=days;
+    document.getElementById('cdHrs').textContent=hrs;
+    document.getElementById('cdMin').textContent=min;
+  }
+
+  /* ---- Add to calendar (opens a pre-filled Google Calendar event) ---- */
+  function addToCalendar(){
+    const start=MEETUP, end=new Date(MEETUP.getTime()+60*60000);
+    const fmt=d=>d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+    const params=new URLSearchParams({
+      action:'TEMPLATE',
+      text:'NetWORKs Café Meetup',
+      dates:fmt(start)+'/'+fmt(end),
+      details:'Free monthly networking with Sales Funnel Marketing. Watch for event alerts for this month’s location.'
+    });
+    openLink('https://calendar.google.com/calendar/render?'+params.toString());
+  }
+
+  /* ---- Push notifications (meetup reminders) ---- */
+  let pushOn=false;
+  async function togglePush(){
+    const sw=document.getElementById('pushSwitch');
+    const PN=Plugins.PushNotifications;
+    if(!PN){ // browser preview
+      pushOn=!pushOn; sw.classList.toggle('on',pushOn);
+      alert(pushOn?'Reminders on (works on the installed app).':'Reminders off.');
+      return;
+    }
+    if(!pushOn){
+      const perm=await PN.requestPermissions();
+      if(perm.receive==='granted'){ await PN.register(); pushOn=true; sw.classList.add('on'); }
+    }else{
+      pushOn=false; sw.classList.remove('on'); // unsubscribe handled server-side by topic
+    }
+  }
+
+  function initPush(){
+    const PN=Plugins.PushNotifications;
+    if(!PN) return;
+    PN.addListener('registration', t=>{ console.log('push token', t.value); /* TODO: send token to your push service */ });
+    PN.addListener('registrationError', e=>console.warn('push reg error', e));
+    PN.addListener('pushNotificationActionPerformed', ()=>go('events'));
+  }
+
+  /* ---- Boot ---- */
+  document.addEventListener('DOMContentLoaded', ()=>{
+    renderMeetup(); tick(); setInterval(tick,30000); initPush();
+    // expose tab nav for the member module
+    window.goTab = go;
+    // Hide native splash once UI is ready
+    try{ if(Plugins.SplashScreen) Plugins.SplashScreen.hide(); }catch(e){}
+    try{ if(Plugins.StatusBar) Plugins.StatusBar.setStyle({ style:'DARK' }); }catch(e){}
+  });
+</script>
+
+<!-- Community backend: Supabase client + member module (Phase 1) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js" onerror="console.warn('config.js missing — copy config.example.js to config.js')"></script>
+<script src="js/members.js"></script>
+</body>
+</html>
