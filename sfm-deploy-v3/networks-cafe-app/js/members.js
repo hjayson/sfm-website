@@ -124,16 +124,22 @@
         <div class="m-label">Email</div>
         <input class="m-input" id="m-email" type="email" inputmode="email" autocapitalize="off" placeholder="you@yourbusiness.com" />
         <button class="m-btn" onclick="NC.sendLink()">Email me a sign-in link →</button>
-        <p class="m-note" style="margin-top:14px;">New here? Signing in creates your account. A host approves new members before you appear in the directory.</p>
+        <div id="m-status" class="m-note" style="margin-top:12px;"></div>
+        <p class="m-note" style="margin-top:10px;">New here? Signing in creates your account. A host approves new members before you appear in the directory.</p>
       </div>`;
   }
   NC.sendLink = async function(){
     const email = (document.getElementById('m-email').value||'').trim();
-    if(!email) return toast('Enter your email first.');
-    const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: cfg.REDIRECT_URL } });
-    if(error) return toast(error.message);
-    ROOT().innerHTML = `<div class="m-center"><div class="ico">📧</div><div class="m-h">Check your email</div>
-      <p class="m-note">We sent a sign-in link to <b>${esc(email)}</b>. Open it on this device to finish signing in.</p></div>`;
+    const status = document.getElementById('m-status');
+    const setStatus = (m,err)=>{ if(status){ status.textContent = m; status.style.color = err ? '#c0392b' : '#6b7686'; } };
+    if(!email){ setStatus('Please enter your email first.', true); return; }
+    setStatus('Sending your sign-in link…', false);
+    try{
+      const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: cfg.REDIRECT_URL } });
+      if(error){ setStatus(error.message, true); return; }
+      ROOT().innerHTML = `<div class="m-center"><div class="ico">📧</div><div class="m-h">Check your email</div>
+        <p class="m-note">We sent a sign-in link to <b>${esc(email)}</b>. Open it on this device to finish signing in — check spam/promotions too.</p></div>`;
+    }catch(e){ setStatus(String((e && e.message) || e), true); }
   };
 
   /* ---------- screens: onboarding ---------- */
