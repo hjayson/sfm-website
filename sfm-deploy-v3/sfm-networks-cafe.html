@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NetWORKs Café — Free Monthly Networking for Local Business Owners | Sales Funnel Marketing</title>
+  <meta name="description" content="NetWORKs Café is a free networking group for Northwest Ohio business owners — online and in person, the 1st Wednesday of every month. Build real relationships, swap referrals, and grow your audience. Join the group." />
+  <meta name="keywords" content="networking group Northwest Ohio, business networking Toledo, free networking Perrysburg, small business referral group, online networking Ohio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-networks-cafe" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NetWORKs Café — Free Monthly Networking | 1st Wednesday" />
+  <meta property="og:description" content="A free networking group for local business owners — online and in person, the 1st Wednesday of every month. Real relationships, real referrals." />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-networks-cafe" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NetWORKs Café — Free Monthly Networking | 1st Wednesday" />
+  <meta name="twitter:description" content="A free networking group for local business owners — online and in person, the 1st Wednesday of every month." />
+  <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CDLWCX753N');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"/></noscript>
+
+  <style>
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #0f1e38;
+      --navy-light:  #152240;
+      --orange:      #E85D26;
+      --orange-dark: #c44d1e;
+      --white:       #FFFFFF;
+      --off-white:   #F8F8F8;
+      --dark-gray:   #555555;
+      --text-body:   #3a3a3a;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-w: 1100px;
+      --radius: 12px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); color: var(--text-body); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 40px; display: flex; align-items: center;
+      justify-content: space-between; height: 68px;
+    }
+    .nav-logo { font-size: 18px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+    .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
+    .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-dark, #c44d1e); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--white); font-size: 24px; font-weight: 800; }
+    .mobile-close { position: absolute; top: 20px; right: 24px; font-size: 32px; cursor: pointer; color: var(--white); background: none; border: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 80px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(232,93,38,0.12) 0%, transparent 65%);
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 14px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .hero-details {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      margin-bottom: 40px;
+    }
+    .hero-detail {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.85); font-size: 15px; font-weight: 600;
+    }
+    .hero-detail-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(232,93,38,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: var(--white);
+      font-size: 16px; font-weight: 800;
+      padding: 16px 32px; border-radius: 8px;
+      transition: var(--transition);
+    }
+    .btn-primary:hover { background: var(--orange-dark, #c44d1e); transform: translateY(-1px); }
+    .btn-secondary {
+      color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); }
+    .hero-price-note { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 14px; }
+
+    /* Hero right card */
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .hero-card-img {
+      width: 100%; height: 260px;
+      object-fit: cover; object-position: center top;
+    }
+    .hero-card-body { padding: 24px; }
+    .hero-card-title { font-size: 16px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .hero-card-items { display: flex; flex-direction: column; gap: 10px; }
+    .hero-card-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.65);
+    }
+    .hci-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--navy-mid, #0f1e38);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 24px;
+    }
+    .trust-bar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,0.5);
+    }
+    .trust-icon { font-size: 18px; }
+
+    /* ── SECTIONS ── */
+    section { padding: 88px 24px; }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900; color: var(--navy);
+      line-height: 1.12; letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--dark-gray);
+      line-height: 1.75; max-width: 620px;
+    }
+
+    /* ── WHY JOIN ── */
+    .outcomes { background: var(--off-white); }
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .outcome-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: var(--transition);
+    }
+    .outcome-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .outcome-icon { font-size: 32px; margin-bottom: 16px; }
+    .outcome-title { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .outcome-desc { font-size: 14px; color: var(--dark-gray); line-height: 1.65; }
+
+    /* ── HOW IT WORKS / AGENDA ── */
+    .agenda { background: var(--white); }
+    .agenda-header { margin-bottom: 56px; }
+    .agenda-grid { display: flex; flex-direction: column; gap: 4px; }
+    .agenda-block {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .agenda-block:last-child { border-bottom: none; }
+    .agenda-time {
+      font-size: 13px; font-weight: 700;
+      color: var(--orange); letter-spacing: 0.5px;
+      padding-top: 2px;
+    }
+    .agenda-content-title { font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .agenda-content-desc { font-size: 15px; color: var(--dark-gray); line-height: 1.7; }
+    .agenda-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .agenda-tag {
+      background: rgba(232,93,38,0.08);
+      color: var(--orange);
+      font-size: 12px; font-weight: 600;
+      padding: 5px 12px; border-radius: 100px;
+    }
+
+    /* ── UPCOMING EVENT + RSVP ── */
+    .upcoming { background: var(--navy); position: relative; overflow: hidden; }
+    .upcoming::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 30% 40%, rgba(232,93,38,0.1) 0%, transparent 60%);
+    }
+    .upcoming-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      gap: 56px;
+      align-items: center;
+    }
+    .upcoming-eyebrow {
+      display: inline-block;
+      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .upcoming h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 900; color: var(--white);
+      letter-spacing: -1px; line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .upcoming-sub { font-size: 17px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 32px; }
+    .upcoming-facts { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .upcoming-fact { display: flex; align-items: center; gap: 14px; font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 600; }
+    .upcoming-fact-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(232,93,38,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+
+    /* RSVP form card */
+    .rsvp-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 36px 32px;
+    }
+    .rsvp-card-title { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+    .rsvp-card-note { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
+    .rsvp-field { margin-bottom: 16px; }
+    .rsvp-field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-bottom: 7px; }
+    .rsvp-field input, .rsvp-field select {
+      width: 100%; padding: 13px 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 8px;
+      color: var(--white); font-family: var(--font); font-size: 15px;
+      transition: border 0.2s;
+    }
+    .rsvp-field input::placeholder { color: rgba(255,255,255,0.3); }
+    .rsvp-field input:focus, .rsvp-field select:focus { outline: none; border-color: var(--orange); }
+    .rsvp-field select option { color: #111; }
+    .rsvp-submit {
+      width: 100%; margin-top: 8px;
+      background: var(--orange); color: var(--white);
+      font-family: var(--font); font-size: 16px; font-weight: 800;
+      padding: 16px; border: none; border-radius: 8px; cursor: pointer;
+      transition: var(--transition);
+    }
+    .rsvp-submit:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .rsvp-fineprint { font-size: 12px; color: rgba(255,255,255,0.35); text-align: center; margin-top: 14px; }
+
+    /* ── PHOTO STRIP / PAST EVENTS ── */
+    .photo-strip { background: var(--navy); padding: 64px 0; overflow: hidden; }
+    .photo-strip-label {
+      text-align: center;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 32px;
+    }
+    .photo-strip-row {
+      display: flex; gap: 16px;
+      overflow-x: auto;
+      padding: 0 40px;
+      scrollbar-width: none;
+    }
+    .photo-strip-row::-webkit-scrollbar { display: none; }
+    .photo-strip-item {
+      flex-shrink: 0;
+      width: 280px; height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .photo-strip-item:hover img { transform: scale(1.04); }
+
+    /* ── PAST EVENT RECAPS ── */
+    .recaps { background: var(--off-white); }
+    .recaps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .recap-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .recap-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .recap-img { width: 100%; height: 180px; object-fit: cover; }
+    .recap-body { padding: 24px 26px 28px; }
+    .recap-date { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--orange); margin-bottom: 8px; }
+    .recap-title { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .recap-desc { font-size: 14px; color: var(--dark-gray); line-height: 1.65; }
+
+    /* ── FOR WHO ── */
+    .for-who { background: var(--white); }
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .for-who-card {
+      border-radius: 16px;
+      padding: 36px 32px;
+    }
+    .for-who-card.not { border: 1px solid rgba(0,0,0,0.06); background: var(--off-white); }
+    .for-who-card.yes { background: var(--navy); }
+    .for-who-card-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+    .for-who-card.yes .for-who-card-label { color: var(--orange); }
+    .for-who-card.not .for-who-card-label { color: var(--dark-gray); }
+    .for-who-list { display: flex; flex-direction: column; gap: 14px; }
+    .for-who-item { display: flex; align-items: flex-start; gap: 12px; }
+    .for-who-check { font-size: 16px; flex-shrink: 0; line-height: 1.4; }
+    .for-who-text { font-size: 15px; line-height: 1.55; }
+    .for-who-card.yes .for-who-text { color: rgba(255,255,255,0.8); }
+    .for-who-card.not .for-who-text { color: var(--dark-gray); }
+
+    /* ── HOST ── */
+    .presenter { background: var(--off-white); }
+    .presenter-inner {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .presenter-img-wrap { position: relative; }
+    .presenter-img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; object-position: center top;
+      border-radius: 20px;
+    }
+    .presenter-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: var(--orange); color: var(--white);
+      font-size: 13px; font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(232,93,38,0.35);
+    }
+    .presenter-name { font-size: 36px; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 4px; }
+    .presenter-role { font-size: 15px; color: var(--orange); font-weight: 700; margin-bottom: 24px; }
+    .presenter-bio { font-size: 16px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 28px; }
+    .presenter-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+    .presenter-stat-num { font-size: 30px; font-weight: 900; color: var(--navy); line-height: 1; }
+    .presenter-stat-num span { color: var(--orange); }
+    .presenter-stat-label { font-size: 13px; color: var(--dark-gray); margin-top: 4px; }
+
+    /* ── JOIN CTA ── */
+    .register { background: var(--navy); padding: 100px 24px; position: relative; overflow: hidden; }
+    .register::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(232,93,38,0.1) 0%, transparent 60%);
+    }
+    .register-inner {
+      max-width: 680px; margin: 0 auto;
+      text-align: center; position: relative;
+    }
+    .register-eyebrow {
+      display: inline-block;
+      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 7px 16px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .register h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900; color: var(--white);
+      letter-spacing: -1px; line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .register-sub { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 40px; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: var(--white);
+      font-size: 18px; font-weight: 800;
+      padding: 20px 48px; border-radius: 10px;
+      transition: var(--transition);
+      box-shadow: 0 8px 32px rgba(232,93,38,0.4);
+    }
+    .btn-cta:hover { background: var(--orange-dark, #c44d1e); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,93,38,0.5); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 16px; font-weight: 700;
+      padding: 18px 36px; border-radius: 10px;
+      transition: var(--transition);
+    }
+    .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+    .register-guarantee { font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 20px; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--off-white); }
+    .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+    .faq-item {
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 28px 0;
+    }
+    .faq-q { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--dark-gray); line-height: 1.75; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); padding: 40px; text-align: center; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-copy a { color: rgba(255,255,255,0.4); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .upcoming-inner { grid-template-columns: 1fr; }
+      .for-who-grid { grid-template-columns: 1fr; }
+      .presenter-inner { grid-template-columns: 1fr; }
+      .presenter-img-wrap { max-width: 280px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      section { padding: 64px 24px; }
+      .agenda-block { grid-template-columns: 1fr; gap: 8px; }
+    }
+    @media(max-width:520px){
+      .nav-logo img{width:30px;height:30px;}
+      .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:8px;"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-pricing.html">Pricing</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="#join" class="nav-cta">Join the Group →</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="/">Home</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-pricing.html">Pricing</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-networks-cafe.html" style="color:var(--orange)">☕ NetWORKs Café</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="sfm-digital-garden.html" style="color:#4ade80">📗 Get the Book</a>
+  <a href="#join" style="color:var(--orange)">Join the Group →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">Free Networking · 1st Wednesday Every Month</div>
+      <h1>NetWORKs<br><em>Café</em></h1>
+      <p class="hero-sub">A free, no-pitch networking group for local business owners. We meet in person the first Wednesday of every month — at 8:00 AM, at a new local spot each time — and stay connected online in between. Real conversations, real referrals, and a room full of people who actually want to see you grow.</p>
+      <div class="hero-details">
+        <div class="hero-detail">
+          <div class="hero-detail-icon">📅</div>
+          1st Wednesday, monthly
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-icon">⏰</div>
+          8:00 AM
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-icon">📍</div>
+          A new local spot each month
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-icon">🎟️</div>
+          Always free to join
+        </div>
+      </div>
+      <div class="hero-cta-row">
+        <a href="https://www.facebook.com/groups/networkscafe" target="_blank" rel="noopener" class="btn-primary">Join the Facebook Group →</a>
+        <a href="#upcoming" class="btn-secondary">See the next meetup ↓</a>
+      </div>
+      <p class="hero-price-note">Open to any local business owner, freelancer, or side-hustler. No membership fees, no contracts.</p>
+    </div>
+    <div class="hero-card">
+      <!-- PLACEHOLDER IMAGE: swap for a real NetWORKs Café event photo when you have one -->
+      <img class="hero-card-img" src="images/jayson-event.jpg" alt="NetWORKs Café networking event" />
+      <div class="hero-card-body">
+        <div class="hero-card-title">What to expect</div>
+        <div class="hero-card-items">
+          <div class="hero-card-item"><div class="hci-dot"></div>A warm, low-pressure room — no hard selling</div>
+          <div class="hero-card-item"><div class="hci-dot"></div>Quick intros so everyone knows who you are</div>
+          <div class="hero-card-item"><div class="hci-dot"></div>Referrals, ideas, and honest feedback</div>
+          <div class="hero-card-item"><div class="hci-dot"></div>A short, useful topic each month</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="trust-icon">☕</span> Free to attend</div>
+    <div class="trust-item"><span class="trust-icon">🤝</span> Real relationships, not pitches</div>
+    <div class="trust-item"><span class="trust-icon">📍</span> Northwest Ohio</div>
+    <div class="trust-item"><span class="trust-icon">💻</span> Online community + in-person meetups</div>
+    <div class="trust-item"><span class="trust-icon">🔁</span> Every month, same day</div>
+  </div>
+</div>
+
+<!-- WHY JOIN -->
+<section class="outcomes">
+  <div class="section-inner">
+    <div class="section-label">Why It Exists</div>
+    <h2 class="section-title">Networking that actually<br>feels good to show up to</h2>
+    <p class="section-sub">Most networking is a room full of people waiting for their turn to pitch. NetWORKs Café is the opposite — a friendly, recurring space built on giving first. Here's what you get out of it.</p>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="outcome-icon">🤝</div>
+        <div class="outcome-title">Real relationships</div>
+        <div class="outcome-desc">Show up monthly and the same faces become friends, collaborators, and referral partners. Trust compounds over time.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">🔁</div>
+        <div class="outcome-title">Warm referrals</div>
+        <div class="outcome-desc">When people know what you do and like you, they send business your way. That's how local growth really happens.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">💡</div>
+        <div class="outcome-title">Ideas & feedback</div>
+        <div class="outcome-desc">Stuck on a marketing problem or a hiring decision? Bring it to the group. You'll leave with answers from people who've been there.</div>
+      </div>
+      <div class="outcome-card">
+        <div class="outcome-icon">📣</div>
+        <div class="outcome-title">Visibility</div>
+        <div class="outcome-desc">Get known in your community as a go-to in your field — without paying for ads to do it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="agenda" id="how">
+  <div class="section-inner">
+    <div class="agenda-header">
+      <div class="section-label">How a Meetup Works</div>
+      <h2 class="section-title">A typical NetWORKs Café</h2>
+      <p class="section-sub">Casual, friendly, and always done on time. We meet in person at 8:00 AM on the first Wednesday — here's the flow of a typical meetup.</p>
+    </div>
+    <div class="agenda-grid">
+      <div class="agenda-block">
+        <div class="agenda-time">First 15 min</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">Coffee &amp; Connections</div>
+          <div class="agenda-content-desc">Doors open at 8:00 AM. Grab a coffee, say hello, and settle in. Check in at the sign-in sheet so we can keep everyone connected after — and add the folks you meet in the Facebook group.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Arrive</span>
+            <span class="agenda-tag">Sign in</span>
+            <span class="agenda-tag">Casual chat</span>
+          </div>
+        </div>
+      </div>
+      <div class="agenda-block">
+        <div class="agenda-time">Next 20 min</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">Around-the-Room Intros</div>
+          <div class="agenda-content-desc">Everyone gets 30 seconds: who you are, what you do, and one thing you're looking for or can help with. Short, friendly, no pressure — by the end, the whole room knows you.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">30-second intro</span>
+            <span class="agenda-tag">Your ask</span>
+            <span class="agenda-tag">Your offer</span>
+          </div>
+        </div>
+      </div>
+      <div class="agenda-block">
+        <div class="agenda-time">Next 20 min</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">Topic of the Month</div>
+          <div class="agenda-content-desc">A short, practical segment on growing your business — social media, AI tools, local marketing, referrals, and more. Useful enough to take back to your desk that afternoon.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Practical</span>
+            <span class="agenda-tag">Q&amp;A</span>
+            <span class="agenda-tag">Takeaways</span>
+          </div>
+        </div>
+      </div>
+      <div class="agenda-block">
+        <div class="agenda-time">Last 15 min</div>
+        <div class="agenda-content">
+          <div class="agenda-content-title">Open Networking</div>
+          <div class="agenda-content-desc">Follow up with the people you want to talk to, swap contact info, and make a plan to connect before next month. We wrap on time, every time.</div>
+          <div class="agenda-tags">
+            <span class="agenda-tag">Swap contacts</span>
+            <span class="agenda-tag">Book follow-ups</span>
+            <span class="agenda-tag">Wrap on time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING EVENT + RSVP / SIGN-IN -->
+<section class="upcoming" id="upcoming">
+  <div class="upcoming-inner">
+    <div class="upcoming-content">
+      <div class="upcoming-eyebrow">Next Meetup</div>
+      <h2>Wednesday,<br>June 3, 2026</h2>
+      <p class="upcoming-sub">Save your spot for the next NetWORKs Café. RSVP below so we know to expect you — and if you're joining in person, this doubles as your sign-in.</p>
+      <div class="upcoming-facts">
+        <div class="upcoming-fact">
+          <div class="upcoming-fact-icon">📅</div>
+          1st Wednesday · June 3, 2026
+        </div>
+        <div class="upcoming-fact">
+          <div class="upcoming-fact-icon">⏰</div>
+          8:00 AM
+        </div>
+        <div class="upcoming-fact">
+          <div class="upcoming-fact-icon">📍</div>
+          A different local spot each month — sign up for alerts to get the address
+        </div>
+      </div>
+      <a href="https://www.facebook.com/groups/networkscafe" target="_blank" rel="noopener" class="btn-secondary" style="color:rgba(255,255,255,0.85)">Prefer to just join the Facebook group first? →</a>
+    </div>
+
+    <!-- SIGN-UP FOR ALERTS -->
+    <div class="rsvp-card">
+      <div style="font-size:40px;margin-bottom:14px;">📍</div>
+      <div class="rsvp-card-title">Get Event Alerts</div>
+      <div class="rsvp-card-note" style="margin-bottom:28px;">Because we meet at a new spot each month, the easiest way to never miss it is to sign up for alerts. We'll send you the date, time, and address ahead of every meetup — plus a reminder so it's on your radar.</div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvrt4hJ8HH-QteBHieH_i4vkjoZ527YwkMdB-04YEwVkm2Tg/viewform" target="_blank" rel="noopener" class="rsvp-submit" style="display:block;text-align:center;text-decoration:none;">Sign Up for Alerts →</a>
+      <div class="rsvp-fineprint" style="margin-top:18px;">Free, always. No spam — just where and when we're meeting next.</div>
+      <div class="rsvp-fineprint" style="margin-top:10px;">Already in? <a href="https://www.facebook.com/groups/networkscafe" target="_blank" rel="noopener" style="color:var(--orange);">Join the Facebook group too →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAST EVENTS PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-label">NetWORKs Café · Past Meetups</div>
+  <div class="photo-strip-row">
+    <!-- PLACEHOLDER IMAGES: replace with real NetWORKs Café event photos -->
+    <div class="photo-strip-item"><img src="images/jayson-event.jpg" alt="NetWORKs Café members networking" /></div>
+    <div class="photo-strip-item"><img src="images/work/img_1836.jpg" alt="NetWORKs Café topic segment" /></div>
+    <div class="photo-strip-item"><img src="images/work/img_1838.jpg" alt="NetWORKs Café group discussion" /></div>
+    <div class="photo-strip-item"><img src="images/work/img_1309.jpg" alt="NetWORKs Café presentation" /></div>
+    <div class="photo-strip-item"><img src="images/jayson-on-location.jpg" alt="NetWORKs Café in person" /></div>
+    <div class="photo-strip-item"><img src="images/jayson-filming.jpg" alt="NetWORKs Café online session" /></div>
+  </div>
+</div>
+
+<!-- PAST EVENT RECAPS -->
+<section class="recaps">
+  <div class="section-inner">
+    <div class="section-label">Recent Recaps</div>
+    <h2 class="section-title">What we've been up to</h2>
+    <p class="section-sub">A look at recent NetWORKs Café meetups. Replace these with your real recaps as you host them — a quick photo and a sentence or two keeps the page alive.</p>
+    <div class="recaps-grid">
+      <!-- PLACEHOLDER RECAPS: edit dates, titles, and copy with your real event details -->
+      <div class="recap-card">
+        <img class="recap-img" src="images/work/img_1836.jpg" alt="May meetup recap" />
+        <div class="recap-body">
+          <div class="recap-date">May 2026 Meetup</div>
+          <div class="recap-title">AI Tools for the Time-Strapped Owner</div>
+          <div class="recap-desc">A packed room talked through simple ways to use AI for content and follow-up — plus a round of intros that sparked two new referral partnerships.</div>
+        </div>
+      </div>
+      <div class="recap-card">
+        <img class="recap-img" src="images/work/img_1838.jpg" alt="April meetup recap" />
+        <div class="recap-body">
+          <div class="recap-date">April 2026 Meetup</div>
+          <div class="recap-title">Getting Found Locally</div>
+          <div class="recap-desc">We covered Google Business Profiles and local SEO basics, then opened the floor for owners to share what's working in their own neighborhoods.</div>
+        </div>
+      </div>
+      <div class="recap-card">
+        <img class="recap-img" src="images/work/img_1309.jpg" alt="March meetup recap" />
+        <div class="recap-body">
+          <div class="recap-date">March 2026 Meetup</div>
+          <div class="recap-title">Referrals That Don't Feel Forced</div>
+          <div class="recap-desc">An honest conversation about asking for and giving referrals the right way — and a few new connections that turned into coffee chats.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-who">
+  <div class="section-inner">
+    <div class="section-label">Is This For Me?</div>
+    <h2 class="section-title">Built for owners who'd<br>rather give than pitch</h2>
+    <div class="for-who-grid">
+      <div class="for-who-card yes">
+        <div class="for-who-card-label">✅ You'll love it if...</div>
+        <div class="for-who-list">
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You run a local business, freelance, or have a side hustle</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You want genuine connections, not a stack of business cards</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You're happy to help others and trust it'll come back around</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You can do online some months and in person others</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You want to grow your visibility without paying for ads to do it</div></div>
+        </div>
+      </div>
+      <div class="for-who-card not">
+        <div class="for-who-card-label">🚫 Maybe not if...</div>
+        <div class="for-who-list">
+          <div class="for-who-item"><div class="for-who-check">✗</div><div class="for-who-text">You're only here to hard-sell the room</div></div>
+          <div class="for-who-item"><div class="for-who-check">✗</div><div class="for-who-text">You want a high-pressure, quota-driven lead group</div></div>
+          <div class="for-who-item"><div class="for-who-check">✗</div><div class="for-who-text">You can't commit to showing up more than once</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOST -->
+<section class="presenter">
+  <div class="section-inner">
+    <div class="presenter-inner">
+      <div class="presenter-img-wrap">
+        <img class="presenter-img" src="images/jayson-headshot-pro.jpg" alt="Jayson Hines" />
+        <div class="presenter-badge">Your Host</div>
+      </div>
+      <div class="presenter-content">
+        <div class="section-label">Who Runs It</div>
+        <div class="presenter-name">Jayson Hines</div>
+        <div class="presenter-role">Owner, Sales Funnel Marketing · Perrysburg, OH</div>
+        <p class="presenter-bio">Jayson started NetWORKs Café for one simple reason: the best business he's ever gotten came from real relationships, not cold outreach. He runs Sales Funnel Marketing in Northwest Ohio, helping local businesses grow their audience and bring in customers — and he hosts NetWORKs Café every month to give owners a friendly place to do the same. No pitch, no pressure. Just show up, be helpful, and watch what happens.</p>
+        <div class="presenter-stats">
+          <div>
+            <div class="presenter-stat-num">1st</div>
+            <div class="presenter-stat-label">Wednesday, every month</div>
+          </div>
+          <div>
+            <div class="presenter-stat-num">$0</div>
+            <div class="presenter-stat-label">Cost to attend</div>
+          </div>
+          <div>
+            <div class="presenter-stat-num">50<span>+</span></div>
+            <div class="presenter-stat-label">Local businesses served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<section class="register" id="join">
+  <div class="register-inner">
+    <div class="register-eyebrow">Join NetWORKs Café</div>
+    <h2>Pull up a chair.<br>It's free.</h2>
+    <p class="register-sub">Join the Facebook group to stay in the loop between meetups, and sign up for alerts so you always know where and when we're meeting next. That's it — you're in.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://www.facebook.com/groups/networkscafe" target="_blank" rel="noopener" class="btn-cta">Join the Facebook Group →</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvrt4hJ8HH-QteBHieH_i4vkjoZ527YwkMdB-04YEwVkm2Tg/viewform" target="_blank" rel="noopener" class="btn-ghost">Sign Up for Alerts →</a>
+    </div>
+    <p class="register-guarantee">Free, always. Questions? <a href="mailto:jayson@salesfunnelmarketing.us" style="color:rgba(255,255,255,0.5)">Email Jayson directly.</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">When and how often does NetWORKs Café meet?</div>
+        <div class="faq-a">The 1st Wednesday of every month. You can join online or in person, whichever works for you that month.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is it really free?</div>
+        <div class="faq-a">Yes — completely free to attend. No membership fees, no contracts, no catch. Just RSVP and show up.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where do you meet?</div>
+        <div class="faq-a">We meet in person at 8:00 AM on the first Wednesday of every month, at a different local spot each time. Sign up for alerts and we'll send you the exact address before each meetup. Between meetups, the community lives in our <a href="https://www.facebook.com/groups/networkscafe" target="_blank" rel="noopener" style="color:var(--orange)">Facebook group</a>.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What kind of businesses come?</div>
+        <div class="faq-a">All kinds — local service businesses, retailers, freelancers, consultants, and side-hustlers. If you're building something and want to grow it through real relationships, you'll fit right in.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to be a Sales Funnel Marketing client?</div>
+        <div class="faq-a">Nope. NetWORKs Café is open to everyone. It's hosted by Jayson, but it's a community first — come for the connections, not a sales pitch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I find out where we're meeting next?</div>
+        <div class="faq-a">Sign up for alerts above and we'll send you the date, time, and address before each meetup, plus a reminder. You can also check the <a href="https://www.facebook.com/groups/networkscafe" target="_blank" rel="noopener" style="color:var(--orange)">Facebook group</a> or <a href="mailto:jayson@salesfunnelmarketing.us" style="color:var(--orange)">email Jayson</a> anytime.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms of Service</a></p>
+</footer>
+
+<script>
+  window.setTimeout(() => {
+    const chatScript = document.createElement('script');
+    chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+    chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+    document.body.appendChild(chatScript);
+  }, 15000);
+</script>
+
+</body>
+</html>
