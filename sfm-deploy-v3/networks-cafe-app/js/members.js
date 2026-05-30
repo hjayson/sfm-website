@@ -469,7 +469,7 @@
     const root = boardRoot(); if(!root) return;
     root.innerHTML = `<div id="boardBar"></div><div id="boardList"><p class="m-note" style="padding:0 20px">Loading…</p></div>`;
     renderBoardBar();
-    let q = sb.from('posts').select('id,title,body,category,vote_count,comment_count,author_id,author:profiles(full_name,headshot_url)').eq('status','visible');
+    let q = sb.from('posts').select('id,title,body,category,vote_count,comment_count,author_id,author:profiles!posts_author_id_fkey(full_name,headshot_url)').eq('status','visible');
     if(boardCat!=='all') q = q.eq('category', boardCat);
     q = boardSort==='top'
       ? q.order('vote_count',{ascending:false}).order('last_activity_at',{ascending:false})
@@ -529,9 +529,9 @@
 
   NC.openPost = async function(id){
     const root = boardRoot(); if(!root) return;
-    const { data:p } = await sb.from('posts').select('*,author:profiles(full_name,headshot_url)').eq('id',id).single();
+    const { data:p } = await sb.from('posts').select('*,author:profiles!posts_author_id_fkey(full_name,headshot_url)').eq('id',id).single();
     if(!p){ toast('Post not found.'); return; }
-    const { data:cs } = await sb.from('comments').select('*,author:profiles(full_name,headshot_url)').eq('post_id',id).eq('status','visible').order('created_at');
+    const { data:cs } = await sb.from('comments').select('*,author:profiles!comments_author_id_fkey(full_name,headshot_url)').eq('post_id',id).eq('status','visible').order('created_at');
     const { data:mv } = await sb.from('post_votes').select('post_id').eq('post_id',id).eq('user_id',me.id);
     const voted = (mv&&mv.length)>0; if(voted) myVotes.add(id); else myVotes.delete(id);
     const mine = p.author_id===me.id;
