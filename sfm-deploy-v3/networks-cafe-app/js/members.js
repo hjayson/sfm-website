@@ -22,7 +22,7 @@
   .m-input,.m-area{width:100%;padding:13px 14px;border:1px solid #e1e5ea;border-radius:12px;font:inherit;font-size:15px;margin-bottom:12px;background:#fff;color:#1c2433;}
   .m-area{min-height:84px;resize:vertical;}
   .m-label{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:#6b7686;margin:2px 2px 6px;}
-  .m-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#E85D26;color:#fff;font-weight:800;font-size:16px;padding:15px;border-radius:13px;}
+  .m-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#F5B82E;color:#0A1628;font-weight:800;font-size:16px;padding:15px;border-radius:13px;}
   .m-btn:active{transform:scale(.98);}
   .m-btn.dark{background:#0A1628;} .m-btn.ghost{background:#fff;border:1px solid #e1e5ea;color:#0A1628;}
   .m-btn.sm{font-size:13px;padding:9px 14px;width:auto;border-radius:10px;}
@@ -35,16 +35,16 @@
   .m-ava{width:52px;height:52px;border-radius:14px;object-fit:cover;background:#dfe4ea;flex-shrink:0;}
   .m-name{font-size:15px;font-weight:800;color:#0A1628;}
   .m-meta{font-size:12px;color:#6b7686;}
-  .m-chip{display:inline-block;font-size:11px;font-weight:700;color:#E85D26;background:rgba(232,93,38,.1);padding:3px 9px;border-radius:20px;margin:3px 4px 0 0;}
+  .m-chip{display:inline-block;font-size:11px;font-weight:700;color:#0A1628;background:rgba(245,184,46,.22);padding:3px 9px;border-radius:20px;margin:3px 4px 0 0;}
   .m-note{font-size:13px;color:#6b7686;line-height:1.6;}
   .m-center{text-align:center;padding:48px 28px;}
   .m-center .ico{font-size:46px;margin-bottom:14px;}
-  .m-link{color:#E85D26;font-weight:700;}
+  .m-link{color:#0A1628;font-weight:700;text-decoration:underline;}
   .m-back{font-size:14px;font-weight:700;color:#6b7686;padding:14px 20px 0;display:inline-block;}
   .chip{flex-shrink:0;border:1px solid #e1e5ea;background:#fff;border-radius:20px;padding:7px 13px;font-size:12px;font-weight:700;color:#6b7686;}
   .chip.on{background:#0A1628;color:#fff;border-color:#0A1628;}
   .vote{border:1px solid #e1e5ea;background:#fff;border-radius:8px;width:30px;height:26px;font-size:12px;color:#6b7686;}
-  .vote.on{background:#E85D26;color:#fff;border-color:#E85D26;}
+  .vote.on{background:#F5B82E;color:#0A1628;border-color:#F5B82E;}
   `;
   function injectCss(){ if(!document.getElementById('m-css')){ const s=document.createElement('style'); s.id='m-css'; s.textContent=css; document.head.appendChild(s);} }
 
@@ -562,7 +562,7 @@
         `<div class="m-meta" style="margin-bottom:10px;">${esc((p.author&&p.author.full_name)||'Member')}</div>`+
         (p.body?`<p class="m-note" style="white-space:pre-wrap;margin-bottom:14px;color:#1c2433;">${esc(p.body)}</p>`:'')+
         `<div style="display:flex;gap:10px;align-items:center;">`+
-          `<button class="m-btn ghost sm" style="width:auto;${voted?'border-color:#E85D26;color:#E85D26;':''}" onclick="NC.votePost('${p.id}')">▲ ${p.vote_count}</button>`+
+          `<button class="m-btn ghost sm" style="width:auto;${voted?'border-color:#DDA017;color:#0A1628;':''}" onclick="NC.votePost('${p.id}')">▲ ${p.vote_count}</button>`+
           (mine?`<button class="m-btn danger sm" style="width:auto;" onclick="NC.delPost('${p.id}')">Delete</button>`
                :`<button class="m-btn ghost sm" style="width:auto;" onclick="NC.report('post','${p.id}')">⚑ Report</button>`)+
         `</div>`+

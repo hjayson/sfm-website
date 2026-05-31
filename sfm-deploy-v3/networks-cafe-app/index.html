@@ -15,7 +15,7 @@
   <style>
     :root{
       --navy:#0A1628; --navy-mid:#0f1e38; --navy-light:#152240;
-      --orange:#E85D26; --orange-dark:#c44d1e;
+      --orange:#F5B82E; --orange-dark:#DDA017;
       --white:#fff; --ink:#1c2433; --muted:#6b7686; --line:rgba(0,0,0,0.08);
       --bg:#f4f6f9; --card:#fff;
       --safe-top:env(safe-area-inset-top); --safe-bottom:env(safe-area-inset-bottom);
@@ -49,7 +49,7 @@
     @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 
     .pad{padding:20px;}
-    .section-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+    .section-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:8px;}
     h2.title{font-size:24px;font-weight:900;letter-spacing:-0.5px;color:var(--navy);margin-bottom:6px;}
     p.lead{font-size:15px;color:var(--muted);}
 
@@ -57,7 +57,7 @@
     .hero{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-mid) 100%);color:#fff;border-radius:22px;
       padding:26px 24px;position:relative;overflow:hidden;margin:20px;box-shadow:0 12px 30px rgba(10,22,40,0.22);}
     .hero::after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;
-      background:radial-gradient(circle,rgba(232,93,38,0.35),transparent 70%);top:-70px;right:-60px;}
+      background:radial-gradient(circle,rgba(245,184,46,0.32),transparent 70%);top:-70px;right:-60px;}
     .hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;position:relative;}
     .hero-date{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.05;position:relative;}
     .hero-meta{font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px;position:relative;}
@@ -80,8 +80,8 @@
     .qa-d{font-size:12px;color:var(--muted);line-height:1.4;}
     .qa.full{grid-column:1 / -1;}
     .qa.accent{background:var(--orange);border-color:var(--orange);}
-    .qa.accent .qa-t,.qa.accent .qa-d{color:#fff;}
-    .qa.accent .qa-d{color:rgba(255,255,255,0.85);}
+    .qa.accent .qa-t,.qa.accent .qa-d{color:var(--navy);}
+    .qa.accent .qa-d{color:rgba(10,22,40,0.72);}
 
     /* Generic cards */
     .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:0 20px 14px;
@@ -90,7 +90,7 @@
     .card p{font-size:14px;color:var(--muted);}
     .steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:4px;}
     .step{display:flex;gap:14px;align-items:flex-start;}
-    .step-n{width:28px;height:28px;border-radius:50%;background:rgba(232,93,38,0.12);color:var(--orange);
+    .step-n{width:28px;height:28px;border-radius:50%;background:rgba(245,184,46,0.20);color:var(--navy);
       font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
     .step-t{font-size:14px;font-weight:700;color:var(--navy);}
     .step-d{font-size:13px;color:var(--muted);}
@@ -105,7 +105,7 @@
     .event-body{flex:1;min-width:0;}
     .event-t{font-size:14px;font-weight:800;color:var(--navy);}
     .event-d{font-size:12px;color:var(--muted);margin-top:2px;}
-    .event-tag{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--orange);}
+    .event-tag{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);}
 
     /* Toggle row */
     .toggle-row{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
@@ -121,9 +121,9 @@
 
     /* Buttons */
     .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:calc(100% - 40px);margin:0 20px 12px;
-      background:var(--orange);color:#fff;font-size:16px;font-weight:800;padding:16px;border-radius:14px;transition:transform .12s;}
+      background:var(--orange);color:var(--navy);font-size:16px;font-weight:800;padding:16px;border-radius:14px;transition:transform .12s;}
     .btn:active{transform:scale(0.98);}
-    .btn.dark{background:var(--navy);}
+    .btn.dark{background:var(--navy);color:#fff;}
     .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--navy);}
 
     /* Host */
@@ -138,7 +138,7 @@
     .tabbar{flex-shrink:0;display:flex;background:#fff;border-top:1px solid var(--line);
       padding-bottom:var(--safe-bottom);box-shadow:0 -2px 12px rgba(0,0,0,0.05);}
     .tab{flex:1;height:var(--tab-h);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--muted);}
-    .tab.active{color:var(--orange);}
+    .tab.active{color:var(--navy);}
     .tab-ico{font-size:22px;line-height:1;}
     .tab-lbl{font-size:10px;font-weight:700;letter-spacing:.3px;}
 
@@ -395,7 +395,7 @@
 
 <!-- Community backend: Supabase client + member module (Phase 1) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/config.js?v=board8" onerror="console.warn('config.js missing — copy config.example.js to config.js')"></script>
-<script src="js/members.js?v=board8"></script>
+<script src="js/config.js?v=board9" onerror="console.warn('config.js missing — copy config.example.js to config.js')"></script>
+<script src="js/members.js?v=board9"></script>
 </body>
 </html>
