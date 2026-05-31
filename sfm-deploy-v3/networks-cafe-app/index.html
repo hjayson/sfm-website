@@ -53,6 +53,9 @@
     .hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;position:relative;}
     .hero-date{font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.05;position:relative;}
     .hero-meta{font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px;position:relative;}
+    .hero-banner{width:100%;border-radius:14px;margin-bottom:16px;position:relative;display:block;}
+    .hero-topic{font-size:17px;font-weight:900;color:#fff;margin-top:14px;position:relative;letter-spacing:-.2px;}
+    .hero-speaker{font-size:13px;color:rgba(255,255,255,0.62);margin-top:4px;position:relative;line-height:1.55;}
     .countdown{display:flex;gap:10px;margin-top:18px;position:relative;}
     .cd-box{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;
       padding:10px 0;flex:1;text-align:center;}
@@ -153,9 +156,12 @@
     <!-- HOME -->
     <section class="view active" data-view="home">
       <div class="hero">
+        <img class="hero-banner" src="assets/event-june.jpg" alt="NetWORKs Café presents Public Speaking Tips with Isaac Milleson" onerror="this.style.display='none'" />
         <div class="hero-eyebrow">Next Meetup</div>
         <div class="hero-date" id="heroDate">—</div>
-        <div class="hero-meta" id="heroMeta">8:00 AM · A new local spot each month</div>
+        <div class="hero-meta" id="heroMeta">8:00 AM · Tolhouse</div>
+        <div class="hero-topic">🎤 Public Speaking Tips</div>
+        <div class="hero-speaker">with Isaac Milleson · speak confidently, connect authentically, inspire impact.</div>
         <div class="countdown" id="countdown">
           <div class="cd-box"><div class="cd-num" id="cdDays">–</div><div class="cd-lbl">Days</div></div>
           <div class="cd-box"><div class="cd-num" id="cdHrs">–</div><div class="cd-lbl">Hours</div></div>
@@ -381,7 +387,7 @@
 
 <!-- Community backend: Supabase client + member module (Phase 1) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/config.js?v=board4" onerror="console.warn('config.js missing — copy config.example.js to config.js')"></script>
-<script src="js/members.js?v=board4"></script>
+<script src="js/config.js?v=board5" onerror="console.warn('config.js missing — copy config.example.js to config.js')"></script>
+<script src="js/members.js?v=board5"></script>
 </body>
 </html>
