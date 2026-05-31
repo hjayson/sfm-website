@@ -58,7 +58,7 @@
       return renderNotConfigured();
     }
     sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY, {
-      auth:{ flowType:'pkce', detectSessionInUrl:true, persistSession:true, autoRefreshToken:true }
+      auth:{ flowType:'implicit', detectSessionInUrl:true, persistSession:true, autoRefreshToken:true }
     });
 
     // Native deep-link return from the magic-link email
