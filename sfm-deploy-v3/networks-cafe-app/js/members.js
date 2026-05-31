@@ -225,7 +225,7 @@
     body.innerHTML = data.map(p=>`
       <div class="m-card" onclick="NC.openMember('${p.id}')">
         <div class="m-row">
-          <img class="m-ava" src="${esc(p.headshot_url||'assets/logo.png')}" onerror="this.src='assets/logo.png'"/>
+          <img class="m-ava" src="${esc(p.headshot_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'"/>
           <div style="min-width:0;flex:1">
             <div class="m-name">${esc(p.full_name||'Member')}</div>
             <div class="m-meta">${(p.businesses||[]).map(b=>esc(b.name)).join(' · ')||'Member'}</div>
@@ -245,7 +245,7 @@
       <a class="m-back" onclick="NC.tab('directory')">‹ Directory</a>
       <div class="m-pad" style="padding-top:8px">
         <div class="m-row" style="margin-bottom:14px">
-          <img class="m-ava" style="width:66px;height:66px" src="${esc(p.headshot_url||'assets/logo.png')}" onerror="this.src='assets/logo.png'"/>
+          <img class="m-ava" style="width:66px;height:66px" src="${esc(p.headshot_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'"/>
           <div><div class="m-name" style="font-size:18px">${esc(p.full_name||'Member')}</div>
           ${p.email?`<div class="m-meta"><a class="m-link" onclick="NC.openExt('mailto:${esc(p.email)}')">${esc(p.email)}</a></div>`:''}
           ${(p.phone_public&&p.phone)?`<div class="m-meta">${esc(p.phone)}</div>`:''}</div>
@@ -254,7 +254,7 @@
         ${(biz||[]).map(b=>`
           <div class="m-card" style="margin:0 0 12px">
             <div class="m-row">
-              <img class="m-ava" src="${esc(b.logo_url||'assets/logo.png')}" onerror="this.src='assets/logo.png'"/>
+              <img class="m-ava" src="${esc(b.logo_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'"/>
               <div style="flex:1;min-width:0"><div class="m-name">${esc(b.name)}</div><div class="m-meta">${esc(b.category||'')}${b.city?' · '+esc(b.city):''}</div></div>
             </div>
             ${b.description?`<p class="m-note" style="margin-top:10px">${esc(b.description)}</p>`:''}
@@ -291,7 +291,7 @@
     body.innerHTML = `
       <div class="m-pad">
         <div class="m-row" style="margin-bottom:8px">
-          <img class="m-ava" src="${esc(me.headshot_url||'assets/logo.png')}" onerror="this.src='assets/logo.png'"/>
+          <img class="m-ava" src="${esc(me.headshot_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'"/>
           <div style="flex:1"><div class="m-name">${esc(me.full_name||'You')}</div><div class="m-meta">${esc(me.email||'')}</div></div>
           <button class="m-btn ghost sm" onclick="NC.editProfile()">Edit</button>
         </div>
@@ -301,7 +301,7 @@
       ${(biz&&biz.length)? biz.map(b=>`
         <div class="m-card">
           <div class="m-row">
-            <img class="m-ava" src="${esc(b.logo_url||'assets/logo.png')}" onerror="this.src='assets/logo.png'"/>
+            <img class="m-ava" src="${esc(b.logo_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'"/>
             <div style="flex:1;min-width:0"><div class="m-name">${esc(b.name)}</div><div class="m-meta">${esc(b.category||'')} · ${b.is_published?'Published':'Hidden'}</div></div>
           </div>
           <div style="margin-top:10px;display:flex;gap:8px">
