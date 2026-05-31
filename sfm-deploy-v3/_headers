@@ -1,0 +1,3 @@
+# Always revalidate the NetWORKs Café app so users never get a stale cached build
+/networks-cafe-app/*
+  Cache-Control: no-cache, max-age=0, must-revalidate
