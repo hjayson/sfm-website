@@ -63,8 +63,8 @@
       --navy:        #0A1628;
       --navy-mid:    #0f1e38;
       --navy-light:  #152240;
-      --orange:      #E85D26;
-      --orange-dark: #c44d1e;
+      --orange:      #F5B82E;
+      --orange-dark: #DDA017;
       --white:       #FFFFFF;
       --off-white:   #F8F8F8;
       --dark-gray:   #555555;
@@ -93,8 +93,8 @@
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--orange-dark, #c44d1e); }
+    .nav-cta { background: var(--orange); color: var(--navy); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--orange-dark, #DDA017); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
     .mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
@@ -112,7 +112,7 @@
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(232,93,38,0.12) 0%, transparent 65%);
+      background: radial-gradient(ellipse 70% 60% at 70% 50%, rgba(245,184,46,0.12) 0%, transparent 65%);
     }
     .hero-inner {
       max-width: var(--max-w);
@@ -125,7 +125,7 @@
     }
     .hero-label {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      background: rgba(245,184,46,0.15); border: 1px solid rgba(245,184,46,0.3);
       color: var(--orange); font-size: 12px; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase;
       padding: 7px 14px; border-radius: 100px;
@@ -159,19 +159,19 @@
     }
     .hero-detail-icon {
       width: 32px; height: 32px; border-radius: 8px;
-      background: rgba(232,93,38,0.15);
+      background: rgba(245,184,46,0.15);
       display: flex; align-items: center; justify-content: center;
       font-size: 16px;
     }
     .hero-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
-      background: var(--orange); color: var(--white);
+      background: var(--orange); color: var(--navy);
       font-size: 16px; font-weight: 800;
       padding: 16px 32px; border-radius: 8px;
       transition: var(--transition);
     }
-    .btn-primary:hover { background: var(--orange-dark, #c44d1e); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--orange-dark, #DDA017); transform: translateY(-1px); }
     .btn-secondary {
       color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 600;
       display: flex; align-items: center; gap: 6px;
@@ -281,7 +281,7 @@
     .agenda-content-desc { font-size: 15px; color: var(--dark-gray); line-height: 1.7; }
     .agenda-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
     .agenda-tag {
-      background: rgba(232,93,38,0.08);
+      background: rgba(245,184,46,0.08);
       color: var(--orange);
       font-size: 12px; font-weight: 600;
       padding: 5px 12px; border-radius: 100px;
@@ -292,7 +292,7 @@
     .upcoming::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 70% at 30% 40%, rgba(232,93,38,0.1) 0%, transparent 60%);
+      background: radial-gradient(ellipse 60% 70% at 30% 40%, rgba(245,184,46,0.1) 0%, transparent 60%);
     }
     .upcoming-inner {
       max-width: var(--max-w); margin: 0 auto;
@@ -304,7 +304,7 @@
     }
     .upcoming-eyebrow {
       display: inline-block;
-      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      background: rgba(245,184,46,0.15); border: 1px solid rgba(245,184,46,0.3);
       color: var(--orange); font-size: 12px; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase;
       padding: 7px 16px; border-radius: 100px;
@@ -321,7 +321,7 @@
     .upcoming-fact { display: flex; align-items: center; gap: 14px; font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 600; }
     .upcoming-fact-icon {
       width: 38px; height: 38px; border-radius: 10px;
-      background: rgba(232,93,38,0.15);
+      background: rgba(245,184,46,0.15);
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; flex-shrink: 0;
     }
@@ -350,7 +350,7 @@
     .rsvp-field select option { color: #111; }
     .rsvp-submit {
       width: 100%; margin-top: 8px;
-      background: var(--orange); color: var(--white);
+      background: var(--orange); color: var(--navy);
       font-family: var(--font); font-size: 16px; font-weight: 800;
       padding: 16px; border: none; border-radius: 8px; cursor: pointer;
       transition: var(--transition);
@@ -445,11 +445,11 @@
     }
     .presenter-badge {
       position: absolute; bottom: -16px; right: -16px;
-      background: var(--orange); color: var(--white);
+      background: var(--orange); color: var(--navy);
       font-size: 13px; font-weight: 800;
       padding: 12px 18px;
       border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(232,93,38,0.35);
+      box-shadow: 0 8px 24px rgba(245,184,46,0.35);
     }
     .presenter-name { font-size: 36px; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; margin-bottom: 4px; }
     .presenter-role { font-size: 15px; color: var(--orange); font-weight: 700; margin-bottom: 24px; }
@@ -464,7 +464,7 @@
     .register::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(232,93,38,0.1) 0%, transparent 60%);
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(245,184,46,0.1) 0%, transparent 60%);
     }
     .register-inner {
       max-width: 680px; margin: 0 auto;
@@ -472,7 +472,7 @@
     }
     .register-eyebrow {
       display: inline-block;
-      background: rgba(232,93,38,0.15); border: 1px solid rgba(232,93,38,0.3);
+      background: rgba(245,184,46,0.15); border: 1px solid rgba(245,184,46,0.3);
       color: var(--orange); font-size: 12px; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase;
       padding: 7px 16px; border-radius: 100px;
@@ -487,13 +487,13 @@
     .register-sub { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 40px; }
     .btn-cta {
       display: inline-flex; align-items: center; gap: 10px;
-      background: var(--orange); color: var(--white);
+      background: var(--orange); color: var(--navy);
       font-size: 18px; font-weight: 800;
       padding: 20px 48px; border-radius: 10px;
       transition: var(--transition);
-      box-shadow: 0 8px 32px rgba(232,93,38,0.4);
+      box-shadow: 0 8px 32px rgba(245,184,46,0.4);
     }
-    .btn-cta:hover { background: var(--orange-dark, #c44d1e); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,93,38,0.5); }
+    .btn-cta:hover { background: var(--orange-dark, #DDA017); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(245,184,46,0.5); }
     .btn-ghost {
       display: inline-flex; align-items: center; gap: 10px;
       background: transparent; color: var(--white);
@@ -540,6 +540,8 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+  .hero-logo{width:92px;height:92px;border-radius:50%;background:#fff;padding:7px;box-shadow:0 10px 30px rgba(0,0,0,.35);margin-bottom:22px;display:block;}
+    @media(max-width:768px){.hero-logo{width:74px;height:74px;}}
   </style>
 </head>
 <body>
@@ -579,6 +581,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
+      <img class="hero-logo" src="images/networks-cafe-logo.png" alt="NetWORKs Café logo" />
       <div class="hero-label">Free Networking · 1st Wednesday Every Month</div>
       <h1>NetWORKs<br><em>Café</em></h1>
       <p class="hero-sub">A free, no-pitch networking group for local business owners. We meet in person the first Wednesday of every month — at 8:00 AM, at a new local spot each time — and stay connected online in between. Real conversations, real referrals, and a room full of people who actually want to see you grow.</p>
