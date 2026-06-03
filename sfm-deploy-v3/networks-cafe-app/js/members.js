@@ -117,28 +117,65 @@
   }
 
   function renderSignIn(){
+    var saved=''; try{ saved=localStorage.getItem('nc_email')||''; }catch(_e){}
     ROOT().innerHTML = `
       <div class="m-pad">
         <div class="m-h">Members</div>
-        <p class="m-sub">Sign in with your email to join the NetWORKs Café directory. We'll send you a secure link — no password needed.</p>
+        <p class="m-sub">Sign in with your email to join the NetWORKs Café directory. We'll email you a 6-digit code — no password, and you stay signed in on this device.</p>
         <div class="m-label">Email</div>
-        <input class="m-input" id="m-email" type="email" inputmode="email" autocapitalize="off" placeholder="you@yourbusiness.com" />
-        <button class="m-btn" onclick="NC.sendLink()">Email me a sign-in link →</button>
+        <input class="m-input" id="m-email" type="email" inputmode="email" autocapitalize="off" autocomplete="email" placeholder="you@yourbusiness.com" value="${esc(saved)}" />
+        <button class="m-btn" onclick="NC.sendLink()">Email me a code →</button>
         <div id="m-status" class="m-note" style="margin-top:12px;"></div>
         <p class="m-note" style="margin-top:10px;">New here? Signing in creates your account. A host approves new members before you appear in the directory.</p>
       </div>`;
   }
+  NC.renderSignIn = function(){ renderSignIn(); };
   NC.sendLink = async function(){
     const email = (document.getElementById('m-email').value||'').trim();
     const status = document.getElementById('m-status');
     const setStatus = (m,err)=>{ if(status){ status.textContent = m; status.style.color = err ? '#c0392b' : '#6b7686'; } };
     if(!email){ setStatus('Please enter your email first.', true); return; }
-    setStatus('Sending your sign-in link…', false);
+    try{ localStorage.setItem('nc_email', email); }catch(_e){}
+    setStatus('Sending your code…', false);
     try{
-      const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: cfg.REDIRECT_URL } });
+      const { error } = await sb.auth.signInWithOtp({ email, options:{ shouldCreateUser:true } });
       if(error){ setStatus(error.message, true); return; }
-      ROOT().innerHTML = `<div class="m-center"><div class="ico">📧</div><div class="m-h">Check your email</div>
-        <p class="m-note">We sent a sign-in link to <b>${esc(email)}</b>. Open it on this device to finish signing in — check spam/promotions too.</p></div>`;
+      renderCodeEntry(email);
+    }catch(e){ setStatus(String((e && e.message) || e), true); }
+  };
+  function renderCodeEntry(email){
+    ROOT().innerHTML = `
+      <div class="m-pad">
+        <div class="m-h">Enter your code</div>
+        <p class="m-sub">We emailed a 6-digit code to <b>${esc(email)}</b>. Type it in to sign in — you'll stay signed in on this device. (Check spam / promotions too.)</p>
+        <div class="m-label">6-digit code</div>
+        <input class="m-input" id="m-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" style="letter-spacing:8px;font-size:24px;text-align:center;" />
+        <button class="m-btn" onclick="NC.verifyCode('${esc(email)}')">Verify &amp; sign in →</button>
+        <div id="m-status" class="m-note" style="margin-top:12px;"></div>
+        <p class="m-note" style="margin-top:12px;">
+          <a href="#" onclick="NC.sendLink2('${esc(email)}');return false;">Resend code</a>
+          &nbsp;·&nbsp;
+          <a href="#" onclick="NC.renderSignIn();return false;">Use a different email</a>
+        </p>
+      </div>`;
+  }
+  NC.sendLink2 = async function(email){
+    const status = document.getElementById('m-status');
+    if(status){ status.textContent='Resending…'; status.style.color='#6b7686'; }
+    try{ const { error } = await sb.auth.signInWithOtp({ email, options:{ shouldCreateUser:true } });
+      if(status){ status.textContent = error ? error.message : 'New code sent.'; status.style.color = error ? '#c0392b' : '#6b7686'; }
+    }catch(e){ if(status){ status.textContent=String((e&&e.message)||e); status.style.color='#c0392b'; } }
+  };
+  NC.verifyCode = async function(email){
+    const code = (document.getElementById('m-code').value||'').replace(/\s/g,'').trim();
+    const status = document.getElementById('m-status');
+    const setStatus = (m,err)=>{ if(status){ status.textContent = m; status.style.color = err ? '#c0392b' : '#6b7686'; } };
+    if(!/^[0-9]{6}$/.test(code)){ setStatus('Enter the 6-digit code from your email.', true); return; }
+    setStatus('Verifying…', false);
+    try{
+      const { error } = await sb.auth.verifyOtp({ email, token:code, type:'email' });
+      if(error){ setStatus(error.message, true); return; }
+      await refresh();
     }catch(e){ setStatus(String((e && e.message) || e), true); }
   };
 
@@ -261,6 +298,7 @@
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
               ${b.website?`<button class="m-btn ghost sm" onclick="NC.openExt('${esc(b.website)}')">Website</button>`:''}
               ${b.phone?`<button class="m-btn ghost sm" onclick="NC.openExt('tel:${esc(b.phone)}')">Call</button>`:''}
+              ${b.google_review_url?`<button class="m-btn sm" onclick="NC.openExt('${esc(b.google_review_url)}')">⭐ Leave a Review</button>`:''}
             </div>
           </div>`).join('')}
         ${mine?'':`
@@ -350,6 +388,8 @@
         <div class="m-label">Category</div><input class="m-input" id="b-cat" value="${esc(b.category||'')}" placeholder="e.g. Salon, HVAC, Photographer"/>
         <div class="m-label">Description</div><textarea class="m-area" id="b-desc">${esc(b.description||'')}</textarea>
         <div class="m-label">Website</div><input class="m-input" id="b-web" value="${esc(b.website||'')}" placeholder="https://"/>
+        <div class="m-label">Google review link</div><input class="m-input" id="b-review" value="${esc(b.google_review_url||'')}" placeholder="https://g.page/r/.../review"/>
+        <div class="m-note" style="margin:-8px 2px 14px">Paste your Google "leave a review" link — fellow members can tap it to leave you a 5★ review. (Find it in Google Business Profile → "Ask for reviews".)</div>
         <div class="m-label">Phone</div><input class="m-input" id="b-phone" value="${esc(b.phone||'')}"/>
         <div class="m-label">City</div><input class="m-input" id="b-city" value="${esc(b.city||'')}"/>
         <div class="m-label">Logo</div><input class="m-input" id="b-logo" type="file" accept="image/*"/>
@@ -365,6 +405,7 @@
     const row={ owner_id:me.id, name, category:document.getElementById('b-cat').value.trim(),
       description:document.getElementById('b-desc').value.trim(), website:document.getElementById('b-web').value.trim(),
       phone:document.getElementById('b-phone').value.trim(), city:document.getElementById('b-city').value.trim(),
+      google_review_url:(document.getElementById('b-review').value||'').trim(),
       logo_url:logo, is_published:document.getElementById('b-pub').checked };
     const res = id ? await sb.from('businesses').update(row).eq('id',id) : await sb.from('businesses').insert(row);
     if(res.error) return toast(res.error.message);
