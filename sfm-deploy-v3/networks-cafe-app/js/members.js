@@ -240,11 +240,13 @@
     ROOT().innerHTML = `
       <div class="m-seg">
         <button class="${tab==='directory'?'on':''}" onclick="NC.tab('directory')">Directory</button>
+        <button class="${tab==='referrals'?'on':''}" onclick="NC.tab('referrals')">Referrals</button>
         <button class="${tab==='mine'?'on':''}" onclick="NC.tab('mine')">My Stores</button>
         ${isAdmin?`<button class="${tab==='admin'?'on':''}" onclick="NC.tab('admin')">Admin</button>`:''}
       </div>
       <div id="m-body"></div>`;
     if(tab==='directory') loadDirectory();
+    else if(tab==='referrals') loadReferrals();
     else if(tab==='mine') loadMine();
     else if(tab==='admin' && isAdmin) loadAdmin();
   }
@@ -271,6 +273,88 @@
         </div>
       </div>`).join('');
   }
+
+  /* ---------- referrals ---------- */
+  async function loadReferrals(){
+    const body=document.getElementById('m-body');
+    body.innerHTML=`<p class="m-note" style="padding:0 20px">Loading…</p>`;
+    const { data:asks, error } = await sb.from('asks').select('*').eq('status','open').order('created_at',{ascending:false});
+    if(error){ body.innerHTML=`<p class="m-note" style="padding:0 20px">${esc(error.message)}</p>`; return; }
+    const ids=[...new Set((asks||[]).map(a=>a.author_id))];
+    let names={};
+    if(ids.length){ const { data:profs } = await sb.from('profiles').select('id,full_name').in('id',ids); (profs||[]).forEach(p=>names[p.id]=p.full_name); }
+    body.innerHTML = `
+      <div class="m-pad" style="padding-bottom:8px">
+        <button class="m-btn" onclick="NC.postAsk()">＋ Post an ask</button>
+        <p class="m-note" style="margin-top:8px">Need a referral? Post what you're looking for — members who can help will raise their hand.</p>
+      </div>
+      ${(asks&&asks.length)? asks.map(a=>{
+        const mine=a.author_id===me.id;
+        return `<div class="m-card">
+          <div class="m-meta">${esc(names[a.author_id]||'Member')}${a.category?' · '+esc(a.category):''}</div>
+          <div class="m-name" style="margin:4px 0 10px;font-size:15px;line-height:1.4">${esc(a.body)}</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            ${mine
+              ? `<button class="m-btn sm" onclick="NC.viewAsk('${a.id}')">${a.response_count} can help ›</button><button class="m-btn ghost sm" onclick="NC.closeAsk('${a.id}')">Close</button>`
+              : `<button class="m-btn sm" onclick="NC.helpAsk('${a.id}')">🤝 I can help</button>${a.response_count?`<span class="m-note">${a.response_count} raised a hand</span>`:''}`}
+          </div>
+        </div>`; }).join('')
+        : `<div class="m-center"><div class="ico">🤝</div><div class="m-h">No open asks yet</div><p class="m-note">Be the first — post what you're looking for.</p></div>`}`;
+  }
+  NC.postAsk = function(){
+    const body=document.getElementById('m-body');
+    body.innerHTML=`<a class="m-back" onclick="NC.tab('referrals')">‹ Back</a>
+      <div class="m-pad" style="padding-top:8px">
+        <div class="m-h">Post an ask</div>
+        <div class="m-label">Category (optional)</div><input class="m-input" id="ask-cat" placeholder="e.g. Roofer, CPA, Photographer"/>
+        <div class="m-label">What are you looking for?</div><textarea class="m-area" id="ask-body" placeholder="Looking for a reliable roofer in Perrysburg for a small repair…"></textarea>
+        <button class="m-btn" onclick="NC.submitAsk()">Post to members</button>
+      </div>`;
+  };
+  NC.submitAsk = async function(){
+    const bodyTxt=(document.getElementById('ask-body').value||'').trim();
+    if(!bodyTxt) return toast('Tell members what you need.');
+    const { error } = await sb.from('asks').insert({ author_id:me.id, category:(document.getElementById('ask-cat').value||'').trim()||null, body:bodyTxt });
+    if(error) return toast(error.message);
+    NC.tab('referrals');
+  };
+  NC.helpAsk = async function(askId){
+    const note = prompt('Add a quick note (optional) — e.g. "I do this, happy to help":') || null;
+    const { error } = await sb.from('ask_responses').insert({ ask_id:askId, responder_id:me.id, note });
+    if(error){ toast(/duplicate/i.test(error.message)?'You already raised your hand on this.':error.message); return; }
+    toast('Nice — they will see you can help.'); loadReferrals();
+  };
+  NC.viewAsk = async function(askId){
+    const body=document.getElementById('m-body');
+    const { data:ask } = await sb.from('asks').select('*').eq('id',askId).single();
+    const { data:resp } = await sb.from('ask_responses').select('*').eq('ask_id',askId).order('created_at');
+    const ids=[...new Set((resp||[]).map(r=>r.responder_id))];
+    let profs={}; if(ids.length){ const { data:p } = await sb.from('profiles').select('id,full_name,email,headshot_url').in('id',ids); (p||[]).forEach(x=>profs[x.id]=x); }
+    body.innerHTML=`<a class="m-back" onclick="NC.tab('referrals')">‹ Back</a>
+      <div class="m-pad" style="padding-top:8px">
+        <div class="m-h">Who can help</div>
+        <p class="m-note" style="margin-bottom:12px">${esc(ask?ask.body:'')}</p>
+        ${(resp&&resp.length)? resp.map(r=>{ const p=profs[r.responder_id]||{}; return `
+          <div class="m-card">
+            <div class="m-row"><img class="m-ava" src="${esc(p.headshot_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'"/>
+              <div style="flex:1;min-width:0"><div class="m-name">${esc(p.full_name||'Member')}</div>${r.note?`<div class="m-meta">${esc(r.note)}</div>`:''}</div></div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="m-btn sm" onclick="NC.intro('${askId}','${r.responder_id}','${esc((p.email||'').replace(/'/g,''))}')">Connect &amp; refer</button>
+              <button class="m-btn ghost sm" onclick="NC.openMember('${r.responder_id}')">View profile</button>
+            </div>
+          </div>`; }).join('')
+          : `<p class="m-note">No one's raised a hand yet — give it time.</p>`}
+      </div>`;
+  };
+  NC.intro = async function(askId, responderId, email){
+    await sb.from('referrals').insert({ ask_id:askId, from_member:me.id, to_member:responderId });
+    if(email){ NC.openExt('mailto:'+email); }
+    toast('Logged as a referral — now make the connection!');
+  };
+  NC.closeAsk = async function(askId){
+    if(!confirm('Close this ask? It will stop showing to members.')) return;
+    await sb.from('asks').update({status:'closed'}).eq('id',askId); loadReferrals();
+  };
 
   NC.openMember = async function(id){
     const body=document.getElementById('m-body');
