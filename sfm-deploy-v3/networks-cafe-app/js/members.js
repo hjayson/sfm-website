@@ -471,6 +471,7 @@
             <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
               ${b.website?`<button class="m-btn ghost sm" onclick="NC.openExt('${esc(b.website)}')">Website</button>`:''}
               ${b.phone?`<button class="m-btn ghost sm" onclick="NC.openExt('tel:${esc(b.phone)}')">Call</button>`:''}
+              ${b.contact_email?`<button class="m-btn ghost sm" onclick="NC.openExt('mailto:${esc(b.contact_email)}')">✉️ Email</button>`:''}
               ${b.google_review_url?`<button class="m-btn sm" onclick="NC.openExt('${esc(b.google_review_url)}')">⭐ Leave a Review</button>`:''}
             </div>
           </div>`).join('')}
@@ -564,6 +565,7 @@
         <div class="m-label">Google review link</div><input class="m-input" id="b-review" value="${esc(b.google_review_url||'')}" placeholder="https://g.page/r/.../review"/>
         <div class="m-note" style="margin:-8px 2px 14px">Paste your Google "leave a review" link — fellow members can tap it to leave you a 5★ review. (Find it in Google Business Profile → "Ask for reviews".)</div>
         <div class="m-label">Phone</div><input class="m-input" id="b-phone" value="${esc(b.phone||'')}"/>
+        <div class="m-label">Contact email</div><input class="m-input" id="b-email" type="email" autocapitalize="off" value="${esc(b.contact_email||'')}" placeholder="you@yourbusiness.com"/>
         <div class="m-label">City</div><input class="m-input" id="b-city" value="${esc(b.city||'')}"/>
         <div class="m-label">Logo</div><input class="m-input" id="b-logo" type="file" accept="image/*"/>
         <label style="display:flex;gap:8px;align-items:center;font-size:13px;color:#6b7686;margin:0 2px 14px"><input type="checkbox" id="b-pub" ${b.is_published?'checked':''}/> Show in the directory</label>
@@ -579,6 +581,7 @@
       description:document.getElementById('b-desc').value.trim(), website:document.getElementById('b-web').value.trim(),
       phone:document.getElementById('b-phone').value.trim(), city:document.getElementById('b-city').value.trim(),
       google_review_url:(document.getElementById('b-review').value||'').trim(),
+      contact_email:(document.getElementById('b-email').value||'').trim(),
       logo_url:logo, is_published:document.getElementById('b-pub').checked };
     const res = id ? await sb.from('businesses').update(row).eq('id',id) : await sb.from('businesses').insert(row);
     if(res.error) return toast(res.error.message);
