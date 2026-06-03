@@ -121,7 +121,7 @@
     ROOT().innerHTML = `
       <div class="m-pad">
         <div class="m-h">Members</div>
-        <p class="m-sub">Sign in with your email to join the NetWORKs Café directory. We'll email you a 6-digit code — no password, and you stay signed in on this device.</p>
+        <p class="m-sub">Sign in with your email to join the NetWORKs Café directory. We'll email you a code — no password, and you stay signed in on this device.</p>
         <div class="m-label">Email</div>
         <input class="m-input" id="m-email" type="email" inputmode="email" autocapitalize="off" autocomplete="email" placeholder="you@yourbusiness.com" value="${esc(saved)}" />
         <button class="m-btn" onclick="NC.sendLink()">Email me a code →</button>
@@ -147,9 +147,9 @@
     ROOT().innerHTML = `
       <div class="m-pad">
         <div class="m-h">Enter your code</div>
-        <p class="m-sub">We emailed a 6-digit code to <b>${esc(email)}</b>. Type it in to sign in — you'll stay signed in on this device. (Check spam / promotions too.)</p>
-        <div class="m-label">6-digit code</div>
-        <input class="m-input" id="m-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" style="letter-spacing:8px;font-size:24px;text-align:center;" />
+        <p class="m-sub">We emailed a code to <b>${esc(email)}</b>. Type it in to sign in — you'll stay signed in on this device. (Check spam / promotions too.)</p>
+        <div class="m-label">Code</div>
+        <input class="m-input" id="m-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="Code from email" style="letter-spacing:8px;font-size:24px;text-align:center;" />
         <button class="m-btn" onclick="NC.verifyCode('${esc(email)}')">Verify &amp; sign in →</button>
         <div id="m-status" class="m-note" style="margin-top:12px;"></div>
         <p class="m-note" style="margin-top:12px;">
@@ -170,7 +170,7 @@
     const code = (document.getElementById('m-code').value||'').replace(/\s/g,'').trim();
     const status = document.getElementById('m-status');
     const setStatus = (m,err)=>{ if(status){ status.textContent = m; status.style.color = err ? '#c0392b' : '#6b7686'; } };
-    if(!/^[0-9]{6}$/.test(code)){ setStatus('Enter the 6-digit code from your email.', true); return; }
+    if(!/^[0-9]{4,8}$/.test(code)){ setStatus('Enter the code from your email.', true); return; }
     setStatus('Verifying…', false);
     try{
       const { error } = await sb.auth.verifyOtp({ email, token:code, type:'email' });
