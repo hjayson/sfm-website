@@ -214,6 +214,9 @@
           <li class="step"><span class="step-n">🤝</span><span><span class="step-t">After 9:30 · Mix &amp; mingle</span><br><span class="step-d">Stick around to connect one-on-one.</span></span></li>
         </ol>
       </div>
+
+      <div class="section-label" style="margin:8px 20px 10px;">📸 Snapshots</div>
+      <div id="photoWallHome"></div>
     </section>
 
     <!-- EVENTS -->
@@ -367,7 +370,8 @@
     'assets/meetups/meetup-12.jpg'
   ];
   function renderPhotoWall(){
-    const el=document.getElementById('photoWall'); if(!el) return;
+    const els=[document.getElementById('photoWall'),document.getElementById('photoWallHome')].filter(Boolean); if(!els.length) return;
+    const el={set innerHTML(v){els.forEach(function(e){e.innerHTML=v;});}};
     if(!MEETUP_PHOTOS.length){
       el.innerHTML='<div style="margin:0 20px;padding:22px;border:1px dashed var(--line);border-radius:16px;text-align:center;color:var(--muted);background:var(--card);"><div style="font-size:30px;margin-bottom:8px;">📸</div><div style="font-weight:800;color:var(--navy);font-size:14px;">Snapshots coming soon</div><div style="font-size:13px;margin-top:5px;line-height:1.5;">Photos from past meetups will live here.<br>Tag <b>#NetWORKsCafe</b> or send Jayson your shots.</div></div>';
       return;
