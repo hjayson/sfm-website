@@ -69,6 +69,9 @@
       padding:10px 0;flex:1;text-align:center;}
     .cd-num{font-size:22px;font-weight:900;line-height:1;}
     .cd-lbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:4px;}
+    @keyframes cdpulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+    .cd-box.soon{animation:cdpulse 1.3s ease-in-out infinite;border-color:var(--orange);background:rgba(245,184,46,0.14);}
+    .hero-eyebrow.soon{color:#fff;}
 
     /* Quick actions */
     .qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px;}
@@ -174,6 +177,7 @@
           <div class="cd-box"><div class="cd-num" id="cdHrs">–</div><div class="cd-lbl">Hours</div></div>
           <div class="cd-box"><div class="cd-num" id="cdMin">–</div><div class="cd-lbl">Min</div></div>
         </div>
+        <div id="rsvp-slot"></div>
       </div>
 
       <div class="qa-grid">
@@ -198,6 +202,8 @@
           <span class="qa-d">Tees, mugs &amp; stickers — coffee &amp; connections</span>
         </button>
       </div>
+
+      <div id="spotlight-slot"></div>
 
       <div class="card" style="margin-top:8px;">
         <h3>How the morning runs</h3>
@@ -241,6 +247,8 @@
         <div class="event-cal"><span class="m">Apr</span><span class="d">1</span></div>
         <div class="event-body"><div class="event-tag">Past meetup</div><div class="event-t">Getting Found Locally</div><div class="event-d">Google Business Profiles &amp; local SEO basics.</div></div>
       </div>
+      <div class="section-label" style="margin:18px 20px 10px;">Snapshots</div>
+      <div id="photoWall"></div>
     </section>
 
     <!-- COMMUNITY (discussion board) -->
@@ -324,6 +332,7 @@
     return fw;
   }
   const MEETUP = nextFirstWednesday();
+  window.NC_MEETUP = (function(d){const p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());})(MEETUP);
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DOW = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -341,13 +350,36 @@
     document.getElementById('upcomingList').innerHTML = html;
   }
 
+  /* ---- Past-meetup photo wall ---- */
+  // To add photos: drop image files in assets/meetups/ and list them below, e.g. 'assets/meetups/june-2026.jpg'
+  const MEETUP_PHOTOS = [];
+  function renderPhotoWall(){
+    const el=document.getElementById('photoWall'); if(!el) return;
+    if(!MEETUP_PHOTOS.length){
+      el.innerHTML='<div style="margin:0 20px;padding:22px;border:1px dashed var(--line);border-radius:16px;text-align:center;color:var(--muted);background:var(--card);"><div style="font-size:30px;margin-bottom:8px;">📸</div><div style="font-weight:800;color:var(--navy);font-size:14px;">Snapshots coming soon</div><div style="font-size:13px;margin-top:5px;line-height:1.5;">Photos from past meetups will live here.<br>Tag <b>#NetWORKsCafe</b> or send Jayson your shots.</div></div>';
+      return;
+    }
+    el.innerHTML='<div style="display:flex;gap:10px;overflow-x:auto;padding:0 20px 4px;-webkit-overflow-scrolling:touch;">'+
+      MEETUP_PHOTOS.map(src=>'<img src="'+src+'" style="height:150px;border-radius:14px;flex-shrink:0;object-fit:cover;" loading="lazy" onerror="this.style.display=\'none\'">').join('')+'</div>';
+  }
+
   function tick(){
     const now=new Date(), diff=MEETUP-now;
-    if(diff<=0){ document.getElementById('cdDays').textContent='Today'; document.getElementById('cdHrs').textContent='–'; document.getElementById('cdMin').textContent='–'; return; }
+    const eb=document.querySelector('.hero-eyebrow');
+    const boxes=document.querySelectorAll('#countdown .cd-box');
+    if(diff<=0){
+      document.getElementById('cdDays').textContent='Today'; document.getElementById('cdHrs').textContent='–'; document.getElementById('cdMin').textContent='–';
+      if(eb){ eb.textContent='🔥 Happening today!'; eb.classList.add('soon'); }
+      boxes.forEach(b=>b.classList.add('soon'));
+      return;
+    }
     const days=Math.floor(diff/86400000), hrs=Math.floor(diff/3600000)%24, min=Math.floor(diff/60000)%60;
     document.getElementById('cdDays').textContent=days;
     document.getElementById('cdHrs').textContent=hrs;
     document.getElementById('cdMin').textContent=min;
+    const soon = days<2;
+    if(eb){ eb.textContent = soon ? '🔥 This week!' : 'Next Meetup'; eb.classList.toggle('soon', soon); }
+    boxes.forEach(b=>b.classList.toggle('soon', soon));
   }
 
   /* ---- Add to calendar (opens a pre-filled Google Calendar event) ---- */
@@ -391,7 +423,7 @@
 
   /* ---- Boot ---- */
   document.addEventListener('DOMContentLoaded', ()=>{
-    renderMeetup(); tick(); setInterval(tick,30000); initPush();
+    renderMeetup(); renderPhotoWall(); tick(); setInterval(tick,30000); initPush();
     // expose tab nav for the member module
     window.goTab = go;
     // Hide native splash once UI is ready
@@ -403,6 +435,6 @@
 <!-- Community backend: Supabase client + member module (Phase 1) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=ref12" onerror="console.warn('config.js missing — copy config.example.js to config.js')"></script>
-<script src="js/members.js?v=ref12"></script>
+<script src="js/members.js?v=ref13"></script>
 </body>
 </html>

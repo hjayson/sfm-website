@@ -45,6 +45,27 @@
   .chip.on{background:#0A1628;color:#fff;border-color:#0A1628;}
   .vote{border:1px solid #e1e5ea;background:#fff;border-radius:8px;width:30px;height:26px;font-size:12px;color:#6b7686;}
   .vote.on{background:#F5B82E;color:#0A1628;border-color:#F5B82E;}
+  /* RSVP (home hero) */
+  #rsvp-slot{margin-top:16px;position:relative;}
+  .rsvp-cta{width:100%;background:#F5B82E;color:#0A1628;font-weight:800;font-size:15px;padding:13px;border-radius:13px;display:flex;align-items:center;justify-content:center;gap:8px;}
+  .rsvp-cta.on{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.28);}
+  .rsvp-cta:active{transform:scale(.98);}
+  .rsvp-who{display:flex;align-items:center;gap:10px;margin-top:12px;}
+  .rsvp-avas{display:flex;}
+  .rsvp-ava{width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #0f1e38;margin-left:-8px;background:#dfe4ea;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#0A1628;}
+  .rsvp-ava:first-child{margin-left:0;}
+  .rsvp-ini{background:#F5B82E;}
+  .rsvp-more{background:rgba(255,255,255,.18);color:#fff;}
+  .rsvp-count{font-size:13px;color:rgba(255,255,255,.72);font-weight:600;}
+  /* Member spotlight (home) */
+  #spotlight-slot:empty{display:none;}
+  .spot-card{margin:14px 20px 0;background:linear-gradient(135deg,#fff,#fff8e8);border:1px solid rgba(245,184,46,.45);border-radius:18px;padding:16px;box-shadow:0 4px 14px rgba(245,184,46,.12);}
+  .spot-eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#946600;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .spot-row{display:flex;align-items:center;gap:13px;}
+  .spot-ava{width:56px;height:56px;border-radius:15px;object-fit:cover;background:#dfe4ea;flex-shrink:0;}
+  .spot-name{font-size:16px;font-weight:900;color:#0A1628;}
+  .spot-biz{font-size:13px;color:#6b7686;margin-top:2px;}
+  .spot-btn{margin-top:13px;width:100%;background:#0A1628;color:#fff;font-weight:800;font-size:14px;padding:11px;border-radius:11px;}
   `;
   function injectCss(){ if(!document.getElementById('m-css')){ const s=document.createElement('style'); s.id='m-css'; s.textContent=css; document.head.appendChild(s);} }
 
@@ -79,11 +100,11 @@
   async function refresh(){
     const { data:{ session:s } } = await sb.auth.getSession();
     session = s;
-    if(!session){ me=null; renderSignIn(); syncBoard(); return; }
+    if(!session){ me=null; renderSignIn(); syncBoard(); paintHome(); return; }
     const { data, error } = await sb.from('profiles').select('*').eq('id', session.user.id).single();
     if(error){ console.warn(error); }
     me = data || { id:session.user.id, status:'pending' };
-    route(); syncBoard();
+    route(); syncBoard(); paintHome();
   }
   function syncBoard(){
     const a = document.querySelector('.view.active');
@@ -251,6 +272,74 @@
     else if(tab==='admin' && isAdmin) loadAdmin();
   }
   NC.tab = function(t){ tab=t; renderMemberArea(); };
+
+  /* ---------- home: RSVP + spotlight ---------- */
+  function paintHome(){ try{ renderRsvp(); renderSpotlight(); }catch(e){ console.warn(e); } }
+
+  async function renderRsvp(){
+    const slot=document.getElementById('rsvp-slot'); if(!slot) return;
+    const meetup=window.NC_MEETUP;
+    if(!session || !me || me.status!=='active'){
+      slot.innerHTML=`<button class="rsvp-cta" onclick="go('members')">✋ Sign in to RSVP &amp; see who's coming</button>`;
+      return;
+    }
+    if(!meetup){ slot.innerHTML=''; return; }
+    try{
+      const { data, error } = await sb.from('rsvps')
+        .select('member_id,profiles!inner(full_name,headshot_url)')
+        .eq('meetup_date',meetup);
+      if(error){ console.warn('rsvp',error); slot.innerHTML=''; return; }
+      const rows=data||[];
+      const mine=rows.some(r=>r.member_id===session.user.id);
+      const count=rows.length;
+      const avas=rows.slice(0,8).map(r=>{
+        const p=r.profiles||{}; const nm=esc(p.full_name||'Member');
+        return p.headshot_url
+          ? `<img class="rsvp-ava" src="${esc(p.headshot_url)}" title="${nm}" onerror="this.style.display='none'">`
+          : `<span class="rsvp-ava rsvp-ini" title="${nm}">${esc((p.full_name||'M').trim().charAt(0).toUpperCase())}</span>`;
+      }).join('');
+      const more=count>8?`<span class="rsvp-ava rsvp-more">+${count-8}</span>`:'';
+      slot.innerHTML=`
+        <button class="rsvp-cta ${mine?'on':''}" onclick="NC.toggleRsvp()">${mine?"✓ You're going — tap to cancel":"✋ I'm coming"}</button>
+        ${count?`<div class="rsvp-who"><div class="rsvp-avas">${avas}${more}</div><div class="rsvp-count">${count} ${count===1?'member':'members'} going</div></div>`:`<div class="rsvp-who"><div class="rsvp-count">Be the first to RSVP 🎉</div></div>`}`;
+    }catch(e){ console.warn(e); slot.innerHTML=''; }
+  }
+
+  NC.toggleRsvp=async function(){
+    if(!session || !me || me.status!=='active'){ go('members'); return; }
+    const meetup=window.NC_MEETUP; if(!meetup) return;
+    try{
+      const { data } = await sb.from('rsvps').select('id').eq('meetup_date',meetup).eq('member_id',session.user.id).maybeSingle();
+      if(data){ await sb.from('rsvps').delete().eq('id',data.id); }
+      else { await sb.from('rsvps').insert({ member_id:session.user.id, meetup_date:meetup }); }
+    }catch(e){ console.warn(e); }
+    renderRsvp();
+  };
+
+  async function renderSpotlight(){
+    const slot=document.getElementById('spotlight-slot'); if(!slot) return;
+    if(!session || !me || me.status!=='active'){ slot.innerHTML=''; return; }
+    try{
+      const { data, error } = await sb.from('profiles')
+        .select('id,full_name,headshot_url,businesses!inner(name,category)')
+        .eq('status','active');
+      if(error || !data || !data.length){ slot.innerHTML=''; return; }
+      const idx=Math.floor(Date.now()/86400000)%data.length;  // rotates daily, stable within a day
+      const p=data[idx]; const b=(p.businesses||[])[0]||{};
+      slot.innerHTML=`
+        <div class="spot-card">
+          <div class="spot-eyebrow">⭐ Member Spotlight</div>
+          <div class="spot-row">
+            <img class="spot-ava" src="${esc(p.headshot_url||'assets/logo.png?v=2')}" onerror="this.src='assets/logo.png?v=2'">
+            <div style="min-width:0">
+              <div class="spot-name">${esc(p.full_name||'Member')}</div>
+              <div class="spot-biz">${esc(b.name||'')}${b.category?' · '+esc(b.category):''}</div>
+            </div>
+          </div>
+          <button class="spot-btn" onclick="go('members');NC.openMember('${p.id}')">View profile →</button>
+        </div>`;
+    }catch(e){ console.warn(e); slot.innerHTML=''; }
+  }
 
   /* ---------- directory ---------- */
   async function loadDirectory(){
@@ -577,7 +666,7 @@
   const CATLABEL = {general:'General',referrals:'Referrals',wins:'Wins',questions:'Questions',events:'Events'};
   let boardCat='all', boardSort='new', myVotes=new Set();
 
-  NC.onTab = function(name){ if(name==='community') renderBoard(); };
+  NC.onTab = function(name){ if(name==='community') renderBoard(); else if(name==='home') paintHome(); };
   function boardRoot(){ return document.getElementById('board-root'); }
 
   function renderBoard(){
