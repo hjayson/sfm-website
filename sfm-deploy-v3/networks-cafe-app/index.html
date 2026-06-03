@@ -352,7 +352,20 @@
 
   /* ---- Past-meetup photo wall ---- */
   // To add photos: drop image files in assets/meetups/ and list them below, e.g. 'assets/meetups/june-2026.jpg'
-  const MEETUP_PHOTOS = [];
+  const MEETUP_PHOTOS = [
+    'assets/meetups/meetup-01.jpg',
+    'assets/meetups/meetup-02.jpg',
+    'assets/meetups/meetup-03.jpg',
+    'assets/meetups/meetup-04.jpg',
+    'assets/meetups/meetup-05.jpg',
+    'assets/meetups/meetup-06.jpg',
+    'assets/meetups/meetup-07.jpg',
+    'assets/meetups/meetup-08.jpg',
+    'assets/meetups/meetup-09.jpg',
+    'assets/meetups/meetup-10.jpg',
+    'assets/meetups/meetup-11.jpg',
+    'assets/meetups/meetup-12.jpg'
+  ];
   function renderPhotoWall(){
     const el=document.getElementById('photoWall'); if(!el) return;
     if(!MEETUP_PHOTOS.length){
