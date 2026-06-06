@@ -157,6 +157,11 @@
   to = "/sfm-thankyou.html"
   status = 200
 
+[[redirects]]
+  from = "/sfm-brand-studio"
+  to = "/sfm-brand-studio.html"
+  status = 200
+
 # Custom 404
 [[redirects]]
   from = "/*"
