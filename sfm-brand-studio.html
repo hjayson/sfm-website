@@ -27,7 +27,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --lgray:#F4F4F4;--ink:#1C1C2E;--line:#e7e7ef;--muted:#76767f;--bone:#F4F1EB;--steel:#E4DFD5;
     --primary:#0A1628;--accent:#E85D26;}
   *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{max-width:100%;overflow-x:hidden;}
   body{background:#fff;color:var(--ink);font-family:'Montserrat','Helvetica Neue',Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  @media(max-width:430px){.sfmbar .tag{display:none;}}
   .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
   .sfmbar{background:var(--black);border-bottom:3px solid var(--red);}
   .sfmbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
