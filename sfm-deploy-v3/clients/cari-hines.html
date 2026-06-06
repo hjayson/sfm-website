@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Client Portal · Sales Funnel Marketing</title>
+<link rel="icon" type="image/png" href="../images/sfm-logo.png" />
+<style>
+/* =======================================================================
+   SFM CLIENT DASHBOARD  —  ONE FILE PER CLIENT
+   To update: edit ONLY the CLIENT data block in the code section below.
+   To add a new client: copy this file, rename it (e.g. clients/john-doe.html),
+   edit the CLIENT block, and change the accessCode.
+   ======================================================================= */
+:root{
+  --navy:#0A1628; --navy-2:#0f1e38; --navy-3:#152240;
+  --orange:#E85D26; --orange-d:#c44d1e;
+  --white:#fff; --ink:#1c2433; --muted:#6b7686; --line:#e7ebf0;
+  --bg:#f4f6f9; --card:#fff; --good:#22a06b; --gold:#E8A93B;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;}
+a{color:var(--orange);}
+img{display:block;max-width:100%;}
+
+/* ---- passcode gate ---- */
+#gate{position:fixed;inset:0;background:linear-gradient(160deg,var(--navy),var(--navy-2));z-index:999;display:flex;align-items:center;justify-content:center;padding:24px;}
+.gate-card{background:#fff;border-radius:20px;padding:40px 34px;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.gate-card img{width:54px;height:54px;border-radius:50%;margin:0 auto 16px;}
+.gate-card h1{font-size:20px;font-weight:900;color:var(--navy);margin-bottom:6px;}
+.gate-card p{font-size:14px;color:var(--muted);margin-bottom:20px;}
+.gate-card input{width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:18px;text-align:center;letter-spacing:4px;margin-bottom:12px;}
+.gate-card button{width:100%;background:var(--orange);color:#fff;font-weight:800;font-size:16px;padding:14px;border-radius:12px;border:none;cursor:pointer;}
+.gate-card button:hover{background:var(--orange-d);}
+.gate-err{color:#c0392b;font-size:13px;font-weight:600;min-height:18px;margin-top:4px;}
+
+/* ---- shell ---- */
+#app{display:none;}
+.topbar{background:var(--navy);color:#fff;padding:18px 24px;display:flex;align-items:center;gap:14px;}
+.topbar .sfm{display:flex;align-items:center;gap:10px;}
+.topbar .sfm img{width:34px;height:34px;border-radius:50%;}
+.topbar .sfm b{font-size:15px;font-weight:800;letter-spacing:-.2px;}
+.topbar .sfm b span{color:var(--orange);}
+.topbar .tag{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.wrap{max-width:980px;margin:0 auto;padding:28px 22px 64px;}
+
+/* ---- client header ---- */
+.client-head{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;box-shadow:0 4px 16px rgba(10,22,40,.05);margin-bottom:22px;}
+.client-head img{width:64px;height:64px;border-radius:14px;object-fit:contain;background:#fff;border:1px solid var(--line);padding:6px;}
+.client-head .h-name{font-size:22px;font-weight:900;color:var(--navy);letter-spacing:-.4px;}
+.client-head .h-sub{font-size:13px;color:var(--muted);margin-top:2px;}
+.client-head .h-upd{margin-left:auto;text-align:right;font-size:12px;color:var(--muted);}
+.client-head .h-upd b{display:block;color:var(--navy);font-size:13px;}
+
+.section-label{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin:26px 4px 12px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 3px 12px rgba(10,22,40,.04);margin-bottom:14px;}
+.card h2{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+
+/* weekly note */
+.note{font-size:15px;color:#2b3340;background:#fff8f3;border-left:3px solid var(--orange);padding:14px 16px;border-radius:0 10px 10px 0;}
+.checklist{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px;}
+.checklist li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;}
+.checklist li .b{width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:2px;background:rgba(232,93,38,.14);color:var(--orange);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+
+/* projects */
+.proj{margin-bottom:14px;}
+.proj-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.proj-title{font-size:17px;font-weight:800;color:var(--navy);}
+.proj-pct{margin-left:auto;font-size:13px;font-weight:800;color:var(--orange);}
+.bar{height:9px;background:#eef1f5;border-radius:20px;overflow:hidden;margin-bottom:18px;}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--gold));border-radius:20px;transition:width .6s;}
+.steps{display:flex;gap:6px;flex-wrap:wrap;}
+.step{flex:1;min-width:84px;text-align:center;position:relative;padding-top:26px;}
+.step .dot{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:#e4e8ee;border:2px solid #e4e8ee;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:900;}
+.step.done .dot{background:var(--good);border-color:var(--good);}
+.step.current .dot{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 4px rgba(232,93,38,.18);}
+.step .lbl{font-size:11.5px;font-weight:700;color:var(--muted);line-height:1.3;}
+.step.done .lbl,.step.current .lbl{color:var(--navy);}
+.step::before{content:'';position:absolute;top:9px;left:-50%;width:100%;height:2px;background:#e4e8ee;z-index:0;}
+.step:first-child::before{display:none;}
+.step.done::before,.step.current::before{background:var(--good);}
+.preview-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--navy);color:#fff;font-weight:800;font-size:14px;padding:11px 18px;border-radius:11px;text-decoration:none;}
+.preview-btn:hover{background:var(--navy-2);}
+
+/* two-col */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:680px){.cols{grid-template-columns:1fr;}.client-head{flex-wrap:wrap;}.client-head .h-upd{margin-left:0;text-align:left;width:100%;}}
+.mini h2{display:flex;align-items:center;gap:8px;}
+.mini ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:9px;}
+.mini li{font-size:14px;display:flex;gap:10px;align-items:flex-start;}
+.mini li::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:7px;}
+.mini.you li::before{background:var(--gold);}
+
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px;}
+footer a{font-weight:700;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<!-- ===================== PASSCODE GATE ===================== -->
+<div id="gate">
+  <div class="gate-card">
+    <img id="gate-logo" src="../images/sfm-logo.png" alt="SFM" />
+    <h1>Your Project Portal</h1>
+    <p>Enter your access code to view your dashboard.</p>
+    <input id="gate-input" type="text" inputmode="numeric" placeholder="••••" maxlength="10" autocomplete="off" />
+    <button onclick="unlock()">View my dashboard →</button>
+    <div class="gate-err" id="gate-err"></div>
+  </div>
+</div>
+
+<!-- ===================== DASHBOARD ===================== -->
+<div id="app">
+  <div class="topbar">
+    <div class="sfm"><img src="../images/sfm-logo.png" alt=""><b>Sales <span>Funnel</span> Marketing</b></div>
+    <div class="tag">Client Portal</div>
+  </div>
+  <div class="wrap" id="content"><!-- rendered by JS --></div>
+  <footer>
+    Questions? Email <a id="foot-contact" href="#"></a> · Sales Funnel Marketing
+  </footer>
+</div>
+
+<script>
+/* ============================================================
+   EDIT THIS BLOCK EACH WEEK  ↓↓↓
+   ============================================================ */
+const CLIENT = {
+  accessCode: "2468",                       // the code you give this client
+  name: "Cari Hines",
+  logo: "../images/logos/logo-cari-hines.png",
+  tagline: "Real Estate · Personal Brand",  // their business / what we do for them
+  updated: "June 6, 2026",
+
+  // This week's note from Jayson + the plan of action
+  weeklyNote: "Big week — your new website design is locked and we're now building out the pages. On track to share a live preview for your review by Friday.",
+  plan: [
+    "Build the Home, About, and Listings pages from the approved design",
+    "Write and load your bio + service copy",
+    "Set up your contact form to email you new leads",
+    "Launch this week's 3 social posts (already scheduled)"
+  ],
+
+  // Projects with milestone stages + % progress + optional live preview link
+  projects: [
+    {
+      title: "New Website",
+      percent: 45,
+      stages: [
+        { name:"Discovery", done:true },
+        { name:"Design", done:true },
+        { name:"Build", current:true },
+        { name:"Your Review", done:false },
+        { name:"Launch", done:false }
+      ],
+      preview: "https://example.com/cari-hines-preview"   // set to "" to hide the button
+    },
+    {
+      title: "Social Media Management",
+      percent: 100,
+      stages: [
+        { name:"Setup", done:true },
+        { name:"Content Plan", done:true },
+        { name:"Posting", current:true }
+      ],
+      preview: ""
+    }
+  ],
+
+  // What we're doing next, and what we need from the client
+  nextSteps: [
+    "Finish building all website pages",
+    "Connect your domain so we can go live",
+    "Send you the live preview link by Friday"
+  ],
+  yourTurn: [
+    "Send 4–6 favorite photos for the website",
+    "Review the preview link when it arrives & send any tweaks",
+    "Confirm your business hours & service areas"
+  ],
+
+  contact: "jayson@salesfunnelmarketing.us"
+};
+/* ============================================================
+   EDIT ABOVE  ↑↑↑   (no need to touch anything below)
+   ============================================================ */
+
+function unlock(){
+  const v = (document.getElementById('gate-input').value||'').trim();
+  if(v === String(CLIENT.accessCode)){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+  } else {
+    document.getElementById('gate-err').textContent = "That code didn't match — try again or text Jayson.";
+  }
+}
+document.getElementById('gate-input').addEventListener('keydown', e=>{ if(e.key==='Enter') unlock(); });
+if(CLIENT.logo){ document.getElementById('gate-logo').src = CLIENT.logo; document.getElementById('gate-logo').onerror=function(){this.src='../images/sfm-logo.png';}; }
+
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function render(){
+  const c = CLIENT;
+  document.title = `${c.name} · Client Portal`;
+  document.getElementById('foot-contact').textContent = c.contact;
+  document.getElementById('foot-contact').href = 'mailto:'+c.contact;
+
+  const plan = c.plan.map(p=>`<li><span class="b">✓</span><span>${esc(p)}</span></li>`).join('');
+
+  const projects = c.projects.map(pr=>{
+    const steps = pr.stages.map(s=>{
+      const cls = s.done?'done':(s.current?'current':'');
+      const mark = s.done?'✓':(s.current?'•':'');
+      return `<div class="step ${cls}"><div class="dot">${mark}</div><div class="lbl">${esc(s.name)}</div></div>`;
+    }).join('');
+    const btn = pr.preview ? `<a class="preview-btn" href="${esc(pr.preview)}" target="_blank" rel="noopener">🔗 View live preview</a>` : '';
+    return `<div class="card proj">
+      <div class="proj-top"><div class="proj-title">${esc(pr.title)}</div><div class="proj-pct">${pr.percent}% complete</div></div>
+      <div class="bar"><span style="width:${Math.max(2,Math.min(100,pr.percent))}%"></span></div>
+      <div class="steps">${steps}</div>
+      ${btn}
+    </div>`;
+  }).join('');
+
+  const next = c.nextSteps.map(s=>`<li>${esc(s)}</li>`).join('');
+  const you = c.yourTurn.map(s=>`<li>${esc(s)}</li>`).join('');
+
+  document.getElementById('content').innerHTML = `
+    <div class="client-head">
+      ${c.logo?`<img src="${esc(c.logo)}" onerror="this.style.display='none'" alt="">`:''}
+      <div>
+        <div class="h-name">${esc(c.name)}</div>
+        <div class="h-sub">${esc(c.tagline||'')}</div>
+      </div>
+      <div class="h-upd">Last updated<b>${esc(c.updated)}</b></div>
+    </div>
+
+    <div class="section-label">This Week</div>
+    <div class="card">
+      <div class="note">${esc(c.weeklyNote)}</div>
+      <ul class="checklist">${plan}</ul>
+    </div>
+
+    <div class="section-label">Where We're At</div>
+    ${projects}
+
+    <div class="section-label">What's Next</div>
+    <div class="cols">
+      <div class="card mini"><h2>🚀 We're handling</h2><ul>${next}</ul></div>
+      <div class="card mini you"><h2>✋ We need from you</h2><ul>${you}</ul></div>
+    </div>`;
+}
+render();
+</script>
+</body>
+</html>
