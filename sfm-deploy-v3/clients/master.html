@@ -13,7 +13,6 @@
 :root{--navy:#0A1628;--ember:#E85D26;--ink:#1C1C2E;--line:#e6e6ee;--muted:#76767f;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:#F7F7FB;color:var(--ink);font-family:'Montserrat',Arial,sans-serif;line-height:1.5;}
-/* gate */
 #gate{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:50;}
 #gate .box{text-align:center;color:#fff;padding:24px;}
 #gate h1{font-family:'Tinos',Georgia,serif;font-size:26px;margin:0 0 4px;}
@@ -21,23 +20,51 @@ body{background:#F7F7FB;color:var(--ink);font-family:'Montserrat',Arial,sans-ser
 #gate input{padding:12px 16px;border-radius:10px;border:none;font-size:18px;letter-spacing:.3em;text-align:center;width:170px;}
 #gate button{margin-left:8px;padding:12px 20px;border-radius:10px;border:none;background:var(--ember);color:#fff;font-weight:700;cursor:pointer;}
 #gate .err{color:#ffb39a;font-size:13px;margin-top:10px;min-height:18px;}
-/* app */
 #app{display:none;}
 .bar{background:var(--navy);border-bottom:3px solid var(--ember);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .bar .t{font-family:'Tinos',Georgia,serif;font-size:20px;}
+.bar .right{display:flex;gap:10px;align-items:center;}
 .bar .tag{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
 .bar .tag b{color:var(--ember);}
+.bar .gh{font-size:12px;background:rgba(255,255,255,.12);border:none;color:#fff;padding:7px 12px;border-radius:8px;cursor:pointer;}
 .tabs{display:flex;gap:8px;flex-wrap:wrap;padding:14px 20px 0;}
 .tab{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:13px;cursor:pointer;}
 .tab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
-.meta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:12px 20px;font-size:13px;color:var(--muted);}
+.meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 20px;font-size:13px;color:var(--muted);}
 .meta b{color:var(--ink);}
 .meta .pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;}
-.meta a.edit{margin-left:auto;background:var(--ember);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:9px 16px;border-radius:10px;}
-.meta a.open{background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13px;padding:8px 14px;border-radius:10px;}
+.meta .sp{margin-left:auto;display:flex;gap:8px;}
+.meta a.open,.meta a.ghlink{background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13px;padding:8px 14px;border-radius:10px;}
+.meta button.edit{background:var(--ember);color:#fff;border:none;font-weight:700;font-size:13px;padding:9px 16px;border-radius:10px;cursor:pointer;}
 .frame{margin:0 20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 34px rgba(13,13,13,.07);}
 iframe{width:100%;height:calc(100vh - 215px);min-height:480px;border:0;display:block;}
 .note{padding:0 20px 24px;font-size:12px;color:var(--muted);}
+/* editor drawer */
+#drawer{position:fixed;top:0;right:-560px;width:min(560px,100vw);height:100vh;background:#fff;box-shadow:-12px 0 40px rgba(0,0,0,.18);z-index:60;transition:right .25s ease;display:flex;flex-direction:column;}
+#drawer.open{right:0;}
+#drawer .dhead{background:var(--navy);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;}
+#drawer .dhead h2{font-family:'Tinos',Georgia,serif;font-size:18px;font-weight:700;}
+#drawer .dhead button{background:none;border:none;color:#fff;font-size:22px;cursor:pointer;}
+#dbody{padding:16px 18px;overflow-y:auto;flex:1;}
+#dbody label{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:14px 0 4px;}
+#dbody input[type=text],#dbody textarea,#dbody input[type=number],#dbody input[type=url]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:13.5px;}
+#dbody textarea{min-height:70px;resize:vertical;}
+.proj{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0;}
+.proj .ptop{display:flex;gap:8px;align-items:center;}
+.proj .ptop input[type=text]{flex:1;}
+.proj .ptop input[type=number]{width:80px;}
+.stage{display:flex;gap:8px;align-items:center;margin-top:6px;}
+.stage input[type=text]{flex:1;}
+.stage select{padding:8px;border:1px solid var(--line);border-radius:8px;font-size:13px;}
+.dfoot{padding:14px 18px;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;}
+.dfoot button.save{background:var(--ember);color:#fff;border:none;font-weight:800;padding:12px 22px;border-radius:10px;cursor:pointer;font-size:14px;}
+.dfoot button.save:disabled{opacity:.5;cursor:default;}
+#dstatus{font-size:12.5px;color:var(--muted);}
+#dstatus.ok{color:#0b804b;font-weight:700;}
+#dstatus.bad{color:#cc3a21;font-weight:700;}
+.hint{font-size:11.5px;color:var(--muted);margin-top:3px;}
+#overlay{position:fixed;inset:0;background:rgba(10,22,40,.4);z-index:55;display:none;}
+#overlay.show{display:block;}
 </style>
 </head>
 <body>
@@ -50,23 +77,36 @@ iframe{width:100%;height:calc(100vh - 215px);min-height:480px;border:0;display:b
 </div></div>
 
 <div id="app">
-  <div class="bar"><div class="t">Master Dashboard — Client Portals</div><div class="tag">Human Focused, <b>AI Optimized</b></div></div>
+  <div class="bar">
+    <div class="t">Master Dashboard — Client Portals</div>
+    <div class="right"><button class="gh" id="ghBtn" onclick="setToken()">⚙︎ GitHub: not connected</button><div class="tag">Human Focused, <b>AI Optimized</b></div></div>
+  </div>
   <div class="tabs" id="tabs"></div>
   <div class="meta">
     <span class="pill">Updated: <b id="mUpdated">—</b></span>
     <span class="pill">Progress: <b id="mPct">—</b></span>
     <span class="pill">Client code: <b id="mCode">—</b></span>
-    <a class="open" id="mOpen" href="#" target="_blank">Open client view ↗</a>
-    <a class="edit" id="mEdit" href="#" target="_blank">✏️ Update on GitHub</a>
+    <span class="sp">
+      <a class="open" id="mOpen" href="#" target="_blank">Client view ↗</a>
+      <a class="ghlink" id="mEditGh" href="#" target="_blank">GitHub ↗</a>
+      <button class="edit" onclick="openEditor()">✏️ Edit here</button>
+    </span>
   </div>
   <div class="frame"><iframe id="mFrame" src="about:blank"></iframe></div>
-  <div class="note">
-    <b>How updating works:</b> "Update on GitHub" opens this client's file — edit the CLIENT block at the bottom (weeklyNote, plan, percent, stages, yourTurn, updated date), commit, and Netlify redeploys in ~1 minute. Claude also drafts updates every weekday at 8 AM. New client? Copy <code>client-portal-template.html</code> per the guide, then add them to the CLIENTS list in this file.
-  </div>
+  <div class="note"><b>Edit here</b> saves straight to GitHub and the page redeploys in ~1 minute (needs your GitHub token once — ⚙︎ button up top). Claude also drafts updates every weekday at 8 AM.</div>
+</div>
+
+<div id="overlay" onclick="closeEditor()"></div>
+<div id="drawer">
+  <div class="dhead"><h2 id="dTitle">Edit</h2><button onclick="closeEditor()">×</button></div>
+  <div id="dbody"></div>
+  <div class="dfoot"><button class="save" id="dSave" onclick="saveEdits()">Save & publish</button><span id="dstatus"></span></div>
 </div>
 
 <script>
 const MASTER_CODE = "4750";
+const REPO = "hjayson/sfm-website";
+const PATH = "sfm-deploy-v3/clients/";
 const CLIENTS = [
   { name:"Cari Hines",        file:"cari-hines.html",             code:"2468" },
   { name:"Legacy Law Group",  file:"legacy-law-group.html",       code:"7301" },
@@ -76,7 +116,7 @@ const CLIENTS = [
   { name:"Fuller & Sons",     file:"fuller-and-sons.html",        code:"3517" },
   { name:"VJ's Towing",       file:"vjs-towing.html",             code:"9426" },
 ];
-const GH = "https://github.com/hjayson/sfm-website/edit/main/sfm-deploy-v3/clients/";
+let cur = 0, curSha = null, curText = null, curObj = null;
 
 function unlock(){
   const v=(document.getElementById('gate-input').value||'').trim();
@@ -84,39 +124,173 @@ function unlock(){
     document.getElementById('gate').style.display='none';
     document.getElementById('app').style.display='block';
     show(0);
-  } else {
-    document.getElementById('gate-err').textContent="That code didn't match.";
-  }
+  } else { document.getElementById('gate-err').textContent="That code didn't match."; }
 }
 document.getElementById('gate-input').addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
 (function(){const p=new URLSearchParams(location.search).get('code');if(p===MASTER_CODE){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';show(0);}})();
 
 const tabs=document.getElementById('tabs');
-CLIENTS.forEach((c,i)=>{
-  const b=document.createElement('button');
-  b.className='tab'; b.textContent=c.name; b.onclick=()=>show(i);
-  tabs.appendChild(b);
-});
+CLIENTS.forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.textContent=c.name;b.onclick=()=>show(i);tabs.appendChild(b);});
 
 function show(i){
-  const c=CLIENTS[i];
+  cur=i; const c=CLIENTS[i];
   [...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===i));
   const fr=document.getElementById('mFrame');
   document.getElementById('mUpdated').textContent='…';
   document.getElementById('mPct').textContent='…';
   document.getElementById('mCode').textContent=c.code;
-  document.getElementById('mEdit').href=GH+c.file;
+  document.getElementById('mEditGh').href='https://github.com/'+REPO+'/edit/main/'+PATH+c.file;
   document.getElementById('mOpen').href=c.file;
-  fr.src=c.file+'?code='+c.code;
+  fr.src=c.file+'?code='+c.code+'&t='+Date.now();
   fr.onload=()=>{ try{
     const cl=fr.contentWindow.CLIENT;
     document.getElementById('mUpdated').textContent=cl.updated||'—';
     const ps=(cl.projects||[]).map(p=>p.percent||0);
     document.getElementById('mPct').textContent=ps.length?Math.round(ps.reduce((a,b)=>a+b,0)/ps.length)+'%':'—';
-  }catch(e){
-    document.getElementById('mUpdated').textContent='—';
-    document.getElementById('mPct').textContent='—';
-  }};
+  }catch(e){} };
+}
+
+/* ---------- GitHub token ---------- */
+function token(){ return localStorage.getItem('sfm_gh_token')||''; }
+function ghLabel(){ document.getElementById('ghBtn').textContent = token() ? '⚙︎ GitHub: connected' : '⚙︎ GitHub: not connected'; }
+function setToken(){
+  const t=prompt('Paste your GitHub fine-grained token (repo: sfm-website, Contents: Read & write).\\nIt is stored only in this browser.', token());
+  if(t!==null){ localStorage.setItem('sfm_gh_token', t.trim()); ghLabel(); }
+}
+ghLabel();
+async function gh(url, opts={}){
+  const r=await fetch('https://api.github.com'+url, Object.assign({headers:{
+    'Authorization':'Bearer '+token(), 'Accept':'application/vnd.github+json'
+  }}, opts));
+  if(!r.ok) throw new Error('GitHub '+r.status+': '+(await r.text()).slice(0,140));
+  return r.json();
+}
+const b64decode = s => decodeURIComponent(escape(atob(s.replace(/\n/g,''))));
+const b64encode = s => btoa(unescape(encodeURIComponent(s)));
+
+/* ---------- editor ---------- */
+const D=document.getElementById('drawer'), B=document.getElementById('dbody'), ST=document.getElementById('dstatus');
+function closeEditor(){ D.classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
+function status(msg,cls){ ST.textContent=msg; ST.className=cls||''; }
+
+async function openEditor(){
+  if(!token()){ setToken(); if(!token()) return; }
+  const c=CLIENTS[cur];
+  document.getElementById('dTitle').textContent='Edit — '+c.name;
+  B.innerHTML='<p style="padding:20px 0;color:var(--muted)">Loading from GitHub…</p>';
+  D.classList.add('open'); document.getElementById('overlay').classList.add('show');
+  status('');
+  try{
+    const f=await gh('/repos/'+REPO+'/contents/'+PATH+c.file+'?ref=main');
+    curSha=f.sha; curText=b64decode(f.content);
+    const s=curText.indexOf('const CLIENT = {');
+    const e=curText.indexOf('\n};', s);
+    if(s<0||e<0) throw new Error('CLIENT block not found');
+    curObj=(new Function('return ('+curText.slice(s+15, e+3).replace(/;\s*$/,'')+')'))();
+    buildForm(curObj);
+  }catch(err){ B.innerHTML='<p style="padding:20px 0;color:#cc3a21">'+err.message+'</p>'; }
+}
+
+function lines(a){ return (a||[]).join('\n'); }
+let W=[]; // working copy of projects
+function buildForm(o){
+  W=JSON.parse(JSON.stringify(o.projects||[]));
+  let h='';
+  h+='<label>Weekly note (from Jayson)</label><textarea id="f_note">'+esc(o.weeklyNote||'')+'</textarea>';
+  h+='<label>This week\'s plan — one per line</label><textarea id="f_plan">'+esc(lines(o.plan))+'</textarea>';
+  h+='<label>Projects & tasks</label><div id="projWrap"></div>';
+  h+='<button type="button" style="margin-top:8px;background:#fff;border:1px dashed var(--ember);color:var(--ember);font-weight:700;padding:9px 16px;border-radius:10px;cursor:pointer;" onclick="addProject()">＋ Add project / task</button>';
+  h+='<label>We\'re handling next — one per line</label><textarea id="f_next">'+esc(lines(o.nextSteps))+'</textarea>';
+  h+='<label>We need from the client — one per line</label><textarea id="f_you">'+esc(lines(o.yourTurn))+'</textarea>';
+  h+='<label>Updated date</label><input type="text" id="f_upd" value="'+esc(todayStr())+'"><div class="hint">Auto-set to today — change if needed.</div>';
+  B.innerHTML=h;
+  renderProjects();
+}
+function renderProjects(){
+  const w=document.getElementById('projWrap');
+  w.innerHTML=W.map((p,pi)=>{
+    let h='<div class="proj"><div class="ptop"><input type="text" id="f_pt'+pi+'" value="'+esc(p.title||'')+'" placeholder="Project name (e.g., SEO)"><input type="number" id="f_pp'+pi+'" min="0" max="100" value="'+(p.percent||0)+'"><span class="hint">%</span><button type="button" title="Remove project" style="border:none;background:none;color:#cc3a21;font-size:16px;cursor:pointer;" onclick="rmProject('+pi+')">✕</button></div>';
+    h+=(p.stages||[]).map((s,si)=>{
+      const st=s.done?'done':(s.current?'current':'next');
+      return '<div class="stage"><input type="text" id="f_sn'+pi+'_'+si+'" value="'+esc(s.name||'')+'" placeholder="Stage name"><select id="f_ss'+pi+'_'+si+'">'+['done','current','next'].map(x=>'<option'+(x===st?' selected':'')+'>'+x+'</option>').join('')+'</select><button type="button" title="Remove stage" style="border:none;background:none;color:#cc3a21;cursor:pointer;" onclick="rmStage('+pi+','+si+')">✕</button></div>';
+    }).join('');
+    h+='<button type="button" style="margin-top:8px;background:none;border:none;color:var(--ember);font-weight:700;font-size:12.5px;cursor:pointer;" onclick="addStage('+pi+')">＋ add stage</button>';
+    h+='<label>Preview link (optional)</label><input type="url" id="f_pv'+pi+'" value="'+esc(p.preview||'')+'">';
+    h+='</div>';
+    return h;
+  }).join('');
+}
+function syncProj(){
+  W=W.map((p,pi)=>({
+    title:(document.getElementById('f_pt'+pi)||{}).value||p.title||'',
+    percent:Math.max(0,Math.min(100,parseInt((document.getElementById('f_pp'+pi)||{}).value||'0',10))),
+    stages:(p.stages||[]).map((s,si)=>{
+      const name=((document.getElementById('f_sn'+pi+'_'+si)||{}).value||s.name||'').trim();
+      const v=(document.getElementById('f_ss'+pi+'_'+si)||{}).value||'next';
+      return v==='done'?{name,done:true}:(v==='current'?{name,current:true}:{name,done:false});
+    }),
+    preview:((document.getElementById('f_pv'+pi)||{}).value||'').trim()
+  }));
+}
+function addProject(){ syncProj(); W.push({title:"",percent:0,stages:[{name:"Planned",current:true},{name:"In Progress",done:false},{name:"Complete",done:false}],preview:""}); renderProjects(); }
+function addStage(pi){ syncProj(); W[pi].stages.push({name:"",done:false}); renderProjects(); }
+function rmProject(pi){ syncProj(); W.splice(pi,1); renderProjects(); }
+function rmStage(pi,si){ syncProj(); W[pi].stages.splice(si,1); renderProjects(); }
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+function todayStr(){ return new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); }
+function splitLines(id){ return document.getElementById(id).value.split('\n').map(x=>x.trim()).filter(Boolean); }
+
+function serialize(o){
+  const S=JSON.stringify, P='  ';
+  let out='const CLIENT = {\n';
+  out+=P+'accessCode: '+S(o.accessCode)+',\n';
+  out+=P+'name: '+S(o.name)+',\n';
+  out+=P+'logo: '+S(o.logo||'')+',\n';
+  out+=P+'tagline: '+S(o.tagline||'')+',\n';
+  out+=P+'updated: '+S(o.updated)+',\n\n';
+  out+=P+'weeklyNote: '+S(o.weeklyNote)+',\n';
+  out+=P+'plan: [\n'+o.plan.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n\n';
+  out+=P+'projects: [\n';
+  out+=o.projects.map(p=>{
+    let s=P+P+'{\n'+P+P+P+'title: '+S(p.title)+',\n'+P+P+P+'percent: '+(p.percent||0)+',\n'+P+P+P+'stages: [\n';
+    s+=p.stages.map(st=>{
+      const flag = st.done?'done:true':(st.current?'current:true':'done:false');
+      return P+P+P+P+'{ name:'+S(st.name)+', '+flag+' }';
+    }).join(',\n');
+    s+='\n'+P+P+P+'],\n'+P+P+P+'preview: '+S(p.preview||'')+'\n'+P+P+'}';
+    return s;
+  }).join(',\n');
+  out+='\n'+P+'],\n\n';
+  out+=P+'nextSteps: [\n'+o.nextSteps.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n';
+  out+=P+'yourTurn: [\n'+o.yourTurn.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n\n';
+  out+=P+'contact: '+S(o.contact||'jayson@salesfunnelmarketing.us')+'\n};';
+  return out;
+}
+
+async function saveEdits(){
+  const c=CLIENTS[cur];
+  const o=Object.assign({},curObj);
+  o.weeklyNote=document.getElementById('f_note').value.trim();
+  o.plan=splitLines('f_plan');
+  syncProj();
+  o.projects=W.map(p=>({title:p.title.trim()||"Untitled",percent:p.percent,stages:p.stages.filter(s=>s.name),preview:p.preview}));
+  o.nextSteps=splitLines('f_next');
+  o.yourTurn=splitLines('f_you');
+  o.updated=document.getElementById('f_upd').value.trim()||todayStr();
+
+  const s=curText.indexOf('const CLIENT = {');
+  const e=curText.indexOf('\n};', s);
+  const newText=curText.slice(0,s)+serialize(o)+curText.slice(e+3);
+
+  const btn=document.getElementById('dSave'); btn.disabled=true;
+  status('Saving to GitHub…');
+  try{
+    await gh('/repos/'+REPO+'/contents/'+PATH+c.file,{method:'PUT',body:JSON.stringify({
+      message:'Portal update: '+o.name+' — '+o.updated+' (via master dashboard)',
+      content:b64encode(newText), sha:curSha, branch:'main'})});
+    status('Saved ✓ — deploying (~1 min)…','ok');
+    setTimeout(()=>{ closeEditor(); show(cur); status(''); btn.disabled=false; }, 65000);
+  }catch(err){ status(err.message,'bad'); btn.disabled=false; }
 }
 </script>
 </body>
