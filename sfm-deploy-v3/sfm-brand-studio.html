@@ -170,6 +170,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button type="button" class="bsx-btn ghost" id="bsxShuffle">🎲 Surprise me</button>
     <label class="bsx-btn ghost" for="bsxPhoto">📷 Colors from a photo<input type="file" id="bsxPhoto" accept="image/*" style="display:none;"></label>
     <button type="button" class="bsx-btn ghost" id="bsxFromLogo" style="display:none;">🎯 Use my logo's colors</button>
+    <button type="button" class="bsx-btn ghost" id="bsxNoBg" style="display:none;">🪄 Remove background</button>
+    <button type="button" class="bsx-btn" id="bsxDlLogo" style="display:none;">⬇ Transparent PNG</button>
   </div>
   <div id="bsxScore"></div>
   <div class="bsx-ramps">
@@ -229,6 +231,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="frow"><div><label class="fl">Your name</label><input type="text" name="name" required placeholder="First & last"></div><div><label class="fl">Business name</label><input type="text" name="business" required placeholder="Your business"></div></div>
   <div class="frow"><div><label class="fl">Email</label><input type="email" name="email" required placeholder="you@business.com"></div><div><label class="fl">Phone (optional)</label><input type="tel" name="phone" placeholder="(419) 555-0123"></div></div>
   <label class="fl">Anything else? (optional)</label><textarea name="brand_notes" rows="3" placeholder="Industry, who you serve, colors you love or hate, a link to your site/socials…"></textarea>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;cursor:pointer;"><input type="checkbox" name="font_id_request" value="Yes - identify my logo font" style="margin-top:3px;"> <span class="fl" style="margin:0;text-transform:none;letter-spacing:0;">🔍 Not sure what font your logo uses? Check this and we'll identify it for you — free.</span></label>
   <button type="submit" class="submit">Send my brand picks →</button>
   <div class="formnote">Your logo, colors, and contact info go straight to Sales Funnel Marketing. Human Focused, AI Optimized.</div>
 </div></div></section>
@@ -510,6 +513,44 @@ try{var q=new URLSearchParams(location.search);var qp=q.get('p'),qa2=q.get('a');
  if(qa2&&/^[0-9A-Fa-f]{6}$/.test(qa2)){state.accent='#'+qa2.toUpperCase();anyq=true;}
  if(anyq){state.style='Shared link';syncPickers();}}catch(e){}
 (function(){var m=document.querySelector('.bsx-mocks');var st=document.querySelector('.studio');if(m&&st){var ps=st.closest('section');if(ps&&ps.parentNode){var sec=document.createElement('section');sec.className='bsx-mocksec';var wr=document.createElement('div');wr.className='wrap';sec.appendChild(wr);wr.appendChild(m);ps.parentNode.insertBefore(sec,ps.nextSibling);}}})();
+/* ---------- background remover (flood fill from edges) ---------- */
+function removeBg(){var pv=$('pvLogo');if(!pv||!pv.src)return;
+ var img=new Image();
+ img.onload=function(){
+  var W=img.naturalWidth,H=img.naturalHeight;if(!W||!H){alert('Could not read this image.');return;}
+  var sc=Math.min(1,1600/Math.max(W,H));W=Math.round(W*sc);H=Math.round(H*sc);
+  var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(img,0,0,W,H);
+  var id;try{id=x.getImageData(0,0,W,H);}catch(e){alert('Could not process this image.');return;}
+  var d=id.data,i;
+  var bs=[];
+  function pushB(px,py){var o=(py*W+px)*4;if(d[o+3]>10)bs.push([d[o],d[o+1],d[o+2]]);}
+  for(i=0;i<W;i++){pushB(i,0);pushB(i,H-1);}
+  for(i=0;i<H;i++){pushB(0,i);pushB(W-1,i);}
+  if(!bs.length){alert('The background is already transparent \u2014 you are good!');return;}
+  var br=0,bgc=0,bb=0;bs.forEach(function(p){br+=p[0];bgc+=p[1];bb+=p[2];});br/=bs.length;bgc/=bs.length;bb/=bs.length;
+  var ok=0;bs.forEach(function(p){if(Math.abs(p[0]-br)+Math.abs(p[1]-bgc)+Math.abs(p[2]-bb)<90)ok++;});
+  if(ok/bs.length<0.55){alert('This background is too complex for the quick tool (photo backgrounds need the pro touch). Send it to us in Step 3 and we will clean it up for you \u2014 free.');return;}
+  var TOL=95,visited=new Uint8Array(W*H),stack=[];
+  for(i=0;i<W;i++){stack.push(i);stack.push((H-1)*W+i);}
+  for(i=0;i<H;i++){stack.push(i*W);stack.push(i*W+W-1);}
+  while(stack.length){var p=stack.pop();if(visited[p])continue;visited[p]=1;var o=p*4;
+   if(d[o+3]>10){var dd=Math.abs(d[o]-br)+Math.abs(d[o+1]-bgc)+Math.abs(d[o+2]-bb);if(dd>TOL)continue;d[o+3]=0;}
+   var px=p%W,py=(p/W)|0;
+   if(px>0)stack.push(p-1);if(px<W-1)stack.push(p+1);if(py>0)stack.push(p-W);if(py<H-1)stack.push(p+W);}
+  x.putImageData(id,0,0);
+  var url=cv.toDataURL('image/png');
+  window.__bsxCleanLogo=url;
+  pv.src=url;pv.style.display='block';var ph=$('pvLogoPH');if(ph)ph.style.display='none';
+  var dt=$('dropThumb');if(dt)dt.src=url;
+  $('bsxDlLogo').style.display='inline-flex';
+  $('bsxNoBg').textContent='\uD83E\uDE84 Remove another layer';
+ };
+ img.src=pv.src;}
+$('bsxNoBg').addEventListener('click',removeBg);
+$('bsxDlLogo').addEventListener('click',function(){if(!window.__bsxCleanLogo)return;var a=document.createElement('a');
+ a.download=((bizIn&&bizIn.value.trim())||'logo').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-logo-transparent.png';
+ a.href=window.__bsxCleanLogo;a.click();});
+if(pvLogoEl)pvLogoEl.addEventListener('load',function(){$('bsxNoBg').style.display='inline-flex';});
 extras();apply();
 })();
 </script>
