@@ -36,13 +36,66 @@ h1 span{color:var(--orange);}
   <h1>You're in! Your <span>brand palette</span><br>is on its way.</h1>
   <p class="sub">Thanks — we've got your details. Here's what happens next:</p>
 
+  <div id="palCard" style="display:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:18px 22px;margin-bottom:26px;max-width:430px;width:100%;">
+    <div id="palNm" style="font-weight:900;font-size:19px;margin-bottom:12px;"></div>
+    <div style="display:flex;gap:12px;justify-content:center;">
+      <div><i id="palP" style="display:block;width:92px;height:56px;border-radius:10px;border:1px solid rgba(255,255,255,.2);"></i><div id="palPh" style="font-size:12px;margin-top:5px;color:rgba(255,255,255,.7);"></div></div>
+      <div><i id="palA" style="display:block;width:92px;height:56px;border-radius:10px;border:1px solid rgba(255,255,255,.2);"></i><div id="palAh" style="font-size:12px;margin-top:5px;color:rgba(255,255,255,.7);"></div></div>
+    </div>
+    <div id="palF" style="font-size:12.5px;color:rgba(255,255,255,.6);margin-top:10px;"></div>
+    <button id="palDl" style="margin-top:14px;background:#E85D26;border:none;color:#fff;font-weight:800;font-size:14.5px;padding:13px 22px;border-radius:11px;cursor:pointer;font-family:inherit;">⬇ Download my brand sheet</button>
+  </div>
+
   <div class="steps">
-    <div class="step"><div class="n">1</div><div class="t"><b>Check your inbox.</b> Your brand palette is headed your way in the next few minutes.</div></div>
+    <div class="step"><div class="n">1</div><div class="t"><b>Grab your brand sheet below.</b> Your palette, shades, and hex codes — yours to keep, right now.</div></div>
     <div class="step"><div class="n">2</div><div class="t"><b>Jayson takes a look.</b> We'll review what you submitted and follow up with a quick tip or two for your brand.</div></div>
     <div class="step"><div class="n">3</div><div class="t"><b>Put it to work.</b> Use your palette everywhere customers find you — website, social, signage — for a consistent, professional look.</div></div>
   </div>
 
-  <a class="dl" href="sfm-services.html">See how we can help →</a>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+    <a class="dl" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">📅 Book a free 15-min brand review</a>
+    <a class="dl" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);" href="sfm-services.html">See how we can help →</a>
+  </div>
   <div class="back"><a href="index.html">← Back to salesfunnelmarketing.us</a></div>
+<script>
+(function(){
+function h2r(h){h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function r2h(r,g,b){return '#'+[r,g,b].map(function(v){return Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0');}).join('').toUpperCase();}
+function mix(a,b,t){var x=h2r(a),y=h2r(b);return r2h(x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t);}
+function lum(h){var c=h2r(h).map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2];}
+function textOn(bg){return ((1.05)/(lum(bg)+0.05))>=3?'#FFFFFF':'#141414';}
+function ramp5(hex){return[mix(hex,'#FFFFFF',0.78),mix(hex,'#FFFFFF',0.45),hex,mix(hex,'#000000',0.22),mix(hex,'#000000',0.45)];}
+var q=new URLSearchParams(location.search);var p=q.get('p'),a=q.get('a'),n=q.get('n')||'Your Palette',fp=q.get('f')||'';
+if(!p||!a||!/^[0-9A-Fa-f]{6}$/.test(p)||!/^[0-9A-Fa-f]{6}$/.test(a))return;
+p='#'+p.toUpperCase();a='#'+a.toUpperCase();
+document.getElementById('palCard').style.display='block';
+document.getElementById('palNm').textContent=n;
+document.getElementById('palP').style.background=p;document.getElementById('palPh').textContent='Primary '+p;
+document.getElementById('palA').style.background=a;document.getElementById('palAh').textContent='Accent '+a;
+if(fp)document.getElementById('palF').textContent='Suggested fonts: '+fp;
+document.getElementById('palDl').addEventListener('click',function(){
+ var W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');var tp=textOn(p);
+ x.fillStyle='#FFFFFF';x.fillRect(0,0,W,H);
+ x.fillStyle=p;x.fillRect(0,0,W,300);
+ x.fillStyle=tp;x.globalAlpha=.8;x.font='800 26px Arial';x.fillText('YOUR BRAND PALETTE',60,78);x.globalAlpha=1;
+ x.font='900 68px Arial';x.fillText(n,60,160);
+ if(fp){x.globalAlpha=.85;x.font='600 26px Arial';x.fillText('Fonts: '+fp,60,212);x.globalAlpha=1;}
+ var y=360,swW=(W-180)/2;
+ x.fillStyle=p;x.fillRect(60,y,swW,190);x.fillStyle=a;x.fillRect(120+swW,y,swW,190);
+ x.fillStyle='#1c2433';x.font='800 26px Arial';
+ x.fillText('PRIMARY  '+p,60,y+232);x.fillText('ACCENT  '+a,120+swW,y+232);
+ y+=290;x.fillStyle='#7a8595';x.font='700 22px Arial';x.fillText('Shades you can use',60,y-16);
+ var rw=(W-160)/5;
+ ramp5(p).forEach(function(c,i){x.fillStyle=c;x.fillRect(60+i*(rw+10),y,rw,85);});y+=100;
+ ramp5(a).forEach(function(c,i){x.fillStyle=c;x.fillRect(60+i*(rw+10),y,rw,85);});y+=140;
+ x.fillStyle=p;x.fillRect(60,y,300,80);x.fillStyle=tp;x.font='800 30px Arial';x.fillText('Book Now',135,y+50);
+ x.fillStyle=a;x.fillRect(400,y+16,140,48);x.fillStyle=textOn(a);x.font='800 22px Arial';x.fillText('NEW',442,y+48);
+ x.fillStyle='#0A1628';x.fillRect(0,H-86,W,86);x.fillStyle='#FFFFFF';x.font='600 25px Arial';
+ x.fillText('Free Brand Palette Builder \u00B7 salesfunnelmarketing.us',60,H-33);
+ var lnk=document.createElement('a');lnk.download=(n+'-brand-sheet').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.png';
+ cv.toBlob(function(b){lnk.href=URL.createObjectURL(b);lnk.click();});
+});
+})();
+</script>
 </body>
 </html>

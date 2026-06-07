@@ -138,7 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <form name="brand-study" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/sfm-brand-studio-thanks.html">
 <input type="hidden" name="form-name" value="brand-study">
 <p style="display:none;"><label>Skip: <input name="bot-field"></label></p>
-<input type="hidden" name="primary_color" id="f_primary"><input type="hidden" name="accent_color" id="f_accent"><input type="hidden" name="palette_style" id="f_style"><input type="hidden" name="palette_name" id="f_palname">
+<input type="hidden" name="primary_color" id="f_primary"><input type="hidden" name="accent_color" id="f_accent"><input type="hidden" name="palette_style" id="f_style"><input type="hidden" name="palette_name" id="f_palname"><input type="hidden" name="font_pair" id="f_fonts">
 <section><div class="wrap"><div class="studio">
   <div class="col-upload">
     <div class="sec-head"><div class="sec-num">Step 1</div><h2>Upload your logo</h2><p>PNG or JPG. A transparent PNG looks best, but anything works.</p></div>
@@ -177,6 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div><span class="bsx-rlbl">Accent shades</span><div class="bsx-ramp" id="bsxRampA"></div></div>
   </div>
   <div class="bsx-hint">Tap any shade to use it for whichever color you're editing.</div>
+  <div class="bsx-fonts"><span class="bsx-rlbl">Fonts that fit your vibe</span><div class="bsx-fontrow" id="bsxFonts"></div></div>
 </div>
     </div>
   </div>
@@ -216,7 +217,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
   <div class="bsx-dlrow">
     <button type="button" class="bsx-btn" id="bsxSheet">⬇ Download my brand sheet</button>
-    <button type="button" class="bsx-btn ghost" id="bsxShare">📤 Share my palette</button>
+    <button type="button" class="bsx-btn ghost" id="bsxShare">📤 Palette card</button>
+    <button type="button" class="bsx-btn ghost" id="bsxLink">🔗 Copy share link</button>
   </div>
 </div>
   </div>
@@ -313,6 +315,12 @@ syncPickers();apply();
 .bsx-sign-door{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:34px;height:48px;border-radius:6px 6px 0 0;}
 .bsx-sign-win{position:absolute;right:18px;bottom:10px;width:44px;height:30px;background:#cfd9e3;border-radius:4px;}
 .bsx-dlrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.bsx-fonts{margin-top:12px;}
+.bsx-fontrow{display:flex;gap:6px;flex-wrap:wrap;}
+.bsx-fchip{border:1px solid #d9dfe6;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;flex:1;min-width:108px;transition:border-color .15s;}
+.bsx-fchip.on{border-color:#E85D26;box-shadow:0 0 0 2px rgba(232,93,38,.15);}
+.bsx-fchip b{display:block;font-size:15px;color:#0A1628;}
+.bsx-fchip span{font-size:10.5px;color:#7a8595;}
 @media(max-width:680px){
   .bsx-btnrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
   .bsx-btn{justify-content:center;font-size:12.5px;padding:11px 8px;}
@@ -405,7 +413,7 @@ function download(square){var W=1080,H=square?1080:1350;var cv=document.createEl
  x.fillStyle='#FFFFFF';x.fillRect(0,0,W,H);
  x.fillStyle=P;x.fillRect(0,0,W,300);
  x.fillStyle=tp;x.globalAlpha=.8;x.font='800 26px Arial';x.fillText('YOUR BRAND PALETTE',60,78);x.globalAlpha=1;
- x.font='900 68px Arial';x.fillText(palName(),60,160);
+ x.font='900 68px '+(window.__bsxFontD||'Arial');x.fillText(palName(),60,160);
  x.globalAlpha=.85;x.font='600 26px Arial';x.fillText(bizName(),60,212);x.globalAlpha=1;
  var ok=pvLogoEl&&pvLogoEl.src&&pvLogoEl.style.display!=='none';
  if(ok){x.fillStyle='#FFFFFF';x.fillRect(W-340,55,280,190);try{var iw=pvLogoEl.naturalWidth,ih=pvLogoEl.naturalHeight,sc=Math.min(230/iw,150/ih);x.drawImage(pvLogoEl,W-340+(280-iw*sc)/2,55+(190-ih*sc)/2,iw*sc,ih*sc);}catch(e){}}
@@ -419,7 +427,7 @@ function download(square){var W=1080,H=square?1080:1350;var cv=document.createEl
  ramp5(A).forEach(function(c,i){x.fillStyle=c;x.fillRect(60+i*(rw+10),y,rw,85);});y+=130;
  if(!square){x.fillStyle=P;x.fillRect(60,y,300,80);x.fillStyle=tp;x.font='800 30px Arial';x.fillText('Book Now',135,y+50);
   x.fillStyle=A;x.fillRect(400,y+16,140,48);x.fillStyle=textOn(A);x.font='800 22px Arial';x.fillText('NEW',442,y+48);}
- x.fillStyle='#0A1628';x.fillRect(0,H-86,W,86);x.fillStyle='#FFFFFF';x.font='600 25px Arial';
+ if(window.__bsxFontP){x.fillStyle='#7a8595';x.font='700 22px Arial';x.fillText('FONTS  '+window.__bsxFontP,60,H-115);}x.fillStyle='#0A1628';x.fillRect(0,H-86,W,86);x.fillStyle='#FFFFFF';x.font='600 25px Arial';
  x.fillText('Free Brand Palette Builder \u00B7 salesfunnelmarketing.us',60,H-33);
  var a=document.createElement('a');a.download=(palName()+(square?'-palette':'-brand-sheet')).toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.png';
  cv.toBlob(function(b){a.href=URL.createObjectURL(b);a.click();});}
@@ -436,7 +444,31 @@ if(pvLogoEl)pvLogoEl.addEventListener('load',function(){syncLogos();});
 if(bizIn)bizIn.addEventListener('input',renderMocks);
 if(nameIn)nameIn.addEventListener('input',renderMocks);
 window.__bsx={pair:autoPair,surprise:surprise,refresh:refresh,palName:palName};
-refresh();
+/* ---------- premier: fonts, share links, url params ---------- */
+var PAIRS=[['Modern & Clean','Montserrat','Inter'],['Premium & Elegant','Playfair Display','Lato'],['Bold & Strong','Oswald','Inter'],['Friendly & Round','Poppins','Lato']];
+var fontIdx=-1,fontPicked=false;
+(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Playfair+Display:wght@800&family=Oswald:wght@700&family=Poppins:wght@800&family=Inter:wght@400;700&family=Lato:wght@400;700&display=swap';document.head.appendChild(l);})();
+function vibeFont(){var p=hexHsl(state.primary);if(p[2]<0.25&&p[1]<0.55)return 1;if(p[1]>0.5&&(p[0]<55||p[0]>330))return 2;if(p[2]>0.42)return 3;return 0;}
+function setFont(i,manual){fontIdx=i;if(manual)fontPicked=true;var d=PAIRS[i][1],b=PAIRS[i][2];
+ window.__bsxFontD="'"+d+"', Arial";window.__bsxFontP=d+' + '+b;
+ ['pvH1','pvH2','mkCardBiz'].forEach(function(id){var el=$(id);if(el)el.style.fontFamily="'"+d+"',Arial,sans-serif";});
+ var st=$('mkSignTxt');if(st)st.style.fontFamily="'"+d+"',Arial,sans-serif";
+ ['pvP','pvP2'].forEach(function(id){var el=$(id);if(el)el.style.fontFamily="'"+b+"',Arial,sans-serif";});
+ var ff=$('f_fonts');if(ff)ff.value=d+' + '+b;
+ var row=$('bsxFonts');if(row){[].forEach.call(row.children,function(c,j){c.className='bsx-fchip'+(j===i?' on':'');});}}
+(function(){var row=$('bsxFonts');if(!row)return;PAIRS.forEach(function(p,i){var c=document.createElement('div');c.className='bsx-fchip';c.innerHTML='<b style="font-family:\''+p[1]+'\',Arial">Aa '+p[1]+'</b><span>'+p[0]+' \u00B7 with '+p[2]+'</span>';c.addEventListener('click',function(){setFont(i,true);});row.appendChild(c);});})();
+function extras(){if(!fontPicked)setFont(vibeFont(),false);
+ var f=document.querySelector('form[name="brand-study"]');
+ if(f)f.action='/sfm-brand-studio-thanks.html?p='+state.primary.slice(1)+'&a='+state.accent.slice(1)+'&n='+encodeURIComponent(palName())+'&f='+encodeURIComponent(PAIRS[fontIdx<0?0:fontIdx][1]+' + '+PAIRS[fontIdx<0?0:fontIdx][2]);}
+var _applyE=window.apply;window.apply=function(){_applyE();try{extras();}catch(e){console.warn('bsx2',e);}};
+$('bsxLink').addEventListener('click',function(){var u=location.origin+location.pathname+'?p='+state.primary.slice(1)+'&a='+state.accent.slice(1);var b=$('bsxLink'),t=b.textContent;
+ function done(ok){b.textContent=ok?'\u2713 Link copied \u2014 send it!':'Link is in your address bar';if(!ok)history.replaceState(null,'',u);setTimeout(function(){b.textContent=t;},2400);}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){done(true);},function(){done(false);});}else{done(false);}});
+try{var q=new URLSearchParams(location.search);var qp=q.get('p'),qa2=q.get('a');var anyq=false;
+ if(qp&&/^[0-9A-Fa-f]{6}$/.test(qp)){state.primary='#'+qp.toUpperCase();anyq=true;}
+ if(qa2&&/^[0-9A-Fa-f]{6}$/.test(qa2)){state.accent='#'+qa2.toUpperCase();anyq=true;}
+ if(anyq){state.style='Shared link';syncPickers();}}catch(e){}
+extras();apply();
 })();
 </script>
 </body>
