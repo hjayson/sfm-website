@@ -313,6 +313,17 @@ syncPickers();apply();
 .bsx-sign-door{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:34px;height:48px;border-radius:6px 6px 0 0;}
 .bsx-sign-win{position:absolute;right:18px;bottom:10px;width:44px;height:30px;background:#cfd9e3;border-radius:4px;}
 .bsx-dlrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+@media(max-width:680px){
+  .bsx-btnrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .bsx-btn{justify-content:center;font-size:12.5px;padding:11px 8px;}
+  .bsx-mockrow{flex-direction:column;}
+  .bsx-mock,.bsx-ig,.bsx-card,.bsx-sign{max-width:none;width:100%;}
+  .bsx-ig-body{height:150px;}
+  .bsx-sign-band{height:60px;}
+  .bsx-dlrow{flex-direction:column;}
+  .bsx-dlrow .bsx-btn{width:100%;padding:13px;}
+  .bsx-palname{font-size:11px;}
+}
 </style>
 <script>
 (function(){
