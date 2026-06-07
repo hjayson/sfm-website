@@ -33,3 +33,10 @@ Commit + push.
 | Cari Hines Personal Training | /clients/cari-hines.html | 2468 |
 | Legacy Law Group (LLG) | /clients/legacy-law-group.html | 7301 |
 | Corporate Intelligence Consultants (CIC) | /clients/corporate-intelligence.html | 5142 |
+| National Exchange Club (NEC) | /clients/national-exchange-club.html | 6273 |
+| TRIO Veterans Upward Bound (VUB) | /clients/veterans-trio.html | 8094 |
+| Fuller & Sons Insurance | /clients/fuller-and-sons.html | 3517 |
+| VJ's Towing | /clients/vjs-towing.html | 9426 |
+
+## Master dashboard (team only)
+**/clients/master.html · master code 4750** — toggle through every client portal in one view (auto-unlocked), see last-updated + progress, and hit "Update on GitHub" to edit any client's CLIENT block directly (auto-deploys on commit). When adding a client, also add them to the CLIENTS list inside master.html.

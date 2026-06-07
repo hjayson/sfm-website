@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Master Dashboard · Sales Funnel Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.svg">
+<style>
+:root{--navy:#0A1628;--ember:#E85D26;--ink:#1C1C2E;--line:#e6e6ee;--muted:#76767f;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#F7F7FB;color:var(--ink);font-family:'Montserrat',Arial,sans-serif;line-height:1.5;}
+/* gate */
+#gate{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:50;}
+#gate .box{text-align:center;color:#fff;padding:24px;}
+#gate h1{font-family:'Tinos',Georgia,serif;font-size:26px;margin:0 0 4px;}
+#gate p{font-size:13px;color:#b9c2d0;margin-bottom:18px;}
+#gate input{padding:12px 16px;border-radius:10px;border:none;font-size:18px;letter-spacing:.3em;text-align:center;width:170px;}
+#gate button{margin-left:8px;padding:12px 20px;border-radius:10px;border:none;background:var(--ember);color:#fff;font-weight:700;cursor:pointer;}
+#gate .err{color:#ffb39a;font-size:13px;margin-top:10px;min-height:18px;}
+/* app */
+#app{display:none;}
+.bar{background:var(--navy);border-bottom:3px solid var(--ember);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.bar .t{font-family:'Tinos',Georgia,serif;font-size:20px;}
+.bar .tag{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}
+.bar .tag b{color:var(--ember);}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;padding:14px 20px 0;}
+.tab{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:13px;cursor:pointer;}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+.meta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:12px 20px;font-size:13px;color:var(--muted);}
+.meta b{color:var(--ink);}
+.meta .pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;}
+.meta a.edit{margin-left:auto;background:var(--ember);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:9px 16px;border-radius:10px;}
+.meta a.open{background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:13px;padding:8px 14px;border-radius:10px;}
+.frame{margin:0 20px 20px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 34px rgba(13,13,13,.07);}
+iframe{width:100%;height:calc(100vh - 215px);min-height:480px;border:0;display:block;}
+.note{padding:0 20px 24px;font-size:12px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div id="gate"><div class="box">
+  <h1>SFM Master Dashboard</h1>
+  <p>Team access only</p>
+  <div><input id="gate-input" maxlength="4" inputmode="numeric" placeholder="••••"><button onclick="unlock()">Enter</button></div>
+  <div class="err" id="gate-err"></div>
+</div></div>
+
+<div id="app">
+  <div class="bar"><div class="t">Master Dashboard — Client Portals</div><div class="tag">Human Focused, <b>AI Optimized</b></div></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="meta">
+    <span class="pill">Updated: <b id="mUpdated">—</b></span>
+    <span class="pill">Progress: <b id="mPct">—</b></span>
+    <span class="pill">Client code: <b id="mCode">—</b></span>
+    <a class="open" id="mOpen" href="#" target="_blank">Open client view ↗</a>
+    <a class="edit" id="mEdit" href="#" target="_blank">✏️ Update on GitHub</a>
+  </div>
+  <div class="frame"><iframe id="mFrame" src="about:blank"></iframe></div>
+  <div class="note">
+    <b>How updating works:</b> "Update on GitHub" opens this client's file — edit the CLIENT block at the bottom (weeklyNote, plan, percent, stages, yourTurn, updated date), commit, and Netlify redeploys in ~1 minute. Claude also drafts updates every weekday at 8 AM. New client? Copy <code>client-portal-template.html</code> per the guide, then add them to the CLIENTS list in this file.
+  </div>
+</div>
+
+<script>
+const MASTER_CODE = "4750";
+const CLIENTS = [
+  { name:"Cari Hines",        file:"cari-hines.html",             code:"2468" },
+  { name:"Legacy Law Group",  file:"legacy-law-group.html",       code:"7301" },
+  { name:"Corporate Intel",   file:"corporate-intelligence.html", code:"5142" },
+  { name:"Exchange Club",     file:"national-exchange-club.html", code:"6273" },
+  { name:"Veterans TRIO",     file:"veterans-trio.html",          code:"8094" },
+  { name:"Fuller & Sons",     file:"fuller-and-sons.html",        code:"3517" },
+  { name:"VJ's Towing",       file:"vjs-towing.html",             code:"9426" },
+];
+const GH = "https://github.com/hjayson/sfm-website/edit/main/sfm-deploy-v3/clients/";
+
+function unlock(){
+  const v=(document.getElementById('gate-input').value||'').trim();
+  if(v===MASTER_CODE){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    show(0);
+  } else {
+    document.getElementById('gate-err').textContent="That code didn't match.";
+  }
+}
+document.getElementById('gate-input').addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
+(function(){const p=new URLSearchParams(location.search).get('code');if(p===MASTER_CODE){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';show(0);}})();
+
+const tabs=document.getElementById('tabs');
+CLIENTS.forEach((c,i)=>{
+  const b=document.createElement('button');
+  b.className='tab'; b.textContent=c.name; b.onclick=()=>show(i);
+  tabs.appendChild(b);
+});
+
+function show(i){
+  const c=CLIENTS[i];
+  [...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===i));
+  const fr=document.getElementById('mFrame');
+  document.getElementById('mUpdated').textContent='…';
+  document.getElementById('mPct').textContent='…';
+  document.getElementById('mCode').textContent=c.code;
+  document.getElementById('mEdit').href=GH+c.file;
+  document.getElementById('mOpen').href=c.file;
+  fr.src=c.file+'?code='+c.code;
+  fr.onload=()=>{ try{
+    const cl=fr.contentWindow.CLIENT;
+    document.getElementById('mUpdated').textContent=cl.updated||'—';
+    const ps=(cl.projects||[]).map(p=>p.percent||0);
+    document.getElementById('mPct').textContent=ps.length?Math.round(ps.reduce((a,b)=>a+b,0)/ps.length)+'%':'—';
+  }catch(e){
+    document.getElementById('mUpdated').textContent='—';
+    document.getElementById('mPct').textContent='—';
+  }};
+}
+</script>
+</body>
+</html>

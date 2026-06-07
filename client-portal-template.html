@@ -242,6 +242,7 @@ function render(){
     </div>`;
 }
 render();
+(function(){const p=new URLSearchParams(location.search).get('code');if(p&&p===String(CLIENT.accessCode)){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}})();
 </script>
 </body>
 </html>
