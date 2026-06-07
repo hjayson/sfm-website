@@ -127,7 +127,6 @@ function unlock(){
   } else { document.getElementById('gate-err').textContent="That code didn't match."; }
 }
 document.getElementById('gate-input').addEventListener('keydown',e=>{if(e.key==='Enter')unlock();});
-(function(){const p=new URLSearchParams(location.search).get('code');if(p===MASTER_CODE){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';show(0);}})();
 
 const tabs=document.getElementById('tabs');
 CLIENTS.forEach((c,i)=>{const b=document.createElement('button');b.className='tab';b.textContent=c.name;b.onclick=()=>show(i);tabs.appendChild(b);});
@@ -292,6 +291,7 @@ async function saveEdits(){
     setTimeout(()=>{ closeEditor(); show(cur); status(''); btn.disabled=false; }, 65000);
   }catch(err){ status(err.message,'bad'); btn.disabled=false; }
 }
+(function(){const p=new URLSearchParams(location.search).get('code');if(p===MASTER_CODE){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';show(0);}})();
 </script>
 </body>
 </html>
