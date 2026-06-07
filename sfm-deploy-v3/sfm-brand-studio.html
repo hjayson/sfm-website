@@ -347,7 +347,7 @@ function bizName(){return (bizIn&&bizIn.value.trim())||'Your Business';}
 function persName(){return (nameIn&&nameIn.value.trim())||'Your Name';}
 /* ---------- score ---------- */
 function renderScore(){var P=state.primary,A=state.accent;var checks=[];
- checks.push([contrast(P,textOn(P))>=4.5,'Text on your primary may be hard to read']);
+ checks.push([contrast(P,textOn(P)==='#fff'?'#FFFFFF':'#141414')>=4.5,'Text on your primary may be hard to read']);
  checks.push([contrast(A,'#FFFFFF')>=2.2,'Your accent may fade on white']);
  var ph=hexHsl(P)[0],ah=hexHsl(A)[0];var hd=Math.abs(ph-ah);hd=Math.min(hd,360-hd);
  checks.push([hd>25||contrast(P,A)>=1.7,'Primary and accent are very similar']);
