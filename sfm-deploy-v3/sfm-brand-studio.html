@@ -332,6 +332,22 @@ syncPickers();apply();
   .bsx-dlrow .bsx-btn{width:100%;padding:13px;}
   .bsx-palname{font-size:11px;}
 }
+/* mockups: full-width section */
+.bsx-mocksec{padding:0 0 56px;}
+.bsx-mocks{margin-top:0;padding:22px;}
+.bsx-mockrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.bsx-mock,.bsx-ig,.bsx-card,.bsx-sign{max-width:none;width:auto;}
+.bsx-ig-body{height:215px;}
+.bsx-ig-body img{max-height:70%;}
+.bsx-card{min-height:175px;}
+.bsx-card-inner{padding:16px;gap:6px;}
+.bsx-card-biz{font-size:17px;}
+.bsx-card-name{font-size:12px;}
+.bsx-sign-band{height:76px;}
+.bsx-sign-band img{max-height:48px;max-width:95px;}
+.bsx-sign-band span{font-size:14.5px;}
+.bsx-sign-wall{height:98px;}
+@media(max-width:680px){.bsx-mockrow{grid-template-columns:1fr;}}
 </style>
 <script>
 (function(){
@@ -387,25 +403,32 @@ function autoPair(){var p=hexHsl(state.primary);var offs=[180,150,210,120];var h
 function surprise(){var h=Math.floor(Math.random()*360);state.primary=hsl2hex(h,0.45+Math.random()*0.25,0.2+Math.random()*0.12);
  state.accent=hsl2hex(h+140+Math.random()*80,0.7+Math.random()*0.2,0.48+Math.random()*0.1);state.style='Surprise';syncPickers();apply();}
 /* ---------- photo extraction ---------- */
-function extractFrom(img){var W=64,H=Math.max(8,Math.round((img.naturalHeight/Math.max(1,img.naturalWidth))*64));
- var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(img,0,0,W,H);
+function extractFrom(img){var iw=img.naturalWidth||img.width,ih=img.naturalHeight||img.height;if(!iw||!ih)return null;
+ var W=80,H=Math.max(8,Math.round(ih/iw*80));
+ var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');
+ try{x.drawImage(img,0,0,W,H);}catch(e){return null;}
  var d;try{d=x.getImageData(0,0,W,H).data;}catch(e){return null;}
  var bk={};
  for(var i=0;i<d.length;i+=4){if(d[i+3]<200)continue;var r=d[i],g=d[i+1],b=d[i+2];var hsl=rgb2hsl(r,g,b);
-  if(hsl[2]>0.93||hsl[2]<0.07)continue;
-  var k=Math.round(hsl[0]/20)+'_'+Math.round(hsl[1]*3)+'_'+Math.round(hsl[2]*4);
-  if(!bk[k])bk[k]={n:0,r:0,g:0,b:0,h:hsl[0],s:hsl[1],l:hsl[2]};
+  if(hsl[2]>0.96||hsl[2]<0.04)continue;
+  var k=Math.round(hsl[0]/15)+'_'+Math.round(hsl[1]*5)+'_'+Math.round(hsl[2]*6);
+  if(!bk[k])bk[k]={n:0,r:0,g:0,b:0};
   bk[k].n++;bk[k].r+=r;bk[k].g+=g;bk[k].b+=b;}
- var cols=Object.keys(bk).map(function(k){var o=bk[k];return{hex:r2h(o.r/o.n,o.g/o.n,o.b/o.n),n:o.n,h:o.h,s:o.s,l:o.l};}).sort(function(a,b){return b.n-a.n;});
+ var cols=Object.keys(bk).map(function(k){var o=bk[k];var rr=o.r/o.n,gg=o.g/o.n,bb=o.b/o.n;var h2=rgb2hsl(rr,gg,bb);return{hex:r2h(rr,gg,bb),n:o.n,h:h2[0],s:h2[1],l:h2[2]};}).sort(function(a,b){return b.n-a.n;});
  if(!cols.length)return null;
- var sat=cols.filter(function(c){return c.s>0.15;});var pool=sat.length?sat:cols;
- var pri=pool[0];var pHex=pri.hex;
- if(pri.l>0.6)pHex=hsl2hex(pri.h,Math.max(pri.s,0.35),0.28);
- var acc=cols.filter(function(c){var dd=Math.abs(c.h-pri.h);dd=Math.min(dd,360-dd);return dd>40&&c.s>0.25;}).sort(function(a,b){return b.s*b.n-a.s*a.n;})[0];
- var aHex=acc?acc.hex:hsl2hex(pri.h+170,0.78,0.52);
- var ah=hexHsl(aHex);if(ah[2]<0.3||ah[2]>0.75||ah[1]<0.4)aHex=hsl2hex(ah[0],Math.max(ah[1],0.65),0.52);
- return[pHex,aHex];}
-function applyExtract(img,label){var res=extractFrom(img);if(!res){alert('Could not read colors from that image \u2014 try another.');return;}
+ var sat=cols.filter(function(c){return c.s>0.18&&c.l>0.06&&c.l<0.92;});
+ var pri=sat.length?sat[0]:cols[0];
+ var pHex=pri.hex;
+ if(pri.l>0.74)pHex=mix(pri.hex,'#000000',0.45);
+ var acc=cols.filter(function(c){var dd=Math.abs(c.h-pri.h);dd=Math.min(dd,360-dd);return (dd>35||Math.abs(c.l-pri.l)>0.35)&&c.s>0.28&&c.l>0.15&&c.l<0.88&&c.hex!==pri.hex;})
+  .sort(function(a,b){return b.s*Math.sqrt(b.n)-a.s*Math.sqrt(a.n);})[0];
+ var aHex;
+ if(acc){aHex=acc.hex;if(acc.l<0.2)aHex=mix(acc.hex,'#FFFFFF',0.22);else if(acc.l>0.88)aHex=mix(acc.hex,'#000000',0.18);}
+ else if(pri.s<0.12){aHex='#C9A227';}
+ else{var second=cols.filter(function(c){return c.hex!==pri.hex&&c.s>0.15;}).sort(function(a,b){return b.n-a.n;})[0];
+  aHex=second?second.hex:hsl2hex(pri.h+30,Math.max(pri.s,0.5),0.55);}
+ return[pHex.toUpperCase(),aHex.toUpperCase()];}
+function applyExtract(img,label){var res=extractFrom(img);if(!res){alert('We could not find usable colors in that image (all-white or transparent logos do not carry color). Try a photo, or pick from the library.');return;}
  state.primary=res[0];state.accent=res[1];state.style=label;syncPickers();apply();}
 /* ---------- brand sheet / share card ---------- */
 function download(square){var W=1080,H=square?1080:1350;var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');
@@ -468,6 +491,7 @@ try{var q=new URLSearchParams(location.search);var qp=q.get('p'),qa2=q.get('a');
  if(qp&&/^[0-9A-Fa-f]{6}$/.test(qp)){state.primary='#'+qp.toUpperCase();anyq=true;}
  if(qa2&&/^[0-9A-Fa-f]{6}$/.test(qa2)){state.accent='#'+qa2.toUpperCase();anyq=true;}
  if(anyq){state.style='Shared link';syncPickers();}}catch(e){}
+(function(){var m=document.querySelector('.bsx-mocks');var st=document.querySelector('.studio');if(m&&st){var ps=st.closest('section');if(ps&&ps.parentNode){var sec=document.createElement('section');sec.className='bsx-mocksec';var wr=document.createElement('div');wr.className='wrap';sec.appendChild(wr);wr.appendChild(m);ps.parentNode.insertBefore(sec,ps.nextSibling);}}})();
 extras();apply();
 })();
 </script>
