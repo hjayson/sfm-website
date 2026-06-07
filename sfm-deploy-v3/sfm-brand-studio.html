@@ -514,22 +514,32 @@ try{var q=new URLSearchParams(location.search);var qp=q.get('p'),qa2=q.get('a');
  if(anyq){state.style='Shared link';syncPickers();}}catch(e){}
 (function(){var m=document.querySelector('.bsx-mocks');var st=document.querySelector('.studio');if(m&&st){var ps=st.closest('section');if(ps&&ps.parentNode){var sec=document.createElement('section');sec.className='bsx-mocksec';var wr=document.createElement('div');wr.className='wrap';sec.appendChild(wr);wr.appendChild(m);ps.parentNode.insertBefore(sec,ps.nextSibling);}}})();
 /* ---------- background remover (flood fill from edges) ---------- */
+function bsxMsg(t){var m=$('bsxBgMsg');if(!m){m=document.createElement('div');m.id='bsxBgMsg';m.style.cssText='margin-top:8px;background:#fff6e6;color:#9a6b00;border-radius:10px;padding:9px 13px;font-weight:700;font-size:13px;';var row=document.querySelector('.bsx-btnrow');row.parentNode.insertBefore(m,row.nextSibling);}m.textContent=t;m.style.display='block';clearTimeout(window.__bsxMsgT);window.__bsxMsgT=setTimeout(function(){m.style.display='none';},6000);}
 function removeBg(){var pv=$('pvLogo');if(!pv||!pv.src)return;
  var img=new Image();
  img.onload=function(){
-  var W=img.naturalWidth,H=img.naturalHeight;if(!W||!H){alert('Could not read this image.');return;}
+  var W=img.naturalWidth,H=img.naturalHeight;if(!W||!H){bsxMsg('Could not read this image.');return;}
   var sc=Math.min(1,1600/Math.max(W,H));W=Math.round(W*sc);H=Math.round(H*sc);
   var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(img,0,0,W,H);
-  var id;try{id=x.getImageData(0,0,W,H);}catch(e){alert('Could not process this image.');return;}
+  var id;try{id=x.getImageData(0,0,W,H);}catch(e){bsxMsg('Could not process this image.');return;}
   var d=id.data,i;
   var bs=[];
   function pushB(px,py){var o=(py*W+px)*4;if(d[o+3]>10)bs.push([d[o],d[o+1],d[o+2]]);}
   for(i=0;i<W;i++){pushB(i,0);pushB(i,H-1);}
   for(i=0;i<H;i++){pushB(0,i);pushB(W-1,i);}
-  if(!bs.length){alert('The background is already transparent \u2014 you are good!');return;}
+  if(!bs.length){
+   var seen=new Uint8Array(W*H),st2=[];
+   for(i=0;i<W;i++){st2.push(i);st2.push((H-1)*W+i);}
+   for(i=0;i<H;i++){st2.push(i*W);st2.push(i*W+W-1);}
+   while(st2.length){var q=st2.pop();if(seen[q])continue;seen[q]=1;var oo=q*4;
+    if(d[oo+3]>10){bs.push([d[oo],d[oo+1],d[oo+2]]);continue;}
+    var qx=q%W,qy=(q/W)|0;
+    if(qx>0)st2.push(q-1);if(qx<W-1)st2.push(q+1);if(qy>0)st2.push(q-W);if(qy<H-1)st2.push(q+W);}
+   if(!bs.length){bsxMsg('Nothing left to remove \u2014 your logo is fully transparent. Hit \u2b07 Transparent PNG to download it.');return;}
+  }
   var br=0,bgc=0,bb=0;bs.forEach(function(p){br+=p[0];bgc+=p[1];bb+=p[2];});br/=bs.length;bgc/=bs.length;bb/=bs.length;
   var ok=0;bs.forEach(function(p){if(Math.abs(p[0]-br)+Math.abs(p[1]-bgc)+Math.abs(p[2]-bb)<90)ok++;});
-  if(ok/bs.length<0.55){alert('This background is too complex for the quick tool (photo backgrounds need the pro touch). Send it to us in Step 3 and we will clean it up for you \u2014 free.');return;}
+  if(ok/bs.length<0.55){bsxMsg('That layer is not a solid color \u2014 looks like your logo itself, so we stopped. (Photo backgrounds need the pro touch \u2014 ask in Step 3 and we will clean it free.)');return;}
   var TOL=95,visited=new Uint8Array(W*H),stack=[];
   for(i=0;i<W;i++){stack.push(i);stack.push((H-1)*W+i);}
   for(i=0;i<H;i++){stack.push(i*W);stack.push(i*W+W-1);}
