@@ -138,7 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <form name="brand-study" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/sfm-brand-studio-thanks.html">
 <input type="hidden" name="form-name" value="brand-study">
 <p style="display:none;"><label>Skip: <input name="bot-field"></label></p>
-<input type="hidden" name="primary_color" id="f_primary"><input type="hidden" name="accent_color" id="f_accent"><input type="hidden" name="palette_style" id="f_style">
+<input type="hidden" name="primary_color" id="f_primary"><input type="hidden" name="accent_color" id="f_accent"><input type="hidden" name="palette_style" id="f_style"><input type="hidden" name="palette_name" id="f_palname">
 <section><div class="wrap"><div class="studio">
   <div class="col-upload">
     <div class="sec-head"><div class="sec-num">Step 1</div><h2>Upload your logo</h2><p>PNG or JPG. A transparent PNG looks best, but anything works.</p></div>
@@ -164,6 +164,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="slot"><label>Accent</label><div class="big" id="accentBig"><input type="color" id="accentPick" value="#E85D26"></div><div class="hex" id="accentHex">#E85D26</div></div>
       </div>
       <div class="lib"><div class="activeslot-row"><button type="button" class="slotbtn on" id="slotPrimary">Editing: Primary</button><button type="button" class="slotbtn" id="slotAccent">Editing: Accent</button></div><div id="libwrap"></div></div>
+<div class="bsx-tools">
+  <div class="bsx-btnrow">
+    <button type="button" class="bsx-btn" id="bsxPair">✨ Auto-pair accent</button>
+    <button type="button" class="bsx-btn ghost" id="bsxShuffle">🎲 Surprise me</button>
+    <label class="bsx-btn ghost" for="bsxPhoto">📷 Colors from a photo<input type="file" id="bsxPhoto" accept="image/*" style="display:none;"></label>
+    <button type="button" class="bsx-btn ghost" id="bsxFromLogo" style="display:none;">🎯 Use my logo's colors</button>
+  </div>
+  <div id="bsxScore"></div>
+  <div class="bsx-ramps">
+    <div><span class="bsx-rlbl">Primary shades</span><div class="bsx-ramp" id="bsxRampP"></div></div>
+    <div><span class="bsx-rlbl">Accent shades</span><div class="bsx-ramp" id="bsxRampA"></div></div>
+  </div>
+  <div class="bsx-hint">Tap any shade to use it for whichever color you're editing.</div>
+</div>
     </div>
   </div>
   <div class="prevcol">
@@ -177,6 +191,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="rowx"><button type="button" class="btnx" id="pvBtn2">Book a Call</button><span class="chipx" id="pvChip2" style="background:#fff;">Featured</span></div>
     </div></div>
     <div class="mypal"><div class="duo"><i id="mpA"></i><i id="mpB"></i></div><div class="txt">Your palette · <b id="mpHex">#0A1628 + #E85D26</b></div></div>
+<div class="bsx-mocks">
+  <div class="bsx-mhead"><span class="bsx-mtitle">Your brand in the wild</span><span class="bsx-palname" id="bsxPalName"></span></div>
+  <div class="bsx-mockrow">
+    <div class="bsx-mock bsx-ig">
+      <div class="bsx-ig-top"><span class="bsx-ig-av" id="mkIGav"></span><b id="mkIGhandle">yourbusiness</b></div>
+      <div class="bsx-ig-body" id="mkIGbody">
+        <img id="mkIGlogo" alt="" style="display:none;"><span class="bsx-ini" id="mkIGini">YB</span>
+        <span class="bsx-ig-chip" id="mkIGchip">NEW</span>
+      </div>
+    </div>
+    <div class="bsx-mock bsx-card">
+      <i class="bsx-card-stripe" id="mkCardStripe"></i>
+      <div class="bsx-card-inner">
+        <img id="mkCardLogo" alt="" style="display:none;"><span class="bsx-ini sm" id="mkCardIni">YB</span>
+        <div class="bsx-card-biz" id="mkCardBiz">Your Business</div>
+        <div class="bsx-card-name" id="mkCardName">Your Name</div>
+      </div>
+    </div>
+    <div class="bsx-mock bsx-sign">
+      <div class="bsx-sign-band" id="mkSignBand"><img id="mkSignLogo" alt="" style="display:none;"><span id="mkSignTxt">YOUR BUSINESS</span></div>
+      <div class="bsx-sign-wall"><span class="bsx-sign-door" id="mkSignDoor"></span><span class="bsx-sign-win"></span></div>
+    </div>
+  </div>
+  <div class="bsx-dlrow">
+    <button type="button" class="bsx-btn" id="bsxSheet">⬇ Download my brand sheet</button>
+    <button type="button" class="bsx-btn ghost" id="bsxShare">📤 Share my palette</button>
+  </div>
+</div>
   </div>
 </div></div></section>
 <section class="band"><div class="wrap"><div class="leadwrap">
@@ -229,6 +271,162 @@ function apply(){const P=state.primary,A=state.accent;var _pb=document.getElemen
   document.getElementById('sumA').style.background=P;document.getElementById('sumB').style.background=A;
   document.getElementById('sumLbl').textContent='Your palette: '+P.toUpperCase()+' + '+A.toUpperCase()+(state.style!=='Custom'?'  ·  '+state.style:'');}
 syncPickers();apply();
+</script>
+<style>
+.bsx-tools{margin-top:14px;border-top:1px solid #e7ebf0;padding-top:14px;}
+.bsx-btnrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+.bsx-btn{display:inline-flex;align-items:center;gap:6px;background:#E85D26;color:#fff;border:none;border-radius:10px;font-weight:800;font-size:13px;padding:9px 13px;cursor:pointer;font-family:inherit;}
+.bsx-btn:hover{filter:brightness(.94);}
+.bsx-btn.ghost{background:#fff;color:#0A1628;border:1px solid #d9dfe6;}
+.bsx-ramps{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.bsx-rlbl{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#7a8595;display:block;margin-bottom:4px;}
+.bsx-ramp{display:flex;gap:6px;}
+.bsx-ramp i{flex:1;height:30px;border-radius:7px;cursor:pointer;border:1px solid rgba(0,0,0,.08);transition:transform .1s;}
+.bsx-ramp i:hover{transform:scale(1.07);}
+.bsx-hint{font-size:12px;color:#7a8595;margin-top:8px;}
+.bsx-mocks{background:#fff;border:1px solid #e7ebf0;border-radius:16px;padding:16px;margin-top:14px;}
+.bsx-mhead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.bsx-mtitle{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#7a8595;}
+.bsx-palname{margin-left:auto;background:#0A1628;color:#fff;font-size:12px;font-weight:800;border-radius:20px;padding:4px 12px;}
+.bsx-mockrow{display:flex;gap:10px;flex-wrap:wrap;}
+.bsx-mock{border-radius:12px;overflow:hidden;border:1px solid #e7ebf0;flex:1;min-width:150px;}
+.bsx-ig{background:#fff;max-width:175px;}
+.bsx-ig-top{display:flex;align-items:center;gap:6px;padding:7px 9px;font-size:11px;}
+.bsx-ig-av{width:18px;height:18px;border-radius:50%;display:inline-block;}
+.bsx-ig-body{position:relative;height:120px;display:flex;align-items:center;justify-content:center;}
+.bsx-ig-body img{max-width:70%;max-height:62%;object-fit:contain;}
+.bsx-ig-chip{position:absolute;bottom:8px;right:8px;font-size:10px;font-weight:900;border-radius:14px;padding:3px 9px;}
+.bsx-ini{font-weight:900;font-size:30px;color:#fff;}
+.bsx-ini.sm{font-size:20px;}
+.bsx-card{background:#fff;display:flex;max-width:220px;min-height:120px;position:relative;}
+.bsx-card-stripe{width:10px;flex-shrink:0;display:block;}
+.bsx-card-inner{padding:12px 12px;display:flex;flex-direction:column;justify-content:center;gap:4px;min-width:0;}
+.bsx-card-inner img{max-height:34px;max-width:110px;object-fit:contain;align-self:flex-start;}
+.bsx-card .bsx-ini.sm{color:#0A1628;}
+.bsx-card-biz{font-weight:900;font-size:14px;line-height:1.2;}
+.bsx-card-name{font-size:10.5px;color:#7a8595;}
+.bsx-sign{max-width:220px;background:#eef1f5;}
+.bsx-sign-band{height:54px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 10px;}
+.bsx-sign-band img{max-height:34px;max-width:60px;object-fit:contain;}
+.bsx-sign-band span{font-weight:900;font-size:12px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bsx-sign-wall{height:66px;position:relative;background:linear-gradient(#f6f8fa,#e7ebf0);}
+.bsx-sign-door{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:34px;height:48px;border-radius:6px 6px 0 0;}
+.bsx-sign-win{position:absolute;right:18px;bottom:10px;width:44px;height:30px;background:#cfd9e3;border-radius:4px;}
+.bsx-dlrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+</style>
+<script>
+(function(){
+"use strict";
+function $(id){return document.getElementById(id);}
+function h2r(h){h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
+function r2h(r,g,b){return '#'+[r,g,b].map(function(v){return Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0');}).join('').toUpperCase();}
+function rgb2hsl(r,g,b){r/=255;g/=255;b/=255;var mx=Math.max(r,g,b),mn=Math.min(r,g,b),h=0,s=0,l=(mx+mn)/2;if(mx!==mn){var d=mx-mn;s=l>0.5?d/(2-mx-mn):d/(mx+mn);if(mx===r){h=(g-b)/d+(g<b?6:0);}else if(mx===g){h=(b-r)/d+2;}else{h=(r-g)/d+4;}h/=6;}return[h*360,s,l];}
+function hsl2hex(h,s,l){h=((h%360)+360)%360/360;var r,g,b;if(s===0){r=g=b=l;}else{var q=l<0.5?l*(1+s):l+s-l*s,p=2*l-q;var f=function(t){if(t<0)t+=1;if(t>1)t-=1;if(t<1/6)return p+(q-p)*6*t;if(t<1/2)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p;};r=f(h+1/3);g=f(h);b=f(h-1/3);}return r2h(r*255,g*255,b*255);}
+function hexHsl(x){var c=h2r(x);return rgb2hsl(c[0],c[1],c[2]);}
+function mix(a,b,t){var x=h2r(a),y=h2r(b);return r2h(x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t);}
+function ramp5(hex){return[mix(hex,'#FFFFFF',0.78),mix(hex,'#FFFFFF',0.45),hex,mix(hex,'#000000',0.22),mix(hex,'#000000',0.45)];}
+var HUES=[[18,'Ember'],[42,'Amber'],[68,'Citrus'],[100,'Lime'],[145,'Meadow'],[172,'Emerald'],[198,'Lagoon'],[228,'Harbor'],[258,'Midnight'],[288,'Royal'],[318,'Orchid'],[348,'Berry'],[361,'Ember']];
+function hueName(h){h=((h%360)+360)%360;for(var i=0;i<HUES.length;i++){if(h<=HUES[i][0])return HUES[i][1];}return 'Ember';}
+function toneName(l,s){if(s<0.12)return l<0.35?'Charcoal':'Stone';return l<0.28?'Midnight':l<0.45?'Deep':l<0.62?'Classic':'Bright';}
+function palName(){var p=hexHsl(state.primary),a=hexHsl(state.accent);var t=toneName(p[2],p[1]),hn=hueName(a[0]);if(t===hn)hn='Glow';return t+' '+hn;}
+var bizIn=document.querySelector('input[name="business"]'),nameIn=document.querySelector('input[name="name"]');
+var pvLogoEl=$('pvLogo');
+function initials(){var b=(bizIn&&bizIn.value.trim())||'Your Business';var w=b.split(/\s+/);return ((w[0]||'')[0]||'Y').toUpperCase()+((w[1]||'')[0]||'').toUpperCase();}
+function bizName(){return (bizIn&&bizIn.value.trim())||'Your Business';}
+function persName(){return (nameIn&&nameIn.value.trim())||'Your Name';}
+/* ---------- score ---------- */
+function renderScore(){var P=state.primary,A=state.accent;var checks=[];
+ checks.push([contrast(P,textOn(P))>=4.5,'Text on your primary may be hard to read']);
+ checks.push([contrast(A,'#FFFFFF')>=2.2,'Your accent may fade on white']);
+ var ph=hexHsl(P)[0],ah=hexHsl(A)[0];var hd=Math.abs(ph-ah);hd=Math.min(hd,360-hd);
+ checks.push([hd>25||contrast(P,A)>=1.7,'Primary and accent are very similar']);
+ var fails=checks.filter(function(c){return !c[0];});var pass=3-fails.length;
+ var bg=pass===3?'#e8f7ee':pass===2?'#fff6e6':'#fdecea';var fg=pass===3?'#1d7a46':pass===2?'#9a6b00':'#b3261e';
+ var msg=pass===3?'Brand Score 3/3 \u2014 looking sharp':pass===2?'Brand Score 2/3 \u2014 solid, one tweak could help':'Brand Score '+pass+'/3 \u2014 needs a tweak';
+ var det=fails.map(function(c){return c[1];}).join(' \u00B7 ');
+ $('bsxScore').innerHTML='<div style="background:'+bg+';color:'+fg+';border-radius:10px;padding:9px 13px;font-weight:800;font-size:13px;">'+(pass===3?'\u2713 ':'\u26A0 ')+msg+(det?'<span style="display:block;font-weight:600;opacity:.85;font-size:12px;margin-top:2px;">'+det+'</span>':'')+'</div>';}
+/* ---------- ramps ---------- */
+function renderRamps(){[['bsxRampP',state.primary],['bsxRampA',state.accent]].forEach(function(pair){var el=$(pair[0]);el.innerHTML='';ramp5(pair[1]).forEach(function(c){var i=document.createElement('i');i.style.background=c;i.title=c;i.addEventListener('click',function(){state[state.slot]=c;state.style='Custom';syncPickers();apply();});el.appendChild(i);});});}
+/* ---------- mockups ---------- */
+function renderMocks(){var P=state.primary,A=state.accent,tp=textOn(P),ta=textOn(A);
+ $('bsxPalName').textContent=palName();var fp=$('f_palname');if(fp)fp.value=palName();
+ $('mkIGav').style.background=A;$('mkIGhandle').textContent='@'+bizName().toLowerCase().replace(/[^a-z0-9]+/g,'');
+ var body=$('mkIGbody');body.style.background=P;$('mkIGini').style.color=tp;
+ var chip=$('mkIGchip');chip.style.background=A;chip.style.color=ta;
+ $('mkCardStripe').style.background=A;$('mkCardBiz').style.color=P;$('mkCardBiz').textContent=bizName();$('mkCardName').textContent=persName();
+ var band=$('mkSignBand');band.style.background=P;$('mkSignTxt').style.color=tp;$('mkSignTxt').textContent=bizName().toUpperCase();
+ $('mkSignDoor').style.background=A;
+ $('mkIGini').textContent=initials();$('mkCardIni').textContent=initials();}
+function syncLogos(){var ok=pvLogoEl&&pvLogoEl.src&&pvLogoEl.style.display!=='none';
+ [['mkIGlogo','mkIGini'],['mkCardLogo','mkCardIni'],['mkSignLogo','mkSignTxt']].forEach(function(p){var img=$(p[0]),alt=$(p[1]);
+  if(ok){img.src=pvLogoEl.src;img.style.display='block';if(p[0]!=='mkSignLogo')alt.style.display='none';}
+  else{img.style.display='none';alt.style.display='';}});
+ $('bsxFromLogo').style.display=ok?'inline-flex':'none';}
+/* ---------- auto-pair / surprise ---------- */
+function autoPair(){var p=hexHsl(state.primary);var offs=[180,150,210,120];var h=p[0]+offs[Math.floor(Math.random()*offs.length)];
+ state.accent=hsl2hex(h,0.72+Math.random()*0.15,0.5+Math.random()*0.08);state.style='Auto-paired';syncPickers();apply();}
+function surprise(){var h=Math.floor(Math.random()*360);state.primary=hsl2hex(h,0.45+Math.random()*0.25,0.2+Math.random()*0.12);
+ state.accent=hsl2hex(h+140+Math.random()*80,0.7+Math.random()*0.2,0.48+Math.random()*0.1);state.style='Surprise';syncPickers();apply();}
+/* ---------- photo extraction ---------- */
+function extractFrom(img){var W=64,H=Math.max(8,Math.round((img.naturalHeight/Math.max(1,img.naturalWidth))*64));
+ var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(img,0,0,W,H);
+ var d;try{d=x.getImageData(0,0,W,H).data;}catch(e){return null;}
+ var bk={};
+ for(var i=0;i<d.length;i+=4){if(d[i+3]<200)continue;var r=d[i],g=d[i+1],b=d[i+2];var hsl=rgb2hsl(r,g,b);
+  if(hsl[2]>0.93||hsl[2]<0.07)continue;
+  var k=Math.round(hsl[0]/20)+'_'+Math.round(hsl[1]*3)+'_'+Math.round(hsl[2]*4);
+  if(!bk[k])bk[k]={n:0,r:0,g:0,b:0,h:hsl[0],s:hsl[1],l:hsl[2]};
+  bk[k].n++;bk[k].r+=r;bk[k].g+=g;bk[k].b+=b;}
+ var cols=Object.keys(bk).map(function(k){var o=bk[k];return{hex:r2h(o.r/o.n,o.g/o.n,o.b/o.n),n:o.n,h:o.h,s:o.s,l:o.l};}).sort(function(a,b){return b.n-a.n;});
+ if(!cols.length)return null;
+ var sat=cols.filter(function(c){return c.s>0.15;});var pool=sat.length?sat:cols;
+ var pri=pool[0];var pHex=pri.hex;
+ if(pri.l>0.6)pHex=hsl2hex(pri.h,Math.max(pri.s,0.35),0.28);
+ var acc=cols.filter(function(c){var dd=Math.abs(c.h-pri.h);dd=Math.min(dd,360-dd);return dd>40&&c.s>0.25;}).sort(function(a,b){return b.s*b.n-a.s*a.n;})[0];
+ var aHex=acc?acc.hex:hsl2hex(pri.h+170,0.78,0.52);
+ var ah=hexHsl(aHex);if(ah[2]<0.3||ah[2]>0.75||ah[1]<0.4)aHex=hsl2hex(ah[0],Math.max(ah[1],0.65),0.52);
+ return[pHex,aHex];}
+function applyExtract(img,label){var res=extractFrom(img);if(!res){alert('Could not read colors from that image \u2014 try another.');return;}
+ state.primary=res[0];state.accent=res[1];state.style=label;syncPickers();apply();}
+/* ---------- brand sheet / share card ---------- */
+function download(square){var W=1080,H=square?1080:1350;var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');
+ var P=state.primary,A=state.accent,tp=textOn(P);
+ x.fillStyle='#FFFFFF';x.fillRect(0,0,W,H);
+ x.fillStyle=P;x.fillRect(0,0,W,300);
+ x.fillStyle=tp;x.globalAlpha=.8;x.font='800 26px Arial';x.fillText('YOUR BRAND PALETTE',60,78);x.globalAlpha=1;
+ x.font='900 68px Arial';x.fillText(palName(),60,160);
+ x.globalAlpha=.85;x.font='600 26px Arial';x.fillText(bizName(),60,212);x.globalAlpha=1;
+ var ok=pvLogoEl&&pvLogoEl.src&&pvLogoEl.style.display!=='none';
+ if(ok){x.fillStyle='#FFFFFF';x.fillRect(W-340,55,280,190);try{var iw=pvLogoEl.naturalWidth,ih=pvLogoEl.naturalHeight,sc=Math.min(230/iw,150/ih);x.drawImage(pvLogoEl,W-340+(280-iw*sc)/2,55+(190-ih*sc)/2,iw*sc,ih*sc);}catch(e){}}
+ var y=360,swW=(W-180)/2;
+ x.fillStyle=P;x.fillRect(60,y,swW,190);x.fillStyle=A;x.fillRect(120+swW,y,swW,190);
+ x.fillStyle='#1c2433';x.font='800 26px Arial';
+ x.fillText('PRIMARY  '+P.toUpperCase(),60,y+232);x.fillText('ACCENT  '+A.toUpperCase(),120+swW,y+232);
+ y+=290;x.fillStyle='#7a8595';x.font='700 22px Arial';x.fillText('Shades you can use',60,y-16);
+ var rw=(W-120-40)/5;
+ ramp5(P).forEach(function(c,i){x.fillStyle=c;x.fillRect(60+i*(rw+10),y,rw,85);});y+=100;
+ ramp5(A).forEach(function(c,i){x.fillStyle=c;x.fillRect(60+i*(rw+10),y,rw,85);});y+=130;
+ if(!square){x.fillStyle=P;x.fillRect(60,y,300,80);x.fillStyle=tp;x.font='800 30px Arial';x.fillText('Book Now',135,y+50);
+  x.fillStyle=A;x.fillRect(400,y+16,140,48);x.fillStyle=textOn(A);x.font='800 22px Arial';x.fillText('NEW',442,y+48);}
+ x.fillStyle='#0A1628';x.fillRect(0,H-86,W,86);x.fillStyle='#FFFFFF';x.font='600 25px Arial';
+ x.fillText('Free Brand Palette Builder \u00B7 salesfunnelmarketing.us',60,H-33);
+ var a=document.createElement('a');a.download=(palName()+(square?'-palette':'-brand-sheet')).toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.png';
+ cv.toBlob(function(b){a.href=URL.createObjectURL(b);a.click();});}
+/* ---------- wire up ---------- */
+function refresh(){try{renderRamps();renderScore();renderMocks();syncLogos();}catch(e){console.warn('bsx',e);}}
+var _apply=window.apply;window.apply=function(){_apply();refresh();};
+$('bsxPair').addEventListener('click',autoPair);
+$('bsxShuffle').addEventListener('click',surprise);
+$('bsxSheet').addEventListener('click',function(){download(false);});
+$('bsxShare').addEventListener('click',function(){download(true);});
+$('bsxFromLogo').addEventListener('click',function(){if(pvLogoEl&&pvLogoEl.src)applyExtract(pvLogoEl,'From your logo');});
+$('bsxPhoto').addEventListener('change',function(e){var fl=e.target.files[0];if(!fl)return;var rd=new FileReader();rd.onload=function(ev){var im=new Image();im.onload=function(){applyExtract(im,'From your photo');};im.src=ev.target.result;};rd.readAsDataURL(fl);e.target.value='';});
+if(pvLogoEl)pvLogoEl.addEventListener('load',function(){syncLogos();});
+if(bizIn)bizIn.addEventListener('input',renderMocks);
+if(nameIn)nameIn.addEventListener('input',renderMocks);
+window.__bsx={pair:autoPair,surprise:surprise,refresh:refresh,palName:palName};
+refresh();
+})();
 </script>
 </body>
 </html>
