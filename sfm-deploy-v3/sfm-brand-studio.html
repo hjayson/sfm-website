@@ -216,7 +216,7 @@ drop.addEventListener('dragleave',()=>drop.classList.remove('has'));
 drop.addEventListener('drop',e=>{e.preventDefault();const f=e.dataTransfer.files[0];if(f){fileInput.files=e.dataTransfer.files;handleFile(f);}});
 const dropThumb=document.getElementById('dropThumb'), dropBig=document.getElementById('dropBig');
 function handleFile(f){if(!f)return;const r=new FileReader();r.onload=ev=>{pvLogo.src=ev.target.result;pvLogo.style.display='block';pvPH.style.display='none';dropThumb.src=ev.target.result;drop.classList.add('has');dropBig.textContent='Looks great — tap to change';fname.textContent='✓ '+f.name;};r.readAsDataURL(f);}
-function apply(){const P=state.primary,A=state.accent;
+function apply(){const P=state.primary,A=state.accent;var _pb=document.getElementById('primaryBig');if(_pb)_pb.style.background=P;var _ab=document.getElementById('accentBig');if(_ab)_ab.style.background=A;
   document.getElementById('primaryHex').textContent=P.toUpperCase();document.getElementById('accentHex').textContent=A.toUpperCase();
   document.getElementById('f_primary').value=P.toUpperCase();document.getElementById('f_accent').value=A.toUpperCase();document.getElementById('f_style').value=state.style;
   document.getElementById('pvH1').style.color=P;const b=document.getElementById('pvBtn');b.style.background=P;b.style.color=textOn(P);
