@@ -31,3 +31,5 @@ Commit + push.
 | Client | URL | Code |
 |---|---|---|
 | Cari Hines Personal Training | /clients/cari-hines.html | 2468 |
+| Legacy Law Group (LLG) | /clients/legacy-law-group.html | 7301 |
+| Corporate Intelligence Consultants (CIC) | /clients/corporate-intelligence.html | 5142 |
