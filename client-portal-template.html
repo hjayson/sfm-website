@@ -128,69 +128,46 @@ footer a{font-weight:700;text-decoration:none;}
    EDIT THIS BLOCK EACH WEEK  ↓↓↓
    ============================================================ */
 const CLIENT = {
-  accessCode: "2468",                       // the code you give this client
-  name: "Cari Hines Personal Training",
-  logo: "../images/logos/logo-cari-hines.png",
-  tagline: "Personal Training · Fitness Coaching",  // their business / what we do for them
-  updated: "June 7, 2026",
+  /* == HOW TO USE ==
+     New client: copy this file into sfm-deploy-v3/clients/ and name it
+     <client-name>.html (e.g. acme-roofing.html). Pick a fresh 4-digit
+     accessCode. Edit ONLY this CLIENT block. Commit + push — Netlify
+     auto-deploys. Live at:
+     https://www.salesfunnelmarketing.us/clients/<client-name>.html
+     Weekly update: change weeklyNote, plan, percent/stages, nextSteps,
+     yourTurn and the "updated" date. Full guide: CLIENT-PORTAL-GUIDE.md */
+  accessCode: "0000",
+  name: "Client Business Name",
+  logo: "../images/logos/logo-client-name.png",  // drop logo in images/logos/ or leave "" for SFM logo
+  tagline: "What we do for them",
+  updated: "Month D, YYYY",
 
-  // This week's note from Jayson + the plan of action
-  weeklyNote: "Big week: your new website is built and the live preview is ready for you to look at — tap the Preview button below. Next up we connect carihinespersonaltraining.com and take it live, and your new Google Business listing is in the verification queue so you'll start showing up on Google Maps.",
+  weeklyNote: "One friendly paragraph from Jayson — what happened this week and what it means for the client.",
   plan: [
-    "Claim your domain so we can connect it to the new site (support call Monday)",
-    "Take the new website live at carihinespersonaltraining.com",
-    "Finish your Google Business Profile once verification clears",
-    "Set up your Google review link + automatic weekly Google posts"
+    "This week action item 1",
+    "This week action item 2"
   ],
 
-  // Projects with milestone stages + % progress + optional live preview link
   projects: [
     {
-      title: "New Training Website",
-      percent: 85,
+      title: "Project Name",
+      percent: 40,
       stages: [
         { name:"Discovery", done:true },
-        { name:"Design", done:true },
-        { name:"Build", done:true },
-        { name:"Your Review", current:true },
+        { name:"Design", current:true },
+        { name:"Build", done:false },
+        { name:"Your Review", done:false },
         { name:"Launch", done:false }
       ],
-      preview: "https://www.salesfunnelmarketing.us/cari-hines-preview.html"
-    },
-    {
-      title: "Google Business Profile",
-      percent: 50,
-      stages: [
-        { name:"Profile Created", done:true },
-        { name:"Photos & Content Ready", done:true },
-        { name:"Verification", current:true },
-        { name:"Optimize & Reviews", done:false }
-      ],
-      preview: ""
-    },
-    {
-      title: "Social Media Management",
-      percent: 100,
-      stages: [
-        { name:"Setup", done:true },
-        { name:"Content Plan", done:true },
-        { name:"Posting", current:true }
-      ],
-      preview: ""
+      preview: ""   // paste a live preview URL to show the Preview button
     }
   ],
 
-  // What we're doing next, and what we need from the client
   nextSteps: [
-    "Connect your domain + secure the site (SSL)",
-    "Complete the Google listing — services, hours, photos, Q&A",
-    "Go live and connect your socials to the new site"
+    "What SFM is doing next"
   ],
   yourTurn: [
-    "Look over the website preview & send any tweaks",
-    "Send your current phone number for the site & Google",
-    "Send 4–6 photos of you coaching + any client testimonials",
-    "Record the 30-second Google verification video (we'll guide you)"
+    "What we need from the client"
   ],
 
   contact: "jayson@salesfunnelmarketing.us"

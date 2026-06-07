@@ -208,3 +208,9 @@
   for = "*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Client dashboards: private-by-obscurity, never indexed
+[[headers]]
+  for = "/clients/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
