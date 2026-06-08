@@ -95,6 +95,16 @@ img{display:block;max-width:100%;}
 
 footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px;}
 footer a{font-weight:700;text-decoration:none;}
+
+/* ---- ask a question form ---- */
+.qf-sub{font-size:14px;color:var(--muted);margin-bottom:14px;}
+.qf-hp{position:absolute;left:-9999px;}
+.qf-in{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:11px;font:inherit;font-size:15px;margin-bottom:10px;background:#fff;}
+.qf-in:focus{outline:none;border-color:var(--orange);}
+textarea.qf-in{resize:vertical;min-height:96px;}
+.qf-btn{background:var(--orange);color:#fff;font-weight:800;font-size:15px;padding:12px 20px;border:none;border-radius:11px;cursor:pointer;}
+.qf-btn:hover{background:var(--orange-d);}
+.qf-ok{display:none;background:#eafaf3;border-left:3px solid var(--good);color:#176b4a;padding:14px 16px;border-radius:0 10px 10px 0;font-size:14.5px;font-weight:600;}
 </style>
 </head>
 <body>
@@ -118,6 +128,23 @@ footer a{font-weight:700;text-decoration:none;}
     <div class="tag">Client Portal</div>
   </div>
   <div class="wrap" id="content"><!-- rendered by JS --></div>
+  <div class="wrap" style="padding-top:0;">
+    <div class="section-label">Ask a Question</div>
+    <div class="card">
+      <h2>Have a question for us?</h2>
+      <p class="qf-sub">Type it below and it goes straight to your Sales Funnel Marketing team — we'll reply by email.</p>
+      <form id="qform" name="client-question" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="client-question" />
+        <input type="hidden" name="client" id="qf-client" value="" />
+        <p class="qf-hp"><label>Leave this blank: <input name="bot-field" /></label></p>
+        <input class="qf-in" type="text" name="name" placeholder="Your name" required />
+        <input class="qf-in" type="email" name="email" placeholder="Your email" required />
+        <textarea class="qf-in" name="message" placeholder="Your question…" required></textarea>
+        <button class="qf-btn" type="submit">Send my question →</button>
+      </form>
+      <div id="qf-ok" class="qf-ok">✅ Thanks — your question is on its way. We'll get back to you by email shortly.</div>
+    </div>
+  </div>
   <footer>
     Questions? Email <a id="foot-contact" href="#"></a> · Sales Funnel Marketing
   </footer>
@@ -246,6 +273,20 @@ function render(){
 }
 render();
 (function(){const p=new URLSearchParams(location.search).get('code');if(p&&p===String(CLIENT.accessCode)){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';}})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('qform'); if(!f) return;
+  var cf=document.getElementById('qf-client');
+  try{ if(cf && typeof CLIENT!=='undefined' && CLIENT && CLIENT.name) cf.value=CLIENT.name; }catch(e){}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var body=new URLSearchParams(new FormData(f)).toString();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+      .then(function(){f.style.display='none';var ok=document.getElementById('qf-ok');if(ok)ok.style.display='block';})
+      .catch(function(){window.location.href='mailto:jayson@salesfunnelmarketing.us?subject=Question%20from%20your%20portal';});
+  });
+})();
 </script>
 </body>
 </html>
