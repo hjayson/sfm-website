@@ -132,7 +132,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="hero"><div class="wrap">
   <div class="eyebrow">Free Brand Studio</div>
   <h1>Upload your logo.<br>Find your <span>colors.</span></h1>
-  <p>Pull the exact colors from your logo or a photo, get matching fonts, and even download a <b>free transparent PNG of your logo</b> — all in seconds. Love the look? Send it to us and we'll turn it into a polished brand and website.</p>
+  <p>Pull the exact colors from your logo or a photo and get matching fonts in seconds. Love the look? Send it to us and we'll turn it into a polished brand, transparent logo, and website.</p>
   <div class="steps"><div class="stepchip"><b>1</b> Upload your logo</div><div class="stepchip"><b>2</b> Pick your colors</div><div class="stepchip"><b>3</b> Send it to us</div></div>
 </div></div>
 <form name="brand-study" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/sfm-brand-studio-thanks.html">
@@ -141,7 +141,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <input type="hidden" name="primary_color" id="f_primary"><input type="hidden" name="accent_color" id="f_accent"><input type="hidden" name="palette_style" id="f_style"><input type="hidden" name="palette_name" id="f_palname"><input type="hidden" name="font_pair" id="f_fonts">
 <section><div class="wrap"><div class="studio">
   <div class="col-upload">
-    <div class="sec-head"><div class="sec-num">Step 1</div><h2>Upload your logo</h2><p>PNG or JPG — anything works. White background? One click removes it, and the transparent PNG is yours to keep.</p></div>
+    <div class="sec-head"><div class="sec-num">Step 1</div><h2>Upload your logo</h2><p>PNG or JPG — anything works. No logo, or a messy one? No problem — just tell us in Step 3.</p></div>
     <label class="drop" id="drop" for="logoFile">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
       <img class="thumb" id="dropThumb" alt="your logo">
@@ -170,8 +170,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <button type="button" class="bsx-btn ghost" id="bsxShuffle">🎲 Surprise me</button>
     <label class="bsx-btn ghost" for="bsxPhoto">📷 Colors from a photo<input type="file" id="bsxPhoto" accept="image/*" style="display:none;"></label>
     <button type="button" class="bsx-btn ghost" id="bsxFromLogo" style="display:none;">🎯 Use my logo's colors</button>
-    <button type="button" class="bsx-btn ghost" id="bsxNoBg" style="display:none;">🪄 Remove background</button>
-    <button type="button" class="bsx-btn" id="bsxDlLogo" style="display:none;">⬇ Transparent PNG</button>
   </div>
   <div id="bsxScore"></div>
   <div class="bsx-ramps">
@@ -231,7 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="frow"><div><label class="fl">Your name</label><input type="text" name="name" required placeholder="First & last"></div><div><label class="fl">Business name</label><input type="text" name="business" required placeholder="Your business"></div></div>
   <div class="frow"><div><label class="fl">Email</label><input type="email" name="email" required placeholder="you@business.com"></div><div><label class="fl">Phone (optional)</label><input type="tel" name="phone" placeholder="(419) 555-0123"></div></div>
   <label class="fl">Anything else? (optional)</label><textarea name="brand_notes" rows="3" placeholder="Industry, who you serve, colors you love or hate, a link to your site/socials…"></textarea>
-  <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;cursor:pointer;"><input type="checkbox" name="font_id_request" value="Yes - identify my logo font" style="margin-top:3px;"> <span class="fl" style="margin:0;text-transform:none;letter-spacing:0;">🔍 Not sure what font your logo uses? Check this and we'll identify it for you — free.</span></label>
+  <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;cursor:pointer;"><input type="checkbox" name="font_id_request" value="Yes - identify font and/or make transparent logo" style="margin-top:3px;"> <span class="fl" style="margin:0;text-transform:none;letter-spacing:0;">🔍 Not sure of your font, or need a clean transparent version of your logo? Check this and we'll do it for you — free.</span></label>
   <button type="submit" class="submit">Send my brand picks →</button>
   <div class="formnote">Your logo, colors, and contact info go straight to Sales Funnel Marketing. Human Focused, AI Optimized.</div>
 </div></div></section>
@@ -513,54 +511,6 @@ try{var q=new URLSearchParams(location.search);var qp=q.get('p'),qa2=q.get('a');
  if(qa2&&/^[0-9A-Fa-f]{6}$/.test(qa2)){state.accent='#'+qa2.toUpperCase();anyq=true;}
  if(anyq){state.style='Shared link';syncPickers();}}catch(e){}
 (function(){var m=document.querySelector('.bsx-mocks');var st=document.querySelector('.studio');if(m&&st){var ps=st.closest('section');if(ps&&ps.parentNode){var sec=document.createElement('section');sec.className='bsx-mocksec';var wr=document.createElement('div');wr.className='wrap';sec.appendChild(wr);wr.appendChild(m);ps.parentNode.insertBefore(sec,ps.nextSibling);}}})();
-/* ---------- background remover (flood fill from edges) ---------- */
-function bsxMsg(t){var m=$('bsxBgMsg');if(!m){m=document.createElement('div');m.id='bsxBgMsg';m.style.cssText='margin-top:8px;background:#fff6e6;color:#9a6b00;border-radius:10px;padding:9px 13px;font-weight:700;font-size:13px;';var row=document.querySelector('.bsx-btnrow');row.parentNode.insertBefore(m,row.nextSibling);}m.textContent=t;m.style.display='block';clearTimeout(window.__bsxMsgT);window.__bsxMsgT=setTimeout(function(){m.style.display='none';},6000);}
-function removeBg(){var pv=$('pvLogo');if(!pv||!pv.src)return;
- var img=new Image();
- img.onload=function(){
-  var W=img.naturalWidth,H=img.naturalHeight;if(!W||!H){bsxMsg('Could not read this image.');return;}
-  var sc=Math.min(1,1600/Math.max(W,H));W=Math.round(W*sc);H=Math.round(H*sc);
-  var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(img,0,0,W,H);
-  var id;try{id=x.getImageData(0,0,W,H);}catch(e){bsxMsg('Could not process this image.');return;}
-  var d=id.data,i;
-  var bs=[];
-  function pushB(px,py){var o=(py*W+px)*4;if(d[o+3]>10)bs.push([d[o],d[o+1],d[o+2]]);}
-  for(i=0;i<W;i++){pushB(i,0);pushB(i,H-1);}
-  for(i=0;i<H;i++){pushB(0,i);pushB(W-1,i);}
-  if(!bs.length){
-   var seen=new Uint8Array(W*H),st2=[];
-   for(i=0;i<W;i++){st2.push(i);st2.push((H-1)*W+i);}
-   for(i=0;i<H;i++){st2.push(i*W);st2.push(i*W+W-1);}
-   while(st2.length){var q=st2.pop();if(seen[q])continue;seen[q]=1;var oo=q*4;
-    if(d[oo+3]>10){bs.push([d[oo],d[oo+1],d[oo+2]]);continue;}
-    var qx=q%W,qy=(q/W)|0;
-    if(qx>0)st2.push(q-1);if(qx<W-1)st2.push(q+1);if(qy>0)st2.push(q-W);if(qy<H-1)st2.push(q+W);}
-   if(!bs.length){bsxMsg('Nothing left to remove \u2014 your logo is fully transparent. Hit \u2b07 Transparent PNG to download it.');return;}
-  }
-  var br=0,bgc=0,bb=0;bs.forEach(function(p){br+=p[0];bgc+=p[1];bb+=p[2];});br/=bs.length;bgc/=bs.length;bb/=bs.length;
-  var ok=0;bs.forEach(function(p){if(Math.abs(p[0]-br)+Math.abs(p[1]-bgc)+Math.abs(p[2]-bb)<90)ok++;});
-  if(ok/bs.length<0.55){bsxMsg('That layer is not a solid color \u2014 looks like your logo itself, so we stopped. (Photo backgrounds need the pro touch \u2014 ask in Step 3 and we will clean it free.)');return;}
-  var TOL=95,visited=new Uint8Array(W*H),stack=[];
-  for(i=0;i<W;i++){stack.push(i);stack.push((H-1)*W+i);}
-  for(i=0;i<H;i++){stack.push(i*W);stack.push(i*W+W-1);}
-  while(stack.length){var p=stack.pop();if(visited[p])continue;visited[p]=1;var o=p*4;
-   if(d[o+3]>10){var dd=Math.abs(d[o]-br)+Math.abs(d[o+1]-bgc)+Math.abs(d[o+2]-bb);if(dd>TOL)continue;d[o+3]=0;}
-   var px=p%W,py=(p/W)|0;
-   if(px>0)stack.push(p-1);if(px<W-1)stack.push(p+1);if(py>0)stack.push(p-W);if(py<H-1)stack.push(p+W);}
-  x.putImageData(id,0,0);
-  var url=cv.toDataURL('image/png');
-  window.__bsxCleanLogo=url;
-  pv.src=url;pv.style.display='block';var ph=$('pvLogoPH');if(ph)ph.style.display='none';
-  var dt=$('dropThumb');if(dt)dt.src=url;
-  $('bsxDlLogo').style.display='inline-flex';
-  $('bsxNoBg').textContent='\uD83E\uDE84 Remove another layer';
- };
- img.src=pv.src;}
-$('bsxNoBg').addEventListener('click',removeBg);
-$('bsxDlLogo').addEventListener('click',function(){if(!window.__bsxCleanLogo)return;var a=document.createElement('a');
- a.download=((bizIn&&bizIn.value.trim())||'logo').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-logo-transparent.png';
- a.href=window.__bsxCleanLogo;a.click();});
-if(pvLogoEl)pvLogoEl.addEventListener('load',function(){$('bsxNoBg').style.display='inline-flex';});
 extras();apply();
 })();
 </script>
