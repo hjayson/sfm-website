@@ -65,6 +65,37 @@ iframe{width:100%;height:calc(100vh - 215px);min-height:480px;border:0;display:b
 .hint{font-size:11.5px;color:var(--muted);margin-top:3px;}
 #overlay{position:fixed;inset:0;background:rgba(10,22,40,.4);z-index:55;display:none;}
 #overlay.show{display:block;}
+
+/* team board */
+#board{display:none;padding:18px 20px 40px;}
+#board.show{display:block;}
+.bwrap{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;}
+@media(max-width:820px){.bwrap{grid-template-columns:1fr;}}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 10px 34px rgba(13,13,13,.06);}
+.bcard h3{font-family:'Tinos',Georgia,serif;font-size:19px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;}
+.bcard h3 .who{font-family:'Montserrat';font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;cursor:pointer;}
+.addrow{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
+.addrow input,.addrow select{padding:9px 11px;border:1px solid var(--line);border-radius:9px;font-family:inherit;font-size:13.5px;}
+.addrow input.task{flex:1 1 auto;min-width:0;}
+.addrow button{background:var(--ember);color:#fff;border:none;font-weight:700;padding:9px 16px;border-radius:9px;cursor:pointer;}
+.titem{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);}
+.titem:first-child{border-top:none;}
+.titem .cb{margin-top:3px;cursor:pointer;font-size:16px;}
+.titem .body{flex:1;}
+.titem .tt{font-size:14px;}
+.titem.done .tt{text-decoration:line-through;color:var(--muted);}
+.titem .meta2{font-size:11.5px;color:var(--muted);margin-top:2px;}
+.titem .asg{background:var(--lblue,#E8EAFB);color:#3a3a6a;border-radius:999px;padding:1px 8px;font-size:11px;font-weight:700;}
+.titem .del{border:none;background:none;color:#cc3a21;cursor:pointer;font-size:14px;}
+.note2{padding:10px 0;border-top:1px solid var(--line);}
+.note2:first-child{border-top:none;}
+.note2 .nh{font-size:11.5px;color:var(--muted);margin-bottom:2px;}
+.note2 .nh b{color:var(--ink);}
+.note2 .nb{font-size:13.5px;white-space:pre-wrap;}
+#bstatus{font-size:12px;color:var(--muted);margin-left:8px;}
+.filter{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.filter a{color:var(--ember);cursor:pointer;font-weight:700;}
+
 </style>
 </head>
 <body>
@@ -96,6 +127,30 @@ iframe{width:100%;height:calc(100vh - 215px);min-height:480px;border:0;display:b
   <div class="note"><b>Edit here</b> saves straight to GitHub and the page redeploys in ~1 minute (needs your GitHub token once — ⚙︎ button up top). Claude also drafts updates every weekday at 8 AM.</div>
 </div>
 
+
+<div id="board">
+  <div class="bwrap">
+    <div class="bcard">
+      <h3>Tasks <span class="who" id="whoT" onclick="setName()"></span></h3>
+      <div class="addrow">
+        <input class="task" id="ntask" placeholder="New task…" onkeydown="if(event.key==='Enter')addTask()">
+        <select id="nasg"></select>
+        <button onclick="addTask()">Add</button>
+      </div>
+      <div class="filter">Show: <a onclick="setFilter('open')" id="fOpen">Open</a> · <a onclick="setFilter('mine')" id="fMine">Mine</a> · <a onclick="setFilter('all')" id="fAll">All</a><span id="bstatus"></span></div>
+      <div id="tasklist"></div>
+    </div>
+    <div class="bcard">
+      <h3>Team Notes</h3>
+      <div class="addrow">
+        <input class="task" id="nnote" placeholder="Leave a note for the team…" onkeydown="if(event.key==='Enter')addNote()">
+        <button onclick="addNote()">Post</button>
+      </div>
+      <div id="notelist"></div>
+    </div>
+  </div>
+</div>
+
 <div id="overlay" onclick="closeEditor()"></div>
 <div id="drawer">
   <div class="dhead"><h2 id="dTitle">Edit</h2><button onclick="closeEditor()">×</button></div>
@@ -117,6 +172,7 @@ const CLIENTS = [
   { name:"VJ's Towing",       file:"vjs-towing.html",             code:"9426" },
   { name:"Bargain Towing",    file:"bargain-towing.html",         code:"3164" },
   { name:"📊 Reports",        file:"reports.html",                report:true },
+  { name:"🗂 Team Board",     board:true },
 ];
 let cur = 0, curSha = null, curText = null, curObj = null;
 
@@ -137,6 +193,14 @@ function show(i){
   cur=i; const c=CLIENTS[i];
   [...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===i));
   const fr=document.getElementById('mFrame');
+  const board=document.getElementById('board');
+  const isBoard = !!c.board;
+  // toggle board vs normal client/report view
+  board.classList.toggle('show', isBoard);
+  document.querySelector('.meta').style.display = isBoard?'none':'';
+  document.querySelector('.frame').style.display = isBoard?'none':'';
+  document.querySelector('#app .note').style.display = isBoard?'none':'';
+  if(isBoard){ loadBoard(); return; }
   const isReport = !!c.report;
   // toggle the client-only controls
   ['mUpdated','mPct','mCode'].forEach(id=>{ const el=document.getElementById(id).closest('.pill'); if(el) el.style.display = isReport?'none':''; });
@@ -301,6 +365,91 @@ async function saveEdits(){
     setTimeout(()=>{ closeEditor(); show(cur); status(''); btn.disabled=false; }, 65000);
   }catch(err){ status(err.message,'bad'); btn.disabled=false; }
 }
+
+/* ================= TEAM BOARD ================= */
+const BOARD_FILE = "team-board.json";
+let boardData = {team:[],tasks:[],notes:[]}, boardSha=null, boardFilter='open';
+function myName(){ return localStorage.getItem('sfm_team_name')||''; }
+function setName(){
+  const n=prompt('Your name (used for assigning tasks & signing notes):', myName());
+  if(n!==null && n.trim()){ localStorage.setItem('sfm_team_name', n.trim()); ensureTeam(n.trim()); renderWho(); renderBoard(); }
+}
+function renderWho(){ const w=document.getElementById('whoT'); if(w) w.textContent = myName()? ('You: '+myName()+' · change') : 'set your name'; }
+function ensureTeam(n){ if(n && !boardData.team.includes(n)) boardData.team.push(n); }
+function esc2(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function when(ts){ const d=new Date(ts); return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}); }
+
+async function loadBoard(){
+  renderWho();
+  if(!token()){ document.getElementById('tasklist').innerHTML='<p style="color:var(--muted);font-size:13px">Connect GitHub (⚙︎ button, top right) to use the team board.</p>'; document.getElementById('notelist').innerHTML=''; return; }
+  document.getElementById('bstatus').textContent=' · loading…';
+  try{
+    const f=await gh('/repos/'+REPO+'/contents/'+PATH+BOARD_FILE+'?ref=main&t='+Date.now());
+    boardSha=f.sha; boardData=JSON.parse(b64decode(f.content));
+    boardData.team=boardData.team||[]; boardData.tasks=boardData.tasks||[]; boardData.notes=boardData.notes||[];
+    if(myName()) ensureTeam(myName());
+    document.getElementById('bstatus').textContent='';
+    renderBoard();
+  }catch(e){ document.getElementById('bstatus').textContent=' · '+e.message; }
+}
+async function saveBoard(msg){
+  document.getElementById('bstatus').textContent=' · saving…';
+  try{
+    const r=await gh('/repos/'+REPO+'/contents/'+PATH+BOARD_FILE,{method:'PUT',body:JSON.stringify({
+      message:msg||'Team board update', content:b64encode(JSON.stringify(boardData,null,2)), sha:boardSha, branch:'main'})});
+    boardSha=r.content.sha;
+    document.getElementById('bstatus').textContent=' · saved ✓';
+    setTimeout(()=>{document.getElementById('bstatus').textContent='';},2500);
+  }catch(e){ document.getElementById('bstatus').textContent=' · '+e.message; alert('Save failed: '+e.message); }
+}
+function asgOptions(sel){
+  const names=[...new Set(boardData.team.concat(myName()?[myName()]:[]).filter(Boolean))];
+  return '<option value="">Unassigned</option>'+names.map(n=>'<option'+(n===sel?' selected':'')+'>'+esc2(n)+'</option>').join('');
+}
+function renderBoard(){
+  // assignee dropdown defaults to me
+  document.getElementById('nasg').innerHTML=asgOptions(myName());
+  const me=myName();
+  let tasks=boardData.tasks.slice().sort((a,b)=>(a.done-b.done)||(b.ts-a.ts));
+  if(boardFilter==='open') tasks=tasks.filter(t=>!t.done);
+  if(boardFilter==='mine') tasks=tasks.filter(t=>t.assignee===me);
+  document.getElementById('fOpen').style.textDecoration=boardFilter==='open'?'underline':'';
+  document.getElementById('fMine').style.textDecoration=boardFilter==='mine'?'underline':'';
+  document.getElementById('fAll').style.textDecoration=boardFilter==='all'?'underline':'';
+  document.getElementById('tasklist').innerHTML = tasks.length? tasks.map(t=>`
+    <div class="titem ${t.done?'done':''}">
+      <span class="cb" onclick="toggleTask('${t.id}')">${t.done?'☑':'☐'}</span>
+      <div class="body"><div class="tt">${esc2(t.text)}</div>
+        <div class="meta2">${t.assignee?'<span class="asg">'+esc2(t.assignee)+'</span> ':'<span class="asg">Unassigned</span> '}· added by ${esc2(t.by||'—')} · ${when(t.ts)}</div>
+      </div>
+      <button class="del" title="Delete" onclick="delTask('${t.id}')">✕</button>
+    </div>`).join('') : '<p style="color:var(--muted);font-size:13px">No tasks ' + (boardFilter==='mine'?'assigned to you':'yet') + '.</p>';
+  const notes=boardData.notes.slice().sort((a,b)=>b.ts-a.ts);
+  document.getElementById('notelist').innerHTML = notes.length? notes.map(n=>`
+    <div class="note2"><div class="nh"><b>${esc2(n.author||'—')}</b> · ${when(n.ts)}</div><div class="nb">${esc2(n.text)}</div></div>`).join('') : '<p style="color:var(--muted);font-size:13px">No notes yet.</p>';
+}
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+async function addTask(){
+  if(!token()){ setToken(); if(!token())return; }
+  if(!myName()){ setName(); if(!myName())return; }
+  const inp=document.getElementById('ntask'); const txt=inp.value.trim(); if(!txt)return;
+  const asg=document.getElementById('nasg').value;
+  ensureTeam(myName()); if(asg) ensureTeam(asg);
+  boardData.tasks.push({id:uid(),text:txt,assignee:asg,done:false,by:myName(),ts:Date.now()});
+  inp.value=''; renderBoard(); await saveBoard('Team board: add task');
+}
+async function toggleTask(id){ const t=boardData.tasks.find(x=>x.id===id); if(!t)return; t.done=!t.done; renderBoard(); await saveBoard('Team board: '+(t.done?'complete':'reopen')+' task'); }
+async function delTask(id){ boardData.tasks=boardData.tasks.filter(x=>x.id!==id); renderBoard(); await saveBoard('Team board: delete task'); }
+async function addNote(){
+  if(!token()){ setToken(); if(!token())return; }
+  if(!myName()){ setName(); if(!myName())return; }
+  const inp=document.getElementById('nnote'); const txt=inp.value.trim(); if(!txt)return;
+  ensureTeam(myName());
+  boardData.notes.push({id:uid(),author:myName(),text:txt,ts:Date.now()});
+  inp.value=''; renderBoard(); await saveBoard('Team board: add note');
+}
+function setFilter(f){ boardFilter=f; renderBoard(); }
+
 (function(){const p=new URLSearchParams(location.search).get('code');if(p===MASTER_CODE){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';show(0);}})();
 </script>
 </body>
