@@ -116,6 +116,7 @@ const CLIENTS = [
   { name:"Fuller & Sons",     file:"fuller-and-sons.html",        code:"3517" },
   { name:"VJ's Towing",       file:"vjs-towing.html",             code:"9426" },
   { name:"Bargain Towing",    file:"bargain-towing.html",         code:"3164" },
+  { name:"📊 Reports",        file:"reports.html",                report:true },
 ];
 let cur = 0, curSha = null, curText = null, curObj = null;
 
@@ -136,11 +137,18 @@ function show(i){
   cur=i; const c=CLIENTS[i];
   [...tabs.children].forEach((b,j)=>b.classList.toggle('on',j===i));
   const fr=document.getElementById('mFrame');
+  const isReport = !!c.report;
+  // toggle the client-only controls
+  ['mUpdated','mPct','mCode'].forEach(id=>{ const el=document.getElementById(id).closest('.pill'); if(el) el.style.display = isReport?'none':''; });
+  document.getElementById('mEditGh').style.display = isReport?'none':'';
+  document.querySelector('.meta button.edit').style.display = isReport?'none':'';
+  document.getElementById('mOpen').href=c.file;
+  document.getElementById('mOpen').textContent = isReport ? 'Open report ↗' : 'Client view ↗';
+  if(isReport){ fr.src=c.file+'?t='+Date.now(); return; }
   document.getElementById('mUpdated').textContent='…';
   document.getElementById('mPct').textContent='…';
   document.getElementById('mCode').textContent=c.code;
   document.getElementById('mEditGh').href='https://github.com/'+REPO+'/edit/main/'+PATH+c.file;
-  document.getElementById('mOpen').href=c.file;
   fr.src=c.file+'?code='+c.code+'&t='+Date.now();
   fr.onload=()=>{ try{
     const cl=fr.contentWindow.CLIENT;
@@ -174,6 +182,7 @@ function closeEditor(){ D.classList.remove('open'); document.getElementById('ove
 function status(msg,cls){ ST.textContent=msg; ST.className=cls||''; }
 
 async function openEditor(){
+  if(CLIENTS[cur].report){ return; }
   if(!token()){ setToken(); if(!token()) return; }
   const c=CLIENTS[cur];
   document.getElementById('dTitle').textContent='Edit — '+c.name;
