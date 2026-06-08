@@ -109,6 +109,14 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -143,38 +151,42 @@
 <nav>
   <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
     <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
     <li><a href="sfm-results.html">Results</a></li>
-    <li><a href="sfm-portfolio.html">Our Work</a></li><li><a href="sfm-brand-studio.html">Brand Studio</a></li>
-    <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
     <li><a href="sfm-about.html">About</a></li>
-    <li><a href="sfm-blog.html" class="active">Blog</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
   </ul>
-  <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">📗 Get the Book</a>
-          <a href="sfm-ai-workshop.html" class="nav-book-btn">🤖 AI Workshop</a>
-          <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Brand Studio</a>
+  <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
   <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></div>
 </nav>
 
 <div class="mobile-menu">
   <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
-  <a href="index.html">Home</a>
   <a href="sfm-services.html">Services</a>
   <a href="sfm-pricing.html">Pricing</a>
-    <a href="sfm-autopilot.html">AutoPilot</a>
   <a href="sfm-results.html">Results</a>
   <a href="sfm-portfolio.html">Our Work</a>
-  <a href="sfm-brand-studio.html">Brand Studio</a>
-  <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
   <a href="sfm-about.html">About</a>
-  <a href="sfm-blog.html">Blog</a>
   <a href="sfm-contact.html">Contact</a>
-  <a href="sfm-digital-garden.html" style="color:#4ade80">📗 Get the Book</a>
-    <a href="sfm-ai-workshop.html" style="color:#fff">🤖 AI Workshop</a>
-
+  <a href="sfm-brand-studio.html" style="color:var(--orange)">🎨 Free Brand Studio</a>
+  <a href="sfm-ai-workshop.html" style="font-size:18px;opacity:.8;">🤖 AI Workshop</a>
+  <a href="sfm-digital-garden.html" style="font-size:18px;opacity:.8;">📗 The Digital Garden</a>
+  <a href="sfm-networks-cafe.html" style="font-size:18px;opacity:.8;">☕ NetWORKs Café</a>
+  <a href="sfm-brand-kit-free.html" style="font-size:18px;opacity:.8;">🎁 Free Brand Kit</a>
+  <a href="sfm-blog.html" style="font-size:18px;opacity:.8;">✍️ Blog</a>
+  <a href="sfm-team.html" style="font-size:18px;opacity:.8;">👥 Team</a>
   <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" style="color:var(--orange)">Book a Call →</a>
 </div>
 
