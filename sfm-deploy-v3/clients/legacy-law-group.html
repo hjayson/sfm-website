@@ -263,6 +263,7 @@ function render(){
     </div>`;
   }).join('');
 
+  const filesBtn = c.filesUrl ? `<div style="margin:18px 0 0"><a class="preview-btn" href="${esc(c.filesUrl)}" target="_blank" rel="noopener">📁 Shared Files</a></div>` : '';
   const next = c.nextSteps.map(s=>`<li>${esc(s)}</li>`).join('');
   const you = c.yourTurn.map(s=>`<li>${esc(s)}</li>`).join('');
 
@@ -276,6 +277,7 @@ function render(){
       <div class="h-upd">Last updated<b>${esc(c.updated)}</b></div>
     </div>
 
+    ${filesBtn}
     <div class="section-label">This Week</div>
     <div class="card">
       <div class="note">${esc(c.weeklyNote)}</div>

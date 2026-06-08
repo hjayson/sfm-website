@@ -270,6 +270,7 @@ function buildForm(o){
   W=JSON.parse(JSON.stringify(o.projects||[]));
   let h='';
   h+='<label>Weekly note (from Jayson)</label><textarea id="f_note">'+esc(o.weeklyNote||'')+'</textarea>';
+  h+='<label>Shared files link (Google Drive / Dropbox — optional)</label><input type="url" id="f_files" value="'+esc(o.filesUrl||'')+'" placeholder="https://drive.google.com/...">';
   h+='<label>This week\'s plan — one per line</label><textarea id="f_plan">'+esc(lines(o.plan))+'</textarea>';
   h+='<label>Projects & tasks</label><div id="projWrap"></div>';
   h+='<button type="button" style="margin-top:8px;background:#fff;border:1px dashed var(--ember);color:var(--ember);font-weight:700;padding:9px 16px;border-radius:10px;cursor:pointer;" onclick="addProject()">＋ Add project / task</button>';
@@ -336,6 +337,7 @@ function serialize(o){
   out+='\n'+P+'],\n\n';
   out+=P+'nextSteps: [\n'+o.nextSteps.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n';
   out+=P+'yourTurn: [\n'+o.yourTurn.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n\n';
+  if(o.filesUrl) out+=P+'filesUrl: '+S(o.filesUrl)+',\n';
   out+=P+'contact: '+S(o.contact||'jayson@salesfunnelmarketing.us')+'\n};';
   return out;
 }
@@ -344,6 +346,7 @@ async function saveEdits(){
   const c=CLIENTS[cur];
   const o=Object.assign({},curObj);
   o.weeklyNote=document.getElementById('f_note').value.trim();
+  o.filesUrl=document.getElementById('f_files').value.trim();
   o.plan=splitLines('f_plan');
   syncProj();
   o.projects=W.map(p=>({title:p.title.trim()||"Untitled",percent:p.percent,stages:p.stages.filter(s=>s.name),preview:p.preview}));
