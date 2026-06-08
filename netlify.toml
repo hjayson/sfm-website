@@ -162,6 +162,16 @@
   to = "/sfm-brand-studio.html"
   status = 200
 
+[[redirects]]
+  from = "/brand-studio"
+  to = "/sfm-brand-studio.html"
+  status = 200
+
+[[redirects]]
+  from = "/brand-kit"
+  to = "/sfm-brand-kit-free.html"
+  status = 200
+
 # Custom 404
 [[redirects]]
   from = "/*"
