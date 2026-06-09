@@ -141,7 +141,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <input type="hidden" name="primary_color" id="f_primary"><input type="hidden" name="accent_color" id="f_accent"><input type="hidden" name="palette_style" id="f_style"><input type="hidden" name="palette_name" id="f_palname"><input type="hidden" name="font_pair" id="f_fonts">
 <section><div class="wrap"><div class="studio">
   <div class="col-upload">
-    <div class="sec-head"><div class="sec-num">Step 1</div><h2>Upload your logo</h2><p>PNG or JPG — anything works. No logo, or a messy one? No problem — just tell us in Step 3.</p></div>
+    <div class="sec-head"><div class="sec-num">Step 1</div><h2>Upload your logo</h2><p>PNG or JPG — anything works. No logo yet? No problem — skip this and start from your colors below.</p></div>
     <label class="drop" id="drop" for="logoFile">
       <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
       <img class="thumb" id="dropThumb" alt="your logo">
@@ -150,8 +150,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="fname" id="fname"></div>
       <input type="file" id="logoFile" name="logo" accept="image/*" style="display:none;">
     </label>
+    <a href="#pickColors" onclick="event.preventDefault();document.getElementById('pickColors').scrollIntoView({behavior:'smooth',block:'center'});" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:13px;border:1px dashed var(--line);border-radius:11px;color:var(--navy);font-weight:700;font-size:14px;text-decoration:none;background:#fff;">🎨 No logo yet? Start from your colors →</a>
   </div>
-  <div class="col-controls">
+  <div class="col-controls" id="pickColors">
     <div class="panel">
       <div class="sec-head" style="margin-bottom:12px;"><div class="sec-num">Step 2</div><h2 style="font-size:24px;">Pick your colors</h2></div>
       <h3>Quick start</h3><div class="note">Tap a vibe to set a primary + accent instantly — then tweak.</div>
