@@ -38,7 +38,7 @@
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo img { width: 42px; height: 42px; flex-shrink: 0; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-links a.active { border-bottom: 2px solid var(--orange); padding-bottom: 2px; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; border: none; }
@@ -131,6 +131,9 @@
     .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
     .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
     .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>

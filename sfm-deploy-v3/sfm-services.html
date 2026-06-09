@@ -119,20 +119,20 @@
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s; position: relative; }
+    .nav-links { display: flex; align-items: center; gap: 16px; }
+    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--orange); border-radius: 2px; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
-    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .nav-cta { padding: 7px 13px; font-size: 13px; }
     /* Book nav badge */
     .nav-book-btn {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
       color: #E85D26; font-size: 13px; font-weight: 700;
-      padding: 8px 16px; border-radius: 100px;
+      padding: 7px 12px; border-radius: 100px;
       transition: all 0.2s ease; white-space: nowrap;
     }
     .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
@@ -449,6 +449,9 @@
     .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
     .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
     .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
 <script type="application/ld+json">
