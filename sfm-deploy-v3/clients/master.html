@@ -338,6 +338,7 @@ function serialize(o){
   out+=P+'nextSteps: [\n'+o.nextSteps.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n';
   out+=P+'yourTurn: [\n'+o.yourTurn.map(x=>P+P+S(x)).join(',\n')+'\n'+P+'],\n\n';
   if(o.filesUrl) out+=P+'filesUrl: '+S(o.filesUrl)+',\n';
+  if(o.reportUrl) out+=P+'reportUrl: '+S(o.reportUrl)+',\n';
   out+=P+'contact: '+S(o.contact||'jayson@salesfunnelmarketing.us')+'\n};';
   return out;
 }

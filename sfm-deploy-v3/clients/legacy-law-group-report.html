@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy Law Group — Performance Report</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --navy:#0A1628; --orange:#E85D26; --white:#fff; --slate:#8B9DB5; --black:#1C1C2E;
+    --cream:#F5F1E9; --navy2:#13243d; --line:#e4e6ee; --muted:#5d6b80;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:#F3F1EB;color:var(--black);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Liberation Serif',Georgia,'Times New Roman',serif}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 70px}
+
+  header{background:var(--navy)}
+  header .rule{height:4px;background:var(--orange)}
+  .hbar{max-width:1180px;margin:0 auto;padding:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .hbrand{display:flex;align-items:center;gap:16px}
+  .hbrand img{height:50px;width:auto;display:block}
+  .hbrand .ey{color:var(--orange);font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+  .hbrand h1{color:#fff;font-size:26px;font-weight:700;letter-spacing:.2px}
+  .htag{color:#fff;font-size:12px;font-weight:600;text-align:right}
+  .htag span{color:var(--orange);display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-top:3px;font-weight:700}
+
+  .toggle{display:flex;gap:10px;margin:26px 0 8px;flex-wrap:wrap}
+  .toggle button{font-family:'Montserrat',sans-serif;border:1.5px solid #d6d9e6;background:#fff;color:var(--navy);font-weight:700;font-size:13.5px;
+    padding:11px 22px;border-radius:30px;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:9px}
+  .toggle button .dot{width:9px;height:9px;border-radius:50%;background:#c5c8d6}
+  .toggle button:hover{border-color:var(--navy)}
+  .toggle button.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 6px 16px rgba(10,22,40,.25)}
+  .toggle button.active .dot{background:var(--orange)}
+
+  .client-meta{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:16px 0 4px}
+  .client-meta h2{font-size:34px;font-weight:700;color:var(--navy)}
+  .client-meta .sub{color:var(--muted);font-size:13.5px}
+  .period{display:inline-block;background:var(--navy);color:#fff;font-weight:600;font-size:11.5px;letter-spacing:.4px;
+    padding:6px 14px;border-radius:20px;margin-bottom:18px}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:14px}
+  .kpi{background:var(--white);border-radius:14px;padding:20px 20px 18px;box-shadow:0 4px 18px rgba(10,22,40,.06);
+    border:1px solid #eef0f6;position:relative;overflow:hidden}
+  .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--orange)}
+  .kpi .lab{font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+  .kpi .val{font-size:34px;font-weight:700;color:var(--navy);margin:8px 0 2px;line-height:1}
+  .kpi .chg{font-size:12.5px;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+  .chg.up{color:var(--orange)} .chg.flat{color:var(--muted)} .chg.down{color:#7a8aa0}
+  .kpi .note{font-size:10.5px;color:var(--slate);margin-top:6px;font-weight:600}
+
+  .sec-h{display:flex;align-items:center;gap:11px;margin:32px 0 14px}
+  .sec-h .ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+  .sec-h h3{font-size:21px;font-weight:700;color:var(--navy)}
+  .sec-h .pill{margin-left:auto;font-size:11px;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:14px}
+
+  .grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+  .panel{background:var(--white);border-radius:14px;padding:22px;box-shadow:0 4px 18px rgba(10,22,40,.06);border:1px solid #eef0f6}
+  .panel h4{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px}
+  .mrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #edeef4}
+  .mrow:last-child{border-bottom:none}
+  .mrow .mn{font-size:14px;color:var(--black);font-weight:600}
+  .mrow .mv{display:flex;align-items:center;gap:10px}
+  .mrow .mv b{font-size:18px;color:var(--navy);font-weight:700}
+  .chip{font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px}
+  .chip.up{background:#fce9df;color:var(--orange)} .chip.down{background:#eceff4;color:#5f6f84} .chip.flat{background:#eceff4;color:#5f6f84}
+  .chart-box{height:230px;position:relative}
+
+  .stars{color:var(--orange);font-size:18px;letter-spacing:3px}
+  .rev-big{font-size:46px;font-weight:700;color:var(--navy);line-height:1;font-family:'Liberation Serif',Georgia,serif}
+  .gnote{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
+  .flag{background:#fdf0e9;border:1px solid #f6cdb8;border-left:4px solid var(--orange);border-radius:10px;
+    padding:11px 14px;font-size:12px;color:#9c4a22;margin-top:12px;font-weight:600}
+
+  .takeaways{background:var(--navy);border-radius:14px;padding:26px 28px;color:#fff;margin-top:14px}
+  .takeaways h3{font-size:16px;font-weight:700;letter-spacing:.4px;margin-bottom:15px;display:flex;align-items:center;gap:9px}
+  .takeaways h3::before{content:"";width:20px;height:3px;background:var(--orange);display:inline-block;border-radius:2px}
+  .takeaways ul{list-style:none;display:grid;gap:11px}
+  .takeaways li{display:flex;gap:11px;font-size:13.5px;color:#d6deea;align-items:flex-start}
+  .takeaways li b{color:#fff}
+  .takeaways li::before{content:"\2192";color:var(--orange);font-weight:800;margin-top:1px}
+
+  footer{margin-top:34px;background:var(--black);border-radius:14px;padding:22px 26px;color:#aab6c6;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12.5px}
+  footer .ft{color:var(--orange);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:10px}
+  footer b{color:#fff}
+  .totalbadge{background:var(--navy);color:#fff;font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:14px;white-space:nowrap}
+  .plan{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  .pcard{background:var(--white);border-radius:14px;padding:20px;box-shadow:0 4px 18px rgba(10,22,40,.06);border:1px solid #eef0f6}
+  .pcard .num{font-family:'Liberation Serif',Georgia,serif;font-size:26px;font-weight:700;color:var(--orange);line-height:1}
+  .pcard h5{font-size:14px;font-weight:700;color:var(--navy);margin:10px 0 7px}
+  .pcard p{font-size:12.5px;color:var(--muted);line-height:1.5}
+  .planhead{display:flex;align-items:center;gap:11px;margin:30px 0 2px}
+  .planhead .bar{width:26px;height:4px;background:var(--orange);border-radius:2px}
+  .planhead h3{font-size:21px;font-weight:700;color:var(--navy)}
+  .hide{display:none}
+  @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.plan{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hbar">
+    <div class="hbrand">
+      <img src="/images/sfm-logo-orange.png" onerror="this.style.display='none'" alt="Sales Funnel Marketing">
+      <div>
+        <div class="ey">Sales Funnel Marketing</div>
+        <h1 class="serif">Q2 Performance Dashboard</h1>
+      </div>
+    </div>
+    <div class="htag">Human Focused, AI Optimized<span>Quarterly Client Results</span></div>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="wrap">
+  <a href="legacy-law-group.html?code=7301" style="display:inline-block;margin:18px 0 0;font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;color:#0A1628;text-decoration:none">← Back to your dashboard</a>
+  <section id="llg">
+    <div class="client-meta">
+      <h2 class="serif">Legacy Law Group, Ltd.</h2>
+      <span class="sub">Estate planning &amp; elder law · Perrysburg, OH · @legacylawgroup</span>
+    </div>
+    <div class="period">REPORTING WINDOW · LAST 90 DAYS · MAR 5 – JUN 2, 2026</div>
+
+    <div class="kpis">
+      <div class="kpi"><div class="lab">People Reached</div><div class="val">29.7K</div><span class="chg up">▲ 139.6%</span><div class="note">Facebook unique viewers</div></div>
+      <div class="kpi"><div class="lab">Content Views</div><div class="val">80.8K</div><span class="chg up">▲ 61.6%</span><div class="note">Facebook · 90 days</div></div>
+      <div class="kpi"><div class="lab">Website Clicks</div><div class="val">491</div><span class="chg up">▲ from ~0</span><div class="note">Facebook link clicks</div></div>
+      <div class="kpi"><div class="lab">Google Rating</div><div class="val">4.9★</div><span class="chg flat">132 reviews</span><div class="note">Reputation strength</div></div>
+    </div>
+
+    <div class="sec-h"><div class="ico" style="background:#1877F2">f</div><h3 class="serif">Facebook &amp; Instagram</h3><div class="pill">891 FB · 146 IG followers</div></div>
+    <div class="grid2">
+      <div class="panel">
+        <h4>90-Day Daily Views Trend</h4>
+        <div class="chart-box"><canvas id="llgChart"></canvas></div>
+      </div>
+      <div class="panel">
+        <h4>Key Metrics (vs prior 90 days)</h4>
+        <div class="mrow"><span class="mn">Content views</span><span class="mv"><b>80.8K</b><span class="chip up">▲ 61.6%</span></span></div>
+        <div class="mrow"><span class="mn">People reached</span><span class="mv"><b>29.7K</b><span class="chip up">▲ 139.6%</span></span></div>
+        <div class="mrow"><span class="mn">Content interactions</span><span class="mv"><b>1.5K</b><span class="chip up">▲ 7.2%</span></span></div>
+        <div class="mrow"><span class="mn">Link clicks</span><span class="mv"><b>491</b><span class="chip up">▲ 9.7K%</span></span></div>
+        <div class="mrow"><span class="mn">Profile visits</span><span class="mv"><b>1.7K</b><span class="chip up">▲ 8.8%</span></span></div>
+        <div class="mrow"><span class="mn">New follows</span><span class="mv"><b>43</b><span class="chip up">▲ 4.4%</span></span></div>
+      </div>
+    </div>
+
+    <div class="sec-h"><div class="ico" style="background:#0A66C2">in</div><h3 class="serif">LinkedIn</h3><div class="pill">142 followers</div></div>
+    <div class="grid2">
+      <div class="panel">
+        <h4>Content Performance (90 days)</h4>
+        <div class="mrow"><span class="mn">Impressions</span><span class="mv"><b>2,389</b><span class="chip down">▼ 16.6%</span></span></div>
+        <div class="mrow"><span class="mn">Reactions</span><span class="mv"><b>100</b><span class="chip up">▲ 4.2%</span></span></div>
+        <div class="mrow"><span class="mn">Comments</span><span class="mv"><b>70</b><span class="chip up">▲ 20.7%</span></span></div>
+        <div class="mrow"><span class="mn">Reposts</span><span class="mv"><b>3</b><span class="chip up">▲ 50%</span></span></div>
+      </div>
+      <div class="panel">
+        <h4>Google Business Profile</h4>
+        <div style="display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap">
+          <div><div class="stars">★★★★★</div><div class="rev-big">4.9</div><div class="gnote"><b>132 reviews</b></div></div>
+          <div style="flex:1;min-width:150px">
+            <div class="mrow"><span class="mn">Profile views</span><span class="mv"><b>~1,678</b><span class="chip flat">/ mo</span></span></div>
+            <div class="mrow"><span class="mn">Profile visits / actions</span><span class="mv"><b>1,212</b><span class="chip up">calls · clicks · directions</span></span></div>
+          </div>
+        </div>
+        <div class="gnote" style="margin-top:6px">Estate planning attorney, Wood County OH · 27121 Oakmead Dr #A, Perrysburg · <em>Google window: Jan–Jun 2026</em></div>
+      </div>
+    </div>
+
+    <div class="sec-h"><div class="ico" style="background:var(--orange)">≡</div><h3 class="serif">Engagement &amp; Actions by Channel</h3><div class="pill">All three platforms</div></div>
+    <div class="panel" style="margin-bottom:4px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+        <h4 style="margin:0">Interactions driven per channel</h4>
+        <span class="totalbadge">All channels: 2,885 actions · 83.2K reach</span>
+      </div>
+      <div style="height:230px;position:relative"><canvas id="llgBar"></canvas></div>
+      <div class="gnote" style="margin-top:8px">Facebook &amp; LinkedIn: last 90 days. Google: profile interactions (calls · clicks · directions), Jan–Jun 2026.</div>
+    </div>
+
+    <div class="takeaways">
+      <h3>What This Means</h3>
+      <ul>
+        <li><b>Reach more than doubled.</b> Facebook unique viewers up 139.6% — the firm is now in front of 29,700 people a quarter.</li>
+        <li><b>A post broke out.</b> One late-March post drove a 10,000+ view single-day spike, lifting the whole quarter.</li>
+        <li><b>Traffic is now flowing to the website</b> — 491 link clicks, up from virtually zero last quarter.</li>
+        <li><b>Reputation is elite.</b> A 4.9★ rating across 132 reviews is a major trust asset for an estate-planning firm.</li>
+      </ul>
+    </div>
+
+    <div class="planhead"><span class="bar"></span><h3 class="serif">Moving Forward — Plan of Action</h3></div>
+    <div class="plan">
+      <div class="pcard"><div class="num">1</div><h5>Facebook Ads → Estate Planning Checklist</h5><p>Run FB / Instagram lead ads driving cold and warm audiences to the free Estate Planning Checklist lead magnet — turning organic reach into captured leads.</p></div>
+      <div class="pcard"><div class="num">2</div><h5>Build the capture funnel</h5><p>Dedicated landing page + automated email follow-up so every checklist download becomes a nurtured prospect.</p></div>
+      <div class="pcard"><div class="num">3</div><h5>Retarget the 30K reached</h5><p>Serve the checklist offer to the 29.7K people already reached + profile visitors to convert attention into booked consults.</p></div>
+    </div>
+  </section>
+  <footer>
+    <div><b>Sales Funnel Marketing</b> &nbsp;·&nbsp; jayson@salesfunnelmarketing.us &nbsp;·&nbsp; salesfunnelmarketing.us</div>
+    <div class="ft">Human Focused · AI Optimized</div>
+  </footer>
+</div>
+
+<script>
+const llgViews=[253,342,1161,1717,1357,1184,1185,955,1013,406,294,263,314,231,607,354,379,504,715,510,1062,367,464,355,10433,1926,1005,1024,161,234,345,324,327,306,129,459,340,319,333,318,110,122,175,262,96,584,167,102,630,86,230,106,132,490,166,275,2840,547,657,2959,3002,2508,3409,2977,2780,2783,2685,2566,2359,1744,238,92,44,77,176,38,280,517,515,165,132,273,579,875,586,277,51,255,2487,1668];
+const cicViews=[0,0,0,0,1,25,0,0,0,0,0,0,0,3,0,0,0,0,0,2,0,0,1,33,5,0,3,2,0,0,0,0,17,4,162,9,0,0,36,0,9,6,8,0,0,0,120,92,146,71,353,71,64,398,72,120,132,157,49,44,57,80,219,62,71,6,43,42,62,61,115,52,45,32,79,70,120,51,105,49,26,46,26,53,35,18,4,18,49,11];
+function lbls(n){const a=[];for(let i=0;i<n;i++)a.push('');return a;}
+function mk(id,data,color){
+  new Chart(document.getElementById(id),{type:'line',
+    data:{labels:lbls(data.length),datasets:[{data:data,borderColor:color,borderWidth:2,
+      fill:true,backgroundColor:color+'1f',pointRadius:0,tension:.35}]},
+    options:{responsive:true,maintainAspectRatio:false,font:{family:'Montserrat'},
+      plugins:{legend:{display:false},tooltip:{enabled:true,callbacks:{title:()=>'',label:c=>c.parsed.y.toLocaleString()+' views'}}},
+      scales:{x:{display:false,grid:{display:false}},y:{beginAtZero:true,grid:{color:'#eef0f7'},ticks:{font:{size:10,family:'Montserrat'},color:'#8B9DB5'}}}}});
+}
+function mkBar(id,vals){
+  new Chart(document.getElementById(id),{type:'bar',
+    data:{labels:['Facebook','LinkedIn','Google'],
+      datasets:[{data:vals,backgroundColor:['#0A1628','#0A66C2','#E85D26'],borderRadius:6,barThickness:60}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString()+' interactions'}},
+        datalabels:{}},
+      scales:{x:{grid:{display:false},ticks:{font:{size:13,weight:'700',family:'Montserrat'},color:'#0A1628'}},
+        y:{beginAtZero:true,grid:{color:'#eef0f7'},ticks:{font:{size:11,family:'Montserrat'},color:'#8B9DB5'}}}}});
+}
+let drawn={};
+function draw(c){if(drawn[c])return;drawn[c]=true;
+  if(c==='llg'){mk('llgChart',llgViews,'#0A1628');mkBar('llgBar',[1500,173,1212]);}
+  if(c==='cic'){mk('cicChart',cicViews,'#E85D26');mkBar('cicBar',[73,95,426]);}}
+function show(c){
+  document.getElementById('llg').classList.toggle('hide',c!=='llg');
+  document.getElementById('cic').classList.toggle('hide',c!=='cic');
+  document.getElementById('btn-llg').classList.toggle('active',c==='llg');
+  document.getElementById('btn-cic').classList.toggle('active',c==='cic');
+  draw(c);window.scrollTo({top:0,behavior:'smooth'});
+}
+draw('llg');
+</script>
+</body>
+</html>
