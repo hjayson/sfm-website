@@ -172,6 +172,11 @@
   to = "/sfm-brand-kit-free.html"
   status = 200
 
+[[redirects]]
+  from = "/sfm-blog-google-maps"
+  to = "/sfm-blog-google-maps.html"
+  status = 200
+
 # Custom 404
 [[redirects]]
   from = "/*"
