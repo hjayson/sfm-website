@@ -1,4 +1,24 @@
 {
-  "tasks": [],
-  "notes": []
+  "tasks": [
+    {
+      "id": "19ebb728dba",
+      "text": "Veterans TRIO \u2014 Heather Vincil Assistant Director announcement: design + publish once headshot is in (bio doc in her June 8 'Short Bio' email)",
+      "assignee": "Jayson",
+      "done": false,
+      "by": "Jayson",
+      "ts": 1781261307321
+    },
+    {
+      "id": "19ebb728dbb",
+      "text": "Awaiting Heather's reply re: headshot (emailed her \u2014 use her photo or one we've taken)",
+      "assignee": "Jayson",
+      "done": false,
+      "by": "Jayson",
+      "ts": 1781261307322
+    }
+  ],
+  "notes": [],
+  "team": [
+    "Jayson"
+  ]
 }
