@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How did we do? | AI as Your Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0A1628;--ember:#E85D26;--white:#fff;--slate:#8B9DB5;--ink:#1C1C2E;--cream:#F7F4EF}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Montserrat',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+  header{background:var(--navy);color:#fff;padding:34px 20px 30px;text-align:center}
+  header .kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ember);font-weight:700}
+  header h1{font-family:Georgia,serif;font-weight:700;font-size:28px;margin:8px 0 6px;line-height:1.15}
+  header p{color:var(--slate);font-size:15px;max-width:520px;margin:0 auto}
+  .wrap{max-width:600px;margin:0 auto;padding:22px 16px 50px}
+  form{background:#fff;border:1px solid #e4ded3;border-radius:14px;padding:22px 20px;box-shadow:0 1px 3px rgba(10,22,40,.05)}
+  label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin:18px 0 7px}
+  label .opt{font-weight:400;color:#8b94a3;font-size:12px}
+  input[type=text],input[type=email],textarea{width:100%;border:1px solid #d8d2c6;border-radius:8px;
+    padding:11px 12px;font-family:inherit;font-size:15px;background:#fbfaf7;color:var(--ink)}
+  textarea{min-height:84px;resize:vertical}
+  input:focus,textarea:focus{outline:none;border-color:var(--ember)}
+  .stars{display:flex;gap:6px;direction:rtl;justify-content:flex-end}
+  .stars input{display:none}
+  .stars label{font-size:34px;color:#d8d2c6;cursor:pointer;margin:0;padding:0 2px;transition:color .12s}
+  .stars label:hover,.stars label:hover ~ label,.stars input:checked ~ label{color:var(--ember)}
+  .check{display:flex;gap:10px;align-items:flex-start;margin-top:16px}
+  .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--ember)}
+  .check label{margin:0;font-weight:400;font-size:14px;color:var(--ink)}
+  .hp{position:absolute;left:-5000px}
+  button{margin-top:24px;width:100%;border:none;cursor:pointer;background:var(--ember);color:#fff;
+    font-family:'Montserrat';font-weight:700;font-size:16px;letter-spacing:.03em;padding:15px;border-radius:9px;
+    text-transform:uppercase;transition:background .15s}
+  button:hover{background:#cf4d1c}
+  .after{display:none;background:#fff;border:1px solid #e4ded3;border-radius:14px;padding:30px 22px;text-align:center}
+  .after h2{font-family:Georgia,serif;color:var(--navy);font-size:23px;margin-bottom:8px}
+  .after p{color:#5a6b80;font-size:15px}
+  .contact{margin-top:26px;text-align:center;color:#5a6b80;font-size:13.5px;line-height:1.8}
+  .contact a{color:var(--navy);text-decoration:none;font-weight:600}
+  .contact .name{font-weight:700;color:var(--navy);font-size:15px}
+  footer{text-align:center;color:var(--slate);font-size:12px;padding:8px 16px 40px}
+  .review-cta{display:block;text-align:center;background:var(--ember);color:#fff;font-weight:700;font-size:18px;
+    text-transform:uppercase;letter-spacing:.03em;text-decoration:none;padding:18px 16px;border-radius:12px;
+    box-shadow:0 4px 14px rgba(232,93,38,.32)}
+  .review-cta:hover{background:#cf4d1c}
+  .review-cta .stars5{display:block;font-size:20px;letter-spacing:3px;margin-bottom:3px}
+  .ordiv{text-align:center;color:#8b94a3;font-size:12.5px;margin:26px 0 2px;text-transform:uppercase;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">AI as Your Assistant</div>
+  <h1>Thanks for coming.</h1>
+  <p>If this morning was worth your time, a quick review means the world. Ten seconds, one tap.</p>
+</header>
+
+<div class="wrap">
+
+  <a class="review-cta" href="https://g.page/r/CfmPtAIb1U4BEBE/review">
+    <span class="stars5">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+    Leave a Quick Review
+  </a>
+
+  <div class="ordiv">Or, got a minute to help us improve?</div>
+
+  <form name="workshop-feedback" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="fbform">
+    <input type="hidden" name="form-name" value="workshop-feedback">
+    <p class="hp"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+    <label>How would you rate the workshop?</label>
+    <div class="stars">
+      <input type="radio" id="s5" name="rating" value="5" required><label for="s5" title="5 stars">&#9733;</label>
+      <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">&#9733;</label>
+      <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">&#9733;</label>
+      <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">&#9733;</label>
+      <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">&#9733;</label>
+    </div>
+
+    <label for="loved">What did you love most?</label>
+    <textarea id="loved" name="what_you_loved" placeholder="The part that stuck with you..."></textarea>
+
+    <label for="better">What could we do better?</label>
+    <textarea id="better" name="what_to_improve" placeholder="Be honest. It only makes the next one stronger."></textarea>
+
+    <label for="name">Your name <span class="opt">(optional)</span></label>
+    <input type="text" id="name" name="name" autocomplete="name">
+
+    <label for="email">Email <span class="opt">(optional, if you'd like a reply)</span></label>
+    <input type="email" id="email" name="email" autocomplete="email">
+
+    <div class="check">
+      <input type="checkbox" id="testi" name="testimonial_ok" value="yes">
+      <label for="testi">You can use my words as a testimonial.</label>
+    </div>
+
+    <button type="submit">Submit &amp; Leave a Review</button>
+  </form>
+
+  <div class="after" id="thanks">
+    <h2>Thank you.</h2>
+    <p>Your feedback is in. If the page didn't send you to Google, you can leave a review any time, and it means the world.</p>
+  </div>
+
+  <div class="contact">
+    <div class="name">Jayson Hines &middot; Sales Funnel Marketing</div>
+    Perrysburg, Ohio<br>
+    <a href="tel:+14193084576">(419) 308-4576</a> &middot; call or text<br>
+    <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a><br>
+    <a href="https://salesfunnelmarketing.us">salesfunnelmarketing.us</a>
+  </div>
+</div>
+
+<footer>Sales Funnel Marketing &middot; Thanks for spending your morning with us.</footer>
+
+<script>
+  /* ============================================================
+     PASTE YOUR GOOGLE REVIEW LINK BETWEEN THE QUOTES BELOW.
+     Get it from Google Business Profile > "Ask for reviews" > copy link
+     (it looks like https://g.page/r/XXXXXXXX/review )
+     ============================================================ */
+  const GOOGLE_REVIEW_URL = "https://g.page/r/CfmPtAIb1U4BEBE/review";
+
+  const form = document.getElementById('fbform');
+  const thanks = document.getElementById('thanks');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const body = new URLSearchParams(new FormData(form)).toString();
+    // Ship the feedback in the background (keepalive lets it finish even as we leave the page).
+    try {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body,
+        keepalive: true
+      });
+    } catch (err) {}
+    // Go straight to Google's review box, immediately.
+    if (GOOGLE_REVIEW_URL && GOOGLE_REVIEW_URL.indexOf('PASTE_YOUR') === -1) {
+      window.location.href = GOOGLE_REVIEW_URL;
+    } else {
+      form.style.display = 'none';
+      thanks.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+</script>
+</body>
+</html>
