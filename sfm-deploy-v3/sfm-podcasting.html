@@ -138,6 +138,16 @@
     .pc-final{background:linear-gradient(160deg,#0A1628,#0f1e38);text-align:center;}
     .pc-final h2{color:#fff;}.pc-final .sub{color:rgba(255,255,255,.7);}
 
+
+    /* two-column hero with photo */
+    .pc-hero .wrap{max-width:1080px;display:flex;align-items:center;gap:46px;text-align:left;}
+    .pc-hero .pc-copy{flex:1;min-width:0;}
+    .pc-hero .pc-shot{flex:0 0 330px;}
+    .pc-hero .pc-shot img{width:100%;border-radius:18px;box-shadow:0 28px 64px rgba(0,0,0,.55);display:block;}
+    .pc-hero p.lead{margin-left:0;margin-right:0;}
+    .pc-hero .pc-btns{justify-content:flex-start;}
+    @media(max-width:840px){.pc-hero .wrap{flex-direction:column;text-align:center;gap:30px;}.pc-hero .pc-shot{flex:0 0 auto;max-width:290px;}.pc-hero .pc-btns{justify-content:center;}.pc-hero p.lead{margin-left:auto;margin-right:auto;}}
+
 </style>
 
   <!-- Google tag (gtag.js) -->
@@ -215,13 +225,16 @@
 </div>
 <div class="pc-hero">
   <div class="wrap">
-    <div class="pc-eyebrow">On-Location Podcast Production</div>
-    <h1>Ever wanted a podcast,<br>but not <span>the hassle?</span></h1>
-    <p class="lead">We bring the whole studio to your office. You show up and talk. We set up, record, edit, and run your podcast start to finish, so you get the authority and content without touching a single cable.</p>
-    <div class="pc-btns">
-      <a class="pc-btn primary" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Book a free call &rarr;</a>
-      <a class="pc-btn ghost" href="#pricing">See pricing</a>
+    <div class="pc-copy">
+      <div class="pc-eyebrow">On-Location Podcast Production</div>
+      <h1>Ever wanted a podcast,<br>but not <span>the hassle?</span></h1>
+      <p class="lead">We bring the whole studio to your office. You show up and talk. We set up, record, edit, and run your podcast start to finish, so you get the authority and content without touching a single cable.</p>
+      <div class="pc-btns">
+        <a class="pc-btn primary" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Book a free call &rarr;</a>
+        <a class="pc-btn ghost" href="#pricing">See pricing</a>
+      </div>
     </div>
+    <div class="pc-shot"><img src="/images/podcast-hero.jpg" alt="Sales Funnel Marketing on-location podcast studio kit ready to record" loading="eager"></div>
   </div>
 </div>
 
