@@ -524,6 +524,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" style="color:var(--orange)">Book a Call →</a>
 </div>
 
+<!-- HOME VIDEO HERO -->
+<section class="home-video-hero" style="background:#0A1628;position:relative;line-height:0;">
+  <video id="homeHeroVid" autoplay muted loop playsinline preload="auto" poster="images/home-hero-poster.jpg" style="display:block;width:100%;height:auto;background:#0A1628;">
+    <source src="images/home-hero.mp4" type="video/mp4">
+  </video>
+  <button id="homeHeroMute" type="button" aria-label="Toggle sound" style="position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(10,22,40,.6);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:9px 16px;font:700 13px Inter,-apple-system,sans-serif;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);">&#128263; Tap for sound</button>
+  <script>(function(){var v=document.getElementById('homeHeroVid'),b=document.getElementById('homeHeroMute');if(v&&b){b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.play();b.textContent='\uD83D\uDD0A Mute';}else{b.textContent='\uD83D\uDD07 Tap for sound';}});}})();</script>
+</section>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
