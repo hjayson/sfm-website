@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Done-For-You Podcasting in Toledo & NW Ohio | Sales Funnel Marketing</title>
+  <meta name="description" content="We bring the studio to you. On-location podcast production for Toledo and Northwest Ohio businesses: we set up, record, edit, and run your podcast so you do not have to." />
+  <meta name="keywords" content="podcast production Toledo, done for you podcast, on location podcast recording, podcast service Perrysburg, mobile podcast studio NW Ohio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-podcasting" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Done-For-You Podcasting | Sales Funnel Marketing" />
+  <meta property="og:description" content="We bring the studio to you, record, edit, and run your podcast. On-location podcast production for NW Ohio." />
+  <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-podcasting" />
+  <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+  <meta property="og:site_name" content="Sales Funnel Marketing" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Done-For-You Podcasting | Sales Funnel Marketing" />
+  <meta name="twitter:description" content="We bring the studio to you, record, edit, and run your podcast. On-location podcast production for NW Ohio." />
+  <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=optional" rel="stylesheet" />
+  <style>
+    :root { --navy:#0A1628; --orange:#E85D26; --white:#FFFFFF; --off-white:#F8F8F8; --font:'Inter',sans-serif; }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:var(--font); background:var(--off-white); color:#1a1a2e; }
+    nav { position:sticky; top:0; z-index:100; background:var(--navy); border-bottom:1px solid rgba(255,255,255,0.08); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:68px; }
+    .nav-logo { font-size:18px; font-weight:900; color:var(--white); text-decoration:none; }
+    .nav-logo span { color:var(--orange); }
+    .nav-links { display:flex; gap:16px; list-style:none; }
+    .nav-links a {white-space:nowrap; color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--white); }
+    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; }
+    /* Book nav badge */
+    .nav-book-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
+      color: #E85D26; font-size: 13px; font-weight: 700;
+      padding: 7px 12px; border-radius: 100px;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
+    @media (max-width: 900px) { .nav-book-btn { display: none; } }
+
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; }
+    .mobile-menu { display:none; position:fixed; inset:0; background:var(--navy); z-index:200; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { color:var(--white); text-decoration:none; font-size:24px; font-weight:800; }
+    .mobile-close { position:absolute; top:20px; right:24px; font-size:32px; cursor:pointer; color:var(--white); background:none; border:none; }
+    .article-hero { background:var(--navy); padding:72px 40px 56px; }
+    .article-hero-inner { max-width:740px; margin:0 auto; }
+    .breadcrumb { font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:20px; }
+    .breadcrumb a { color:rgba(255,255,255,0.4); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--orange); }
+    .article-tag { display:inline-block; background:var(--orange); color:var(--white); font-size:11px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:5px 12px; border-radius:12px; margin-bottom:20px; }
+    .article-hero h1 { font-size:clamp(26px,4vw,44px); font-weight:900; color:var(--white); line-height:1.12; margin-bottom:24px; }
+    .article-meta { display:flex; align-items:center; gap:14px; }
+    .author-avatar { width:44px; height:44px; border-radius:50%; background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; color:var(--white); flex-shrink:0; }
+    .author-info { font-size:14px; color:rgba(255,255,255,0.5); }
+    .author-info strong { color:var(--white); font-weight:700; display:block; }
+    .article-body { max-width:740px; margin:0 auto; padding:64px 24px 96px; }
+    .article-body p { font-size:17px; line-height:1.8; color:#333; margin-bottom:24px; }
+    .article-body h2 { font-size:22px; font-weight:800; color:var(--navy); margin:40px 0 14px; padding-left:14px; border-left:4px solid var(--orange); }
+    .cta-box { background:var(--navy); border-radius:16px; padding:40px 48px; margin:48px 0; text-align:center; }
+    .cta-box h3 { font-size:22px; font-weight:800; color:var(--white); margin-bottom:12px; }
+    .cta-box p { font-size:15px; color:rgba(255,255,255,0.55); margin-bottom:28px; }
+    .cta-box a { display:inline-block; background:var(--orange); color:var(--white); padding:14px 36px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; color:var(--orange); font-size:14px; font-weight:700; text-decoration:none; margin-bottom:48px; }
+    footer { background:var(--navy); padding:40px; text-align:center; }
+    .footer-copy { font-size:13px; color:rgba(255,255,255,0.3); }
+    .footer-copy a { color:rgba(255,255,255,0.4); text-decoration:none; }
+    @media(max-width:768px) { nav{padding:0 20px;} .nav-links,.nav-cta{display:none;} .hamburger{display:flex;} .article-hero{padding:48px 20px 40px;} .cta-box{padding:32px 24px;} }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
+  
+    /* ===== Podcasting landing ===== */
+    .pc-hero{background:linear-gradient(160deg,#0A1628,#0f1e38);padding:90px 24px 80px;text-align:center;}
+    .pc-hero .wrap{max-width:820px;margin:0 auto;}
+    .pc-eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#E85D26;margin-bottom:18px;}
+    .pc-hero h1{color:#fff;font-size:clamp(30px,5.2vw,52px);font-weight:900;line-height:1.08;letter-spacing:-1px;margin-bottom:18px;}
+    .pc-hero h1 span{color:#E85D26;}
+    .pc-hero p.lead{color:rgba(255,255,255,.72);font-size:18px;line-height:1.7;max-width:620px;margin:0 auto 30px;}
+    .pc-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .pc-btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:16px;padding:15px 30px;border-radius:10px;text-decoration:none;transition:.2s;}
+    .pc-btn.primary{background:#E85D26;color:#fff;}.pc-btn.primary:hover{background:#c44d1e;}
+    .pc-btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25);}.pc-btn.ghost:hover{border-color:#E85D26;}
+    .pc-sec{max-width:1080px;margin:0 auto;padding:72px 24px;}
+    .pc-sec h2{font-size:clamp(26px,3.6vw,38px);font-weight:900;color:#0A1628;text-align:center;line-height:1.15;letter-spacing:-.5px;margin-bottom:14px;}
+    .pc-sec .sub{text-align:center;color:#5a6473;font-size:17px;max-width:620px;margin:0 auto 44px;line-height:1.6;}
+    .pc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    @media(max-width:760px){.pc-steps{grid-template-columns:1fr;}}
+    .pc-step{background:#fff;border:1px solid #e7ebf0;border-radius:16px;padding:30px 26px;}
+    .pc-step .n{width:40px;height:40px;border-radius:50%;background:#E85D26;color:#fff;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+    .pc-step h3{font-size:19px;font-weight:800;color:#0A1628;margin-bottom:8px;}
+    .pc-step p{color:#5a6473;font-size:15px;line-height:1.65;}
+    .pc-pricing{background:#f8f9fb;}
+    .pc-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;}
+    @media(max-width:880px){.pc-tiers{grid-template-columns:1fr;max-width:440px;margin:0 auto;}}
+    .pc-tier{background:#fff;border:1px solid #e7ebf0;border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;position:relative;}
+    .pc-tier.feat{border:2px solid #E85D26;box-shadow:0 20px 50px rgba(232,93,38,.16);}
+    .pc-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#E85D26;color:#fff;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:100px;}
+    .pc-tier .tname{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#E85D26;margin-bottom:6px;}
+    .pc-tier .price{font-size:42px;font-weight:900;color:#0A1628;letter-spacing:-1.5px;line-height:1;}
+    .pc-tier .price small{font-size:15px;font-weight:700;color:#7a8595;letter-spacing:0;}
+    .pc-tier .tdesc{color:#5a6473;font-size:14.5px;margin:12px 0 20px;line-height:1.55;min-height:42px;}
+    .pc-tier ul{list-style:none;padding:0;margin:0 0 26px;display:flex;flex-direction:column;gap:11px;}
+    .pc-tier li{display:flex;gap:10px;font-size:14.5px;color:#2b3443;line-height:1.5;}
+    .pc-tier li::before{content:"\2713";color:#E85D26;font-weight:900;flex-shrink:0;}
+    .pc-tier .tcta{margin-top:auto;display:block;text-align:center;padding:13px;border-radius:10px;font-weight:800;font-size:15px;text-decoration:none;}
+    .pc-tier .tcta.solid{background:#E85D26;color:#fff;}.pc-tier .tcta.solid:hover{background:#c44d1e;}
+    .pc-tier .tcta.line{background:#0A1628;color:#fff;}.pc-tier .tcta.line:hover{background:#152844;}
+    .pc-launch{max-width:760px;margin:30px auto 0;background:#0A1628;border-radius:16px;padding:30px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+    .pc-launch .l{color:#fff;}.pc-launch .l b{font-size:18px;}.pc-launch .l p{color:rgba(255,255,255,.6);font-size:14px;margin-top:6px;max-width:440px;line-height:1.55;}
+    .pc-launch .price{color:#E85D26;font-size:34px;font-weight:900;white-space:nowrap;}
+    .pc-addons{max-width:760px;margin:28px auto 0;text-align:center;color:#7a8595;font-size:14px;line-height:1.9;}
+    .pc-addons b{color:#0A1628;}
+    .pc-faq{max-width:760px;}
+    .pc-faq details{border-bottom:1px solid #e7ebf0;padding:18px 0;}
+    .pc-faq summary{font-weight:800;color:#0A1628;font-size:16px;cursor:pointer;list-style:none;}
+    .pc-faq summary::-webkit-details-marker{display:none;}
+    .pc-faq summary::after{content:"+";float:right;color:#E85D26;font-weight:900;}
+    .pc-faq details[open] summary::after{content:"\2013";}
+    .pc-faq p{color:#5a6473;font-size:15px;line-height:1.7;margin-top:12px;}
+    .pc-final{background:linear-gradient(160deg,#0A1628,#0f1e38);text-align:center;}
+    .pc-final h2{color:#fff;}.pc-final .sub{color:rgba(255,255,255,.7);}
+
+</style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CDLWCX753N');
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '331104330662440');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:8px;">
+    <img src="images/sfm-logo.png" alt="SFM Logo" style="width:36px;height:36px;border-radius:50%;flex-shrink:0;">
+    SFM<span>.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-pricing.html">Pricing</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
+  <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="sfm-brand-studio.html" style="color:var(--orange);">🎨 Free Brand Studio</a>
+  <a href="sfm-brand-kit-free.html" style="color:var(--orange);">🎁 Free Brand Kit</a>
+  <a href="sfm-services.html">Services</a>
+  <a href="sfm-pricing.html">Pricing</a>
+  <a href="sfm-results.html">Results</a>
+  <a href="sfm-portfolio.html">Our Work</a>
+  <a href="sfm-about.html">About</a>
+  <a href="sfm-contact.html">Contact</a>
+  <a href="sfm-ai-workshop.html" style="font-size:18px;opacity:.8;">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html" style="font-size:18px;opacity:.8;">🎙️ Podcasting</a>
+  <a href="sfm-digital-garden.html" style="font-size:18px;opacity:.8;">📗 The Digital Garden</a>
+  <a href="sfm-networks-cafe.html" style="font-size:18px;opacity:.8;">☕ NetWORKs Café</a>
+  <a href="sfm-blog.html" style="font-size:18px;opacity:.8;">✍️ Blog</a>
+  <a href="sfm-team.html" style="font-size:18px;opacity:.8;">👥 Team</a>
+  <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" style="color:var(--orange)">Book a Call →</a>
+</div>
+<div class="pc-hero">
+  <div class="wrap">
+    <div class="pc-eyebrow">On-Location Podcast Production</div>
+    <h1>Ever wanted a podcast,<br>but not <span>the hassle?</span></h1>
+    <p class="lead">We bring the whole studio to your office. You show up and talk. We set up, record, edit, and run your podcast start to finish, so you get the authority and content without touching a single cable.</p>
+    <div class="pc-btns">
+      <a class="pc-btn primary" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Book a free call &rarr;</a>
+      <a class="pc-btn ghost" href="#pricing">See pricing</a>
+    </div>
+  </div>
+</div>
+
+<section class="pc-sec">
+  <h2>The hard part is not the talking. It is everything else.</h2>
+  <p class="sub">Most business podcasts die after three episodes. Not because the host ran out of things to say, but because the gear, the editing, the publishing, and the consistency become a second job. We take all of that off your plate.</p>
+  <div class="pc-steps">
+    <div class="pc-step"><div class="n">1</div><h3>We come to you</h3><p>Once a month we roll into your office with a full four-mic studio, set it up, and dial in the sound. No equipment to buy, nothing to learn.</p></div>
+    <div class="pc-step"><div class="n">2</div><h3>You record a month in one sitting</h3><p>Knock out about four episodes in a single relaxed session, with up to four people on mics. One afternoon gives you a month of content.</p></div>
+    <div class="pc-step"><div class="n">3</div><h3>We handle the rest</h3><p>We edit, add intro and outro, write show notes, cut social clips, and publish every episode to Spotify, Apple, and YouTube. You just watch it go live.</p></div>
+  </div>
+</section>
+
+<section class="pc-sec pc-pricing" id="pricing" style="max-width:none;">
+  <div style="max-width:1080px;margin:0 auto;">
+    <h2>Simple, all-in pricing.</h2>
+    <p class="sub">Pick the level of hands-off you want. Every plan includes us bringing the studio to you once a month and recording up to four episodes with up to four people.</p>
+    <div class="pc-tiers">
+      <div class="pc-tier">
+        <div class="tname">Record</div>
+        <div class="price">$800<small>/mo</small></div>
+        <div class="tdesc">Pro studio sound without buying a thing. You take it from there.</div>
+        <ul>
+          <li>Monthly on-site recording session</li>
+          <li>Up to 4 episodes recorded</li>
+          <li>Up to 4 people on mics</li>
+          <li>Pro-cleaned audio + raw video files</li>
+          <li>You edit and publish</li>
+        </ul>
+        <a class="tcta line" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Get started</a>
+      </div>
+      <div class="pc-tier feat">
+        <div class="pc-badge">Most Popular</div>
+        <div class="tname">Produce</div>
+        <div class="price">$1,500<small>/mo</small></div>
+        <div class="tdesc">We record and fully polish. You stay completely out of production.</div>
+        <ul>
+          <li>Everything in Record, plus:</li>
+          <li>Full editing, audio and a clean video cut</li>
+          <li>Intro, outro, music, levels, filler removed</li>
+          <li>Custom episode artwork + written show notes</li>
+          <li>Delivered ready to post, or we post to your channels</li>
+        </ul>
+        <a class="tcta solid" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Get started</a>
+      </div>
+      <div class="pc-tier">
+        <div class="tname">The Full Show</div>
+        <div class="price">$2,500<small>/mo</small></div>
+        <div class="tdesc">You show up and talk. We run the entire podcast for you.</div>
+        <ul>
+          <li>Everything in Produce, plus:</li>
+          <li>We publish to Spotify, Apple &amp; YouTube</li>
+          <li>3 to 4 captioned social clips per episode</li>
+          <li>We manage your hosting and feed</li>
+          <li>Monthly performance recap</li>
+        </ul>
+        <a class="tcta line" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Get started</a>
+      </div>
+    </div>
+    <div class="pc-launch">
+      <div class="l"><b>One-time Launch Fee &middot; $750</b><p>We set the show up right: name and concept help, custom cover art, intro and outro music, hosting setup, a trailer, and your first episode published.</p></div>
+      <div class="price">$750</div>
+    </div>
+    <div class="pc-addons">
+      <b>Add-ons:</b> Extra episode $150 &nbsp;&middot;&nbsp; Full multi-cam video podcast from $500/session &nbsp;&middot;&nbsp; Extra guest mic $50 &nbsp;&middot;&nbsp; 5-clip social pack $250<br>
+      <span style="font-size:13px;">Three-month minimum on Produce and The Full Show. Travel within ~30 miles of Perrysburg included.</span>
+    </div>
+  </div>
+</section>
+
+<section class="pc-sec pc-faq">
+  <h2>Questions, answered.</h2>
+  <p class="sub">The stuff people ask before they say yes.</p>
+  <details><summary>Do I need any equipment or experience?</summary><p>None. We bring everything: the recorder, the mics, the boom arms, the headphones. You just sit down and talk. If you can hold a conversation, you can host a podcast with us.</p></details>
+  <details><summary>Where do we record?</summary><p>Your office, conference room, or wherever you are comfortable in the Toledo and Northwest Ohio area. We make it work in almost any room and handle the sound. Travel within about 30 miles of Perrysburg is included.</p></details>
+  <details><summary>How long does a session take?</summary><p>Usually two to three hours once a month. We record about four episodes in that one sitting, which gives you a full month of weekly content from a single afternoon.</p></details>
+  <details><summary>What do I actually have to do?</summary><p>Show up, talk, and approve the episodes. On The Full Show plan we handle naming, artwork, editing, clips, publishing, and the feed. Your only job is the conversation.</p></details>
+  <details><summary>Can it be a video podcast too?</summary><p>Yes. Produce and The Full Show include a clean video cut and social clips. Want a full broadcast-style multi-cam video podcast? That is a simple add-on starting at $500 per session.</p></details>
+  <details><summary>How soon can we launch?</summary><p>Once we have your launch details, most shows are live within a couple of weeks. Book a free call and we will map out your first month.</p></details>
+</section>
+
+<div class="pc-sec pc-final" style="max-width:none;border-radius:0;">
+  <div style="max-width:760px;margin:0 auto;">
+    <h2>Let's get your show on the air.</h2>
+    <p class="sub" style="margin-bottom:30px;">Book a free 15-minute call. We will figure out your show idea, the right plan, and your first recording date.</p>
+    <a class="pc-btn primary" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener">Book my free call &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy Policy</a> · <a href="sfm-terms.html">Terms</a></p>
+</footer>
+
+  <script>
+    window.setTimeout(() => {
+      const chatScript = document.createElement('script');
+      chatScript.src = 'https://widgets.leadconnectorhq.com/loader.js';
+      chatScript.dataset.resourcesUrl = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+      chatScript.dataset.widgetId = '68acd79867efe8883b05e89e';
+      document.body.appendChild(chatScript);
+    }, 15000);
+  </script>
+</body>
+</html>

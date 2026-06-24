@@ -177,6 +177,16 @@
   to = "/sfm-blog-google-maps.html"
   status = 200
 
+[[redirects]]
+  from = "/podcasting"
+  to = "/sfm-podcasting.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-podcasting"
+  to = "/sfm-podcasting.html"
+  status = 200
+
 # Custom 404
 [[redirects]]
   from = "/*"
