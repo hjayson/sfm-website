@@ -445,11 +445,11 @@
         </div>
         <aside class="pkgb-summary">
           <div class="pkgb-sum-label">Your estimated plan</div>
-          <div class="pkgb-price"><sup>$</sup><span id="pkgbTotal">1,500</span></div>
+          <div class="pkgb-price"><sup>$</sup><span id="pkgbTotal">1,000</span></div>
           <div class="pkgb-per">per month (estimated)</div>
           <ul class="pkgb-list" id="pkgbList"></ul>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="pkgb-cta">Book a Call to Lock It In</a>
-          <p class="pkgb-note">Estimate only. Every plan includes a monthly content shoot, professional photography, Google Business Profile management, strategy calls, and reporting. Ad and marketing budget is separate. Your final quote is confirmed on your call.</p>
+          <p class="pkgb-note">Estimate only. Every plan includes 12-15 posts/month, a monthly content shoot, professional photography, page &amp; Google Business Profile management, and reporting. Ad and marketing budget is separate. Your final quote is confirmed on your call.</p>
         </aside>
       </div>
     </div>
@@ -457,11 +457,11 @@
 
   <script>
   (function(){
-    var BASE=1200, root=document.getElementById('builder'); if(!root) return;
+    var BASE=700, root=document.getElementById('builder'); if(!root) return;
     var totalEl=document.getElementById('pkgbTotal'), listEl=document.getElementById('pkgbList');
     function fmt(n){return n.toLocaleString('en-US');}
     function recalc(){
-      var total=BASE, items=[{label:'Core management + monthly shoot',price:BASE}];
+      var total=BASE, items=[{label:'Management, shoot + 12-15 posts',price:BASE}];
       root.querySelectorAll('.pkgb-seg').forEach(function(seg){
         var o=seg.querySelector('.pkgb-opt.is-active');
         if(o){var a=parseInt(o.getAttribute('data-add'),10);total+=a;items.push({label:o.getAttribute('data-label'),price:a});}
