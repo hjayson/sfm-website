@@ -376,6 +376,114 @@
     </div>
   </section>
 
+  <!-- BUILD YOUR PACKAGE -->
+  <style>
+    .pkgb{display:grid;grid-template-columns:1fr 360px;gap:28px;margin:48px auto 0;max-width:1000px;align-items:start}
+    .pkgb-controls{display:flex;flex-direction:column;gap:24px}
+    .pkgb-group{background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:26px 24px;box-shadow:var(--shadow)}
+    .pkgb-q{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:16px}
+    .pkgb-seg{display:flex;gap:10px;flex-wrap:wrap}
+    .pkgb-opt{flex:1;min-width:62px;padding:14px 10px;border:1.5px solid rgba(0,0,0,.12);background:#fff;border-radius:12px;font-size:15px;font-weight:800;color:var(--navy);cursor:pointer;transition:all .2s;font-family:inherit}
+    .pkgb-opt:hover{border-color:var(--orange)}
+    .pkgb-opt.is-active{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .pkgb-hint{font-size:12.5px;color:var(--dark-gray);margin-top:12px}
+    .pkgb-addons{display:flex;flex-direction:column;gap:10px}
+    .pkgb-check{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1.5px solid rgba(0,0,0,.1);border-radius:12px;cursor:pointer;font-size:15px;color:var(--text-body);transition:all .2s}
+    .pkgb-check:hover{border-color:var(--orange)}
+    .pkgb-check input{width:18px;height:18px;accent-color:var(--orange);cursor:pointer;flex-shrink:0}
+    .pkgb-check span{flex:1;font-weight:600}
+    .pkgb-check b{color:var(--dark-gray);font-weight:800;font-size:14px}
+    .pkgb-summary{position:sticky;top:96px;background:var(--navy);border-radius:20px;padding:32px 28px;box-shadow:0 20px 50px rgba(0,0,0,.2)}
+    .pkgb-sum-label{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+    .pkgb-price{font-size:54px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px}
+    .pkgb-price sup{font-size:24px;vertical-align:top;margin-right:2px}
+    .pkgb-per{font-size:13px;color:rgba(255,255,255,.5);margin:8px 0 18px}
+    .pkgb-list{list-style:none;padding:16px 0;margin:0 0 18px;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:9px}
+    .pkgb-list li{display:flex;justify-content:space-between;gap:12px;font-size:13.5px;color:rgba(255,255,255,.82)}
+    .pkgb-list li b{color:#fff;font-weight:700;white-space:nowrap}
+    .pkgb-cta{display:block;text-align:center;background:var(--orange);color:#fff;font-weight:800;padding:15px;border-radius:12px;text-decoration:none;transition:background .2s}
+    .pkgb-cta:hover{background:var(--orange-dark)}
+    .pkgb-note{font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.5;margin-top:16px}
+    @media(max-width:840px){.pkgb{grid-template-columns:1fr;gap:20px}.pkgb-summary{position:relative;top:0}}
+  </style>
+  <section id="builder" aria-label="Build your own package">
+    <div class="container">
+      <div class="section-label" style="display:block;text-align:center">Build Your Own</div>
+      <h2 class="section-title reveal" style="text-align:center">Not quite the right fit?<br />Build your package.</h2>
+      <p class="reveal" style="text-align:center;max-width:660px;margin:16px auto 0;font-size:17px;color:var(--dark-gray)">Mix and match exactly what you need. Pick your platforms, how often we shoot, and the extras that matter, then we tailor the rest on your call.</p>
+      <div class="pkgb">
+        <div class="pkgb-controls">
+          <div class="pkgb-group">
+            <div class="pkgb-q">How many social platforms?</div>
+            <div class="pkgb-seg" data-group="platforms">
+              <button type="button" class="pkgb-opt is-active" data-add="300" data-label="2 platforms">2</button>
+              <button type="button" class="pkgb-opt" data-add="500" data-label="3 platforms">3</button>
+              <button type="button" class="pkgb-opt" data-add="700" data-label="4 platforms">4</button>
+              <button type="button" class="pkgb-opt" data-add="900" data-label="5+ platforms">5+</button>
+            </div>
+            <div class="pkgb-hint">Facebook, Instagram, TikTok, YouTube, LinkedIn, Pinterest</div>
+          </div>
+          <div class="pkgb-group">
+            <div class="pkgb-q">On-location content shoots</div>
+            <div class="pkgb-seg" data-group="shoots">
+              <button type="button" class="pkgb-opt is-active" data-add="0" data-label="Monthly content shoot">Monthly</button>
+              <button type="button" class="pkgb-opt" data-add="400" data-label="Bi-weekly content shoots">Bi-weekly</button>
+              <button type="button" class="pkgb-opt" data-add="800" data-label="Weekly content shoots">Weekly</button>
+            </div>
+            <div class="pkgb-hint">Professional photography is included with every plan.</div>
+          </div>
+          <div class="pkgb-group">
+            <div class="pkgb-q">Add the extras you want</div>
+            <div class="pkgb-addons">
+              <label class="pkgb-check"><input type="checkbox" data-add="500" data-label="Meta Ads management"><span>Meta Ads management</span><b>+$500</b></label>
+              <label class="pkgb-check"><input type="checkbox" data-add="600" data-label="Google Ads / Search"><span>Google Ads / Search management</span><b>+$600</b></label>
+              <label class="pkgb-check"><input type="checkbox" data-add="700" data-label="Local SEO"><span>Local SEO</span><b>+$700</b></label>
+              <label class="pkgb-check"><input type="checkbox" data-add="500" data-label="Reels / short-form video"><span>Reels / short-form video</span><b>+$500</b></label>
+              <label class="pkgb-check"><input type="checkbox" data-add="350" data-label="Email marketing &amp; automation"><span>Email marketing &amp; automation</span><b>+$350</b></label>
+            </div>
+          </div>
+        </div>
+        <aside class="pkgb-summary">
+          <div class="pkgb-sum-label">Your estimated plan</div>
+          <div class="pkgb-price"><sup>$</sup><span id="pkgbTotal">1,500</span></div>
+          <div class="pkgb-per">per month (estimated)</div>
+          <ul class="pkgb-list" id="pkgbList"></ul>
+          <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="pkgb-cta">Book a Call to Lock It In</a>
+          <p class="pkgb-note">Estimate only. Every plan includes a monthly content shoot, professional photography, Google Business Profile management, strategy calls, and reporting. Ad and marketing budget is separate. Your final quote is confirmed on your call.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    var BASE=1200, root=document.getElementById('builder'); if(!root) return;
+    var totalEl=document.getElementById('pkgbTotal'), listEl=document.getElementById('pkgbList');
+    function fmt(n){return n.toLocaleString('en-US');}
+    function recalc(){
+      var total=BASE, items=[{label:'Core management + monthly shoot',price:BASE}];
+      root.querySelectorAll('.pkgb-seg').forEach(function(seg){
+        var o=seg.querySelector('.pkgb-opt.is-active');
+        if(o){var a=parseInt(o.getAttribute('data-add'),10);total+=a;items.push({label:o.getAttribute('data-label'),price:a});}
+      });
+      root.querySelectorAll('.pkgb-check input:checked').forEach(function(c){
+        var a=parseInt(c.getAttribute('data-add'),10);total+=a;items.push({label:c.getAttribute('data-label'),price:a});
+      });
+      totalEl.textContent=fmt(total);
+      listEl.innerHTML=items.map(function(it){return '<li><span>'+it.label+'</span><b>'+(it.price?'+$'+fmt(it.price):'incl.')+'</b></li>';}).join('');
+    }
+    root.querySelectorAll('.pkgb-seg').forEach(function(seg){
+      seg.addEventListener('click',function(e){
+        var b=e.target.closest('.pkgb-opt'); if(!b) return;
+        seg.querySelectorAll('.pkgb-opt').forEach(function(o){o.classList.remove('is-active');});
+        b.classList.add('is-active'); recalc();
+      });
+    });
+    root.querySelectorAll('.pkgb-check input').forEach(function(c){c.addEventListener('change',recalc);});
+    recalc();
+  })();
+  </script>
+
   <!-- ADD-ONS -->
   <section id="addons" aria-label="Add-on services">
     <div class="container">
