@@ -1150,6 +1150,8 @@
         // Show success state
         form.style.display = 'none';
         successMsg.style.display = 'block';
+        // Track lead conversion in GA4
+        if (typeof gtag === 'function') { gtag('event', 'generate_lead', { method: 'Website Contact Form', value: 1, currency: 'USD' }); }
         successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
