@@ -3,6 +3,8 @@
 
 # Blog post — recovering 1,651 GSC impressions from dead Wix URL
 /post/generate-leads-effectively-using-linkedin    /sfm-blog-linkedin-leads    301
+/post/social-media-tips-local-perrysburg-events     /sfm-blog-content-ideas     301
+/post/*                                             /sfm-blog                   301
 
 # Core pages
 /about                  /sfm-about              301
