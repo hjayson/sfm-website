@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Tells Master List | Sales Funnel Marketing</title>
+  <meta name="description" content="Get the free list of 500+ words and phrases that make posts sound like AI, plus what to write instead.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ai-tells.css">
+</head>
+<body>
+  <main class="page-shell" aria-labelledby="page-title">
+    <section class="lead-card">
+      <header class="hero-copy">
+        <h1 id="page-title">Your posts sound like AI. Your customers can tell.</h1>
+        <div class="accent-rule" aria-hidden="true"></div>
+        <p class="subhead">Get the free list of 500+ words and phrases that scream "a robot wrote this," plus what to write instead.</p>
+      </header>
+
+      <ul class="benefit-list" aria-label="What is included">
+        <li>The 550+ words and phrases readers now scroll right past</li>
+        <li>17 sentence patterns that give AI away even when the words look clean</li>
+        <li>Before and after rewrites you can copy for your own posts</li>
+        <li>A 60-second check to run before you hit publish</li>
+      </ul>
+
+      <form class="opt-in-form" id="lead-form" novalidate>
+        <div class="field-group">
+          <label for="first-name">First Name</label>
+          <input id="first-name" name="first_name" type="text" autocomplete="given-name" required>
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+
+        <p class="form-error" id="form-error" role="alert" hidden>Something went wrong, try again</p>
+
+        <button class="submit-button" type="submit">Send Me the List</button>
+        <p class="small-print">We'll email you the PDF plus an occasional tip worth reading. Unsubscribe anytime.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Sales Funnel Marketing &middot; salesfunnelmarketing.us &middot; Northwest Ohio</p>
+  </footer>
+
+  <script>
+    const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/OJDfphRc0kbldNRpq1lD/webhook-trigger/220c0f9f-f057-4ca6-89d6-de7e9a940598";
+
+    const form = document.getElementById("lead-form");
+    const firstNameInput = document.getElementById("first-name");
+    const emailInput = document.getElementById("email");
+    const errorMessage = document.getElementById("form-error");
+    const submitButton = form.querySelector("button[type='submit']");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.hidden = false;
+    }
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const firstName = firstNameInput.value.trim();
+      const email = emailInput.value.trim();
+
+      errorMessage.hidden = true;
+
+      if (!firstName || !email || !emailPattern.test(email)) {
+        showError("Something went wrong, try again");
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
+
+      try {
+        const response = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            first_name: firstName,
+            email: email
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+
+        window.location.href = "/ai-tells-thanks";
+      } catch (error) {
+        showError("Something went wrong, try again");
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Me the List";
+      }
+    });
+  </script>
+</body>
+</html>
