@@ -474,6 +474,20 @@
   src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* "Watch me first!" hero video cue */
+    .watch-cue{ position:absolute; z-index:7; top:-34px; left:-24px; pointer-events:none;
+      display:flex; flex-direction:column; align-items:flex-start;
+      animation:watchBob 2.1s ease-in-out infinite; }
+    .watch-cue .txt{ font-family:'Caveat',cursive; font-weight:700; font-size:34px; line-height:1;
+      color:#E85D26; background:#fff; border:3px solid #E85D26; padding:4px 18px 8px; border-radius:16px;
+      white-space:nowrap; box-shadow:0 12px 28px rgba(0,0,0,.30); transform:rotate(-5deg); }
+    .watch-cue svg{ margin:-4px 0 0 58px; filter:drop-shadow(0 5px 8px rgba(0,0,0,.28)); }
+    @keyframes watchBob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+    @media(max-width:1024px){ .watch-cue{ top:-26px; left:50%; margin-left:-160px; } }
+    @media(max-width:520px){ .watch-cue .txt{ font-size:27px; } .watch-cue{ margin-left:-125px; top:-20px; } .watch-cue svg{ width:80px; height:66px; margin-left:44px; } }
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -545,6 +559,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="hero-visual">
+      <div class="watch-cue" aria-hidden="true">
+        <span class="txt">Watch me first!</span>
+        <svg width="104" height="86" viewBox="0 0 104 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 12 C 40 44, 52 50, 84 68" stroke="#E85D26" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <path d="M84 68 L66 66" stroke="#E85D26" stroke-width="7" stroke-linecap="round"/>
+          <path d="M84 68 L74 51" stroke="#E85D26" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="hero-video-card" style="position:relative;border-radius:18px;overflow:hidden;box-shadow:0 26px 60px rgba(0,0,0,.45);background:#0A1628;line-height:0;">
         <video id="homeHeroVid" autoplay muted loop playsinline preload="auto" poster="images/home-hero-poster.jpg?v=3" style="display:block;width:100%;height:auto;">
           <source src="images/home-hero.mp4?v=3" type="video/mp4">
