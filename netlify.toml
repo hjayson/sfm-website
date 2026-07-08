@@ -194,6 +194,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/cic-bridge"
+  to = "/.netlify/functions/cic-pipedrive-bridge"
+  status = 200
+  force = true
+
 # Custom 404
 [[redirects]]
   from = "/*"

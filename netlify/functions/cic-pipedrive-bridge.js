@@ -433,6 +433,7 @@ function getApiToken(event) {
   return (
     clean(headers["x-pipedrive-api-token"]) ||
     clean(query.pipedrive_api_token) ||
+    clean(query.key) ||
     clean(query.api_token)
   );
 }
