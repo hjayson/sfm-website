@@ -188,6 +188,12 @@
   to = "/sfm-podcasting.html"
   status = 200
 
+[[redirects]]
+  from = "/cic-pipedrive-bridge"
+  to = "/.netlify/functions/cic-pipedrive-bridge"
+  status = 200
+  force = true
+
 # Custom 404
 [[redirects]]
   from = "/*"
