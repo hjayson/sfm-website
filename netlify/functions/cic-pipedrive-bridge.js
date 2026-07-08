@@ -14,10 +14,6 @@ exports.handler = async (event) => {
     return response(204, "");
   }
 
-  if (event.httpMethod === "GET" && (event.queryStringParameters || {}).probe === "create-test") {
-    return runProbe(event);
-  }
-
   if (event.httpMethod !== "POST") {
     return json(405, { ok: false, error: "POST only" });
   }
@@ -43,41 +39,6 @@ exports.handler = async (event) => {
     });
   }
 };
-
-async function runProbe(event) {
-  const apiToken = getApiToken(event);
-
-  if (!apiToken) {
-    return json(500, { ok: false, error: "Missing PIPEDRIVE_API_TOKEN" });
-  }
-
-  try {
-    const stamp = Date.now();
-    const result = await processLead({
-      first_name: "Bridge",
-      last_name: `Probe ${stamp}`,
-      email: `bridge.probe.${stamp}@salesfunnelmarketing.us`,
-      company: "Bridge Probe Company",
-      phone: "4195550199",
-      screening_volume: "11 to 50",
-      intent: "Bridge probe",
-      lead_source: "Meta Ad",
-      utm_source: "meta",
-      utm_medium: "probe",
-      utm_campaign: "bridge-probe",
-      page: "bridge-probe",
-    }, apiToken);
-
-    return json(200, { probe: "create-test", ...result });
-  } catch (error) {
-    console.error("CIC Pipedrive bridge probe failed:", error);
-    return json(500, {
-      ok: false,
-      probe: "create-test",
-      error: error.message || "Probe failed",
-    });
-  }
-}
 
 async function processLead(payload, apiToken) {
   const lead = normalizePayload(payload);
@@ -440,7 +401,6 @@ function getApiToken(event) {
   return (
     clean(headers["x-pipedrive-api-token"]) ||
     clean(query.pipedrive_api_token) ||
-    clean(query.key) ||
     clean(query.api_token)
   );
 }
