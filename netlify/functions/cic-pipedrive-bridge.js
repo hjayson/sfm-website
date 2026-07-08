@@ -187,11 +187,14 @@ async function findOrCreateOrganization(company, apiToken) {
 }
 
 async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
-  const baseBody = compact({
+  const requiredBody = compact({
     name: lead.fullName,
-    owner_id: OWNER_ID,
     emails: [{ value: lead.email, primary: true, label: "work" }],
     phones: lead.phone ? [{ value: lead.phone, primary: true, label: "work" }] : undefined,
+  });
+  const baseBody = compact({
+    ...requiredBody,
+    owner_id: OWNER_ID,
     visible_to: toNumber(VISIBLE_TO),
   });
 
@@ -237,6 +240,10 @@ async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
     {
       variant: "minimal",
       body: baseBody,
+    },
+    {
+      variant: "required_only",
+      body: requiredBody,
     },
   ];
 
