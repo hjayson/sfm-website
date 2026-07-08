@@ -120,6 +120,7 @@ async function findOrCreateOrganization(company, apiToken) {
 }
 
 async function findOrCreatePerson(lead, organizationId, apiToken) {
+  const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
   const body = compact({
     name: lead.fullName,
     org_id: organizationId,
@@ -129,6 +130,10 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
     label: "Ad Lead",
     visible_to: toNumber(VISIBLE_TO),
   });
+
+  if (sourceField.key) {
+    body[sourceField.key] = sourceField.value;
+  }
 
   const created = await pipe("POST", "/api/v1/persons", body, apiToken);
   return getId(created);
@@ -270,7 +275,7 @@ function response(statusCode, body) {
     statusCode,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type, X-CIC-Bridge-Secret",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, X-CIC-Bridge-Secret, X-Pipedrive-API-Token",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
     },
     body,
