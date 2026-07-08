@@ -301,6 +301,10 @@ function pipe(method, path, body, apiToken) {
     });
 
     req.on("error", reject);
+    req.setTimeout(10000, () => {
+      req.destroy(new Error(`Pipedrive ${method} ${path.split("?")[0]} timed out`));
+    });
+
     if (jsonBody) req.write(jsonBody);
     req.end();
   });
