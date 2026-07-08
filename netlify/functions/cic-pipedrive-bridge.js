@@ -13,6 +13,10 @@ exports.handler = async (event) => {
     return response(204, "");
   }
 
+  if (event.httpMethod === "GET" && (event.queryStringParameters || {}).probe === "pipedrive") {
+    return probePipedrive(event);
+  }
+
   if (event.httpMethod !== "POST") {
     return json(405, { ok: false, error: "POST only" });
   }
@@ -62,6 +66,31 @@ exports.handler = async (event) => {
     });
   }
 };
+
+async function probePipedrive(event) {
+  const apiToken = getApiToken(event);
+
+  if (!apiToken) {
+    return json(401, { ok: false, error: "Missing Pipedrive token" });
+  }
+
+  try {
+    const me = await pipe("GET", "/api/v1/users/me", undefined, apiToken);
+    const organizations = await pipe("GET", "/api/v1/organizations?limit=1", undefined, apiToken);
+
+    return json(200, {
+      ok: true,
+      user_id: getId(me),
+      organizations_readable: Array.isArray(organizations.data),
+      organization_sample_count: Array.isArray(organizations.data) ? organizations.data.length : 0,
+    });
+  } catch (error) {
+    return json(500, {
+      ok: false,
+      error: error.message || "Pipedrive probe failed",
+    });
+  }
+}
 
 function parseBody(body) {
   if (!body) return {};
