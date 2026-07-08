@@ -109,13 +109,6 @@ function normalizeLeadSource(source, utmSource) {
 }
 
 async function findOrCreateOrganization(company, apiToken) {
-  const existingId = await findFirstId(
-    `/api/v1/organizations/search?term=${encodeURIComponent(company)}&fields=name&exact_match=true&limit=1`,
-    apiToken
-  );
-
-  if (existingId) return existingId;
-
   const body = compact({
     name: company,
     owner_id: OWNER_ID,
@@ -127,11 +120,6 @@ async function findOrCreateOrganization(company, apiToken) {
 }
 
 async function findOrCreatePerson(lead, organizationId, apiToken) {
-  const existingId = await findFirstId(
-    `/api/v1/persons/search?term=${encodeURIComponent(lead.email)}&fields=email&exact_match=true&limit=1`,
-    apiToken
-  );
-
   const body = compact({
     name: lead.fullName,
     org_id: organizationId,
@@ -142,11 +130,6 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
     visible_to: toNumber(VISIBLE_TO),
   });
 
-  if (existingId) {
-    await pipe("PUT", `/api/v1/persons/${existingId}`, body, apiToken);
-    return existingId;
-  }
-
   const created = await pipe("POST", "/api/v1/persons", body, apiToken);
   return getId(created);
 }
@@ -154,7 +137,6 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
 async function upsertLead(lead, personId, organizationId, apiToken) {
   const titleTarget = lead.company || lead.fullName || lead.email;
   const title = `Website Form - Lead - ${titleTarget}`;
-  const existingLead = await findExistingLead(personId, apiToken);
   const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
 
   const body = compact({
@@ -170,26 +152,8 @@ async function upsertLead(lead, personId, organizationId, apiToken) {
     body[sourceField.key] = sourceField.value;
   }
 
-  if (existingLead && existingLead.id) {
-    const updated = await pipe("PATCH", `/api/v1/leads/${existingLead.id}`, body, apiToken);
-    return { id: getId(updated) || existingLead.id, action: "updated", sourceField };
-  }
-
   const created = await pipe("POST", "/api/v1/leads", body, apiToken);
   return { id: getId(created), action: "created", sourceField };
-}
-
-async function findExistingLead(personId, apiToken) {
-  if (!personId) return null;
-
-  const result = await pipe(
-    "GET",
-    `/api/v1/leads?person_id=${encodeURIComponent(personId)}&limit=1&sort=add_time%20DESC`,
-    undefined,
-    apiToken
-  );
-  const leads = Array.isArray(result.data) ? result.data : [];
-  return leads[0] || null;
 }
 
 async function resolveLeadSourceField(leadSource, apiToken) {
