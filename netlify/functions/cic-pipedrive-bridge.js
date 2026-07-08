@@ -7,6 +7,7 @@ const OWNER_ID = toNumber(process.env.PIPEDRIVE_OWNER_ID);
 const VISIBLE_TO = process.env.PIPEDRIVE_VISIBLE_TO || "3";
 const SOURCE_FIELD_KEY = process.env.PIPEDRIVE_LEAD_SOURCE_FIELD_KEY || "";
 const SOURCE_OPTION_MAP = parseJsonEnv("PIPEDRIVE_SOURCE_OPTION_MAP_JSON", {});
+let personLeadSourceFieldPromise;
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
@@ -234,7 +235,52 @@ async function resolveLeadSourceField(leadSource, apiToken) {
     };
   }
 
+  try {
+    const field = await findPersonLeadSourceField(apiToken);
+
+    if (field && field.key) {
+      const optionValue = optionValueFor(field, leadSource);
+      return {
+        key: field.key,
+        value: optionValue || leadSource,
+        mode: optionValue ? "person_field_option" : "person_field_label",
+      };
+    }
+  } catch (error) {
+    console.warn("CIC Pipedrive lead source field lookup skipped:", error.message);
+  }
+
   return { key: null, value: null, mode: "not_configured" };
+}
+
+async function findPersonLeadSourceField(apiToken) {
+  if (!personLeadSourceFieldPromise) {
+    personLeadSourceFieldPromise = pipe("GET", "/api/v1/personFields", undefined, apiToken)
+      .then((result) => {
+        const fields = asArray(result && result.data);
+        return fields.find((field) => clean(field.name).toLowerCase() === "lead source") || null;
+      })
+      .catch((error) => {
+        personLeadSourceFieldPromise = null;
+        throw error;
+      });
+  }
+
+  return personLeadSourceFieldPromise;
+}
+
+function optionValueFor(field, leadSource) {
+  const options = asArray(field && field.options);
+  const normalized = clean(leadSource).toLowerCase();
+
+  if (!options.length || !normalized) return null;
+
+  const option = options.find((item) => {
+    const label = clean(item.label || item.name || item.value).toLowerCase();
+    return label === normalized;
+  });
+
+  return option ? option.id || option.value || option.label : null;
 }
 
 async function findFirstId(path, apiToken) {
