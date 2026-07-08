@@ -210,25 +210,14 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
 }
 
 async function upsertLead(lead, personId, organizationId, apiToken) {
-  const titleTarget = lead.company || lead.fullName || lead.email;
-  const title = `Website Form - Lead - ${titleTarget}`;
   const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
-
-  const body = compact({
-    title,
+  return {
+    id: null,
+    action: "skipped_existing_pipedrive_automation",
     person_id: personId,
     organization_id: organizationId,
-    owner_id: OWNER_ID,
-    visible_to: VISIBLE_TO,
-    origin_id: originIdFor(lead),
-  });
-
-  if (sourceField.key && sourceField.value !== undefined && sourceField.value !== null) {
-    body[sourceField.key] = sourceField.value;
-  }
-
-  const created = await pipe("POST", "/v1/leads", body, apiToken);
-  return { id: getId(created), action: "created", sourceField };
+    sourceField,
+  };
 }
 
 async function resolveLeadSourceField(leadSource, apiToken) {
