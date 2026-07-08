@@ -110,7 +110,7 @@ function normalizeLeadSource(source, utmSource) {
 
 async function findOrCreateOrganization(company, apiToken) {
   const existingId = await findFirstId(
-    `/api/v2/organizations/search?term=${encodeURIComponent(company)}&fields=name&exact_match=true&limit=1`,
+    `/api/v1/organizations/search?term=${encodeURIComponent(company)}&fields=name&exact_match=true&limit=1`,
     apiToken
   );
 
@@ -122,13 +122,13 @@ async function findOrCreateOrganization(company, apiToken) {
     visible_to: toNumber(VISIBLE_TO),
   });
 
-  const created = await pipe("POST", "/api/v2/organizations", body, apiToken);
+  const created = await pipe("POST", "/api/v1/organizations", body, apiToken);
   return getId(created);
 }
 
 async function findOrCreatePerson(lead, organizationId, apiToken) {
   const existingId = await findFirstId(
-    `/api/v2/persons/search?term=${encodeURIComponent(lead.email)}&fields=email&exact_match=true&limit=1`,
+    `/api/v1/persons/search?term=${encodeURIComponent(lead.email)}&fields=email&exact_match=true&limit=1`,
     apiToken
   );
 
@@ -136,17 +136,18 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
     name: lead.fullName,
     org_id: organizationId,
     owner_id: OWNER_ID,
-    emails: [{ value: lead.email, primary: true, label: "work" }],
-    phones: lead.phone ? [{ value: lead.phone, primary: true, label: "work" }] : undefined,
+    email: lead.email,
+    phone: lead.phone,
+    label: "Ad Lead",
     visible_to: toNumber(VISIBLE_TO),
   });
 
   if (existingId) {
-    await pipe("PATCH", `/api/v2/persons/${existingId}`, body, apiToken);
+    await pipe("PUT", `/api/v1/persons/${existingId}`, body, apiToken);
     return existingId;
   }
 
-  const created = await pipe("POST", "/api/v2/persons", body, apiToken);
+  const created = await pipe("POST", "/api/v1/persons", body, apiToken);
   return getId(created);
 }
 
@@ -200,35 +201,7 @@ async function resolveLeadSourceField(leadSource, apiToken) {
     };
   }
 
-  try {
-    const fields = await pipe("GET", "/api/v2/dealFields?limit=500", undefined, apiToken);
-    const field = asArray(fields.data).find((item) => {
-      const name = clean(item.field_name || item.name || item.label).toLowerCase();
-      return name === "lead source" || name === "source";
-    });
-
-    if (!field) {
-      return { key: null, value: null, mode: "not_found" };
-    }
-
-    const key = field.key || field.field_code || field.id;
-    const type = clean(field.field_type || field.type).toLowerCase();
-
-    if (type === "enum" || type === "set") {
-      const option = asArray(field.options).find((item) => {
-        return clean(item.label || item.name).toLowerCase() === leadSource.toLowerCase();
-      });
-
-      return option
-        ? { key, value: option.id || option.value || option.label, mode: "detected_option" }
-        : { key, value: null, mode: "option_not_found" };
-    }
-
-    return { key, value: leadSource, mode: "detected_text" };
-  } catch (error) {
-    console.warn("Could not resolve Lead Source custom field:", error.message);
-    return { key: null, value: null, mode: "lookup_failed" };
-  }
+  return { key: null, value: null, mode: "not_configured" };
 }
 
 async function findFirstId(path, apiToken) {
