@@ -40,11 +40,12 @@ exports.handler = async (event) => {
       return json(422, { ok: false, error: "Email is invalid" });
     }
 
+    const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
     const organizationResult = lead.company
       ? await findOrCreateOrganization(lead.company, apiToken)
       : { id: null, action: "skipped_no_company", error: null };
-    const personResult = await findOrCreatePerson(lead, organizationResult.id, apiToken);
-    const leadResult = await upsertLead(lead, personResult.id, organizationResult.id, apiToken);
+    const personResult = await findOrCreatePerson(lead, organizationResult.id, sourceField, apiToken);
+    const leadResult = await upsertLead(lead, personResult.id, organizationResult.id, sourceField);
 
     return json(200, {
       ok: true,
@@ -122,7 +123,7 @@ async function findOrCreateOrganization(company, apiToken) {
   });
 
   try {
-    const created = await pipe("POST", "/api/v1/organizations", body, apiToken);
+    const created = await pipe("POST", "/api/v2/organizations", body, apiToken);
     return {
       id: getId(created),
       action: "created",
@@ -138,20 +139,22 @@ async function findOrCreateOrganization(company, apiToken) {
   }
 }
 
-async function findOrCreatePerson(lead, organizationId, apiToken) {
-  const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
+async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
   const baseBody = compact({
     name: lead.fullName,
     owner_id: OWNER_ID,
-    email: lead.email,
-    phone: lead.phone,
+    emails: [{ value: lead.email, primary: true, label: "work" }],
+    phones: lead.phone ? [{ value: lead.phone, primary: true, label: "work" }] : undefined,
     visible_to: toNumber(VISIBLE_TO),
   });
 
   const withSource = (body) => {
     const next = { ...body };
     if (sourceField.key) {
-      next[sourceField.key] = sourceField.value;
+      next.custom_fields = compact({
+        ...(next.custom_fields || {}),
+        [sourceField.key]: sourceField.value,
+      });
     }
     return compact(next);
   };
@@ -162,7 +165,6 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
       body: withSource({
         ...baseBody,
         org_id: organizationId,
-        label: "Ad Lead",
       }),
     },
     {
@@ -170,7 +172,6 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
       body: compact({
         ...baseBody,
         org_id: organizationId,
-        label: "Ad Lead",
       }),
     },
     {
@@ -184,7 +185,6 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
       variant: "no_organization",
       body: withSource({
         ...baseBody,
-        label: "Ad Lead",
       }),
     },
     {
@@ -197,7 +197,7 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
 
   for (const attempt of attempts) {
     try {
-      const created = await pipe("POST", "/api/v1/persons", attempt.body, apiToken);
+      const created = await pipe("POST", "/api/v2/persons", attempt.body, apiToken);
       return {
         id: getId(created),
         action: "created",
@@ -215,8 +215,7 @@ async function findOrCreatePerson(lead, organizationId, apiToken) {
   throw new Error(`Pipedrive person create failed after ${attempts.length} attempts: ${warnings.join(" | ")}`);
 }
 
-async function upsertLead(lead, personId, organizationId, apiToken) {
-  const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
+async function upsertLead(lead, personId, organizationId, sourceField) {
   return {
     id: null,
     action: "skipped_existing_pipedrive_automation",
