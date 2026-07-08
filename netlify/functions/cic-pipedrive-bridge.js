@@ -227,7 +227,7 @@ async function upsertLead(lead, personId, organizationId, apiToken) {
     body[sourceField.key] = sourceField.value;
   }
 
-  const created = await pipe("POST", "/api/v1/leads", body, apiToken);
+  const created = await pipe("POST", "/v1/leads", body, apiToken);
   return { id: getId(created), action: "created", sourceField };
 }
 
