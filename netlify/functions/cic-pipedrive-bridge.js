@@ -17,6 +17,10 @@ exports.handler = async (event) => {
     return probePipedrive(event);
   }
 
+  if (event.httpMethod === "GET" && (event.queryStringParameters || {}).probe === "create-test") {
+    return probeCreate(event);
+  }
+
   if (event.httpMethod !== "POST") {
     return json(405, { ok: false, error: "POST only" });
   }
@@ -88,6 +92,48 @@ async function probePipedrive(event) {
     return json(500, {
       ok: false,
       error: error.message || "Pipedrive probe failed",
+    });
+  }
+}
+
+async function probeCreate(event) {
+  const apiToken = getApiToken(event);
+
+  if (!apiToken) {
+    return json(401, { ok: false, error: "Missing Pipedrive token" });
+  }
+
+  try {
+    const timestamp = Date.now();
+    const lead = normalizePayload({
+      first_name: "Codex",
+      last_name: "Bridgeprobe",
+      email: `codex.bridgeprobe.${timestamp}@salesfunnelmarketing.us`,
+      company: `Codex Bridge Probe ${timestamp}`,
+      phone: "4195550198",
+      lead_source: "Meta Ad",
+      utm_source: "meta",
+      utm_medium: "bridge-probe",
+      utm_campaign: "bridge-probe",
+      page: "bridge-probe",
+    });
+
+    const organizationId = await findOrCreateOrganization(lead.company, apiToken);
+    const personId = await findOrCreatePerson(lead, organizationId, apiToken);
+    const leadResult = await upsertLead(lead, personId, organizationId, apiToken);
+
+    return json(200, {
+      ok: true,
+      organization_id: organizationId,
+      person_id: personId,
+      lead_id: leadResult.id,
+      lead_action: leadResult.action,
+      lead_source: lead.leadSource,
+    });
+  } catch (error) {
+    return json(500, {
+      ok: false,
+      error: error.message || "Create probe failed",
     });
   }
 }
