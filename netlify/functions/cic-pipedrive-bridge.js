@@ -1,7 +1,7 @@
 const https = require("https");
 
 const PIPEDRIVE_HOST = "api.pipedrive.com";
-const API_TOKEN = process.env.PIPEDRIVE_API_TOKEN;
+const ENV_API_TOKEN = process.env.PIPEDRIVE_API_TOKEN;
 const BRIDGE_SECRET = process.env.CIC_BRIDGE_SECRET;
 const OWNER_ID = toNumber(process.env.PIPEDRIVE_OWNER_ID);
 const VISIBLE_TO = process.env.PIPEDRIVE_VISIBLE_TO || "3";
@@ -17,7 +17,9 @@ exports.handler = async (event) => {
     return json(405, { ok: false, error: "POST only" });
   }
 
-  if (!API_TOKEN) {
+  const apiToken = getApiToken(event);
+
+  if (!apiToken) {
     return json(500, { ok: false, error: "Missing PIPEDRIVE_API_TOKEN" });
   }
 
@@ -38,10 +40,10 @@ exports.handler = async (event) => {
     }
 
     const organizationId = lead.company
-      ? await findOrCreateOrganization(lead.company)
+      ? await findOrCreateOrganization(lead.company, apiToken)
       : null;
-    const personId = await findOrCreatePerson(lead, organizationId);
-    const leadResult = await upsertLead(lead, personId, organizationId);
+    const personId = await findOrCreatePerson(lead, organizationId, apiToken);
+    const leadResult = await upsertLead(lead, personId, organizationId, apiToken);
 
     return json(200, {
       ok: true,
@@ -106,9 +108,10 @@ function normalizeLeadSource(source, utmSource) {
   return clean(source);
 }
 
-async function findOrCreateOrganization(company) {
+async function findOrCreateOrganization(company, apiToken) {
   const existingId = await findFirstId(
-    `/api/v2/organizations/search?term=${encodeURIComponent(company)}&fields=name&exact_match=true&limit=1`
+    `/api/v2/organizations/search?term=${encodeURIComponent(company)}&fields=name&exact_match=true&limit=1`,
+    apiToken
   );
 
   if (existingId) return existingId;
@@ -119,13 +122,14 @@ async function findOrCreateOrganization(company) {
     visible_to: toNumber(VISIBLE_TO),
   });
 
-  const created = await pipe("POST", "/api/v2/organizations", body);
+  const created = await pipe("POST", "/api/v2/organizations", body, apiToken);
   return getId(created);
 }
 
-async function findOrCreatePerson(lead, organizationId) {
+async function findOrCreatePerson(lead, organizationId, apiToken) {
   const existingId = await findFirstId(
-    `/api/v2/persons/search?term=${encodeURIComponent(lead.email)}&fields=email&exact_match=true&limit=1`
+    `/api/v2/persons/search?term=${encodeURIComponent(lead.email)}&fields=email&exact_match=true&limit=1`,
+    apiToken
   );
 
   const body = compact({
@@ -138,19 +142,19 @@ async function findOrCreatePerson(lead, organizationId) {
   });
 
   if (existingId) {
-    await pipe("PATCH", `/api/v2/persons/${existingId}`, body);
+    await pipe("PATCH", `/api/v2/persons/${existingId}`, body, apiToken);
     return existingId;
   }
 
-  const created = await pipe("POST", "/api/v2/persons", body);
+  const created = await pipe("POST", "/api/v2/persons", body, apiToken);
   return getId(created);
 }
 
-async function upsertLead(lead, personId, organizationId) {
+async function upsertLead(lead, personId, organizationId, apiToken) {
   const titleTarget = lead.company || lead.fullName || lead.email;
   const title = `Website Form - Lead - ${titleTarget}`;
-  const existingLead = await findExistingLead(personId);
-  const sourceField = await resolveLeadSourceField(lead.leadSource);
+  const existingLead = await findExistingLead(personId, apiToken);
+  const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
 
   const body = compact({
     title,
@@ -166,26 +170,28 @@ async function upsertLead(lead, personId, organizationId) {
   }
 
   if (existingLead && existingLead.id) {
-    const updated = await pipe("PATCH", `/api/v1/leads/${existingLead.id}`, body);
+    const updated = await pipe("PATCH", `/api/v1/leads/${existingLead.id}`, body, apiToken);
     return { id: getId(updated) || existingLead.id, action: "updated", sourceField };
   }
 
-  const created = await pipe("POST", "/api/v1/leads", body);
+  const created = await pipe("POST", "/api/v1/leads", body, apiToken);
   return { id: getId(created), action: "created", sourceField };
 }
 
-async function findExistingLead(personId) {
+async function findExistingLead(personId, apiToken) {
   if (!personId) return null;
 
   const result = await pipe(
     "GET",
-    `/api/v1/leads?person_id=${encodeURIComponent(personId)}&limit=1&sort=add_time%20DESC`
+    `/api/v1/leads?person_id=${encodeURIComponent(personId)}&limit=1&sort=add_time%20DESC`,
+    undefined,
+    apiToken
   );
   const leads = Array.isArray(result.data) ? result.data : [];
   return leads[0] || null;
 }
 
-async function resolveLeadSourceField(leadSource) {
+async function resolveLeadSourceField(leadSource, apiToken) {
   if (SOURCE_FIELD_KEY) {
     return {
       key: SOURCE_FIELD_KEY,
@@ -195,7 +201,7 @@ async function resolveLeadSourceField(leadSource) {
   }
 
   try {
-    const fields = await pipe("GET", "/api/v2/dealFields?limit=500");
+    const fields = await pipe("GET", "/api/v2/dealFields?limit=500", undefined, apiToken);
     const field = asArray(fields.data).find((item) => {
       const name = clean(item.field_name || item.name || item.label).toLowerCase();
       return name === "lead source" || name === "source";
@@ -225,8 +231,8 @@ async function resolveLeadSourceField(leadSource) {
   }
 }
 
-async function findFirstId(path) {
-  const result = await pipe("GET", path);
+async function findFirstId(path, apiToken) {
+  const result = await pipe("GET", path, undefined, apiToken);
   return firstIdFromSearch(result);
 }
 
@@ -257,12 +263,12 @@ function originIdFor(lead) {
     .slice(0, 255);
 }
 
-function pipe(method, path, body) {
+function pipe(method, path, body, apiToken) {
   return new Promise((resolve, reject) => {
     const jsonBody = body ? JSON.stringify(body) : null;
     const options = {
       hostname: PIPEDRIVE_HOST,
-      path: withToken(path),
+      path: withToken(path, apiToken),
       method,
       headers: {
         Accept: "application/json",
@@ -299,9 +305,9 @@ function pipe(method, path, body) {
   });
 }
 
-function withToken(path) {
+function withToken(path, apiToken) {
   const separator = path.includes("?") ? "&" : "?";
-  return `${path}${separator}api_token=${encodeURIComponent(API_TOKEN)}`;
+  return `${path}${separator}api_token=${encodeURIComponent(apiToken)}`;
 }
 
 function hasValidSecret(event) {
@@ -309,6 +315,24 @@ function hasValidSecret(event) {
   const query = event.queryStringParameters || {};
   const provided = headers["x-cic-bridge-secret"] || query.secret || query.bridge_secret;
   return provided === BRIDGE_SECRET;
+}
+
+function getApiToken(event) {
+  if (ENV_API_TOKEN) return ENV_API_TOKEN;
+
+  const headers = lowerHeaders(event.headers || {});
+  const query = event.queryStringParameters || {};
+  const authorization = clean(headers.authorization);
+
+  if (authorization.toLowerCase().startsWith("bearer ")) {
+    return authorization.slice(7).trim();
+  }
+
+  return (
+    clean(headers["x-pipedrive-api-token"]) ||
+    clean(query.pipedrive_api_token) ||
+    clean(query.api_token)
+  );
 }
 
 function response(statusCode, body) {
