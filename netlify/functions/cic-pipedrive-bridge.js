@@ -39,16 +39,21 @@ exports.handler = async (event) => {
       return json(422, { ok: false, error: "Email is invalid" });
     }
 
-    const organizationId = lead.company
+    const organizationResult = lead.company
       ? await findOrCreateOrganization(lead.company, apiToken)
-      : null;
-    const personId = await findOrCreatePerson(lead, organizationId, apiToken);
-    const leadResult = await upsertLead(lead, personId, organizationId, apiToken);
+      : { id: null, action: "skipped_no_company", error: null };
+    const personResult = await findOrCreatePerson(lead, organizationResult.id, apiToken);
+    const leadResult = await upsertLead(lead, personResult.id, organizationResult.id, apiToken);
 
     return json(200, {
       ok: true,
-      organization_id: organizationId,
-      person_id: personId,
+      organization_id: organizationResult.id,
+      organization_action: organizationResult.action,
+      organization_error: organizationResult.error,
+      person_id: personResult.id,
+      person_action: personResult.action,
+      person_variant: personResult.variant,
+      person_warnings: personResult.warnings,
       lead_id: leadResult.id,
       lead_action: leadResult.action,
       lead_source: lead.leadSource,
@@ -115,28 +120,98 @@ async function findOrCreateOrganization(company, apiToken) {
     visible_to: toNumber(VISIBLE_TO),
   });
 
-  const created = await pipe("POST", "/api/v1/organizations", body, apiToken);
-  return getId(created);
+  try {
+    const created = await pipe("POST", "/api/v1/organizations", body, apiToken);
+    return {
+      id: getId(created),
+      action: "created",
+      error: null,
+    };
+  } catch (error) {
+    console.warn("CIC Pipedrive organization create skipped:", error.message);
+    return {
+      id: null,
+      action: "skipped_create_failed",
+      error: error.message || "Organization create failed",
+    };
+  }
 }
 
 async function findOrCreatePerson(lead, organizationId, apiToken) {
   const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
-  const body = compact({
+  const baseBody = compact({
     name: lead.fullName,
-    org_id: organizationId,
     owner_id: OWNER_ID,
     email: lead.email,
     phone: lead.phone,
-    label: "Ad Lead",
     visible_to: toNumber(VISIBLE_TO),
   });
 
-  if (sourceField.key) {
-    body[sourceField.key] = sourceField.value;
+  const withSource = (body) => {
+    const next = { ...body };
+    if (sourceField.key) {
+      next[sourceField.key] = sourceField.value;
+    }
+    return compact(next);
+  };
+
+  const attempts = [
+    {
+      variant: "full",
+      body: withSource({
+        ...baseBody,
+        org_id: organizationId,
+        label: "Ad Lead",
+      }),
+    },
+    {
+      variant: "no_source_field",
+      body: compact({
+        ...baseBody,
+        org_id: organizationId,
+        label: "Ad Lead",
+      }),
+    },
+    {
+      variant: "no_label",
+      body: withSource({
+        ...baseBody,
+        org_id: organizationId,
+      }),
+    },
+    {
+      variant: "no_organization",
+      body: withSource({
+        ...baseBody,
+        label: "Ad Lead",
+      }),
+    },
+    {
+      variant: "minimal",
+      body: baseBody,
+    },
+  ];
+
+  const warnings = [];
+
+  for (const attempt of attempts) {
+    try {
+      const created = await pipe("POST", "/api/v1/persons", attempt.body, apiToken);
+      return {
+        id: getId(created),
+        action: "created",
+        variant: attempt.variant,
+        sourceField,
+        warnings,
+      };
+    } catch (error) {
+      const message = error.message || "Person create failed";
+      warnings.push(`${attempt.variant}: ${message}`);
+      console.warn(`CIC Pipedrive person create attempt failed (${attempt.variant}):`, message);
+    }
   }
 
-  const created = await pipe("POST", "/api/v1/persons", body, apiToken);
-  return getId(created);
+  throw new Error(`Pipedrive person create failed after ${attempts.length} attempts: ${warnings.join(" | ")}`);
 }
 
 async function upsertLead(lead, personId, organizationId, apiToken) {
