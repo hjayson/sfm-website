@@ -14,6 +14,10 @@ exports.handler = async (event) => {
     return response(204, "");
   }
 
+  if (event.httpMethod === "GET" && (event.queryStringParameters || {}).probe === "create-test") {
+    return runProbe(event);
+  }
+
   if (event.httpMethod !== "POST") {
     return json(405, { ok: false, error: "POST only" });
   }
@@ -30,45 +34,88 @@ exports.handler = async (event) => {
 
   try {
     const payload = parseBody(event.body);
-    const lead = normalizePayload(payload);
-
-    if (!lead.email) {
-      return json(422, { ok: false, error: "Email is required" });
-    }
-
-    if (!isEmail(lead.email)) {
-      return json(422, { ok: false, error: "Email is invalid" });
-    }
-
-    const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
-    const organizationResult = lead.company
-      ? await findOrCreateOrganization(lead.company, apiToken)
-      : { id: null, action: "skipped_no_company", error: null };
-    const personResult = await findOrCreatePerson(lead, organizationResult.id, sourceField, apiToken);
-    const leadResult = await upsertLead(lead, personResult.id, organizationResult.id, sourceField);
-
-    return json(200, {
-      ok: true,
-      organization_id: organizationResult.id,
-      organization_action: organizationResult.action,
-      organization_error: organizationResult.error,
-      person_id: personResult.id,
-      person_action: personResult.action,
-      person_variant: personResult.variant,
-      person_warnings: personResult.warnings,
-      lead_id: leadResult.id,
-      lead_action: leadResult.action,
-      lead_source: lead.leadSource,
-      source_field: leadResult.sourceField,
-    });
+    return json(200, await processLead(payload, apiToken));
   } catch (error) {
     console.error("CIC Pipedrive bridge failed:", error);
-    return json(500, {
+    return json(error.statusCode || 500, {
       ok: false,
       error: error.message || "Bridge failed",
     });
   }
 };
+
+async function runProbe(event) {
+  const apiToken = getApiToken(event);
+
+  if (!apiToken) {
+    return json(500, { ok: false, error: "Missing PIPEDRIVE_API_TOKEN" });
+  }
+
+  try {
+    const stamp = Date.now();
+    const result = await processLead({
+      first_name: "Bridge",
+      last_name: `Probe ${stamp}`,
+      email: `bridge.probe.${stamp}@salesfunnelmarketing.us`,
+      company: "Bridge Probe Company",
+      phone: "4195550199",
+      screening_volume: "11 to 50",
+      intent: "Bridge probe",
+      lead_source: "Meta Ad",
+      utm_source: "meta",
+      utm_medium: "probe",
+      utm_campaign: "bridge-probe",
+      page: "bridge-probe",
+    }, apiToken);
+
+    return json(200, { probe: "create-test", ...result });
+  } catch (error) {
+    console.error("CIC Pipedrive bridge probe failed:", error);
+    return json(500, {
+      ok: false,
+      probe: "create-test",
+      error: error.message || "Probe failed",
+    });
+  }
+}
+
+async function processLead(payload, apiToken) {
+  const lead = normalizePayload(payload);
+
+  if (!lead.email) {
+    const error = new Error("Email is required");
+    error.statusCode = 422;
+    throw error;
+  }
+
+  if (!isEmail(lead.email)) {
+    const error = new Error("Email is invalid");
+    error.statusCode = 422;
+    throw error;
+  }
+
+  const sourceField = await resolveLeadSourceField(lead.leadSource, apiToken);
+  const organizationResult = lead.company
+    ? await findOrCreateOrganization(lead.company, apiToken)
+    : { id: null, action: "skipped_no_company", error: null };
+  const personResult = await findOrCreatePerson(lead, organizationResult.id, sourceField, apiToken);
+  const leadResult = await upsertLead(lead, personResult.id, organizationResult.id, sourceField);
+
+  return {
+    ok: true,
+    organization_id: organizationResult.id,
+    organization_action: organizationResult.action,
+    organization_error: organizationResult.error,
+    person_id: personResult.id,
+    person_action: personResult.action,
+    person_variant: personResult.variant,
+    person_warnings: personResult.warnings,
+    lead_id: leadResult.id,
+    lead_action: leadResult.action,
+    lead_source: lead.leadSource,
+    source_field: leadResult.sourceField,
+  };
+}
 
 function parseBody(body) {
   if (!body) return {};
