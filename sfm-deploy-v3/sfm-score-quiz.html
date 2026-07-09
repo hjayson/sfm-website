@@ -70,6 +70,16 @@
     .sfmq-hero-trust .stars{ color:#E85D26; letter-spacing:1px; }
     @media(max-width:520px){ .sfmq-hero{ padding:26px 20px; } .sfmq-brand{ margin-bottom:26px; } }
 
+    /* -- Top bar (logo) + hide floating trigger on this landing page -- */
+    .sfmq-topbar{ position:fixed; top:0; left:0; right:0; z-index:60; display:flex; align-items:center; padding:16px 22px;
+      background:linear-gradient(180deg, rgba(10,22,40,.92) 0%, rgba(10,22,40,0) 100%); }
+    .sfmq-topbar a{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; }
+    .sfmq-topbar img{ height:36px; width:auto; }
+    .sfmq-topbar span{ font-size:18px; font-weight:900; color:#fff; letter-spacing:-.4px; }
+    .sfmq-topbar b{ color:#E85D26; }
+    #sfmq-trigger{ display:none !important; }
+    @media(max-width:520px){ .sfmq-topbar{ padding:14px 18px; } .sfmq-topbar img{ height:32px; } .sfmq-topbar span{ font-size:16px; } }
+
 
     /* ------------------------------------------------------------
        QUIZ WIDGET — self-contained styles (prefix: sfmq-)
@@ -124,18 +134,22 @@
 
     /* -- Main quiz card ------------------------------------------- */
     #sfmq-card {
-      position: fixed; bottom: 0; right: 0; z-index: 9999;
-      width: 420px; max-width: 100vw;
+      position: fixed; top: 50%; left: 50%; z-index: 9999;
+      width: 440px; max-width: calc(100vw - 24px); max-height: calc(100vh - 32px);
+      display: flex; flex-direction: column;
       background: var(--sfmq-navy);
-      border-radius: 20px 0 0 0;
-      box-shadow: -8px -8px 60px rgba(0,0,0,0.5);
-      transform: translateY(100%);
-      transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+      border-radius: 20px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.6);
+      transform: translate(-50%, -46%) scale(.97); opacity: 0;
+      pointer-events: none; visibility: hidden;
+      transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.3s ease, visibility 0s linear 0.3s;
       overflow: hidden;
       font-family: var(--sfmq-font);
     }
     #sfmq-card.open {
-      transform: translateY(0);
+      transform: translate(-50%, -50%) scale(1); opacity: 1;
+      pointer-events: auto; visibility: visible;
+      transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.3s ease, visibility 0s;
     }
 
     /* -- Card header ---------------------------------------------- */
@@ -372,11 +386,10 @@
 <body>
 
   <!-- QR LANDING HERO -->
+  <div class="sfmq-topbar">
+    <a href="index.html" aria-label="Sales Funnel Marketing home"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" /><span>Sales <b>Funnel</b> Marketing</span></a>
+  </div>
   <div class="sfmq-hero">
-    <a href="index.html" class="sfmq-brand" aria-label="Sales Funnel Marketing home">
-      <img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" />
-      <span>Sales <b>Funnel</b> Marketing</span>
-    </a>
     <div class="sfmq-eyebrow">Free &middot; 60-Second Quiz</div>
     <h1>What&rsquo;s Your <span>Social Media Score?</span></h1>
     <p>Answer 4 quick questions and get your personalized score out of 100, plus 3 specific fixes for your business. Free, and it takes about a minute.</p>
@@ -538,9 +551,9 @@
         <div class="sfmq-q-text">Where should we send your score?</div>
         <p class="sfmq-form-note">We'll calculate your personalized score and send you 3 specific fixes for your business — totally free.</p>
         <div class="sfmq-form">
-          <input class="sfmq-input" id="sfmq-name" type="text" placeholder="Your first name" autocomplete="given-name" />
-          <input class="sfmq-input" id="sfmq-biz" type="text" placeholder="Business name" />
-          <input class="sfmq-input" id="sfmq-phone" type="tel" placeholder="Best phone number" autocomplete="tel" />
+          <input class="sfmq-input" id="sfmq-name" type="text" placeholder="Full name" autocomplete="name" />
+          <input class="sfmq-input" id="sfmq-email" type="email" placeholder="Email address" autocomplete="email" />
+          <input class="sfmq-input" id="sfmq-phone" type="tel" placeholder="Phone number (optional)" autocomplete="tel" />
         </div>
       </div>
 
@@ -600,9 +613,12 @@
       adsPts: 0,
       challenge: '',
       name: '',
-      biz: '',
+      email: '',
       phone: '',
     };
+
+    // Paste your GoHighLevel inbound webhook URL here to send quiz leads to your CRM:
+    const SFMQ_WEBHOOK = "";
 
     // -- Open / Close -------------------------------------------------
     function sfmqOpen() {
@@ -659,11 +675,21 @@
         sfmqShake(); return;
       }
       if (sfmqState.step === 5) {
-        sfmqState.name = document.getElementById('sfmq-name').value.trim();
-        sfmqState.biz  = document.getElementById('sfmq-biz').value.trim();
+        sfmqState.name  = document.getElementById('sfmq-name').value.trim();
+        sfmqState.email = document.getElementById('sfmq-email').value.trim();
         sfmqState.phone = document.getElementById('sfmq-phone').value.trim();
-        if (!sfmqState.name || !sfmqState.phone) { sfmqShake(); return; }
+        if (!sfmqState.name || sfmqState.email.indexOf('@') < 1) { sfmqShake(); return; }
         sfmqBuildResults();
+        if (SFMQ_WEBHOOK) {
+          try {
+            fetch(SFMQ_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                full_name: sfmqState.name, email: sfmqState.email, phone: sfmqState.phone,
+                platforms: sfmqState.platforms.join(', '), challenge: sfmqState.challenge,
+                score: (sfmqState.score || ''), source: 'Social Media Score Quiz (QR)'
+              }) }).catch(function(){});
+          } catch (e) {}
+        }
       }
       sfmqGoTo(sfmqState.step + 1);
     }
