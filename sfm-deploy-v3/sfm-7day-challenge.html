@@ -657,6 +657,8 @@ function showResults(raw){
 
   document.getElementById('resultsSection').classList.add('active');
   window._currentEntry = entry;
+  window._currentIndustryKey = key || 'fallback';
+  window._isFallback = isFallback;
   document.getElementById('businessField').value = raw;
   document.getElementById('industryField').value = entry.label;
 }
@@ -669,6 +671,44 @@ function escapeHtml(s){
 
 function encodeForm(data){
   return Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
+}
+
+const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/OJDfphRc0kbldNRpq1lD/webhook-trigger/57252e6c-ae4e-4a29-b2d0-16ba058503ff';
+
+function buildGhlPayload(name, email){
+  const entry = window._currentEntry || LIBRARY.landscaping;
+  const firstName = name.split(/\s+/).filter(Boolean)[0] || name;
+  const businessRaw = document.getElementById('businessField').value;
+  const isFallback = Boolean(window._isFallback);
+  const payload = {
+    first_name: firstName,
+    name: name,
+    email: email,
+    business_raw: businessRaw,
+    industry_key: window._currentIndustryKey || 'fallback',
+    industry_label: isFallback ? businessRaw : entry.label,
+    is_fallback: isFallback,
+    lead_source: '7-day-challenge',
+    page: '7-day-challenge'
+  };
+
+  entry.days.slice(0, 7).forEach((day, idx) => {
+    const dayNum = idx + 1;
+    payload[`day${dayNum}_title`] = day.title;
+    payload[`day${dayNum}_hook`] = day.hook;
+    payload[`day${dayNum}_tip`] = day.tip;
+    payload[`day${dayNum}_cta`] = day.cta;
+  });
+
+  return payload;
+}
+
+function sendLeadToGhl(name, email){
+  return fetch(GHL_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(buildGhlPayload(name, email))
+  });
 }
 
 document.getElementById('gateForm').addEventListener('submit', async (e) => {
@@ -689,6 +729,10 @@ document.getElementById('gateForm').addEventListener('submit', async (e) => {
 
   unlockBtn.disabled = true;
   unlockBtn.textContent = 'Sending...';
+
+  sendLeadToGhl(name, email).catch(err => {
+    console.warn('GHL webhook failed', err);
+  });
 
   try {
     await fetch('/', {
@@ -722,4 +766,3 @@ document.getElementById('gateForm').addEventListener('submit', async (e) => {
 </script>
 </body>
 </html>
-
