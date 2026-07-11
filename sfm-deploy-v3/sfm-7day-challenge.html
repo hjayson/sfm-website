@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 7-Day Posting Challenge | Sales Funnel Marketing</title>
+<meta name="description" content="Tell us what your business does and get 7 days of real, research-backed post hooks and scripts, ready to film. Free from Sales Funnel Marketing.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://www.salesfunnelmarketing.us/7-day-challenge">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,400&family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1628; --orange:#E85D26; --white:#FFFFFF; --slate:#8B9DB5; --black:#1C1C2E;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--navy);color:var(--white);font-family:'Inter',sans-serif;line-height:1.625;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px 100px;}
+
+  header.top{padding:26px 24px 10px;border-bottom:1px solid rgba(139,157,181,0.2);}
+  .top-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:30px;height:30px;background:var(--orange);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:12px;color:var(--navy);}
+  .brand-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;}
+
+  .hero{text-align:center;padding:56px 0 30px;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:46px;margin:0 0 14px;line-height:1.15;}
+  .hero h1 em{color:var(--orange);font-style:italic;}
+  .hero p{color:var(--slate);font-size:16px;max-width:560px;margin:0 auto 34px;}
+
+  .search-box{
+    max-width:600px;margin:0 auto;position:relative;
+  }
+  .search-row{display:flex;gap:10px;}
+  #bizInput{
+    flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(139,157,181,0.4);color:var(--white);
+    border-radius:10px;padding:15px 16px;font-family:'Inter';font-size:15px;
+  }
+  #bizInput::placeholder{color:var(--slate);}
+  #startBtn{
+    background:var(--orange);color:var(--white);border:none;border-radius:10px;padding:0 24px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.03em;text-transform:uppercase;cursor:pointer;
+  }
+  #startBtn:hover{background:#d14f1a;}
+  .autocomplete{
+    position:absolute;top:56px;left:0;right:0;background:var(--black);border:1px solid rgba(139,157,181,0.3);
+    border-radius:10px;overflow:hidden;z-index:20;display:none;
+  }
+  .autocomplete.open{display:block;}
+  .autocomplete div{padding:10px 16px;font-size:14px;cursor:pointer;color:var(--white);}
+  .autocomplete div:hover{background:rgba(232,93,38,0.2);}
+  .hint{color:var(--slate);font-size:12px;margin-top:10px;}
+
+  .stage-loading{display:none;text-align:center;padding:60px 0;}
+  .stage-loading.active{display:block;}
+  .spinner{
+    width:38px;height:38px;border:3px solid rgba(232,93,38,0.25);border-top-color:var(--orange);
+    border-radius:50%;margin:0 auto 20px;animation:spin 0.9s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .stage-text{font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;color:var(--white);min-height:24px;}
+  .stage-sub{color:var(--slate);font-size:12.5px;margin-top:6px;}
+
+  .results{display:none;}
+  .results.active{display:block;}
+  .results-head{text-align:center;margin:20px 0 34px;}
+  .results-head h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;margin:0 0 8px;}
+  .results-head p{color:var(--slate);font-size:14px;max-width:520px;margin:0 auto;}
+  .fallback-note{
+    background:rgba(232,93,38,0.08);border:1px solid rgba(232,93,38,0.35);border-radius:10px;
+    padding:14px 16px;font-size:13px;margin:0 0 26px;text-align:left;
+  }
+  .fallback-note b{color:var(--orange);}
+
+  .day-grid{display:flex;flex-direction:column;gap:14px;}
+  .day-card{
+    background:rgba(255,255,255,0.04);border:1px solid rgba(139,157,181,0.22);border-radius:12px;padding:18px 20px;
+    position:relative;overflow:hidden;
+  }
+  .day-num{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);
+    margin-bottom:6px;display:block;
+  }
+  .day-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16.5px;margin:0 0 8px;}
+  .day-hook{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#F3D9C9;margin:0 0 10px;}
+  .day-body p{font-size:13px;color:var(--slate);margin:0 0 6px;}
+  .day-body b{color:var(--white);font-family:'Montserrat',sans-serif;font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;}
+
+  .day-card.locked{filter:blur(5px);pointer-events:none;user-select:none;}
+  .lock-overlay{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:rgba(10,22,40,0.45);
+  }
+  .lock-icon{font-size:22px;margin-bottom:4px;}
+  .lock-overlay span{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--white);}
+
+  .gate{
+    margin-top:34px;background:rgba(255,255,255,0.05);border:1px solid rgba(232,93,38,0.4);border-radius:14px;
+    padding:28px 26px;text-align:center;
+  }
+  .gate h3{font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;margin:0 0 8px;}
+  .gate p{color:var(--slate);font-size:13.5px;margin:0 0 18px;}
+  .gate-form{display:flex;flex-wrap:wrap;gap:10px;max-width:480px;margin:0 auto 12px;}
+  #nameInput, #emailInput{
+    flex:1;min-width:170px;background:rgba(255,255,255,0.07);border:1px solid rgba(139,157,181,0.4);color:var(--white);
+    border-radius:8px;padding:12px 14px;font-family:'Inter';font-size:14px;
+  }
+  #nameInput::placeholder, #emailInput::placeholder{color:var(--slate);}
+  #unlockBtn{
+    background:var(--orange);color:var(--white);border:none;border-radius:8px;padding:0 22px;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;cursor:pointer;white-space:nowrap;
+    width:100%;
+  }
+  #unlockBtn:disabled{opacity:0.6;cursor:default;}
+  .consent{font-size:11px;color:var(--slate);max-width:480px;margin:0 auto;}
+  .gate-error{color:var(--orange);font-size:12px;margin:0 0 10px;display:none;}
+
+  .close-panel{
+    display:none;margin-top:40px;text-align:center;background:rgba(232,93,38,0.08);border:1px solid rgba(232,93,38,0.3);
+    border-radius:14px;padding:26px;
+  }
+  .close-panel.active{display:block;}
+  .close-panel h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;margin:0 0 10px;}
+  .close-panel p{color:var(--slate);font-size:14px;max-width:520px;margin:0 auto 16px;}
+  .close-panel a{
+    display:inline-block;background:var(--orange);color:var(--white);text-decoration:none;font-family:'Montserrat',sans-serif;
+    font-weight:700;font-size:12.5px;text-transform:uppercase;padding:12px 26px;border-radius:8px;
+  }
+
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand-mark">SFM</div>
+    <div class="brand-name">Sales Funnel Marketing</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero" id="heroSection">
+    <h1>The <em>7-Day Posting</em> Challenge</h1>
+    <p>Tell us what your business does. We'll pull real questions your customers are already asking online and hand you 7 days of hooks and scripts, ready to film. No fluff, no filler, no stock content.</p>
+    <div class="search-box">
+      <div class="search-row">
+        <input id="bizInput" type="text" placeholder="e.g., landscaping, HVAC, dog grooming..." autocomplete="off">
+        <button id="startBtn">Start My Challenge</button>
+      </div>
+      <div class="autocomplete" id="autocompleteBox"></div>
+      <p class="hint">Try "landscaping" or "accounting" to see a full example.</p>
+    </div>
+  </div>
+
+  <div class="stage-loading" id="loadingSection">
+    <div class="spinner"></div>
+    <div class="stage-text" id="stageText">Scanning real questions your customers are asking...</div>
+    <div class="stage-sub" id="stageSub">This usually takes about 30 seconds live</div>
+  </div>
+
+  <div class="results" id="resultsSection">
+    <div class="results-head">
+      <h2 id="resultsHeading">Your 7-Day Plan</h2>
+      <p id="resultsSub">Built from real search demand and real questions your customers ask before they hire.</p>
+    </div>
+    <div id="fallbackNote"></div>
+    <div class="day-grid" id="dayGrid"></div>
+
+    <div class="gate" id="gateSection">
+      <h3>Unlock Your Full 7 Days</h3>
+      <p>Enter your name and email and we'll unlock every hook and script below, plus send you the full challenge as a PDF you can film from.</p>
+      <form id="gateForm" name="7day-challenge" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="7day-challenge">
+        <input type="hidden" id="businessField" name="business" value="">
+        <input type="hidden" id="industryField" name="industry" value="">
+        <p class="hidden"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+        <p class="gate-error" id="gateError">Something went wrong sending that, mind trying again?</p>
+        <div class="gate-form">
+          <input id="nameInput" name="name" type="text" placeholder="Your name" required>
+          <input id="emailInput" name="email" type="email" placeholder="you@yourbusiness.com" required>
+          <button id="unlockBtn" type="submit">Unlock Free</button>
+        </div>
+      </form>
+      <p class="consent">We'll only use this to send your challenge and the occasional tip. Unsubscribe anytime.</p>
+    </div>
+
+    <div class="close-panel" id="closePanel">
+      <h3 id="closeHeading">Like what you just got for free?</h3>
+      <p>This is a sample of what we build for clients every single week, researched, written, and ready to film. If keeping this up for the next 90 days sounds like a lot, that's exactly the conversation worth having.</p>
+      <a href="/sfm-contact">Book a Free Strategy Call</a>
+    </div>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:30px 24px;color:var(--slate);font-size:12px;">
+  Sales Funnel Marketing &middot; salesfunnelmarketing.us &middot; Northwest Ohio
+</footer>
+
+<script>
+const LIBRARY = {
+  landscaping: {
+    label: "Landscaping",
+    days: [
+      {title:"Before & After Proof", hook:"This is the only post type that's gotten me actual phone calls.", tip:"Same yard, two photos, one caption. Before and after content outperforms almost everything else you can post because people don't have to imagine the result, they're looking right at it. Grab your phone before you start a job and again when you're done, that's the whole system.", cta:"Start today. Your next job is your next post."},
+      {title:"Myth-Bust a Landscaping Misconception", hook:"Most homeowners believe something about their lawn that's costing them money.", tip:"Pick one common misconception, watering every day is better, cutting grass shorter means less mowing, whatever you hear customers get wrong on the job, and correct it on camera. People trust the business that corrects them more than the one that just sells to them.", cta:"What do customers always get wrong? That's your next video."},
+      {title:"Real Pricing, No 'It Depends'", hook:"How much does landscaping actually cost? Real numbers, not it depends.", tip:"Give an honest range for your most common service. You don't have to quote every job on camera, just enough that someone scrolling can tell if they're in the right ballpark before they even call. That transparency is what gets the call instead of the scroll past.", cta:"Say a real number. It builds more trust than any before and after photo."},
+      {title:"Content Banking for Busy Season", hook:"The busiest week of your season is exactly when you'll stop posting. Here's the fix.", tip:"Grab thirty seconds of footage at every job site this week, doesn't need to be planned, just film while you work. By Friday you've got a week's worth of posts without ever sitting down to film something separate.", cta:"Film while you work. Post it later. That's the trick during your busy months."},
+      {title:"Introduce the Crew", hook:"People don't hire a logo. They hire the people behind it.", tip:"Show your crew, your truck, your actual morning routine before a job starts. It doesn't need to be polished, the fact that it's real is the point. Customers feel safer letting strangers onto their property when they've already seen those same faces on their phone.", cta:"Introduce your crew this week. It does more for trust than any review ever will."},
+      {title:"Turn Referrals Into Content", hook:"A referred customer sticks around longer than one who found you cold. Here's how to get more of them on purpose.", tip:"Ask your best customers directly, on camera if they're willing, or just in a caption thanking them by name for the referral. People refer more when they see it actually gets recognized publicly, not just quietly appreciated.", cta:"Thank a referral out loud this week. Watch what it does to the next one."},
+      {title:"What 7 Days Actually Builds", hook:"Seven days in. Here's what actually changes if you keep this going.", tip:"One week of real posts won't make you go viral, but it starts building the thing that actually gets you hired, a page that looks like a real, active, trusted business in your town instead of one that posted twice in 2024. That's what a homeowner is actually checking for before they call.", cta:"If keeping this up feels like one more thing on your plate, that's exactly the conversation worth having."},
+    ]
+  },
+  accounting: {
+    label: "Accounting & Bookkeeping",
+    days: [
+      {title:"The DIY Bookkeeping Mistake That Costs More Than Hiring Someone", hook:"The DIY bookkeeping mistake that costs business owners way more than hiring someone would.", tip:"Pick one mistake you see constantly, mixing personal and business expenses, guessing at mileage, ignoring receipts until tax time, and walk through what it actually costs someone in missed deductions or cleanup fees later. Specific and real beats a general warning every time.", cta:"What's the mistake you see every single week? That's your first video."},
+      {title:"The Deduction Most People Miss", hook:"There's a deduction sitting on your return right now that most business owners miss.", tip:"Pick one deduction people commonly overlook, home office, mileage, a specific write off tied to their industry, and explain it in plain language. You don't need to cover every deduction, just one clear one that makes someone think, wait, did I do that.", cta:"One deduction, explained simply. That's worth more than a whole tax guide nobody reads."},
+      {title:"Name the Cash Flow Chaos", hook:"If you're staring at your bank account instead of your books, this one's for you.", tip:"Talk honestly about what cash flow chaos actually looks like day to day, not knowing what's really available to spend, surprises at tax time, and name the specific feeling business owners have before they get organized. People trust someone who names the problem accurately before they ever pitch a solution.", cta:"Name the chaos before you offer the fix. It's what makes people actually listen."},
+      {title:"Bookkeeper vs Accountant vs CFO", hook:"Bookkeeper, accountant, CFO. Most business owners have no idea which one they actually need.", tip:"Break down the real difference in plain terms, a bookkeeper keeps the records straight, an accountant files and advises at tax time, a fractional CFO helps you make bigger decisions with the numbers. Confused business owners either hire the wrong one or hire nobody and hope.", cta:"Clear up the confusion once. People remember who explained it to them."},
+      {title:"The Real Deadline and the Real Penalty", hook:"Quarterly estimated payments are due soon. Here's what happens if you miss one.", tip:"Give the real deadline and the real consequence, an actual penalty percentage or dollar range, not just don't forget. A specific number is what makes someone stop scrolling and actually go check their calendar.", cta:"Say the real date and the real penalty. That's what makes someone act instead of scroll past."},
+      {title:"The Person Behind the Numbers", hook:"People are letting you see their bank account. That's not a small thing to hand a stranger.", tip:"Introduce yourself or your team the way you'd want someone handling your own money to introduce themselves, who you are, how long you've done this, what you actually care about getting right for people. Trust in this industry gets built by a face, not a logo.", cta:"Show the person behind the numbers. It matters more here than almost any other business."},
+      {title:"One Real Client Transformation", hook:"Seven days in. Here's what this actually does for a business like yours.", tip:"Share a real, anonymized transformation, a client who was behind on their books and caught up, or found thousands in missed deductions once someone actually looked. One specific story does more than ten generic promises about peace of mind.", cta:"If your own books feel like day one of this list, that's exactly the conversation worth having."},
+    ]
+  }
+};
+
+const SEEDS = ["landscaping","accounting","bookkeeping","hvac","dog grooming","roofing","dental practice","law firm","hair salon","restaurant","real estate agent","auto detailing"];
+
+const bizInput = document.getElementById('bizInput');
+const autoBox = document.getElementById('autocompleteBox');
+
+bizInput.addEventListener('input', () => {
+  const v = bizInput.value.trim().toLowerCase();
+  if(!v){ autoBox.classList.remove('open'); return; }
+  const matches = SEEDS.filter(s => s.includes(v)).slice(0,6);
+  if(matches.length === 0){ autoBox.classList.remove('open'); return; }
+  autoBox.innerHTML = matches.map(m => `<div data-val="${m}">${m}</div>`).join('');
+  autoBox.classList.add('open');
+});
+autoBox.addEventListener('click', e => {
+  if(e.target.dataset.val){ bizInput.value = e.target.dataset.val; autoBox.classList.remove('open'); }
+});
+document.addEventListener('click', e => { if(!e.target.closest('.search-box')) autoBox.classList.remove('open'); });
+
+document.getElementById('startBtn').addEventListener('click', startChallenge);
+bizInput.addEventListener('keydown', e => { if(e.key === 'Enter') startChallenge(); });
+
+function startChallenge(){
+  const raw = bizInput.value.trim();
+  if(!raw) return;
+  document.getElementById('heroSection').style.display = 'none';
+  const loading = document.getElementById('loadingSection');
+  loading.classList.add('active');
+
+  const stages = [
+    ["Scanning real questions your customers are asking...", "Pulling from search data and real Reddit threads"],
+    ["Finding what's actually working right now...", "Filtering for local, service-based businesses like yours"],
+    ["Building your 7-day plan...", "Turning research into hooks and scripts you can film"],
+  ];
+  let i = 0;
+  const stageText = document.getElementById('stageText');
+  const stageSub = document.getElementById('stageSub');
+  const interval = setInterval(() => {
+    i++;
+    if(i < stages.length){
+      stageText.textContent = stages[i][0];
+      stageSub.textContent = stages[i][1];
+    }
+  }, 1300);
+
+  setTimeout(() => {
+    clearInterval(interval);
+    loading.classList.remove('active');
+    showResults(raw);
+  }, 4200);
+}
+
+const SYNONYMS = { bookkeeping: "accounting", bookkeeper: "accounting", cpa: "accounting", "tax prep": "accounting" };
+
+function showResults(raw){
+  const v = raw.toLowerCase();
+  let key = Object.keys(LIBRARY).find(k => v.includes(k) || k.includes(v));
+  if(!key){
+    const synHit = Object.keys(SYNONYMS).find(s => v.includes(s));
+    if(synHit) key = SYNONYMS[synHit];
+  }
+  const entry = LIBRARY[key] || LIBRARY.landscaping;
+  const isFallback = !key;
+
+  document.getElementById('resultsHeading').textContent = isFallback
+    ? `We're Building Your ${escapeHtml(raw)} Pack Now`
+    : `Your 7-Day Plan for ${entry.label}`;
+  document.getElementById('resultsSub').textContent = isFallback
+    ? "You're not in our instant library yet, your real custom 7 days will land in your inbox within 24 hours. Here's a live example (landscaping) so you can see exactly what you'll get."
+    : "Built from real search demand and real questions your customers ask before they hire.";
+
+  const fallbackNote = document.getElementById('fallbackNote');
+  fallbackNote.innerHTML = isFallback
+    ? `<div class="fallback-note"><b>Heads up:</b> "${escapeHtml(raw)}" isn't pre-built yet. Enter your email below and we'll research it for real and send your actual 7-day ${escapeHtml(raw)} pack within 24 hours. Below is a live sample built for landscaping so you know exactly what's coming.</div>`
+    : '';
+
+  const grid = document.getElementById('dayGrid');
+  grid.innerHTML = entry.days.map((d, idx) => {
+    const day = idx + 1;
+    const locked = day > 2;
+    return `
+      <div class="day-card ${locked ? 'locked' : ''}" id="daycard-${day}">
+        <span class="day-num">Day ${day} of 7</span>
+        <h3 class="day-title">${d.title}</h3>
+        <p class="day-hook">"${d.hook}"</p>
+        <div class="day-body">
+          <p><b>Tip (~20 sec)</b><br>${d.tip}</p>
+          <p><b>Why it works / CTA</b><br>${d.cta}</p>
+        </div>
+        ${locked ? `<div class="lock-overlay"><div class="lock-icon">&#128274;</div><span>Unlock below</span></div>` : ''}
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('resultsSection').classList.add('active');
+  window._currentEntry = entry;
+  document.getElementById('businessField').value = raw;
+  document.getElementById('industryField').value = entry.label;
+}
+
+function escapeHtml(s){
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function encodeForm(data){
+  return Object.keys(data).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k])).join('&');
+}
+
+document.getElementById('gateForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const nameField = document.getElementById('nameInput');
+  const emailField = document.getElementById('emailInput');
+  const name = nameField.value.trim();
+  const email = emailField.value.trim();
+  const unlockBtn = document.getElementById('unlockBtn');
+  const gateError = document.getElementById('gateError');
+  let ok = true;
+  nameField.style.borderColor = '';
+  emailField.style.borderColor = '';
+  gateError.style.display = 'none';
+  if(!name){ nameField.style.borderColor = '#E85D26'; ok = false; }
+  if(!email || !email.includes('@')){ emailField.style.borderColor = '#E85D26'; ok = false; }
+  if(!ok) return;
+
+  unlockBtn.disabled = true;
+  unlockBtn.textContent = 'Sending...';
+
+  try {
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeForm({
+        'form-name': '7day-challenge',
+        name: name,
+        email: email,
+        business: document.getElementById('businessField').value,
+        industry: document.getElementById('industryField').value
+      })
+    });
+  } catch (err) {
+    gateError.style.display = 'block';
+  }
+
+  unlockBtn.disabled = false;
+  unlockBtn.textContent = 'Unlock Free';
+
+  document.querySelectorAll('.day-card.locked').forEach(c => {
+    c.classList.remove('locked');
+    const overlay = c.querySelector('.lock-overlay');
+    if(overlay) overlay.remove();
+  });
+  document.getElementById('gateSection').style.display = 'none';
+  const firstName = name.split(' ')[0];
+  document.getElementById('closeHeading').textContent = `Nice work, ${firstName}. Here's the other 5 days.`;
+  document.getElementById('closePanel').classList.add('active');
+});
+</script>
+</body>
+</html>
+
