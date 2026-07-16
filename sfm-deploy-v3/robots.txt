@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /clients/
 
 # Sitemaps
 Sitemap: https://www.salesfunnelmarketing.us/sitemap.xml

@@ -4,21 +4,21 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social Media Score Quiz for Local Business | SFM</title>
+  <title>Social Media Score Quiz | How Strong Is Your Business Online? | SFM</title>
   <meta name="description" content="Take the free Social Media Score Quiz and discover exactly how your business stacks up online. Get a personalized action plan from Sales Funnel Marketing." />
   <meta name="keywords" content="social media score quiz, business social media audit, free marketing assessment Ohio" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-score-quiz" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Social Media Score Quiz for Local Business | SFM" />
+  <meta property="og:title" content="Social Media Score Quiz | How Strong Is Your Business Online? | SFM" />
   <meta property="og:description" content="Take the free Social Media Score Quiz and discover exactly how your business stacks up online. Get a personalized action plan from Sales Funnel Marketing." />
   <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-score-quiz" />
   <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <meta property="og:site_name" content="Sales Funnel Marketing" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Social Media Score Quiz for Local Business | SFM" />
+  <meta name="twitter:title" content="Social Media Score Quiz | How Strong Is Your Business Online? | SFM" />
   <meta name="twitter:description" content="Take the free Social Media Score Quiz and discover exactly how your business stacks up online. Get a personalized action plan from Sales Funnel Marketing." />
   <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,35 +51,6 @@
       transition: background 0.2s; margin-top: 8px;
     }
     .demo-trigger:hover { background: #c44d1e; }
-
-    /* -- QR landing hero (customer-facing) ------------------------ */
-    .sfmq-hero{ text-align:center; max-width:560px; padding:40px 24px; }
-    .sfmq-brand{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; margin-bottom:34px; }
-    .sfmq-brand img{ height:40px; width:auto; }
-    .sfmq-brand span{ font-size:19px; font-weight:900; color:#fff; letter-spacing:-.4px; }
-    .sfmq-brand b{ color:#E85D26; }
-    .sfmq-eyebrow{ display:inline-block; font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
-      color:#E85D26; background:rgba(232,93,38,.12); border:1px solid rgba(232,93,38,.32); padding:6px 15px; border-radius:100px; margin-bottom:20px; }
-    .sfmq-hero h1{ font-size:clamp(30px,7vw,46px); font-weight:900; line-height:1.08; margin:0 0 16px; letter-spacing:-.5px; }
-    .sfmq-hero h1 span{ color:#E85D26; }
-    .sfmq-hero p{ color:rgba(255,255,255,.62); font-size:clamp(15px,2.4vw,17px); line-height:1.65; margin:0 auto 30px; max-width:470px; }
-    .sfmq-hero-cta{ display:inline-block; background:#E85D26; color:#fff; font-family:'Inter',sans-serif; font-size:17px; font-weight:800;
-      padding:16px 40px; border-radius:8px; border:none; cursor:pointer; box-shadow:0 14px 34px rgba(232,93,38,.4); transition:transform .15s, background .2s; }
-    .sfmq-hero-cta:hover{ background:#c44d1e; transform:translateY(-2px); }
-    .sfmq-hero-trust{ margin-top:26px; font-size:13px; color:rgba(255,255,255,.45); font-weight:600; }
-    .sfmq-hero-trust .stars{ color:#E85D26; letter-spacing:1px; }
-    @media(max-width:520px){ .sfmq-hero{ padding:26px 20px; } .sfmq-brand{ margin-bottom:26px; } }
-
-    /* -- Top bar (logo) + hide floating trigger on this landing page -- */
-    .sfmq-topbar{ position:fixed; top:0; left:0; right:0; z-index:60; display:flex; align-items:center; padding:16px 22px;
-      background:linear-gradient(180deg, rgba(10,22,40,.92) 0%, rgba(10,22,40,0) 100%); }
-    .sfmq-topbar a{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; }
-    .sfmq-topbar img{ height:36px; width:auto; }
-    .sfmq-topbar span{ font-size:18px; font-weight:900; color:#fff; letter-spacing:-.4px; }
-    .sfmq-topbar b{ color:#E85D26; }
-    #sfmq-trigger{ display:none !important; }
-    .sfmq-input{ box-sizing:border-box; width:100%; }
-    @media(max-width:520px){ .sfmq-topbar{ padding:14px 18px; } .sfmq-topbar img{ height:32px; } .sfmq-topbar span{ font-size:16px; } }
 
 
     /* ------------------------------------------------------------
@@ -135,22 +106,18 @@
 
     /* -- Main quiz card ------------------------------------------- */
     #sfmq-card {
-      position: fixed; top: 50%; left: 50%; z-index: 9999;
-      width: 440px; max-width: calc(100vw - 24px); max-height: calc(100vh - 32px);
-      display: flex; flex-direction: column;
+      position: fixed; bottom: 0; right: 0; z-index: 9999;
+      width: 420px; max-width: 100vw;
       background: var(--sfmq-navy);
-      border-radius: 20px;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.6);
-      transform: translate(-50%, -46%) scale(.97); opacity: 0;
-      pointer-events: none; visibility: hidden;
-      transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.3s ease, visibility 0s linear 0.3s;
+      border-radius: 20px 0 0 0;
+      box-shadow: -8px -8px 60px rgba(0,0,0,0.5);
+      transform: translateY(100%);
+      transition: transform 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
       overflow: hidden;
       font-family: var(--sfmq-font);
     }
     #sfmq-card.open {
-      transform: translate(-50%, -50%) scale(1); opacity: 1;
-      pointer-events: auto; visibility: visible;
-      transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.3s ease, visibility 0s;
+      transform: translateY(0);
     }
 
     /* -- Card header ---------------------------------------------- */
@@ -380,21 +347,19 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1" alt=""></noscript>
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
   <!-- End Meta Pixel Code -->
 </head>
 <body>
 
-  <!-- QR LANDING HERO -->
-  <div class="sfmq-topbar">
-    <a href="index.html" aria-label="Sales Funnel Marketing home"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" /><span>Sales <b>Funnel</b> Marketing</span></a>
-  </div>
-  <div class="sfmq-hero">
-    <div class="sfmq-eyebrow">Free &middot; 60-Second Quiz</div>
-    <h1>What&rsquo;s Your <span>Social Media Score?</span></h1>
-    <p>Answer 4 quick questions and get your personalized score out of 100, plus 3 specific fixes for your business. Free, and it takes about a minute.</p>
-    <button class="sfmq-hero-cta" onclick="sfmqOpen()">Get My Score &rarr;</button>
-    <div class="sfmq-hero-trust"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 &middot; 54 Google reviews &middot; Perrysburg, Ohio</div>
+  <!-- DEMO PAGE -->
+  <div class="demo-note">
+    <h1>Social Media <span>Score</span> Widget</h1>
+    <p>This interactive quiz gives visitors a personalized social media score and a clear next step in under 2 minutes.</p>
+    <button class="demo-trigger" onclick="sfmqOpen()">📊 Try the Quiz</button>
+    <code>Use this page as a shareable lead-qualification quiz.</code>
+    <p style="margin-top:16px; font-size:13px;">Visitors can complete the quiz here and continue to your strategy call.</p>
   </div>
 
 
@@ -551,9 +516,9 @@
         <div class="sfmq-q-text">Where should we send your score?</div>
         <p class="sfmq-form-note">We'll calculate your personalized score and send you 3 specific fixes for your business — totally free.</p>
         <div class="sfmq-form">
-          <input class="sfmq-input" id="sfmq-name" type="text" placeholder="Full name" autocomplete="name" />
-          <input class="sfmq-input" id="sfmq-email" type="email" placeholder="Email address" autocomplete="email" />
-          <input class="sfmq-input" id="sfmq-phone" type="tel" placeholder="Phone number (optional)" autocomplete="tel" />
+          <input class="sfmq-input" id="sfmq-name" type="text" placeholder="Your first name" autocomplete="given-name" />
+          <input class="sfmq-input" id="sfmq-biz" type="text" placeholder="Business name" />
+          <input class="sfmq-input" id="sfmq-phone" type="tel" placeholder="Best phone number" autocomplete="tel" />
         </div>
       </div>
 
@@ -613,12 +578,9 @@
       adsPts: 0,
       challenge: '',
       name: '',
-      email: '',
+      biz: '',
       phone: '',
     };
-
-    // Paste your GoHighLevel inbound webhook URL here to send quiz leads to your CRM:
-    const SFMQ_WEBHOOK = "https://services.leadconnectorhq.com/hooks/Wz5dF7uxlMP59Q9vBIwV/webhook-trigger/074e91d8-e0be-4d3c-b70e-179a853ac1b6";
 
     // -- Open / Close -------------------------------------------------
     function sfmqOpen() {
@@ -675,21 +637,11 @@
         sfmqShake(); return;
       }
       if (sfmqState.step === 5) {
-        sfmqState.name  = document.getElementById('sfmq-name').value.trim();
-        sfmqState.email = document.getElementById('sfmq-email').value.trim();
+        sfmqState.name = document.getElementById('sfmq-name').value.trim();
+        sfmqState.biz  = document.getElementById('sfmq-biz').value.trim();
         sfmqState.phone = document.getElementById('sfmq-phone').value.trim();
-        if (!sfmqState.name || sfmqState.email.indexOf('@') < 1) { sfmqShake(); return; }
+        if (!sfmqState.name || !sfmqState.phone) { sfmqShake(); return; }
         sfmqBuildResults();
-        if (SFMQ_WEBHOOK) {
-          try {
-            fetch(SFMQ_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                full_name: sfmqState.name, email: sfmqState.email, phone: sfmqState.phone,
-                platforms: sfmqState.platforms.join(', '), challenge: sfmqState.challenge,
-                score: (sfmqState.score || ''), source: 'Social Media Score Quiz (QR)'
-              }) }).catch(function(){});
-          } catch (e) {}
-        }
       }
       sfmqGoTo(sfmqState.step + 1);
     }
@@ -918,6 +870,5 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
-<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>

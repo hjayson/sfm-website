@@ -1,0 +1,122 @@
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@600;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ceo-navy: #0A1628;
+    --ceo-orange: #E85D26;
+    --ceo-white: #FFFFFF;
+    --ceo-slate: #8B9DB5;
+    --ceo-card: #111f36;
+  }
+
+  body {
+    background: var(--ceo-navy) !important;
+  }
+
+  .ceo-application-page {
+    min-height: 100vh;
+    background: var(--ceo-navy);
+    color: var(--ceo-white);
+    font-family: "Inter", Helvetica, Arial, sans-serif;
+    padding: 56px 24px 80px;
+  }
+
+  .ceo-wrap {
+    width: min(100%, 640px);
+    margin: 0 auto;
+  }
+
+  .ceo-eyebrow {
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--ceo-orange);
+    text-transform: uppercase;
+  }
+
+  .ceo-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(42px, 8vw, 52px);
+    font-weight: 700;
+    line-height: 1.08;
+    margin: 14px 0 18px;
+    color: var(--ceo-white);
+  }
+
+  .ceo-title em {
+    color: var(--ceo-orange);
+    font-style: normal;
+  }
+
+  .ceo-intro {
+    color: var(--ceo-slate);
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0 0 22px;
+  }
+
+  .ceo-seats {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--ceo-white);
+    background: rgba(232, 93, 38, .15);
+    border: 1px solid var(--ceo-orange);
+    border-radius: 999px;
+    padding: 8px 16px;
+  }
+
+  .ceo-survey-shell {
+    margin-top: 34px;
+    background: var(--ceo-card);
+    border: 1px solid rgba(139, 157, 181, .25);
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .ceo-survey-note {
+    color: var(--ceo-slate);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ceo-footer {
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--ceo-slate);
+  }
+
+  @media (max-width: 480px) {
+    .ceo-application-page {
+      padding: 42px 18px 64px;
+    }
+
+    .ceo-survey-shell {
+      padding: 20px;
+    }
+  }
+</style>
+
+<main class="ceo-application-page">
+  <section class="ceo-wrap" aria-label="The 3-Hour CEO application">
+    <div class="ceo-eyebrow">The 3-Hour CEO &middot; Founding Cohort</div>
+    <h1 class="ceo-title">Apply for one of <em>12 seats.</em></h1>
+    <p class="ceo-intro">This is a small working group, not a course you buy and forget. I'm in your build personally, which is why I cap it at 12 and why there's an application. Takes about 2 minutes. If it looks like a fit, you'll hear from me within 48 hours.</p>
+    <div class="ceo-seats">FOUNDING COHORT &middot; $497 &middot; 12 SEATS</div>
+
+    <div class="ceo-survey-shell">
+      <!-- In GHL, replace this note with the Survey element and select: 3-Hour CEO Application. -->
+      <p class="ceo-survey-note">Drop the GHL survey element here and select <strong>3-Hour CEO Application</strong>.</p>
+    </div>
+
+    <div class="ceo-footer">SALES FUNNEL MARKETING &middot; HUMAN FOCUSED, AI OPTIMIZED &middot; NORTHWEST OHIO</div>
+  </section>
+</main>
