@@ -39,7 +39,7 @@
 /dentist                /sfm-dental             301
 /restaurant             /sfm-restaurant         301
 /restaurants            /sfm-restaurant         301
-/legal                  /sfm-legal              301
+/legal                  /sfm-attorneys          301
 /attorneys              /sfm-attorneys          301
 /lawyer                 /sfm-attorneys          301
 /healthcare             /sfm-healthcare         301
@@ -66,3 +66,10 @@
 /the-scroll             /sfm-the-scroll         301
 /ai-tells               /sfm-ai-tells.html      200
 /ai-tells-thanks        /sfm-ai-tells-thanks.html 200
+
+# Legal merge + old Wix stragglers
+/sfm-legal              /sfm-attorneys          301
+/sfm-legal.html          /sfm-attorneys          301
+/webinar-registration-1 /sfm-brand-kit-free     301
+/book-online            /sfm-contact            301
+/blog-1                 /sfm-blog               301
