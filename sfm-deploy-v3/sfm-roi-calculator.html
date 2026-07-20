@@ -485,7 +485,7 @@
         <h1 class="calc-hero-headline">
           What is your social media<br /><span class="accent">actually worth?</span>
         </h1>
-        <p class="calc-hero-sub">Answer 4 quick questions about your business. Get a real estimate of the revenue you could be leaving on the table — and what it looks like when you fix it.</p>
+        <p class="calc-hero-sub">Answer 4 quick questions about your business. Get a real estimate of the revenue you could be leaving on the table, and what it looks like when you fix it.</p>
         <p class="hero-disclaimer">Estimates based on SFM client averages by industry. Not a guarantee of results.</p>
       </div>
     </div>
@@ -695,7 +695,7 @@
         <!-- Placeholder (shown before calc runs) -->
         <div class="results-placeholder" id="resultsPlaceholder">
           <div class="placeholder-icon">📊</div>
-          <p class="placeholder-text">Fill in your business details on the left and we'll show you how much revenue your social media could be generating — and where the biggest gaps are.</p>
+          <p class="placeholder-text">Fill in your business details on the left and we'll show you how much revenue your social media could be generating, and where the biggest gaps are.</p>
           <div class="placeholder-arrow">↙</div>
         </div>
 
@@ -714,23 +714,23 @@
             <div class="breakdown-title">What's driving this</div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">👥</span> Reachable audience</span>
-              <span class="breakdown-value" id="reachableAudience">—</span>
+              <span class="breakdown-value" id="reachableAudience">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">🎯</span> Est. monthly leads</span>
-              <span class="breakdown-value highlight" id="monthlyLeads">—</span>
+              <span class="breakdown-value highlight" id="monthlyLeads">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">💰</span> Est. monthly revenue</span>
-              <span class="breakdown-value highlight" id="monthlyRevenue">—</span>
+              <span class="breakdown-value highlight" id="monthlyRevenue">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">📈</span> Current conversion rate</span>
-              <span class="breakdown-value amber" id="currentConversion">—</span>
+              <span class="breakdown-value amber" id="currentConversion">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">🚀</span> SFM target rate</span>
-              <span class="breakdown-value highlight" id="targetConversion">—</span>
+              <span class="breakdown-value highlight" id="targetConversion">, </span>
             </div>
           </div>
 
@@ -796,7 +796,7 @@
         <div class="bc-card bottom-card">
           <div class="bc-icon">⭐</div>
           <div class="bc-num"><span>5.0</span></div>
-          <div class="bc-label">Google rating across 37 verified reviews — all from real NW Ohio business owners</div>
+          <div class="bc-label">Google rating across 37 verified reviews, all from real NW Ohio business owners</div>
         </div>
       </div>
     </div>
@@ -808,7 +808,7 @@
     <div class="container">
       <div class="disc-inner">
         <div class="disc-title">About these estimates</div>
-        <p class="disc-text">The ROI estimates in this calculator are based on industry conversion benchmarks and Sales Funnel Marketing client averages. They are illustrative projections, not guarantees of revenue. Actual results vary depending on market conditions, competitive landscape, content quality, ad budget, and execution. This tool is designed to help you think clearly about the opportunity — not to promise a specific outcome. On your free strategy call, Jayson will give you a more realistic picture based on your specific situation.</p>
+        <p class="disc-text">The ROI estimates in this calculator are based on industry conversion benchmarks and Sales Funnel Marketing client averages. They are illustrative projections, not guarantees of revenue. Actual results vary depending on market conditions, competitive landscape, content quality, ad budget, and execution. This tool is designed to help you think clearly about the opportunity, not to promise a specific outcome. On your free strategy call, Jayson will give you a more realistic picture based on your specific situation.</p>
       </div>
     </div>
   </section>
@@ -819,7 +819,7 @@
     <div class="container">
       <div class="calc-cta-inner reveal">
         <h2 class="calc-cta-headline">The estimate is one thing.<br />The real conversation is better.</h2>
-        <p class="calc-cta-sub">Book a free 30-minute call. Jayson will look at your actual accounts and tell you exactly what he'd do — no scripts, no pressure.</p>
+        <p class="calc-cta-sub">Book a free 30-minute call. Jayson will look at your actual accounts and tell you exactly what he'd do, no scripts, no pressure.</p>
         <div class="calc-cta-btns">
           <!-- UPDATE: Replace href with your real Calendly link -->
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-white">
@@ -905,7 +905,7 @@
     const REVENUE_VALS   = [50000, 100000, 150000, 250000, 350000, 500000, 750000, 1000000, 1500000, 2000000, 3000000];
     const AVGVAL_VALS    = [50, 100, 200, 350, 500, 750, 1000, 2000, 3500, 5000, 10000];
     const FOLLOWER_VALS  = [0, 100, 250, 500, 1000, 2000, 5000, 10000, 15000, 20000, 25000];
-    const POSTING_LABELS = ['Never', 'Rarely (1×/month)', '1–2×/week', 'Daily', '2×+/day'];
+    const POSTING_LABELS = ['Never', 'Rarely (1×/month)', '1, 2×/week', 'Daily', '2×+/day'];
     const POSTING_SCORE  = [0, 0.2, 0.5, 0.8, 1.0];
     const ENGAGEMENT_VALS= [0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10];
     const AD_SPEND_VALS  = [100, 200, 300, 500, 750, 1000, 1500, 2500, 5000];
@@ -1121,12 +1121,12 @@
       const gap = sfmAnnualRev - (currentMonthlyRev * 12);
       if (gap > 50000) {
         document.getElementById('ctaHeadline').textContent = `You could be missing ${fmt(gap)}/year.`;
-        document.getElementById('ctaSub').textContent = "Let's find out how much of that is recoverable. Book a free call — no pitch, just straight talk.";
+        document.getElementById('ctaSub').textContent = "Let's find out how much of that is recoverable. Book a free call, no pitch, just straight talk.";
       } else if (gap > 10000) {
         document.getElementById('ctaHeadline').textContent = "There's real money being left on the table.";
         document.getElementById('ctaSub').textContent = "A free strategy call will show you exactly where the leaks are and how to plug them.";
       } else {
-        document.getElementById('ctaHeadline').textContent = "You're doing better than most — but there's still room to grow.";
+        document.getElementById('ctaHeadline').textContent = "You're doing better than most, but there's still room to grow.";
         document.getElementById('ctaSub').textContent = "Book a free call and we'll show you the specific moves that would push you to the next level.";
       }
 
@@ -1140,7 +1140,7 @@
       const insights = [];
 
       if (s.postingIdx <= 1) {
-        insights.push({ type: 'amber', text: '<strong>Posting consistency is your #1 gap.</strong> You\'re not showing up regularly enough for the algorithm — or your audience — to pay attention.' });
+        insights.push({ type: 'amber', text: '<strong>Posting consistency is your #1 gap.</strong> You\'re not showing up regularly enough for the algorithm, or your audience, to pay attention.' });
       } else if (s.postingIdx >= 3) {
         insights.push({ type: 'green', text: '<strong>Your posting frequency is strong.</strong> The opportunity is in content quality and engagement strategy, not volume.' });
       }
@@ -1150,16 +1150,16 @@
       }
 
       if (s.adsStatus === 'none') {
-        insights.push({ type: 'amber', text: '<strong>No paid ads = no accelerant.</strong> Organic growth is real, but Meta Ads with even a modest budget can multiply your reach 4–8× in your local market.' });
+        insights.push({ type: 'amber', text: '<strong>No paid ads = no accelerant.</strong> Organic growth is real, but Meta Ads with even a modest budget can multiply your reach 4, 8× in your local market.' });
       } else if (s.adsStatus === 'boosting') {
         insights.push({ type: 'amber', text: '<strong>Boosting posts is the least effective use of ad spend.</strong> A proper Meta Ads campaign with targeting and creative strategy would get you far more for the same budget.' });
       } else if (s.adsStatus === 'active') {
-        insights.push({ type: 'green', text: '<strong>Running Meta Ads is smart.</strong> The question is whether your campaigns are structured correctly. Most DIY campaigns leave 40–60% of performance on the table.' });
+        insights.push({ type: 'green', text: '<strong>Running Meta Ads is smart.</strong> The question is whether your campaigns are structured correctly. Most DIY campaigns leave 40, 60% of performance on the table.' });
       }
 
       const leadsLift = Math.round(sfmLeads - curLeads);
       if (leadsLift > 5) {
-        insights.push({ type: '', text: `SFM's strategy for your industry typically adds <strong>${leadsLift}+ monthly leads</strong> through a mix of organic community building and paid reach — at your current close rate, that's real revenue.` });
+        insights.push({ type: '', text: `SFM's strategy for your industry typically adds <strong>${leadsLift}+ monthly leads</strong> through a mix of organic community building and paid reach, at your current close rate, that's real revenue.` });
       }
 
       return insights.slice(0, 4);

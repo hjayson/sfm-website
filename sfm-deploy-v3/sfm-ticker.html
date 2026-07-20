@@ -5,12 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SFM Live Results Ticker — Standalone Component</title>
+  <title>SFM Live Results Ticker, Standalone Component</title>
   <meta name="description" content="Embeddable live results ticker for salesfunnelmarketing.us. Drop this component into any page." />
 
   <!--
   ══════════════════════════════════════════════════════════════════
-  SFM LIVE RESULTS TICKER — STANDALONE COMPONENT
+  SFM LIVE RESULTS TICKER, STANDALONE COMPONENT
   ══════════════════════════════════════════════════════════════════
 
   HOW TO USE ON ANY PAGE:
@@ -22,9 +22,9 @@
   include them with <link> and <script> tags.
 
   The ticker has two display modes (set via data-mode attribute):
-    • "bar"      — horizontal scrolling proof bar (for top/bottom of sections)
-    • "counters" — animated counter cards (for hero / above fold)
-    • "wins"     — rotating client win cards (for homepage / results page)
+    • "bar"     , horizontal scrolling proof bar (for top/bottom of sections)
+    • "counters", animated counter cards (for hero / above fold)
+    • "wins"    , rotating client win cards (for homepage / results page)
 
   Usage:
     <div class="sfm-ticker" data-mode="bar"></div>
@@ -38,7 +38,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Page wrapper (preview only — not part of component) ── */
+    /* ── Page wrapper (preview only, not part of component) ── */
     body { font-family: 'Inter', sans-serif; background: #1a1a2e; margin: 0; padding: 0; }
     .preview-label {
       text-align: center; padding: 40px 24px 16px;
@@ -52,7 +52,7 @@
   </style>
 
   <!-- ══════════════════════════════════════════════════════════════
-       SFM TICKER COMPONENT CSS — Copy this block
+       SFM TICKER COMPONENT CSS, Copy this block
   ══════════════════════════════════════════════════════════════════ -->
   <style id="sfm-ticker-css">
     /* ── Root / tokens ───────────────────────────────── */
@@ -70,7 +70,7 @@
     }
 
     /* ══════════════════════════════════════════════
-       MODE 1: BAR — scrolling proof strip
+       MODE 1: BAR, scrolling proof strip
     ══════════════════════════════════════════════ */
     .sfm-ticker-bar {
       background: var(--sfmt-navy);
@@ -135,7 +135,7 @@
     }
 
     /* ══════════════════════════════════════════════
-       MODE 2: COUNTERS — animated stat cards
+       MODE 2: COUNTERS, animated stat cards
     ══════════════════════════════════════════════ */
     .sfm-ticker-counters {
       background: var(--sfmt-navy);
@@ -194,7 +194,7 @@
     }
 
     /* ══════════════════════════════════════════════
-       MODE 3: WINS — rotating client win cards
+       MODE 3: WINS, rotating client win cards
     ══════════════════════════════════════════════ */
     .sfm-ticker-wins {
       background: var(--sfmt-navy);
@@ -284,10 +284,10 @@
 <body>
 
   <!-- ════════════════════════════════════════════════════════════
-       PREVIEW: MODE 1 — SCROLLING BAR
+       PREVIEW: MODE 1, SCROLLING BAR
        (on dark navy background)
   ════════════════════════════════════════════════════════════════ -->
-  <p class="preview-label">Mode 1 · Scrolling Bar — on Navy</p>
+  <p class="preview-label">Mode 1 · Scrolling Bar, on Navy</p>
   <div class="preview-section">
     <div class="sfm-ticker-wrap sfm-ticker-bar" data-mode="bar">
       <div class="sfmt-bar-track" id="barTrack1"></div>
@@ -296,7 +296,7 @@
 
   <div class="preview-divider orange"></div>
 
-  <p class="preview-label" style="background:#E85D26; color:rgba(255,255,255,0.5); margin:0; padding: 12px 24px 8px;">Mode 1 · Scrolling Bar — on Orange</p>
+  <p class="preview-label" style="background:#E85D26; color:rgba(255,255,255,0.5); margin:0; padding: 12px 24px 8px;">Mode 1 · Scrolling Bar, on Orange</p>
   <div style="background:#E85D26; padding:0;">
     <div class="sfm-ticker-wrap sfm-ticker-bar on-orange" data-mode="bar">
       <div class="sfmt-bar-track" id="barTrack2"></div>
@@ -306,16 +306,16 @@
   <div class="preview-divider"></div>
 
   <!-- ════════════════════════════════════════════════════════════
-       PREVIEW: MODE 2 — ANIMATED COUNTERS
+       PREVIEW: MODE 2, ANIMATED COUNTERS
   ════════════════════════════════════════════════════════════════ -->
-  <p class="preview-label">Mode 2 · Animated Counters — on Navy</p>
+  <p class="preview-label">Mode 2 · Animated Counters, on Navy</p>
   <div class="sfm-ticker-wrap sfm-ticker-counters" data-mode="counters" id="countersNavy">
     <div class="sfmt-counters-inner" id="countersInnerNavy"></div>
   </div>
 
   <div class="preview-divider light"></div>
 
-  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 2 · Animated Counters — on Light</p>
+  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 2 · Animated Counters, on Light</p>
   <div class="sfm-ticker-wrap sfm-ticker-counters on-light" data-mode="counters">
     <div class="sfmt-counters-inner" id="countersInnerLight"></div>
   </div>
@@ -323,9 +323,9 @@
   <div class="preview-divider"></div>
 
   <!-- ════════════════════════════════════════════════════════════
-       PREVIEW: MODE 3 — ROTATING WIN CARDS
+       PREVIEW: MODE 3, ROTATING WIN CARDS
   ════════════════════════════════════════════════════════════════ -->
-  <p class="preview-label">Mode 3 · Client Win Cards — on Navy</p>
+  <p class="preview-label">Mode 3 · Client Win Cards, on Navy</p>
   <div class="sfm-ticker-wrap sfm-ticker-wins" data-mode="wins">
     <div class="sfmt-wins-header">
       <div class="sfmt-wins-title">Live Client Results</div>
@@ -338,7 +338,7 @@
 
   <div class="preview-divider light"></div>
 
-  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 3 · Client Win Cards — on Light</p>
+  <p class="preview-label" style="background:#f8f8f8; color:#ccc; margin:0; padding: 12px 24px 8px;">Mode 3 · Client Win Cards, on Light</p>
   <div class="sfm-ticker-wrap sfm-ticker-wins on-light" data-mode="wins">
     <div class="sfmt-wins-header">
       <div class="sfmt-wins-title" style="color:#aaa;">Client Wins</div>
@@ -350,16 +350,16 @@
   </div>
 
   <!-- ════════════════════════════════════════════════════════════
-       SFM TICKER COMPONENT JS — Copy this block
+       SFM TICKER COMPONENT JS, Copy this block
   ════════════════════════════════════════════════════════════════ -->
   <script id="sfm-ticker-js">
     /* ─── DATA ────────────────────────────────────────────── */
     const SFMT_BAR_ITEMS = [
       { stat: '3×',     text: 'Sales Growth in 90 Days',         style: 'style-green' },
       { stat: '127+',   text: 'NW Ohio Businesses Served',        style: 'style-orange' },
-      { stat: '5.0★',   text: 'Google Rating — 37 Reviews',       style: 'style-amber' },
+      { stat: '5.0★',   text: 'Google Rating, 37 Reviews',       style: 'style-amber' },
       { stat: '9 yrs',  text: 'Serving Northwest Ohio',           style: 'style-white' },
-      { stat: '20–40%', text: 'Workshop Attendees Become Clients', style: 'style-green' },
+      { stat: '20, 40%', text: 'Workshop Attendees Become Clients', style: 'style-green' },
       { stat: '1,600+', text: 'Networks Cafe Members',             style: 'style-orange' },
       { stat: '100%',   text: '5-Star Google Reviews',             style: 'style-amber' },
       { stat: '$0',     text: 'Cost for Your First Strategy Call',  style: 'style-green' },
