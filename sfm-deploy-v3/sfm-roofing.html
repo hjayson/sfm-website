@@ -4,22 +4,22 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roofing Marketing Agency NW Ohio | Social Media &amp; Ads</title>
-  <meta name="description" content="Sales Funnel Marketing helps roofing contractors in Northwest Ohio dominate their market with storm-response Facebook ads, trust-building content, and geo-targeted campaigns. Average 190+ leads/month. Serving Toledo, Perrysburg &amp; surrounding areas." />
+  <title>Roofing Marketing NW Ohio | Facebook Ads for Roofers</title>
+  <meta name="description" content="Roofing marketing that books jobs: storm-response Facebook ads, trust-building content, and geo-targeted campaigns across Northwest Ohio. 5.0 rating, 54 reviews. Free strategy call." />
   <meta name="keywords" content="roofing company marketing Ohio, social media marketing for roofers Toledo Ohio, roofing contractor digital marketing Northwest Ohio, roofing Facebook ads Ohio, roofing company advertising Perrysburg, storm damage roofing leads Ohio, insurance restoration roofing marketing" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-roofing" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Roofing Marketing Agency NW Ohio | Social Media &amp; Ads" />
-  <meta property="og:description" content="Storm-response campaigns launched in 24 hours. Avg 190+ roofing leads/month. 4.7× avg ROAS. SFM helps Northwest Ohio roofers fill their pipeline year-round." />
+  <meta property="og:title" content="Roofing Marketing NW Ohio | Facebook Ads for Roofers" />
+  <meta property="og:description" content="Roofing marketing that books jobs: storm-response Facebook ads, trust-building content, and geo-targeted campaigns across Northwest Ohio. 5.0 rating, 54 reviews. Free strategy call." />
   <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-roofing" />
   <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <meta property="og:site_name" content="Sales Funnel Marketing" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Roofing Marketing Agency NW Ohio | Social Media &amp; Ads" />
-  <meta name="twitter:description" content="Storm-response campaigns launched in 24 hours. Avg 190+ roofing leads/month. 4.7× ROAS. Northwest Ohio's roofing marketing specialists." />
+  <meta name="twitter:title" content="Roofing Marketing NW Ohio | Facebook Ads for Roofers" />
+  <meta name="twitter:description" content="Roofing marketing that books jobs: storm-response Facebook ads, trust-building content, and geo-targeted campaigns across Northwest Ohio. 5.0 rating, 54 reviews. Free strategy call." />
   <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
 
   <!-- JSON-LD Schemas -->
@@ -114,7 +114,7 @@
       {
         "@type": "Question",
         "name": "What is your average cost per roofing lead?",
-        "acceptedAnswer": {"@type": "Answer", "text": "Cost per lead varies based on season, competition, and geography, but our roofing clients typically see costs between $15 to $45 per qualified lead during storm season campaigns. Year-round evergreen campaigns often come in lower as the algorithm learns your ideal customer. We optimize constantly to keep CPL as low as possible relative to your average job value."}
+        "acceptedAnswer": {"@type": "Answer", "text": "Cost per lead varies based on season, competition, and geography, but our roofing clients typically see costs between $15, $45 per qualified lead during storm season campaigns. Year-round evergreen campaigns often come in lower as the algorithm learns your ideal customer. We optimize constantly to keep CPL as low as possible relative to your average job value."}
       }
     ]
   }
@@ -201,7 +201,7 @@
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
@@ -388,7 +388,7 @@
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-links,.nav-cta,.nav-book-btn { display: none; }
       .nav-right .nav-phone { display: none; }
       .hamburger { display: flex; }
       .results-grid { grid-template-columns: 1fr; }
@@ -404,6 +404,17 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
   <!-- Google Analytics -->
@@ -421,7 +432,7 @@
   fbq('init','331104330662440');
   fbq('track','PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"/></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1" alt=""></noscript>
 </head>
 <body>
 
@@ -432,11 +443,13 @@
   <a href="sfm-pricing.html">Pricing</a>
     <a href="sfm-autopilot.html">AutoPilot</a>
   <a href="sfm-portfolio.html">Our Work</a>
+  <a href="sfm-brand-studio.html">Brand Studio</a>
   <a href="sfm-results.html">Results</a>
   <a href="sfm-team.html">Team</a>
   <a href="sfm-contact.html">Contact</a>
   <a href="sfm-digital-garden.html" style="color:#4ade80">📗 Get the Book</a>
     <a href="sfm-ai-workshop.html" style="color:#fff">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html" style="color:#fff">🎙️ Podcasting</a>
 
   <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" class="btn btn-primary" style="font-size:18px;">Book a Call</a>
 </div>
@@ -445,19 +458,29 @@
 <nav id="navbar" aria-label="Main navigation">
   <div class="container">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sfm-services.html">Services</a></li>
+      <a href="index.html" class="nav-logo"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+      <ul class="nav-links">
+    <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
-        <li><a href="sfm-portfolio.html">Our Work</a></li>
-        <li><a href="sfm-results.html">Results</a></li>
-        <li><a href="sfm-team.html">Team</a></li>
-        <li><a href="sfm-contact.html">Contact</a></li>
-      </ul>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-the-scroll.html">📜 The Scroll</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
+    <li><a href="sfm-about.html">About</a></li>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
       <div class="nav-right">
-        <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" class="nav-book-btn">Book a Call →</a>
+          <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -591,7 +614,7 @@
       <div class="pain-card reveal reveal-delay-3">
         <div class="pain-card-icon">💸</div>
         <h3 class="pain-card-title">No Online Presence Before a $15,000 Decision</h3>
-        <p class="pain-card-desc">A full replacement costs $15,000 to $25,000. Homeowners do not write that check for a company they've never heard of. <strong>Before they call, they Google you. They check your Facebook. They look for reviews, videos, and before-and-afters.</strong> If nothing shows up, they call your competitor.</p>
+        <p class="pain-card-desc">A full replacement costs $15,000, $25,000. Homeowners do not write that check for a company they've never heard of. <strong>Before they call, they Google you. They check your Facebook. They look for reviews, videos, and before-and-afters.</strong> If nothing shows up, they call your competitor.</p>
       </div>
     </div>
   </div>
@@ -854,7 +877,7 @@
           </span>
         </button>
         <div class="faq-answer">
-          <p>Cost per lead varies by season, campaign type, and how warm your existing audience is, but our roofing clients typically see $15 to $45 per qualified lead during active storm response campaigns. Year-round evergreen campaigns often come in lower once the Meta algorithm learns your ideal customer. Storm season campaigns tied to a specific weather event can generate leads as low as $8 to $12 when launched fast to a warm audience. When you're closing $15,000 to $25,000 roofing jobs, even a $45 lead cost is an exceptional return on investment. We optimize every campaign to drive that number as low as possible without sacrificing lead quality.</p>
+          <p>Cost per lead varies by season, campaign type, and how warm your existing audience is, but our roofing clients typically see $15, $45 per qualified lead during active storm response campaigns. Year-round evergreen campaigns often come in lower once the Meta algorithm learns your ideal customer. Storm season campaigns tied to a specific weather event can generate leads as low as $8, $12 when launched fast to a warm audience. When you're closing $15,000, $25,000 roofing jobs, even a $45 lead cost is an exceptional return on investment. We optimize every campaign to drive that number as low as possible without sacrificing lead quality.</p>
         </div>
       </div>
 
@@ -946,6 +969,7 @@
           <a href="sfm-about.html">About SFM</a>
           <a href="sfm-team.html">Meet the Team</a>
           <a href="sfm-portfolio.html">Our Work</a>
+  <a href="sfm-brand-studio.html">Brand Studio</a>
           <a href="sfm-results.html">Results</a>
           <a href="sfm-contact.html">Contact</a>
         </nav>
@@ -1027,5 +1051,6 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>

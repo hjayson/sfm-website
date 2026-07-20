@@ -47,11 +47,11 @@
     .nav-logo { display:flex; align-items:center; gap:10px; font-size:18px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
-    .nav-links { display:flex; gap:32px; list-style:none; }
-    .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
+    .nav-links { display:flex; gap:16px; list-style:none; }
+    .nav-links a {white-space:nowrap; color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
     .nav-links a:hover { color:var(--white); }
-    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; }
-    .nav-book-btn { display:inline-flex; align-items:center; gap:6px; background:rgba(232,93,38,0.12); border:1px solid rgba(232,93,38,0.35); color:#E85D26; font-size:13px; font-weight:700; padding:8px 16px; border-radius:100px; transition:all 0.2s ease; white-space:nowrap; }
+    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; }
+    .nav-book-btn { display:inline-flex; align-items:center; gap:6px; background:rgba(232,93,38,0.12); border:1px solid rgba(232,93,38,0.35); color:#E85D26; font-size:13px; font-weight:700; padding:7px 12px; border-radius:100px; transition:all 0.2s ease; white-space:nowrap; }
     .nav-book-btn:hover { background:rgba(232,93,38,0.22); border-color:#E85D26; }
     @media (max-width:900px) { .nav-book-btn { display:none; } }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
@@ -142,6 +142,17 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -177,7 +188,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Hiring a Social Media Agency vs. Doing It Yourself: Honest Bre",
+      "name": "Hiring a Social Media Agency vs. Doing It Yourself: Honest",
       "item": "https://www.salesfunnelmarketing.us/sfm-blog-agency-vs-diy"
     }
   ]
@@ -198,24 +209,34 @@
     <a href="sfm-blog.html" onclick="closeMobile()">Blog</a>
     <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 Get the Book</a>
     <a href="sfm-ai-workshop.html" onclick="closeMobile()">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html" onclick="closeMobile()">🎙️ Podcasting</a>
     <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="nav-cta" onclick="closeMobile()">Book Free Call</a>
   </div>
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+    <a href="index.html" class="nav-logo"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
-      <li><a href="sfm-results.html">Results</a></li>
-      <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-the-scroll.html">📜 The Scroll</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
     <li><a href="sfm-about.html">About</a></li>
-      <li><a href="sfm-portfolio.html">Our Work</a></li>
-      <li><a href="sfm-blog.html">Blog</a></li>
-    </ul>
-    <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="nav-book-btn">📅 Book Free Call</a>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
+  <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
     <div class="hamburger" onclick="openMobile()" aria-label="Open menu">
       <span></span><span></span><span></span>
     </div>
@@ -266,7 +287,7 @@
       <li>Reviewing analytics and adjusting: 1 hour/week</li>
     </ul>
 
-    <p>That's 8 to 13 hours per week. At $100/hour of opportunity cost, you're spending $800 to $1,300 worth of time every single week on social media. That's $3,200 to $5,200 per month, before you factor in any paid advertising budget.</p>
+    <p>That's 8 to 13 hours per week. At $100/hour of opportunity cost, you're spending $800, $1,300 worth of time every single week on social media. That's $3,200, $5,200 per month, before you factor in any paid advertising budget.</p>
 
     <p>Most people think of DIY as "free." It's not. It's just a cost that hides on your calendar instead of your bank statement.</p>
 
@@ -307,8 +328,8 @@
       <tbody>
         <tr>
           <td class="cat">Monthly Cost</td>
-          <td>$0 cash, but 8 to 13 hrs/week of your time (worth $800 to $5,000+)</td>
-          <td class="win">$997 to $2,500/month depending on scope, time returned to you</td>
+          <td>$0 cash, but 8 to 13 hrs/week of your time (worth $800, $5,000+)</td>
+          <td class="win">$997, $2,500/month depending on scope, time returned to you</td>
         </tr>
         <tr>
           <td class="cat">Content Quality</td>
@@ -368,7 +389,7 @@
     <p>I'll be direct: there are real situations where doing your own social media is the right move. Here they are.</p>
 
     <h3>You're pre-revenue or in the first 6 months</h3>
-    <p>If you haven't validated your business yet, conserve cash. Do the basics yourself, claim your Google Business Profile, post consistently 3, 4x per week, show up in your community. Spend money on marketing when you have money coming in.</p>
+    <p>If you haven't validated your business yet, conserve cash. Do the basics yourself, claim your Google Business Profile, post consistently 3 to 4x per week, show up in your community. Spend money on marketing when you have money coming in.</p>
 
     <h3>Your business is inherently visual and you love creating content</h3>
     <p>Some restaurant owners, artists, craftspeople, and personal brands genuinely enjoy content creation and do it well. If making content energizes you and you're actually consistent, keep going. A good agency can supplement rather than replace you in that case.</p>
@@ -409,7 +430,7 @@
 
     <h3>Freelancer advantages</h3>
     <ul>
-      <li>Usually cheaper than an agency retainer ($300 to $800/month is common)</li>
+      <li>Usually cheaper than an agency retainer ($300, $800/month is common)</li>
       <li>More personal relationship, you work directly with the person doing the work</li>
       <li>More flexible, can often customize scope easily</li>
     </ul>
@@ -497,5 +518,6 @@
     function openMobile() { document.getElementById('mobileMenu').classList.add('open'); }
     function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
   </script>
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>

@@ -47,11 +47,11 @@
     .nav-logo { display:flex; align-items:center; gap:10px; font-size:18px; font-weight:900; color:var(--white); text-decoration:none; letter-spacing:-0.5px; }
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
-    .nav-links { display:flex; gap:32px; list-style:none; }
-    .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
+    .nav-links { display:flex; gap:16px; list-style:none; }
+    .nav-links a {white-space:nowrap; color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; font-weight:600; transition:color 0.2s; }
     .nav-links a:hover { color:var(--white); }
-    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:14px; font-weight:700; text-decoration:none; }
-    .nav-book-btn { display:inline-flex; align-items:center; gap:6px; background:rgba(232,93,38,0.12); border:1px solid rgba(232,93,38,0.35); color:#E85D26; font-size:13px; font-weight:700; padding:8px 16px; border-radius:100px; transition:all 0.2s ease; white-space:nowrap; }
+    .nav-cta { background:var(--orange); color:var(--white); padding:10px 22px; border-radius:6px; font-size:13px; font-weight:700; text-decoration:none; }
+    .nav-book-btn { display:inline-flex; align-items:center; gap:6px; background:rgba(232,93,38,0.12); border:1px solid rgba(232,93,38,0.35); color:#E85D26; font-size:13px; font-weight:700; padding:7px 12px; border-radius:100px; transition:all 0.2s ease; white-space:nowrap; }
     .nav-book-btn:hover { background:rgba(232,93,38,0.22); border-color:#E85D26; }
     @media (max-width:900px) { .nav-book-btn { display:none; } }
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
@@ -153,6 +153,17 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -188,7 +199,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Best Social Media Agencies in Northwest Ohio (2026 Honest Guid",
+      "name": "Best Social Media Agencies in Northwest Ohio (2026 Honest",
       "item": "https://www.salesfunnelmarketing.us/sfm-blog-best-agencies"
     }
   ]
@@ -209,26 +220,35 @@
     <a href="sfm-blog.html" onclick="closeMobile()">Blog</a>
     <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 Get the Book</a>
     <a href="sfm-ai-workshop.html" onclick="closeMobile()">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html" onclick="closeMobile()">🎙️ Podcasting</a>
     <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="nav-cta" onclick="closeMobile()">Book Free Call</a>
   </div>
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+    <a href="index.html" class="nav-logo"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
-      <li><a href="sfm-results.html">Results</a></li>
-      <li><a href="sfm-portfolio.html">Our Work</a></li>
-      <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-portfolio.html">Our Work</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-the-scroll.html">📜 The Scroll</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
     <li><a href="sfm-about.html">About</a></li>
-      <li><a href="sfm-blog.html">Blog</a></li>
-    </ul>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
     <div style="display:flex; align-items:center; gap:12px;">
-      <a href="sfm-digital-garden.html" class="nav-book-btn">📗 Get the Book</a>
-          <a href="sfm-ai-workshop.html" class="nav-book-btn">🤖 AI Workshop</a>
+  <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
       <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="nav-cta">Get Free Strategy Call</a>
       <button class="hamburger" id="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open'); this.setAttribute('aria-expanded', document.getElementById('mobileMenu').classList.contains('open'));" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -288,7 +308,7 @@
       <div class="agency-type">National / Regional Firm</div>
       <h3>The Big Agency Experience</h3>
       <p>There are dozens of mid-to-large marketing agencies that serve Ohio businesses, some based in Columbus or Cleveland, others operating fully remote with clients nationwide. They have polished websites, big client logos, and impressive-sounding case studies.</p>
-      <p>For enterprise-level companies with national brands and $5,000 to $15,000/month budgets, these agencies can be excellent. For a local plumber in Perrysburg or a chiropractic office in Maumee? The fit is usually poor.</p>
+      <p>For enterprise-level companies with national brands and $5,000, $15,000/month budgets, these agencies can be excellent. For a local plumber in Perrysburg or a chiropractic office in Maumee? The fit is usually poor.</p>
       <p>You become a small fish in a large pond. Your account gets handed to a junior strategist who's also managing 20 other accounts. The content is templated. The local knowledge is nonexistent. And you pay a premium for a brand name that doesn't actually benefit your business.</p>
       <div class="pros-cons">
         <div class="pro-list">
@@ -319,7 +339,7 @@
       <h3>The Solo Operator</h3>
       <p>Freelancers are the budget-friendly option. You can find social media managers on Upwork, LinkedIn, or through local Facebook groups for anywhere from $400 to $1,500/month. Some are genuinely talented. Many are overextended and underprepared.</p>
       <p>The core problem with hiring a solo freelancer for social media is single-point-of-failure risk. What happens when they get sick? Take on too many clients? Or simply stop caring about your account after the novelty wears off? You have no contract enforcement, no team backing them up, and often no strategy, just someone posting on your behalf.</p>
-      <p>For a startup or a side hustle testing the waters, a freelancer might make sense at $500 to $800/month. For an established NW Ohio business that needs consistent results, the risk usually isn't worth the savings.</p>
+      <p>For a startup or a side hustle testing the waters, a freelancer might make sense at $500, $800/month. For an established NW Ohio business that needs consistent results, the risk usually isn't worth the savings.</p>
       <div class="pros-cons">
         <div class="pro-list">
           <h4>Pros</h4>
@@ -428,10 +448,10 @@
         </tr>
         <tr>
           <td><strong>Starting cost / month</strong></td>
-          <td>$3,000 to $15,000</td>
-          <td>$400 to $1,500</td>
+          <td>$3,000, $15,000</td>
+          <td>$400, $1,500</td>
           <td>Your time</td>
-          <td>From $1,500</td>
+          <td>From $850</td>
         </tr>
         <tr>
           <td><strong>Paid ads included</strong></td>
@@ -562,5 +582,6 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>
