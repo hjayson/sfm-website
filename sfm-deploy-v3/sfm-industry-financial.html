@@ -217,7 +217,40 @@
   
     /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
     @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
-  </style>
+  
+    .wid-sec{padding:88px 0;background:var(--off-white,#F7F8FA);}
+    .wid-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .wid-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .wid-head h2{font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--navy);font-weight:800;}
+    .wid-head h2 em{color:var(--orange);font-style:normal;}
+    .wid-intro{font-size:17px;color:var(--dark-gray,#5A6472);line-height:1.8;margin-top:18px;}
+    .wid-grid{max-width:900px;margin:0 auto;display:grid;gap:20px;}
+    .wid-item{background:var(--white);border-radius:14px;padding:26px 28px;border-left:4px solid var(--orange);box-shadow:0 2px 18px rgba(20,33,61,.06);}
+    .wid-item h3{font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.35;font-weight:700;}
+    .wid-item p{font-size:15.5px;color:var(--dark-gray,#5A6472);line-height:1.8;}
+    .faq-sec{padding:88px 0;background:var(--white);}
+    .faq-header{text-align:center;margin-bottom:44px;}
+    .faq-header h2{font-size:clamp(26px,4vw,36px);color:var(--navy);font-weight:800;}
+    .faq-grid{max-width:720px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--light-gray,#E5E8EC);}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;text-align:left;gap:16px;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-icon{width:26px;height:26px;border-radius:50%;background:var(--light-gray,#E5E8EC);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:18px;line-height:1;transition:background .2s,transform .3s;}
+    .faq-item.open .faq-icon{background:var(--orange);color:#fff;transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;padding-bottom:0;}
+    .faq-item.open .faq-answer{max-height:520px;padding-bottom:20px;}
+    .faq-answer p{font-size:15px;color:var(--dark-gray,#5A6472);line-height:1.8;}
+
+    .how-sec{padding:88px 0;background:var(--off-white,#F7F8FA);}
+    .how-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .how-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .how-head h2{font-size:clamp(26px,4vw,38px);line-height:1.2;color:var(--navy);font-weight:800;}
+    .how-head h2 em{color:var(--orange);font-style:normal;}
+    .how-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+    .how-card{background:var(--white);border:1px solid var(--light-gray,#E5E8EC);border-radius:14px;padding:26px 28px;box-shadow:0 2px 18px rgba(20,33,61,.05);}
+    .how-card h3{font-size:17px;color:var(--navy);margin-bottom:10px;font-weight:700;line-height:1.35;}
+    .how-card p{font-size:15px;color:var(--dark-gray,#5A6472);line-height:1.8;}
+</style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -505,7 +538,164 @@
     </div>
   </section>
 
-  <footer id="footer" role="contentinfo">
+  
+
+<section class="how-sec" id="how-we-work" aria-label="How we work">
+  <div class="container">
+    <div class="how-head">
+      <div class="how-label">HOW WE WORK WITH ADVISORS</div>
+      <h2>Designed to clear review<br><em>on the first pass.</em></h2>
+    </div>
+    <div class="how-grid">
+        <div class="how-card">
+          <h3>Content produced in reviewable batches</h3>
+          <p>Reactive posting and a compliance process do not mix. We build content in batches your CCO or registered principal can review together, with the disclosure language already attached, so approval is one pass instead of a running negotiation over individual posts.</p>
+        </div>
+        <div class="how-card">
+          <h3>Topics chosen because they survive review and stay useful</h3>
+          <p>Planning topics, your process, how you are compensated, who you serve well, and what a first meeting actually involves. This material does not expire the way market commentary does, which means it keeps working long after it clears review, and it does not create new exposure every time markets move.</p>
+        </div>
+        <div class="how-card">
+          <h3>Built around your referral relationships, not around cold volume</h3>
+          <p>Your best growth almost certainly comes from clients and from centers of influence like CPAs and estate attorneys. Marketing should make those relationships easier by giving a referring accountant something credible to point at, rather than trying to replace them with mass lead capture that does not fit a fiduciary relationship.</p>
+        </div>
+        <div class="how-card">
+          <h3>Aimed at the next generation of your book</h3>
+          <p>Most books skew toward clients who are already retired, and the professionals who referred them are retiring too. Reaching pre-retirees and the adult children of current clients is a slower build than a lead form, and it is the thing that determines what your practice is worth in ten years.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="wid-sec" id="why-different" aria-label="Why Advisors Are Different">
+  <div class="container">
+    <div class="wid-head">
+      <div class="wid-label">WHY ADVISORS ARE DIFFERENT</div>
+      <h2>Your compliance officer<br><em>has to approve this before anyone sees it.</em></h2>
+      <p class="wid-intro">Most marketing agencies have never read the SEC Marketing Rule and it shows the moment their work hits a compliance review. Advisory marketing is a regulated communication, and it has to be built that way from the first draft.</p>
+    </div>
+    <div class="wid-grid">
+        <div class="wid-item">
+          <h3>Testimonials are allowed now, but only if they are done correctly</h3>
+          <p>The SEC Marketing Rule opened the door to testimonials and endorsements, with conditions. Disclosure of whether the person is a client and whether they were compensated, a written agreement with the promoter outside narrow exceptions, and disqualification of bad actors. That applies to a Google review the same way it applies to a filmed testimonial. Done wrong, a five-star review becomes a compliance problem.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Nobody should be putting performance in your ads</h3>
+          <p>Hypothetical performance, backtests, and projections are effectively off the table for general-audience advertising, because you cannot verify the viewer's situation matches the assumptions. The SEC has brought enforcement actions on exactly this point. If an agency pitches you performance-driven creative, they are handing you the liability.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Broker-dealer reps have a second gate</h3>
+          <p>If you are affiliated with a broker-dealer, retail communications generally require a registered principal's approval before they go out, plus retention. A single social post can sit in the same review queue as a print ad. The practical consequence is that campaigns have to be designed in batches your principal can review, not posted reactively to whatever the market did that morning.</p>
+        </div>
+        <div class="wid-item">
+          <h3>The economics reward depth, not volume</h3>
+          <p>One right-fit household can be worth more over a decade than twenty small accounts that cost nearly as much to serve. Meanwhile most books skew older, and the centers of influence who fed them are retiring too. That points marketing toward pre-retirees and next-generation relationships, and away from anything that looks like mass lead capture.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="faq-header"><h2>Questions we get asked</h2></div>
+    <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Will my compliance department actually approve this?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>That is the design constraint, not an afterthought. We build in batches your CCO or principal can review in one pass, avoid performance claims and hypotheticals, and keep the disclosure language attached to anything that needs it. If your firm has a pre-approved content library, we work inside it.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can we use client testimonials or Google reviews?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Potentially, if the required disclosures and promoter agreements are handled properly and your firm permits it. This is exactly the area where well-meaning marketing creates real exposure, so we treat it as a compliance question first and a marketing question second.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can you show our track record?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Not in general-audience advertising, and you should be cautious with anyone who says otherwise. There is a great deal we can say about your process, your credentials, who you serve, and how you are compensated without going near performance.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Are you going to make me post market commentary?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Only if you want to, and only if it clears review. Reactive market takes are usually the worst fit for a regulated communication process. Evergreen content about planning topics, your process, and who you work with tends to survive review and stay useful longer.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do you handle the fee and fiduciary question?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Directly. Prospects genuinely cannot tell fee-only from fee-based, or a fiduciary from a suitability standard, and many are quietly wondering whether they are about to be sold a product. Being plain about how you are paid is one of the strongest trust signals you have.</p></div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will my compliance department actually approve this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is the design constraint, not an afterthought. We build in batches your CCO or principal can review in one pass, avoid performance claims and hypotheticals, and keep the disclosure language attached to anything that needs it. If your firm has a pre-approved content library, we work inside it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we use client testimonials or Google reviews?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Potentially, if the required disclosures and promoter agreements are handled properly and your firm permits it. This is exactly the area where well-meaning marketing creates real exposure, so we treat it as a compliance question first and a marketing question second."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you show our track record?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in general-audience advertising, and you should be cautious with anyone who says otherwise. There is a great deal we can say about your process, your credentials, who you serve, and how you are compensated without going near performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you going to make me post market commentary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only if you want to, and only if it clears review. Reactive market takes are usually the worst fit for a regulated communication process. Evergreen content about planning topics, your process, and who you work with tends to survive review and stay useful longer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle the fee and fiduciary question?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Directly. Prospects genuinely cannot tell fee-only from fee-based, or a fiduciary from a suitability standard, and many are quietly wondering whether they are about to be sold a product. Being plain about how you are paid is one of the strongest trust signals you have."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+</script>
+
+<footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
         <div>

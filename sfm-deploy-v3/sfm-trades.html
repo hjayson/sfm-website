@@ -91,7 +91,40 @@
     .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
     .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
     .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
-  </style>
+  
+    .wid-sec{padding:88px 0;background:rgba(255,255,255,0.02);}
+    .wid-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .wid-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .wid-head h2{font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--white);font-weight:800;}
+    .wid-head h2 em{color:var(--orange);font-style:normal;}
+    .wid-intro{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;margin-top:18px;}
+    .wid-grid{max-width:900px;margin:0 auto;display:grid;gap:20px;}
+    .wid-item{background:rgba(255,255,255,0.04);border-radius:14px;padding:26px 28px;border-left:4px solid var(--orange);}
+    .wid-item h3{font-size:18px;color:var(--white);margin-bottom:10px;line-height:1.35;font-weight:700;}
+    .wid-item p{font-size:15.5px;color:rgba(255,255,255,.72);line-height:1.8;}
+    .faq-sec{padding:88px 0;}
+    .faq-header{text-align:center;margin-bottom:44px;}
+    .faq-header h2{font-size:clamp(26px,4vw,36px);color:var(--white);font-weight:800;}
+    .faq-grid{max-width:720px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.12);}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--white);cursor:pointer;text-align:left;gap:16px;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-icon{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px;line-height:1;transition:background .2s,transform .3s;}
+    .faq-item.open .faq-icon{background:var(--orange);transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;padding-bottom:0;}
+    .faq-item.open .faq-answer{max-height:520px;padding-bottom:20px;}
+    .faq-answer p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;}
+
+    .how-sec{padding:88px 0;}
+    .how-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .how-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .how-head h2{font-size:clamp(26px,4vw,38px);line-height:1.2;color:var(--white);font-weight:800;}
+    .how-head h2 em{color:var(--orange);font-style:normal;}
+    .how-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+    .how-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 28px;}
+    .how-card h3{font-size:17px;color:var(--white);margin-bottom:10px;font-weight:700;line-height:1.35;}
+    .how-card p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;}
+</style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
@@ -238,6 +271,163 @@
   <p>Book a free, no-pressure strategy call. We'll map out exactly what it takes to get your phone ringing in Northwest Ohio.</p>
   <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" class="btn-white">Book My Free Strategy Call →</a>
 </div>
+
+
+
+<section class="how-sec" id="how-we-work" aria-label="How we work">
+  <div class="container">
+    <div class="how-head">
+      <div class="how-label">HOW WE WORK WITH CONTRACTORS</div>
+      <h2>Built around your season,<br><em>not a generic content calendar.</em></h2>
+    </div>
+    <div class="how-grid">
+        <div class="how-card">
+          <h3>We run the calendar against your actual season</h3>
+          <p>Exterior work carries you from roughly April through November, so the audience for it has to be built in late winter, not in May when you are already booked solid. Then the message pivots to interiors, basements, and kitchens before the weather turns. The point is to walk into spring with people already waiting instead of restarting from nothing every year.</p>
+        </div>
+        <div class="how-card">
+          <h3>Proof content, because that is what closes the trust gap</h3>
+          <p>Finished jobs, work in progress, your registration and certificate of insurance, the crew that will actually be on site. Walkthrough footage and punch list follow-through are unglamorous and they answer the exact question a nervous homeowner is asking. This is the content that separates you from the guy who took a deposit and vanished.</p>
+        </div>
+        <div class="how-card">
+          <h3>Reviews collected at the moment they are easiest to get</h3>
+          <p>The best time to ask is right after the final walkthrough, when the work is fresh and the homeowner is happy. Most contractors mean to ask and never do. We build that request into the end of the job so your review count climbs steadily instead of in occasional bursts.</p>
+        </div>
+        <div class="how-card">
+          <h3>Filtering for jobs you actually want</h3>
+          <p>Not every call is a good call. Content that is plain about the kind of work you take, roughly what it costs, and how your draw schedule works will lose you some tire-kickers, which is the point. You spend less time writing bids for people who were never going to hire you.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="wid-sec" id="why-different" aria-label="Why Trades Are Different">
+  <div class="container">
+    <div class="wid-head">
+      <div class="wid-label">WHY TRADES ARE DIFFERENT</div>
+      <h2>Marketing a contracting business<br><em>is not like marketing a store.</em></h2>
+      <p class="wid-intro">You are asking a homeowner to hand over a deposit and let your crew into their house. That is a bigger ask than almost any other business makes, and it changes what your marketing has to do.</p>
+    </div>
+    <div class="wid-grid">
+        <div class="wid-item">
+          <h3>The deposit-and-disappear story is in every homeowner's head</h3>
+          <p>Everyone knows someone who paid a contractor up front and never saw them again. It is the single loudest objection you are fighting, and you are fighting it before you ever pick up the phone. Showing your registration, your certificate of insurance, your crew, and finished work in the feed does more to close that gap than any headline. Lucas County homeowners increasingly ask to see it, and Toledo's remodeling license already requires a tested contractor with documented experience.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Lead services sold your name to four other guys</h3>
+          <p>Contractors on the trade forums say the same thing over and over: you pay per lead, the same job goes out to several companies at once, and half the numbers are bad with no refund. You end up racing three competitors to the phone on a job you already paid for. Building your own audience means the homeowner asks for you by name instead of filling out a form that gets resold.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Winter is a cliff, not a slow patch</h3>
+          <p>Around here the exterior season runs roughly April through November, then December through February goes quiet. The contractors who stay busy are the ones who built the audience in September and pivoted the message to interior work, basements, and kitchens before the phone stopped. Marketing that only runs when you are already busy is backwards.</p>
+        </div>
+        <div class="wid-item">
+          <h3>More leads will not fix a job that bleeds on change orders</h3>
+          <p>Margins in construction are thinner than most people outside the trade assume, and the money usually leaks in the middle of the job, not at the bid. Unsigned change orders, scope creep, callbacks, and a sub who no-shows and pushes everyone behind him. The goal is not more calls. It is better-fit calls from homeowners who already understand what you charge and why.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="faq-header"><h2>Questions we get asked</h2></div>
+    <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I really need to put my license and insurance in my marketing?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>It is one of the highest-value things you can show. Homeowners are actively scanning for a reason to trust you and a reason to rule you out. Registration, a certificate of insurance, and real photos of your crew answer the question they are too polite to ask.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Most of my work comes from referrals. Why bother with this?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Referrals are the best leads you will ever get and they are also capped by how many people your past customers happen to talk to. A steady presence means when your customer does recommend you, the neighbor looks you up and finds a company that obviously still exists and does this work well.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Should I just pause everything over the winter?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>That is the most common mistake. The homeowner planning a spring basement remodel is thinking about it in January. Going dark for three months means you restart from zero every April instead of walking into spring with a warm audience.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How is this different from Angi or HomeAdvisor?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Those platforms rent you a stranger's attention and sell that same stranger to your competitors. This builds an audience that belongs to you. The lead does not disappear when you stop paying, and nobody else is buying the same name.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>I hate being on camera. Is that a dealbreaker?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>No. Some of the best-performing contractor content is finished work, job progress, and a crew member explaining what they are doing. If you are willing to be on camera occasionally it helps, because homeowners want to see who is showing up, but there is plenty to work with either way.</p></div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I really need to put my license and insurance in my marketing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is one of the highest-value things you can show. Homeowners are actively scanning for a reason to trust you and a reason to rule you out. Registration, a certificate of insurance, and real photos of your crew answer the question they are too polite to ask."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Most of my work comes from referrals. Why bother with this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Referrals are the best leads you will ever get and they are also capped by how many people your past customers happen to talk to. A steady presence means when your customer does recommend you, the neighbor looks you up and finds a company that obviously still exists and does this work well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I just pause everything over the winter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That is the most common mistake. The homeowner planning a spring basement remodel is thinking about it in January. Going dark for three months means you restart from zero every April instead of walking into spring with a warm audience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from Angi or HomeAdvisor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Those platforms rent you a stranger's attention and sell that same stranger to your competitors. This builds an audience that belongs to you. The lead does not disappear when you stop paying, and nobody else is buying the same name."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I hate being on camera. Is that a dealbreaker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Some of the best-performing contractor content is finished work, job progress, and a crew member explaining what they are doing. If you are willing to be on camera occasionally it helps, because homeowners want to see who is showing up, but there is plenty to work with either way."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+</script>
 
 <footer>
   <div class="foot-inner">

@@ -91,7 +91,40 @@
     .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
     .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
     .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
-  </style>
+  
+    .wid-sec{padding:88px 0;background:rgba(255,255,255,0.02);}
+    .wid-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .wid-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .wid-head h2{font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--white);font-weight:800;}
+    .wid-head h2 em{color:var(--orange);font-style:normal;}
+    .wid-intro{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;margin-top:18px;}
+    .wid-grid{max-width:900px;margin:0 auto;display:grid;gap:20px;}
+    .wid-item{background:rgba(255,255,255,0.04);border-radius:14px;padding:26px 28px;border-left:4px solid var(--orange);}
+    .wid-item h3{font-size:18px;color:var(--white);margin-bottom:10px;line-height:1.35;font-weight:700;}
+    .wid-item p{font-size:15.5px;color:rgba(255,255,255,.72);line-height:1.8;}
+    .faq-sec{padding:88px 0;}
+    .faq-header{text-align:center;margin-bottom:44px;}
+    .faq-header h2{font-size:clamp(26px,4vw,36px);color:var(--white);font-weight:800;}
+    .faq-grid{max-width:720px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.12);}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--white);cursor:pointer;text-align:left;gap:16px;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-icon{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px;line-height:1;transition:background .2s,transform .3s;}
+    .faq-item.open .faq-icon{background:var(--orange);transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;padding-bottom:0;}
+    .faq-item.open .faq-answer{max-height:520px;padding-bottom:20px;}
+    .faq-answer p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;}
+
+    .how-sec{padding:88px 0;}
+    .how-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .how-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .how-head h2{font-size:clamp(26px,4vw,38px);line-height:1.2;color:var(--white);font-weight:800;}
+    .how-head h2 em{color:var(--orange);font-style:normal;}
+    .how-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+    .how-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 28px;}
+    .how-card h3{font-size:17px;color:var(--white);margin-bottom:10px;font-weight:700;line-height:1.35;}
+    .how-card p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;}
+</style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
@@ -238,6 +271,163 @@
   <p>Book a free, no-pressure strategy call. We'll show you exactly how to get more people in seats, every day of the week.</p>
   <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" class="btn-white">Book My Free Strategy Call →</a>
 </div>
+
+
+
+<section class="how-sec" id="how-we-work" aria-label="How we work">
+  <div class="container">
+    <div class="how-head">
+      <div class="how-label">HOW WE WORK WITH RESTAURANTS</div>
+      <h2>Aimed at the shifts<br><em>that actually need help.</em></h2>
+    </div>
+    <div class="how-grid">
+        <div class="how-card">
+          <h3>Campaigns pointed at your soft shifts</h3>
+          <p>There is no reason to spend money making Saturday busier. We build around the nights that are burning labor with nothing to show for it, with a specific offer, a specific date, and a radius that reflects how far people will genuinely drive on a Tuesday in February.</p>
+        </div>
+        <div class="how-card">
+          <h3>Pushing orders to your door instead of the app</h3>
+          <p>Every order that comes through you instead of a third party keeps the commission in your pocket, and on the margins independents run, that difference is often the whole profit on the ticket. Direct ordering, call-ahead, and pickup get the promotion, not the delivery platforms taking a cut of every plate.</p>
+        </div>
+        <div class="how-card">
+          <h3>The unglamorous hygiene that decides first visits</h3>
+          <p>Current photos, accurate hours, a menu with prices that someone can actually find on a phone, and recent reviews. When you 86 something regularly or change hours seasonally, that needs to be reflected where people are looking. This is low-glamour work that quietly determines whether a stranger picks you.</p>
+        </div>
+        <div class="how-card">
+          <h3>Catering and private events as their own line</h3>
+          <p>Office parties, graduations, and holiday orders run on a completely different lead time than dine-in, and they usually carry better margins than a table that turns twice. Most independent places underwork this and leave real revenue sitting there. It deserves its own campaigns rather than an occasional mention.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="wid-sec" id="why-different" aria-label="Why Restaurants Are Different">
+  <div class="container">
+    <div class="wid-head">
+      <div class="wid-label">WHY RESTAURANTS ARE DIFFERENT</div>
+      <h2>Marketing a restaurant<br><em>is a math problem, not a food photo.</em></h2>
+      <p class="wid-intro">Anyone can shoot a nice plate. The question is whether it moved covers on the shift where you actually needed them, because your fixed costs do not care how good Saturday was.</p>
+    </div>
+    <div class="wid-grid">
+        <div class="wid-item">
+          <h3>A dead Tuesday costs you more than a packed Saturday makes</h3>
+          <p>Saturday volume is already baked into your model. Tuesday is the one that hurts, because rent, insurance, and salaried management do not flex down when only forty covers walk in and you are still fully staffed. Marketing that only lifts your busiest shift is not really helping. The job is filling the shifts that are burning labor with nothing to absorb it.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Third-party delivery can turn a sale into a loss</h3>
+          <p>Commissions commonly run fifteen to thirty percent, and once the added fees and promos land, operators routinely describe the effective bite as closer to a third of that order. On margins as thin as independent restaurants run, a delivery order can clear almost nothing. That is why the work should push people toward your own door, your own phone, and your own catering, not toward the app.</p>
+        </div>
+        <div class="wid-item">
+          <h3>January and the college calendar are both real</h3>
+          <p>The industry goes quiet in January and February everywhere, and around here lake-effect weather keeps regulars home on top of it. If you are anywhere near BGSU or UT, move-out hollows out your lunch and happy-hour traffic in a way that has nothing to do with your food. Patio season is the window that makes it back, and holiday catering is a separate revenue line most places underwork.</p>
+        </div>
+        <div class="wid-item">
+          <h3>A page that has not posted since 2023 reads as closed</h3>
+          <p>Before someone drives over, they check. They look for recent photos, recent reviews, an accurate menu, and hours that match reality. A stale page tells them you might not be open, and the safest choice is the place that posted yesterday. Nothing kills a first visit faster than driving over to a dark dining room because the hours were wrong.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="faq-header"><h2>Questions we get asked</h2></div>
+    <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I need to hire a photographer?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Usually not to start. A current phone shoots food well in the right light, and we will show you how to get it. What matters more than production value is that the photos are recent and actually look like what lands on the table.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What about Groupon or deep discounting?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>It fills seats and it rarely builds regulars. Operators consistently report that deal-seekers do not upsell and do not come back, and a rush of them can bury a kitchen that was not staffed for it. If we run an offer it is built to bring someone back a second time, not to buy a crowd once.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>I boosted a post and got likes but no tables. What went wrong?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Boosting optimizes for the cheapest engagement, not for someone deciding where to eat tonight. A campaign built around a specific reason to come in on a specific night, aimed at people close enough to actually drive, behaves completely differently.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do you handle a bad review?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Quickly and in public, then privately. A single one-star can genuinely move revenue, so the response matters as much as the review. We help you build enough recent volume that one bad night is not the first thing a stranger sees.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can you help with catering and private events?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Yes, and it is usually the most underworked line on the menu. Office parties, graduations, and holiday orders are a different audience with a different lead time than dine-in, and they deserve their own campaigns.</p></div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to hire a photographer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually not to start. A current phone shoots food well in the right light, and we will show you how to get it. What matters more than production value is that the photos are recent and actually look like what lands on the table."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about Groupon or deep discounting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It fills seats and it rarely builds regulars. Operators consistently report that deal-seekers do not upsell and do not come back, and a rush of them can bury a kitchen that was not staffed for it. If we run an offer it is built to bring someone back a second time, not to buy a crowd once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I boosted a post and got likes but no tables. What went wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Boosting optimizes for the cheapest engagement, not for someone deciding where to eat tonight. A campaign built around a specific reason to come in on a specific night, aimed at people close enough to actually drive, behaves completely differently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle a bad review?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quickly and in public, then privately. A single one-star can genuinely move revenue, so the response matters as much as the review. We help you build enough recent volume that one bad night is not the first thing a stranger sees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help with catering and private events?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is usually the most underworked line on the menu. Office parties, graduations, and holiday orders are a different audience with a different lead time than dine-in, and they deserve their own campaigns."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+</script>
 
 <footer>
   <div class="foot-inner">

@@ -217,7 +217,40 @@
   
     /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
     @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
-  </style>
+  
+    .wid-sec{padding:88px 0;background:var(--off-white,#F7F8FA);}
+    .wid-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .wid-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .wid-head h2{font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--navy);font-weight:800;}
+    .wid-head h2 em{color:var(--orange);font-style:normal;}
+    .wid-intro{font-size:17px;color:var(--dark-gray,#5A6472);line-height:1.8;margin-top:18px;}
+    .wid-grid{max-width:900px;margin:0 auto;display:grid;gap:20px;}
+    .wid-item{background:var(--white);border-radius:14px;padding:26px 28px;border-left:4px solid var(--orange);box-shadow:0 2px 18px rgba(20,33,61,.06);}
+    .wid-item h3{font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.35;font-weight:700;}
+    .wid-item p{font-size:15.5px;color:var(--dark-gray,#5A6472);line-height:1.8;}
+    .faq-sec{padding:88px 0;background:var(--white);}
+    .faq-header{text-align:center;margin-bottom:44px;}
+    .faq-header h2{font-size:clamp(26px,4vw,36px);color:var(--navy);font-weight:800;}
+    .faq-grid{max-width:720px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--light-gray,#E5E8EC);}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;text-align:left;gap:16px;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-icon{width:26px;height:26px;border-radius:50%;background:var(--light-gray,#E5E8EC);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:18px;line-height:1;transition:background .2s,transform .3s;}
+    .faq-item.open .faq-icon{background:var(--orange);color:#fff;transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;padding-bottom:0;}
+    .faq-item.open .faq-answer{max-height:520px;padding-bottom:20px;}
+    .faq-answer p{font-size:15px;color:var(--dark-gray,#5A6472);line-height:1.8;}
+
+    .how-sec{padding:88px 0;background:var(--off-white,#F7F8FA);}
+    .how-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .how-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .how-head h2{font-size:clamp(26px,4vw,38px);line-height:1.2;color:var(--navy);font-weight:800;}
+    .how-head h2 em{color:var(--orange);font-style:normal;}
+    .how-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+    .how-card{background:var(--white);border:1px solid var(--light-gray,#E5E8EC);border-radius:14px;padding:26px 28px;box-shadow:0 2px 18px rgba(20,33,61,.05);}
+    .how-card h3{font-size:17px;color:var(--navy);margin-bottom:10px;font-weight:700;line-height:1.35;}
+    .how-card p{font-size:15px;color:var(--dark-gray,#5A6472);line-height:1.8;}
+</style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -505,7 +538,164 @@
     </div>
   </section>
 
-  <footer id="footer" role="contentinfo">
+  
+
+<section class="how-sec" id="how-we-work" aria-label="How we work">
+  <div class="container">
+    <div class="how-head">
+      <div class="how-label">HOW WE WORK WITH PRACTICES</div>
+      <h2>We look at the back door<br><em>before we touch the front.</em></h2>
+    </div>
+    <div class="how-grid">
+        <div class="how-card">
+          <h3>We ask about retention before we talk about new patients</h3>
+          <p>If patients are leaving around visit six, more new patients is an expensive way to stay in the same place. We would rather understand your visit average and where people fall off first, because that number tells us whether marketing is even the right spend right now.</p>
+        </div>
+        <div class="how-card">
+          <h3>Content that does part of the report of findings early</h3>
+          <p>When the first time a patient hears what a care plan involves is while they are lying on the table, you get resistance. Explaining what you treat, what care typically looks like, and how the money works before they ever book means the conversation in the office starts from a much better place.</p>
+        </div>
+        <div class="how-card">
+          <h3>A calendar that respects the deductible cycle</h3>
+          <p>A benefits-focused push in the fourth quarter while patients still have coverage to use, and a realistic plan for January when deductibles reset and volume drops. Neither of those is a marketing failure, and both are predictable enough to budget around.</p>
+        </div>
+        <div class="how-card">
+          <h3>Reactivation of patients you already earned</h3>
+          <p>The people who came in twice and disappeared are a warmer audience than anyone you can buy. A steady reactivation effort aimed at lapsed patients usually costs less per visit than new patient acquisition, and most practices have a long list of them sitting in the system doing nothing.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="wid-sec" id="why-different" aria-label="Why Chiropractic Is Different">
+  <div class="container">
+    <div class="wid-head">
+      <div class="wid-label">WHY CHIROPRACTIC IS DIFFERENT</div>
+      <h2>New patients are not the problem.<br><em>Visit six is the problem.</em></h2>
+      <p class="wid-intro">Most practices asking for marketing help do not actually have a front-door problem. They have a back-door problem, and adding new patients to a leaky practice just raises the cost of the leak.</p>
+    </div>
+    <div class="wid-grid">
+        <div class="wid-item">
+          <h3>Patient visit average tells you more than new patient count</h3>
+          <p>A practice can add new patients every week and still shrink, because case value comes from completed care, not from sign-ups. The common pattern is a patient dropping out around the sixth visit, often before they have finished getting better, with only a small share continuing into long-term care. If retention is the leak, more marketing spend makes the problem more expensive, not smaller.</p>
+        </div>
+        <div class="wid-item">
+          <h3>January is slow for a reason you cannot advertise around</h3>
+          <p>Deductibles reset on January 1 and patients delay care to avoid the out-of-pocket hit. The mirror image is the fourth quarter, when patients who have already met their deductible want to use benefits before they disappear. Those two facts should shape your calendar and your cash planning, and most practices are surprised by both every year.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Personal injury pays well and collects slowly</h3>
+          <p>Cases that run through an attorney relationship and a letter of protection can be strong revenue, but the money often does not arrive until the case settles, which can be a year or more out. The administrative load of tracking those files is real. A practice built entirely on personal injury has a cash-flow shape very different from a cash or insurance practice.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Screenings fill a clipboard, not a schedule</h3>
+          <p>Health fairs and screenings reliably produce a stack of names and very few people who show up for a second visit. The same is true of deep discount offers. What actually converts is a patient who already understands what you treat and what care will look like before they ever call, which is a content problem more than an offer problem.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="faq-header"><h2>Questions we get asked</h2></div>
+    <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>We get new patients but they do not stay. Can marketing fix that?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Not by itself, and we will tell you that early. Content can set expectations before the first visit so the report of findings is not the first time someone hears what care involves, but if patients are dropping at visit six the fix is largely inside the practice.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Why is January always so slow?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Deductibles reset, so patients delay. It is not your marketing failing. The practices that handle it best plan cash for it and push a benefits-focused message in the fourth quarter while patients still have coverage to use.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Should we be marketing for personal injury cases?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>It depends on whether your cash flow can wait for settlements and whether you have real attorney relationships. Personal injury is a relationship business more than an advertising one, and it collects on a long timeline.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I need to be on camera?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>It helps more here than in most industries. A significant share of people are skeptical of chiropractic or nervous about the adjustment itself, and seeing the doctor explain what actually happens does more to reduce that fear than any written page can.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do we handle patients who think chiropractic is not legitimate?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>By answering it rather than avoiding it. Explaining what you treat, what the evidence supports, what a visit involves, and what it will cost addresses the real hesitation. Practices that dodge the skepticism tend to attract only people who were already convinced.</p></div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "We get new patients but they do not stay. Can marketing fix that?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not by itself, and we will tell you that early. Content can set expectations before the first visit so the report of findings is not the first time someone hears what care involves, but if patients are dropping at visit six the fix is largely inside the practice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is January always so slow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deductibles reset, so patients delay. It is not your marketing failing. The practices that handle it best plan cash for it and push a benefits-focused message in the fourth quarter while patients still have coverage to use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should we be marketing for personal injury cases?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on whether your cash flow can wait for settlements and whether you have real attorney relationships. Personal injury is a relationship business more than an advertising one, and it collects on a long timeline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be on camera?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It helps more here than in most industries. A significant share of people are skeptical of chiropractic or nervous about the adjustment itself, and seeing the doctor explain what actually happens does more to reduce that fear than any written page can."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we handle patients who think chiropractic is not legitimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By answering it rather than avoiding it. Explaining what you treat, what the evidence supports, what a visit involves, and what it will cost addresses the real hesitation. Practices that dodge the skepticism tend to attract only people who were already convinced."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+</script>
+
+<footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
         <div>

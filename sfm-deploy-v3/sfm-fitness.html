@@ -91,7 +91,40 @@
     .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
     .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
     .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
-  </style>
+  
+    .wid-sec{padding:88px 0;background:rgba(255,255,255,0.02);}
+    .wid-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .wid-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .wid-head h2{font-size:clamp(28px,4vw,40px);line-height:1.2;color:var(--white);font-weight:800;}
+    .wid-head h2 em{color:var(--orange);font-style:normal;}
+    .wid-intro{font-size:17px;color:rgba(255,255,255,.72);line-height:1.8;margin-top:18px;}
+    .wid-grid{max-width:900px;margin:0 auto;display:grid;gap:20px;}
+    .wid-item{background:rgba(255,255,255,0.04);border-radius:14px;padding:26px 28px;border-left:4px solid var(--orange);}
+    .wid-item h3{font-size:18px;color:var(--white);margin-bottom:10px;line-height:1.35;font-weight:700;}
+    .wid-item p{font-size:15.5px;color:rgba(255,255,255,.72);line-height:1.8;}
+    .faq-sec{padding:88px 0;}
+    .faq-header{text-align:center;margin-bottom:44px;}
+    .faq-header h2{font-size:clamp(26px,4vw,36px);color:var(--white);font-weight:800;}
+    .faq-grid{max-width:720px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,.12);}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--white);cursor:pointer;text-align:left;gap:16px;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-icon{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px;line-height:1;transition:background .2s,transform .3s;}
+    .faq-item.open .faq-icon{background:var(--orange);transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;padding-bottom:0;}
+    .faq-item.open .faq-answer{max-height:520px;padding-bottom:20px;}
+    .faq-answer p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;}
+
+    .how-sec{padding:88px 0;}
+    .how-head{max-width:760px;margin:0 auto 48px;text-align:center;}
+    .how-label{font-size:13px;font-weight:700;letter-spacing:2px;color:var(--orange);margin-bottom:16px;}
+    .how-head h2{font-size:clamp(26px,4vw,38px);line-height:1.2;color:var(--white);font-weight:800;}
+    .how-head h2 em{color:var(--orange);font-style:normal;}
+    .how-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+    .how-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 28px;}
+    .how-card h3{font-size:17px;color:var(--white);margin-bottom:10px;font-weight:700;line-height:1.35;}
+    .how-card p{font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;}
+</style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDLWCX753N"></script>
@@ -238,6 +271,163 @@
   <p>Book a free, no-pressure strategy call. We'll map out exactly how to grow your membership in Northwest Ohio.</p>
   <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" class="btn-white">Book My Free Strategy Call →</a>
 </div>
+
+
+
+<section class="how-sec" id="how-we-work" aria-label="How we work">
+  <div class="container">
+    <div class="how-head">
+      <div class="how-label">HOW WE WORK WITH GYMS</div>
+      <h2>We would rather fix retention<br><em>than sell you more leads.</em></h2>
+    </div>
+    <div class="how-grid">
+        <div class="how-card">
+          <h3>Offers designed to filter, not just to fill</h3>
+          <p>An intro offer should attract someone who fits how you actually coach. That usually means a structured on-ramp or a paid intro rather than a race to the lowest price, because average revenue per member and churn together decide what a member is worth far more than the sign-up number does.</p>
+        </div>
+        <div class="how-card">
+          <h3>Speed of follow-up, because that is where leads die</h3>
+          <p>A large share of gym leads never get a second contact attempt, and response time is one of the biggest factors in whether someone ever books. We will look at what happens after the form gets submitted before recommending you spend more on getting more forms submitted.</p>
+        </div>
+        <div class="how-card">
+          <h3>Content aimed at the member who is about to quit</h3>
+          <p>Most gym marketing talks to strangers. Very little of it talks to the member at month three who has started skipping. Member stories, coach check-ins, and community content do real retention work, and retention is worth more to your revenue than another January signup.</p>
+        </div>
+        <div class="how-card">
+          <h3>Planning around the calendar you already know is coming</h3>
+          <p>January is your best acquisition month and February is when a big share of those people disappear. November and December are usually your worst months for net membership. None of that is a surprise, so it should be in the plan and in the cash forecast rather than something that happens to you every year.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="wid-sec" id="why-different" aria-label="Why Gyms Are Different">
+  <div class="container">
+    <div class="wid-head">
+      <div class="wid-label">WHY GYMS ARE DIFFERENT</div>
+      <h2>More leads will not save a gym<br><em>that leaks members.</em></h2>
+      <p class="wid-intro">Most gym marketing sells the front door. The business is actually won or lost at month three, and that changes what is worth spending money on.</p>
+    </div>
+    <div class="wid-grid">
+        <div class="wid-item">
+          <h3>Churn decides your value, not sign-ups</h3>
+          <p>Lifetime value is roughly your average revenue per member divided by your monthly churn. Industry churn commonly runs four to six percent a month, and the gyms that keep it near two to three earn multiples more per member at the exact same price. That is why pouring leads into a gym with a retention problem mostly just raises your ad spend.</p>
+        </div>
+        <div class="wid-item">
+          <h3>January fills the room and February empties it</h3>
+          <p>Resolution joiners leave fast, and a large share are gone within weeks. Meanwhile November and December quietly carry the highest net member loss of the year. The gyms that survive this plan cash around it instead of being surprised by it every single year, and they use January to fill an on-ramp rather than to sell twelve-month contracts to people who will ghost.</p>
+        </div>
+        <div class="wid-item">
+          <h3>A ninety-nine dollar special buys you the wrong member</h3>
+          <p>Discount pricing attracts a price shopper, and a price shopper churns. If your model depends on coaching, small groups, and high touch, your margin comes from members who stay a long time, not from filling a six a.m. class with people who disappear by week three. The offer should filter for fit, not just for volume.</p>
+        </div>
+        <div class="wid-item">
+          <h3>Half the people you want are afraid to walk in</h3>
+          <p>Surveys of non-members consistently find that a large share find the idea of a gym intimidating, and many believe they need to get in shape before they are allowed to start. If your content only shows your fittest members at their best, you are confirming that fear. Showing real members who look like the person on the couch is what gets them through the door.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="faq-header"><h2>Questions we get asked</h2></div>
+    <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Should I run a January special?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Run a January campaign, but be careful what you sell. January is genuinely the best acquisition month of the year, and it is also when the most poorly-fit members join. We would rather fill a structured intro or on-ramp than sell a discounted year to someone who quits in March.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do six-week challenges actually work?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>They work when there is a real conversation at the end about what happens next. Without that, a challenge is just a discount with a deadline. The conversion happens in the exit meeting, not in the workout.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>We get leads but nobody converts. Is that a marketing problem?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Often it is a follow-up problem. Speed of response matters enormously, and a large share of gym leads never get worked past the first attempt. We will not keep selling you leads if the issue is that nobody is calling them back.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do I have to be the face of the gym?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>It helps a lot, because people join coaches more than facilities. But member stories, class footage, and coach-led explainers carry a lot of the weight, and are often more persuasive than the owner talking about the gym.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What do we do about the summer drop?</span><span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer"><p>Plan for it. Summer is the second trough as routines break for travel and kids, and freeze requests spike. Campaigns built around schedule flexibility and short-term formats hold more members than pretending it is not happening.</p></div>
+          </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I run a January special?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run a January campaign, but be careful what you sell. January is genuinely the best acquisition month of the year, and it is also when the most poorly-fit members join. We would rather fill a structured intro or on-ramp than sell a discounted year to someone who quits in March."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do six-week challenges actually work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They work when there is a real conversation at the end about what happens next. Without that, a challenge is just a discount with a deadline. The conversion happens in the exit meeting, not in the workout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We get leads but nobody converts. Is that a marketing problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often it is a follow-up problem. Speed of response matters enormously, and a large share of gym leads never get worked past the first attempt. We will not keep selling you leads if the issue is that nobody is calling them back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to be the face of the gym?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It helps a lot, because people join coaches more than facilities. But member stories, class footage, and coach-led explainers carry a lot of the weight, and are often more persuasive than the owner talking about the gym."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do we do about the summer drop?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan for it. Summer is the second trough as routines break for travel and kids, and freeze requests spike. Campaigns built around schedule flexibility and short-term formats hold more members than pretending it is not happening."
+      }
+    }
+  ]
+}
+</script>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-question').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+</script>
 
 <footer>
   <div class="foot-inner">
