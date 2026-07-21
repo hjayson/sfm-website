@@ -37,6 +37,54 @@
     "serviceType": "Social Media Marketing for Landscaping Companies"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What do I post in the winter when there's no work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's the season that matters most. Design previews, past project galleries, planning content, early booking offers, and snow and ice work if you do it. Winter posting is what fills the spring calendar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I show pricing on social?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually not the full number, but ranges help. Posting a completed project with a general investment range filters out people who were never going to book and makes the ones who do call much easier to close."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I sell maintenance contracts instead of one-off jobs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By showing the same property looking good across a whole season instead of one after photo. When someone sees what consistent upkeep actually looks like over months, the recurring plan sells itself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My work speaks for itself. Do I really need this?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your work does speak for itself, but only to people who've already seen it. Everyone else is scrolling past whoever posted this week. That's the whole gap we're closing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast will I see results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Organic social takes 60 to 90 days to build real momentum. Ad campaigns can start generating inquiries within the first few weeks. Timing matters more in landscaping than most trades, so we'll build backward from your season on the strategy call."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -217,7 +265,29 @@
   
     /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
     @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
-  </style>
+  
+    .wid-sec{padding:96px 0;background:var(--off-white);}
+    .wid-head{max-width:760px;margin:0 auto 52px;text-align:center;}
+    .wid-intro{font-size:17px;color:var(--dark-gray);line-height:1.8;margin-top:18px;}
+    .wid-grid{max-width:900px;margin:0 auto;display:grid;gap:22px;}
+    .wid-item{background:var(--white);border-radius:14px;padding:26px 28px;border-left:4px solid var(--orange);box-shadow:0 2px 18px rgba(20,33,61,.06);}
+    .wid-item h3{font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.35;}
+    .wid-item p{font-size:15.5px;color:var(--dark-gray);line-height:1.8;}
+    .faq-sec{padding:96px 0;background:var(--white);}
+    .faq-header{text-align:center;margin-bottom:44px;}
+    .faq-grid{max-width:720px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid var(--light-gray);}
+    .faq-question{display:flex;align-items:center;justify-content:space-between;width:100%;padding:20px 0;background:none;border:none;font-family:var(--font);font-size:16px;font-weight:700;color:var(--navy);cursor:pointer;text-align:left;gap:16px;transition:color .2s;}
+    .faq-question:hover{color:var(--orange);}
+    .faq-icon{width:26px;height:26px;border-radius:50%;background:var(--light-gray);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+    .faq-icon svg{transition:transform .3s ease;}
+    .faq-item.open .faq-icon{background:var(--orange);}
+    .faq-item.open .faq-icon svg{transform:rotate(45deg);color:var(--white);}
+    .faq-item.open .faq-question{color:var(--orange);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease;padding-bottom:0;}
+    .faq-item.open .faq-answer{max-height:520px;padding-bottom:20px;}
+    .faq-answer p{font-size:15px;color:var(--dark-gray);line-height:1.8;}
+</style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -490,6 +560,52 @@
   </section>
 
   <!-- CTA -->
+  <section id="why-different" aria-label="Why Landscaping Is Different" class="wid-sec">
+    <div class="container">
+      <div class="wid-head">
+        <div class="section-label" style="text-align:center">Why Landscaping Is Different</div>
+        <h2 class="section-title reveal">Landscaping marketing lives or dies<br /><em>on the calendar.</em></h2>
+        <p class="wid-intro reveal">Landscaping has the most extreme seasonality of any trade we work with, and it has the best-looking work. Those two facts should shape everything, and for most companies neither one does.</p>
+      </div>
+      <div class="wid-grid">
+          <div class="wid-item reveal"><h3>Your work is the most visual of any trade</h3><p>A plumber shows a clean solder joint. You show an entire yard transformed. That is a real advantage on platforms built for pictures, and most landscaping companies waste it by posting nothing between April and October.</p></div>
+          <div class="wid-item reveal"><h3>The booking decision happens months before the season</h3><p>People start picturing their yard in February and March, long before anyone's outside working. Companies that go quiet all winter show up in spring to find the calendar already filled by someone who didn't. Winter is when spring gets sold.</p></div>
+          <div class="wid-item reveal"><h3>Maintenance contracts are worth more than installs</h3><p>A one-time patio is good money once. A recurring maintenance client pays every month for years. Those are two different sales with two different messages, and lumping them together costs you the recurring revenue.</p></div>
+          <div class="wid-item reveal"><h3>Everyone with a truck and a mower is your competitor</h3><p>Low barrier to entry means the market is crowded with people who will do it cheaper. Showing finished work, real crews, and actual reviews is what separates a company from a guy, and it's why you can charge more.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-label="Frequently asked questions" class="faq-sec">
+    <div class="container">
+      <div class="faq-header">
+        <h2 class="section-title reveal">What landscaping companies ask us</h2>
+      </div>
+      <div class="faq-grid reveal">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">What do I post in the winter when there's no work?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><p>That's the season that matters most. Design previews, past project galleries, planning content, early booking offers, and snow and ice work if you do it. Winter posting is what fills the spring calendar.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Should I show pricing on social?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><p>Usually not the full number, but ranges help. Posting a completed project with a general investment range filters out people who were never going to book and makes the ones who do call much easier to close.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How do I sell maintenance contracts instead of one-off jobs?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><p>By showing the same property looking good across a whole season instead of one after photo. When someone sees what consistent upkeep actually looks like over months, the recurring plan sells itself.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">My work speaks for itself. Do I really need this?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><p>Your work does speak for itself, but only to people who've already seen it. Everyone else is scrolling past whoever posted this week. That's the whole gap we're closing.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How fast will I see results?<span class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><p>Organic social takes 60 to 90 days to build real momentum. Ad campaigns can start generating inquiries within the first few weeks. Timing matters more in landscaping than most trades, so we'll build backward from your season on the strategy call.</p></div>
+          </div>
+      </div>
+    </div>
+  </section>
+
   <section id="cta" aria-label="Call to action">
     <div class="container">
       <div class="cta-inner">
@@ -584,6 +700,14 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
-<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);
+    document.querySelectorAll('.faq-question').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-question').setAttribute('aria-expanded','false');});
+        if(!isOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+      });
+    });
+</script>
 </body>
 </html>
