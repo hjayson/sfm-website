@@ -79,3 +79,8 @@
 /webinar-registration-1 /sfm-brand-kit-free     301
 /book-online            /sfm-contact            301
 /blog-1                 /sfm-blog               301
+
+# More old Wix leftovers -> live pages
+/registration                  /sfm-contact           301
+/about-1                       /sfm-about             301
+/copy-of-*                     /                      301
