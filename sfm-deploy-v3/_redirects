@@ -6,6 +6,12 @@
 /post/social-media-tips-local-perrysburg-events     /sfm-blog-content-ideas     301
 /post/*                                             /sfm-blog                   301
 
+# Old Wix 404s -> relevant live pages (fix GSC not-found)
+/service-page/organic-reach-workshop-morning-session /sfm-ai-workshop         301
+/service-page/organic-reach-workshop-evening         /sfm-ai-workshop         301
+/service-page/*                                      /sfm-services            301
+/sign-up-for-our-giveaway                            /                        301
+
 # Core pages
 /about                  /sfm-about              301
 /about-us               /sfm-about              301
