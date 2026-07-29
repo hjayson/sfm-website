@@ -84,3 +84,4 @@
 /registration                  /sfm-contact           301
 /about-1                       /sfm-about             301
 /copy-of-*                     /                      301
+/home                          /                      301
