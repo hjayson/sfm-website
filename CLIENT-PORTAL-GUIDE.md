@@ -37,6 +37,8 @@ Commit + push.
 | TRIO Veterans Upward Bound (VUB) | /clients/veterans-trio.html | 8094 |
 | Fuller & Sons Insurance | /clients/fuller-and-sons.html | 3517 |
 | VJ's Towing | /clients/vjs-towing.html | 9426 |
+| Bargain Towing | /clients/bargain-towing.html | 3164 |
+| Perrysburg Heights Community Assoc. | /clients/perrysburg-heights.html | 4310 |
 
 ## Master dashboard (team only)
 **/clients/master.html · master code 4750** — toggle through every client portal in one view (auto-unlocked), see last-updated + progress, and hit "✏️ Edit here" to update any client right on the page — weekly note, plan, percents, stages, add/remove projects (e.g., a new SEO task) — Save commits to GitHub and redeploys in ~1 min. One-time setup per browser: ⚙︎ GitHub button → paste a fine-grained token (repo: sfm-website, Contents: Read & write). "GitHub ↗" still opens the raw file as a fallback. When adding a client, also add them to the CLIENTS list inside master.html.
