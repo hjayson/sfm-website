@@ -33,10 +33,12 @@
   .hero-mini{display:flex;gap:30px;margin-top:40px;color:rgba(255,255,255,.6);font-size:13px;}
   .hero-mini b{color:#fff;font-size:24px;font-weight:900;display:block;letter-spacing:-.5px;}
   /* MARQUEE */
-  .proofbar{background:var(--ember);padding:15px 0;overflow:hidden;white-space:nowrap;}
-  .track{display:inline-flex;align-items:center;gap:44px;animation:scroll 28s linear infinite;}
-  .track .label{color:#3a1305;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;}
-  .track b{color:#fff;font-weight:800;font-size:17px;opacity:.94;}
+  .proofbar{background:#fff;border-bottom:1px solid #eceef2;padding:26px 0 22px;overflow:hidden;}
+  .proofbar .cap{text-align:center;font-size:11.5px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#9aa4b2;margin-bottom:16px;}
+  .marq{overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .track{display:inline-flex;align-items:center;gap:64px;animation:scroll 34s linear infinite;}
+  .track img{height:42px;width:auto;object-fit:contain;filter:grayscale(1) opacity(.62);transition:filter .25s;}
+  .track img:hover{filter:grayscale(0) opacity(1);}
   @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   section.block{padding:92px 0;}.light{background:var(--off);color:var(--ink);}
   .kicker{font-size:12.5px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--ember);margin-bottom:14px;}
@@ -81,10 +83,7 @@
   </div>
 </header>
 
-<div class="proofbar"><div class="track">
-  <span class="label">Businesses we've grown</span><b>Legacy Law Group</b><b>Gallon, Takacs &amp; Boissoneault</b><b>Round &amp; Round Gifts</b><b>Best of Toledo 2025</b><b>NW Ohio Home Builders</b>
-  <span class="label">Businesses we've grown</span><b>Legacy Law Group</b><b>Gallon, Takacs &amp; Boissoneault</b><b>Round &amp; Round Gifts</b><b>Best of Toledo 2025</b><b>NW Ohio Home Builders</b>
-</div></div>
+<div class="proofbar"><div class="cap">Businesses we've grown</div><div class="marq"><div class="track"><img src="/images/logos/logo-legacy-law.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-gallon-takacs.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-culvers.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-welchs-golf.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-precision-auto.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-bollin-wealth.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-livefit.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-rmc.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-smart-financial.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-legacy-law.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-gallon-takacs.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-culvers.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-welchs-golf.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-precision-auto.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-bollin-wealth.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-livefit.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-rmc.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-smart-financial.png" alt="Client logo" loading="lazy"></div></div></div>
 
 <section class="block light"><div class="wrap">
   <div class="rev"><div class="kicker">How the machine works</div><h2>Four stages. One system that never stops running.</h2>
