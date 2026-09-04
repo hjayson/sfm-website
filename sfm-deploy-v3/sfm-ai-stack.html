@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A1628">
+  <meta name="description" content="Steal Sales Funnel Marketing's CEO AI Stack and get the simple tools, prompts, and follow-up flow we use to turn attention into leads.">
+  <meta name="robots" content="index, follow">
+  <title>Steal Our CEO's AI Stack | Sales Funnel Marketing</title>
+  <link rel="icon" type="image/png" href="images/sfm-logo.png">
+  <style>
+    :root {
+      --navy: #0A1628;
+      --navy-2: #112541;
+      --orange: #E85D26;
+      --orange-dark: #c64b1b;
+      --teal: #2AB7A9;
+      --gold: #F5B84B;
+      --paper: #F6F8FB;
+      --white: #FFFFFF;
+      --ink: #162235;
+      --muted: #66758A;
+      --line: #DCE3EC;
+      --shadow: 0 22px 70px rgba(10, 22, 40, 0.22);
+      --font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    input, select, button { font: inherit; }
+
+    .topbar {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .topbar-inner {
+      width: min(1160px, calc(100% - 40px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-weight: 900;
+      text-decoration: none;
+    }
+    .brand img { width: 38px; height: 38px; border-radius: 50%; }
+    .brand span span { color: var(--orange); }
+    .phone {
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .hero {
+      background:
+        linear-gradient(115deg, rgba(10,22,40,0.96), rgba(17,37,65,0.9) 58%, rgba(42,183,169,0.45)),
+        url("images/jayson-action.jpg");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+    }
+    .hero-inner {
+      width: min(1160px, calc(100% - 40px));
+      min-height: calc(100svh - 72px);
+      margin: 0 auto;
+      padding: 52px 0 42px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 430px;
+      gap: 46px;
+      align-items: center;
+    }
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 720px;
+      margin: 0 0 18px;
+      font-size: clamp(40px, 5.5vw, 70px);
+      line-height: 0.95;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+    .hero-lead {
+      max-width: 620px;
+      margin: 0 0 26px;
+      color: rgba(255,255,255,0.82);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.42;
+    }
+    .proof-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+    .proof-pill {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.09);
+      color: rgba(255,255,255,0.86);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex: 0 0 auto;
+    }
+    .mini-stack {
+      width: min(560px, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .stack-step {
+      min-height: 118px;
+      padding: 15px 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+    .stack-step b {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-size: 13px;
+    }
+    .stack-step span {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .form-card {
+      background: var(--white);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .form-card h2 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: 25px;
+      line-height: 1.12;
+    }
+    .form-sub {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      margin: 0 0 6px;
+      color: #526277;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .field input, .field select {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px 13px;
+      background: #FBFCFE;
+      color: var(--ink);
+      font-size: 15px;
+    }
+    .field input:focus, .field select:focus {
+      outline: 3px solid rgba(232,93,38,0.18);
+      border-color: var(--orange);
+      background: var(--white);
+    }
+    .submit {
+      width: 100%;
+      min-height: 54px;
+      border: 0;
+      border-radius: 6px;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 950;
+      cursor: pointer;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+    .submit:hover, .submit:focus-visible {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+    .submit[disabled] {
+      opacity: 0.68;
+      cursor: wait;
+      transform: none;
+    }
+    .fineprint {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .form-error {
+      min-height: 20px;
+      margin: 10px 0 0;
+      color: #A43A32;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .content-band {
+      padding: 58px 0;
+      background: var(--white);
+    }
+    .content-inner {
+      width: min(1050px, calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+    }
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .content-band h2 {
+      margin: 0 0 13px;
+      color: var(--navy);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.02;
+    }
+    .content-band p {
+      margin: 0 0 16px;
+      color: #536176;
+      font-size: 17px;
+    }
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+    .check-item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #FBFCFE;
+    }
+    .check-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: rgba(42,183,169,0.14);
+      color: #0E7B72;
+      font-weight: 950;
+    }
+    .check-item b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+    }
+    .check-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 28px 20px;
+      background: var(--navy);
+      color: rgba(255,255,255,0.42);
+      text-align: center;
+      font-size: 13px;
+    }
+    footer a { color: rgba(255,255,255,0.58); text-decoration: none; }
+
+    @media (max-width: 920px) {
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; }
+      .form-card { max-width: 540px; }
+      .content-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .topbar-inner { width: min(100% - 28px, 1160px); }
+      .phone { display: none; }
+      .hero-inner { width: min(100% - 28px, 1160px); padding: 36px 0; gap: 28px; }
+      .mini-stack { grid-template-columns: 1fr; }
+      .form-card { padding: 22px 18px; }
+      .content-inner { width: min(100% - 28px, 1050px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <img src="images/sfm-logo.png" alt="">
+        <span>Sales <span>Funnel</span> Marketing</span>
+      </a>
+      <a class="phone" href="tel:+14193084576">Call/Text 419-308-4576</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Free Download</p>
+          <h1>Steal Our CEO's AI Stack</h1>
+          <p class="hero-lead">Get the practical AI, content, ad, landing page, CRM, and follow-up stack we use to turn attention into actual lead conversations.</p>
+          <div class="proof-row" aria-label="What the guide covers">
+            <span class="proof-pill"><span class="dot"></span>Tools and prompts</span>
+            <span class="proof-pill"><span class="dot"></span>Lead capture flow</span>
+            <span class="proof-pill"><span class="dot"></span>Follow-up automation</span>
+          </div>
+          <div class="mini-stack" aria-hidden="true">
+            <div class="stack-step"><b>1. Hook</b><span>Use the ad that already earns the click.</span></div>
+            <div class="stack-step"><b>2. Capture</b><span>Ask for name, email, phone, and one qualifier.</span></div>
+            <div class="stack-step"><b>3. Follow Up</b><span>Text, email, tag, notify, and call fast.</span></div>
+          </div>
+        </div>
+
+        <aside class="form-card" aria-label="Download form">
+          <h2>Send me the AI Stack</h2>
+          <p class="form-sub">Instant PDF access. Name, email, and phone are required so the follow-up system is real.</p>
+          <form id="lead-form" name="sfm-ai-stack" method="POST" data-netlify="true" netlify-honeypot="website" action="/sfm-ai-stack-thanks.html" novalidate>
+            <input type="hidden" name="form-name" value="sfm-ai-stack">
+            <input type="hidden" id="lead-source" name="lead_source" value="">
+            <input type="hidden" id="utm-source" name="utm_source" value="">
+            <input type="hidden" id="utm-medium" name="utm_medium" value="">
+            <input type="hidden" id="utm-campaign" name="utm_campaign" value="">
+            <input type="hidden" id="utm-content" name="utm_content" value="">
+            <input type="hidden" id="utm-term" name="utm_term" value="">
+            <input type="hidden" id="ad-hook" name="ad_hook" value="">
+            <input type="hidden" name="offer" value="ceo_ai_stack">
+            <p hidden><label>Website <input id="website" name="website" autocomplete="off"></label></p>
+
+            <div class="field">
+              <label for="full-name">Name</label>
+              <input id="full-name" name="name" type="text" autocomplete="name" required placeholder="First and last name">
+            </div>
+            <div class="field">
+              <label for="work-email">Email</label>
+              <input id="work-email" name="email" type="email" autocomplete="email" required placeholder="you@yourbusiness.com">
+            </div>
+            <div class="field">
+              <label for="phone-number">Phone</label>
+              <input id="phone-number" name="phone" type="tel" autocomplete="tel" required placeholder="419-555-0143">
+            </div>
+            <div class="field">
+              <label for="lead-volume">Monthly lead volume</label>
+              <select id="lead-volume" name="lead_volume">
+                <option value="">Select one</option>
+                <option>0 to 10</option>
+                <option>11 to 50</option>
+                <option>51 to 150</option>
+                <option>150+</option>
+              </select>
+            </div>
+
+            <button class="submit" id="submit-button" type="submit">Get the free stack</button>
+            <p class="form-error" id="form-error" role="alert"></p>
+            <p class="fineprint">We will send the guide and may follow up about your funnel. No list clutter.</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-band">
+      <div class="content-inner">
+        <div>
+          <p class="section-kicker">Built For Conversion Ads</p>
+          <h2>Views are nice. Contacts are better.</h2>
+          <p>This page is designed for the two ad hooks already working: the AI Stack offer and the funny video that earns landing page views. Same lesson either way: once they stop scrolling, give them one next step.</p>
+        </div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-icon">1</div><div><b>Duplicate the winning ad</b><span>Keep the existing view campaign intact and launch a new Leads campaign using the same creative.</span></div></div>
+          <div class="check-item"><div class="check-icon">2</div><div><b>Send traffic here</b><span>Use /ai-stack for the CEO Stack ad and /funnel-leak-audit for the Tommy Boy-style follow-up angle.</span></div></div>
+          <div class="check-item"><div class="check-icon">3</div><div><b>Optimize for Lead</b><span>The page fires lead tracking after submission and forwards source, campaign, content, and term fields to the CRM relay.</span></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Sales Funnel Marketing · Perrysburg, OH · <a href="sfm-privacy.html">Privacy</a>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var form = document.getElementById("lead-form");
+      var submitButton = document.getElementById("submit-button");
+      var formError = document.getElementById("form-error");
+      var prefix = "sfm_ai_stack_";
+
+      function safeStorageGet(key) {
+        try { return window.localStorage.getItem(prefix + key) || ""; }
+        catch (error) { return ""; }
+      }
+
+      function safeStorageSet(key, value) {
+        try { window.localStorage.setItem(prefix + key, value || ""); }
+        catch (error) {}
+      }
+
+      function captureAttribution() {
+        var params = new URLSearchParams(window.location.search);
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (key) {
+          if (params.get(key)) safeStorageSet(key, params.get(key));
+        });
+        if (params.get("ad_hook")) safeStorageSet("ad_hook", params.get("ad_hook"));
+        setHiddenFields();
+      }
+
+      function setHiddenFields() {
+        document.getElementById("lead-source").value = leadSource();
+        document.getElementById("utm-source").value = safeStorageGet("utm_source");
+        document.getElementById("utm-medium").value = safeStorageGet("utm_medium");
+        document.getElementById("utm-campaign").value = safeStorageGet("utm_campaign");
+        document.getElementById("utm-content").value = safeStorageGet("utm_content");
+        document.getElementById("utm-term").value = safeStorageGet("utm_term");
+        document.getElementById("ad-hook").value = safeStorageGet("ad_hook") || (window.location.pathname.indexOf("funnel-leak") > -1 ? "tommy_boy_funnel_leak" : "ceo_ai_stack");
+      }
+
+      function leadSource() {
+        var source = safeStorageGet("utm_source").toLowerCase();
+        if (source.indexOf("meta") > -1 || source.indexOf("facebook") > -1 || source === "fb" || source.indexOf("instagram") > -1 || source === "ig") return "Meta Ad";
+        if (source.indexOf("linkedin") > -1 || source === "li") return "LinkedIn Ad";
+        if (source.indexOf("google") > -1) return "Google Ad";
+        return "Website Form";
+      }
+
+      function isPreviewHost() {
+        return window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.protocol === "file:";
+      }
+
+      function relayUrl() {
+        if (window.location.hostname.indexOf("salesfunnelmarketing.us") > -1) return "/.netlify/functions/sfm-ai-stack-relay";
+        return "https://www.salesfunnelmarketing.us/.netlify/functions/sfm-ai-stack-relay";
+      }
+
+      function splitName(fullName) {
+        var parts = fullName.trim().split(/\s+/);
+        return {
+          first: parts.shift() || "",
+          last: parts.join(" ")
+        };
+      }
+
+      function track(name, data) {
+        var detail = data || {};
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(Object.assign({ event: name }, detail));
+        if (typeof window.gtag === "function") window.gtag("event", name, detail);
+        if (typeof window.fbq === "function" && name !== "generate_lead") window.fbq("trackCustom", name, detail);
+        document.dispatchEvent(new CustomEvent("sfm:" + name, { detail: detail }));
+      }
+
+      function postLead(payload) {
+        if (isPreviewHost()) {
+          return new Promise(function (resolve) {
+            window.setTimeout(function () { resolve({ ok: true, preview: true }); }, 250);
+          });
+        }
+
+        return fetch(relayUrl(), {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify(payload)
+        }).then(function (response) {
+          return response.json().catch(function () { return {}; }).then(function (data) {
+            if (!response.ok || data.ok !== true) {
+              var error = new Error(data.error || "Lead could not be submitted.");
+              error.status = response.status;
+              throw error;
+            }
+            return data;
+          });
+        });
+      }
+
+      function payload() {
+        var name = splitName(document.getElementById("full-name").value);
+        return {
+          first_name: name.first,
+          last_name: name.last,
+          email: document.getElementById("work-email").value.trim(),
+          phone: document.getElementById("phone-number").value.trim(),
+          lead_volume: document.getElementById("lead-volume").value,
+          intent: "Requested Steal Our CEO's AI Stack",
+          offer: "ceo_ai_stack",
+          ad_hook: safeStorageGet("ad_hook") || (window.location.pathname.indexOf("funnel-leak") > -1 ? "tommy_boy_funnel_leak" : "ceo_ai_stack"),
+          lead_source: leadSource(),
+          utm_source: safeStorageGet("utm_source"),
+          utm_medium: safeStorageGet("utm_medium"),
+          utm_campaign: safeStorageGet("utm_campaign"),
+          utm_content: safeStorageGet("utm_content"),
+          utm_term: safeStorageGet("utm_term"),
+          page: window.location.pathname.replace(/^\/+/, "") || "ai-stack"
+        };
+      }
+
+      function validate() {
+        if (document.getElementById("website").value) return false;
+        var required = Array.prototype.slice.call(form.querySelectorAll("[required]"));
+        var invalid = required.find(function (field) { return !field.checkValidity(); });
+        if (invalid) {
+          invalid.reportValidity();
+          invalid.focus();
+          return false;
+        }
+        return true;
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        formError.textContent = "";
+        if (!validate()) return;
+
+        setHiddenFields();
+        var lead = payload();
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        postLead(lead).then(function () {
+          track("generate_lead", { method: "ceo_ai_stack", lead_source: lead.lead_source });
+          if (typeof window.fbq === "function") window.fbq("track", "Lead");
+          window.location.href = "/sfm-ai-stack-thanks.html";
+        }).catch(function (error) {
+          if (error && error.status === 503) {
+            HTMLFormElement.prototype.submit.call(form);
+            return;
+          }
+          formError.textContent = "Something went wrong. Please try again or call/text 419-308-4576.";
+          submitButton.disabled = false;
+          submitButton.textContent = "Get the free stack";
+        });
+      });
+
+      captureAttribution();
+      track("lead_form_view", { offer: "ceo_ai_stack" });
+    })();
+  </script>
+</body>
+</html>

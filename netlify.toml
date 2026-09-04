@@ -240,3 +240,23 @@
   for = "/clients/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+[[redirects]]
+  from = "/ai-stack"
+  to = "/sfm-ai-stack.html"
+  status = 200
+
+[[redirects]]
+  from = "/funnel-leak-audit"
+  to = "/sfm-ai-stack.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-ai-stack"
+  to = "/sfm-ai-stack.html"
+  status = 200
+
+[[redirects]]
+  from = "/sfm-ai-stack-thanks"
+  to = "/sfm-ai-stack-thanks.html"
+  status = 200
+
