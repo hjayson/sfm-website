@@ -70,6 +70,10 @@
 /quiz                   /sfm-score-quiz         301
 /digital-garden         /sfm-digital-garden     301
 /the-scroll             /sfm-the-scroll         301
+/ai-stack               /sfm-ai-stack.html      200
+/funnel-leak-audit      /sfm-ai-stack.html      200
+/sfm-ai-stack           /sfm-ai-stack.html      200
+/sfm-ai-stack-thanks    /sfm-ai-stack-thanks.html 200
 /ai-tells               /sfm-ai-tells.html      200
 /ai-tells-thanks        /sfm-ai-tells-thanks.html 200
 
