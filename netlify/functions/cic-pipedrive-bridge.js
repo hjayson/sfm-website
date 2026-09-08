@@ -63,7 +63,7 @@ async function processLead(payload, apiToken) {
   const personResult = await findOrCreatePerson(lead, organizationResult.id, sourceField, apiToken);
   const leadResult = await upsertLead(
     lead,
-    personResult.id,
+    personResult,
     organizationResult.id,
     sourceField,
     apiToken
@@ -265,19 +265,30 @@ async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
   throw new Error(`Pipedrive person create failed after ${attempts.length} attempts: ${warnings.join(" | ")}`);
 }
 
-async function upsertLead(lead, personId, organizationId, sourceField, apiToken) {
+async function upsertLead(lead, personResult, organizationId, sourceField, apiToken) {
+  const personId = personResult.id;
   const existing = await pipe(
     "GET",
-    `/api/v2/leads/search?term=${encodeURIComponent("Background Check Checkup")}&fields=title&person_id=${encodeURIComponent(personId)}&limit=1`,
+    `/v1/leads?person_id=${encodeURIComponent(personId)}&limit=100`,
     undefined,
     apiToken
   );
-  const existingLeadId = firstIdFromSearch(existing);
+  const existingLead = asArray(existing && existing.data).find((item) => item && item.id);
 
-  if (existingLeadId) {
+  if (existingLead) {
     return {
-      id: existingLeadId,
+      id: existingLead.id,
       action: "existing",
+      person_id: personId,
+      organization_id: organizationId,
+      sourceField,
+    };
+  }
+
+  if (personResult.action === "created") {
+    return {
+      id: null,
+      action: "deferred_to_pipedrive_automation",
       person_id: personId,
       organization_id: organizationId,
       sourceField,
@@ -286,13 +297,14 @@ async function upsertLead(lead, personId, organizationId, sourceField, apiToken)
 
   const created = await pipe(
     "POST",
-    "/api/v1/leads",
+    "/v1/leads",
     compact({
       title: `Background Check Checkup - ${lead.fullName}`,
       owner_id: ownerId(),
       person_id: personId,
       organization_id: organizationId,
       visible_to: String(VISIBLE_TO),
+      origin_id: originIdFor(lead),
     }),
     apiToken
   );
