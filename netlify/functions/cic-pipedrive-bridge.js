@@ -4,6 +4,7 @@ const PIPEDRIVE_HOST = "api.pipedrive.com";
 const ENV_API_TOKEN = process.env.PIPEDRIVE_API_TOKEN;
 const BRIDGE_SECRET = process.env.CIC_BRIDGE_SECRET;
 const OWNER_ID = toNumber(process.env.PIPEDRIVE_OWNER_ID);
+const DEFAULT_OWNER_ID = 23515206;
 const VISIBLE_TO = process.env.PIPEDRIVE_VISIBLE_TO || "3";
 const SOURCE_FIELD_KEY = process.env.PIPEDRIVE_LEAD_SOURCE_FIELD_KEY || "";
 const SOURCE_OPTION_MAP = parseJsonEnv("PIPEDRIVE_SOURCE_OPTION_MAP_JSON", {});
@@ -60,7 +61,13 @@ async function processLead(payload, apiToken) {
     ? await findOrCreateOrganization(lead.company, apiToken)
     : { id: null, action: "skipped_no_company", error: null };
   const personResult = await findOrCreatePerson(lead, organizationResult.id, sourceField, apiToken);
-  const leadResult = await upsertLead(lead, personResult.id, organizationResult.id, sourceField);
+  const leadResult = await upsertLead(
+    lead,
+    personResult.id,
+    organizationResult.id,
+    sourceField,
+    apiToken
+  );
 
   return {
     ok: true,
@@ -124,9 +131,22 @@ function normalizeLeadSource(source, utmSource) {
 }
 
 async function findOrCreateOrganization(company, apiToken) {
+  const existingId = await findFirstId(
+    `/api/v2/organizations/search?term=${encodeURIComponent(company)}&fields=name&exact_match=true&limit=1`,
+    apiToken
+  );
+
+  if (existingId) {
+    return {
+      id: existingId,
+      action: "existing",
+      error: null,
+    };
+  }
+
   const body = compact({
     name: company,
-    owner_id: OWNER_ID,
+    owner_id: ownerId(),
     visible_to: toNumber(VISIBLE_TO),
   });
 
@@ -148,6 +168,21 @@ async function findOrCreateOrganization(company, apiToken) {
 }
 
 async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
+  const existingId = await findFirstId(
+    `/api/v2/persons/search?term=${encodeURIComponent(lead.email)}&fields=email&exact_match=true&limit=1`,
+    apiToken
+  );
+
+  if (existingId) {
+    return {
+      id: existingId,
+      action: "existing",
+      variant: "email_match",
+      sourceField,
+      warnings: [],
+    };
+  }
+
   const requiredBody = compact({
     name: lead.fullName,
     emails: [{ value: lead.email, primary: true, label: "work" }],
@@ -155,7 +190,7 @@ async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
   });
   const baseBody = compact({
     ...requiredBody,
-    owner_id: OWNER_ID,
+    owner_id: ownerId(),
     visible_to: toNumber(VISIBLE_TO),
   });
 
@@ -230,14 +265,49 @@ async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
   throw new Error(`Pipedrive person create failed after ${attempts.length} attempts: ${warnings.join(" | ")}`);
 }
 
-async function upsertLead(lead, personId, organizationId, sourceField) {
+async function upsertLead(lead, personId, organizationId, sourceField, apiToken) {
+  const existing = await pipe(
+    "GET",
+    `/api/v1/leads?person_id=${encodeURIComponent(personId)}&limit=100`,
+    undefined,
+    apiToken
+  );
+  const existingLead = asArray(existing && existing.data).find((item) => item && item.id);
+
+  if (existingLead) {
+    return {
+      id: existingLead.id,
+      action: "existing",
+      person_id: personId,
+      organization_id: organizationId,
+      sourceField,
+    };
+  }
+
+  const created = await pipe(
+    "POST",
+    "/api/v1/leads",
+    compact({
+      title: `Background Check Checkup - ${lead.fullName}`,
+      owner_id: ownerId(),
+      person_id: personId,
+      organization_id: organizationId,
+      visible_to: String(VISIBLE_TO),
+    }),
+    apiToken
+  );
+
   return {
-    id: null,
-    action: "skipped_existing_pipedrive_automation",
+    id: getId(created),
+    action: "created",
     person_id: personId,
     organization_id: organizationId,
     sourceField,
   };
+}
+
+function ownerId() {
+  return OWNER_ID || DEFAULT_OWNER_ID;
 }
 
 async function resolveLeadSourceField(leadSource, apiToken) {
