@@ -268,15 +268,15 @@ async function findOrCreatePerson(lead, organizationId, sourceField, apiToken) {
 async function upsertLead(lead, personId, organizationId, sourceField, apiToken) {
   const existing = await pipe(
     "GET",
-    `/api/v1/leads?person_id=${encodeURIComponent(personId)}&limit=100`,
+    `/api/v2/leads/search?term=${encodeURIComponent("Background Check Checkup")}&fields=title&person_id=${encodeURIComponent(personId)}&limit=1`,
     undefined,
     apiToken
   );
-  const existingLead = asArray(existing && existing.data).find((item) => item && item.id);
+  const existingLeadId = firstIdFromSearch(existing);
 
-  if (existingLead) {
+  if (existingLeadId) {
     return {
-      id: existingLead.id,
+      id: existingLeadId,
       action: "existing",
       person_id: personId,
       organization_id: organizationId,
