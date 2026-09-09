@@ -114,17 +114,17 @@
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 16px; }
-    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
     .nav-right { display: flex; align-items: center; gap: 16px; }
-    .nav-cta { padding: 7px 13px; font-size: 13px; }
+    .nav-cta { padding: 10px 20px; font-size: 14px; }
     /* Book nav badge */
     .nav-book-btn {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
       color: #E85D26; font-size: 13px; font-weight: 700;
-      padding: 7px 12px; border-radius: 100px;
+      padding: 8px 16px; border-radius: 100px;
       transition: all 0.2s ease; white-space: nowrap;
     }
     .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
@@ -215,6 +215,52 @@
     }
     .book-trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.55); }
     .book-stars { color: #FFB800; letter-spacing: -2px; font-size: 16px; }
+
+    /* -- GUIDE OPT-IN ------------------------------------------------- */
+    #grow-guide { padding: 88px 0; background: var(--white); }
+    .guide-inner {
+      display: grid; grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 56px; align-items: center;
+    }
+    .guide-copy h2 {
+      font-size: clamp(32px, 4vw, 48px); font-weight: 900;
+      color: var(--navy); line-height: 1.1; margin-bottom: 18px;
+    }
+    .guide-copy p { color: var(--dark-gray); font-size: 17px; line-height: 1.75; max-width: 660px; margin-bottom: 24px; }
+    .guide-list { display: grid; gap: 12px; margin-top: 28px; }
+    .guide-list li { display: flex; align-items: flex-start; gap: 12px; color: var(--text-body); font-size: 15px; line-height: 1.5; }
+    .guide-check {
+      width: 22px; height: 22px; border-radius: 50%; background: rgba(232,93,38,0.1);
+      color: var(--orange); display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px;
+    }
+    .guide-card {
+      background: var(--navy); color: var(--white); border-radius: 8px;
+      padding: 30px; box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.08);
+    }
+    .guide-card-title { font-size: 22px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
+    .guide-card-sub { color: rgba(255,255,255,0.62); font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+    .guide-form { display: grid; gap: 14px; }
+    .guide-field { display: grid; gap: 6px; }
+    .guide-field label { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; }
+    .guide-field input {
+      width: 100%; border: 1.5px solid rgba(255,255,255,0.16); border-radius: 7px;
+      background: rgba(255,255,255,0.08); color: var(--white); padding: 13px 14px;
+      font: 600 15px/1.2 var(--font);
+    }
+    .guide-field input::placeholder { color: rgba(255,255,255,0.35); }
+    .guide-field input:focus { outline: none; border-color: var(--orange); background: rgba(255,255,255,0.12); }
+    .guide-submit { justify-content: center; width: 100%; margin-top: 2px; border: 0; }
+    .guide-privacy { color: rgba(255,255,255,0.48); font-size: 12px; line-height: 1.5; text-align: center; }
+    .guide-message {
+      display: none; border-radius: 7px; padding: 12px 14px; font-size: 13px; line-height: 1.45;
+      background: rgba(255,255,255,0.09); color: rgba(255,255,255,0.82);
+    }
+    .guide-message.is-visible { display: block; }
+    .guide-message.success { border: 1px solid rgba(48,209,88,0.35); color: #b8f7c4; }
+    .guide-message.error { border: 1px solid rgba(255,105,97,0.35); color: #ffd0cc; }
+    .guide-fallback { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+    .guide-honey { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
 
     /* Book cover mockup */
     .book-cover-wrap {
@@ -487,6 +533,7 @@
     @media (max-width: 1024px) {
       .book-hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .book-cover-wrap { order: -1; }
+      .guide-inner { grid-template-columns: 1fr; }
       .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .metaphor-grid { grid-template-columns: repeat(2, 1fr); }
       .chapters-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -496,11 +543,12 @@
     }
     @media (max-width: 768px) {
       :root { --section-pad: 72px 20px; }
-      .nav-links,.nav-cta,.nav-book-btn { display: none; }
+      .nav-links { display: none; }
       .hamburger { display: flex; }
       .book-hero-inner { gap: 32px; }
       .book-hero-ctas { flex-direction: column; align-items: flex-start; }
       .book-cover { width: 200px; transform: none; }
+      .guide-card { padding: 24px; }
       .metaphor-grid { grid-template-columns: 1fr 1fr; }
       .reviews-grid { grid-template-columns: 1fr; }
       .author-stats { gap: 20px; }
@@ -512,17 +560,6 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
-      .has-dropdown { position:relative; }
-    .has-dropdown > a { cursor:pointer; }
-    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
-    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
-    .has-dropdown:hover .dropdown-menu { display:block; }
-    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
-    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
-    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
-  
-    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
-    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -548,28 +585,24 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1" alt=""></noscript>
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
+  /></noscript>
   <!-- End Meta Pixel Code -->
 </head>
 <body>
 
   <!-- MOBILE MENU -->
-  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
-    <a href="sfm-brand-studio.html" onclick="closeMobile()" style="color:var(--orange);font-weight:800;">🎨 Free Brand Studio</a>
-    <a href="sfm-brand-kit-free.html" onclick="closeMobile()" style="color:var(--orange);font-weight:800;">🎁 Free Brand Kit</a>
+  <nav class="mobile-menu" id="mobileMenu" role="navigation">
+    <a href="index.html" onclick="closeMobile()">Home</a>
     <a href="sfm-services.html" onclick="closeMobile()">Services</a>
     <a href="sfm-pricing.html" onclick="closeMobile()">Pricing</a>
+    <a href="sfm-autopilot.html" onclick="closeMobile()">AutoPilot</a>
     <a href="sfm-results.html" onclick="closeMobile()">Results</a>
     <a href="sfm-portfolio.html" onclick="closeMobile()">Our Work</a>
     <a href="sfm-about.html" onclick="closeMobile()">About</a>
-    <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
+    <!-- UPDATE: Replace href with your real Calendly link -->    <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 Get the Book</a>
     <a href="sfm-ai-workshop.html" onclick="closeMobile()">🤖 AI Workshop</a>
-        <a href="sfm-podcasting.html" onclick="closeMobile()">🎙️ Podcasting</a>
-    <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 The Digital Garden</a>
-    <a href="sfm-networks-cafe.html" onclick="closeMobile()">☕ NetWORKs Café</a>
-    <a href="sfm-blog.html" onclick="closeMobile()">✍️ Blog</a>
-  <a href="sfm-the-scroll.html" onclick="closeMobile()">📜 The Scroll</a>
-    <a href="sfm-team.html" onclick="closeMobile()">👥 Team</a>
+
     <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
   </nav>
 
@@ -577,30 +610,24 @@
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
-        <ul class="nav-links">
-    <li><a href="sfm-services.html">Services</a></li>
+        <a href="index.html" class="nav-logo"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-    <li><a href="sfm-results.html">Results</a></li>
+          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
+          <li><a href="sfm-results.html">Results</a></li>
     <li><a href="sfm-portfolio.html">Our Work</a></li>
-    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
-      <div class="dropdown-menu"><div>
-        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
-        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
-        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
-        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
-        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
-        <a href="sfm-blog.html">✍️ Blog</a>
-        <a href="sfm-the-scroll.html">📜 The Scroll</a>
-        <a href="sfm-team.html">👥 Team</a>
-      </div></div>
-    </li>
+          <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
     <li><a href="sfm-about.html">About</a></li>
-    <li><a href="sfm-contact.html">Contact</a></li>
-  </ul>
+          <li><a href="sfm-blog.html">Blog</a></li>
+        </ul>
         <div class="nav-right">
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
+          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
+            📗 Get the Book
+          </a>
+          <a href="sfm-ai-workshop.html" class="nav-book-btn">🤖 AI Workshop</a>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Get Free Strategy Call</a>
           <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -619,12 +646,12 @@
 
         <!-- Left: Copy -->
         <div class="book-hero-left">
-          <div class="book-eyebrow">📗 New Release, Available on Amazon</div>
+          <div class="book-eyebrow">📗 New Release — Available on Amazon</div>
 
           <h1 class="book-title">
             The Digital<br /><span class="book-leaf">Garden</span>
           </h1>
-          <p class="book-author">by <strong>Jayson Hines</strong>, Founder, Sales Funnel Marketing</p>
+          <p class="book-author">by <strong>Jayson Hines</strong> — Founder, Sales Funnel Marketing</p>
 
           <p class="book-sub">
             "You don't grow a social media following.<br />You grow a community."
@@ -642,11 +669,12 @@
               Get on Amazon
             </a>
             <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">
-              ✍️ Buy Signed, $20
+              ✍️ Buy Signed — $20
             </a>
+            <a href="#grow-guide" class="btn btn-outline">Get the Free Guide</a>
             <a href="#chapters" class="btn btn-outline">See Inside the Book</a>
           </div>
-          <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:-8px;">Signed copy: paperback, free shipping, ships in 3 to 5 days. Only 10 available.</p>
+          <p style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:-8px;">Signed copy: paperback, free shipping, ships in 3–5 days. Only 10 available.</p>
 
           <div class="book-trust-row">
             <div class="book-trust-item">
@@ -668,11 +696,60 @@
         <div class="book-cover-wrap reveal reveal-delay-2" aria-hidden="true">
           <div class="book-cover-glow"></div>
           <div class="book-cover">
-            <img src="/images/digital-garden-mockup.png" alt="The Digital Garden by Jayson Hines, paperback book mockup" />
+            <img src="/images/digital-garden-mockup.png" alt="The Digital Garden by Jayson Hines — paperback book mockup" />
             <div class="book-cover-badge">Now on<br/>Amazon</div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ----------------------- GUIDE OPT-IN ----------------------------- -->
+  <section id="grow-guide" aria-labelledby="guide-heading">
+    <div class="container">
+      <div class="guide-inner">
+        <div class="guide-copy reveal">
+          <span class="section-label">Free Field Guide</span>
+          <h2 id="guide-heading">Grow Your Digital Garden, one task at a time.</h2>
+          <p>
+            Get the 15-task companion guide from <em>The Digital Garden</em>. It gives local business owners one practical action per week, so social media finally feels like a plan instead of a pile of random posts.
+          </p>
+          <ul class="guide-list" role="list">
+            <li><span class="guide-check">✓</span><span>Start with the belonging-before-broadcasting habit most businesses skip.</span></li>
+            <li><span class="guide-check">✓</span><span>Use the daily 5-2-1 engagement rhythm to build real reach before you post.</span></li>
+            <li><span class="guide-check">✓</span><span>Follow simple weekly actions pulled straight from the book framework.</span></li>
+          </ul>
+        </div>
+
+        <div class="guide-card reveal reveal-delay-1">
+          <div class="guide-card-title">Send me the free guide</div>
+          <p class="guide-card-sub">Drop your first name and email. The guide lands in your inbox right away.</p>
+          <form class="guide-form" id="guideForm" novalidate>
+            <div class="guide-field">
+              <label for="guide-first-name">First Name</label>
+              <input type="text" id="guide-first-name" name="first_name" autocomplete="given-name" placeholder="Jane" required />
+            </div>
+            <div class="guide-field">
+              <label for="guide-email">Email Address</label>
+              <input type="email" id="guide-email" name="email" autocomplete="email" placeholder="jane@example.com" required />
+            </div>
+            <div class="guide-honey" aria-hidden="true">
+              <label for="guide-company">Company</label>
+              <input type="text" id="guide-company" name="company" tabindex="-1" autocomplete="off" />
+            </div>
+            <input type="hidden" name="source" value="landing-page" />
+            <input type="hidden" name="offer" value="digital-garden-guide" />
+            <input type="hidden" name="page" value="sfm-digital-garden" />
+            <button type="submit" class="btn btn-primary guide-submit" id="guideSubmit">
+              Get the Guide
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <div class="guide-message" id="guideMessage" role="status" aria-live="polite"></div>
+            <p class="guide-privacy">No spam. Just the guide and the short follow-up series that helps you use it.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -689,16 +766,16 @@
             Stop posting into the void.<br />Start building a community that <em>actually buys.</em>
           </h2>
           <p class="about-p">
-            Most local business owners are doing social media wrong, not because they're lazy, but because they've been given the wrong blueprint. They're broadcasting when they should be conversing. They're chasing followers when they should be nurturing relationships. They're measuring likes when they should be counting new customers.
+            Most local business owners are doing social media wrong — not because they're lazy, but because they've been given the wrong blueprint. They're broadcasting when they should be conversing. They're chasing followers when they should be nurturing relationships. They're measuring likes when they should be counting new customers.
           </p>
           <p class="about-p">
-            <em>The Digital Garden</em> is Jayson Hines' field guide to a completely different approach, one he's used to help over 127 local businesses in Northwest Ohio turn their social media presence into a genuine growth engine.
+            <em>The Digital Garden</em> is Jayson Hines' field guide to a completely different approach — one he's used to help over 127 local businesses in Northwest Ohio turn their social media presence into a genuine growth engine.
           </p>
           <div class="about-quote">
-            <p>"You don't grow a social media following. You grow a community. And you do it the same way you'd tend a garden, with patience, intention, and genuine care for the people in it."</p>
-            <cite>,  Jayson Hines</cite>
+            <p>"You don't grow a social media following. You grow a community. And you do it the same way you'd tend a garden — with patience, intention, and genuine care for the people in it."</p>
+            <cite>— Jayson Hines</cite>
           </div>
-          <p class="about-p">This isn't a book about going viral. It's about building something that lasts, a loyal audience that knows you, trusts you, and sends you referrals every month.</p>
+          <p class="about-p">This isn't a book about going viral. It's about building something that lasts — a loyal audience that knows you, trusts you, and sends you referrals every month.</p>
         </div>
 
         <div class="reveal reveal-delay-2">
@@ -712,7 +789,7 @@
               <div class="for-whom-item"><div class="fwi-dot"></div>Professional service provider (mortgage, insurance, law)</div>
               <div class="for-whom-item"><div class="fwi-dot"></div>Anyone who's been posting and getting zero results</div>
               <div class="for-whom-item"><div class="fwi-dot"></div>Business owners who feel like social media is a waste of time</div>
-              <div class="for-whom-item"><div class="fwi-dot"></div>People who want to grow authentically, not with tricks or hacks</div>
+              <div class="for-whom-item"><div class="fwi-dot"></div>People who want to grow authentically — not with tricks or hacks</div>
             </div>
           </div>
 
@@ -779,7 +856,7 @@
           <div class="metaphor-emoji">💧</div>
           <div class="metaphor-garden">Watering</div>
           <div class="metaphor-social">Consistent Engagement</div>
-          <div class="metaphor-desc">Showing up. Responding. Caring about people's posts, not just your own. This is where most businesses fail.</div>
+          <div class="metaphor-desc">Showing up. Responding. Caring about people's posts — not just your own. This is where most businesses fail.</div>
         </div>
         <div class="metaphor-card reveal reveal-delay-3">
           <div class="metaphor-emoji">☀️</div>
@@ -797,19 +874,19 @@
           <div class="metaphor-emoji">🍂</div>
           <div class="metaphor-garden">Seasons</div>
           <div class="metaphor-social">The Rhythm of Growth</div>
-          <div class="metaphor-desc">Some months explode. Some months are quiet. Learning to trust the process, without panicking, is a skill.</div>
+          <div class="metaphor-desc">Some months explode. Some months are quiet. Learning to trust the process — without panicking — is a skill.</div>
         </div>
         <div class="metaphor-card reveal reveal-delay-2">
           <div class="metaphor-emoji">🛠️</div>
           <div class="metaphor-garden">Garden Tools</div>
           <div class="metaphor-social">AI &amp; Scheduling Tech</div>
-          <div class="metaphor-desc">Tools help. But the gardener still has to show up. AI works for you, not instead of you.</div>
+          <div class="metaphor-desc">Tools help. But the gardener still has to show up. AI works for you — not instead of you.</div>
         </div>
         <div class="metaphor-card reveal reveal-delay-3">
           <div class="metaphor-emoji">🌾</div>
           <div class="metaphor-garden">The Harvest</div>
           <div class="metaphor-social">Referrals, Fans &amp; Revenue</div>
-          <div class="metaphor-desc">When you've planted, watered, and tended well, the harvest comes. Loyal customers who buy again and bring friends.</div>
+          <div class="metaphor-desc">When you've planted, watered, and tended well — the harvest comes. Loyal customers who buy again and bring friends.</div>
         </div>
       </div>
     </div>
@@ -833,7 +910,7 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="#111"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.588 8.447-1.76.203-.09.305-.063.305.082 0 .344-1.22 1.272-3.658 2.783-1.698 1.042-3.51 1.565-5.432 1.565-2.055 0-3.84-.61-5.354-1.832-1.516-1.22-2.28-2.746-2.28-4.576 0-.09.018-.146.056-.166zM7.91 10.39c0-.927.17-1.778.51-2.554.338-.776.83-1.455 1.473-2.037.644-.582 1.378-.99 2.2-1.227.82-.237 1.717-.355 2.684-.355 1.63 0 3.097.44 4.4 1.322 1.3.882 1.952 2.1 1.952 3.653 0 1.282-.473 2.48-1.42 3.594-1.12 1.32-2.44 2.12-3.962 2.397-.58.106-1.1.16-1.56.16-.86 0-1.71-.2-2.55-.6-.59-.28-1.06-.65-1.41-1.11-.35-.46-.52-.92-.52-1.38 0-.19.046-.38.14-.57.26-.52.72-.77 1.38-.77.48 0 .88.17 1.2.52.32.35.52.79.6 1.32.08.53.33.95.75 1.27.42.32.89.48 1.41.48.68 0 1.24-.23 1.68-.7.44-.47.66-1.08.66-1.83 0-.97-.42-1.74-1.26-2.31-.84-.57-1.88-.85-3.12-.85-.54 0-1.06.06-1.56.18-.5.12-.99.33-1.47.63-.48.3-.88.74-1.2 1.32-.32.58-.48 1.28-.48 2.1 0 1.44.5 2.59 1.5 3.45.5.43.5.43.28.74-.064.092-.16.096-.29.012-1.47-1.23-2.21-2.88-2.21-4.95z"/></svg>
               Buy on Amazon
             </a>
-            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">✍️ Buy Signed, $20</a>
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">✍️ Buy Signed — $20</a>
           </div>
           <div style="font-size:13px; color:var(--dark-gray); text-align:center;">Also available on Kindle Unlimited</div>
         </div>
@@ -843,12 +920,12 @@
           <div style="padding: 14px 20px 10px; font-size:13px; font-weight:700; color:var(--navy);">📖 Introduction: Why Your Garden Is Empty</div>
 
           <div class="chapter-part">
-            <span class="chapter-part-label">Part I, Preparing the Soil</span>
+            <span class="chapter-part-label">Part I — Preparing the Soil</span>
             <div class="chapter-item">
               <div class="chapter-num">Ch 1</div>
               <div class="chapter-text">
                 <div class="chapter-name">Stop Broadcasting, Start Belonging</div>
-                <div class="chapter-desc">Why most businesses treat social media like a billboard, and why that's costing them customers.</div>
+                <div class="chapter-desc">Why most businesses treat social media like a billboard — and why that's costing them customers.</div>
               </div>
             </div>
             <div class="chapter-item">
@@ -868,12 +945,12 @@
           </div>
 
           <div class="chapter-part">
-            <span class="chapter-part-label">Part II, Planting Seeds</span>
+            <span class="chapter-part-label">Part II — Planting Seeds</span>
             <div class="chapter-item">
               <div class="chapter-num">Ch 4</div>
               <div class="chapter-text">
                 <div class="chapter-name">The First Conversation (Without Feeling Weird)</div>
-                <div class="chapter-desc">How to start engaging authentically, even if you're not a "social media person."</div>
+                <div class="chapter-desc">How to start engaging authentically — even if you're not a "social media person."</div>
               </div>
             </div>
             <div class="chapter-item">
@@ -893,7 +970,7 @@
           </div>
 
           <div class="chapter-part">
-            <span class="chapter-part-label">Part III, Watering Consistently</span>
+            <span class="chapter-part-label">Part III — Watering Consistently</span>
             <div class="chapter-item">
               <div class="chapter-num">Ch 7</div>
               <div class="chapter-text">
@@ -905,7 +982,7 @@
               <div class="chapter-num">Ch 8</div>
               <div class="chapter-text">
                 <div class="chapter-name">Engagement Is Not Optional</div>
-                <div class="chapter-desc">Why responding to comments is more valuable than the post itself, and how to do it at scale.</div>
+                <div class="chapter-desc">Why responding to comments is more valuable than the post itself — and how to do it at scale.</div>
               </div>
             </div>
             <div class="chapter-item">
@@ -918,19 +995,19 @@
           </div>
 
           <div class="chapter-part">
-            <span class="chapter-part-label">Part IV, Managing the Weeds</span>
+            <span class="chapter-part-label">Part IV — Managing the Weeds</span>
             <div class="chapter-item">
               <div class="chapter-num">Ch 10</div>
               <div class="chapter-text">
                 <div class="chapter-name">Likes Are Not Love</div>
-                <div class="chapter-desc">Why vanity metrics are the biggest distraction in social media, and what to measure instead.</div>
+                <div class="chapter-desc">Why vanity metrics are the biggest distraction in social media — and what to measure instead.</div>
               </div>
             </div>
             <div class="chapter-item">
               <div class="chapter-num">Ch 11</div>
               <div class="chapter-text">
                 <div class="chapter-name">The Comparison Trap</div>
-                <div class="chapter-desc">What comparing your page to your competitor's is actually costing you, and how to stop.</div>
+                <div class="chapter-desc">What comparing your page to your competitor's is actually costing you — and how to stop.</div>
               </div>
             </div>
             <div class="chapter-item">
@@ -943,26 +1020,26 @@
           </div>
 
           <div class="chapter-part">
-            <span class="chapter-part-label">Part V, The Harvest</span>
+            <span class="chapter-part-label">Part V — The Harvest</span>
             <div class="chapter-item">
               <div class="chapter-num">Ch 13</div>
               <div class="chapter-text">
                 <div class="chapter-name">When Fans Become Customers</div>
-                <div class="chapter-desc">The natural progression from follower to buyer, and how to accelerate it without being pushy.</div>
+                <div class="chapter-desc">The natural progression from follower to buyer — and how to accelerate it without being pushy.</div>
               </div>
             </div>
             <div class="chapter-item">
               <div class="chapter-num">Ch 14</div>
               <div class="chapter-text">
                 <div class="chapter-name">The Referral Loop</div>
-                <div class="chapter-desc">How a genuine community sends you customers on autopilot, and how to design for word of mouth.</div>
+                <div class="chapter-desc">How a genuine community sends you customers on autopilot — and how to design for word of mouth.</div>
               </div>
             </div>
             <div class="chapter-item">
               <div class="chapter-num">Ch 15</div>
               <div class="chapter-text">
                 <div class="chapter-name">Your Garden Never Really Finishes Growing</div>
-                <div class="chapter-desc">The mindset that keeps successful business owners showing up for years, not just months.</div>
+                <div class="chapter-desc">The mindset that keeps successful business owners showing up for years — not just months.</div>
               </div>
             </div>
           </div>
@@ -993,13 +1070,13 @@
           <div class="author-title">Founder, Sales Funnel Marketing | Perrysburg, Ohio</div>
 
           <p class="author-bio">
-            Jayson Hines founded Sales Funnel Marketing in 2017 after selling his insurance agency, which means he knows exactly what it feels like to start over and build something from nothing. He built his agency not through cold calls or paid ads, but through genuine relationships and showing up consistently for the businesses in his community.
+            Jayson Hines founded Sales Funnel Marketing in 2017 after selling his insurance agency — which means he knows exactly what it feels like to start over and build something from nothing. He built his agency not through cold calls or paid ads, but through genuine relationships and showing up consistently for the businesses in his community.
           </p>
           <p class="author-bio">
-            Over the past seven years, he's grown Networks Cafe to over 1,600 members, run monthly AI workshops where 20 to 40% of attendees become clients, and helped over 127 local businesses in Northwest Ohio build social media presences that generate real leads and real revenue.
+            Over the past seven years, he's grown Networks Cafe to over 1,600 members, run monthly AI workshops where 20–40% of attendees become clients, and helped over 127 local businesses in Northwest Ohio build social media presences that generate real leads and real revenue.
           </p>
           <p class="author-bio">
-            <em>The Digital Garden</em> is the book he wished he'd had when he was starting out, practical, honest, and written specifically for the business owner who's tired of advice that only works for tech startups in Silicon Valley.
+            <em>The Digital Garden</em> is the book he wished he'd had when he was starting out — practical, honest, and written specifically for the business owner who's tired of advice that only works for tech startups in Silicon Valley.
           </p>
 
           <div class="author-stats">
@@ -1020,7 +1097,7 @@
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px;">
             <!-- UPDATE: Replace href with your real Amazon link -->
             <a href="https://www.amazon.com/dp/B0GZXBGF8R" target="_blank" rel="noopener" class="btn btn-amazon btn" style="padding:12px 24px; font-size:14px;">Get the Book on Amazon</a>
-            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary" style="padding:12px 24px; font-size:14px;">✍️ Buy Signed, $20</a>
+            <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary" style="padding:12px 24px; font-size:14px;">✍️ Buy Signed — $20</a>
             <!-- UPDATE: Replace href with your real Calendly link -->
             <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-outline-dark" style="padding:12px 24px; font-size:14px;">Work With Jayson's Agency</a>
           </div>
@@ -1045,7 +1122,7 @@
         <article class="review-card reveal">
           <div class="review-stars">★★★★★</div>
           <!-- UPDATE: Replace with real reader review from Amazon -->
-          <p class="review-text">"Sales Funnel Marketing is amazing. My business social media reach has grown unbelievably which has translated into near triple sales growth in the 3 short months I've worked with Jayson. His approach is exactly what this book teaches, genuine, consistent, and it actually works."</p>
+          <p class="review-text">"Sales Funnel Marketing is amazing. My business social media reach has grown unbelievably which has translated into near triple sales growth in the 3 short months I've worked with Jayson. His approach is exactly what this book teaches — genuine, consistent, and it actually works."</p>
           <div class="review-author">
             <div class="review-avatar">A</div>
             <div>
@@ -1059,7 +1136,7 @@
         <article class="review-card reveal reveal-delay-1">
           <div class="review-stars">★★★★★</div>
           <!-- UPDATE: Replace with real reader review from Amazon -->
-          <p class="review-text">"Jayson knows social platforms. In less than 6 months he turned my social media around, more engaging, better content, real results. This book captures everything that made that transformation happen. Every small business owner in Ohio should read it."</p>
+          <p class="review-text">"Jayson knows social platforms. In less than 6 months he turned my social media around — more engaging, better content, real results. This book captures everything that made that transformation happen. Every small business owner in Ohio should read it."</p>
           <div class="review-author">
             <div class="review-avatar">M</div>
             <div>
@@ -1073,7 +1150,7 @@
         <article class="review-card reveal reveal-delay-2">
           <div class="review-stars">★★★★★</div>
           <!-- UPDATE: Replace with real reader review from Amazon -->
-          <p class="review-text">"Jayson at Sales Funnel Marketing is amazing. He's shared so many helpful tips, tricks, and hands-on tools for social media and AI that have really helped me grow my business online presence. This book puts it all in one place, finally."</p>
+          <p class="review-text">"Jayson at Sales Funnel Marketing is amazing. He's shared so many helpful tips, tricks, and hands-on tools for social media and AI that have really helped me grow my business online presence. This book puts it all in one place — finally."</p>
           <div class="review-author">
             <div class="review-avatar">J</div>
             <div>
@@ -1103,7 +1180,7 @@
       <div class="signed-inner reveal">
         <div class="signed-header">
           <span class="section-label" style="color:var(--orange)">✍️ Want It Personalized?</span>
-          <h2 class="section-title" id="signed-heading">Order a Signed Copy, Direct from Jayson</h2>
+          <h2 class="section-title" id="signed-heading">Order a Signed Copy — Direct from Jayson</h2>
           <p class="signed-intro">Skip Amazon and get a copy signed and personalized directly by Jayson. Great for gifts, or just because a signed book hits different. Choose your format, pay via Stripe, then fill out the form below with your shipping address and how you'd like it signed.</p>
         </div>
 
@@ -1114,15 +1191,15 @@
             <div class="signed-format-icon">📖</div>
             <div class="signed-format-name">Signed Paperback</div>
             <div class="signed-format-price">$20<span class="signed-format-price-note"> + free shipping</span></div>
-            <p class="signed-format-desc">A real book you can highlight, dog-ear, and keep on your desk, personally signed by Jayson.</p>
+            <p class="signed-format-desc">A real book you can highlight, dog-ear, and keep on your desk — personally signed by Jayson.</p>
             <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary signed-pay-btn">
-              Pay $20, Get Your Signed Copy
+              Pay $20 — Get Your Signed Copy
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <p style="font-size:13px; color:#888; margin-top:12px; text-align:center;">After payment you'll be brought back here to enter your shipping address.</p>
           </div>
 
-          <!-- HARDCOVER, re-enable when stock arrives: remove class "coming-soon" and update Stripe link -->
+          <!-- HARDCOVER — re-enable when stock arrives: remove class "coming-soon" and update Stripe link -->
           <div class="signed-format-card coming-soon" id="card-hc">
             <div class="signed-format-badge">Coming Soon</div>
             <div class="signed-format-icon">📚</div>
@@ -1141,7 +1218,7 @@
             <span class="signed-step-num">2</span>
             After paying, fill out your shipping info below
           </div>
-          <p class="signed-form-note">Jayson will personally sign and ship your copy within 3 to 5 business days. US shipping only.</p>
+          <p class="signed-form-note">Jayson will personally sign and ship your copy within 3–5 business days. US shipping only.</p>
 
           <form
             action="https://formsubmit.co/jayson@salesfunnelmarketing.us"
@@ -1159,9 +1236,9 @@
               <div class="signed-field">
                 <label for="sf-format">Format Ordered</label>
                 <select name="Format" id="sf-format" required>
-                  <option value="Paperback ($20)">Paperback, $20</option>
+                  <option value="Paperback ($20)">Paperback — $20</option>
                   <!-- Hardcover: un-comment when stock arrives
-                  <option value="Hardcover ($29)">Hardcover, $29</option>
+                  <option value="Hardcover ($29)">Hardcover — $29</option>
                   -->
                 </select>
               </div>
@@ -1198,7 +1275,7 @@
 
               <div class="signed-field signed-field-full">
                 <label for="sf-signing">Sign it to… <span style="font-weight:400; color:var(--dark-gray)">(optional)</span></label>
-                <input type="text" name="Sign it to" id="sf-signing" placeholder='e.g. "To Sarah, go grow something." or leave blank for just a signature' />
+                <input type="text" name="Sign it to" id="sf-signing" placeholder='e.g. "To Sarah — go grow something." or leave blank for just a signature' />
               </div>
 
               <div class="signed-field signed-field-full">
@@ -1211,7 +1288,7 @@
               Submit My Order Info
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
-            <p class="signed-submit-note">Make sure you've paid via Stripe first, then submit this form. Jayson will confirm your order by email.</p>
+            <p class="signed-submit-note">Make sure you've paid via Stripe first — then submit this form. Jayson will confirm your order by email.</p>
           </form>
         </div>
 
@@ -1230,7 +1307,7 @@
           Your garden isn't going to<br />grow itself.
         </h2>
         <p class="book-cta-sub">
-          Get <em>The Digital Garden</em> today, and start building a social media presence that actually brings you business.
+          Get <em>The Digital Garden</em> today — and start building a social media presence that actually brings you business.
         </p>
         <div class="book-cta-buttons">
           <!-- UPDATE: Replace href with your real Amazon link -->
@@ -1239,11 +1316,11 @@
             Buy on Amazon
           </a>
           <a href="https://buy.stripe.com/14A6oIdXf4iy0yk40OfYY04" class="btn btn-primary">
-            ✍️ Buy Signed, $20
+            ✍️ Buy Signed — $20
           </a>
           <!-- UPDATE: Replace href with your real Calendly link -->
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-ghost-white">
-            Or, Book a Free Strategy Call
+            Or — Book a Free Strategy Call
           </a>
         </div>
         <p class="book-cta-note">Paperback · Kindle · Kindle Unlimited</p>
@@ -1286,7 +1363,7 @@
           <ul class="footer-links">
             <li><a href="sfm-about.html">About Us</a></li>
             <li><a href="sfm-results.html">Client Results</a></li>
-            <li><a href="sfm-the-scroll.html">The Scroll</a></li>
+            <li><a href="sfm-the-scroll.html">The Digital Garden</a></li>
             <li><a href="sfm-blog.html">Blog</a></li>
             <!-- UPDATE: Replace href with your real Calendly link -->
             <li><a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Book a Call</a></li>
@@ -1342,6 +1419,80 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  </script>
+
+  <script>
+  (function() {
+    var form = document.getElementById('guideForm');
+    if (!form) return;
+
+    var submit = document.getElementById('guideSubmit');
+    var message = document.getElementById('guideMessage');
+    var guideUrl = '/downloads/digital-garden-grow-guide.pdf';
+    var endpoint = '/.netlify/functions/digital-garden-guide-relay';
+    var params = new URLSearchParams(window.location.search);
+
+    function setMessage(type, html) {
+      message.className = 'guide-message is-visible ' + type;
+      message.innerHTML = html;
+    }
+
+    function formPayload() {
+      var data = new FormData(form);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function(key) {
+        if (params.has(key)) data.set(key, params.get(key));
+      });
+
+      return Object.fromEntries(data.entries());
+    }
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var payload = formPayload();
+      var originalButton = submit.innerHTML;
+      submit.disabled = true;
+      submit.innerHTML = 'Sending...';
+      setMessage('', 'Hang tight. We are sending the guide now.');
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function(response) {
+          return response.json().then(function(body) {
+            if (!response.ok || !body.ok) throw new Error(body.error || 'Something went wrong.');
+            return body;
+          });
+        })
+        .then(function() {
+          form.reset();
+          setMessage(
+            'success',
+            'You are in. Check your inbox, and you can also <a class="guide-fallback" href="' + guideUrl + '" target="_blank" rel="noopener">open the guide here</a>.'
+          );
+          if (window.fbq) window.fbq('track', 'Lead', { content_name: 'digital-garden-guide' });
+          if (window.gtag) window.gtag('event', 'generate_lead', { event_category: 'lead_magnet', event_label: 'digital_garden_guide' });
+        })
+        .catch(function(error) {
+          setMessage(
+            'error',
+            'The form had trouble sending. You can still <a class="guide-fallback" href="' + guideUrl + '" target="_blank" rel="noopener">open the guide here</a>, then try again in a minute.'
+          );
+          console.error('Digital Garden guide form failed:', error);
+        })
+        .finally(function() {
+          submit.disabled = false;
+          submit.innerHTML = originalButton;
+        });
+    });
+  })();
   </script>
 
   <!-- -- Growing Digital Garden Animation ------------------------------- -->
@@ -1534,7 +1685,7 @@
           alpha -= 0.04;
           if (alpha <= 0) { ctx.clearRect(0, 0, canvas.width, canvas.height); cb(); return; }
           ctx.globalAlpha = alpha;
-          // no clearRect, just let it fade by drawing semi-opaque overlay
+          // no clearRect — just let it fade by drawing semi-opaque overlay
           ctx.fillStyle = document.getElementById(cfg.sectionId).style.background || 'rgba(10,22,40,0.08)';
           // Actually just clear and redraw dimmer
           ctx.globalAlpha = 1;
@@ -1549,7 +1700,7 @@
         step();
       }
 
-      // -- Intersection Observer, only animate when visible ----------
+      // -- Intersection Observer — only animate when visible ----------
       var started = false;
       var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
@@ -1596,7 +1747,7 @@
     }, 300);
   }
 
-  // Redirect from Stripe after payment, scroll to shipping form
+  // Redirect from Stripe after payment — scroll to shipping form
   if (window.location.search.indexOf('paid=1') !== -1) {
     var formSection = document.getElementById('signed-copy');
     var formWrap = document.querySelector('.signed-form-wrap');
@@ -1613,7 +1764,7 @@
   if (window.location.search.indexOf('ordered=1') !== -1) {
     var form = document.getElementById('signedForm');
     if (form) {
-      form.innerHTML = '<div style="text-align:center; padding:40px 20px;"><div style="font-size:48px; margin-bottom:16px;">✅</div><h3 style="font-size:22px; font-weight:800; color:#0A1628; margin-bottom:8px;">Order received!</h3><p style="color:#555;">Jayson will send you a confirmation email and ship your signed copy within 3 to 5 business days. Check your inbox!</p></div>';
+      form.innerHTML = '<div style="text-align:center; padding:40px 20px;"><div style="font-size:48px; margin-bottom:16px;">✅</div><h3 style="font-size:22px; font-weight:800; color:#0A1628; margin-bottom:8px;">Order received!</h3><p style="color:#555;">Jayson will send you a confirmation email and ship your signed copy within 3–5 business days. Check your inbox!</p></div>';
     }
   }
   </script>
@@ -1628,6 +1779,5 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
-<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>

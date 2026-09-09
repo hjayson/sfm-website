@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d0e0d8">
+  <meta name="description" content="Get the free Background Check Checkup from Corporate Intelligence Consultants. Seven quick questions to help employers find screening process gaps.">
+  <title>Get the Background Check Checkup | Corporate Intelligence Consultants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="client-assets/cic-background-check-checkup/checkup-hero.jpg">
+  <style>
+    :root {
+      --forest: #17673c;
+      --forest-dark: #104b2c;
+      --sage: #d0e0d8;
+      --sage-soft: #f1f5f6;
+      --cream: #f1ead5;
+      --paper: #ffffff;
+      --gold: #b99125;
+      --ink: #444444;
+      --muted: #64706a;
+      --line: #bdcec5;
+      --white: #ffffff;
+      --danger: #a43a32;
+      --serif: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+      --sans: "Inter", Arial, Helvetica, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      transform: translateY(-150%);
+      background: var(--white);
+      color: var(--forest);
+      padding: 10px 14px;
+      border: 2px solid var(--forest);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .utility-bar {
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      background: var(--cream);
+      color: #4f5652;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .utility-inner {
+      width: min(1115px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .utility-inner a { color: inherit; text-decoration: none; }
+    .utility-inner a:hover, .utility-inner a:focus-visible { color: var(--forest); }
+
+    .site-header {
+      height: 96px;
+      display: flex;
+      align-items: center;
+      background: var(--white);
+    }
+    .header-inner {
+      width: min(1115px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand-logo { width: min(310px, 50vw); height: auto; }
+    .header-promise {
+      margin: 0;
+      color: #3f4441;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .resource-bar {
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+      padding: 0 20px;
+      background: var(--sage);
+      color: #38463f;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: min(620px, calc(100svh - 178px));
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--sage);
+      background-image: url("client-assets/cic-background-check-checkup/checkup-hero.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 62%;
+      background: rgba(208, 224, 216, 0.92);
+    }
+    .hero-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 38px 0 42px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy { width: min(760px, 64%); }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+    }
+    h1 {
+      max-width: 710px;
+      margin-bottom: 14px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(48px, 5.2vw, 68px);
+      font-weight: 600;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+    .hero-lead {
+      max-width: 640px;
+      margin-bottom: 20px;
+      color: #363f3a;
+      font-family: var(--serif);
+      font-size: clamp(23px, 2.2vw, 29px);
+      font-weight: 500;
+      line-height: 1.17;
+    }
+    .hero-detail {
+      max-width: 590px;
+      margin-bottom: 20px;
+      color: #4f5954;
+      font-size: 15px;
+    }
+
+    .lead-form {
+      max-width: 760px;
+      display: grid;
+      grid-template-columns: minmax(145px, 0.9fr) minmax(220px, 1.3fr) minmax(165px, 1fr);
+      gap: 10px;
+      align-items: end;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      color: #33433b;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .field .optional { color: #68736d; font-weight: 400; }
+    .field input {
+      width: 100%;
+      height: 52px;
+      border: 1px solid #9fb0a5;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      padding: 11px 13px;
+    }
+    .field input::placeholder { color: #87948c; }
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 2px solid var(--forest);
+      border-radius: 4px;
+      padding: 12px 20px;
+      background: var(--forest);
+      color: var(--white);
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+    .lead-form .button { grid-column: 1 / -1; width: max-content; }
+    .button:hover, .button:focus-visible {
+      background: var(--forest-dark);
+      border-color: var(--forest-dark);
+      transform: translateY(-1px);
+    }
+    .button-secondary { background: transparent; color: var(--forest); }
+    .button-secondary:hover, .button-secondary:focus-visible { color: var(--white); }
+    .button[disabled] { opacity: 0.65; cursor: wait; transform: none; }
+    .button:focus-visible, input:focus-visible, summary:focus-visible {
+      outline: 3px solid rgba(23, 103, 60, 0.28);
+      outline-offset: 3px;
+    }
+    .form-meta {
+      min-height: 34px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-top: 9px;
+    }
+    .form-note {
+      margin: 0;
+      color: #526358;
+      font-size: 12px;
+    }
+    .form-error {
+      margin: 0;
+      color: var(--danger);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .success-panel {
+      max-width: 690px;
+      display: none;
+      border-left: 5px solid var(--forest);
+      padding: 20px 22px;
+      background: rgba(255, 255, 255, 0.93);
+    }
+    .success-panel.is-active { display: block; }
+    .success-panel h2 {
+      margin-bottom: 7px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    .success-panel h2:focus { outline: none; }
+    .success-panel p { margin-bottom: 16px; color: #405349; }
+    .success-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .trust-strip { background: var(--sage); color: #34423b; }
+    .trust-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 92px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+    }
+    .trust-item {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border-right: 1px solid rgba(23, 103, 60, 0.2);
+      color: #34423b;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 500;
+      text-align: center;
+    }
+    .trust-item:last-child { border-right: 0; }
+
+    .inside-section { padding: 88px 20px; background: var(--sage-soft); }
+    .inside-inner {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 380px) 1fr;
+      gap: clamp(46px, 8vw, 100px);
+      align-items: center;
+    }
+    .document-preview {
+      width: 100%;
+      aspect-ratio: 0.773;
+      object-fit: cover;
+      border: 1px solid rgba(14, 61, 36, 0.28);
+      border-radius: 3px;
+      box-shadow: 0 20px 50px rgba(8, 44, 26, 0.18);
+    }
+    .inside-copy h2 {
+      margin-bottom: 17px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.3vw, 53px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .inside-copy > p { margin-bottom: 24px; color: #405349; font-size: 17px; }
+    .check-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .check-list li {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid rgba(14, 61, 36, 0.19);
+      color: var(--forest);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .why-section { padding: 82px 20px; background: var(--cream); }
+    .why-inner { width: min(1040px, 100%); margin: 0 auto; }
+    .why-inner h2 {
+      max-width: 700px;
+      margin-bottom: 38px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 51px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+    .reasons { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .reason { min-height: 156px; padding: 0 30px; border-right: 1px solid var(--line); }
+    .reason:first-child { padding-left: 0; }
+    .reason:last-child { padding-right: 0; border-right: 0; }
+    .reason-number {
+      margin-bottom: 10px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .reason h3 { margin-bottom: 8px; color: var(--forest); font-size: 17px; }
+    .reason p { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+
+    .faq-section { padding: 82px 20px 92px; background: var(--sage); }
+    .faq-inner { width: min(820px, 100%); margin: 0 auto; }
+    .faq-inner h2 {
+      margin-bottom: 28px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(33px, 4vw, 48px);
+      letter-spacing: 0;
+    }
+    details { border-top: 1px solid var(--line); }
+    details:last-of-type { border-bottom: 1px solid var(--line); }
+    summary {
+      position: relative;
+      padding: 22px 42px 22px 0;
+      color: var(--forest);
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 8px;
+      top: 18px;
+      color: var(--forest);
+      font-size: 24px;
+      font-weight: 400;
+    }
+    details[open] summary::after { content: "-"; }
+    details p { max-width: 720px; margin-bottom: 23px; color: var(--muted); font-size: 15px; }
+
+    .site-footer { padding: 42px 20px; background: var(--forest); color: var(--white); }
+    .footer-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .footer-brand { font-family: var(--serif); font-size: 21px; font-weight: 600; }
+    .footer-copy { margin: 4px 0 0; color: #d9e8df; font-size: 12px; }
+    .footer-contact { color: var(--white); font-size: 14px; font-weight: 600; text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .hero::before {
+        width: 100%;
+        background: rgba(208, 224, 216, 0.86);
+      }
+      .hero-copy { width: min(720px, 86%); }
+      .lead-form { grid-template-columns: 1fr 1.35fr; }
+      .lead-form .button { grid-column: 1 / -1; width: max-content; }
+    }
+
+    @media (max-width: 680px) {
+      .utility-bar { min-height: 32px; }
+      .utility-inner { width: min(100% - 28px, 1115px); justify-content: space-between; gap: 12px; }
+      .site-header { height: 68px; }
+      .header-inner, .hero-inner, .trust-inner { width: min(100% - 28px, 1180px); }
+      .header-inner { justify-content: center; }
+      .brand-logo { width: min(290px, 76vw); }
+      .header-promise { display: none; }
+      .resource-bar { min-height: 38px; font-size: 11px; }
+      .hero {
+        min-height: auto;
+        background-position: 65% center;
+      }
+      .hero::before { background: rgba(208, 224, 216, 0.9); }
+      .hero-inner { padding: 45px 0 48px; }
+      .hero-copy { width: 100%; }
+      h1 { font-size: clamp(41px, 12.5vw, 56px); }
+      .hero-lead { font-size: 22px; }
+      .hero-detail { font-size: 15px; }
+      .lead-form { grid-template-columns: 1fr; }
+      .lead-form .button { grid-column: auto; width: 100%; }
+      .form-meta { min-height: 48px; }
+      .success-actions { flex-direction: column; }
+      .success-actions .button { width: 100%; }
+      .trust-inner { grid-template-columns: 1fr; padding: 14px 0; }
+      .trust-item {
+        min-height: 48px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(23, 103, 60, 0.17);
+        font-size: 17px;
+      }
+      .trust-item:last-child { border-bottom: 0; }
+      .inside-section, .why-section, .faq-section { padding: 64px 14px 70px; }
+      .inside-inner { grid-template-columns: 1fr; }
+      .document-preview { width: min(330px, 90%); margin: 0 auto; }
+      .check-list { grid-template-columns: 1fr; }
+      .reasons { grid-template-columns: 1fr; }
+      .reason {
+        min-height: 0;
+        padding: 24px 0;
+        border-right: 0;
+        border-top: 1px solid var(--line);
+      }
+      .reason:first-child { padding-top: 0; border-top: 0; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#download-form">Skip to the download form</a>
+
+  <div class="utility-bar" aria-label="Corporate Intelligence Consultants contact details">
+    <div class="utility-inner">
+      <a href="tel:4198742201">P: 419.874.2201</a>
+      <span>8:30AM - 5PM ET</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://corpintel.com/" aria-label="Corporate Intelligence Consultants home">
+        <img class="brand-logo" src="client-assets/cic-background-check-checkup/cic-logo.png" alt="Corporate Intelligence Consultants">
+      </a>
+      <p class="header-promise">Our expertise ... your peace of mind.</p>
+    </div>
+  </header>
+  <div class="resource-bar">Employment screening resource</div>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Free seven-question PDF for employers</p>
+          <h1 id="page-title">The Background Check Checkup</h1>
+          <p class="hero-lead">Find the screening steps that may be costing you time or creating unnecessary risk.</p>
+          <p class="hero-detail">Get the practical six-page checkup, warning signs, and a simple 30-day action plan.</p>
+
+          <form class="lead-form" id="download-form" novalidate>
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="full-name">Name</label>
+              <input id="full-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="work-email">Work email</label>
+              <input id="work-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@company.com" required>
+            </div>
+            <div class="field">
+              <label for="phone-number">Phone number <span class="optional">(optional)</span></label>
+              <input id="phone-number" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(419) 555-0123">
+            </div>
+            <button class="button" id="submit-button" type="submit">Get the PDF <span aria-hidden="true">&rarr;</span></button>
+          </form>
+          <div class="form-meta" id="form-meta">
+            <p class="form-note">Immediate download. Name and email are required; phone is optional.</p>
+            <p class="form-error" id="form-error" role="alert"></p>
+          </div>
+
+          <section class="success-panel" id="success-panel" aria-labelledby="success-title" aria-live="polite">
+            <h2 id="success-title" tabindex="-1">Your checkup is ready.</h2>
+            <p>Download the PDF now and keep it for your next screening-process review.</p>
+            <div class="success-actions">
+              <a class="button" id="download-button" href="output/pdf/CIC-Background-Check-Checkup.pdf" download>Download the PDF <span aria-hidden="true">&darr;</span></a>
+              <a class="button button-secondary" id="review-button" href="https://corpintel.com/screening-partner/">Talk through the checkup</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Corporate Intelligence Consultants credentials">
+      <div class="trust-inner">
+        <div class="trust-item">Serving employers since 1977</div>
+        <div class="trust-item">Human-reviewed reports</div>
+        <div class="trust-item">BBB Accredited, A+</div>
+      </div>
+    </section>
+
+    <section class="inside-section" aria-labelledby="inside-title">
+      <div class="inside-inner">
+        <img class="document-preview" src="client-assets/cic-background-check-checkup/checkup-cover.png" alt="Cover of The Background Check Checkup" loading="lazy">
+        <div class="inside-copy">
+          <p class="eyebrow">What is inside</p>
+          <h2 id="inside-title">Seven questions. Clear next steps.</h2>
+          <p>Use the scorecard on your own or bring it to your next conversation with your screening provider.</p>
+          <ul class="check-list">
+            <li>Checks matched to each job</li>
+            <li>Clear forms and permission</li>
+            <li>Reliable screening sources</li>
+            <li>Employment and license checks</li>
+            <li>Consistent hiring decisions</li>
+            <li>Two-step notice process</li>
+            <li>Secure report access</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-section" aria-labelledby="why-title">
+      <div class="why-inner">
+        <p class="eyebrow">Made for real hiring teams</p>
+        <h2 id="why-title">Useful before the next candidate reaches your desk.</h2>
+        <div class="reasons">
+          <article class="reason">
+            <div class="reason-number">01</div>
+            <h3>Plain language</h3>
+            <p>No legal lecture and no software pitch. Each question focuses on what your team actually does.</p>
+          </article>
+          <article class="reason">
+            <div class="reason-number">02</div>
+            <h3>Fast self-review</h3>
+            <p>Mark yes, not sure, or no. Your lowest answers show you where to start.</p>
+          </article>
+          <article class="reason">
+            <div class="reason-number">03</div>
+            <h3>A practical plan</h3>
+            <p>Turn the score into a focused 30-day list instead of another report that sits unread.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" aria-labelledby="faq-title">
+      <div class="faq-inner">
+        <p class="eyebrow">A few straight answers</p>
+        <h2 id="faq-title">Before you download.</h2>
+        <details>
+          <summary>Is the checkup really free?</summary>
+          <p>Yes. Enter your name and work email, then download the complete PDF immediately. A phone number is optional.</p>
+        </details>
+        <details>
+          <summary>Is this a legal compliance audit?</summary>
+          <p>No. It is a practical educational tool that helps you identify questions worth reviewing with your screening provider and qualified legal counsel.</p>
+        </details>
+        <details>
+          <summary>Will someone call me?</summary>
+          <p>No phone number is required. If you choose to share one, CIC may call to help with questions about the checkup. Otherwise, follow-up is by email.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Corporate Intelligence Consultants</div>
+        <p class="footer-copy">Our expertise. Your peace of mind. Serving employers since 1977.</p>
+      </div>
+      <a class="footer-contact" href="tel:4198742201">419.874.2201</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var form = document.getElementById("download-form");
+      var submitButton = document.getElementById("submit-button");
+      var formError = document.getElementById("form-error");
+      var formMeta = document.getElementById("form-meta");
+      var successPanel = document.getElementById("success-panel");
+      var downloadButton = document.getElementById("download-button");
+      var reviewButton = document.getElementById("review-button");
+
+      function safeStorageGet(key) {
+        try { return window.localStorage.getItem(key) || ""; }
+        catch (error) { return ""; }
+      }
+
+      function safeStorageSet(key, value) {
+        try { window.localStorage.setItem(key, value || ""); }
+        catch (error) {}
+      }
+
+      function captureAttribution() {
+        var params = new URLSearchParams(window.location.search);
+        ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"].forEach(function (key) {
+          if (params.get(key)) safeStorageSet("cic_" + key, params.get(key));
+        });
+      }
+
+      function leadSource() {
+        var source = safeStorageGet("cic_utm_source").toLowerCase();
+        if (source.indexOf("meta") > -1 || source.indexOf("facebook") > -1 || source === "fb" || source.indexOf("instagram") > -1 || source === "ig") return "Meta Ad";
+        if (source.indexOf("linkedin") > -1 || source === "li") return "LinkedIn Ad";
+        if (source.indexOf("google") > -1) return "Google Ad";
+        return "Website Form";
+      }
+
+      function track(name, data) {
+        var detail = data || {};
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(Object.assign({ event: name }, detail));
+        if (typeof window.gtag === "function") window.gtag("event", name, detail);
+        if (typeof window.fbq === "function" && name !== "generate_lead") window.fbq("trackCustom", name, detail);
+        document.dispatchEvent(new CustomEvent("cic:" + name, { detail: detail }));
+      }
+
+      function isPreviewHost() {
+        return window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost" || window.location.protocol === "file:";
+      }
+
+      function relayUrl() {
+        if (window.location.hostname.indexOf("salesfunnelmarketing.us") > -1) return "/.netlify/functions/cic-ghl-relay";
+        return "https://www.salesfunnelmarketing.us/.netlify/functions/cic-ghl-relay";
+      }
+
+      function postLead(payload) {
+        if (isPreviewHost()) {
+          return new Promise(function (resolve) {
+            window.setTimeout(function () { resolve({ ok: true, preview: true }); }, 350);
+          });
+        }
+
+        return fetch(relayUrl(), {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify(payload)
+        }).then(function (response) {
+          return response.json().catch(function () { return {}; }).then(function (data) {
+            if (!response.ok || data.ok !== true) throw new Error(data.error || "The download could not be prepared.");
+            return data;
+          });
+        });
+      }
+
+      function splitName(fullName) {
+        var parts = fullName.trim().split(/\s+/);
+        return {
+          first: parts.shift() || "",
+          last: parts.join(" ")
+        };
+      }
+
+      function validate() {
+        if (document.getElementById("website").value) return false;
+        var required = Array.prototype.slice.call(form.querySelectorAll("[required]"));
+        var invalid = required.find(function (field) { return !field.checkValidity(); });
+        if (invalid) {
+          invalid.reportValidity();
+          invalid.focus();
+          return false;
+        }
+        return true;
+      }
+
+      function payload() {
+        var name = splitName(document.getElementById("full-name").value);
+        return {
+          first_name: name.first,
+          last_name: name.last,
+          email: document.getElementById("work-email").value.trim(),
+          company: "",
+          phone: document.getElementById("phone-number").value.trim(),
+          screening_volume: "",
+          intent: "Requested The Background Check Checkup PDF",
+          lead_source: leadSource(),
+          utm_source: safeStorageGet("cic_utm_source"),
+          utm_medium: safeStorageGet("cic_utm_medium"),
+          utm_campaign: safeStorageGet("cic_utm_campaign"),
+          page: "background-check-checkup-download"
+        };
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        formError.textContent = "";
+        if (!validate()) return;
+
+        var lead = payload();
+        submitButton.disabled = true;
+        submitButton.textContent = "Preparing PDF...";
+
+        postLead(lead).then(function () {
+          form.hidden = true;
+          formMeta.hidden = true;
+          successPanel.classList.add("is-active");
+          document.getElementById("success-title").focus({ preventScroll: true });
+          track("generate_lead", { method: "background_check_checkup_pdf", lead_source: lead.lead_source });
+          if (typeof window.fbq === "function") window.fbq("track", "Lead");
+        }).catch(function () {
+          formError.textContent = "Something went wrong. Please try again or call 419.874.2201.";
+          submitButton.disabled = false;
+          submitButton.innerHTML = "Get the PDF <span aria-hidden=\"true\">&rarr;</span>";
+        });
+      });
+
+      downloadButton.addEventListener("click", function () { track("report_download", { offer: "background_check_checkup" }); });
+      reviewButton.addEventListener("click", function () { track("schedule_review_click", { offer: "background_check_checkup" }); });
+
+      captureAttribution();
+      track("lead_form_view", { offer: "background_check_checkup" });
+    })();
+  </script>
+</body>
+</html>

@@ -5,7 +5,7 @@ const DEFAULT_GHL_WEBHOOK_URL =
 
 const GHL_WEBHOOK_URL = process.env.CIC_GHL_WEBHOOK_URL || DEFAULT_GHL_WEBHOOK_URL;
 const ALLOWED_ORIGINS = new Set(
-  (process.env.CIC_RELAY_ALLOWED_ORIGINS || "https://corpintel.com,https://www.corpintel.com")
+  (process.env.CIC_RELAY_ALLOWED_ORIGINS || "https://corpintel.com,https://www.corpintel.com,https://salesfunnelmarketing.us,https://www.salesfunnelmarketing.us")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean)
@@ -73,6 +73,8 @@ function normalizePayload(input) {
     utm_source: clean(input.utm_source || input.utmSource),
     utm_medium: clean(input.utm_medium || input.utmMedium),
     utm_campaign: clean(input.utm_campaign || input.utmCampaign),
+    utm_content: clean(input.utm_content || input.utmContent),
+    utm_term: clean(input.utm_term || input.utmTerm),
     page: clean(input.page || input.page_url || input.pageUrl || "ad-landing"),
   };
 }
