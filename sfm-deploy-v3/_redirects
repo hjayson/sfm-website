@@ -89,3 +89,7 @@
 /about-1                       /sfm-about             301
 /copy-of-*                     /                      301
 /home                          /                      301
+
+# 2026 NWO report launch
+/2026-nwo-report        /2026-nwo-report.html   200
+/2026-nwo-report.pdf    /2026-nwo-report.pdf    200
