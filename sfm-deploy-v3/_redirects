@@ -6,6 +6,12 @@
 /post/social-media-tips-local-perrysburg-events     /sfm-blog-content-ideas     301
 /post/*                                             /sfm-blog                   301
 
+# Old Wix 404s -> relevant live pages (fix GSC not-found)
+/service-page/organic-reach-workshop-morning-session /sfm-ai-workshop         301
+/service-page/organic-reach-workshop-evening         /sfm-ai-workshop         301
+/service-page/*                                      /sfm-services            301
+/sign-up-for-our-giveaway                            /                        301
+
 # Core pages
 /about                  /sfm-about              301
 /about-us               /sfm-about              301
@@ -18,6 +24,7 @@
 /plans                  /sfm-pricing            301
 /portfolio              /sfm-portfolio          301
 /our-work               /sfm-portfolio          301
+/portfolio/*            /sfm-portfolio          301
 /results                /sfm-results            301
 /faq                    /sfm-faq                301
 /faqs                   /sfm-faq                301
@@ -38,7 +45,7 @@
 /dentist                /sfm-dental             301
 /restaurant             /sfm-restaurant         301
 /restaurants            /sfm-restaurant         301
-/legal                  /sfm-legal              301
+/legal                  /sfm-attorneys          301
 /attorneys              /sfm-attorneys          301
 /lawyer                 /sfm-attorneys          301
 /healthcare             /sfm-healthcare         301
@@ -69,5 +76,16 @@
 /sfm-ai-stack-thanks    /sfm-ai-stack-thanks.html 200
 /ai-tells               /sfm-ai-tells.html      200
 /ai-tells-thanks        /sfm-ai-tells-thanks.html 200
-/2026-nwo-report        /2026-nwo-report.html   200
-/2026-nwo-report.pdf    /2026-nwo-report.pdf    200
+
+# Legal merge + old Wix stragglers
+/sfm-legal              /sfm-attorneys          301
+/sfm-legal.html          /sfm-attorneys          301
+/webinar-registration-1 /sfm-brand-kit-free     301
+/book-online            /sfm-contact            301
+/blog-1                 /sfm-blog               301
+
+# More old Wix leftovers -> live pages
+/registration                  /sfm-contact           301
+/about-1                       /sfm-about             301
+/copy-of-*                     /                      301
+/home                          /                      301

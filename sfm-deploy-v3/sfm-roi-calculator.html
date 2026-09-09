@@ -78,19 +78,19 @@
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; position: relative; }
+    .nav-links { display: flex; align-items: center; gap: 16px; }
+    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color 0.2s; position: relative; }
     .nav-links a:hover { color: var(--white); }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
-    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .nav-cta { padding: 7px 13px; font-size: 13px; }
     /* Book nav badge */
     .nav-book-btn {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
       color: #E85D26; font-size: 13px; font-weight: 700;
-      padding: 8px 16px; border-radius: 100px;
+      padding: 7px 12px; border-radius: 100px;
       transition: all 0.2s ease; white-space: nowrap;
     }
     .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
@@ -379,7 +379,7 @@
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-links,.nav-cta,.nav-book-btn { display: none; }
       .nav-right .nav-phone { display: none; }
       .hamburger { display: flex; }
       .industry-grid { grid-template-columns: 1fr 1fr; }
@@ -397,6 +397,17 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -422,8 +433,7 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
-  /></noscript>
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1" alt=""></noscript>
   <!-- End Meta Pixel Code -->
 </head>
 
@@ -433,24 +443,29 @@
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
-        <ul class="nav-links" role="list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="sfm-services.html">Services</a></li>
+        <a href="index.html" class="nav-logo"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+        <ul class="nav-links">
+    <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
-          <li><a href="sfm-results.html">Results</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
     <li><a href="sfm-portfolio.html">Our Work</a></li>
-          <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-the-scroll.html">📜 The Scroll</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
     <li><a href="sfm-about.html">About</a></li>
-          <li><a href="sfm-digital-garden.html">The Book</a></li>
-          <li><a href="sfm-contact.html">Contact</a></li>
-        </ul>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
         <div class="nav-right">
-          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
-            📗 Get the Book
-          </a>
-          <a href="sfm-ai-workshop.html" class="nav-book-btn">🤖 AI Workshop</a>
+          <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
           <a href="sfm-contact.html" class="btn btn-primary nav-cta">Free Strategy Call</a>
           <button class="hamburger" aria-label="Toggle menu" id="hamburgerBtn">
             <span></span><span></span><span></span>
@@ -485,7 +500,7 @@
         <h1 class="calc-hero-headline">
           What is your social media<br /><span class="accent">actually worth?</span>
         </h1>
-        <p class="calc-hero-sub">Answer 4 quick questions about your business. Get a real estimate of the revenue you could be leaving on the table — and what it looks like when you fix it.</p>
+        <p class="calc-hero-sub">Answer 4 quick questions about your business. Get a real estimate of the revenue you could be leaving on the table, and what it looks like when you fix it.</p>
         <p class="hero-disclaimer">Estimates based on SFM client averages by industry. Not a guarantee of results.</p>
       </div>
     </div>
@@ -695,7 +710,7 @@
         <!-- Placeholder (shown before calc runs) -->
         <div class="results-placeholder" id="resultsPlaceholder">
           <div class="placeholder-icon">📊</div>
-          <p class="placeholder-text">Fill in your business details on the left and we'll show you how much revenue your social media could be generating — and where the biggest gaps are.</p>
+          <p class="placeholder-text">Fill in your business details on the left and we'll show you how much revenue your social media could be generating, and where the biggest gaps are.</p>
           <div class="placeholder-arrow">↙</div>
         </div>
 
@@ -714,23 +729,23 @@
             <div class="breakdown-title">What's driving this</div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">👥</span> Reachable audience</span>
-              <span class="breakdown-value" id="reachableAudience">—</span>
+              <span class="breakdown-value" id="reachableAudience">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">🎯</span> Est. monthly leads</span>
-              <span class="breakdown-value highlight" id="monthlyLeads">—</span>
+              <span class="breakdown-value highlight" id="monthlyLeads">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">💰</span> Est. monthly revenue</span>
-              <span class="breakdown-value highlight" id="monthlyRevenue">—</span>
+              <span class="breakdown-value highlight" id="monthlyRevenue">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">📈</span> Current conversion rate</span>
-              <span class="breakdown-value amber" id="currentConversion">—</span>
+              <span class="breakdown-value amber" id="currentConversion">, </span>
             </div>
             <div class="breakdown-item">
               <span class="breakdown-label"><span class="breakdown-icon">🚀</span> SFM target rate</span>
-              <span class="breakdown-value highlight" id="targetConversion">—</span>
+              <span class="breakdown-value highlight" id="targetConversion">, </span>
             </div>
           </div>
 
@@ -796,7 +811,7 @@
         <div class="bc-card bottom-card">
           <div class="bc-icon">⭐</div>
           <div class="bc-num"><span>5.0</span></div>
-          <div class="bc-label">Google rating across 37 verified reviews — all from real NW Ohio business owners</div>
+          <div class="bc-label">Google rating across 37 verified reviews, all from real NW Ohio business owners</div>
         </div>
       </div>
     </div>
@@ -808,7 +823,7 @@
     <div class="container">
       <div class="disc-inner">
         <div class="disc-title">About these estimates</div>
-        <p class="disc-text">The ROI estimates in this calculator are based on industry conversion benchmarks and Sales Funnel Marketing client averages. They are illustrative projections, not guarantees of revenue. Actual results vary depending on market conditions, competitive landscape, content quality, ad budget, and execution. This tool is designed to help you think clearly about the opportunity — not to promise a specific outcome. On your free strategy call, Jayson will give you a more realistic picture based on your specific situation.</p>
+        <p class="disc-text">The ROI estimates in this calculator are based on industry conversion benchmarks and Sales Funnel Marketing client averages. They are illustrative projections, not guarantees of revenue. Actual results vary depending on market conditions, competitive landscape, content quality, ad budget, and execution. This tool is designed to help you think clearly about the opportunity, not to promise a specific outcome. On your free strategy call, Jayson will give you a more realistic picture based on your specific situation.</p>
       </div>
     </div>
   </section>
@@ -819,7 +834,7 @@
     <div class="container">
       <div class="calc-cta-inner reveal">
         <h2 class="calc-cta-headline">The estimate is one thing.<br />The real conversation is better.</h2>
-        <p class="calc-cta-sub">Book a free 30-minute call. Jayson will look at your actual accounts and tell you exactly what he'd do — no scripts, no pressure.</p>
+        <p class="calc-cta-sub">Book a free 30-minute call. Jayson will look at your actual accounts and tell you exactly what he'd do, no scripts, no pressure.</p>
         <div class="calc-cta-btns">
           <!-- UPDATE: Replace href with your real Calendly link -->
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-white">
@@ -875,7 +890,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-copy">© 2025 Sales Funnel Marketing LLC · Perrysburg, Ohio</div>
+        <div class="footer-copy">© 2026 Sales Funnel Marketing LLC · Perrysburg, Ohio</div>
         <div class="footer-socials">
           <a href="https://www.facebook.com/SalesFM" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener">f</a>
           <a href="https://www.instagram.com/jayson.salesfm/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener">in</a>
@@ -905,7 +920,7 @@
     const REVENUE_VALS   = [50000, 100000, 150000, 250000, 350000, 500000, 750000, 1000000, 1500000, 2000000, 3000000];
     const AVGVAL_VALS    = [50, 100, 200, 350, 500, 750, 1000, 2000, 3500, 5000, 10000];
     const FOLLOWER_VALS  = [0, 100, 250, 500, 1000, 2000, 5000, 10000, 15000, 20000, 25000];
-    const POSTING_LABELS = ['Never', 'Rarely (1×/month)', '1–2×/week', 'Daily', '2×+/day'];
+    const POSTING_LABELS = ['Never', 'Rarely (1×/month)', '1 to 2×/week', 'Daily', '2×+/day'];
     const POSTING_SCORE  = [0, 0.2, 0.5, 0.8, 1.0];
     const ENGAGEMENT_VALS= [0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 10];
     const AD_SPEND_VALS  = [100, 200, 300, 500, 750, 1000, 1500, 2500, 5000];
@@ -1121,12 +1136,12 @@
       const gap = sfmAnnualRev - (currentMonthlyRev * 12);
       if (gap > 50000) {
         document.getElementById('ctaHeadline').textContent = `You could be missing ${fmt(gap)}/year.`;
-        document.getElementById('ctaSub').textContent = "Let's find out how much of that is recoverable. Book a free call — no pitch, just straight talk.";
+        document.getElementById('ctaSub').textContent = "Let's find out how much of that is recoverable. Book a free call, no pitch, just straight talk.";
       } else if (gap > 10000) {
         document.getElementById('ctaHeadline').textContent = "There's real money being left on the table.";
         document.getElementById('ctaSub').textContent = "A free strategy call will show you exactly where the leaks are and how to plug them.";
       } else {
-        document.getElementById('ctaHeadline').textContent = "You're doing better than most — but there's still room to grow.";
+        document.getElementById('ctaHeadline').textContent = "You're doing better than most, but there's still room to grow.";
         document.getElementById('ctaSub').textContent = "Book a free call and we'll show you the specific moves that would push you to the next level.";
       }
 
@@ -1140,7 +1155,7 @@
       const insights = [];
 
       if (s.postingIdx <= 1) {
-        insights.push({ type: 'amber', text: '<strong>Posting consistency is your #1 gap.</strong> You\'re not showing up regularly enough for the algorithm — or your audience — to pay attention.' });
+        insights.push({ type: 'amber', text: '<strong>Posting consistency is your #1 gap.</strong> You\'re not showing up regularly enough for the algorithm, or your audience, to pay attention.' });
       } else if (s.postingIdx >= 3) {
         insights.push({ type: 'green', text: '<strong>Your posting frequency is strong.</strong> The opportunity is in content quality and engagement strategy, not volume.' });
       }
@@ -1150,16 +1165,16 @@
       }
 
       if (s.adsStatus === 'none') {
-        insights.push({ type: 'amber', text: '<strong>No paid ads = no accelerant.</strong> Organic growth is real, but Meta Ads with even a modest budget can multiply your reach 4–8× in your local market.' });
+        insights.push({ type: 'amber', text: '<strong>No paid ads = no accelerant.</strong> Organic growth is real, but Meta Ads with even a modest budget can multiply your reach 4 to 8× in your local market.' });
       } else if (s.adsStatus === 'boosting') {
         insights.push({ type: 'amber', text: '<strong>Boosting posts is the least effective use of ad spend.</strong> A proper Meta Ads campaign with targeting and creative strategy would get you far more for the same budget.' });
       } else if (s.adsStatus === 'active') {
-        insights.push({ type: 'green', text: '<strong>Running Meta Ads is smart.</strong> The question is whether your campaigns are structured correctly. Most DIY campaigns leave 40–60% of performance on the table.' });
+        insights.push({ type: 'green', text: '<strong>Running Meta Ads is smart.</strong> The question is whether your campaigns are structured correctly. Most DIY campaigns leave 40 to 60% of performance on the table.' });
       }
 
       const leadsLift = Math.round(sfmLeads - curLeads);
       if (leadsLift > 5) {
-        insights.push({ type: '', text: `SFM's strategy for your industry typically adds <strong>${leadsLift}+ monthly leads</strong> through a mix of organic community building and paid reach — at your current close rate, that's real revenue.` });
+        insights.push({ type: '', text: `SFM's strategy for your industry typically adds <strong>${leadsLift}+ monthly leads</strong> through a mix of organic community building and paid reach, at your current close rate, that's real revenue.` });
       }
 
       return insights.slice(0, 4);
@@ -1189,5 +1204,6 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>

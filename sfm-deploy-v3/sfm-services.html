@@ -4,22 +4,22 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Social Media Management, Facebook Ads & More | Sales Funnel Marketing</title>
-  <meta name="description" content="Full-service social media management, Facebook & Instagram advertising, Google Business optimization, and content creation for local businesses in Northwest Ohio." />
+  <title>Social Media Management & Facebook Ads | SFM</title>
+  <meta name="description" content="Full-service social media, Facebook &amp; Instagram ads, Google Business, and content for Northwest Ohio businesses. Local team, 5.0 rating from 54 reviews. See what a clear 90-day plan looks like." />
   <meta name="keywords" content="social media management Northwest Ohio, Facebook ads Toledo OH, Instagram marketing Perrysburg" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-services" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Services | Social Media Management, Facebook Ads & More | Sales Funnel Marketing" />
-  <meta property="og:description" content="Full-service social media management, Facebook & Instagram advertising, Google Business optimization, and content creation for local businesses in Northwest Ohio." />
+  <meta property="og:description" content="Full-service social media, Facebook &amp; Instagram ads, Google Business, and content for Northwest Ohio businesses. Local team, 5.0 rating from 54 reviews. See what a clear 90-day plan looks like." />
   <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-services" />
   <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <meta property="og:site_name" content="Sales Funnel Marketing" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Services | Social Media Management, Facebook Ads & More | Sales Funnel Marketing" />
-  <meta name="twitter:description" content="Full-service social media management, Facebook & Instagram advertising, Google Business optimization, and content creation for local businesses in Northwest Ohio." />
+  <meta name="twitter:description" content="Full-service social media, Facebook &amp; Instagram ads, Google Business, and content for Northwest Ohio businesses. Local team, 5.0 rating from 54 reviews. See what a clear 90-day plan looks like." />
   <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -29,7 +29,7 @@
 
   <style>
     /* ===================================================
-       DESIGN TOKENS — identical to homepage
+       DESIGN TOKENS, identical to homepage
     =================================================== */
     :root {
       --navy:        #0A1628;
@@ -119,20 +119,20 @@
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
     .nav-logo small { display: block; font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-top: 1px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s; position: relative; }
+    .nav-links { display: flex; align-items: center; gap: 16px; }
+    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; letter-spacing: 0.2px; transition: color 0.2s; position: relative; }
     .nav-links a:hover, .nav-links a.active { color: var(--white); }
     .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--orange); border-radius: 2px; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-phone { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-phone:hover { color: var(--white); }
-    .nav-cta { padding: 10px 20px; font-size: 14px; }
+    .nav-cta { padding: 7px 13px; font-size: 13px; }
     /* Book nav badge */
     .nav-book-btn {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(232,93,38,0.12); border: 1px solid rgba(232,93,38,0.35);
       color: #E85D26; font-size: 13px; font-weight: 700;
-      padding: 8px 16px; border-radius: 100px;
+      padding: 7px 12px; border-radius: 100px;
       transition: all 0.2s ease; white-space: nowrap;
     }
     .nav-book-btn:hover { background: rgba(232,93,38,0.22); border-color: #E85D26; transform: translateY(-1px); }
@@ -157,7 +157,7 @@
     .mobile-menu a:hover { color: var(--orange); }
 
     /* ===================================================
-       PAGE HERO (services — dark, no animated bg)
+       PAGE HERO (services, dark, no animated bg)
     =================================================== */
     #page-hero {
       background: var(--navy);
@@ -426,7 +426,7 @@
     }
     @media (max-width: 768px) {
       :root { --section-pad: 72px 20px; }
-      .nav-links, .nav-phone { display: none; }
+      .nav-links, .nav-phone, .nav-cta { display: none; }
       .hamburger { display: flex; }
       .page-hero-ctas { flex-direction: column; align-items: flex-start; }
       .service-stat-row { gap: 20px; }
@@ -441,6 +441,17 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 
 <script type="application/ld+json">
@@ -516,25 +527,85 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"
-  /></noscript>
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1" alt=""></noscript>
   <!-- End Meta Pixel Code -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How quickly will I see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients see measurable growth in engagement and reach within the first 30 days. Lead flow typically improves significantly by month 2 to 3 as content builds momentum and ads are optimized. Our 90-day progress plan sets goals up front and keeps the reporting clear along the way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to give you access to my accounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we'll need admin access to your Facebook Page, Instagram Business account, and Meta Business Suite. We use secure access protocols and only request the permissions needed to manage your content and ads. Your accounts stay yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the onboarding process look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After your strategy call and proposal sign-off, we schedule a 60-minute onboarding session to capture your brand voice, goals, competitors, and customer profile. Within one week, you'll receive your first content calendar for approval. Week two, we go live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to approve content before it goes out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not post-by-post, we work on trust. Here's how it actually works: we start by building a complete brand strategy document that maps out your goals, dos and don'ts, brand voice, and industry guardrails. Once you've signed off on that document, we get to work. We create content daily based on those guardrails, you're too busy to approve every single post, and frankly that defeats the purpose of hiring us. The strategy session upfront is your approval. You stay looped in via your monthly report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the contract length?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer 6-month and 12-month contracts. The 12-month option comes with a discounted rate, and both give your strategy enough runway to build real momentum and show meaningful results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the ad spend included in your fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, ad spend goes directly to Meta and is separate from our management fee. This is standard industry practice and means 100% of your ad budget actually goes to running ads. We'll recommend a starting budget during your strategy call based on your goals."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 
 <body>
 
   <!-- MOBILE MENU -->
   <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
-    <a href="index.html" onclick="closeMobile()">Home</a>
+    <a href="sfm-brand-studio.html" onclick="closeMobile()" style="color:var(--orange);font-weight:800;">🎨 Free Brand Studio</a>
+    <a href="sfm-brand-kit-free.html" onclick="closeMobile()" style="color:var(--orange);font-weight:800;">🎁 Free Brand Kit</a>
     <a href="sfm-services.html" onclick="closeMobile()">Services</a>
     <a href="sfm-pricing.html" onclick="closeMobile()">Pricing</a>
-    <a href="sfm-autopilot.html" onclick="closeMobile()">AutoPilot</a>
     <a href="sfm-results.html" onclick="closeMobile()">Results</a>
     <a href="sfm-portfolio.html" onclick="closeMobile()">Our Work</a>
     <a href="sfm-about.html" onclick="closeMobile()">About</a>
-    <!-- UPDATE: Replace href with your real Calendly link -->    <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 Get the Book</a>
+    <a href="sfm-contact.html" onclick="closeMobile()">Contact</a>
     <a href="sfm-ai-workshop.html" onclick="closeMobile()">🤖 AI Workshop</a>
-
+        <a href="sfm-podcasting.html" onclick="closeMobile()">🎙️ Podcasting</a>
+    <a href="sfm-digital-garden.html" onclick="closeMobile()">📗 The Digital Garden</a>
+    <a href="sfm-networks-cafe.html" onclick="closeMobile()">☕ NetWORKs Café</a>
+    <a href="sfm-blog.html" onclick="closeMobile()">✍️ Blog</a>
+  <a href="sfm-the-scroll.html" onclick="closeMobile()">📜 The Scroll</a>
+    <a href="sfm-team.html" onclick="closeMobile()">👥 Team</a>
     <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeMobile()">Book Free Call</a>
   </nav>
 
@@ -543,22 +614,30 @@
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
-        <ul class="nav-links" role="list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="sfm-services.html" class="active">Services</a></li>
-          <li><a href="sfm-results.html">Results</a></li>
+        <a href="index.html" class="nav-logo" aria-label="Sales Funnel Marketing home"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+        <ul class="nav-links">
+    <li><a href="sfm-services.html">Services</a></li>
+    <li><a href="sfm-pricing.html">Pricing</a></li>
+    <li><a href="sfm-results.html">Results</a></li>
     <li><a href="sfm-portfolio.html">Our Work</a></li>
-          <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-the-scroll.html">📜 The Scroll</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
     <li><a href="sfm-about.html">About</a></li>
-          <li><a href="sfm-blog.html">Blog</a></li>
-        </ul>
+    <li><a href="sfm-contact.html">Contact</a></li>
+  </ul>
         <div class="nav-right">
           <!-- UPDATE: Replace href with your real Calendly link -->
-          <a href="sfm-digital-garden.html" class="nav-book-btn" aria-label="Get The Digital Garden book">
-            📗 Get the Book
-          </a>
-          <a href="sfm-ai-workshop.html" class="nav-book-btn">🤖 AI Workshop</a>
+          <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary nav-cta">
             Get Free Strategy Call
           </a>
@@ -576,11 +655,12 @@
     <div class="container">
       <div class="page-hero-inner">
         <div class="page-hero-eyebrow">Our Services</div>
-        <h1 class="page-hero-headline">
+        <a href="https://toledocitypaper.com/best-of/best-of-toledo-2025/" target="_blank" rel="noopener" class="tcp-award-badge" style="display:inline-flex;align-items:center;gap:8px;margin:0 0 20px;padding:8px 16px;border-radius:999px;background:linear-gradient(135deg,#F5C451,#E0A526);color:#1a1205;font-weight:800;font-size:13px;line-height:1.25;letter-spacing:.2px;text-decoration:none;box-shadow:0 2px 14px rgba(224,165,38,.35);border:1px solid rgba(255,255,255,.4);"><span style="font-size:15px;">&#127942;</span><span>Voted Toledo&#39;s Best Ad Agency &middot; Best of Toledo 2025</span></a>
+      <h1 class="page-hero-headline">
           Done-for-you marketing<br />that actually <span class="hi">converts.</span>
         </h1>
         <p class="page-hero-sub">
-          We handle every part of your social media presence — from content and ads to lead funnels and your website. You focus on running your business. We handle the growth.
+          We handle every part of your social media presence, from content and ads to lead funnels and your website. You focus on running your business. We handle the growth.
         </p>
         <div class="page-hero-ctas">
           <!-- UPDATE: Replace href with your real Calendly link -->
@@ -621,7 +701,7 @@
           <span class="service-section-label">Service 01</span>
           <h2 class="service-section-title" id="smm-heading">Social Media Management</h2>
           <p class="service-section-sub">
-            Consistent, on-brand posting across Facebook and Instagram — without you lifting a finger. We handle the strategy, the content calendar, the captions, the graphics, and the community engagement. Every single month.
+            Consistent, on-brand posting across Facebook and Instagram, without you lifting a finger. We handle the strategy, the content calendar, the captions, the graphics, and the community engagement. Every single month.
           </p>
 
           <div class="service-stat-row">
@@ -651,11 +731,11 @@
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Caption writing that sounds like you — not a marketing bot</span>
+              <span>Caption writing that sounds like you, not a marketing bot</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Scheduling and publishing — we handle the posting</span>
+              <span>Scheduling and publishing, we handle the posting</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -677,7 +757,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </div>
             <div class="panel-title">What Your Feed Looks Like</div>
-            <div class="panel-sub">Consistent, professional, on-brand — every post, every week.</div>
+            <div class="panel-sub">Consistent, professional, on-brand, every post, every week.</div>
             <div class="panel-features">
               <div class="panel-feature">
                 <span class="panel-feature-icon">📅</span>
@@ -689,7 +769,7 @@
               </div>
               <div class="panel-feature">
                 <span class="panel-feature-icon">💬</span>
-                <span class="panel-feature-text">Engagement handled — DMs, comments, replies</span>
+                <span class="panel-feature-text">Engagement handled, DMs, comments, replies</span>
               </div>
               <div class="panel-feature">
                 <span class="panel-feature-icon">📊</span>
@@ -697,7 +777,7 @@
               </div>
             </div>
             <div class="panel-result-bar">
-              <div class="panel-result-label">Average Client Result — 90 Days</div>
+              <div class="panel-result-label">Average Client Result, 90 Days</div>
               <div class="panel-result-stat"><span>312%</span> more reach</div>
               <div class="panel-result-desc">Organic reach increase, no ads required</div>
             </div>
@@ -720,7 +800,7 @@
           <span class="service-section-label">Service 02</span>
           <h2 class="service-section-title" id="ads-heading">Meta Ads<br />(Facebook &amp; Instagram)</h2>
           <p class="service-section-sub">
-            Stop burning money on ads that don't work. We build, launch, and optimize Meta ad campaigns using proven funnel architecture — targeting the exact customers in your market who are most likely to buy.
+            Stop burning money on ads that don't work. We build, launch, and optimize Meta ad campaigns using proven funnel architecture, targeting the exact customers in your market who are most likely to buy.
           </p>
 
           <div class="service-stat-row">
@@ -738,7 +818,7 @@
           <div class="service-includes">
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Full campaign buildout — structure, audiences, creatives, copy</span>
+              <span>Full campaign buildout, structure, audiences, creatives, copy</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -754,7 +834,7 @@
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Weekly optimization — bids, budget allocation, and creative refreshes</span>
+              <span>Weekly optimization, bids, budget allocation, and creative refreshes</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -792,7 +872,7 @@
               </div>
             </div>
             <div class="panel-result-bar">
-              <div class="panel-result-label">Client result — Home Services</div>
+              <div class="panel-result-label">Client result, Home Services</div>
               <div class="panel-result-stat"><span>$42K</span> added revenue</div>
               <div class="panel-result-desc">From Meta Ads alone, in the first quarter</div>
             </div>
@@ -815,7 +895,7 @@
           <span class="service-section-label">Service 03</span>
           <h2 class="service-section-title" id="content-heading">Content Creation</h2>
           <p class="service-section-sub">
-            Scroll-stopping graphics, viral Reels scripts, and captions that convert. We produce a full library of content for your business every month — designed to perform on Facebook, Instagram, and wherever your customers are.
+            Scroll-stopping graphics, viral Reels scripts, and captions that convert. We produce a full library of content for your business every month, designed to perform on Facebook, Instagram, and wherever your customers are.
           </p>
 
           <div class="service-stat-row">
@@ -849,7 +929,7 @@
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Full caption writing — voice-matched to your brand, not generic</span>
+              <span>Full caption writing, voice-matched to your brand, not generic</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -867,7 +947,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
             </div>
             <div class="panel-title">Content That Gets Shared</div>
-            <div class="panel-sub">We use proven content frameworks — The Audit, The Manifesto, The Reckoning — to engineer engagement.</div>
+            <div class="panel-sub">We use proven content frameworks, The Audit, The Manifesto, The Reckoning, to engineer engagement.</div>
             <div class="panel-features">
               <div class="panel-feature">
                 <span class="panel-feature-icon">🖼️</span>
@@ -887,9 +967,9 @@
               </div>
             </div>
             <div class="panel-result-bar">
-              <div class="panel-result-label">Client result — Retail Boutique</div>
+              <div class="panel-result-label">Client result, Retail Boutique</div>
               <div class="panel-result-stat"><span>2.4K</span> likes on one post</div>
-              <div class="panel-result-desc">Organic post — no boosting required</div>
+              <div class="panel-result-desc">Organic post, no boosting required</div>
             </div>
           </div>
         </div>
@@ -936,11 +1016,11 @@
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Landing page build and copywriting — built to convert visitors</span>
+              <span>Landing page build and copywriting, built to convert visitors</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Automated email/SMS follow-up sequence — 7 to 14 touches</span>
+              <span>Automated email/SMS follow-up sequence, 7 to 14 touches</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -962,7 +1042,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
             <div class="panel-title">Your Funnel, On Autopilot</div>
-            <div class="panel-sub">From first click to booked call — automated, tracked, and optimized every month.</div>
+            <div class="panel-sub">From first click to booked call, automated, tracked, and optimized every month.</div>
             <div class="panel-features">
               <div class="panel-feature">
                 <span class="panel-feature-icon">🧲</span>
@@ -982,7 +1062,7 @@
               </div>
             </div>
             <div class="panel-result-bar">
-              <div class="panel-result-label">Client result — Service Business</div>
+              <div class="panel-result-label">Client result, Service Business</div>
               <div class="panel-result-stat"><span>5×</span> more booked calls</div>
               <div class="panel-result-desc">Same ad spend, automated nurture added</div>
             </div>
@@ -1005,7 +1085,7 @@
           <span class="service-section-label">Service 05</span>
           <h2 class="service-section-title" id="web-heading">Website Design</h2>
           <p class="service-section-sub">
-            Your website is your 24/7 salesperson. We design and build fast, professional websites that convert visitors into leads — built to complement your social media and funnel strategy.
+            Your website is your 24/7 salesperson. We design and build fast, professional websites that convert visitors into leads, built to complement your social media and funnel strategy.
           </p>
 
           <div class="service-stat-row">
@@ -1023,7 +1103,7 @@
           <div class="service-includes">
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Custom design built around your brand — not a generic template</span>
+              <span>Custom design built around your brand, not a generic template</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -1057,15 +1137,15 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
             <div class="panel-title">Sites That Sell</div>
-            <div class="panel-sub">Built to convert — not just to look pretty. Every design decision is made with your customer's journey in mind.</div>
+            <div class="panel-sub">Built to convert, not just to look pretty. Every design decision is made with your customer's journey in mind.</div>
             <div class="panel-features">
               <div class="panel-feature">
                 <span class="panel-feature-icon">📱</span>
-                <span class="panel-feature-text">Mobile-first design — 70%+ traffic is mobile</span>
+                <span class="panel-feature-text">Mobile-first design, 70%+ traffic is mobile</span>
               </div>
               <div class="panel-feature">
                 <span class="panel-feature-icon">⚡</span>
-                <span class="panel-feature-text">Fast loading — under 3 seconds on mobile</span>
+                <span class="panel-feature-text">Fast loading, under 3 seconds on mobile</span>
               </div>
               <div class="panel-feature">
                 <span class="panel-feature-icon">🔍</span>
@@ -1102,7 +1182,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
             </div>
             <div class="panel-title">Capture Every Moment</div>
-            <div class="panel-sub">Professional videography for events, product launches, client testimonials, and brand stories — content built to perform on every platform.</div>
+            <div class="panel-sub">Professional videography for events, product launches, client testimonials, and brand stories, content built to perform on every platform.</div>
             <div class="panel-features">
               <div class="panel-feature">
                 <span class="panel-feature-icon">🎬</span>
@@ -1171,7 +1251,7 @@
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Fast turnaround — delivered while the moment is still relevant</span>
+              <span>Fast turnaround, delivered while the moment is still relevant</span>
             </div>
           </div>
 
@@ -1224,7 +1304,7 @@
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <span>Ad setup and management training — run your own campaigns with confidence</span>
+              <span>Ad setup and management training, run your own campaigns with confidence</span>
             </div>
             <div class="service-include-item">
               <div class="service-include-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
@@ -1245,7 +1325,7 @@
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E85D26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <div class="panel-title">Learn. Implement. Grow.</div>
-            <div class="panel-sub">Coaching isn't just advice — it's a hands-on system for building marketing skills that compound over time and pay dividends for years.</div>
+            <div class="panel-sub">Coaching isn't just advice, it's a hands-on system for building marketing skills that compound over time and pay dividends for years.</div>
             <div class="panel-features">
               <div class="panel-feature">
                 <span class="panel-feature-icon">🧠</span>
@@ -1261,7 +1341,7 @@
               </div>
               <div class="panel-feature">
                 <span class="panel-feature-icon">🤝</span>
-                <span class="panel-feature-text">Direct access to Jayson — no gatekeeping</span>
+                <span class="panel-feature-text">Direct access to Jayson, no gatekeeping</span>
               </div>
             </div>
             <div class="panel-result-bar">
@@ -1288,7 +1368,7 @@
           A full marketing department.<br />At a fraction of the cost.
         </h2>
         <p class="section-sub" style="color:rgba(255,255,255,0.5); margin: 16px auto 0;">
-          Hiring an in-house marketing team costs $8,000–$15,000/month. We give you the same firepower without the overhead.
+          Hiring an in-house marketing team costs $8,000, $15,000/month. We give you the same firepower without the overhead.
         </p>
       </div>
 
@@ -1316,7 +1396,7 @@
         <div class="deliverable-card reveal reveal-delay-1">
           <div class="deliverable-icon">🤝</div>
           <div class="deliverable-title">Dedicated Account Manager</div>
-          <div class="deliverable-desc">One point of contact who knows your business, your goals, and your customers — not a ticket system.</div>
+          <div class="deliverable-desc">One point of contact who knows your business, your goals, and your customers, not a ticket system.</div>
         </div>
         <div class="deliverable-card reveal reveal-delay-2">
           <div class="deliverable-icon">🔒</div>
@@ -1337,7 +1417,7 @@
         <span class="section-label">Packages</span>
         <h2 class="section-title" id="packages-heading">Find the right fit for your business</h2>
         <p class="section-sub" style="margin: 16px auto 0;">
-          Every package is customized to your business. These are starting points — your actual proposal will be tailored to your goals and budget.
+          Every package is customized to your business. These are starting points, your actual proposal will be tailored to your goals and budget.
         </p>
       </div>
 
@@ -1373,13 +1453,13 @@
             </tr>
             <tr>
               <td>Community management</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-yes">✓</span></td>
               <td><span class="check-yes">✓</span></td>
             </tr>
             <tr>
               <td>Reels / video scripts</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-partial">4/mo</span></td>
               <td><span class="check-yes">✓ Unlimited</span></td>
             </tr>
@@ -1387,19 +1467,19 @@
             <tr class="table-section-header"><td colspan="4">Meta Advertising</td></tr>
             <tr>
               <td>Campaign management</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-yes">✓</span></td>
               <td><span class="check-yes">✓</span></td>
             </tr>
             <tr>
               <td>Ad creative included</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-yes">✓</span></td>
               <td><span class="check-yes">✓</span></td>
             </tr>
             <tr>
               <td>A/B testing</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-yes">✓</span></td>
               <td><span class="check-yes">✓ Advanced</span></td>
             </tr>
@@ -1407,20 +1487,20 @@
             <tr class="table-section-header"><td colspan="4">Funnel & Automation</td></tr>
             <tr>
               <td>Lead funnel strategy</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-partial">Basic</span></td>
               <td><span class="check-yes">✓ Full build</span></td>
             </tr>
             <tr>
               <td>Email/SMS automation</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-partial">Email only</span></td>
               <td><span class="check-yes">✓ Email + SMS</span></td>
             </tr>
             <tr>
               <td>CRM integration</td>
-              <td><span class="check-no">–</span></td>
-              <td class="featured-col"><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
+              <td class="featured-col"><span class="check-no">, </span></td>
               <td><span class="check-yes">✓</span></td>
             </tr>
 
@@ -1439,7 +1519,7 @@
             </tr>
             <tr>
               <td>Dedicated account manager</td>
-              <td><span class="check-no">–</span></td>
+              <td><span class="check-no">, </span></td>
               <td class="featured-col"><span class="check-yes">✓</span></td>
               <td><span class="check-yes">✓</span></td>
             </tr>
@@ -1460,7 +1540,7 @@
       </div>
 
       <div class="reveal" style="text-align:center; margin-top: 40px;">
-        <p style="font-size:15px; color:var(--dark-gray); margin-bottom: 24px;">Every engagement starts with a free strategy call. We'll build a custom proposal for your business — no cookie-cutter pricing.</p>
+        <p style="font-size:15px; color:var(--dark-gray); margin-bottom: 24px;">Every engagement starts with a free strategy call. We'll build a custom proposal for your business, no cookie-cutter pricing.</p>
         <!-- UPDATE: Replace href with your real Calendly link -->
         <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary">
           Get My Custom Proposal
@@ -1481,7 +1561,7 @@
         <div class="reveal">
           <span class="section-label">FAQs</span>
           <h2 class="section-title" id="faq-heading">Questions we get all the time</h2>
-          <p>If you don't see your question here, just reach out — we'll give you a straight answer.</p>
+          <p>If you don't see your question here, just reach out, we'll give you a straight answer.</p>
           <!-- UPDATE: Replace href with your real Calendly link -->
           <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top: 24px;">Ask Us Directly</a>
         </div>
@@ -1494,7 +1574,7 @@
               <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="faq-answer">
-              Most clients see measurable growth in engagement and reach within the first 30 days. Lead flow typically improves significantly by month 2–3 as content builds momentum and ads are optimized. Our 90-day progress plan sets goals up front and keeps the reporting clear along the way.
+              Most clients see measurable growth in engagement and reach within the first 30 days. Lead flow typically improves significantly by month 2 to 3 as content builds momentum and ads are optimized. Our 90-day progress plan sets goals up front and keeps the reporting clear along the way.
             </div>
           </div>
 
@@ -1504,7 +1584,7 @@
               <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="faq-answer">
-              Yes — we'll need admin access to your Facebook Page, Instagram Business account, and Meta Business Suite. We use secure access protocols and only request the permissions needed to manage your content and ads. Your accounts stay yours.
+              Yes, we'll need admin access to your Facebook Page, Instagram Business account, and Meta Business Suite. We use secure access protocols and only request the permissions needed to manage your content and ads. Your accounts stay yours.
             </div>
           </div>
 
@@ -1524,7 +1604,7 @@
               <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="faq-answer">
-              Not post-by-post — we work on trust. Here's how it actually works: we start by building a complete brand strategy document that maps out your goals, dos and don'ts, brand voice, and industry guardrails. Once you've signed off on that document, we get to work. We create content daily based on those guardrails — you're too busy to approve every single post, and frankly that defeats the purpose of hiring us. The strategy session upfront is your approval. You stay looped in via your monthly report.
+              Not post-by-post, we work on trust. Here's how it actually works: we start by building a complete brand strategy document that maps out your goals, dos and don'ts, brand voice, and industry guardrails. Once you've signed off on that document, we get to work. We create content daily based on those guardrails, you're too busy to approve every single post, and frankly that defeats the purpose of hiring us. The strategy session upfront is your approval. You stay looped in via your monthly report.
             </div>
           </div>
 
@@ -1534,7 +1614,7 @@
               <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="faq-answer">
-              We offer 6-month and 12-month contracts. The 12-month option comes with a discounted rate — and both give your strategy enough runway to build real momentum and show meaningful results.
+              We offer 6-month and 12-month contracts. The 12-month option comes with a discounted rate, and both give your strategy enough runway to build real momentum and show meaningful results.
             </div>
           </div>
 
@@ -1544,7 +1624,7 @@
               <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
             <div class="faq-answer">
-              No — ad spend goes directly to Meta and is separate from our management fee. This is standard industry practice and means 100% of your ad budget actually goes to running ads. We'll recommend a starting budget during your strategy call based on your goals.
+              No, ad spend goes directly to Meta and is separate from our management fee. This is standard industry practice and means 100% of your ad budget actually goes to running ads. We'll recommend a starting budget during your strategy call based on your goals.
             </div>
           </div>
 
@@ -1563,6 +1643,14 @@
         <p style="max-width:600px; margin:16px auto 0; color:#555; font-size:16px; line-height:1.7;">We don't do generic. Every industry has a different customer, a different trust barrier, and a different path to conversion. See how we approach yours.</p>
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px;">
+        <a href="/sfm-homebuilders" style="text-decoration:none;" class="reveal">
+          <div style="background:#fff; border-radius:14px; padding:32px 24px; text-align:center; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.06)'">
+            <div style="font-size:36px; margin-bottom:16px;">🏗️</div>
+            <h3 style="font-size:17px; font-weight:800; color:#0A1628; margin-bottom:8px;">Home Builders &amp; Remodelers</h3>
+            <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:16px;">A home builder marketing agency for custom builders and remodelers: job-site video, income-targeted ads, and a full pipeline across NW Ohio.</p>
+            <span style="font-size:13px; font-weight:700; color:#E85D26;">See the approach →</span>
+          </div>
+        </a>
         <a href="sfm-industry-landscaping.html" style="text-decoration:none;" class="reveal">
           <div style="background:#fff; border-radius:14px; padding:32px 24px; text-align:center; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.06)'">
             <div style="font-size:36px; margin-bottom:16px;">🌿</div>
@@ -1575,7 +1663,7 @@
           <div style="background:#fff; border-radius:14px; padding:32px 24px; text-align:center; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 16px rgba(0,0,0,0.06)'">
             <div style="font-size:36px; margin-bottom:16px;">🔧</div>
             <h3 style="font-size:17px; font-weight:800; color:#0A1628; margin-bottom:8px;">Plumbing</h3>
-            <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:16px;">Social media for plumbers that builds trust before the emergency call — so they call you, not Google.</p>
+            <p style="font-size:13px; color:#555; line-height:1.6; margin-bottom:16px;">Social media for plumbers that builds trust before the emergency call, so they call you, not Google.</p>
             <span style="font-size:13px; font-weight:700; color:#E85D26;">See the approach →</span>
           </div>
         </a>
@@ -1616,7 +1704,7 @@
           Your competitors are already<br />doing this. Are you?
         </h2>
         <p class="cta-sub">
-          Book a free 30-minute strategy call. We'll tell you exactly what we'd do for your business — no pitch, no pressure.
+          Book a free 30-minute strategy call. We'll tell you exactly what we'd do for your business, no pitch, no pressure.
         </p>
         <div class="cta-buttons">
           <!-- UPDATE: Replace href with your real Calendly link -->
@@ -1635,7 +1723,9 @@
 
 
   <!-- FOOTER -->
-  <footer id="footer" role="contentinfo">
+  
+<section style="background:#F8F8F8;border-top:1px solid #F0F0F0;padding:30px 0;"><div style="max-width:1200px;margin:0 auto;padding:0 24px;font-size:15px;line-height:1.8;">Build or remodel homes? See the <a href="sfm-best-home-builder-marketing-agency-ohio" style="color:#c44d1e;font-weight:700;">best home builder marketing agencies in Ohio</a>.</div></section>
+<footer id="footer" role="contentinfo">
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
@@ -1784,5 +1874,17 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sales Funnel Marketing",
+  "url": "https://www.salesfunnelmarketing.us/",
+  "award": "Best Ad Agency \u2014 Best of Toledo 2025 (Toledo City Paper, reader-voted)",
+  "sameAs": ["https://toledocitypaper.com/best-of/best-of-toledo-2025/"]
+}
+</script>
 </body>
 </html>

@@ -4,19 +4,19 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI as Your Assistant — The Workshop | Sales Funnel Marketing</title>
-  <meta name="description" content="A 3-hour hands-on workshop for local business owners. Learn to use AI to handle busy work, draft content, and automate routine tasks — using tools available on a $20/month plan." />
+  <title>AI as Your Assistant | The Workshop | Sales Funnel Marketing</title>
+  <meta name="description" content="A 3-hour hands-on workshop for local business owners. Learn to use AI to handle busy work, draft content, and automate routine tasks, using tools available on a $20/month plan." />
   <meta name="keywords" content="AI workshop Northwest Ohio, AI for small business, business automation workshop Toledo OH, Perrysburg AI training" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.salesfunnelmarketing.us/sfm-ai-workshop" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="AI as Your Assistant — The Workshop | June 23" />
-  <meta property="og:description" content="A 3-hour hands-on workshop for local business owners. Learn to use AI to handle busy work and automate routine tasks — tools available on a $20/month plan." />
+  <meta property="og:title" content="AI as Your Assistant | The Workshop | June 23" />
+  <meta property="og:description" content="A 3-hour hands-on workshop for local business owners. Learn to use AI to handle busy work and automate routine tasks, tools available on a $20/month plan." />
   <meta property="og:url" content="https://www.salesfunnelmarketing.us/sfm-ai-workshop" />
   <meta property="og:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
   <meta property="og:site_name" content="Sales Funnel Marketing" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AI as Your Assistant — The Workshop | June 23" />
+  <meta name="twitter:title" content="AI as Your Assistant | The Workshop | June 23" />
   <meta name="twitter:description" content="A 3-hour hands-on workshop for local business owners using AI on a $20/month plan." />
   <meta name="twitter:image" content="https://www.salesfunnelmarketing.us/og-image.jpg" />
 
@@ -47,7 +47,7 @@
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1"/></noscript>
+  src="https://www.facebook.com/tr?id=331104330662440&ev=PageView&noscript=1" alt=""></noscript>
 
   <style>
     :root {
@@ -81,10 +81,10 @@
     .nav-logo { font-size: 18px; font-weight: 900; color: var(--white); letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
     .nav-logo img { width:38px; height:38px; border-radius:50%; flex-shrink:0; }
     .logo-accent { color:var(--orange); } .logo-text { white-space:nowrap; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 16px; list-style: none; }
+    .nav-links a {white-space:nowrap; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 600; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.2s; }
+    .nav-cta { background: var(--orange); color: var(--white); padding: 10px 22px; border-radius: 6px; font-size: 13px; font-weight: 700; transition: background 0.2s; }
     .nav-cta:hover { background: var(--orange-dark, #c44d1e); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
@@ -456,42 +456,68 @@
       .nav-logo img{width:30px;height:30px;}
       .logo-text{font-size:13px;line-height:1.2;white-space:normal;max-width:108px;}
     }
+      .has-dropdown { position:relative; }
+    .has-dropdown > a { cursor:pointer; }
+    .has-dropdown > a::after { content:" \25BE"; font-size:10px; opacity:.65; }
+    .dropdown-menu { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:120; }
+    .has-dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu > div { background:#0f1e38; border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:8px; min-width:218px; box-shadow:0 14px 34px rgba(0,0,0,.4); display:flex; flex-direction:column; gap:2px; }
+    .dropdown-menu a { color:rgba(255,255,255,.82); font-size:14px; font-weight:600; padding:10px 12px; border-radius:7px; white-space:nowrap; }
+    .dropdown-menu a:hover { background:rgba(232,93,38,.16); color:#fff; }
+  
+    /* NAVFIX-1200: collapse crowded nav to hamburger on smaller desktops */
+    @media (max-width:1200px){.nav-links,.nav-phone,.nav-cta,.nav-book-btn{display:none!important;}.hamburger{display:flex!important;}}
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:8px;"><img src="images/sfm-logo.png" alt="Sales Funnel Marketing" style="width:38px;height:38px;border-radius:50%;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
+  <a href="/" class="nav-logo" style="display:flex;align-items:center;gap:8px;"><img src="images/sfm-logo-white.png" alt="Sales Funnel Marketing" style="height:40px;width:auto;border-radius:0;flex-shrink:0;"><span class="logo-text">Sales <span class="logo-accent">Funnel</span> Marketing</span></a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li>
     <li><a href="sfm-services.html">Services</a></li>
     <li><a href="sfm-pricing.html">Pricing</a></li>
-          <li><a href="sfm-autopilot.html">AutoPilot</a></li>
     <li><a href="sfm-results.html">Results</a></li>
     <li><a href="sfm-portfolio.html">Our Work</a></li>
-    <li><a href="sfm-networks-cafe.html">NetWORKs Café</a></li>
+    <li class="has-dropdown"><a href="#" onclick="return false;" aria-haspopup="true">Resources</a>
+      <div class="dropdown-menu"><div>
+        <a href="sfm-ai-workshop.html">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html">🎙️ Podcasting</a>
+        <a href="sfm-digital-garden.html">📗 The Digital Garden</a>
+        <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+        <a href="sfm-brand-kit-free.html">🎁 Free Brand Kit</a>
+        <a href="sfm-blog.html">✍️ Blog</a>
+        <a href="sfm-the-scroll.html">📜 The Scroll</a>
+        <a href="sfm-team.html">👥 Team</a>
+      </div></div>
+    </li>
     <li><a href="sfm-about.html">About</a></li>
     <li><a href="sfm-contact.html">Contact</a></li>
   </ul>
   <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="nav-cta">Grab Your Seat →</a>
+    <a href="sfm-brand-studio.html" class="nav-book-btn">🎨 Free Brand Studio</a>
   <div class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')">
     <span></span><span></span><span></span>
   </div>
 </nav>
 <div class="mobile-menu">
   <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
-  <a href="/">Home</a>
+  <a href="sfm-brand-studio.html" style="color:var(--orange);">🎨 Free Brand Studio</a>
+  <a href="sfm-brand-kit-free.html" style="color:var(--orange);">🎁 Free Brand Kit</a>
   <a href="sfm-services.html">Services</a>
   <a href="sfm-pricing.html">Pricing</a>
-    <a href="sfm-autopilot.html">AutoPilot</a>
   <a href="sfm-results.html">Results</a>
-  <a href="sfm-networks-cafe.html">☕ NetWORKs Café</a>
+  <a href="sfm-portfolio.html">Our Work</a>
   <a href="sfm-about.html">About</a>
   <a href="sfm-contact.html">Contact</a>
-  <a href="sfm-digital-garden.html" style="color:#4ade80">📗 Get the Book</a>
-    <a href="sfm-ai-workshop.html" style="color:#fff">🤖 AI Workshop</a>
-  <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" style="color:var(--orange)">Grab Your Seat →</a>
+  <a href="sfm-ai-workshop.html" style="font-size:18px;opacity:.8;">🤖 AI Workshop</a>
+        <a href="sfm-podcasting.html" style="font-size:18px;opacity:.8;">🎙️ Podcasting</a>
+  <a href="sfm-digital-garden.html" style="font-size:18px;opacity:.8;">📗 The Digital Garden</a>
+  <a href="sfm-networks-cafe.html" style="font-size:18px;opacity:.8;">☕ NetWORKs Café</a>
+  <a href="sfm-blog.html" style="font-size:18px;opacity:.8;">✍️ Blog</a>
+  <a href="sfm-the-scroll.html" style="font-size:18px;opacity:.8;">📜 The Scroll</a>
+  <a href="sfm-team.html" style="font-size:18px;opacity:.8;">👥 Team</a>
+  <a href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson" style="color:var(--orange)">Book a Call →</a>
 </div>
 
 <!-- HERO -->
@@ -500,7 +526,7 @@
     <div class="hero-content">
       <div class="hero-label">Live Workshop · June 23, 2026</div>
       <h1>AI as Your<br><em>Assistant</em></h1>
-      <p class="hero-sub">A hands-on half-day workshop for local business owners who want to put AI to work — without needing a tech background or a big budget.</p>
+      <p class="hero-sub">A hands-on half-day workshop for local business owners who want to put AI to work, without needing a tech background or a big budget.</p>
       <div class="hero-details">
         <div class="hero-detail">
           <div class="hero-detail-icon">📅</div>
@@ -508,7 +534,7 @@
         </div>
         <div class="hero-detail">
           <div class="hero-detail-icon">⏰</div>
-          9:00 AM – 12:00 PM
+          9:00 AM, 12:00 PM
         </div>
         <div class="hero-detail">
           <div class="hero-detail-icon">📍</div>
@@ -516,15 +542,15 @@
         </div>
         <div class="hero-detail">
           <div class="hero-detail-icon">🎟️</div>
-          $100 — bring a friend FREE
+          $100, bring a friend FREE
         </div>
       </div>
       <div class="hero-cta-row">
         <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="btn-primary">Reserve Your Seat →</a>
         <a href="#agenda" class="btn-secondary">See what's covered ↓</a>
       </div>
-      <p class="hero-price-note" style="font-weight:700;color:#fff">🎟️ Buy One, Get One FREE — your $100 covers two seats. Bring a business friend.</p>
-      <p class="hero-price-note">Only 60 seats · BOGO ends June 13 — reserve before they're gone.</p>
+      <p class="hero-price-note" style="font-weight:700;color:#fff">🎟️ Buy One, Get One FREE, your $100 covers two seats. Bring a business friend.</p>
+      <p class="hero-price-note">Only 60 seats · BOGO ends June 13, reserve before they're gone.</p>
       <p class="hero-price-note" style="margin-top:8px;color:rgba(255,255,255,0.6)">📗 Every registrant gets a <strong style="color:#fff">free signed copy</strong> of <em>The Digital Garden</em> at the event.</p>
     </div>
     <div class="hero-card">
@@ -546,7 +572,7 @@
 <div class="trust-bar">
   <div class="trust-bar-inner">
     <div class="trust-item"><span class="trust-icon">🏆</span> Live, hands-on training</div>
-    <div class="trust-item"><span class="trust-icon">💻</span> A $20/mo plan helps — not required</div>
+    <div class="trust-item"><span class="trust-icon">💻</span> A $20/mo plan helps, not required</div>
     <div class="trust-item"><span class="trust-icon">📍</span> Toledo, OH</div>
     <div class="trust-item"><span class="trust-icon">👥</span> Limited seats</div>
     <div class="trust-item"><span class="trust-icon">🚀</span> Use it the same day</div>
@@ -563,7 +589,7 @@
       <div class="outcome-card">
         <div class="outcome-icon">🧠</div>
         <div class="outcome-title">A clear understanding of AI</div>
-        <div class="outcome-desc">Cut through the hype. Know exactly what AI can and can't do — and where it fits in your business right now.</div>
+        <div class="outcome-desc">Cut through the hype. Know exactly what AI can and can't do, and where it fits in your business right now.</div>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">✍️</div>
@@ -573,12 +599,12 @@
       <div class="outcome-card">
         <div class="outcome-icon">⚙️</div>
         <div class="outcome-title">Workflows you can use today</div>
-        <div class="outcome-desc">Real automations for the tasks eating your time — follow-ups, summaries, research, scheduling, and more.</div>
+        <div class="outcome-desc">Real automations for the tasks eating your time, follow-ups, summaries, research, scheduling, and more.</div>
       </div>
       <div class="outcome-card">
         <div class="outcome-icon">💪</div>
         <div class="outcome-title">Confidence to keep going</div>
-        <div class="outcome-desc">Leave with the skills and structure to keep experimenting on your own — no expert required.</div>
+        <div class="outcome-desc">Leave with the skills and structure to keep experimenting on your own, no expert required.</div>
       </div>
     </div>
   </div>
@@ -594,10 +620,10 @@
     </div>
     <div class="agenda-grid">
       <div class="agenda-block">
-        <div class="agenda-time">9:00 – 9:45 AM</div>
+        <div class="agenda-time">9:00 to 9:45 AM</div>
         <div class="agenda-content">
           <div class="agenda-content-title">What AI Actually Is (and What It Isn't)</div>
-          <div class="agenda-content-desc">We'll clear up the confusion, debunk the myths, and give you a plain-English framework for thinking about AI as a tool — not a magic wand and not a threat. You'll understand how to talk to it, what to expect, and where the real value is.</div>
+          <div class="agenda-content-desc">We'll clear up the confusion, debunk the myths, and give you a plain-English framework for thinking about AI as a tool, not a magic wand and not a threat. You'll understand how to talk to it, what to expect, and where the real value is.</div>
           <div class="agenda-tags">
             <span class="agenda-tag">Foundations</span>
             <span class="agenda-tag">Mindset shift</span>
@@ -606,10 +632,10 @@
         </div>
       </div>
       <div class="agenda-block">
-        <div class="agenda-time">9:45 – 11:00 AM</div>
+        <div class="agenda-time">9:45 to 11:00 AM</div>
         <div class="agenda-content">
           <div class="agenda-content-title">Hands-On: Put AI to Work in Your Business</div>
-          <div class="agenda-content-desc">This is where we roll up our sleeves. You'll work through real tasks using your own AI account — drafting content, writing emails, responding to customer inquiries, and building prompts you can reuse every week. Bring your actual business problems; we'll solve them live.</div>
+          <div class="agenda-content-desc">This is where we roll up our sleeves. You'll work through real tasks using your own AI account, drafting content, writing emails, responding to customer inquiries, and building prompts you can reuse every week. Bring your actual business problems; we'll solve them live.</div>
           <div class="agenda-tags">
             <span class="agenda-tag">Live practice</span>
             <span class="agenda-tag">Social media</span>
@@ -619,10 +645,10 @@
         </div>
       </div>
       <div class="agenda-block">
-        <div class="agenda-time">11:00 AM – 12:00 PM</div>
+        <div class="agenda-time">11:00 AM, 12:00 PM</div>
         <div class="agenda-content">
           <div class="agenda-content-title">Automation & Your Next 3 Actions</div>
-          <div class="agenda-content-desc">We'll map out simple workflows that run your busywork on autopilot — and you'll leave with a personalized list of exactly what to do first. Wrap with open Q&A so you can get answers specific to your business and industry.</div>
+          <div class="agenda-content-desc">We'll map out simple workflows that run your busywork on autopilot, and you'll leave with a personalized list of exactly what to do first. Wrap with open Q&A so you can get answers specific to your business and industry.</div>
           <div class="agenda-tags">
             <span class="agenda-tag">Automation basics</span>
             <span class="agenda-tag">Repeatable workflows</span>
@@ -661,7 +687,7 @@
           <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You spend hours on tasks that feel repetitive</div></div>
           <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You want practical skills, not a lecture</div></div>
           <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You run a local business and need to do more with less</div></div>
-          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You're on a budget — a $20/month plan is plenty to do everything we cover</div></div>
+          <div class="for-who-item"><div class="for-who-check">✓</div><div class="for-who-text">You're on a budget, a $20/month plan is plenty to do everything we cover</div></div>
         </div>
       </div>
       <div class="for-who-card not">
@@ -688,7 +714,7 @@
         <div class="section-label">Meet Your Instructor</div>
         <div class="presenter-name">Jayson Hines</div>
         <div class="presenter-role">Owner, Sales Funnel Marketing · Perrysburg, OH</div>
-        <p class="presenter-bio">Jayson runs Sales Funnel Marketing in Northwest Ohio, where he uses AI every single day to help local businesses grow their audience, create content, and run smoother operations. He's not a tech guy teaching theory — he's a business owner who figured out how to make AI work on a real budget, and he's here to show you exactly how.</p>
+        <p class="presenter-bio">Jayson runs Sales Funnel Marketing in Northwest Ohio, where he uses AI every single day to help local businesses grow their audience, create content, and run smoother operations. He's not a tech guy teaching theory, he's a business owner who figured out how to make AI work on a real budget, and he's here to show you exactly how.</p>
         <div class="presenter-stats">
           <div>
             <div class="presenter-stat-num">10<span>+</span></div>
@@ -711,16 +737,16 @@
 <!-- REGISTER -->
 <section class="register" id="register">
   <div class="register-inner">
-    <div class="register-eyebrow">June 23, 2026 · 9 AM – Noon</div>
+    <div class="register-eyebrow">June 23, 2026 · 9 AM, Noon</div>
     <h2>Ready to put AI<br>to work for you?</h2>
-    <p class="register-sub">Seats are limited. This is a small-group workshop — not a webinar, not a lecture hall. You'll actually do things, not just watch.</p>
+    <p class="register-sub">Seats are limited. This is a small-group workshop, not a webinar, not a lecture hall. You'll actually do things, not just watch.</p>
 
     <div style="display:inline-flex;align-items:center;gap:14px;background:rgba(232,93,38,0.12);border:1px solid rgba(232,93,38,0.3);border-radius:12px;padding:16px 24px;margin-bottom:36px;text-align:left;max-width:520px;width:100%">
       <div style="font-size:36px;flex-shrink:0">📗</div>
       <div>
-        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:4px">Free Bonus — Registered Attendees Only</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:4px">Free Bonus, Registered Attendees Only</div>
         <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.4">Every registered attendee gets a <em style="color:var(--orange);font-style:normal">free signed copy</em> of Jayson's book <em style="font-style:italic">The Digital Garden</em> at the event.</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:6px">Copies are ordered per registration — register now so yours is reserved.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-top:6px">Copies are ordered per registration, register now so yours is reserved.</div>
       </div>
     </div>
 
@@ -728,18 +754,18 @@
       <div class="register-price-left">
         <div class="register-price-label">Investment · 2 seats</div>
         <div class="register-price"><small>$</small>100</div>
-        <div style="font-size:13px;color:var(--orange);font-weight:700;margin-top:6px">BOGO — bring a business friend FREE</div>
+        <div style="font-size:13px;color:var(--orange);font-weight:700;margin-top:6px">BOGO, bring a business friend FREE</div>
       </div>
       <div class="register-price-right">
         <div class="register-detail">
           <strong>Date:</strong> Tuesday, June 23, 2026<br>
-          <strong>Time:</strong> 9:00 AM – 12:00 PM<br>
+          <strong>Time:</strong> 9:00 AM, 12:00 PM<br>
           <strong>Location:</strong> UT Business Incubator, 1510 N Westwood Ave, Toledo, OH<br>
           <strong>What to bring:</strong> Your laptop + a free or paid AI account
         </div>
       </div>
     </div>
-    <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="btn-cta">Reserve My 2 Seats — $100 →</a>
+    <a href="https://aiworkshop.us/registerfortheworkshop254683-9999" class="btn-cta">Reserve My 2 Seats, $100 →</a>
     <p class="register-guarantee">Includes your free signed copy of <em>The Digital Garden</em> at the event. &nbsp;·&nbsp; Questions? <a href="mailto:jayson@salesfunnelmarketing.us" style="color:rgba(255,255,255,0.5)">Email Jayson directly.</a></p>
   </div>
 </section>
@@ -752,7 +778,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q">Do I need to know anything about AI to attend?</div>
-        <div class="faq-a">Not at all. This workshop is designed specifically for people who are curious but haven't gotten started yet. We begin at square one — no jargon, no assumptions.</div>
+        <div class="faq-a">Not at all. This workshop is designed specifically for people who are curious but haven't gotten started yet. We begin at square one, no jargon, no assumptions.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What AI tools will we be using?</div>
@@ -760,7 +786,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">What should I bring?</div>
-        <div class="faq-a">Your laptop or tablet, a charged device, and access to your AI account. Bring real questions from your actual business — the more specific, the better. We'll work through them live.</div>
+        <div class="faq-a">Your laptop or tablet, a charged device, and access to your AI account. Bring real questions from your actual business, the more specific, the better. We'll work through them live.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Where exactly is the event?</div>
@@ -780,7 +806,7 @@
     <div>
       <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;">Need More Than the Workshop?</div>
       <h2 style="font-size:clamp(24px,3vw,38px);font-weight:900;color:var(--white);line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px;">Hands-on training built for<br>your specific industry</h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:540px;">If you or your company need AI training tailored to your industry — your workflows, your tools, your team — Jayson offers private, hands-on sessions designed around exactly what you do. Reach out to start the conversation.</p>
+      <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:540px;">If you or your company need AI training tailored to your industry, your workflows, your tools, your team, Jayson offers private, hands-on sessions designed around exactly what you do. Reach out to start the conversation.</p>
     </div>
     <div style="flex-shrink:0;text-align:center;">
       <a href="mailto:jayson@salesfunnelmarketing.us?subject=Industry-Specific AI Training" style="display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--white);font-size:16px;font-weight:800;padding:18px 32px;border-radius:10px;white-space:nowrap;transition:background 0.2s;" onmouseover="this.style.background='#c44d1e'" onmouseout="this.style.background='var(--orange)'">
@@ -806,5 +832,6 @@
   }, 15000);
 </script>
 
+<script>document.addEventListener("click",function(e){var t=e.target.closest?e.target.closest('a[href^="tel:"]'):null;if(t){var p=t.getAttribute("href").slice(4);if(typeof gtag==="function"){gtag("event","call_click",{phone_number:p});}if(typeof fbq==="function"){fbq("track","Contact",{content_name:"Phone Call"});}}var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}},true);</script>
 </body>
 </html>
