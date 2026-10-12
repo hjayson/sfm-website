@@ -1,3 +1,8 @@
+# Consolidate only the production Netlify alias; preserve paths and query strings.
+# Keep these host-specific rules before path rewrites. Custom domain and previews are unchanged.
+http://salesfunnelmarket.netlify.app/*  https://www.salesfunnelmarketing.us/:splat  301!
+https://salesfunnelmarket.netlify.app/*  https://www.salesfunnelmarketing.us/:splat  301!
+
 # Netlify Redirects — Sales Funnel Marketing
 # Old Wix URLs → New sfm-* pages (301 permanent redirects)
 
