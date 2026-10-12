@@ -1,0 +1,67 @@
+name: SFM follow-up validated retry
+on:
+  push:
+    branches: [seo/sfm-followup-2026-10-12]
+    paths: [.github/workflows/sfm-followup-retry.yml]
+permissions:
+  contents: write
+concurrency:
+  group: sfm-followup-release-20261012
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/sfm-followup-2026-10-12
+          fetch-depth: 2
+      - name: Install validation tooling
+        run: |
+          python -m pip -q install pillow beautifulsoup4 playwright pyyaml
+          python -m playwright install --with-deps chromium > /tmp/sfm-browser-install.log 2>&1
+      - name: Execute reviewed preparation with a template-aware insertion
+        shell: python
+        run: |
+          from pathlib import Path
+          import yaml,subprocess
+          workflow=yaml.safe_load(Path('.github/workflows/sfm-followup-release.yml').read_text())
+          steps=workflow['jobs']['prepare']['steps']
+          prepare=next(s['run'] for s in steps if s.get('name')=='Apply exact source corrections and preserve originals')
+          lines=prepare.splitlines();matches=[i for i,line in enumerate(lines) if line.strip().startswith("boundary='  </div>")]
+          assert len(matches)==1,matches
+          i=matches[0]
+          assert lines[i+1].strip()=='assert t.count(boundary)==1,str(p)'
+          assert lines[i+2].strip().startswith('t=t.replace(boundary,')
+          replacement=[
+              '    boundaries=list(re.finditer(r\'(  </div>\\s*)(</div>)(\\s*(?:<!--[\\s\\S]*?-->\\s*)?<div class="content-wrap">)\',t))',
+              '    assert len(boundaries)==1,(str(p),len(boundaries))',
+              '    position=boundaries[0].start(2)',
+              "    t=t[:position]+note+'\\n'+t[position:]"
+          ]
+          lines[i:i+3]=replacement
+          revised='\n'.join(lines)+'\n'
+          path=Path('/tmp/sfm-followup-prepare.py');path.write_text(revised)
+          compile(revised,str(path),'exec')
+          subprocess.run(['python',str(path)],check=True)
+          out=Path('/tmp/sfm-followup-validation')
+          (out/'executed-prepare.py').write_text(revised)
+          tests=next(s['run'] for s in steps if s.get('name')=='Browser tests for event meaning, duplicates, preserved navigation and mobile layout')
+          test_path=Path('/tmp/sfm-followup-browser-tests.py');test_path.write_text(tests)
+          subprocess.run(['python',str(test_path)],check=True)
+          (out/'executed-browser-tests.py').write_text(tests)
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sfm-followup-validation-retry
+          path: /tmp/sfm-followup-validation
+          retention-days: 7
+      - name: Commit only after all preservation and browser checks pass
+        run: |
+          git config user.name 'hjayson'
+          git config user.email 'jayson@salesfunnelmarketing.us'
+          git add sfm-deploy-v3
+          git diff --cached --check
+          git commit -m 'Correct booking intent events, attribute client results, and reduce logo payload losslessly'
+          git push origin HEAD:seo/sfm-followup-2026-10-12
