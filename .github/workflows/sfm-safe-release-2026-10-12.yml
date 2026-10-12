@@ -1,0 +1,166 @@
+name: SFM isolated website release
+on:
+  push:
+    branches: [seo/sfm-safe-release-2026-10-12]
+    paths: [.github/workflows/sfm-safe-release-2026-10-12.yml]
+permissions:
+  contents: write
+concurrency:
+  group: sfm-safe-release-2026-10-12
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.repository == 'hjayson/sfm-website'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: seo/sfm-safe-release-2026-10-12
+          fetch-depth: 2
+      - name: Apply bounded changes and verify preservation
+        shell: python
+        run: |
+          from collections import Counter
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import difflib, hashlib, json, re, subprocess
+          root = Path('sfm-deploy-v3')
+          report = Path('/tmp/sfm-release-report')
+          report.mkdir(exist_ok=True)
+          expected = {'index.html':'f93e92e6970b98a6149c006da7aadfbc3a3252b1','sfm-pricing.html':'731e84049991bbb746a8f87adeae29e9d4fcfd40'}
+          def check(ok, message):
+              if not ok: raise RuntimeError(message)
+          def replace(s, a, b, n=1):
+              check(s.count(a)==n, 'Unexpected source occurrence: '+a[:100])
+              return s.replace(a,b)
+          class Inventory(HTMLParser):
+              def __init__(self,s):
+                  super().__init__(convert_charrefs=True)
+                  self.tags=[]
+                  self.feed(s)
+              def handle_starttag(self,t,a): self.tags.append((t,dict(a)))
+              def select(self,ts): return [(t,a) for t,a in self.tags if t in ts]
+          def scripts(s,structured):
+              return [(a,b) for a,b in re.findall(r'<script\b([^>]*)>(.*?)</script>',s,re.S|re.I) if ('application/ld+json' in a)==structured]
+          before={}
+          for name,sha in expected.items():
+              data=(root/name).read_bytes()
+              actual=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+              check(actual==sha,name+' differs from reviewed source; stop and rebase')
+              before[name]=data.decode('utf-8')
+          h=before['index.html']
+          h=replace(h,'<a class="svc rev-an" href="sfm-services.html"><h3>Content <span>Creation</span></h3>','<a class="svc rev-an" href="/sfm-content-creation"><h3>Content <span>Creation</span></h3>')
+          check((root/'sfm-content-creation.html').is_file(),'Missing content creation destination')
+          h=replace(h,"No long contracts to get started and no guessing. Here's exactly how it goes.",'Start with a free strategy call. Managed packages have 6- or 12-month terms, confirmed in your proposal before work begins.')
+          oldfaq='transparent reporting, and no long-term lock-in pressure.'
+          newfaq='transparent reporting, and clearly defined engagement terms.'
+          h=replace(h,oldfaq,newfaq,2)
+          for image in ['jayson-panel.jpg','jayson-portrait.jpg']:
+              h=replace(h,'<img class="rev-an" src="/images/'+image+'"','<img class="rev-an" loading="lazy" decoding="async" src="/images/'+image+'"')
+          p=before['sfm-pricing.html']
+          p=replace(p,'a monthly content calendar,','content planning within the agreed scope,')
+          p=replace(p,'Your final quote is confirmed on your call.','Your proposal confirms the final price, deliverables, and engagement terms. A fixed 30-day content calendar is not a standard deliverable.')
+          start=p.index('  <!-- AUTOPILOT BRIDGE -->')
+          end=p.index('  <!-- PRICING CARDS -->',start)
+          bridge=p[start:end]
+          check(bridge.count('<section')==1 and bridge.count('</section>')==1,'Unexpected AutoPilot structure')
+          p=p[:start]+p[end:]
+          p=replace(p,'  <!-- BUILD YOUR PACKAGE -->',bridge+'  <!-- BUILD YOUR PACKAGE -->')
+          check(p.index('  <!-- PRICING CARDS -->')<p.index('  <!-- AUTOPILOT BRIDGE -->'),'Managed offer ordering failed')
+          after={'index.html':h,'sfm-pricing.html':p}
+          checks={}
+          for name,new in after.items():
+              old=before[name]
+              for tag in ['title','h1','style']:
+                  pattern=rf'<{tag}\b[^>]*>.*?</{tag}>'
+                  check(re.findall(pattern,old,re.S|re.I)==re.findall(pattern,new,re.S|re.I),name+': protected '+tag+' changed')
+              a,b=Inventory(old),Inventory(new)
+              protected={'meta','link','form','input','button','iframe'}
+              check(a.select(protected)==b.select(protected),name+': metadata or form controls changed')
+              check(scripts(old,False)==scripts(new,False),name+': executable JavaScript changed')
+              check(Counter(t for t,_ in a.tags)==Counter(t for t,_ in b.tags),name+': element count changed')
+              books=lambda inv: Counter(at.get('href') for t,at in inv.tags if t=='a' and 'link.salesfunnelmarketing.us' in at.get('href',''))
+              check(books(a)==books(b),name+': booking links changed')
+              for inv in [a,b]:
+                  ids=[at['id'] for _,at in inv.tags if 'id' in at]
+                  check(len(ids)==len(set(ids)),name+': duplicate IDs')
+              oldjson=[json.loads(body) for _,body in scripts(old,True)]
+              newjson=[json.loads(body) for _,body in scripts(new,True)]
+              wanted=json.loads(json.dumps(oldjson).replace(oldfaq,newfaq)) if name=='index.html' else oldjson
+              check(wanted==newjson,name+': unrelated structured data changed')
+              if name=='sfm-pricing.html':
+                  cards=lambda s:s.split('  <!-- PRICING CARDS -->',1)[1].split('  <!-- BUILD YOUR PACKAGE -->',1)[0].split('  <!-- AUTOPILOT BRIDGE -->',1)[0].strip()
+                  check(cards(old)==cards(new),'Package prices or features changed')
+              checks[name]={'titles_headings_metadata_preserved':True,'scripts_styles_forms_booking_links_preserved':True,'structured_data_valid':True,'element_counts_preserved':True}
+              (report/(name+'.before')).write_bytes(old.encode('utf-8'))
+              (report/(name+'.after')).write_bytes(new.encode('utf-8'))
+              (report/(name+'.diff')).write_text(''.join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile='a/'+str(root/name),tofile='b/'+str(root/name))))
+          for name,new in after.items(): (root/name).write_bytes(new.encode('utf-8'))
+          subprocess.run(['git','diff','--check'],check=True)
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          check(sorted(changed)==sorted(str(root/name) for name in after),'Unexpected changed files')
+          (report/'validation.json').write_text(json.dumps({'status':'passed','baseline':'80a32984644b9363bef8a7b945a43c6753481b8a','checks':checks},indent=2))
+          print(json.dumps(checks,indent=2))
+      - name: Install browser test tooling
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Browser smoke tests without external tracking requests
+        shell: python
+        run: |
+          from functools import partial
+          from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
+          from pathlib import Path
+          from threading import Thread
+          from urllib.parse import urlparse
+          from playwright.sync_api import sync_playwright
+          import json
+          report=Path('/tmp/sfm-release-report')
+          server=ThreadingHTTPServer(('127.0.0.1',8765),partial(SimpleHTTPRequestHandler,directory='sfm-deploy-v3'))
+          Thread(target=server.serve_forever,daemon=True).start()
+          results=[]
+          with sync_playwright() as pw:
+              browser=pw.chromium.launch()
+              for width in [390,1440]:
+                  context=browser.new_context(viewport={'width':width,'height':900})
+                  context.route('**/*',lambda route:route.continue_() if urlparse(route.request.url).hostname=='127.0.0.1' else route.abort())
+                  page=context.new_page()
+                  response=page.goto('http://127.0.0.1:8765/index.html',wait_until='domcontentloaded')
+                  assert response.status==200
+                  assert page.locator('h1').count()==1
+                  assert page.locator('a.svc').filter(has_text='Content Creation').get_attribute('href')=='/sfm-content-creation'
+                  assert '6- or 12-month terms' in page.locator('body').inner_text()
+                  assert page.locator('img[src="/images/jayson-panel.jpg"]').get_attribute('loading')=='lazy'
+                  page.screenshot(path=str(report/f'homepage-{width}.png'),full_page=True)
+                  response=page.goto('http://127.0.0.1:8765/sfm-pricing.html',wait_until='domcontentloaded')
+                  assert response.status==200
+                  assert page.locator('#pricing').count()==1
+                  assert page.locator('#pricing').bounding_box()['y']<page.locator('section[aria-label="AutoPilot entry option"]').bounding_box()['y']
+                  text=page.locator('body').inner_text()
+                  for phrase in ['1,500','2,500','3,500','A fixed 30-day content calendar is not a standard deliverable.']:
+                      assert phrase in text,phrase
+                  assert page.locator('a[href*="meetingwithjayson"]').count()>0
+                  page.screenshot(path=str(report/f'pricing-{width}.png'),full_page=True)
+                  results.append({'viewport_width':width,'homepage_and_pricing':'passed','external_requests':'blocked','booking_not_submitted':True})
+                  context.close()
+              browser.close()
+          server.shutdown()
+          (report/'browser-validation.json').write_text(json.dumps(results,indent=2))
+          print(json.dumps(results,indent=2))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sfm-release-validation
+          path: /tmp/sfm-release-report
+          retention-days: 7
+      - name: Commit only verified website files to isolated branch
+        run: |
+          set -eu
+          test "$GITHUB_REF_NAME" = 'seo/sfm-safe-release-2026-10-12'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sfm-deploy-v3/index.html sfm-deploy-v3/sfm-pricing.html
+          git diff --cached --check
+          git commit -m 'Clarify managed offers and improve homepage navigation and image loading'
+          git push origin HEAD:refs/heads/seo/sfm-safe-release-2026-10-12
