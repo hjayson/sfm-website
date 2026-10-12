@@ -1,0 +1,75 @@
+name: SFM follow-up read-only diagnosis
+on:
+  push:
+    branches: [seo/sfm-followup-2026-10-12]
+    paths: [.github/workflows/sfm-followup-diagnostic.yml]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 77a964d58a058e8adca8dfa2b5fce276f6566aff
+          persist-credentials: false
+      - name: Inventory public source without modifying it
+        shell: python
+        run: |
+          from pathlib import Path
+          import re,json,shutil,hashlib
+          root=Path('sfm-deploy-v3');out=Path('/tmp/sfm-followup-diagnosis');out.mkdir()
+          records=[]
+          for p in sorted(root.glob('*.html')):
+              t=p.read_text(); hits=[]
+              for pattern in [r'.{0,180}(?:Avg\.?[ ]+[Ss]ales|[Aa]verage sales|Booking Click|track.{0,5}Schedule).{0,180}']:
+                  hits.extend(re.findall(pattern,t))
+              if hits: records.append({'file':str(p),'matches':hits})
+          inventory={'base_sha':'77a964d58a058e8adca8dfa2b5fce276f6566aff','matches':records,'assets':{}}
+          for n in ['index.html','sfm-results.html','sfm-city-perrysburg.html','sfm-city-toledo.html','sfm-contact.html','sfm-social-media-management.html']:
+              shutil.copyfile(root/n,out/n)
+          for n in ['funnel-hero.mp4','funnel-hero-poster.jpg','jayson-panel.jpg','jayson-portrait.jpg']:
+              p=root/'images'/n
+              inventory['assets'][n]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} if p.exists() else {'missing':True}
+          (out/'source-inventory.json').write_text(json.dumps(inventory,indent=2))
+          print(json.dumps(inventory,indent=2))
+      - name: Install browser tooling
+        run: |
+          python -m pip -q install playwright
+          python -m playwright install --with-deps chromium > /tmp/browser-install.log 2>&1
+      - name: Measure actual public page with third-party tracking blocked
+        shell: python
+        run: |
+          from playwright.sync_api import sync_playwright
+          from urllib.parse import urlsplit
+          from pathlib import Path
+          import json,time
+          out=Path('/tmp/sfm-followup-diagnosis');report=[]
+          allowed={'www.salesfunnelmarketing.us','fonts.googleapis.com','fonts.gstatic.com'}
+          with sync_playwright() as p:
+              browser=p.chromium.launch()
+              for path in ['/','/','/','/sfm-city-perrysburg']:
+                  context=browser.new_context(viewport={'width':390,'height':844},device_scale_factor=1,is_mobile=True,has_touch=True)
+                  page=context.new_page()
+                  page.route('**/*',lambda route: route.continue_() if urlsplit(route.request.url).hostname in allowed and route.request.method=='GET' else route.abort())
+                  page.add_init_script("window.__lcp=[];new PerformanceObserver(l=>{for(const e of l.getEntries())window.__lcp.push({time:e.startTime,size:e.size,url:e.url,tag:e.element?.tagName,html:e.element?.outerHTML?.slice(0,350)});}).observe({type:'largest-contentful-paint',buffered:true});")
+                  cdp=context.new_cdp_session(page)
+                  cdp.send('Network.enable');cdp.send('Network.setCacheDisabled',{'cacheDisabled':True})
+                  cdp.send('Network.emulateNetworkConditions',{'offline':False,'latency':150,'downloadThroughput':200000,'uploadThroughput':100000})
+                  cdp.send('Emulation.setCPUThrottlingRate',{'rate':4})
+                  page.goto('https://www.salesfunnelmarketing.us'+path,wait_until='domcontentloaded',timeout=60000)
+                  page.wait_for_timeout(12000)
+                  item=page.evaluate("({lcp:window.__lcp,resources:performance.getEntriesByType('resource').map(e=>({name:e.name,duration:e.duration,transferSize:e.transferSize,startTime:e.startTime,initiatorType:e.initiatorType})),nav:performance.getEntriesByType('navigation').map(e=>({responseStart:e.responseStart,domContentLoadedEventEnd:e.domContentLoadedEventEnd})),video:[...document.querySelectorAll('video')].map(v=>({readyState:v.readyState,paused:v.paused,currentTime:v.currentTime,poster:v.poster,src:v.currentSrc})),title:document.title})")
+                  item['url']=page.url;item['mode']='controlled lab: Chromium, 390x844, 4x CPU, 1.6Mbps, 150ms latency, cold cache; external analytics/chat blocked; no forms submitted'
+                  report.append(item);print(json.dumps({'url':page.url,'lcp':item['lcp'],'video':item['video']},indent=2))
+                  page.screenshot(path=str(out/('diagnostic-'+str(len(report))+'.png')))
+                  context.close()
+              browser.close()
+          (out/'browser-diagnosis.json').write_text(json.dumps(report,indent=2))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sfm-followup-diagnosis
+          path: /tmp/sfm-followup-diagnosis
+          retention-days: 7
