@@ -1,0 +1,227 @@
+name: SFM bounded follow-up release
+on:
+  push:
+    branches: [seo/sfm-followup-2026-10-12]
+    paths: [.github/workflows/sfm-followup-release.yml]
+permissions:
+  contents: write
+concurrency:
+  group: sfm-followup-release-20261012
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/sfm-followup-2026-10-12
+          fetch-depth: 2
+      - name: Install isolated validation tooling
+        run: |
+          python -m pip -q install pillow beautifulsoup4 playwright
+          python -m playwright install --with-deps chromium > /tmp/sfm-browser-install.log 2>&1
+      - name: Apply exact source corrections and preserve originals
+        shell: python
+        run: |
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from PIL import Image
+          import re,json,hashlib,difflib,subprocess
+          root=Path('sfm-deploy-v3');out=Path('/tmp/sfm-followup-validation');out.mkdir()
+          before={p:p.read_text() for p in root.glob('*.html')}
+          js='''/* Sales FM: measure booking intent, never an appointment completion. */
+          (function () {
+            'use strict';
+            if (window.__sfmBookingClickBound) return;
+            window.__sfmBookingClickBound = true;
+            document.addEventListener('click', function (event) {
+              var target = event.target;
+              var link = target && target.closest ? target.closest('a[href]') : null;
+              if (!link) return;
+              var url;
+              try { url = new URL(link.href, document.baseURI); } catch (error) { return; }
+              if (url.protocol !== 'https:' || url.hostname !== 'link.salesfunnelmarketing.us' ||
+                  !/^\\/widget\\/bookings\\/[^/]+\\/?$/.test(url.pathname)) return;
+              // Exclude query strings, fragments, form values and personal contact data.
+              var params = {link_url: url.origin + url.pathname, page_path: window.location.pathname, measurement_stage: 'booking_intent'};
+              // Use existing analytics/pixel initialization; do not override consent.
+              try { if (typeof window.gtag === 'function') window.gtag('event', 'booking_click', params); } catch (error) {}
+              try { if (typeof window.fbq === 'function') window.fbq('trackCustom', 'BookingClick', params); } catch (error) {}
+            }, true);
+          }());
+          '''
+          asset='/js/sfm-booking-click-20261012.js'
+          (root/'js').mkdir(exist_ok=True);(root/asset.lstrip('/')).write_text(js)
+          (out/'booking-click.js').write_text(js)
+          old='''var b=e.target.closest?e.target.closest('a[href*="link.salesfunnelmarketing.us"]'):null;if(b&&typeof fbq==="function"){fbq("track","Schedule",{content_name:"Booking Click"});}'''
+          tag='<script defer src="'+asset+'"></script>'
+          tracking=[]
+          for p,t in before.items():
+              if not (p.name.startswith('sfm-') or p.name in ['index.html','404.html']): continue
+              n=t.count(old)
+              if not n and p.name!='index.html': continue
+              assert n<=1,(str(p),'duplicate legacy handler')
+              assert t.count('</body>')==1,(str(p),'unexpected document structure')
+              new=t.replace(old,'').replace('</body>',tag+'\n</body>')
+              p.write_text(new);tracking.append({'file':str(p),'legacy_schedule_click_removed':n})
+          assert len(tracking)>100
+          # Attribute the existing gift-shop testimonial to its owner, never an average.
+          note='<p class="sfm-results-note" style="max-width:900px;margin:16px auto 0;font-size:13px;line-height:1.5;color:#0A1628">*The Round &amp; Round Gifts owner reported nearly triple sales after three months. This is one client\'s experience, not a cross-client average or a guarantee. <a href="/sfm-results#round-round-gifts" style="color:inherit;text-decoration:underline">Read the client story</a>.</p>'
+          city_old='<div class="stat"><strong>3×</strong><span>Avg. sales growth in 90 days</span></div>'
+          city_new='<div class="stat"><strong>~3×</strong><span>Sales growth reported by one client*</span></div>'
+          evidence=[]
+          for p in root.glob('sfm-city-*.html'):
+              t=p.read_text()
+              if city_old not in t: continue
+              assert t.count(city_old)==1
+              t=t.replace(city_old,city_new)
+              boundary='  </div>\n</div>\n\n<div class="content-wrap">'
+              assert t.count(boundary)==1,str(p)
+              t=t.replace(boundary,'  </div>\n'+note+'\n</div>\n\n<div class="content-wrap">')
+              p.write_text(t);evidence.append(str(p))
+          assert len(evidence)==9,len(evidence)
+          p=root/'sfm-results.html';t=p.read_text()
+          replacements={
+            '<div class="hero-metric-num"><span class="m-green">3</span>×</div>':'<div class="hero-metric-num"><span class="m-green">~3</span>×</div>',
+            'Average Sales<br />Growth (90 days)':'Sales Growth Reported<br />by One Client',
+            'Results vary. These represent actual client outcomes achieved through consistent strategy and execution.':'These are individual client examples and testimonials, not an average or a guarantee. The near-tripled sales figure was reported by the Round &amp; Round Gifts owner.',
+            'Gift Shop, 3× Sales in 90 Days':'Gift Shop, Nearly 3× Sales (Client-Reported)',
+            '<article class="cs-card reveal" aria-label="Round and Round Gifts case study">':'<article class="cs-card reveal" id="round-round-gifts" aria-label="Round and Round Gifts case study">',
+            '<div class="cs-results-label">Results, 90 Days</div>':'<div class="cs-results-label">Owner-reported outcome, first 3 months</div>',
+            '<div class="cs-metric-num"><span class="highlight">3</span>×</div>':'<div class="cs-metric-num"><span class="highlight">~3</span>×</div>',
+            'Sales growth in first 3 months of working with SFM':'Nearly triple sales in the first 3 months, as reported by Amy D. of Round &amp; Round Gifts; not a typical-result forecast.',
+            'font-weight:900;">3×</span> Sales in 90 Days':'font-weight:900;">~3×</span> Sales, Client-Reported'
+          }
+          for old_text,new_text in replacements.items():
+              assert old_text in t,old_text
+              t=t.replace(old_text,new_text)
+          # Remove the unsourced proportional reach bars, retaining the real testimonial.
+          start=t.index('          <div class="cs-bar-chart" role="img" aria-label="Before and after social reach comparison">')
+          end=t.index('        </div>\n      </article>',start)
+          t=t[:start]+'          <p class="cs-metric-desc">Source: the owner\'s testimonial shown alongside this example. No measured reach values or independently audited sales ledger are presented here.</p>\n'+t[end:]
+          p.write_text(t);evidence.append(str(p))
+          p=root/'sfm-roi-calculator.html';t=p.read_text()
+          a='<div class="bc-num"><span>3</span>×</div>';b='<div class="bc-num"><span>~3</span>×</div>'
+          assert a in t;t=t.replace(a,b)
+          a='Average sales growth seen by SFM clients in the first 90 days'
+          assert a in t;t=t.replace(a,'Nearly triple sales after three months, reported by the Round &amp; Round Gifts owner. One client\'s result, not an average or a calculator forecast.')
+          p.write_text(t);evidence.append(str(p))
+          p=root/'sfm-ticker.html';t=p.read_text()
+          a="label: 'Avg. Sales Growth', sub: 'In first 90 days'"
+          assert a in t;t=t.replace(a,"label: 'One Client Reported', sub: 'Nearly triple sales: Round & Round Gifts'" )
+          p.write_text(t);evidence.append(str(p))
+          # Lossless pixel-identical WebP alternatives for the homepage logo strip.
+          p=root/'index.html';t=p.read_text();images=[]
+          for src in sorted(set(re.findall(r'src="(/images/logos/[^" ]+\.png)"',t))):
+              source=root/src.lstrip('/');image=Image.open(source);rgba=image.convert('RGBA')
+              target=source.with_name(source.stem+'.lossless-20261012.webp')
+              kwargs={'lossless':True,'exact':True,'method':6}
+              if image.info.get('icc_profile'):kwargs['icc_profile']=image.info['icc_profile']
+              rgba.save(target,'WEBP',**kwargs)
+              decoded=Image.open(target).convert('RGBA')
+              assert decoded.size==rgba.size and decoded.tobytes()==rgba.tobytes(),str(source)
+              if target.stat().st_size>=source.stat().st_size:
+                  target.unlink();continue
+              dest='/'+str(target.relative_to(root))
+              t=t.replace('src="'+src+'"','src="'+dest+'"')
+              images.append({'original':src,'optimized':dest,'original_bytes':source.stat().st_size,'optimized_bytes':target.stat().st_size,'pixel_identical':True,'dimensions':rgba.size})
+          assert images
+          p.write_text(t)
+          checks=[]
+          for p,original in before.items():
+              changed=p.read_text()
+              if changed==original:continue
+              old_soup=BeautifulSoup(original,'html.parser');new_soup=BeautifulSoup(changed,'html.parser')
+              for selector in ['title','h1','meta','link[rel="canonical"]','form','input','select','textarea','script[type="application/ld+json"]']:
+                  assert [str(x) for x in old_soup.select(selector)]==[str(x) for x in new_soup.select(selector)],(str(p),selector)
+              def booking_urls(s): return sorted(a.get('href','') for a in s.find_all('a') if 'link.salesfunnelmarketing.us' in a.get('href',''))
+              assert booking_urls(old_soup)==booking_urls(new_soup),str(p)
+              for sc in new_soup.select('script[type="application/ld+json"]'):json.loads(sc.string or sc.get_text())
+              for i,sc in enumerate(new_soup.find_all('script')):
+                  if sc.get('type')=='application/ld+json' or sc.get('src'):continue
+                  tmp=out/'syntax-check.js';tmp.write_text(sc.string or sc.get_text());subprocess.run(['node','--check',str(tmp)],check=True,capture_output=True)
+              if p.name.startswith('sfm-') or p.name in ['index.html','404.html']:
+                  assert 'fbq("track","Schedule",{content_name:"Booking Click"})' not in changed,str(p)
+              for folder,text in [('before',original),('after',changed)]:
+                  d=out/folder;d.mkdir(exist_ok=True);(d/p.name).write_text(text)
+              (out/(p.name+'.diff')).write_text(''.join(difflib.unified_diff(original.splitlines(True),changed.splitlines(True),fromfile=str(p),tofile=str(p))))
+              checks.append(str(p))
+          (out/'syntax-check.js').unlink(missing_ok=True)
+          subprocess.run(['node','--check',str(root/asset.lstrip('/'))],check=True)
+          # No server, redirect, SEO identifier, pricing, form, or unrelated script changes.
+          manifest={'base_sha':'77a964d58a058e8adca8dfa2b5fce276f6566aff','tracking':tracking,'evidence_pages':evidence,'images':images,'preservation_checked':checks,'booking_completion':'Not implemented: requires authenticated HighLevel workflow configuration; no Schedule event emitted by this click handler.'}
+          (out/'manifest.json').write_text(json.dumps(manifest,indent=2))
+          print(json.dumps({'tracking_pages':len(tracking),'evidence_pages':len(evidence),'images':images,'preservation_checks':len(checks)},indent=2))
+      - name: Browser tests for event meaning, duplicates, preserved navigation and mobile layout
+        shell: python
+        run: |
+          from playwright.sync_api import sync_playwright
+          from pathlib import Path
+          from functools import partial
+          from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
+          from urllib.parse import urlsplit
+          import threading,json
+          root=Path('sfm-deploy-v3').resolve();out=Path('/tmp/sfm-followup-validation')
+          server=ThreadingHTTPServer(('127.0.0.1',8765),partial(SimpleHTTPRequestHandler,directory=str(root)))
+          threading.Thread(target=server.serve_forever,daemon=True).start()
+          script=(root/'js/sfm-booking-click-20261012.js').read_text();results=[]
+          with sync_playwright() as p:
+              browser=p.chromium.launch()
+              ctx=browser.new_context();page=ctx.new_page()
+              page.route('**/*',lambda route:route.abort())
+              page.set_content('<a id="book" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson?email=private@example.com#private"><span>Book</span></a><a id="form" href="https://link.salesfunnelmarketing.us/widget/form/test">Form</a><a id="other" href="https://example.com/?next=https://link.salesfunnelmarketing.us">Other</a>')
+              page.evaluate("window.g=[];window.f=[];window.gtag=(...a)=>g.push(a);window.fbq=(...a)=>f.push(a);document.addEventListener('click',e=>e.preventDefault());")
+              page.add_script_tag(content=script);page.add_script_tag(content=script)
+              page.locator('#book span').click()
+              events=page.evaluate('({g:window.g,f:window.f})')
+              assert len(events['g'])==1 and len(events['f'])==1,events
+              assert events['g'][0][1]=='booking_click' and events['f'][0][0:2]==['trackCustom','BookingClick'],events
+              assert 'private' not in json.dumps(events) and 'Schedule' not in json.dumps(events),events
+              page.locator('#form').click();page.locator('#other').click()
+              assert page.evaluate('g.length===1&&f.length===1')
+              page.locator('#book').focus();page.keyboard.press('Enter')
+              assert page.evaluate('g.length===2&&f.length===2')
+              page.evaluate('window.gtag=undefined;window.fbq=undefined');page.locator('#book').click()
+              results.append({'event_tests':'passed','one_click_one_event_per_platform':True,'duplicate_script_guard':True,'nonbooking_links_excluded':True,'query_and_fragment_excluded':True,'keyboard_activation':True,'missing_tracking_libraries_safe':True,'completion_event_on_click':False})
+              ctx.close()
+              for width in [390,1440]:
+                  ctx=browser.new_context(viewport={'width':width,'height':900})
+                  ctx.route('**/*',lambda route:route.continue_() if urlsplit(route.request.url).hostname=='127.0.0.1' else route.abort())
+                  for name in ['index.html','sfm-city-perrysburg.html','sfm-city-toledo.html','sfm-results.html','sfm-roi-calculator.html','sfm-pricing.html']:
+                      page=ctx.new_page();errors=[];page.on('pageerror',lambda err:errors.append(str(err)))
+                      page.goto('http://127.0.0.1:8765/'+name,wait_until='domcontentloaded');page.wait_for_timeout(600)
+                      assert page.locator('h1').count()==1,name
+                      assert page.locator('a[href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson"]').count()>0,name
+                      assert page.evaluate('window.__sfmBookingClickBound===true'),name
+                      if name.startswith('sfm-city'):
+                          assert page.locator('.sfm-results-note').count()==1
+                          assert page.locator('.stats-bar').evaluate('e=>e.scrollWidth<=window.innerWidth+2'),name
+                      if name=='sfm-results.html':
+                          assert page.locator('#round-round-gifts .cs-bar-chart').count()==0
+                          assert page.locator('#round-round-gifts .cs-quote-text').count()==1
+                      assert not errors,(name,errors)
+                      page.screenshot(path=str(out/(name+'-'+str(width)+'.png')))
+                      if name=='sfm-results.html':
+                          page.locator('#round-round-gifts').scroll_into_view_if_needed();page.wait_for_timeout(750);page.screenshot(path=str(out/('client-story-'+str(width)+'.png')))
+                      if name=='index.html':
+                          page.locator('.proofbar').scroll_into_view_if_needed();page.wait_for_timeout(350);page.screenshot(path=str(out/('logo-strip-'+str(width)+'.png')))
+                      results.append({'page':name,'viewport':width,'passed':True,'page_errors':errors})
+                      page.close()
+                  ctx.close()
+              browser.close()
+          server.shutdown();(out/'browser-tests.json').write_text(json.dumps(results,indent=2));print(json.dumps(results,indent=2))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sfm-followup-validation
+          path: /tmp/sfm-followup-validation
+          retention-days: 7
+      - name: Commit verified changes only to isolated branch
+        run: |
+          git config user.name 'hjayson'
+          git config user.email 'jayson@salesfunnelmarketing.us'
+          git add sfm-deploy-v3
+          git diff --cached --check
+          git commit -m 'Correct booking intent events, attribute client results, and reduce logo payload losslessly'
+          git push origin HEAD:seo/sfm-followup-2026-10-12
