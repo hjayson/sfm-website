@@ -847,23 +847,7 @@
       document.body.appendChild(chatScript);
     }, 15000);
   </script>
-<script>
-    // A booking-page visit is an intent event, never a completed appointment.
-    document.addEventListener('click', function (event) {
-      const link = event.target.closest ? event.target.closest('a[href]') : null;
-      if (!link) return;
-      const href = link.getAttribute('href');
-      if (href.startsWith('tel:')) {
-        if (typeof gtag === 'function') gtag('event', 'call_click', {page_category: 'homebuilders'});
-        if (typeof fbq === 'function') fbq('track', 'Contact', {content_name: 'Builder Page Phone Click'});
-      }
-      if (link.href.startsWith('https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson')) {
-        const location = link.dataset.ctaLocation || 'navigation';
-        if (typeof gtag === 'function') gtag('event', 'booking_click', {page_category: 'homebuilders', cta_location: location, transport_type: 'beacon'});
-        if (typeof fbq === 'function') fbq('trackCustom', 'BookingClick', {content_name: 'Builder Consultation', cta_location: location});
-      }
-    }, true);
-  </script>
+<script defer src="/sfm-tracking.js?v=20261021"></script>
 
 
 </body>
