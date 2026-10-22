@@ -40,6 +40,7 @@ https://salesfunnelmarket.netlify.app/*  https://www.salesfunnelmarketing.us/:sp
 /thankyou               /sfm-thankyou           301
 
 # Legal
+/privacypolicy          /sfm-privacy            301
 /privacy-policy         /sfm-privacy            301
 /privacy                /sfm-privacy            301
 /terms                  /sfm-terms              301
