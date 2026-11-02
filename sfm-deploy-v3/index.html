@@ -775,18 +775,667 @@ footer{background:#060d18;color:var(--mut);padding:54px 0 32px;font-size:14px;bo
 <div class="mobile-menu"><button class="mclose" onclick="this.parentElement.classList.remove('open')" aria-label="Close">&times;</button>
 <a href="/sfm-services" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Services</a><a href="sfm-results.html">Results</a><a href="#industries" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Industries</a><a href="sfm-pricing.html">Pricing</a><a href="sfm-about.html">About</a><a href="sfm-contact.html">Contact</a><a class="btn btn-lg" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Book a Call &rarr;</a></div>
 
-<header class="hero">
-<video autoplay muted loop playsinline poster="/images/funnel-hero-poster.jpg"><source src="/images/funnel-hero.mp4" type="video/mp4"></video>
-<div class="ov"></div><div class="ov2"></div>
-<div class="wrap in">
-<span class="badge">🏆 Voted Toledo's Best Ad Agency · Best of Toledo 2025</span>
-<span class="eyebrow">Perrysburg, Ohio · Since 2017</span>
-<h1>Toledo's Full-Service Social Media &amp; Marketing Agency.</h1>
-<div class="tagline">We build the <span class="g">machine</span> that turns strangers into customers.</div>
-<p class="lead">We help local Northwest Ohio businesses turn followers into paying customers with Facebook and Instagram ads, content, and Google Business that actually bring in leads. Real results, no fluff, and a clear 90-day plan.</p>
-<div class="hero-ctas"><a class="btn btn-lg" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Get a Free Strategy Call &rarr;</a><a class="btn btn-lg btn-ghost" href="sfm-results.html">See Client Results</a></div>
-<div class="trust"><span><b>5.0&#9733;</b> 55 Google Reviews</span><span><b>Local</b> NW Ohio Focus</span><span><b>Clear</b> 90-Day Plan</span><span><b>Since</b> 2017</span></div>
-</div></header>
+<!-- SFM funnel hero (calm build), shipped Nov 2 2026. Replaces the old video hero. Grade box posts to Netlify Forms "page-grade". -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;1,400&display=swap"></noscript>
+<style>
+/* Layout: one full-bleed navy hero; copy left, particle funnel right; on phones the funnel stacks under the copy. Single dark look by choice. */
+.sfm-hero {
+  --navy: #0A1628;
+  --ember: #E85D26;
+  --white: #FFFFFF;
+  --slate: #8B9DB5;
+  --ink: #1C1C2E;
+  --text-soft: rgba(255,255,255,.80);
+  --hairline: rgba(139,157,181,.22);
+  --display: "Tinos", "Liberation Serif", "Times New Roman", Times, serif;
+  --ui: "Inter", system-ui, "Helvetica Neue", Arial, sans-serif;
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column;
+  min-height: max(660px, min(100svh, 980px));
+  background: var(--navy); color: var(--white);
+  font-family: var(--ui); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 70px;
+}
+.sfm-hero *, .sfm-hero *::before, .sfm-hero *::after { box-sizing: border-box; }
+.sfm-hero a { color: inherit; }
+.sfm-hero :focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; border-radius: 2px; }
+.sfm-hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+
+.sfm-wrap {
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .sfm-wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); }
+}
+
+/* buttons */
+.sfm-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px;
+  font-family: var(--ui); font-weight: 700; font-size: .92rem; letter-spacing: .01em;
+  text-decoration: none; border-radius: 4px; padding: 14px 26px; border: 0; cursor: pointer;
+  background: var(--ember); color: var(--white);
+  box-shadow: 0 0 0 0 rgba(232,93,38,0); transition: transform .2s, box-shadow .2s;
+}
+.sfm-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 32px -10px rgba(232,93,38,.75); }
+.sfm-btn svg { width: 16px; height: 16px; flex: none; transition: transform .2s; }
+.sfm-btn:hover svg { transform: translateX(3px); }
+.sfm-btn-sm { min-height: 44px; padding: 10px 16px; font-size: .78rem; }
+.sfm-text-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; font-size: .88rem; color: var(--text-soft); text-decoration: underline; text-decoration-color: var(--ember); text-underline-offset: 6px; text-decoration-thickness: 2px; }
+
+/* copy */
+.sfm-grid { position: relative; z-index: 1; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 32px; align-items: stretch; padding-block: 12px 40px; }
+.sfm-copy { position: relative; z-index: 2; align-self: center; display: flex; flex-direction: column; gap: 30px; max-width: 34rem; padding-block: 24px; }
+.sfm-eyebrow { margin: 0; display: flex; align-items: center; gap: 10px; font-size: .7rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--slate); }
+.sfm-eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 12px var(--ember); flex: none; }
+.sfm-hero h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 5.6vw, 5rem); line-height: 1.03; letter-spacing: -.015em; text-wrap: balance; }
+.sfm-hero h1 em { font-style: italic; color: var(--ember); }
+.sfm-lead { margin: -8px 0 0; max-width: 28rem; font-size: 1.06rem; line-height: 1.65; color: var(--text-soft); text-wrap: pretty; }
+.sfm-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; }
+.sfm-quiet { margin: 0; font-size: .74rem; font-weight: 500; letter-spacing: .04em; color: var(--slate); }
+
+/* free grade card form */
+.sfm-grade { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; max-width: 32rem; }
+.sfm-grade-title { margin: 0; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--slate); }
+.sfm-grade-row { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+.sfm-grade-row input {
+  flex: 1 1 220px; min-width: 0;
+  width: 100%; min-height: 48px; padding: 12px 14px; border-radius: 4px;
+  border: 1px solid rgba(139,157,181,.42); background: rgba(10,22,40,.82); color: var(--white);
+  font: 500 .95rem/1.3 var(--ui); transition: border-color .2s, box-shadow .2s;
+}
+.sfm-grade-row input::placeholder { color: rgba(139,157,181,.7); }
+.sfm-grade-row input:focus { outline: none; border-color: var(--ember); box-shadow: 0 0 0 3px rgba(232,93,38,.25); }
+.sfm-grade-row input[aria-invalid="true"] { border-color: var(--ember); }
+.sfm-grade-row input[hidden] { display: none; }
+.sfm-grade-msg { margin: 0; min-height: 1.4em; font-size: .84rem; color: var(--white); }
+.sfm-grade-msg:empty { min-height: 0; }
+.sfm-grade-done { margin: 0; padding: 16px 18px; border: 1px solid var(--hairline); border-radius: 4px; background: rgba(10,22,40,.82); font-size: .92rem; }
+.sfm-grade-done strong { display: block; margin-bottom: 4px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+
+/* stage */
+.sfm-stage { position: relative; min-height: 540px; touch-action: pan-y; }
+.sfm-tag { position: absolute; z-index: 2; margin: 0; display: flex; align-items: center; gap: 8px; opacity: .7; font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; pointer-events: none; transform: translateY(-50%); }
+.sfm-tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+.sfm-tag-1 { color: var(--slate); }
+.sfm-tag-2 { color: var(--white); }
+.sfm-tag-3 { color: var(--ember); }
+.sfm-tag-3::before { box-shadow: 0 0 8px var(--ember); }
+
+@media (max-width: 860px) {
+  .sfm-grid { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 4px 20px; }
+  .sfm-copy { max-width: none; gap: 24px; padding-block: 12px 0; }
+  .sfm-stage { min-height: 430px; }
+}
+@media (max-width: 420px) {
+  .sfm-btn-sm { padding-inline: 12px; }
+  .sfm-stage { min-height: 390px; }
+  .sfm-grade-row .sfm-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sfm-btn, .sfm-btn svg, .sfm-grade-row input { transition: none; }
+}
+
+.sfm-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+</style>
+<section class="sfm-hero">. All CSS is scoped to .sfm-hero, the JS is one self-contained block, no libraries.
+  - Fonts: Tinos (Google Fonts build of Liberation Serif) for the headline, Montserrat for everything else.
+  - Logo: replace the typed wordmark inside .sfm-logo with the current white SFM logo file (see the comment there).
+  - Links: point #book at the booking page and the nav links at the real pages.
+  - Grade card form: two short steps (page link, then email). Front end only. Set GRADE_FORM_CONNECTED to true and fill
+    sendToIntake() in the script (marked CONNECT) so the page link and email reach SFM's intake (for example a GoHighLevel form or webhook).
+  - Proof: one quiet line under the form. Swap in a real client result there later if SFM wants one.
+  - Motion: slow canvas particles, about 300 to 850 depending on screen size, auto-lowered on slow phones, paused when off screen or in a hidden tab.
+    People with reduced motion turned on get a still frame instead.
+-->
+<style>
+/* Layout: one full-bleed navy hero; copy left, particle funnel right; on phones the funnel stacks under the copy. Single dark look by choice. */
+.sfm-hero {
+  --navy: #0A1628;
+  --ember: #E85D26;
+  --white: #FFFFFF;
+  --slate: #8B9DB5;
+  --ink: #1C1C2E;
+  --text-soft: rgba(255,255,255,.80);
+  --hairline: rgba(139,157,181,.22);
+  --display: "Tinos", "Liberation Serif", "Times New Roman", Times, serif;
+  --ui: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column;
+  min-height: max(660px, min(100svh, 980px));
+  background: var(--navy); color: var(--white);
+  font-family: var(--ui); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.sfm-hero *, .sfm-hero *::before, .sfm-hero *::after { box-sizing: border-box; }
+.sfm-hero a { color: inherit; }
+.sfm-hero :focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; border-radius: 2px; }
+.sfm-hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+
+.sfm-wrap {
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .sfm-wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); }
+}
+
+/* nav */
+.sfm-nav { position: relative; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 22px; }
+.sfm-logo { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font-weight: 800; font-size: 1.02rem; letter-spacing: -.01em; white-space: nowrap; }
+.sfm-logo img { display: block; height: 30px; width: auto; }
+.sfm-logo b { font-weight: 800; color: var(--ember); }
+.sfm-links { display: flex; align-items: center; gap: 30px; margin: 0; padding: 0; list-style: none; font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); }
+.sfm-links a { text-decoration: none; transition: color .2s; }
+.sfm-links a:hover { color: var(--white); }
+.sfm-nav-end { display: flex; align-items: center; gap: 10px; }
+.sfm-menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--hairline); border-radius: 4px; color: var(--white); cursor: pointer; }
+.sfm-menu-btn span, .sfm-menu-btn span::before, .sfm-menu-btn span::after { display: block; width: 18px; height: 2px; background: currentColor; border-radius: 1px; position: relative; transition: transform .25s, opacity .2s; }
+.sfm-menu-btn span::before, .sfm-menu-btn span::after { content: ""; position: absolute; left: 0; }
+.sfm-menu-btn span::before { top: -6px; }
+.sfm-menu-btn span::after { top: 6px; }
+.sfm-menu-btn[aria-expanded="true"] span { background: transparent; }
+.sfm-menu-btn[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
+.sfm-menu-btn[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
+.sfm-panel { position: absolute; z-index: 5; left: 0; right: 0; top: 88px; }
+.sfm-panel ul { list-style: none; margin: 0; padding: 8px 0; display: flex; flex-direction: column; background: var(--navy); border: 1px solid var(--hairline); border-radius: 6px; box-shadow: 0 24px 48px -16px rgba(0,0,0,.6); }
+.sfm-panel a { display: block; padding: 14px 20px; text-decoration: none; font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.sfm-panel a:hover { color: var(--ember); }
+
+/* buttons */
+.sfm-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px;
+  font-family: var(--ui); font-weight: 700; font-size: .92rem; letter-spacing: .01em;
+  text-decoration: none; border-radius: 4px; padding: 14px 26px; border: 0; cursor: pointer;
+  background: var(--ember); color: var(--white);
+  box-shadow: 0 0 0 0 rgba(232,93,38,0); transition: transform .2s, box-shadow .2s;
+}
+.sfm-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 32px -10px rgba(232,93,38,.75); }
+.sfm-btn svg { width: 16px; height: 16px; flex: none; transition: transform .2s; }
+.sfm-btn:hover svg { transform: translateX(3px); }
+.sfm-btn-sm { min-height: 44px; padding: 10px 16px; font-size: .78rem; }
+.sfm-text-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; font-size: .88rem; color: var(--text-soft); text-decoration: underline; text-decoration-color: var(--ember); text-underline-offset: 6px; text-decoration-thickness: 2px; }
+
+/* copy */
+.sfm-grid { position: relative; z-index: 1; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 32px; align-items: stretch; padding-block: 12px 40px; }
+.sfm-copy { position: relative; z-index: 2; align-self: center; display: flex; flex-direction: column; gap: 30px; max-width: 34rem; padding-block: 24px; }
+.sfm-eyebrow { margin: 0; display: flex; align-items: center; gap: 10px; font-size: .7rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--slate); }
+.sfm-eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 12px var(--ember); flex: none; }
+.sfm-hero h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 5.6vw, 5rem); line-height: 1.03; letter-spacing: -.015em; text-wrap: balance; }
+.sfm-hero h1 em { font-style: italic; color: var(--ember); }
+.sfm-lead { margin: -8px 0 0; max-width: 28rem; font-size: 1.06rem; line-height: 1.65; color: var(--text-soft); text-wrap: pretty; }
+.sfm-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; }
+.sfm-quiet { margin: 0; font-size: .74rem; font-weight: 500; letter-spacing: .04em; color: var(--slate); }
+
+/* free grade card form */
+.sfm-grade { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; max-width: 32rem; }
+.sfm-grade-title { margin: 0; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--slate); }
+.sfm-grade-row { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+.sfm-grade-row input {
+  flex: 1 1 220px; min-width: 0;
+  width: 100%; min-height: 48px; padding: 12px 14px; border-radius: 4px;
+  border: 1px solid rgba(139,157,181,.42); background: rgba(10,22,40,.82); color: var(--white);
+  font: 500 .95rem/1.3 var(--ui); transition: border-color .2s, box-shadow .2s;
+}
+.sfm-grade-row input::placeholder { color: rgba(139,157,181,.7); }
+.sfm-grade-row input:focus { outline: none; border-color: var(--ember); box-shadow: 0 0 0 3px rgba(232,93,38,.25); }
+.sfm-grade-row input[aria-invalid="true"] { border-color: var(--ember); }
+.sfm-grade-row input[hidden] { display: none; }
+.sfm-grade-msg { margin: 0; min-height: 1.4em; font-size: .84rem; color: var(--white); }
+.sfm-grade-msg:empty { min-height: 0; }
+.sfm-grade-done { margin: 0; padding: 16px 18px; border: 1px solid var(--hairline); border-radius: 4px; background: rgba(10,22,40,.82); font-size: .92rem; }
+.sfm-grade-done strong { display: block; margin-bottom: 4px; font-family: var(--display); font-weight: 400; font-size: 1.3rem; }
+
+/* stage */
+.sfm-stage { position: relative; min-height: 540px; touch-action: pan-y; }
+.sfm-tag { position: absolute; z-index: 2; margin: 0; display: flex; align-items: center; gap: 8px; opacity: .7; font-size: .6rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; pointer-events: none; transform: translateY(-50%); }
+.sfm-tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+.sfm-tag-1 { color: var(--slate); }
+.sfm-tag-2 { color: var(--white); }
+.sfm-tag-3 { color: var(--ember); }
+.sfm-tag-3::before { box-shadow: 0 0 8px var(--ember); }
+
+@media (max-width: 860px) {
+  .sfm-links { display: none; }
+  .sfm-menu-btn { display: inline-flex; }
+  .sfm-grid { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 4px 20px; }
+  .sfm-copy { max-width: none; gap: 24px; padding-block: 12px 0; }
+  .sfm-stage { min-height: 430px; }
+}
+@media (max-width: 420px) {
+  .sfm-logo { font-size: .9rem; }
+  .sfm-btn-sm { padding-inline: 12px; }
+  .sfm-stage { min-height: 390px; }
+  .sfm-grade-row .sfm-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sfm-btn, .sfm-btn svg, .sfm-grade-row input, .sfm-menu-btn span, .sfm-menu-btn span::before, .sfm-menu-btn span::after { transition: none; }
+}
+
+/* preview page only, not part of the hero */
+body { background: #0A1628; color: #8B9DB5; color-scheme: dark; }
+.preview-note { margin: 0; border-top: 1px solid rgba(139,157,181,.22); font: 500 .74rem/1.6 "Montserrat", Arial, sans-serif; }
+.preview-note .sfm-wrap { padding-block: 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+</style>
+
+<section class="sfm-hero" id="sfm-hero" aria-label="Sales Funnel Marketing">
+  <canvas aria-hidden="true"></canvas>
+
+  <div class="sfm-grid sfm-wrap">
+    <div class="sfm-copy">
+      <p class="sfm-eyebrow">Human Focused. AI Optimized.</p>
+      <h1>Turn the people scrolling past into <em>fans</em>.</h1>
+      <p class="sfm-lead">Real people make the content. AI helps it land harder.</p>
+      <form class="sfm-grade" id="sfm-grade" name="page-grade" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="page-grade">
+        <input type="hidden" name="subject" value="New free page grade request from the homepage">
+        <p class="sfm-hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label class="sfm-grade-title" id="sfm-grade-label" for="sfm-grade-page">See how your page stacks up, free</label>
+        <div class="sfm-grade-row">
+          <input id="sfm-grade-page" name="page" type="text" inputmode="url" autocomplete="url" placeholder="Your Facebook or Instagram link" aria-describedby="sfm-grade-msg" required>
+          <input id="sfm-grade-email" name="email" type="email" autocomplete="email" placeholder="you@yourbusiness.com" aria-describedby="sfm-grade-msg" hidden>
+          <button class="sfm-btn" type="submit"><span>Grade my page</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <p class="sfm-grade-msg" id="sfm-grade-msg" aria-live="polite"></p>
+        <a class="sfm-text-link" href="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson">Or book a free strategy call</a>
+      </form>
+      <p class="sfm-quiet">Since 2017 in Perrysburg, Ohio. Author of The Digital Garden.</p>
+    </div>
+
+    <div class="sfm-stage"></div>
+  </div>
+
+  <p class="sfm-tag sfm-tag-1">Strangers</p>
+  <p class="sfm-tag sfm-tag-2">Followers</p>
+  <p class="sfm-tag sfm-tag-3">Fans</p>
+</section>
+<script>
+(() => {
+  const hero = document.querySelector('.sfm-hero');
+  if (!hero) return;
+  const stage = hero.querySelector('.sfm-stage');
+  const cv = hero.querySelector('canvas');
+  const ctx = cv.getContext('2d');
+  const tags = hero.querySelectorAll('.sfm-tag');
+  const NAVY = '#0A1628', SLATE = '#8B9DB5', WHITE = '#FFFFFF', EMBER = '#E85D26';
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let reduce = rm.matches;
+  /* holiday: when sfm-holiday.js is on, the dots above the funnel fall like soft snow */
+  const SNOW = document.documentElement.classList.contains('sfm-holiday');
+  const BULBS = ['#FF3B47', '#FFC233', '#22C55E', '#3B8BFF', '#E85D26'];
+  const flake = document.createElement('canvas');
+  flake.width = flake.height = 16;
+  { const fc = flake.getContext('2d'), fg = fc.createRadialGradient(8, 8, 0, 8, 8, 8);
+    fg.addColorStop(0, 'rgba(255,255,255,1)'); fg.addColorStop(0.4, 'rgba(255,255,255,.7)'); fg.addColorStop(1, 'rgba(255,255,255,0)');
+    fc.fillStyle = fg; fc.fillRect(0, 0, 16, 16); }
+
+  /* free grade card form */
+  const GRADE_FORM_CONNECTED = true; // sends to Netlify Forms (form "page-grade")
+  async function sendToIntake(data) {
+    const body = new URLSearchParams({
+      'form-name': 'page-grade',
+      subject: 'New free page grade request from the homepage',
+      'bot-field': (form.querySelector('[name="bot-field"]') || {}).value || '',
+      page: 'https://' + data.page,
+      email: data.email
+    });
+    const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
+    if (!res.ok) throw new Error('Form post failed: ' + res.status);
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { method: 'homepage_page_grade' });
+      if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: 'Homepage page grade' });
+    } catch (e) {}
+  }
+  const form = hero.querySelector('.sfm-grade');
+  if (form) {
+    const pageIn = form.querySelector('#sfm-grade-page');
+    const emailIn = form.querySelector('#sfm-grade-email');
+    const label = form.querySelector('#sfm-grade-label');
+    const msg = form.querySelector('#sfm-grade-msg');
+    const btn = form.querySelector('button[type="submit"]');
+    const btnText = btn.querySelector('span');
+    let pg = null;
+    const cleanPage = v => {
+      v = v.trim();
+      if (/^@[A-Za-z0-9._]{2,30}$/.test(v)) return { page: 'instagram.com/' + v.slice(1), handle: v };
+      const m = v.replace(/^https?:\/\//i, '').replace(/^(www\.|m\.)/i, '').match(/^(facebook\.com|fb\.com|instagram\.com)\/([A-Za-z0-9._\-\/?=&]+)$/i);
+      if (!m) return null;
+      const name = m[2].split(/[\/?#]/)[0];
+      if (!name) return null;
+      return { page: m[1].toLowerCase() + '/' + m[2], handle: /^profile\.php$/i.test(name) ? 'your page' : '@' + name };
+    };
+    const fail = (input, text) => { input.setAttribute('aria-invalid', 'true'); msg.textContent = text; input.focus(); };
+    [pageIn, emailIn].forEach(i => i.addEventListener('input', () => { i.removeAttribute('aria-invalid'); msg.textContent = ''; }));
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!pg) {
+        // step 1: the page link
+        pg = cleanPage(pageIn.value);
+        if (!pg) return fail(pageIn, 'Paste your Facebook or Instagram link, like instagram.com/yourbusiness, or your @handle.');
+        pageIn.hidden = true; emailIn.hidden = false; emailIn.required = true;
+        label.textContent = 'Where should we send the grade card?';
+        label.htmlFor = 'sfm-grade-email';
+        btnText.textContent = 'Send it';
+        emailIn.focus();
+        return;
+      }
+      // step 2: the email
+      const email = emailIn.value.trim();
+      if (!email || !emailIn.checkValidity()) return fail(emailIn, 'Add an email address so we know where to send your grade card.');
+      const done = document.createElement('div');
+      done.className = 'sfm-grade-done';
+      done.setAttribute('role', 'status');
+      if (!GRADE_FORM_CONNECTED) {
+        done.innerHTML = '<strong>This is where it lands.</strong>On the live site, your page would go straight to our team for a grade card. This preview isn\'t connected yet, so nothing was sent.';
+        form.replaceWith(done);
+        return;
+      }
+      btn.disabled = true; msg.textContent = 'Sending...';
+      try {
+        await sendToIntake({ page: pg.page, email });
+        done.innerHTML = '<strong>Got it. Your page is in line.</strong>We\'ll email your grade card for <span></span> to <span></span>.';
+        const spans = done.querySelectorAll('span');
+        spans[0].textContent = pg.handle; spans[1].textContent = email;
+        form.replaceWith(done);
+      } catch (err) {
+        btn.disabled = false;
+        msg.textContent = 'That didn\'t go through. Check your connection and try again.';
+      }
+    });
+  }
+
+  /* particle funnel */
+  let W = 0, H = 0, box = { x: 0, y: 0, w: 1, h: 1 };
+  let g = null, parts = [], walls = [], quality = 1;
+  let t0 = performance.now(), last = 0, raf = 0, onScreen = true;
+  let slowFrames = 0, sampled = 0;
+  const mouse = { x: 0, y: 0, on: false };
+  const gusts = [];
+
+  function hw(y) {
+    if (y < g.y0 || y > g.y2) return Infinity;
+    if (y <= g.y1) { const u = (y - g.y0) / (g.y1 - g.y0); return g.th / 2 + (g.topW / 2 - g.th / 2) * Math.pow(1 - u, 1.6); }
+    return g.th / 2;
+  }
+
+  function spawn(p, init) {
+    const spread = Math.min(box.w * 1.05, g.topW * 1.5);
+    p.x = g.cx + (Math.random() - 0.5) * spread;
+    p.vx = (Math.random() - 0.5) * 0.4;
+    p.vy = 0.2 + Math.random() * 0.5;
+    p.st = 0; p.life = 1; p.ground = false;
+    p.r = Math.random();
+    p.ph = Math.random() * 6.28;
+    if (init) {
+      const roll = Math.random();
+      if (roll < 0.62) {
+        p.y = -20 + Math.random() * (g.y0 + 40);
+      } else if (roll < 0.88) {
+        p.y = g.y0 + Math.random() * (g.y2 - g.y0);
+        p.x = g.cx + (Math.random() * 2 - 1) * (hw(p.y) - 2);
+        p.st = p.y > g.y0 + (g.y1 - g.y0) * 0.45 ? 1 : 0;
+      } else {
+        p.st = 2; p.ground = true; p.life = Math.random();
+        p.y = g.floor - p.r * 6;
+        p.x = g.cx + (Math.random() - 0.5) * Math.min(box.w, 420);
+        p.vx = 0; p.vy = 0;
+      }
+    } else {
+      p.y = -10 - Math.random() * 70;
+    }
+  }
+
+  function targetCount() {
+    const narrow = box.w < 560;
+    return Math.round(Math.min(narrow ? 480 : 850, Math.max(300, box.w * box.h / 380)) * quality * (SNOW ? 0.7 : 1));
+  }
+
+  function measure() {
+    const hr = hero.getBoundingClientRect();
+    const sr = stage.getBoundingClientRect();
+    W = hr.width; H = hr.height;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    box = { x: sr.left - hr.left, y: sr.top - hr.top + 26, w: sr.width, h: sr.height - 26 };
+    const narrow = box.w < 560;
+    const topW = Math.min(box.w * (narrow ? 0.8 : 0.78), 500);
+    g = {
+      cx: box.x + box.w * (narrow ? 0.57 : 0.54),
+      topW,
+      y0: box.y + box.h * 0.2,
+      y1: box.y + box.h * 0.6,
+      th: Math.max(16, topW * 0.075),
+      floor: box.y + box.h * 0.95
+    };
+    g.y2 = g.y1 + box.h * 0.08;
+
+    walls = [];
+    for (let y = g.y0; y <= g.y2; y += 4) {
+      const h = hw(y);
+      for (const s of [-1, 1]) {
+        walls.push({ x: g.cx + s * (h + 1.5), y, a: 0.55 });
+        walls.push({ x: g.cx + s * (h + 4.5), y: y + 2, a: 0.22 });
+      }
+    }
+    for (let x = 0; x <= 14; x += 3.5) {
+      walls.push({ x: g.cx - g.topW / 2 - 1.5 - x, y: g.y0 - x * 0.18, a: 0.55 });
+      walls.push({ x: g.cx + g.topW / 2 + 1.5 + x, y: g.y0 - x * 0.18, a: 0.55 });
+    }
+
+    const count = targetCount();
+    while (parts.length < count) parts.push({});
+    parts.length = count;
+    for (const p of parts) spawn(p, true);
+
+    const left = box.x + 2;
+    place(tags[0], left, Math.max(box.y + 8, g.y0 - box.h * 0.1));
+    place(tags[1], left, (g.y0 + g.y1) / 2 + box.h * 0.04);
+    place(tags[2], left, g.floor - box.h * 0.1);
+  }
+  function place(el, x, y) { el.style.left = x + 'px'; el.style.top = y + 'px'; }
+
+  function update(f, t) {
+    const R2 = 84 * 84;
+    for (let i = gusts.length - 1; i >= 0; i--) { if (t - gusts[i].t > 0.9) gusts.splice(i, 1); }
+    const mid = g.y0 + (g.y1 - g.y0) * 0.45;
+    for (const p of parts) {
+      if (p.y < g.y0) {
+        p.vy += 0.025 * f;
+        p.vx += ((g.cx - p.x) * (SNOW ? 0.0008 : 0.0011) + Math.sin(t * (SNOW ? 0.9 : 0.7) + p.ph) * (SNOW ? 0.03 : 0.015)) * f;
+        p.vx *= Math.pow(0.99, f);
+        const vmax = SNOW ? 0.45 + p.r * 0.35 : 0.8 + p.r * 0.5;
+        if (p.vy > vmax) p.vy = vmax;
+        if (p.y > g.y0 - 16) {
+          const lim = g.topW / 2 - 3, dx = p.x - g.cx;
+          if (Math.abs(dx) > lim) p.x += (g.cx + Math.sign(dx) * lim - p.x) * 0.3 * f;
+        }
+      } else if (p.y <= g.y2) {
+        p.vy += 0.025 * f;
+        const dx = p.x - g.cx;
+        p.vx += (Math.sin(t * 1.4 + p.ph) * 0.015 - dx * 0.0006) * f;
+        const cap = p.y < g.y1 ? 0.75 + p.r * 0.3 : 1.7;
+        if (p.vy > cap) p.vy = cap;
+        if (p.st === 0 && p.y > mid) p.st = 1;
+      } else {
+        if (p.st < 2) {
+          p.st = 2;
+          p.vx = (Math.random() - 0.5) * 3.2;
+          p.vy = Math.min(p.vy, 1.4) * 0.6;
+        }
+        p.vy += 0.02 * f;
+        if (p.ground) { p.life -= 0.003 * f; p.vx *= Math.pow(0.9, f); }
+        else p.vx *= Math.pow(0.992, f);
+      }
+
+      if (mouse.on) {
+        const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < R2 && d2 > 0.01) { const dd = Math.sqrt(d2), s = (1 - dd / 84) * 0.7 * f; p.vx += dx / dd * s; p.vy += dy / dd * s * 0.6; }
+      }
+      for (const gu of gusts) {
+        const age = t - gu.t, rad = age * 520;
+        const dx = p.x - gu.x, dy = p.y - gu.y, dd = Math.hypot(dx, dy) || 1;
+        const off = Math.abs(dd - rad);
+        if (off < 46) { const s = (1 - off / 46) * (1 - age / 0.9) * 1.4 * f; p.vx += dx / dd * s; p.vy += dy / dd * s; }
+      }
+
+      p.x += p.vx * f; p.y += p.vy * f;
+
+      if (p.y >= g.y0 && p.y <= g.y2) {
+        const h = hw(p.y) - 1.4, dx = p.x - g.cx;
+        if (Math.abs(dx) > h) {
+          p.x = g.cx + Math.sign(dx) * h;
+          p.vx = -Math.sign(dx) * Math.abs(p.vx) * 0.3;
+          p.vy *= 0.97;
+        }
+      }
+      if (p.st === 2) {
+        const fl = g.floor - p.r * 6;
+        if (p.y > fl) { p.y = fl; p.vy *= -0.2; p.ground = true; }
+      }
+      if (p.life <= 0 || p.x < -20 || p.x > W + 20 || p.y > H + 20) spawn(p, false);
+    }
+  }
+
+  function draw(t) {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = NAVY;
+    ctx.fillRect(0, 0, W, H);
+
+    const gl = ctx.createRadialGradient(g.cx, g.y2 + box.h * 0.12, 0, g.cx, g.y2 + box.h * 0.12, g.topW * 0.55);
+    gl.addColorStop(0, 'rgba(232,93,38,0.11)');
+    gl.addColorStop(1, 'rgba(232,93,38,0)');
+    ctx.fillStyle = gl;
+    ctx.fillRect(g.cx - g.topW, g.y1, g.topW * 2, box.h);
+
+    ctx.fillStyle = WHITE;
+    for (const w of walls) {
+      ctx.globalAlpha = w.a * 0.75 * (0.85 + 0.15 * Math.sin(t * 0.8 + w.y * 0.05));
+      ctx.fillRect(w.x - 0.8, w.y - 0.8, 1.6, 1.6);
+    }
+    if (SNOW) {
+      /* Christmas lights wrapped around the funnel */
+      let i = 0;
+      ctx.globalCompositeOperation = 'lighter';
+      for (let y = g.y0 + 4; y <= g.y2; y += 20) {
+        for (const sd of [-1, 1]) {
+          const x = g.cx + sd * (hw(y) + 8), c = BULBS[i % BULBS.length];
+          const tw = 0.72 + 0.28 * (0.5 + 0.5 * Math.sin(t * 0.7 + i * 1.7));
+          ctx.fillStyle = c;
+          ctx.globalAlpha = 0.16 * tw; ctx.beginPath(); ctx.arc(x, y, 9, 0, 6.283); ctx.fill();
+          ctx.globalAlpha = 0.95 * tw; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 6.283); ctx.fill();
+          i++;
+        }
+      }
+      for (let x = g.cx - g.topW / 2 + 10; x <= g.cx + g.topW / 2 - 10; x += 22) {
+        const c = BULBS[i % BULBS.length], y = g.y0 - 9;
+        const tw = 0.72 + 0.28 * (0.5 + 0.5 * Math.sin(t * 0.7 + i * 1.7));
+        ctx.fillStyle = c;
+        ctx.globalAlpha = 0.16 * tw; ctx.beginPath(); ctx.arc(x, y, 9, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = 0.95 * tw; ctx.beginPath(); ctx.arc(x, y, 2.6, 0, 6.283); ctx.fill();
+        i++;
+      }
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    if (SNOW) {
+      for (const p of parts) {
+        if (p.st === 2) continue;
+        const s = p.st === 0 ? 2.6 + p.r * 3.6 : 2.4;
+        ctx.globalAlpha = p.st === 0 ? 0.4 + p.r * 0.45 : 0.75;
+        ctx.drawImage(flake, p.x - s / 2, p.y - s / 2, s, s);
+      }
+    } else {
+      ctx.fillStyle = SLATE;
+      for (const p of parts) { if (p.st !== 0) continue; ctx.globalAlpha = 0.35 + p.r * 0.3; ctx.fillRect(p.x - 0.85, p.y - 0.85, 1.7, 1.7); }
+      ctx.fillStyle = WHITE;
+      ctx.globalAlpha = 0.7;
+      for (const p of parts) { if (p.st !== 1) continue; ctx.fillRect(p.x - 0.9, p.y - 0.9, 1.8, 1.8); }
+    }
+
+    ctx.globalCompositeOperation = 'lighter';
+    ctx.fillStyle = EMBER;
+    for (const p of parts) {
+      if (p.st !== 2) continue;
+      const a = Math.max(0, Math.min(1, p.life * 1.4));
+      ctx.globalAlpha = a * 0.06; ctx.fillRect(p.x - 3.5, p.y - 3.5, 7, 7);
+      ctx.globalAlpha = a * 0.85; ctx.fillRect(p.x - 1.2, p.y - 1.2, 2.4, 2.4);
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1;
+  }
+
+  /* lower the particle count once if the first couple of seconds run slow */
+  function watchSpeed(ms) {
+    if (sampled > 150 || quality < 1) return;
+    sampled++;
+    if (sampled > 20 && ms > 24) slowFrames++;
+    if (sampled === 150 && slowFrames > 50) {
+      quality = 0.55;
+      parts.length = targetCount();
+    }
+  }
+
+  function frame(now) {
+    raf = 0;
+    if (!onScreen || document.hidden || reduce) return;
+    const ms = now - last;
+    const f = Math.min(2.5, Math.max(0.2, ms / 16.667));
+    last = now;
+    const t = (now - t0) / 1000;
+    update(f, t);
+    draw(t);
+    watchSpeed(ms);
+    raf = requestAnimationFrame(frame);
+  }
+  function start() { if (!raf && !reduce && onScreen) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+
+  function renderStill() {
+    for (let i = 0; i < 1100; i++) update(1, i / 60);
+    draw(0);
+  }
+
+  function local(e) { const r = hero.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  hero.addEventListener('pointermove', e => { const p = local(e); mouse.x = p.x; mouse.y = p.y; mouse.on = true; }, { passive: true });
+  hero.addEventListener('pointerleave', () => { mouse.on = false; });
+  hero.addEventListener('pointercancel', () => { mouse.on = false; });
+  hero.addEventListener('pointerup', e => { if (e.pointerType !== 'mouse') mouse.on = false; });
+  stage.addEventListener('pointerdown', e => {
+    if (reduce) return;
+    const p = local(e);
+    gusts.push({ x: p.x, y: p.y, t: (performance.now() - t0) / 1000 });
+  });
+
+  let lastW = 0, lastH = 0, rt = 0;
+  function onResize() {
+    const r = hero.getBoundingClientRect();
+    if (Math.abs(r.width - lastW) < 2 && Math.abs(r.height - lastH) < 80) return;
+    lastW = r.width; lastH = r.height;
+    measure();
+    if (reduce) renderStill(); else start();
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(onResize, 120); }).observe(hero);
+  else window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(onResize, 120); });
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => { onScreen = es[0].isIntersecting; if (onScreen) start(); }).observe(hero);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
+  const onMotion = e => { reduce = e.matches; if (reduce) renderStill(); else start(); };
+  if (rm.addEventListener) rm.addEventListener('change', onMotion); else if (rm.addListener) rm.addListener(onMotion);
+
+  const r0 = hero.getBoundingClientRect(); lastW = r0.width; lastH = r0.height;
+  measure();
+  if (reduce) renderStill(); else { for (let i = 0; i < 160; i++) update(1, i / 60); draw(1.5); start(); }
+})();
+</script>
+
 
 <div class="proofbar"><div class="cap">Businesses we've grown</div><div class="marq"><div class="track"><img src="/images/logos/logo-legacy-law.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-gallon-takacs.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-culvers.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-welchs-golf.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-precision-auto.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-bollin-wealth.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-livefit.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-rmc.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-smart-financial.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-legacy-law.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-gallon-takacs.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-culvers.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-welchs-golf.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-precision-auto.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-bollin-wealth.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-livefit.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-rmc.png" alt="Client logo" loading="lazy"><img src="/images/logos/logo-smart-financial.png" alt="Client logo" loading="lazy"></div></div></div>
 
