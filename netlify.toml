@@ -2,6 +2,11 @@
   publish = "sfm-deploy-v3"
   functions = "netlify/functions"
 
+[[redirects]]
+  from = "/holiday-offer"
+  to = "/sfm-holiday-offer.html"
+  status = 200
+
 # Pretty URLs — serve /sfm-services instead of /sfm-services.html
 [[redirects]]
   from = "/sfm-services"

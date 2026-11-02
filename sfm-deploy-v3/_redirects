@@ -17,6 +17,9 @@ https://salesfunnelmarket.netlify.app/*  https://www.salesfunnelmarketing.us/:sp
 /service-page/*                                      /sfm-services            301
 /sign-up-for-our-giveaway                            /                        301
 
+# Holiday offer landing page
+/holiday-offer            /sfm-holiday-offer.html    200
+
 # Core pages
 /about                  /sfm-about              301
 /about-us               /sfm-about              301
