@@ -93,7 +93,7 @@ td{padding:9px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tab
       '<div class="card did"><h3>What we did</h3><p>'+esc(w.did)+'</p></div>'+
       '<div class="card hap"><h3>What happened</h3><p>'+esc(w.happened)+'</p></div>'+
       '<div class="card chg"><h3>What we\'re changing</h3><p>'+esc(w.changing)+'</p></div></div></div>'+
-      '<div><div class="label">Daily activity</div><div class="card"><ul class="log">'+(c.log||[]).map(function(l){return '<li><time>'+esc(/T/.test(l.at)?new Date(l.at).toLocaleDateString('en-US',{month:'short',day:'numeric'}):l.at)+'</time><div><span class="tag">'+esc(l.tag)+'</span>'+esc(l.text)+'</div></li>';}).join('')+'</ul></div></div></div>';
+      '<div><div class="label">Daily activity</div><div class="card"><ul class="log">'+(c.log||[]).map(function(l){return '<li><time>'+esc(/^\d{4}-/.test(l.at)?new Date(l.at).toLocaleDateString('en-US',{month:'short',day:'numeric'}):l.at)+'</time><div><span class="tag">'+esc(l.tag)+'</span>'+esc(l.text)+'</div></li>';}).join('')+'</ul></div></div></div>';
     h+='<div class="grid2"><div><div class="label">Projects</div><div class="card proj">'+(c.projects||[]).map(function(p){return '<div><div class="prow">'+esc(p.title)+'<span>'+esc(p.status)+' · '+(+p.percent||0)+'%</span></div><div class="bar"><i style="width:'+Math.max(0,Math.min(100,+p.percent||0))+'%"></i></div></div>';}).join('')+'</div></div>'+
       '<div><div class="label">Your turn</div><div class="card"><ul>'+(c.yourTurn||[]).map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div></div></div>';
     h+='<div class="foot">Questions? Email <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a></div>';
