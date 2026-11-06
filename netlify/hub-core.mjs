@@ -69,9 +69,12 @@ export async function recordLogin(s, user, client, req) {
   // Email alert: a Netlify Forms submission, which emails whoever is set up for form notifications.
   if (user.role === "client") {
     const origin = new URL(req.url).origin;
-    const form = new URLSearchParams({ "form-name": "client-login-alert", client: client ? client.name : user.client, email: user.email, time: new Date(at).toLocaleString("en-US", { timeZone: "America/New_York", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " Eastern", device: deviceOf(req) });
+    const form = new URLSearchParams({ "form-name": "client-login-alert", client: client ? client.name : user.client, email: user.email, time: eastern(at), device: deviceOf(req) });
     try { await fetch(origin + "/client-login/", { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" }, body: form.toString() }); } catch (e) { console.log("login alert failed", e.message); }
   }
+}
+export function eastern(d) {
+  return new Date(d).toLocaleString("en-US", { timeZone: "America/New_York", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " Eastern";
 }
 function deviceOf(req) {
   const ua = req.headers.get("user-agent") || "";
@@ -331,9 +334,9 @@ export function passwordProblem(pw) {
   return "";
 }
 // Only a hash of the link's token is stored, so the store alone can't be used to set a password.
-export async function createInvite(s, { email, role, client, by }) {
+export async function createInvite(s, { email, role, client, by, ttlMs }) {
   const token = crypto.randomBytes(32).toString("base64url");
-  const exp = Date.now() + INVITE_DAYS * 864e5;
+  const exp = Date.now() + (ttlMs || INVITE_DAYS * 864e5);
   await s.config.setJSON("invite:" + sha(token), { email, role, client: client || null, exp, by, at: new Date().toISOString() });
   return { token, exp };
 }
@@ -364,6 +367,26 @@ export function setupKeyOk(key) {
   const a = crypto.createHash("sha256").update(String(key)).digest();
   const b = crypto.createHash("sha256").update(want).digest();
   return crypto.timingSafeEqual(a, b);
+}
+// Owner login link: a one-hour set-password link for the owner email only. It goes out as a Netlify
+// Forms submission ("owner-login-link"), which Netlify emails to the address set under Forms >
+// Submission notifications (jayson@salesfunnelmarketing.us). Whoever presses the button never sees it.
+// At most one every 2 minutes and 10 a day.
+export const OWNER_LINK_MINUTES = 60;
+export async function sendOwnerLink(s, origin) {
+  const now = Date.now();
+  const day = new Date(now).toISOString().slice(0, 10);
+  const st = (await s.config.get("owner-link", { type: "json" })) || { last: 0, day, n: 0 };
+  if (st.day !== day) { st.day = day; st.n = 0; }
+  if (now - st.last < 2 * 60e3 || st.n >= 10) return { sent: false, throttled: true };
+  st.last = now; st.n += 1;
+  await s.config.setJSON("owner-link", st);
+  const { token, exp } = await createInvite(s, { email: OWNER_EMAIL, role: "admin", client: "", by: "owner-link", ttlMs: OWNER_LINK_MINUTES * 60e3 });
+  const form = new URLSearchParams({ "form-name": "owner-login-link", email: OWNER_EMAIL, link: origin + "/client-login/set-password/?t=" + token, expires: eastern(exp) });
+  try {
+    const r = await fetch(origin + "/client-login/setup/", { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" }, body: form.toString() });
+    return { sent: r.ok };
+  } catch (e) { console.log("owner link failed", e.message); return { sent: false }; }
 }
 export async function listUsers(s) {
   const { blobs } = await s.users.list();
