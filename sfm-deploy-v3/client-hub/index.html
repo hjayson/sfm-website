@@ -84,7 +84,7 @@ td{padding:9px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tab
   function testbar(t){ return t?'<div class="testbar"><b>Test copy.</b> Sample data only. Your real clients and their portals are untouched.</div>':''; }
 
   function client(d){
-    var c=d.client, fresh=c.refreshedAt && (Date.now()-new Date(c.refreshedAt))<36e5*30;
+    var c=d.client, fresh=c.refreshedAt && (Date.now()-new Date(c.refreshedAt))<36e5*2;
     var h=testbar(d.test);
     h+='<div class="chead"><div><h1>'+esc(c.name)+'</h1><div class="sub">'+esc(c.tagline)+'</div></div><div class="fresh"><span class="dot'+(fresh?'':' old')+'"></span>Numbers updated '+when(c.refreshedAt)+'</div></div>';
     h+='<div class="label">Last 7 days</div><div class="kpis">'+(c.kpis||[]).map(function(k){return '<div class="kpi"><div class="k">'+esc(k.k)+'</div><div class="v">'+fmt(k.v)+'</div>'+spark(k.series)+'<div class="src">'+esc(k.src)+'</div></div>';}).join('')+'</div>';
@@ -102,10 +102,10 @@ td{padding:9px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tab
 
   function admin(d){
     var h=testbar(d.test);
-    h+='<div class="chead"><div><h1>SFM team view</h1><div class="sub">Who logged in, and whether each hub updated this morning.</div></div></div>';
+    h+='<div class="chead"><div><h1>SFM team view</h1><div class="sub">Who logged in, and whether each hub is up to date.</div></div></div>';
     h+='<div class="label">Recent client logins</div><div class="card tw">'+(d.logins.length?'<table><thead><tr><th>When (Eastern)</th><th>Client</th><th>Email</th><th>Device</th></tr></thead><tbody>'+d.logins.map(function(l){return '<tr><td>'+when(l.at)+'</td><td>'+esc(l.clientName||'SFM team')+'</td><td>'+esc(l.email)+'</td><td>'+esc(l.device)+'</td></tr>';}).join('')+'</tbody></table>':'<p>No logins yet.</p>')+'<div class="note">Each client login also emails you.</div></div>';
-    h+='<div class="label">Daily numbers</div><div class="card tw"><table><thead><tr><th>Client</th><th>Last updated</th><th>Status</th></tr></thead><tbody>'+d.clients.map(function(c){return '<tr><td>'+esc(c.name)+'</td><td>'+when(c.refreshedAt)+'</td><td>'+(c.refreshError?'Couldn\'t update: '+esc(c.refreshError):'OK')+'</td></tr>';}).join('')+'</tbody></table>'+
-      '<div style="margin-top:12px"><button class="btn" id="ref" type="button">Update numbers now</button></div><div class="note" id="refnote">The live site does this by itself every morning at 6.</div></div>';
+    h+='<div class="label">Numbers by client</div><div class="card tw"><table><thead><tr><th>Client</th><th>Last updated</th><th>Status</th></tr></thead><tbody>'+d.clients.map(function(c){return '<tr><td>'+esc(c.name)+'</td><td>'+when(c.refreshedAt)+'</td><td>'+(c.refreshError?'Couldn\'t update: '+esc(c.refreshError):'OK')+'</td></tr>';}).join('')+'</tbody></table>'+
+      '<div style="margin-top:12px"><button class="btn" id="ref" type="button">Update numbers now</button></div><div class="note" id="refnote">The live site does this by itself every hour, and again when a client opens their hub.</div></div>';
     app.innerHTML=h;
     document.getElementById('ref').onclick=function(){ var b=this; b.disabled=true; b.textContent='Updating…';
       fetch('/api/hub/refresh',{method:'POST',credentials:'same-origin'}).then(function(r){return r.json();}).then(function(){ load(); }).catch(function(){ b.disabled=false; b.textContent='Update numbers now'; document.getElementById('refnote').textContent='That didn\'t work. Try again.'; }); };
