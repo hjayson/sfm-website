@@ -1,5 +1,5 @@
 // SFM Client Hub API: /api/hub/login, /api/hub/logout, /api/hub/me, /api/hub/refresh
-import { stores, seedTestData, checkPassword, makeSession, clearSession, readSession, recordLogin, recentLogins, refreshAll, isProd } from "../hub-core.mjs";
+import { stores, seedTestData, checkPassword, makeSession, clearSession, readSession, recordLogin, recentLogins, refreshAll, refreshOne, isStale, isProd } from "../hub-core.mjs";
 
 const json = (body, status = 200, headers = {}) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", "cache-control": "no-store", ...headers } });
@@ -47,6 +47,7 @@ export default async (req, context) => {
     }
     const c = await s.clients.get(me.client, { type: "json" });
     if (!c) return json({ error: "Your hub isn't set up yet." }, 404);
+    if (isStale(c)) await refreshOne(s, me.client, c);
     const { lo, hi, meta, ...pub } = c;
     pub.kpis = (c.kpis || []).map(({ lo, hi, ...k }) => k);
     return json({ role: "client", email: me.email, test: !isProd(context), client: pub });
