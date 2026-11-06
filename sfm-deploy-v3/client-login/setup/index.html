@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Owner setup | Sales Funnel Marketing</title>
+<title>Owner login | Sales Funnel Marketing</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
@@ -30,26 +30,50 @@ button{font:inherit}
 .test b{color:var(--ink)}
 .test .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .hint{font-size:12.5px;color:var(--muted);margin-top:6px}
+.ok{color:#1f7a3d;font-size:13.5px;font-weight:600;margin-top:10px}
+details{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;font-size:13px;font-weight:700;color:var(--muted)}
 .test button{background:#fff;border:1.5px solid var(--navy);color:var(--navy);font-weight:700;font-size:13px;border-radius:8px;padding:8px 10px;cursor:pointer}
 </style>
 </head>
 <body>
-<form class="card" id="f" novalidate>
+<div class="card">
   <a class="logo" href="/">Sales <b>Funnel</b> Marketing</a>
-  <h1>Owner setup</h1>
-  <p>One-time setup for the SFM team login. It only works while a setup key is saved in Netlify.</p>
-  <label for="email">Owner email</label>
-  <input id="email" type="email" autocomplete="username" required>
-  <label for="key">Setup key</label>
-  <input id="key" type="password" autocomplete="off" required>
-  <label for="pw">New password</label>
-  <input id="pw" type="password" autocomplete="new-password" minlength="10" required>
-  <div class="hint">At least 10 characters.</div>
-  <button class="go" id="go" type="submit">Save and open the team view</button>
-  <div class="err" id="err" role="alert"></div>
+  <h1>Owner login</h1>
+  <p>Press the button and a one-time login link goes to Jayson's email inbox. It works for one hour. Open it, pick a password, and you're in the team view.</p>
+  <button class="go" id="send" type="button">Email me a login link</button>
+  <div class="ok" id="ok" role="status"></div>
+  <div class="err" id="err2" role="alert"></div>
+  <details>
+    <summary>Use a setup key instead</summary>
+    <form id="f" novalidate>
+      <p class="hint">Only works while a setup key is saved in Netlify.</p>
+      <label for="email">Owner email</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="key">Setup key</label>
+      <input id="key" type="password" autocomplete="off" required>
+      <label for="pw">New password</label>
+      <input id="pw" type="password" autocomplete="new-password" minlength="10" required>
+      <div class="hint">At least 10 characters.</div>
+      <button class="go" id="go" type="submit">Save and open the team view</button>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+  </details>
+  <p class="small"><a href="/client-login/">Back to the login page</a></p>
+</div>
+<!-- Netlify Forms reads this to set up the owner-login-link form. The link itself is only ever sent by the server. -->
+<form name="owner-login-link" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field"><input name="email"><input name="link"><input name="expires">
 </form>
 <script>
 (function(){
+  var send=document.getElementById('send'),ok=document.getElementById('ok'),err2=document.getElementById('err2');
+  send.addEventListener('click',function(){
+    err2.textContent=''; ok.textContent=''; send.disabled=true; send.textContent='Sending…';
+    fetch('/api/hub/owner-link',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json'},body:'{}'})
+      .then(function(r){ if(!r.ok) throw 0; ok.textContent='Sent. Check Jayson\'s inbox in a minute or two (and the spam folder). If you just asked, wait two minutes before asking again.'; send.textContent='Email me a login link'; setTimeout(function(){ send.disabled=false; },120000); })
+      .catch(function(){ err2.textContent='That didn\'t go through. Try again in a moment.'; send.disabled=false; send.textContent='Email me a login link'; });
+  });
   var err=document.getElementById('err'),go=document.getElementById('go');
   document.getElementById('f').addEventListener('submit',function(e){
     e.preventDefault(); err.textContent='';
