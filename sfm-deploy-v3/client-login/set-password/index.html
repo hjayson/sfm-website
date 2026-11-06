@@ -62,7 +62,7 @@ button{font:inherit}
     .then(function(r){ return r.json().then(function(j){ return {ok:r.ok,j:j}; }); })
     .then(function(x){
       if(!x.ok){ who.textContent=x.j.error||'This link has expired.'; return; }
-      who.textContent='Pick a password for your '+x.j.clientName+' Client Hub. You\'ll log in with this email from now on.';
+      who.textContent=x.j.clientName==='SFM team'?'Pick a password for your SFM team login. You\'ll log in with this email from now on.':'Pick a password for your '+x.j.clientName+' Client Hub. You\'ll log in with this email from now on.';
       document.getElementById('email').value=x.j.email;
       fields.hidden=false; document.getElementById('pw').focus();
     })
