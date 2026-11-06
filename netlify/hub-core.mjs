@@ -2,6 +2,8 @@
 // Client data lives in Netlify Blobs, never in this public repo.
 import { getStore } from "@netlify/blobs";
 import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
 
 export const COOKIE = "sfm_hub";
 const SESSION_DAYS = 30;
@@ -137,8 +139,10 @@ export async function refreshOne(s, key, c) {
     let fresh = null;
     if (c.meta && c.meta.pageId && token) fresh = await pullMeta(c, token);
     else if (c.sample) fresh = sampleDay(c);
-    if (fresh) Object.assign(c, fresh);
-    c.refreshedAt = new Date().toISOString();
+    if (fresh) {
+      Object.assign(c, fresh);
+      c.refreshedAt = new Date().toISOString();
+    }
     c.refreshError = "";
   } catch (e) {
     c.refreshError = e.message;
@@ -160,7 +164,7 @@ export async function refreshAll(s) {
     const c = await s.clients.get(b.key, { type: "json" });
     if (!c) continue;
     await refreshOne(s, b.key, c);
-    done.push({ client: b.key, ok: !c.refreshError, error: c.refreshError || undefined });
+    done.push({ client: b.key, ok: !c.refreshError, connected: !!(c.sample || (c.meta && c.meta.pageId)), error: c.refreshError || undefined });
   }
   return done;
 }
@@ -203,4 +207,166 @@ export async function seedTestData(s, context) {
     ],
     yourTurn: ["Send 3 to 5 photos from this week's jobs", "Reply to Wednesday's Google review, or tell us what to say"],
   });
+}
+
+/* ---------- the 7 active clients, moved in from their old portal pages ---------- */
+// Each old portal (sfm-deploy-v3/clients/<slug>.html) holds a CLIENT block. On first run it is read
+// once, turned into a hub record and saved in the private store. After that the store is the source.
+export const ACTIVE_CLIENTS = ["corporate-intelligence", "fuller-and-sons", "legacy-law-group", "national-exchange-club", "perrysburg-heights", "veterans-trio", "vjs-towing"];
+
+// Reads a JavaScript object literal as data (no code is run): quotes bare keys, drops trailing commas.
+export function parseClientBlock(html) {
+  const start = html.search(/const\s+CLIENT\s*=\s*\{/);
+  if (start < 0) throw new Error("No CLIENT block");
+  let i = html.indexOf("{", start), depth = 0, out = "", q = null;
+  for (; i < html.length; i++) {
+    const ch = html[i];
+    if (q) {
+      if (ch === "\\") {
+        const nx = html[i + 1];
+        out += nx === "'" ? "'" : ch + nx;
+        i++;
+        continue;
+      }
+      if (ch === q) { out += '"'; q = null; continue; }
+      out += ch === '"' ? '\\"' : ch;
+      continue;
+    }
+    if (ch === '"' || ch === "'") { q = ch; out += '"'; continue; }
+    if (ch === "/" && html[i + 1] === "/") { while (i < html.length && html[i] !== "\n") i++; continue; }
+    if (/[A-Za-z_$]/.test(ch)) {
+      let j = i;
+      while (/[\w$]/.test(html[j])) j++;
+      const word = html.slice(i, j);
+      let k = j;
+      while (/\s/.test(html[k])) k++;
+      out += html[k] === ":" && !/^(true|false|null)$/.test(word) ? '"' + word + '"' : word;
+      i = j - 1;
+      continue;
+    }
+    if (ch === "{" || ch === "[") depth++;
+    if (ch === "}" || ch === "]") {
+      out = out.replace(/,\s*$/, "");
+      depth--;
+      out += ch;
+      if (depth === 0) break;
+      continue;
+    }
+    out += ch;
+  }
+  return JSON.parse(out);
+}
+
+// Old portal fields -> Client Hub record. Access codes are left behind on purpose.
+export function portalToHub(slug, p) {
+  const statusOf = (pr) => {
+    const st = pr.stages || [];
+    const cur = st.find((x) => x.current);
+    if (cur) return cur.name;
+    if (st.length && st.every((x) => x.done)) return "Complete";
+    return "";
+  };
+  const report = /^https:\/\/(www\.)?salesfunnelmarketing\.us\//.test(p.reportUrl || "") ? p.reportUrl : "";
+  return {
+    name: p.name || slug,
+    tagline: p.tagline || "",
+    note: { text: p.weeklyNote || "", updated: p.updated || "" },
+    plan: (p.plan && p.plan.length ? p.plan : p.nextSteps) || [],
+    projects: (p.projects || []).map((pr) => ({
+      title: pr.title,
+      percent: +pr.percent || 0,
+      status: statusOf(pr),
+      stages: (pr.stages || []).map((x) => ({ name: x.name, state: x.current ? "now" : x.done ? "done" : "next" })),
+    })),
+    yourTurn: p.yourTurn || [],
+    reportUrl: report,
+    kpis: [],
+    log: [],
+    refreshedAt: null,
+    importedFrom: "clients/" + slug + ".html",
+    importedAt: new Date().toISOString(),
+  };
+}
+
+async function readPortal(slug, origin) {
+  const rel = path.join("sfm-deploy-v3", "clients", slug + ".html");
+  for (const base of [process.cwd(), process.env.LAMBDA_TASK_ROOT, path.resolve(".")]) {
+    if (!base) continue;
+    try { return fs.readFileSync(path.join(base, rel), "utf8"); } catch {}
+  }
+  if (!origin) throw new Error("Portal file not found");
+  const r = await fetch(origin + "/clients/" + slug + ".html", { redirect: "manual" });
+  if (!r.ok) throw new Error("Portal page " + r.status);
+  return r.text();
+}
+
+// Adds any active client that isn't in the store yet. Never overwrites a hub that already exists.
+export async function importClients(s, origin) {
+  const flag = "clients-imported-v1";
+  if (await s.config.get(flag)) return [];
+  const done = [];
+  let missing = 0;
+  for (const slug of ACTIVE_CLIENTS) {
+    if (await s.clients.get(slug)) continue;
+    try {
+      await s.clients.setJSON(slug, portalToHub(slug, parseClientBlock(await readPortal(slug, origin))));
+      done.push(slug);
+    } catch (e) {
+      missing++;
+      console.log("Client Hub import failed", slug, e.message);
+    }
+  }
+  if (!missing) await s.config.set(flag, new Date().toISOString());
+  return done;
+}
+
+/* ---------- set-password links ---------- */
+export const INVITE_DAYS = 7;
+const sha = (t) => crypto.createHash("sha256").update(String(t)).digest("hex");
+export const validEmail = (e) => /^[^\s@<>"]+@[^\s@<>"]+\.[A-Za-z]{2,}$/.test(e);
+export function passwordProblem(pw) {
+  pw = String(pw || "");
+  if (pw.length < 10) return "Use at least 10 characters.";
+  if (pw.length > 200) return "That's too long.";
+  return "";
+}
+// Only a hash of the link's token is stored, so the store alone can't be used to set a password.
+export async function createInvite(s, { email, role, client, by }) {
+  const token = crypto.randomBytes(32).toString("base64url");
+  const exp = Date.now() + INVITE_DAYS * 864e5;
+  await s.config.setJSON("invite:" + sha(token), { email, role, client: client || null, exp, by, at: new Date().toISOString() });
+  return { token, exp };
+}
+export async function readInvite(s, token) {
+  if (!token || String(token).length > 100) return null;
+  const inv = await s.config.get("invite:" + sha(token), { type: "json" });
+  if (!inv || inv.exp < Date.now()) return null;
+  return inv;
+}
+export async function useInvite(s, token, password) {
+  const inv = await readInvite(s, token);
+  if (!inv) return { error: "This link has expired or was already used. Ask Jayson for a new one." };
+  const bad = passwordProblem(password);
+  if (bad) return { error: bad };
+  await s.config.delete("invite:" + sha(token));
+  const user = { email: inv.email, role: inv.role, ...(inv.client ? { client: inv.client } : {}), ...hashPassword(password), passwordSetAt: new Date().toISOString() };
+  await s.users.setJSON(inv.email, user);
+  await s.config.delete("lock:" + inv.email);
+  return { user };
+}
+
+// First owner login on the live site: works only while HUB_SETUP_KEY is set in Netlify,
+// and only for the owner email. Remove the key once Jayson is in.
+export const OWNER_EMAIL = (process.env.HUB_OWNER_EMAIL || "jayson@salesfunnelmarketing.us").toLowerCase();
+export function setupKeyOk(key) {
+  const want = process.env.HUB_SETUP_KEY;
+  if (!want || !key) return false;
+  const a = crypto.createHash("sha256").update(String(key)).digest();
+  const b = crypto.createHash("sha256").update(want).digest();
+  return crypto.timingSafeEqual(a, b);
+}
+export async function listUsers(s) {
+  const { blobs } = await s.users.list();
+  const all = await Promise.all(blobs.map((b) => s.users.get(b.key, { type: "json" })));
+  return all.filter(Boolean).map((u) => ({ email: u.email, role: u.role, client: u.client || null, passwordSetAt: u.passwordSetAt || null }));
 }
