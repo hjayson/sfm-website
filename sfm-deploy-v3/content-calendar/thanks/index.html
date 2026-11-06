@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Your Content Calendar | Sales Funnel Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;500&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+<!-- DRAFT for review. Not published. GoHighLevel sends people here after they sign up.
+     The PDF needs to sit at /content-calendar/SFM-November-2026-Content-Calendar.pdf
+     The site already loads the Meta pixel; this page only adds the Lead event (once per visit). -->
+<script>
+  (function () {
+    var key = "sfm_cc_lead_sent", tries = 0;
+    try { if (sessionStorage.getItem(key)) return; } catch (e) {}
+    (function fire() {
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Lead", { content_name: "Content Calendar Sign-up" });
+        try { sessionStorage.setItem(key, "1"); } catch (e) {}
+      } else if (tries++ < 20) { setTimeout(fire, 250); }
+    })();
+  })();
+</script>
+<style>
+  body{margin:0;background:#0A1628;color:#fff;font-family:Inter,system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:640px;margin:0 auto;padding:60px 20px;text-align:center}
+  .logo{font-family:Montserrat,sans-serif;font-weight:800;font-size:18px;text-decoration:none;color:#fff}
+  .logo span{color:#E85D26}
+  h1{font-family:"Cormorant Garamond",serif;font-size:clamp(36px,6vw,50px);line-height:1.08;margin:36px 0 12px}
+  p{color:#C9D2DE}
+  .btn{display:inline-block;margin:18px 0 8px;background:#E85D26;color:#fff;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:900;letter-spacing:.04em;padding:15px 28px;border-radius:6px}
+  .call{margin-top:44px;padding-top:26px;border-top:1px solid #1E2E47}
+  .call a{color:#E85D26;font-weight:500}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="logo" href="/">Sales <span>Funnel</span> Marketing</a>
+  <h1>You're in. November's on its way.</h1>
+  <p>Check your inbox for November's calendar, or grab it right here. Print it, stick it by the register, and post one idea a day (or 4 or 5 a week, that works too). Starting late is fine, the big stretch is Thanksgiving week through Cyber Monday. December's calendar shows up in your inbox at the start of next month.</p>
+  <a class="btn" href="/content-calendar/SFM-November-2026-Content-Calendar.pdf" download>DOWNLOAD NOVEMBER (PDF)</a>
+  <div class="call">
+    <p>Rather have someone post it for you? Our Perrysburg team does this every day for local businesses. <a href="/">Book a call with us</a>.</p>
+  </div>
+</div>
+</body>
+</html>
