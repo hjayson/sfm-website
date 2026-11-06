@@ -323,6 +323,20 @@ export async function importClients(s, origin) {
   return done;
 }
 
+// One-time corrections to hubs already in the store. Each runs once.
+const FIXES = [
+  { id: "phcc-name-v1", slug: "perrysburg-heights", from: "Perrysburg Heights Community Association", to: "Perrysburg Heights Community Center" },
+];
+export async function applyFixes(s) {
+  for (const f of FIXES) {
+    const flag = "fix-" + f.id;
+    if (await s.config.get(flag)) continue;
+    const c = await s.clients.get(f.slug, { type: "json" });
+    if (c && c.name === f.from) { c.name = f.to; await s.clients.setJSON(f.slug, c); }
+    await s.config.set(flag, new Date().toISOString());
+  }
+}
+
 /* ---------- set-password links ---------- */
 export const INVITE_DAYS = 7;
 const sha = (t) => crypto.createHash("sha256").update(String(t)).digest("hex");
