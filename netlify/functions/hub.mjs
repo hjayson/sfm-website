@@ -2,7 +2,7 @@
 import {
   stores, seedTestData, importClients, checkPassword, hashPassword, makeSession, clearSession, readSession,
   recordLogin, recentLogins, refreshAll, refreshOne, isStale, isProd, createInvite, readInvite, useInvite,
-  validEmail, passwordProblem, listUsers, OWNER_EMAIL, setupKeyOk, INVITE_DAYS, sendOwnerLink,
+  validEmail, passwordProblem, listUsers, OWNER_EMAIL, setupKeyOk, INVITE_DAYS, sendOwnerLink, applyFixes,
 } from "../hub-core.mjs";
 
 const json = (body, status = 200, headers = {}) =>
@@ -28,6 +28,7 @@ export default async (req, context) => {
   const origin = new URL(req.url).origin;
   await seedTestData(s, context);
   await importClients(s, origin);
+  await applyFixes(s);
   const action = context.params.action;
   const post = req.method === "POST";
 
@@ -103,7 +104,8 @@ export default async (req, context) => {
   if (!me) return json({ error: "Please log in." }, 401);
 
   if (action === "me") {
-    if (me.role === "admin") {
+    const as = new URL(req.url).searchParams.get("as") || "";
+    if (me.role === "admin" && !as) {
       const { blobs } = await s.clients.list();
       const users = await listUsers(s);
       const clients = await Promise.all(blobs.map(async (b) => {
@@ -118,12 +120,16 @@ export default async (req, context) => {
       const team = users.filter((u) => u.role === "admin").map((u) => u.email);
       return json({ role: "admin", email: me.email, test: !isProd(context), clients, team, logins: await recentLogins(s) });
     }
-    const c = await s.clients.get(me.client, { type: "json" });
-    if (!c) return json({ error: "Your hub isn't set up yet." }, 404);
-    if (isStale(c)) await refreshOne(s, me.client, c);
+    // SFM team can open any hub exactly as that client sees it (?as=slug).
+    const viewAs = me.role === "admin";
+    if (viewAs && !/^[a-z0-9-]{1,60}$/.test(as)) return json({ error: "Not found" }, 404);
+    const slug = viewAs ? as : me.client;
+    const c = await s.clients.get(slug, { type: "json" });
+    if (!c) return json({ error: viewAs ? "That hub doesn't exist." : "Your hub isn't set up yet." }, 404);
+    if (isStale(c)) await refreshOne(s, slug, c);
     const { lo, hi, meta, importedFrom, importedAt, triedAt, refreshError, ...pub } = c;
     pub.kpis = (c.kpis || []).map(({ lo, hi, ...k }) => k);
-    return json({ role: "client", email: me.email, test: !isProd(context), client: pub });
+    return json({ role: "client", email: me.email, test: !isProd(context), client: pub, viewAs });
   }
 
   if (me.role !== "admin") return json({ error: "Not allowed" }, 403);
