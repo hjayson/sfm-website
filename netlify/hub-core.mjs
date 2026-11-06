@@ -1,4 +1,4 @@
-// SFM Client Hub: shared logic for the login, the hub data and the daily refresh.
+// SFM Client Hub: shared logic for the login, the hub data and the hourly refresh.
 // Client data lives in Netlify Blobs, never in this public repo.
 import { getStore } from "@netlify/blobs";
 import crypto from "node:crypto";
@@ -129,24 +129,37 @@ function sampleDay(c) {
   }
   return { kpis: k, log: c.log };
 }
-export async function refreshAll(s, opts = {}) {
-  const { blobs } = await s.clients.list();
+// Refresh one client and save it. Errors keep the last good numbers on the page.
+export async function refreshOne(s, key, c) {
   const token = process.env.META_ACCESS_TOKEN;
+  c.triedAt = new Date().toISOString();
+  try {
+    let fresh = null;
+    if (c.meta && c.meta.pageId && token) fresh = await pullMeta(c, token);
+    else if (c.sample) fresh = sampleDay(c);
+    if (fresh) Object.assign(c, fresh);
+    c.refreshedAt = new Date().toISOString();
+    c.refreshError = "";
+  } catch (e) {
+    c.refreshError = e.message;
+  }
+  await s.clients.setJSON(key, c);
+  return c;
+}
+// Fresh on open: numbers older than an hour are pulled again before the page shows them.
+// A failed pull waits 10 minutes before the next try, so a Meta outage can't slow every visit.
+export const STALE_MS = 60 * 60e3;
+export function isStale(c) {
+  const age = (iso) => (iso ? Date.now() - new Date(iso).getTime() : Infinity);
+  return age(c.refreshedAt) > STALE_MS && age(c.triedAt) > 10 * 60e3;
+}
+export async function refreshAll(s) {
+  const { blobs } = await s.clients.list();
   const done = [];
   for (const b of blobs) {
     const c = await s.clients.get(b.key, { type: "json" });
     if (!c) continue;
-    try {
-      let fresh = null;
-      if (c.meta && c.meta.pageId && token) fresh = await pullMeta(c, token);
-      else if (c.sample) fresh = sampleDay(c);
-      if (fresh) Object.assign(c, fresh);
-      c.refreshedAt = new Date().toISOString();
-      c.refreshError = "";
-    } catch (e) {
-      c.refreshError = e.message; // keep yesterday's numbers on the page
-    }
-    await s.clients.setJSON(b.key, c);
+    await refreshOne(s, b.key, c);
     done.push({ client: b.key, ok: !c.refreshError, error: c.refreshError || undefined });
   }
   return done;
