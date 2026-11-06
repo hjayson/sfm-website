@@ -69,7 +69,7 @@ export async function recordLogin(s, user, client, req) {
   // Email alert: a Netlify Forms submission, which emails whoever is set up for form notifications.
   if (user.role === "client") {
     const origin = new URL(req.url).origin;
-    const form = new URLSearchParams({ "form-name": "client-login-alert", client: client ? client.name : user.client, email: user.email, time: at, device: deviceOf(req) });
+    const form = new URLSearchParams({ "form-name": "client-login-alert", client: client ? client.name : user.client, email: user.email, time: new Date(at).toLocaleString("en-US", { timeZone: "America/New_York", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " Eastern", device: deviceOf(req) });
     try { await fetch(origin + "/client-login/", { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded" }, body: form.toString() }); } catch (e) { console.log("login alert failed", e.message); }
   }
 }
