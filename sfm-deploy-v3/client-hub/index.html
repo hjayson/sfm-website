@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Client Hub | Sales Funnel Marketing</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{--navy:#0A1628;--orange:#E85D26;--orange-d:#c44d1e;--bg:#f3f5f8;--card:#fff;--ink:#1c2433;--muted:#5f6b7c;--line:#e3e8ef;--good:#1f8f5f;--warn:#b7791f;--chip:#eef2f7}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.top{background:var(--navy);color:#fff}
+.top .in{max-width:1000px;margin:0 auto;padding:14px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.logo{font-weight:900;letter-spacing:-.3px;color:#fff;text-decoration:none}
+.logo b{color:var(--orange)}
+.who{margin-left:auto;font-size:13px;color:rgba(255,255,255,.75);display:flex;gap:10px;align-items:center}
+.who button{font:inherit;font-size:13px;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:8px;padding:5px 11px;cursor:pointer}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 48px}
+.testbar{border:1px dashed var(--orange);border-radius:12px;padding:10px 14px;font-size:13px;color:var(--muted);background:var(--card);margin-bottom:14px}
+.testbar b{color:var(--ink)}
+.chead{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;margin-bottom:6px}
+.chead h1{margin:0;font-size:24px;letter-spacing:-.5px}
+.sub{color:var(--muted);font-size:13.5px}
+.fresh{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good)}
+.dot.old{background:var(--warn)}
+.label{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--orange);margin:22px 2px 10px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;min-width:0}
+.kpi .k{font-size:12.5px;color:var(--muted);font-weight:600}
+.kpi .v{font-size:25px;font-weight:900;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.kpi svg{display:block;width:100%;height:34px;margin-top:6px}
+.kpi .src{font-size:11px;color:var(--muted);margin-top:6px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:12px}
+@media(max-width:760px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;min-width:0}
+.card h3{margin:0 0 6px;font-size:15.5px}
+.card p{margin:0;font-size:14.5px}
+.trio{display:grid;gap:12px}
+.trio .card{border-left-width:4px}
+.did{border-left-color:var(--orange)!important}.hap{border-left-color:var(--good)!important}.chg{border-left-color:var(--warn)!important}
+.log{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.log li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;font-size:14px}
+.log time{font-size:12px;font-weight:700;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:6px;background:var(--chip);color:var(--muted)}
+.proj{display:grid;gap:12px}
+.prow{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700}
+.prow span{color:var(--muted);font-weight:600}
+.bar{height:8px;background:var(--chip);border-radius:99px;overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;background:var(--orange)}
+.card ul{margin:0;padding-left:18px}.card li{margin-bottom:6px;font-size:14.5px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:11.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+.btn{font:inherit;font-weight:800;font-size:14px;background:var(--orange);color:#fff;border:none;border-radius:10px;padding:10px 16px;cursor:pointer}
+.btn:hover{background:var(--orange-d)}
+.btn[disabled]{opacity:.6}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+.foot{font-size:12.5px;color:var(--muted);margin-top:18px;text-align:center}
+.foot a{color:var(--orange);font-weight:700}
+#loading{padding:60px 0;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="top"><div class="in"><a class="logo" href="/">Sales <b>Funnel</b> Marketing</a><div class="who"><span id="whoami"></span><button id="out" type="button">Log out</button></div></div></div>
+<main id="app"><div id="loading">Loading your hub…</div></main>
+<script>
+(function(){
+  var app=document.getElementById('app');
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function fmt(n){return typeof n==='number'?n.toLocaleString('en-US'):esc(n);}
+  function when(iso){ if(!iso) return 'not yet'; var d=new Date(iso); if(isNaN(d)) return esc(iso);
+    return d.toLocaleString('en-US',{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}); }
+  function spark(a){ if(!a||a.length<2) return '';
+    var w=120,h=34,p=3,mx=Math.max.apply(0,a),mn=Math.min.apply(0,a),r=(mx-mn)||1;
+    var pts=a.map(function(v,i){return [p+i*(w-2*p)/(a.length-1),h-p-(v-mn)/r*(h-2*p)];});
+    var line=pts.map(function(q,i){return (i?'L':'M')+q[0].toFixed(1)+' '+q[1].toFixed(1);}).join(' ');
+    var e=pts[pts.length-1];
+    return '<svg viewBox="0 0 '+w+' '+h+'" preserveAspectRatio="none" aria-hidden="true"><path d="'+line+' L'+e[0].toFixed(1)+' '+(h-p)+' L'+p+' '+(h-p)+' Z" fill="#E85D26" fill-opacity=".12"/><path d="'+line+'" fill="none" stroke="#E85D26" stroke-width="2" vector-effect="non-scaling-stroke"/><circle cx="'+e[0]+'" cy="'+e[1]+'" r="2.6" fill="#E85D26"/></svg>'; }
+  function testbar(t){ return t?'<div class="testbar"><b>Test copy.</b> Sample data only. Your real clients and their portals are untouched.</div>':''; }
+
+  function client(d){
+    var c=d.client, fresh=c.refreshedAt && (Date.now()-new Date(c.refreshedAt))<36e5*30;
+    var h=testbar(d.test);
+    h+='<div class="chead"><div><h1>'+esc(c.name)+'</h1><div class="sub">'+esc(c.tagline)+'</div></div><div class="fresh"><span class="dot'+(fresh?'':' old')+'"></span>Numbers updated '+when(c.refreshedAt)+'</div></div>';
+    h+='<div class="label">Last 7 days</div><div class="kpis">'+(c.kpis||[]).map(function(k){return '<div class="kpi"><div class="k">'+esc(k.k)+'</div><div class="v">'+fmt(k.v)+'</div>'+spark(k.series)+'<div class="src">'+esc(k.src)+'</div></div>';}).join('')+'</div>';
+    var w=c.weekly||{};
+    h+='<div class="grid2"><div><div class="label">This week, in plain English</div><div class="trio">'+
+      '<div class="card did"><h3>What we did</h3><p>'+esc(w.did)+'</p></div>'+
+      '<div class="card hap"><h3>What happened</h3><p>'+esc(w.happened)+'</p></div>'+
+      '<div class="card chg"><h3>What we\'re changing</h3><p>'+esc(w.changing)+'</p></div></div></div>'+
+      '<div><div class="label">Daily activity</div><div class="card"><ul class="log">'+(c.log||[]).map(function(l){return '<li><time>'+esc(/T/.test(l.at)?new Date(l.at).toLocaleDateString('en-US',{month:'short',day:'numeric'}):l.at)+'</time><div><span class="tag">'+esc(l.tag)+'</span>'+esc(l.text)+'</div></li>';}).join('')+'</ul></div></div></div>';
+    h+='<div class="grid2"><div><div class="label">Projects</div><div class="card proj">'+(c.projects||[]).map(function(p){return '<div><div class="prow">'+esc(p.title)+'<span>'+esc(p.status)+' · '+(+p.percent||0)+'%</span></div><div class="bar"><i style="width:'+Math.max(0,Math.min(100,+p.percent||0))+'%"></i></div></div>';}).join('')+'</div></div>'+
+      '<div><div class="label">Your turn</div><div class="card"><ul>'+(c.yourTurn||[]).map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul></div></div></div>';
+    h+='<div class="foot">Questions? Email <a href="mailto:jayson@salesfunnelmarketing.us">jayson@salesfunnelmarketing.us</a></div>';
+    app.innerHTML=h;
+  }
+
+  function admin(d){
+    var h=testbar(d.test);
+    h+='<div class="chead"><div><h1>SFM team view</h1><div class="sub">Who logged in, and whether each hub updated this morning.</div></div></div>';
+    h+='<div class="label">Recent client logins</div><div class="card tw">'+(d.logins.length?'<table><thead><tr><th>When (Eastern)</th><th>Client</th><th>Email</th><th>Device</th></tr></thead><tbody>'+d.logins.map(function(l){return '<tr><td>'+when(l.at)+'</td><td>'+esc(l.clientName||'SFM team')+'</td><td>'+esc(l.email)+'</td><td>'+esc(l.device)+'</td></tr>';}).join('')+'</tbody></table>':'<p>No logins yet.</p>')+'<div class="note">Each client login also emails you.</div></div>';
+    h+='<div class="label">Daily numbers</div><div class="card tw"><table><thead><tr><th>Client</th><th>Last updated</th><th>Status</th></tr></thead><tbody>'+d.clients.map(function(c){return '<tr><td>'+esc(c.name)+'</td><td>'+when(c.refreshedAt)+'</td><td>'+(c.refreshError?'Couldn\'t update: '+esc(c.refreshError):'OK')+'</td></tr>';}).join('')+'</tbody></table>'+
+      '<div style="margin-top:12px"><button class="btn" id="ref" type="button">Update numbers now</button></div><div class="note" id="refnote">The live site does this by itself every morning at 6.</div></div>';
+    app.innerHTML=h;
+    document.getElementById('ref').onclick=function(){ var b=this; b.disabled=true; b.textContent='Updating…';
+      fetch('/api/hub/refresh',{method:'POST',credentials:'same-origin'}).then(function(r){return r.json();}).then(function(){ load(); }).catch(function(){ b.disabled=false; b.textContent='Update numbers now'; document.getElementById('refnote').textContent='That didn\'t work. Try again.'; }); };
+  }
+
+  function load(){
+    fetch('/api/hub/me',{credentials:'same-origin',cache:'no-store'}).then(function(r){
+      if(r.status===401){ location.replace('/client-login/'); return null; }
+      return r.json();
+    }).then(function(d){ if(!d) return;
+      document.getElementById('whoami').textContent=d.email;
+      if(d.error){ app.innerHTML='<p>'+esc(d.error)+'</p>'; return; }
+      d.role==='admin'?admin(d):client(d);
+    }).catch(function(){ app.innerHTML='<p>We couldn\'t load your hub. Refresh the page to try again.</p>'; });
+  }
+  document.getElementById('out').onclick=function(){ fetch('/api/hub/logout',{method:'POST',credentials:'same-origin'}).then(function(){ location.replace('/client-login/'); }); };
+  load();
+})();
+</script>
+</body>
+</html>
