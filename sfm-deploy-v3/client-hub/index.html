@@ -101,6 +101,7 @@ td .small-btn{padding:4px 9px;font-size:12.5px}
   function client(d){
     var c=d.client, has=(c.kpis||[]).length>0, fresh=c.refreshedAt && (Date.now()-new Date(c.refreshedAt))<36e5*2;
     var h=testbar(d.test);
+    if(d.viewAs) h+='<div class="testbar"><b>Viewing as '+esc(c.name)+'.</b> This is exactly what they see. <a href="/client-hub/">Back to team view</a></div>';
     h+='<div class="chead"><div><h1>'+esc(c.name)+'</h1><div class="sub">'+esc(c.tagline)+'</div></div>'+(has?'<div class="fresh"><span class="dot'+(fresh?'':' old')+'"></span>Numbers updated '+when(c.refreshedAt)+'</div>':'')+'</div>';
     h+='<div class="label">Last 7 days</div>';
     h+=has?'<div class="kpis">'+c.kpis.map(function(k){return '<div class="kpi"><div class="k">'+esc(k.k)+'</div><div class="v">'+fmt(k.v)+'</div>'+spark(k.series)+'<div class="src">'+esc(k.src)+'</div></div>';}).join('')+'</div>'
@@ -139,7 +140,7 @@ td .small-btn{padding:4px 9px;font-size:12.5px}
       '<div class="note">The link works once and expires in 7 days. Nothing is emailed from here: you send it yourself. Making a new link for someone who already has a login lets them reset their password.</div></div>';
     h+='<div class="label">Hubs</div><div class="card tw"><table><thead><tr><th>Client</th><th>Who can log in</th><th>Last note</th><th>Numbers</th></tr></thead><tbody>'+d.clients.map(function(c){
         var num=c.refreshError?'Couldn\'t update: '+esc(c.refreshError):(c.connected?'Updated '+when(c.refreshedAt):'Not connected yet');
-        return '<tr><td>'+esc(c.name)+(c.sample?' <span class="tag">sample</span>':'')+'</td><td>'+(c.logins.length?c.logins.map(esc).join('<br>'):'<span class="empty">No one yet</span>')+'</td><td>'+esc(c.noteUpdated||'')+'</td><td>'+num+'</td></tr>';
+        return '<tr><td>'+esc(c.name)+(c.sample?' <span class="tag">sample</span>':'')+' <a class="small-btn" style="text-decoration:none;margin-left:6px" href="/client-hub/?as='+encodeURIComponent(c.slug)+'">View</a></td><td>'+(c.logins.length?c.logins.map(esc).join('<br>'):'<span class="empty">No one yet</span>')+'</td><td>'+esc(c.noteUpdated||'')+'</td><td>'+num+'</td></tr>';
       }).join('')+'</tbody></table>'+
       '<div style="margin-top:12px"><button class="btn" id="ref" type="button">Update numbers now</button></div><div class="note" id="refnote">The live site does this by itself every hour, and again when a client opens their hub. Hubs show numbers once their Facebook page is connected.</div></div>';
     h+='<div class="label">SFM team logins</div><div class="card"><p>'+(d.team.length?d.team.map(esc).join(', '):'None')+'</p></div>';
@@ -165,7 +166,8 @@ td .small-btn{padding:4px 9px;font-size:12.5px}
   }
 
   function load(){
-    fetch('/api/hub/me',{credentials:'same-origin',cache:'no-store'}).then(function(r){
+    var as=new URLSearchParams(location.search).get('as');
+    fetch('/api/hub/me'+(as?'?as='+encodeURIComponent(as):''),{credentials:'same-origin',cache:'no-store'}).then(function(r){
       if(r.status===401){ location.replace('/client-login/'); return null; }
       return r.json();
     }).then(function(d){ if(!d) return;
