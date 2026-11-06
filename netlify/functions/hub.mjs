@@ -1,8 +1,8 @@
-// SFM Client Hub API: login, logout, me, refresh, invite, invite-check, set-password, setup
+// SFM Client Hub API: login, logout, me, refresh, invite, invite-check, set-password, owner-link, setup
 import {
   stores, seedTestData, importClients, checkPassword, hashPassword, makeSession, clearSession, readSession,
   recordLogin, recentLogins, refreshAll, refreshOne, isStale, isProd, createInvite, readInvite, useInvite,
-  validEmail, passwordProblem, listUsers, OWNER_EMAIL, setupKeyOk, INVITE_DAYS,
+  validEmail, passwordProblem, listUsers, OWNER_EMAIL, setupKeyOk, INVITE_DAYS, sendOwnerLink,
 } from "../hub-core.mjs";
 
 const json = (body, status = 200, headers = {}) =>
@@ -67,6 +67,14 @@ export default async (req, context) => {
     const client = r.user.client ? await s.clients.get(r.user.client, { type: "json" }) : null;
     await recordLogin(s, r.user, client, req);
     return json({ ok: true, role: r.user.role }, 200, { "set-cookie": await makeSession(s, r.user) });
+  }
+
+  // Owner login link: emails a one-hour set-password link to the owner's inbox. The answer is the same
+  // whether or not one went out, so the button tells nobody anything.
+  if (action === "owner-link" && post) {
+    if (!sameOrigin(req)) return json({ error: "Not allowed" }, 403);
+    await sendOwnerLink(s, origin);
+    return json({ ok: true });
   }
 
   // First owner login on the live site. Needs HUB_SETUP_KEY in Netlify; off when it's not set.
