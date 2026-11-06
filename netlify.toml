@@ -2,6 +2,10 @@
   publish = "sfm-deploy-v3"
   functions = "netlify/functions"
 
+# Client Hub: the hub function reads each client's old portal page once, to move it into the private store.
+[functions.hub]
+  included_files = ["sfm-deploy-v3/clients/*.html"]
+
 [[redirects]]
   from = "/holiday-offer"
   to = "/sfm-holiday-offer.html"
