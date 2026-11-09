@@ -192,6 +192,9 @@
     .addon-card h3{font-size:16px;font-weight:800;color:var(--navy)}
     .addon-card p{font-size:14px;color:var(--dark-gray);line-height:1.6;flex:1}
     .addon-price{font-size:15px;font-weight:800;color:var(--orange)}
+    .addon-tiers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+    .addon-tiers li{display:flex;gap:10px;align-items:baseline;font-size:14px;color:var(--dark-gray);line-height:1.45}
+    .addon-tiers b{min-width:58px;font-weight:800;color:var(--navy)}
 
     /* FAQ */
     #faq{padding:var(--section-pad);background:var(--off-white)}
@@ -577,8 +580,13 @@
         <div class="addon-card reveal reveal-delay-1">
           <div class="addon-icon">📸</div>
           <h3>One-Time Content Shoot</h3>
-          <p>A single on-location content day, headshots, team shots, product photos, action shots. Everything you need in one session.</p>
-          <div class="addon-price">Starting at $400 one-time</div>
+          <p>Everything you need, shot on location: headshots, team shots, product photos and action shots.</p>
+          <ul class="addon-tiers">
+            <li><b>$450</b><span>1 hour, 15 photos</span></li>
+            <li><b>$950</b><span>3-hour half day, 40 photos</span></li>
+            <li><b>$1,750</b><span>6-hour full day, 80 photos</span></li>
+          </ul>
+          <div class="addon-price">Starting at $450 one-time</div>
         </div>
         <div class="addon-card reveal reveal-delay-2">
           <div class="addon-icon">🎬</div>
@@ -589,8 +597,13 @@
         <div class="addon-card reveal">
           <div class="addon-icon">🎙️</div>
           <h3>Professional Content Package</h3>
-          <p>We build your video content strategy, identify 10 to 15 high-impact topics for your industry, then film all of them in a single professional shoot. A complete content library that positions you as the authority, done in one day.</p>
-          <div class="addon-price">$1,500 one-time</div>
+          <p>We build your video content strategy, pick the high-impact topics for your industry, then film them in a single professional shoot. A complete content library that positions you as the authority, done in one day.</p>
+          <ul class="addon-tiers">
+            <li><b>$1,950</b><span>6 videos, 20 photos</span></li>
+            <li><b>$2,950</b><span>12 videos, 40 photos</span></li>
+            <li><b>$3,950</b><span>15 videos, 60 photos and a brand video</span></li>
+          </ul>
+          <div class="addon-price">Starting at $1,950 one-time</div>
         </div>
         <div class="addon-card reveal reveal-delay-1">
           <div class="addon-icon">📊</div>
