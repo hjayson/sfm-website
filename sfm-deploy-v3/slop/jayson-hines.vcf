@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Hines;Jayson;;;
+FN:Jayson Hines
+ORG:Sales Funnel Marketing
+TITLE:Founder
+EMAIL;TYPE=INTERNET,WORK:jayson@salesfunnelmarketing.us
+TEL;TYPE=CELL:+1-419-308-4576
+URL:https://salesfunnelmarketing.us
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/SalesFM
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/jaysonhines
+NOTE:Met at Great Lakes AI Week. Stop the AI Slop. Author of The Digital Garden.
+END:VCARD
