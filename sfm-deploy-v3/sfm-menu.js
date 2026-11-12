@@ -1,7 +1,7 @@
 /* SFM phone menu v1: builds one short menu and wires every hamburger to it. */
 (function(){
-  var MAIN=[["Services","/sfm-services.html"],["Pricing","/sfm-pricing.html"],["Results","/sfm-results.html"],["About","/sfm-about.html"],["Contact","/sfm-contact.html"]];
-  var MORE=[["Our Work","/sfm-portfolio.html"],["Team","/sfm-team.html"],["Blog","/sfm-blog.html"],["AI Workshop","/sfm-ai-workshop.html"],["Podcasting","/sfm-podcasting.html"],["The Digital Garden","/sfm-digital-garden.html"],["NetWORKs Café","/sfm-networks-cafe.html"],["The Scroll","/sfm-the-scroll.html"],["Free Brand Studio","/sfm-brand-studio.html"],["Free Brand Kit","/sfm-brand-kit-free.html"],["Client login","/client-login/"]];
+  var MAIN=[["Services","/sfm-services.html"],["Pricing","/sfm-pricing.html"],["Results","/sfm-results.html"],["Our Work","/sfm-portfolio.html"],["About","/sfm-about.html"],["Contact","/sfm-contact.html"]];
+  var MORE=[["AI Workshop","/sfm-ai-workshop.html"],["Podcasting","/sfm-podcasting.html"],["The Digital Garden","/sfm-digital-garden.html"],["NetWORKs Café","/sfm-networks-cafe.html"],["Free Brand Kit","/sfm-brand-kit-free.html"],["Free Brand Studio","/sfm-brand-studio.html"],["Blog","/sfm-blog.html"],["The Scroll","/sfm-the-scroll.html"],["Team","/sfm-team.html"]];
   var BOOK="https://link.salesfunnelmarketing.us/widget/bookings/meetingwithjayson";
   var menu,lastBtn;
   function here(h){var p=location.pathname.replace(/\.html$/,"").replace(/\/$/,"")||"/";return p===h.replace(/\.html$/,"").replace(/\/$/,"");}
@@ -11,8 +11,8 @@
     menu.setAttribute("role","dialog");menu.setAttribute("aria-modal","true");menu.setAttribute("aria-label","Menu");menu.setAttribute("aria-hidden","true");
     menu.innerHTML='<div class="sfm-m-top"><span class="sfm-m-title">Menu</span><button type="button" class="sfm-m-close" aria-label="Close menu">&times;</button></div>'+
       '<div class="sfm-m-body"><div class="sfm-m-main" role="navigation" aria-label="Main">'+MAIN.map(link).join("")+'</div>'+
-      '<details><summary>More</summary><div class="sfm-m-more">'+MORE.map(link).join("")+'</div></details>'+
-      '<a class="sfm-m-book" href="'+BOOK+'" target="_blank" rel="noopener">Book a Free Call</a></div>';
+      '<details><summary>Resources</summary><div class="sfm-m-more">'+MORE.map(link).join("")+'</div></details>'+
+      '<a class="sfm-m-book" href="'+BOOK+'" target="_blank" rel="noopener">Book a Free Call</a><a class="sfm-m-login" href="/client-login/">Client login</a></div>';
     document.body.appendChild(menu);
     menu.querySelector(".sfm-m-close").addEventListener("click",close);
     menu.addEventListener("click",function(e){if(e.target.closest("a"))close();});

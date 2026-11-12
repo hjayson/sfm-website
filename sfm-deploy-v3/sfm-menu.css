@@ -24,5 +24,6 @@
 #sfmMenu .sfm-m-more a{display:block;font-size:16px;padding:9px 0 9px 2px;color:rgba(255,255,255,.8)}
 #sfmMenu .sfm-m-more{padding-bottom:12px}
 #sfmMenu .sfm-m-book{display:block;margin-top:26px;background:#E85D26;color:#fff;text-align:center;font-weight:800;font-size:17px;padding:16px 20px;border-radius:10px}
+#sfmMenu .sfm-m-login{display:block;text-align:center;margin-top:16px;font-size:15px;color:rgba(255,255,255,.7)}
 html.sfm-menu-open,html.sfm-menu-open body{overflow:hidden!important}
 @media(min-width:1201px){#sfmMenu{display:none}}
