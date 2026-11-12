@@ -27,3 +27,5 @@
 #sfmMenu .sfm-m-login{display:block;text-align:center;margin-top:16px;font-size:15px;color:rgba(255,255,255,.7)}
 html.sfm-menu-open,html.sfm-menu-open body{overflow:hidden!important}
 @media(min-width:1201px){#sfmMenu{display:none}}
+/* Keep an open desktop dropdown above the holiday lights. */
+.nav-dd-menu,.dropdown-menu{z-index:10001!important}
