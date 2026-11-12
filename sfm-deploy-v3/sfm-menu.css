@@ -1,0 +1,28 @@
+/* SFM phone menu v1: one short menu on every page. Undo = remove this file's <link> and sfm-menu.js. */
+.mobile-menu,.mobile-nav{display:none!important}
+.sfm-burger-added{display:none;flex-direction:column;gap:5px;background:none;border:0;padding:10px;margin-left:auto;cursor:pointer}
+.sfm-burger-added span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
+@media(max-width:768px){.sfm-burger-added{display:flex}}
+#sfmMenu{position:fixed;inset:0;z-index:2147483600;background:#0A1628;color:#fff;display:flex;flex-direction:column;
+  font-family:inherit;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s;-webkit-font-smoothing:antialiased}
+#sfmMenu.open{opacity:1;visibility:visible}
+#sfmMenu *,#sfmMenu *::before,#sfmMenu *::after{box-sizing:border-box}
+#sfmMenu div,#sfmMenu details,#sfmMenu summary{position:static;background:none;margin:0;width:auto;height:auto;transform:none;box-shadow:none}
+#sfmMenu .sfm-m-top{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.1);flex:none}
+#sfmMenu .sfm-m-title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:700}
+#sfmMenu .sfm-m-close{background:none;border:0;color:#fff;font-size:30px;line-height:1;width:44px;height:44px;margin:-10px -10px -10px 0;cursor:pointer;outline:none}
+#sfmMenu .sfm-m-close:focus-visible{outline:2px solid #E85D26;border-radius:6px}
+#sfmMenu .sfm-m-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:8px 22px 28px}
+#sfmMenu a{color:#fff;text-decoration:none}
+#sfmMenu .sfm-m-main a{display:block;font-size:22px;font-weight:700;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+#sfmMenu .sfm-m-main a[aria-current="page"]{color:#E85D26}
+#sfmMenu details{border-bottom:1px solid rgba(255,255,255,.08)}
+#sfmMenu summary{list-style:none;cursor:pointer;font-size:17px;font-weight:600;padding:16px 0;color:rgba(255,255,255,.75);display:flex;justify-content:space-between;align-items:center}
+#sfmMenu summary::-webkit-details-marker{display:none}
+#sfmMenu summary::after{content:"+";font-size:22px;font-weight:400;transition:transform .2s}
+#sfmMenu details[open] summary::after{transform:rotate(45deg)}
+#sfmMenu .sfm-m-more a{display:block;font-size:16px;padding:9px 0 9px 2px;color:rgba(255,255,255,.8)}
+#sfmMenu .sfm-m-more{padding-bottom:12px}
+#sfmMenu .sfm-m-book{display:block;margin-top:26px;background:#E85D26;color:#fff;text-align:center;font-weight:800;font-size:17px;padding:16px 20px;border-radius:10px}
+html.sfm-menu-open,html.sfm-menu-open body{overflow:hidden!important}
+@media(min-width:1201px){#sfmMenu{display:none}}

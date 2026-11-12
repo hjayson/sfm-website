@@ -156,7 +156,8 @@ if(el.matches(S))el.classList.add('sfmb-solid');else if(el.matches(N))el.classLi
 var t=el.lastChild;while(t&&t.nodeType===3&&!t.nodeValue.trim())t=t.previousSibling;
 if(t&&t.nodeType===3){var x=/^([\s\S]*?)(\s*)(→|›)(\s*)$/.exec(t.nodeValue);if(x&&x[1].trim()){t.nodeValue=x[1]+x[2];var s=document.createElement('span');s.className='sfmb-arrow';s.setAttribute('aria-hidden','true');s.textContent=x[3];t.parentNode.insertBefore(s,t.nextSibling);}}}catch(_){}}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();}catch(_){}})();
-</script></head>
+</script><link rel="stylesheet" href="/sfm-menu.css"><script src="/sfm-menu.js" defer></script>
+</head>
 <body>
 <nav>
   <a class='nav-logo' href='/' style='display:flex;align-items:center;gap:8px;'>
