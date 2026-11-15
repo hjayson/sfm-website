@@ -150,15 +150,28 @@ export const DEFAULT_CLIENTS = [
   ["c-cic", "CIC"], ["c-llg", "Legacy Law Group"], ["c-nec", "National Exchange Club"],
   ["c-vub", "Owens TRIO Veterans (VUB)"], ["c-vjs", "VJ's Towing"], ["c-phcc", "Perrysburg Heights Community Center"],
   ["c-fuller", "Fuller and Sons"], ["c-sfm", "SFM internal"], ["c-admin", "Admin and email"], ["c-misc", "Misc"],
+  ["c-hba", "HBA"], ["c-gallon", "Gallon"], ["c-arista", "Arista"], ["c-fusionfit", "Fusion Fit (CRAFT)"],
+  ["c-carihines", "Cari Hines Personal Training"],
 ].map(([id, name]) => ({ id, name }));
+// Clients added after Team Time went live. Each batch is added to the live list once; if an admin
+// removes one later under People & clients, it stays removed.
+const ADDED_LATER = [
+  { key: "added-misc", ids: ["c-misc"] },
+  { key: "added-clients-2026-11-15", ids: ["c-hba", "c-gallon", "c-arista", "c-fusionfit", "c-carihines"] },
+];
 export async function getClients(t) {
   let s = await t.data.get("settings", { type: "json" });
-  if (!s) { s = { clients: DEFAULT_CLIENTS }; await t.data.setJSON("settings", s); await t.config.set("added-misc", "1"); }
-  // One time only: lists made before Misc existed get it added. If an admin removes it later, it stays removed.
-  if (!(await t.config.get("added-misc"))) {
+  if (!s) {
+    s = { clients: DEFAULT_CLIENTS };
+    await t.data.setJSON("settings", s);
+    for (const b of ADDED_LATER) await t.config.set(b.key, "1");
+  }
+  for (const b of ADDED_LATER) {
+    if (await t.config.get(b.key)) continue;
     const list = s.clients || [];
-    if (!list.find((c) => c.id === "c-misc")) { s = { ...s, clients: [...list, { id: "c-misc", name: "Misc" }] }; await t.data.setJSON("settings", s); }
-    await t.config.set("added-misc", "1");
+    const add = DEFAULT_CLIENTS.filter((c) => b.ids.includes(c.id) && !list.find((x) => x.id === c.id));
+    if (add.length) { s = { ...s, clients: [...list, ...add] }; await t.data.setJSON("settings", s); }
+    await t.config.set(b.key, "1");
   }
   return s.clients || [];
 }
