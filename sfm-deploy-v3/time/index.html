@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team Time | Sales Funnel Marketing</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A1628">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SFM Time">
+<link rel="manifest" href="/time/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/time/icon-180.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{
+  --bg:#F3F5F9;--surface:#fff;--surface-2:#EEF2F7;--ink:#1C2433;--muted:#5A6A82;--line:#DCE3EC;
+  --band:#0A1628;--band-ink:#fff;--band-muted:#8B9DB5;
+  --ember:#E85D26;--ember-d:#c44d1e;--ember-ink:#fff;--ember-soft:#FCE7DD;
+  --good:#1E7F55;--good-soft:#DDF3E8;--warn:#9A6410;--warn-soft:#FBF0D9;--bad:#B4381A;--bad-soft:#FBE3DC;--bar:#0A1628;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#08111F;--surface:#101C30;--surface-2:#16243B;--ink:#EDF1F7;--muted:#8B9DB5;--line:#22324D;
+  --band:#050C17;--ember:#F0703F;--ember-d:#e0602f;--ember-ink:#0A1628;--ember-soft:#3A1E13;
+  --good:#49C990;--good-soft:#10301F;--warn:#E8B04F;--warn-soft:#33260E;--bad:#F08566;--bad-soft:#3A1810;--bar:#8B9DB5;color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ember);outline-offset:1px}
+[hidden]{display:none!important}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+
+/* sign in */
+.gate{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px 16px;background:linear-gradient(160deg,#0A1628,#13213b)}
+.card{background:#fff;color:#1c2433;border-radius:18px;padding:30px 26px;width:100%;max-width:400px;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.card .logo{font-weight:900;letter-spacing:-.3px;font-size:16px;color:#0A1628;text-decoration:none}
+.logo b,.brand b{color:#E85D26}
+.card h1{margin:14px 0 4px;font-size:23px;letter-spacing:-.4px}
+.card p{margin:0 0 14px;color:#5f6b7c;font-size:14.5px}
+.card label{display:block;font-size:12px;font-weight:700;letter-spacing:.4px;color:#5f6b7c;margin:14px 0 6px}
+.card input{width:100%;font-size:16px;padding:12px 13px;border:1px solid #e3e8ef;border-radius:10px;background:#f3f5f8;color:#1c2433}
+.go{width:100%;margin-top:18px;background:#E85D26;color:#fff;font-weight:800;font-size:16px;padding:13px;border:none;border-radius:10px;cursor:pointer}
+.go:hover{background:#c44d1e}.go[disabled]{opacity:.6;cursor:wait}
+.err{color:#c53030;font-size:13.5px;font-weight:600;min-height:20px;margin-top:10px}
+.small{font-size:13px;color:#5f6b7c;margin-top:14px;text-align:center}
+.small a{color:#E85D26;font-weight:700}
+.test{margin-top:20px;border:1px dashed #E85D26;border-radius:12px;padding:12px 14px;font-size:13px;color:#5f6b7c}
+.test b{color:#1c2433}
+.test .row{margin-top:10px}
+.test button{background:#fff;border:1.5px solid #0A1628;color:#0A1628;font-weight:700;font-size:13px;border-radius:8px;padding:8px 10px;cursor:pointer}
+
+/* app */
+.top{background:var(--band);color:var(--band-ink);position:sticky;top:0;z-index:5;padding-top:env(safe-area-inset-top)}
+.top-in{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:12px}
+.brand{font-weight:900;font-size:16px;letter-spacing:-.3px;display:flex;align-items:baseline;gap:10px}
+.brand small{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--band-muted);font-weight:700}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{background:none;border:0;color:var(--band-muted);padding:7px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px}
+.tab[aria-current="true"]{background:rgba(255,255,255,.14);color:var(--band-ink)}
+.who{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--band-muted)}
+.who button{background:none;border:1px solid rgba(255,255,255,.2);color:var(--band-ink);border-radius:8px;padding:5px 9px;font-size:12px;font-weight:600;cursor:pointer}
+.testbar{background:var(--warn-soft);color:var(--warn);font-size:12.5px;font-weight:600;text-align:center;padding:6px 12px}
+main{padding-block:20px calc(60px + env(safe-area-inset-bottom));display:grid;gap:16px}
+h2,h3{margin:0}
+h2{font-size:20px;font-weight:800;letter-spacing:-.3px}
+h3{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);font-weight:700}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.grow{flex:1}
+.btn{border:1px solid var(--line);background:var(--surface);padding:9px 14px;border-radius:10px;cursor:pointer;font-weight:700;font-size:13px;white-space:nowrap;text-decoration:none;color:var(--ink);display:inline-block}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--ember);border-color:var(--ember);color:var(--ember-ink)}
+.btn.primary:hover{background:var(--ember-d)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--bad)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.icon-btn{border:1px solid var(--line);background:var(--surface);width:36px;height:36px;border-radius:9px;cursor:pointer;font-size:18px;line-height:1}
+.icon-btn[disabled]{opacity:.4;cursor:not-allowed}
+label.f{display:grid;gap:5px;font-size:12px;font-weight:700;color:var(--muted)}
+.f input,.f select,select.f{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:10px;font-size:16px;font-weight:500;color:var(--ink);min-width:0;width:100%}
+
+.clock{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.clock-state{display:grid;gap:4px}
+.clock-big{font-size:46px;font-weight:800;letter-spacing:-1.5px;line-height:1}
+.clock.on .clock-big{color:var(--ember)}
+.pulse{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--ember);margin-right:6px;vertical-align:middle}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{50%{opacity:.3}}}
+.clock-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:10px;grid-column:1/-1}
+.clock-go{font-size:17px;padding:16px 28px;border-radius:12px;min-width:160px}
+.notice{border-radius:10px;padding:10px 12px;font-size:13px;font-weight:600}
+.notice.warn{background:var(--warn-soft);color:var(--warn)}
+.notice.info{background:var(--surface-2);color:var(--muted)}
+.notice.bad{background:var(--bad-soft);color:var(--bad)}
+.notice.good{background:var(--good-soft);color:var(--good)}
+
+.weekbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.weekbar .title{font-weight:800;font-size:15px;min-width:140px;text-align:center}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:14px}
+.day{display:grid;gap:6px;justify-items:center;font-size:11px;color:var(--muted);font-weight:700}
+.day .track{width:100%;max-width:46px;height:84px;border-radius:8px;background:var(--surface-2);display:flex;align-items:flex-end;overflow:hidden}
+.day .fill{width:100%;background:var(--bar);border-radius:8px 8px 0 0}
+.day.today .fill{background:var(--ember)}
+.day.today{color:var(--ink)}
+.day .v{color:var(--ink);font-size:12px}
+.pill{display:inline-flex;align-items:center;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill.open{background:var(--surface-2);color:var(--muted)}
+.pill.submitted{background:var(--warn-soft);color:var(--warn)}
+.pill.approved{background:var(--good-soft);color:var(--good)}
+.pill.changed{background:var(--bad-soft);color:var(--bad)}
+.pill.live{background:var(--ember-soft);color:var(--ember)}
+
+.daygroup+.daygroup{margin-top:12px}
+.dayhead{display:flex;justify-content:space-between;font-size:12px;font-weight:800;color:var(--muted);padding:0 2px 4px;border-bottom:1px solid var(--line)}
+.entry{display:grid;grid-template-columns:120px minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:9px 2px;border-bottom:1px solid var(--line)}
+.entry .t{font-size:13px;font-weight:700}
+.entry .note{font-size:13px;overflow-wrap:anywhere}
+.entry .dur{font-weight:800}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.edited{font-size:11px;color:var(--muted);font-weight:700;margin-left:6px}
+.empty{text-align:center;padding:26px 10px;color:var(--muted)}
+.empty strong{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat .k{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stat .v{font-size:26px;font-weight:800;line-height:1.2}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:9px 8px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:13px}
+th{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:700}
+th:first-child,td:first-child{text-align:left}
+td.zero{color:var(--line)}
+tr.person{cursor:pointer}
+tr.person:hover td{background:var(--surface-2)}
+td.name{font-weight:800}
+tr.detail td{text-align:left;background:var(--surface-2);white-space:normal;padding:6px 12px 12px}
+.clientbars{display:grid;gap:8px}
+.cbar{display:grid;grid-template-columns:minmax(90px,180px) minmax(0,1fr) 64px;gap:10px;align-items:center;font-size:13px}
+.cbar .track{height:10px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+.cbar .track span{display:block;height:100%}
+.cbar .label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}
+.two{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}
+.list{display:grid;gap:8px}
+.listrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.person-card{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:10px}
+.person-grid{display:grid;grid-template-columns:minmax(0,1.3fr) 130px 110px;gap:8px;align-items:end}
+.linkbox{display:grid;gap:8px;background:var(--good-soft);border-radius:12px;padding:12px}
+.linkbox code{font-size:12px;overflow-wrap:anywhere;background:var(--surface);border-radius:8px;padding:8px;display:block;color:var(--ink)}
+
+.scrim{position:fixed;inset:0;background:rgba(5,12,23,.55);display:grid;place-items:center;z-index:20;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.sheet{background:var(--surface);border-radius:16px;padding:20px;width:min(520px,100%);max-height:100%;overflow:auto;display:grid;gap:12px;border:1px solid var(--line)}
+.grid3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px}
+.history{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;display:grid;gap:4px}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--band);color:#fff;padding:10px 16px;border-radius:10px;font-weight:700;font-size:13px;z-index:30;max-width:calc(100% - 32px);text-align:center}
+
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.tabs{margin-left:0;order:3;width:100%}}
+@media (max-width:520px){
+  .clock{grid-template-columns:1fr}.clock-go{width:100%}.clock-form{grid-template-columns:1fr}.clock-big{font-size:40px}
+  .entry{grid-template-columns:minmax(0,1fr) auto auto}.entry .t{grid-column:1/-1;font-size:12px;color:var(--muted)}
+  .grid3{grid-template-columns:1fr 1fr}.grid3 label:first-child{grid-column:1/-1}
+  .person-grid{grid-template-columns:1fr 1fr}.person-grid>:first-child{grid-column:1/-1}
+  .weekbar .title{min-width:0}
+}
+</style>
+</head>
+<body>
+
+<!-- Sign in -->
+<div class="gate" id="gate" hidden>
+  <form class="card" id="loginForm" novalidate>
+    <a class="logo" href="/">Sales <b>Funnel</b> Marketing</a>
+    <h1>Team Time</h1>
+    <p>Log in to clock in and track your hours.</p>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="username" inputmode="email" autocapitalize="off" required>
+    <label for="pw">Password</label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <button class="go" id="loginGo" type="submit">Log in</button>
+    <div class="err" id="loginErr" role="alert"></div>
+    <div class="small">Forgot your password? <a href="mailto:jayson@salesfunnelmarketing.us?subject=Team%20Time%20password">Email Jayson</a> for a new link.</div>
+    <div class="test" id="testLogins" hidden>
+      <b>Test copy.</b> Nothing here is real. Pick a sample login, then press Log in.
+      <div class="row">
+        <button type="button" data-u="sam@sfm-test.example">Team member</button>
+        <button type="button" data-u="riley@sfm-test.example">Second member</button>
+        <button type="button" data-u="boss@sfm-test.example">Admin view</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Set password (from a link) -->
+<div class="gate" id="setGate" hidden>
+  <form class="card" id="setForm" novalidate>
+    <a class="logo" href="/">Sales <b>Funnel</b> Marketing</a>
+    <h1 id="setTitle">Set your password</h1>
+    <p id="setIntro">Checking your link…</p>
+    <div id="setFields" hidden>
+      <label for="setEmail">Email</label>
+      <input id="setEmail" type="email" autocomplete="username" readonly>
+      <label for="setPw">New password</label>
+      <input id="setPw" type="password" autocomplete="new-password" minlength="10" required>
+      <label for="setPw2">Type it again</label>
+      <input id="setPw2" type="password" autocomplete="new-password" minlength="10" required>
+      <button class="go" id="setGo" type="submit">Save and log in</button>
+    </div>
+    <div class="err" id="setErr" role="alert"></div>
+  </form>
+</div>
+
+<!-- App -->
+<div id="app" hidden>
+  <div class="testbar" id="testBar" hidden>Test copy. These are sample people and hours, not your team's.</div>
+  <header class="top">
+    <div class="wrap top-in">
+      <div class="brand">Sales <b>Funnel</b> Marketing <small>Team Time</small></div>
+      <nav class="tabs" id="tabs" aria-label="Views"></nav>
+      <div class="who"><span id="whoName"></span><button type="button" id="logout">Log out</button></div>
+    </div>
+  </header>
+  <main class="wrap" id="main"></main>
+</div>
+
+<div class="scrim" id="sheet" hidden>
+  <form class="sheet" id="sheetForm" autocomplete="off" novalidate>
+    <h2 id="sheetTitle">Add time</h2>
+    <p class="muted" id="sheetWho" style="margin:0" hidden></p>
+    <div class="grid3">
+      <label class="f" for="fDate">Date<input type="date" id="fDate" required></label>
+      <label class="f" for="fStart">Start<input type="time" id="fStart" required></label>
+      <label class="f" for="fEnd">End<input type="time" id="fEnd" required></label>
+    </div>
+    <label class="f" for="fClient">Client or project<select id="fClient"></select></label>
+    <label class="f" for="fNote">What you worked on<input id="fNote" maxlength="240" placeholder="Edited the reel, posted the carousel, client call…"></label>
+    <p class="notice warn" id="fWarn" hidden></p>
+    <div class="history" id="fHistory" hidden></div>
+    <div class="row">
+      <button type="button" class="btn ghost danger" id="fDelete" hidden>Delete</button>
+      <span class="grow"></span>
+      <button type="button" class="btn ghost" id="fCancel">Cancel</button>
+      <button type="submit" class="btn primary" id="fSave">Save</button>
+    </div>
+  </form>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function () {
+"use strict";
+/* ---------- helpers ---------- */
+var $ = function (s) { return document.querySelector(s); };
+function h(tag, attrs) {
+  var el = document.createElement(tag);
+  var a = attrs || {};
+  Object.keys(a).forEach(function (k) {
+    var v = a[k];
+    if (v == null || v === false) return;
+    if (k === "class") el.className = v;
+    else if (k === "text") el.textContent = v;
+    else if (k.slice(0, 2) === "on") el.addEventListener(k.slice(2), v);
+    else el.setAttribute(k, v === true ? "" : v);
+  });
+  var kids = Array.prototype.slice.call(arguments, 2);
+  (function add(list) {
+    list.forEach(function (k) {
+      if (k == null || k === false) return;
+      if (Array.isArray(k)) return add(k);
+      el.append(k.nodeType ? k : document.createTextNode(String(k)));
+    });
+  })(kids);
+  return el;
+}
+var pad = function (n) { return String(n).padStart(2, "0"); };
+var dkey = function (d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
+var fromKey = function (k) { var p = k.split("-").map(Number); return new Date(p[0], p[1] - 1, p[2]); };
+var addDays = function (d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; };
+var weekStart = function (d) { var x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; };
+var weekDays = function (ws) { return [0, 1, 2, 3, 4, 5, 6].map(function (i) { return addDays(ws, i); }); };
+var hm = function (mins) { var m = Math.max(0, Math.round(mins || 0)); return Math.floor(m / 60) + ":" + pad(m % 60); };
+var dec = function (mins) { return ((mins || 0) / 60).toFixed(2); };
+var toHHMM = function (d) { return pad(d.getHours()) + ":" + pad(d.getMinutes()); };
+var toMin = function (s) { var p = String(s || "0:0").split(":").map(Number); return p[0] * 60 + p[1]; };
+var span = function (a, b) { var m = toMin(b) - toMin(a); if (m <= 0) m += 1440; return m; };
+var clock12 = function (s) { if (!s) return ""; var p = s.split(":").map(Number), a = p[0]; var pm = a >= 12; a = a % 12 || 12; return a + ":" + pad(p[1]) + (pm ? "p" : "a"); };
+var dayLabel = function (k) { return fromKey(k).toLocaleDateString([], { weekday: "long", month: "short", day: "numeric" }); };
+var short = function (k) { return fromKey(k).toLocaleDateString([], { month: "short", day: "numeric" }); };
+var rangeLabel = function (ws) { var we = addDays(ws, 6), o = { month: "short", day: "numeric" }; return ws.toLocaleDateString([], o) + " – " + we.toLocaleDateString([], ws.getMonth() === we.getMonth() ? { day: "numeric" } : o); };
+var elapsed = function (ms) { var s = Math.max(0, Math.floor(ms / 1000)); return Math.floor(s / 3600) + ":" + pad(Math.floor(s / 60) % 60) + ":" + pad(s % 60); };
+var TZ = (function () { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) { return ""; } })();
+var DOTS = ["#E85D26", "#3D7CC9", "#2F9E6E", "#9B5DE5", "#C9961A", "#D4477A", "#3C9AAE", "#7C8B3A", "#8B9DB5"];
+var STATUS = { open: "Open", submitted: "Submitted", approved: "Approved", changed: "Changed after approval" };
+var toastEl = $("#toast"), toastT;
+function toast(msg) { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastT); toastT = setTimeout(function () { toastEl.hidden = true; }, 3000); }
+
+function api(path, body) {
+  var opt = { credentials: "same-origin", headers: {} };
+  if (body !== undefined) { opt.method = "POST"; opt.headers["content-type"] = "application/json"; opt.body = JSON.stringify(body); }
+  return fetch("/api/time/" + path, opt).then(function (r) {
+    return r.json().catch(function () { return {}; }).then(function (j) {
+      if (r.status === 401 && path !== "login") { showLogin(); throw { quiet: true }; }
+      if (!r.ok) throw { message: j.error || "Something went wrong. Try again.", status: r.status, data: j };
+      return j;
+    });
+  }, function () { throw { message: "No connection. Try again in a moment." }; });
+}
+function oops(e) { if (e && !e.quiet) toast(e.message || "Something went wrong."); }
+
+/* ---------- state ---------- */
+var S = {
+  me: null, admin: false, test: false, clients: [], clock: null, tab: "my",
+  week: weekStart(new Date()), mine: null,
+  teamWeek: weekStart(new Date()), team: null, open: {}, clientFilter: "",
+  people: null, newLink: null, exportFrom: "", exportTo: "", busy: false
+};
+var clientById = function (id) { return S.clients.filter(function (c) { return c.id === id; })[0]; };
+var clientName = function (id) { var c = clientById(id); return c ? c.name : (id === "general" || !id ? "General" : "Removed client"); };
+var clientDot = function (id) { var i = S.clients.findIndex(function (c) { return c.id === id; }); return i < 0 ? DOTS[DOTS.length - 1] : DOTS[i % (DOTS.length - 1)]; };
+var activeClients = function () { return S.clients.filter(function (c) { return !c.archived; }); };
+var firstClient = function () { return (activeClients()[0] || {}).id || "general"; };
+var wk = function (d) { return dkey(d); };
+
+/* ---------- views: sign in ---------- */
+function showOnly(id) { ["gate", "setGate", "app"].forEach(function (x) { $("#" + x).hidden = x !== id; }); }
+function showLogin() {
+  showOnly("gate");
+  var host = location.hostname;
+  $("#testLogins").hidden = !(host.indexOf("--") > -1 || host === "localhost" || host === "127.0.0.1");
+  setTimeout(function () { if (!$("#email").value) $("#email").focus(); }, 30);
+}
+document.querySelectorAll("[data-u]").forEach(function (b) {
+  b.addEventListener("click", function () { $("#email").value = b.getAttribute("data-u"); $("#pw").value = "sample-time-2026"; $("#loginGo").focus(); });
+});
+$("#loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var err = $("#loginErr"), go = $("#loginGo");
+  err.textContent = "";
+  var email = $("#email").value.trim(), pw = $("#pw").value;
+  if (!email || !pw) { err.textContent = "Enter your email and password."; return; }
+  go.disabled = true; go.textContent = "Logging in…";
+  api("login", { email: email, password: pw }).then(function () { $("#pw").value = ""; return start(); })
+    .catch(function (x) { err.textContent = x.message || "Something went wrong. Try again."; })
+    .then(function () { go.disabled = false; go.textContent = "Log in"; });
+});
+$("#logout").addEventListener("click", function () {
+  api("logout", {}).catch(function () {}).then(function () { S.me = null; S.mine = S.team = S.people = null; showLogin(); });
+});
+
+/* ---------- views: set password ---------- */
+function showSetPassword(token) {
+  showOnly("setGate");
+  fetch("/api/time/invite-check?t=" + encodeURIComponent(token), { credentials: "same-origin" })
+    .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+    .then(function (x) {
+      if (!x.ok) { $("#setIntro").textContent = x.j.error || "This link doesn't work. Ask Jayson for a new one."; return; }
+      $("#setTitle").textContent = x.j.reset ? "Set a new password" : "Welcome" + (x.j.name ? ", " + x.j.name.split(" ")[0] : "");
+      $("#setIntro").textContent = "Pick a password with at least 10 characters. You'll use it with this email to log your hours on your phone or computer.";
+      $("#setEmail").value = x.j.email; $("#setFields").hidden = false; $("#setPw").focus();
+    })
+    .catch(function () { $("#setIntro").textContent = "No connection. Reload to try again."; });
+  $("#setForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var err = $("#setErr"), go = $("#setGo"), a = $("#setPw").value, b = $("#setPw2").value;
+    err.textContent = "";
+    if (a.length < 10) { err.textContent = "Use at least 10 characters."; return; }
+    if (a !== b) { err.textContent = "The two passwords don't match."; return; }
+    go.disabled = true; go.textContent = "Saving…";
+    api("set-password", { token: token, password: a })
+      .then(function () { history.replaceState(null, "", "/time/"); return start(); })
+      .catch(function (x) { err.textContent = x.message; go.disabled = false; go.textContent = "Save and log in"; });
+  });
+}
+
+/* ---------- loading ---------- */
+function loadMine() {
+  var want = wk(S.week);
+  return api("week?w=" + want).then(function (j) { if (wk(S.week) === want) { S.mine = j; draw(); } });
+}
+function loadTeam() {
+  var want = wk(S.teamWeek);
+  return api("team?w=" + want).then(function (j) { if (wk(S.teamWeek) === want) { S.team = j; draw(); } });
+}
+function loadPeople() { return api("people").then(function (j) { S.people = j.people; draw(); }); }
+function refreshMe() {
+  return api("me").then(function (j) { S.me = j.me; S.admin = j.admin; S.test = j.test; S.clients = j.clients; S.clock = j.clock; });
+}
+function refreshView() {
+  var jobs = [refreshMe()];
+  if (S.tab === "team") jobs.push(loadTeam());
+  else if (S.tab === "people") jobs.push(loadPeople());
+  else jobs.push(loadMine());
+  return Promise.all(jobs).then(draw).catch(oops);
+}
+function start() {
+  return refreshMe().then(function () {
+    showOnly("app");
+    $("#testBar").hidden = !S.test;
+    $("#whoName").textContent = (S.me.name || "You") + (S.admin ? " · Admin" : "");
+    S.tab = "my";
+    draw();
+    return loadMine();
+  });
+}
+// Coming back to the tab (or the phone app) picks up changes made on another device.
+document.addEventListener("visibilitychange", function () { if (!document.hidden && S.me && $("#sheet").hidden) refreshView(); });
+setInterval(function () { if (!document.hidden && S.me && S.tab === "team" && $("#sheet").hidden && !isTyping()) loadTeam().catch(function () {}); }, 30000);
+function isTyping() { var a = document.activeElement; return a && $("#main").contains(a) && /INPUT|SELECT|TEXTAREA/.test(a.tagName); }
+
+/* ---------- clock ---------- */
+function clockIn() {
+  var client = $("#ckClient") ? $("#ckClient").value : firstClient();
+  var note = $("#ckNote") ? $("#ckNote").value.trim() : "";
+  return api("clock-in", { client: client, note: note }).then(function (j) { S.clock = j.clock; toast("Clocked in"); draw(); })
+    .catch(function (e) { if (e.data && e.data.clock) { S.clock = e.data.clock; draw(); } oops(e); });
+}
+function entryFromClock(c, endMs, note) {
+  var st = new Date(c.startedAt), en = new Date(endMs);
+  return { date: dkey(st), start: toHHMM(st), end: toHHMM(en), client: c.client, note: note, tz: TZ };
+}
+function clockOut(switchTo) {
+  var c = S.clock; if (!c) return Promise.resolve();
+  var now = Date.now();
+  var note = $("#ckNote") ? $("#ckNote").value.trim() : (c.note || "");
+  var base = entryFromClock(c, now, note || c.note || "");
+  if (now - c.startedAt < 60000) { base.end = toHHMM(new Date(c.startedAt + 60000)); }
+  if (now - c.startedAt > 12 * 3600e3) {
+    openEditor({ uid: S.me.id, draft: base, fromClock: true, warn: "You were on the clock over 12 hours. Fix the end time, then save." });
+    return Promise.resolve();
+  }
+  var body = Object.assign({}, base); if (switchTo) body.switchTo = switchTo;
+  return api("clock-out", body).then(function (j) {
+    S.clock = j.clock;
+    toast(switchTo ? "Switched to " + clientName(switchTo) : "Clocked out · " + hm(j.entry.minutes));
+    return loadMine();
+  }).catch(oops);
+}
+
+/* ---------- editor sheet ---------- */
+var sheet = $("#sheet"), ed = null, delArmed = false;
+function fillClientSelect(sel, current) {
+  sel.replaceChildren();
+  var list = activeClients();
+  if (!list.length || current === "general") sel.append(h("option", { value: "general", text: "General" }));
+  list.forEach(function (c) { sel.append(h("option", { value: c.id, text: c.name })); });
+  if (current && current !== "general" && !list.filter(function (c) { return c.id === current; }).length) sel.append(h("option", { value: current, text: clientName(current) }));
+  if (current) sel.value = current;
+}
+function closeSheet() { sheet.hidden = true; ed = null; }
+function openEditor(o) {
+  ed = o; delArmed = false;
+  var d = o.entry || o.draft || {};
+  $("#sheetTitle").textContent = o.entry ? "Edit time" : o.fromClock ? "Finish clocking out" : "Add time";
+  var other = o.uid !== S.me.id;
+  $("#sheetWho").hidden = !other;
+  $("#sheetWho").textContent = other ? "For " + o.name + ". Use their local time." : "";
+  $("#fDate").value = d.date || dkey(new Date());
+  $("#fStart").value = d.start || "09:00";
+  $("#fEnd").value = d.end || toHHMM(new Date());
+  fillClientSelect($("#fClient"), d.client || firstClient());
+  $("#fNote").value = d.note || "";
+  $("#fDelete").hidden = !o.entry; $("#fDelete").textContent = "Delete";
+  var hEl = $("#fHistory"); hEl.replaceChildren();
+  if (o.entry && o.entry.history && o.entry.history.length) {
+    hEl.hidden = false; hEl.append(h("strong", { text: "Edit history" }));
+    o.entry.history.slice().reverse().forEach(function (x) {
+      var w = x.was || {};
+      hEl.append(h("div", { text: new Date(x.at).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + (x.byName ? " by " + x.byName : "") + ": was " + (w.date ? short(w.date) : "") + " " + clock12(w.start) + "–" + clock12(w.end) + ", " + clientName(w.client) }));
+    });
+  } else hEl.hidden = true;
+  setWarn(o.warn); sheet.hidden = false;
+  setTimeout(function () { $("#fStart").focus(); }, 30);
+}
+function setWarn(msg) { var w = $("#fWarn"); w.textContent = msg || ""; w.hidden = !msg; }
+function poolFor(uid) {
+  if (uid === S.me.id) return (S.mine && S.mine.entries) || [];
+  var r = S.team && S.team.rows.filter(function (x) { return x.person.id === uid; })[0];
+  return (r && r.entries) || [];
+}
+function overlapCheck() {
+  if (!ed) return;
+  var date = $("#fDate").value, a = $("#fStart").value, b = $("#fEnd").value;
+  if (!date || !a || !b) return setWarn("");
+  var s1 = toMin(a), e1 = s1 + span(a, b);
+  var hit = poolFor(ed.uid).filter(function (x) {
+    if (x.date !== date || (ed.entry && x.id === ed.entry.id)) return false;
+    var s2 = toMin(x.start), e2 = s2 + (x.minutes || span(x.start, x.end));
+    return s1 < e2 && s2 < e1;
+  })[0];
+  var len = span(a, b);
+  setWarn(hit ? "This overlaps " + clock12(hit.start) + "–" + clock12(hit.end) + " (" + clientName(hit.client) + ") on the same day." : len > 12 * 60 ? "That's " + hm(len) + " in one entry. Double-check the end time." : "");
+}
+["fDate", "fStart", "fEnd"].forEach(function (id) { $("#" + id).addEventListener("input", overlapCheck); });
+$("#fCancel").addEventListener("click", closeSheet);
+sheet.addEventListener("click", function (e) { if (e.target === sheet) closeSheet(); });
+document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !sheet.hidden) closeSheet(); });
+function afterSave(uid) { return uid === S.me.id && S.tab === "my" ? loadMine() : S.tab === "team" ? loadTeam() : loadMine(); }
+$("#fDelete").addEventListener("click", function () {
+  if (!ed || !ed.entry) return;
+  if (!delArmed) { delArmed = true; $("#fDelete").textContent = "Tap again to delete"; return; }
+  var o = ed;
+  api("entry-delete", { uid: o.uid, id: o.entry.id, date: o.entry.date }).then(function () { closeSheet(); toast("Entry deleted"); return afterSave(o.uid); }).catch(oops);
+});
+$("#sheetForm").addEventListener("submit", function (e) {
+  e.preventDefault(); if (!ed) return;
+  var data = { date: $("#fDate").value, start: $("#fStart").value, end: $("#fEnd").value, client: $("#fClient").value, note: $("#fNote").value.trim(), tz: TZ };
+  if (!data.date || !data.start || !data.end) { setWarn("Fill in the date, start and end."); return; }
+  var btn = $("#fSave"); btn.disabled = true;
+  var o = ed, p;
+  if (o.fromClock) p = api("clock-out", data).then(function (j) { S.clock = null; toast("Clocked out · " + hm(j.entry.minutes)); });
+  else {
+    if (o.entry) { data.id = o.entry.id; data.was = o.entry.date; }
+    if (o.uid !== S.me.id) data.uid = o.uid;
+    p = api("entry-save", data).then(function () { toast(o.entry ? "Saved" : "Time added"); });
+  }
+  p.then(function () { closeSheet(); return afterSave(o.uid); }).catch(function (x) { if (!x.quiet) setWarn(x.message); }).then(function () { btn.disabled = false; });
+});
+
+/* ---------- drawing ---------- */
+function drawTabs() {
+  var tabs = $("#tabs"); tabs.replaceChildren();
+  if (!S.admin) return;
+  [["my", "My time"], ["team", "Team"], ["people", "People & clients"]].forEach(function (t) {
+    tabs.append(h("button", { class: "tab", type: "button", "aria-current": String(S.tab === t[0]), onclick: function () {
+      S.tab = t[0]; draw();
+      (t[0] === "team" ? loadTeam() : t[0] === "people" ? loadPeople() : loadMine()).catch(oops);
+    } }, t[1]));
+  });
+}
+function draw() {
+  if (!S.me || $("#app").hidden) return;
+  if (isTyping()) { pending = true; return; }
+  drawTabs();
+  var main = $("#main"); main.replaceChildren();
+  if (S.tab === "team" && S.admin) return drawTeam(main);
+  if (S.tab === "people" && S.admin) return drawPeople(main);
+  drawMine(main);
+}
+var pending = false;
+$("#main").addEventListener("focusout", function () { if (pending) { pending = false; setTimeout(function () { if (!isTyping()) draw(); }, 0); } });
+
+/* ----- My time ----- */
+function drawMine(main) {
+  var c = S.clock, m = S.mine;
+  var locked = !!(m && m.approved) && !S.admin;
+  var card = h("section", { class: "panel clock" + (c ? " on" : "") });
+  var st = h("div", { class: "clock-state" });
+  if (c) {
+    st.append(h("div", { class: "muted", style: "font-weight:700" }, h("span", { class: "pulse" }), "On the clock since " + clock12(toHHMM(new Date(c.startedAt))) + " · " + clientName(c.client)),
+      h("div", { class: "clock-big num", "data-since": String(c.startedAt), text: elapsed(Date.now() - c.startedAt) }));
+    if (Date.now() - c.startedAt > 12 * 3600e3) st.append(h("div", { class: "notice warn", text: "Still on from earlier? Clock out and you can fix the end time." }));
+  } else {
+    var today = m && wk(S.week) === wk(weekStart(new Date())) ? m.entries.filter(function (e) { return e.date === dkey(new Date()); }).reduce(function (t, e) { return t + (e.minutes || 0); }, 0) : 0;
+    st.append(h("div", { class: "muted", style: "font-weight:700", text: "Off the clock" }), h("div", { class: "clock-big num", text: hm(today) }), h("div", { class: "muted", text: "logged today" }));
+  }
+  var go = h("button", { class: "btn primary clock-go", type: "button", onclick: function (e) {
+    var b = e.currentTarget; b.disabled = true;
+    (c ? clockOut() : clockIn()).then(function () { b.disabled = false; });
+  } }, c ? "Clock out" : "Clock in");
+  card.append(st, go);
+  var sel = h("select", { id: "ckClient", class: "f", "aria-label": "Client or project" });
+  fillClientSelect(sel, c ? c.client : firstClient());
+  if (c) sel.addEventListener("change", function () { if (sel.value !== c.client) { sel.blur(); clockOut(sel.value); } });
+  var note = h("input", { id: "ckNote", maxlength: "240", placeholder: c ? "Add a note for this stretch" : "What are you working on? (optional)" });
+  note.value = c ? (c.note || "") : "";
+  if (c) note.addEventListener("change", function () { api("clock-note", { note: note.value.trim() }).then(function (j) { S.clock = j.clock; }).catch(oops); });
+  card.append(h("div", { class: "clock-form" },
+    h("label", { class: "f", for: "ckClient" }, c ? "Switch client" : "Client or project", sel),
+    h("label", { class: "f", for: "ckNote" }, "Note", note)));
+  main.append(card);
+
+  var isThis = wk(S.week) === wk(weekStart(new Date()));
+  var wkp = h("section", { class: "panel" });
+  var go2 = function (n) { S.week = n === 0 ? weekStart(new Date()) : addDays(S.week, n); S.mine = null; draw(); loadMine().catch(oops); };
+  wkp.append(h("div", { class: "weekbar" },
+    h("button", { class: "icon-btn", type: "button", "aria-label": "Previous week", onclick: function () { go2(-7); } }, "‹"),
+    h("div", { class: "title" }, rangeLabel(S.week)),
+    h("button", { class: "icon-btn", type: "button", "aria-label": "Next week", disabled: isThis, onclick: function () { go2(7); } }, "›"),
+    !isThis && h("button", { class: "btn ghost", type: "button", onclick: function () { go2(0); } }, "This week"),
+    h("span", { class: "grow" }),
+    m && h("span", { class: "pill " + m.status, text: STATUS[m.status] }),
+    h("strong", { class: "num", style: "font-size:20px" }, hm(m ? m.minutes : 0), h("span", { class: "muted", style: "font-size:12px;font-weight:700" }, " hrs"))));
+  var by = {};
+  ((m && m.entries) || []).forEach(function (e) { by[e.date] = (by[e.date] || 0) + (e.minutes || 0); });
+  var max = Math.max.apply(null, [8 * 60].concat(Object.keys(by).map(function (k) { return by[k]; })));
+  var days = h("div", { class: "days" });
+  weekDays(S.week).forEach(function (d) {
+    var k = dkey(d), v = by[k] || 0;
+    days.append(h("div", { class: "day" + (k === dkey(new Date()) ? " today" : "") }, h("span", { class: "v num", text: v ? hm(v) : "–" }),
+      h("div", { class: "track" }, h("div", { class: "fill", style: "height:" + Math.round((v / max) * 100) + "%" })), d.toLocaleDateString([], { weekday: "short" })));
+  });
+  wkp.append(days);
+  var actions = h("div", { class: "row", style: "margin-top:14px" });
+  if (locked) actions.append(h("div", { class: "notice good grow", text: "Approved. This week is locked; ask Jayson to reopen it if something needs fixing." }));
+  else if (m) {
+    actions.append(h("button", { class: "btn", type: "button", onclick: function () { openEditor({ uid: S.me.id, draft: { date: isThis ? dkey(new Date()) : dkey(S.week) } }); } }, "+ Add time"), h("span", { class: "grow" }));
+    if (m.approved) actions.append(h("span", { class: "muted", text: "Approved" }));
+    else if (m.submitted) actions.append(h("span", { class: "muted", text: "Sent to Jayson " + new Date(m.submitted.at).toLocaleDateString([], { month: "short", day: "numeric" }) }),
+      h("button", { class: "btn ghost", type: "button", onclick: function () { api("unsubmit", { week: wk(S.week) }).then(function () { toast("Week reopened for edits"); return loadMine(); }).catch(oops); } }, "Unsubmit"));
+    else actions.append(h("button", { class: "btn primary", type: "button", disabled: !m.count, onclick: function () { api("submit", { week: wk(S.week) }).then(function () { toast("Week sent to Jayson"); return loadMine(); }).catch(oops); } }, "Submit week"));
+  }
+  wkp.append(actions);
+  main.append(wkp);
+
+  var ep = h("section", { class: "panel" }, h("h3", { text: "Entries", style: "margin-bottom:10px" }));
+  if (!m) ep.append(h("div", { class: "empty", text: "Loading this week…" }));
+  else if (!m.entries.length) ep.append(h("div", { class: "empty" }, h("strong", { text: "No time logged this week" }), "Clock in above, or use Add time for hours you worked earlier."));
+  else ep.append(entryList(m.entries, S.me, !locked));
+  main.append(ep);
+}
+function entryList(entries, person, editable) {
+  var wrap = h("div"), byDay = {};
+  entries.forEach(function (e) { (byDay[e.date] = byDay[e.date] || []).push(e); });
+  Object.keys(byDay).sort().reverse().forEach(function (day) {
+    var list = byDay[day].sort(function (a, b) { return toMin(a.start) - toMin(b.start); });
+    var g = h("div", { class: "daygroup" }, h("div", { class: "dayhead" }, h("span", { text: dayLabel(day) }), h("span", { class: "num", text: hm(list.reduce(function (t, e) { return t + (e.minutes || 0); }, 0)) })));
+    list.forEach(function (e) {
+      var edited = e.history && e.history.length ? (e.updatedBy && e.updatedBy !== person.id ? "Edited by " + ((e.history[e.history.length - 1] || {}).byName || "an admin") : "Edited") : e.addedBy ? "Added by " + e.addedBy : "";
+      g.append(h("div", { class: "entry" },
+        h("span", { class: "t num", text: clock12(e.start) + " – " + clock12(e.end) }),
+        h("div", {}, h("span", { class: "chip" }, h("i", { style: "background:" + clientDot(e.client) }), clientName(e.client)), edited ? h("span", { class: "edited", text: edited }) : null, e.note ? h("div", { class: "note", text: e.note }) : null),
+        h("span", { class: "dur num", text: hm(e.minutes) }),
+        editable ? h("button", { class: "btn ghost", type: "button", style: "padding:6px 10px", onclick: function () { openEditor({ uid: person.id, name: person.name, entry: e }); } }, "Edit") : h("span")));
+    });
+    wrap.append(g);
+  });
+  return wrap;
+}
+
+/* ----- Team ----- */
+function stat(k, v) { return h("div", { class: "stat" }, h("div", { class: "k", text: k }), h("div", { class: "v num", text: v })); }
+function drawTeam(main) {
+  var isThis = wk(S.teamWeek) === wk(weekStart(new Date()));
+  var go2 = function (n) { S.teamWeek = n === 0 ? weekStart(new Date()) : addDays(S.teamWeek, n); S.team = null; draw(); loadTeam().catch(oops); };
+  var filter = h("select", { class: "f", "aria-label": "Filter by client", style: "width:auto" }, h("option", { value: "", text: "All clients" }), S.clients.map(function (c) { return h("option", { value: c.id, text: c.name }); }));
+  filter.value = S.clientFilter;
+  filter.addEventListener("change", function () { S.clientFilter = filter.value; filter.blur(); draw(); });
+  main.append(h("section", { class: "weekbar" },
+    h("h2", { text: "Team hours", style: "margin-right:6px" }),
+    h("button", { class: "icon-btn", type: "button", "aria-label": "Previous week", onclick: function () { go2(-7); } }, "‹"),
+    h("div", { class: "title" }, rangeLabel(S.teamWeek)),
+    h("button", { class: "icon-btn", type: "button", "aria-label": "Next week", disabled: isThis, onclick: function () { go2(7); } }, "›"),
+    !isThis && h("button", { class: "btn ghost", type: "button", onclick: function () { go2(0); } }, "This week"),
+    h("span", { class: "grow" }), filter));
+  if (!S.team) { main.append(h("section", { class: "panel empty", text: "Loading the team's week…" })); return; }
+  var days = weekDays(S.teamWeek);
+  var rows = S.team.rows.map(function (r) {
+    var ents = S.clientFilter ? r.entries.filter(function (e) { return e.client === S.clientFilter; }) : r.entries;
+    var by = {}, total = 0;
+    ents.forEach(function (e) { by[e.date] = (by[e.date] || 0) + e.minutes; total += e.minutes; });
+    return { r: r, ents: ents, by: by, total: total };
+  });
+  var total = rows.reduce(function (a, x) { return a + x.total; }, 0);
+  var live = S.team.rows.filter(function (r) { return r.clock; });
+  var waiting = S.team.rows.filter(function (r) { return r.status === "submitted" || r.status === "changed"; }).length;
+  var cost = rows.reduce(function (a, x) { return a + (+x.r.person.rate ? (x.total / 60) * x.r.person.rate : 0); }, 0);
+  main.append(h("section", { class: "stats" },
+    stat("Hours this week", hm(total)), stat("On the clock now", String(live.length)),
+    stat("Waiting on you", String(waiting)), stat(cost ? "Labor cost" : "People logging", cost ? "$" + cost.toFixed(0) : String(rows.filter(function (x) { return x.r.count; }).length))));
+  if (live.length) main.append(h("section", { class: "panel" }, h("h3", { text: "On the clock now", style: "margin-bottom:8px" }),
+    h("div", { class: "list" }, live.map(function (r) {
+      return h("div", { class: "listrow" }, h("span", {}, h("span", { class: "pulse" }), h("strong", { text: r.person.name }), " · " + clientName(r.clock.client) + (r.clock.note ? " · " + r.clock.note : "")),
+        h("span", { class: "pill live num", "data-since": String(r.clock.startedAt), text: elapsed(Date.now() - r.clock.startedAt) }));
+    }))));
+  var tp = h("section", { class: "panel" });
+  if (S.team.rows.length <= 1 && !total) tp.append(h("div", { class: "empty" }, h("strong", { text: "No team hours this week yet" }), "Add your team on People & clients. Each person gets a link to set a password, then logs in here on their phone or computer."));
+  var table = h("table", {}, h("thead", {}, h("tr", {}, h("th", { text: "Person" }), days.map(function (d) { return h("th", { text: d.toLocaleDateString([], { weekday: "short", day: "numeric" }) }); }), h("th", { text: "Total" }), h("th", { text: "Status" }), h("th", { text: "" }))));
+  var tb = h("tbody");
+  var act = function (path, body, msg) { return api(path, body).then(function () { toast(msg); return loadTeam(); }).catch(oops); };
+  rows.forEach(function (x) {
+    var r = x.r, id = r.person.id, open = !!S.open[id];
+    var btn = r.approved
+      ? h("button", { class: "btn ghost", type: "button", onclick: function () { act("reopen", { uid: id, week: wk(S.teamWeek) }, "Reopened " + r.person.name + "'s week"); } }, "Reopen")
+      : h("button", { class: "btn" + (r.submitted ? " primary" : ""), type: "button", disabled: !r.count, onclick: function () { act("approve", { uid: id, week: wk(S.teamWeek) }, "Approved " + r.person.name + "'s week"); } }, "Approve");
+    tb.append(h("tr", { class: "person", onclick: function (e) { if (e.target.closest("button")) return; if (open) delete S.open[id]; else S.open[id] = 1; draw(); } },
+      h("td", { class: "name" }, r.person.name, r.clock ? h("span", { class: "pulse", style: "margin-left:6px", title: "On the clock" }) : null),
+      days.map(function (d) { var v = x.by[dkey(d)]; return h("td", { class: v ? "" : "zero", text: v ? hm(v) : "–" }); }),
+      h("td", {}, h("strong", { text: hm(x.total) })),
+      h("td", {}, h("span", { class: "pill " + r.status, text: STATUS[r.status] })),
+      h("td", {}, btn)));
+    if (r.status === "changed") tb.append(h("tr", { class: "detail" }, h("td", { colspan: "11" },
+      h("span", { class: "notice bad", style: "display:inline-block" }, "Approved at " + hm(r.approved.minutes) + " on " + new Date(r.approved.at).toLocaleDateString([], { month: "short", day: "numeric" }) + "; now " + hm(r.minutes) + ". Review the entries, then approve again."), " ",
+      h("button", { class: "btn primary", type: "button", onclick: function () { act("approve", { uid: id, week: wk(S.teamWeek) }, "Approved again"); } }, "Approve again"))));
+    if (open) tb.append(h("tr", { class: "detail" }, h("td", { colspan: "11" },
+      h("div", { class: "row", style: "margin:6px 0 8px" }, h("span", { class: "muted grow", text: r.count + " entries · " + dec(x.total) + " decimal hours" + (+r.person.rate ? " · $" + ((x.total / 60) * r.person.rate).toFixed(2) + " at $" + (+r.person.rate).toFixed(2) + "/hr" : "") }),
+        h("button", { class: "btn", type: "button", onclick: function () { openEditor({ uid: id, name: r.person.name, draft: { date: dkey(S.teamWeek) } }); } }, "+ Add time for them")),
+      x.ents.length ? entryList(x.ents, r.person, true) : h("div", { class: "empty", text: "No entries this week." }))));
+  });
+  table.append(tb);
+  tp.append(h("div", { class: "scroll" }, table));
+  main.append(tp);
+
+  var byClient = {};
+  S.team.rows.forEach(function (r) { r.entries.forEach(function (e) { byClient[e.client || "general"] = (byClient[e.client || "general"] || 0) + e.minutes; }); });
+  var cl = Object.keys(byClient).map(function (k) { return [k, byClient[k]]; }).sort(function (a, b) { return b[1] - a[1]; });
+  var cmax = Math.max.apply(null, [1].concat(cl.map(function (x) { return x[1]; })));
+  var left = h("section", { class: "panel" }, h("h3", { text: "Hours by client", style: "margin-bottom:12px" }),
+    cl.length ? h("div", { class: "clientbars" }, cl.map(function (x) {
+      return h("div", { class: "cbar" }, h("span", { class: "label", text: clientName(x[0]) }), h("div", { class: "track" }, h("span", { style: "width:" + Math.round((x[1] / cmax) * 100) + "%;background:" + clientDot(x[0]) })), h("span", { class: "num", style: "text-align:right;font-weight:800", text: hm(x[1]) }));
+    })) : h("div", { class: "empty", text: "Client totals show up once time is logged this week." }));
+  if (!S.exportFrom) { S.exportFrom = dkey(S.teamWeek); S.exportTo = dkey(addDays(S.teamWeek, 6)); }
+  var from = h("input", { type: "date", id: "exFrom", value: S.exportFrom });
+  var to = h("input", { type: "date", id: "exTo", value: S.exportTo });
+  var link = h("a", { class: "btn primary", href: "#", text: "Download CSV" });
+  var setHref = function () { S.exportFrom = from.value; S.exportTo = to.value; link.href = "/api/time/export?from=" + encodeURIComponent(from.value) + "&to=" + encodeURIComponent(to.value); };
+  from.addEventListener("change", setHref); to.addEventListener("change", setHref); setHref();
+  link.addEventListener("click", function (e) { if (!from.value || !to.value || from.value > to.value) { e.preventDefault(); toast("Pick a start date before the end date."); } });
+  var right = h("section", { class: "panel", style: "display:grid;gap:12px;align-content:start" }, h("h3", { text: "Export for payroll" }),
+    h("div", { class: "row" }, h("label", { class: "f grow", for: "exFrom" }, "From", from), h("label", { class: "f grow", for: "exTo" }, "To", to)),
+    link, h("p", { class: "muted", style: "margin:0;font-size:12px", text: "One row per entry: person, date, times, decimal hours, client, note, week status, rate and cost. Opens in Excel or Google Sheets." }));
+  main.append(h("div", { class: "two" }, left, right));
+}
+
+/* ----- People & clients ----- */
+function shareLink(person, link, days) {
+  var msg = "Hi " + person.name.split(" ")[0] + ", here's your link to set up SFM Team Time, where you'll log your hours: " + link + " It works once and expires in " + days + " days. After that, log in at " + location.origin + "/time/ with your email.";
+  var copy = h("button", { class: "btn primary", type: "button", onclick: function () {
+    (navigator.clipboard ? navigator.clipboard.writeText(msg) : Promise.reject()).then(function () { toast("Message copied. Paste it in a text or email."); }, function () { toast("Press and hold the message to copy it."); });
+  } }, "Copy message");
+  var share = navigator.share ? h("button", { class: "btn", type: "button", onclick: function () { navigator.share({ text: msg }).catch(function () {}); } }, "Share…") : null;
+  return h("div", { class: "linkbox" },
+    h("strong", { text: "Send this to " + person.name + " yourself. Nothing has been sent." }),
+    h("code", { text: msg }), h("div", { class: "row" }, copy, share, h("span", { class: "grow" }),
+      h("button", { class: "btn ghost", type: "button", onclick: function () { S.newLink = null; draw(); } }, "Done")));
+}
+function drawPeople(main) {
+  // add a person
+  var ap = h("section", { class: "panel", style: "display:grid;gap:12px" }, h("h2", { text: "Add someone to the team" }),
+    h("p", { class: "muted", style: "margin:0", text: "You'll get a one-time link to send them. They set their own password, then log in on their phone or computer. They only ever see their own hours." }));
+  var nName = h("input", { id: "nName", maxlength: "60", autocomplete: "off" });
+  var nEmail = h("input", { id: "nEmail", type: "email", autocomplete: "off", autocapitalize: "off", inputmode: "email" });
+  var nRate = h("input", { id: "nRate", type: "number", min: "0", step: "0.01", placeholder: "Optional" });
+  var nRole = h("select", { id: "nRole" }, h("option", { value: "member", text: "Team member" }), h("option", { value: "admin", text: "Admin (sees everyone)" }));
+  var add = h("button", { class: "btn primary", type: "button", onclick: function () {
+    add.disabled = true;
+    api("person-add", { name: nName.value, email: nEmail.value, rate: nRate.value, role: nRole.value })
+      .then(function (j) { S.newLink = j; return loadPeople(); }).catch(oops).then(function () { add.disabled = false; });
+  } }, "Add and get their link");
+  ap.append(h("div", { class: "person-grid" }, h("label", { class: "f", for: "nName" }, "Name", nName), h("label", { class: "f", for: "nRole" }, "Access", nRole), h("label", { class: "f", for: "nRate" }, "Hourly rate", nRate)),
+    h("div", { class: "person-grid", style: "grid-template-columns:minmax(0,1fr) auto" }, h("label", { class: "f", for: "nEmail" }, "Email", nEmail), add));
+  if (S.newLink) ap.append(shareLink(S.newLink.person, S.newLink.link, S.newLink.days));
+  main.append(ap);
+
+  // people
+  var pp = h("section", { class: "panel", style: "display:grid;gap:10px" }, h("h2", { text: "Team" }),
+    h("p", { class: "muted", style: "margin:0", text: "Rates are visible only to admins. They turn hours into labor cost on the Team view and in the export." }));
+  if (!S.people) pp.append(h("div", { class: "empty", text: "Loading…" }));
+  else S.people.forEach(function (p) {
+    var name = h("input", { value: p.name, maxlength: "60", "aria-label": "Name" });
+    var rate = h("input", { type: "number", min: "0", step: "0.01", value: p.rate === "" ? "" : String(p.rate), placeholder: "$/hr", "aria-label": "Hourly rate" });
+    var role = h("select", { "aria-label": "Access", disabled: p.owner || p.id === S.me.id }, h("option", { value: "member", text: "Team member" }), h("option", { value: "admin", text: "Admin" }));
+    role.value = p.role;
+    var save = function (patch, msg) { return api("person-update", Object.assign({ id: p.id }, patch)).then(function () { toast(msg); return loadPeople(); }).catch(oops); };
+    name.addEventListener("change", function () { save({ name: name.value }, "Saved"); });
+    rate.addEventListener("change", function () { save({ rate: rate.value }, "Rate saved"); });
+    role.addEventListener("change", function () { save({ role: role.value }, "Access changed"); });
+    var state = !p.active ? h("span", { class: "pill changed", text: "No access" }) : p.hasPassword ? h("span", { class: "pill approved", text: "Can log in" }) : h("span", { class: "pill submitted", text: "Hasn't set a password yet" });
+    var buttons = h("div", { class: "row" }, state, h("span", { class: "muted", style: "font-size:12px", text: p.email }), h("span", { class: "grow" }));
+    if (!p.owner && p.id !== S.me.id) {
+      if (p.active) buttons.append(
+        h("button", { class: "btn", type: "button", onclick: function () { api("person-link", { id: p.id }).then(function (j) { S.newLink = { person: p, link: j.link, days: j.days }; draw(); window.scrollTo({ top: 0, behavior: "smooth" }); }).catch(oops); } }, p.hasPassword ? "Password reset link" : "New link"),
+        h("button", { class: "btn ghost danger", type: "button", onclick: function (e) {
+          var b = e.currentTarget;
+          if (!b.dataset.armed) { b.dataset.armed = "1"; b.textContent = "Tap again to remove"; return; }
+          save({ active: false }, p.name + " can't log in now. Their hours stay.");
+        } }, "Remove access"));
+      else buttons.append(h("button", { class: "btn", type: "button", onclick: function () { save({ active: true }, "Access back on. Send them a new link if needed."); } }, "Restore access"));
+    }
+    pp.append(h("div", { class: "person-card" }, h("div", { class: "person-grid" }, h("label", { class: "f" }, "Name", name), h("label", { class: "f" }, "Access", role), h("label", { class: "f" }, "Hourly rate", rate)), buttons));
+  });
+  main.append(pp);
+
+  // clients
+  var cp = h("section", { class: "panel", style: "display:grid;gap:12px" }, h("h2", { text: "Clients and projects" }),
+    h("p", { class: "muted", style: "margin:0", text: "Your team picks from this list when they clock in. Archived clients stay on old entries but leave the picker." }));
+  var list = h("div", { class: "list" });
+  var saveClients = function (next, msg) { return api("clients", { clients: next }).then(function (j) { S.clients = j.clients; toast(msg); draw(); }).catch(oops); };
+  S.clients.forEach(function (c) {
+    var inp = h("input", { value: c.name, maxlength: "80", "aria-label": "Client name" });
+    inp.addEventListener("change", function () { saveClients(S.clients.map(function (x) { return x.id === c.id ? Object.assign({}, x, { name: inp.value.trim() || x.name }) : x; }), "Renamed"); });
+    list.append(h("div", { class: "listrow" }, h("div", { class: "row f", style: "flex-wrap:nowrap" }, h("i", { style: "width:10px;height:10px;border-radius:50%;flex:none;background:" + clientDot(c.id) }), inp, c.archived ? h("span", { class: "pill open", text: "Archived" }) : null),
+      h("button", { class: "btn ghost", type: "button", onclick: function () { saveClients(S.clients.map(function (x) { return x.id === c.id ? Object.assign({}, x, { archived: !x.archived }) : x; }), c.archived ? "Restored" : "Archived"); } }, c.archived ? "Restore" : "Archive")));
+  });
+  var addC = h("input", { placeholder: "Add a client or project", maxlength: "80", "aria-label": "New client" });
+  var addCBtn = h("button", { class: "btn primary", type: "button", onclick: function () { var n = addC.value.trim(); if (!n) return; addC.value = ""; saveClients(S.clients.concat([{ name: n }]), "Added " + n); } }, "Add");
+  addC.addEventListener("keydown", function (e) { if (e.key === "Enter") addCBtn.click(); });
+  cp.append(list, h("div", { class: "listrow f" }, addC, addCBtn));
+  main.append(cp);
+
+  main.append(h("section", { class: "panel", style: "display:grid;gap:8px" }, h("h2", { text: "Who sees what" }),
+    h("ul", { style: "margin:0;padding-left:18px;display:grid;gap:4px" },
+      h("li", { text: "Each team member sees and edits only their own hours. They can't see anyone else's entries, rates or emails." }),
+      h("li", { text: "Admins see everyone, can add or fix entries and approve weeks. Every change keeps an edit history." }),
+      h("li", { text: "Approving a week locks it for that person. If you change it afterwards, the week is flagged so you can approve it again." }),
+      h("li", { text: "Removing someone's access logs them out everywhere straight away. Their past hours stay for payroll." }))));
+}
+
+/* ---------- ticking clocks ---------- */
+setInterval(function () { document.querySelectorAll("[data-since]").forEach(function (el) { el.textContent = elapsed(Date.now() - +el.getAttribute("data-since")); }); }, 1000);
+
+/* ---------- boot ---------- */
+var token = new URLSearchParams(location.search).get("t");
+if (token) showSetPassword(token);
+else start().catch(function (e) { if (!e || !e.quiet) { showLogin(); if (e && e.message) $("#loginErr").textContent = e.message; } });
+})();
+</script>
+</body>
+</html>
