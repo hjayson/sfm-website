@@ -149,11 +149,17 @@ export async function userById(t, id) {
 export const DEFAULT_CLIENTS = [
   ["c-cic", "CIC"], ["c-llg", "Legacy Law Group"], ["c-nec", "National Exchange Club"],
   ["c-vub", "Owens TRIO Veterans (VUB)"], ["c-vjs", "VJ's Towing"], ["c-phcc", "Perrysburg Heights Community Center"],
-  ["c-fuller", "Fuller and Sons"], ["c-sfm", "SFM internal"], ["c-admin", "Admin and email"],
+  ["c-fuller", "Fuller and Sons"], ["c-sfm", "SFM internal"], ["c-admin", "Admin and email"], ["c-misc", "Misc"],
 ].map(([id, name]) => ({ id, name }));
 export async function getClients(t) {
   let s = await t.data.get("settings", { type: "json" });
-  if (!s) { s = { clients: DEFAULT_CLIENTS }; await t.data.setJSON("settings", s); }
+  if (!s) { s = { clients: DEFAULT_CLIENTS }; await t.data.setJSON("settings", s); await t.config.set("added-misc", "1"); }
+  // One time only: lists made before Misc existed get it added. If an admin removes it later, it stays removed.
+  if (!(await t.config.get("added-misc"))) {
+    const list = s.clients || [];
+    if (!list.find((c) => c.id === "c-misc")) { s = { ...s, clients: [...list, { id: "c-misc", name: "Misc" }] }; await t.data.setJSON("settings", s); }
+    await t.config.set("added-misc", "1");
+  }
   return s.clients || [];
 }
 export async function saveClients(t, list) {
