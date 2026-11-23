@@ -11,6 +11,18 @@ https://salesfunnelmarketing.us/*  https://www.salesfunnelmarketing.us/:splat  3
 /sfm-blog-the-scroll       /sfm-the-scroll    301!
 /sfm-blog-the-scroll.html  /sfm-the-scroll    301!
 
+# Retire the "Best agency" pages; send each to its industry page (audit fix, Nov 2026)
+/sfm-best-home-builder-marketing-agency-ohio  /sfm-homebuilders  301!
+/sfm-best-home-builder-marketing-agency-ohio.html  /sfm-homebuilders  301!
+/sfm-best-hvac-marketing-agency-ohio  /sfm-hvac  301!
+/sfm-best-hvac-marketing-agency-ohio.html  /sfm-hvac  301!
+/sfm-best-law-firm-marketing-agency-ohio  /sfm-attorneys  301!
+/sfm-best-law-firm-marketing-agency-ohio.html  /sfm-attorneys  301!
+/sfm-best-med-spa-marketing-agency-ohio  /sfm-healthcare  301!
+/sfm-best-med-spa-marketing-agency-ohio.html  /sfm-healthcare  301!
+/sfm-best-roofing-marketing-agency-ohio  /sfm-roofing  301!
+/sfm-best-roofing-marketing-agency-ohio.html  /sfm-roofing  301!
+
 # Netlify Redirects — Sales Funnel Marketing
 # Old Wix URLs → New sfm-* pages (301 permanent redirects)
 

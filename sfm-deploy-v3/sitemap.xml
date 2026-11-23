@@ -52,15 +52,6 @@
   <url><loc>https://www.salesfunnelmarketing.us/sfm-city-toledo</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.salesfunnelmarketing.us/sfm-city-maumee</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.salesfunnelmarketing.us/sfm-city-bowling-green</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-rossford</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-findlay</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-fremont</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-bryan</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-defiance</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-fostoria</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-napoleon</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-sandusky</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.salesfunnelmarketing.us/sfm-city-tiffin</loc><lastmod>2026-05-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Industry Pages -->
   <url><loc>https://www.salesfunnelmarketing.us/sfm-trades</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -188,41 +179,6 @@
     <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://www.salesfunnelmarketing.us/sfm-best-home-builder-marketing-agency-ohio</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.salesfunnelmarketing.us/sfm-best-roofing-marketing-agency-ohio</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.salesfunnelmarketing.us/sfm-best-law-firm-marketing-agency-ohio</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.salesfunnelmarketing.us/sfm-best-hvac-marketing-agency-ohio</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.salesfunnelmarketing.us/sfm-best-med-spa-marketing-agency-ohio</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <url>
