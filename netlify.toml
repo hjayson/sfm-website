@@ -58,11 +58,6 @@
   status = 200
 
 [[redirects]]
-  from = "/sfm-blog-the-scroll"
-  to = "/sfm-blog-the-scroll.html"
-  status = 200
-
-[[redirects]]
   from = "/sfm-roi-calculator"
   to = "/sfm-roi-calculator.html"
   status = 200

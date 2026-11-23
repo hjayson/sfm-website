@@ -3,6 +3,14 @@
 http://salesfunnelmarket.netlify.app/*  https://www.salesfunnelmarketing.us/:splat  301!
 https://salesfunnelmarket.netlify.app/*  https://www.salesfunnelmarketing.us/:splat  301!
 
+# Send the bare domain to www (audit fix, Nov 2026)
+http://salesfunnelmarketing.us/*  https://www.salesfunnelmarketing.us/:splat  301!
+https://salesfunnelmarketing.us/*  https://www.salesfunnelmarketing.us/:splat  301!
+
+# Merge the old Scroll archive page into The Scroll (audit fix, Nov 2026)
+/sfm-blog-the-scroll       /sfm-the-scroll    301!
+/sfm-blog-the-scroll.html  /sfm-the-scroll    301!
+
 # Netlify Redirects — Sales Funnel Marketing
 # Old Wix URLs → New sfm-* pages (301 permanent redirects)
 
